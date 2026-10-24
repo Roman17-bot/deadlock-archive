@@ -37,4 +37,5 @@ User authorized autonomous decisions, new GitHub repository and Pages deployment
 - Removed all table height caps; desktop table/header scroll with the document, smaller screens retain horizontal columns. All44 rows have natural height.
 - Browser verified18px numbers,18px search, wrapper content/client heights equal (4075–4612px depending on width), wrapper scrollTop0 while document scroll reached4427px and Yamato became visible.
 - Mobile at325px: fixed archive-strip min-content overflow; compact170px hero column leaves108px for a102.5px stat column. Numeric health sorting, Russian search, LVL36 and method dialog checked; no page-level horizontal overflow. Independent CSS review raised the same narrow hero column issue; now fixed.
-- Desktop and mobile viewport overrides reset. All28 tests and the Pages production build/typecheck passed. Publication pending.
+- Desktop and mobile viewport overrides reset. All28 tests and the Pages production build/typecheck passed.
+- Release b28d2f4 published successfully by Actions40125290557 (build/deploy success). Public DOM confirms44 rows,18px values/growth, max-height:none, full4085px height; document scrollY740 with wrapper scrollTop0. Screenshot outputs/site-readable-table.png saved; preview processes stopped, no listeners on5173/3001. Screenshot and public page handed off in the existing browser tab.
