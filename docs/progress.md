@@ -10,3 +10,12 @@ User authorized autonomous decisions, new GitHub repository and Pages deployment
 - Roster44; Baba/Violet in_development flags retained because selectable and officially released.
 - API derived weapon DPS has a burst-delay defect; use explicit comparison formula and preserve raw values/notes.
 - New repository is an empty user-selected workspace; no existing checkout/worktree needs isolation. Implementation will use a feature branch and a final fresh review.
+
+## Completed work
+- Dataset/data validation: 44 playable heroes, individual Spirit growth, natural Spirit-to-damage and Victor regen included. All portraits present. Markdown table and private full knowledge archive generated.
+- Private knowledge/current covers44heroes/176signatureabilities/156regularitems; old player research explicitly historical. Archive integrity checked.
+- Domain/API tests first failed on missing implementation, then passed. UI tests likewise RED→GREEN; route hash query updates and keyboard skip link each reproduced failing behavior and were fixed.
+- Latest suite22/22. Typecheck and production build passed before route fixes; repeat final build before release.
+- Local Vite+Node running, preview through in-app browser works. Real browser confirmed descendingHP givesMo&Krill930 first and NurseLVL36 yields1850HP/38.5Spirit/0regen.
+- No automatic data updater shipped: this release is a versioned snapshot, changed in data/heroes.json and revalidated. This keeps unsupported future gameplay assumptions out of a silent updater.
+- Workflow pins official action releases by fullSHA and builds on Node24. No hosting mutation performed yet.
