@@ -2,6 +2,8 @@
 @import './register.css';
 
 :root {
+  color-scheme: dark;
+  color-scheme: only dark;
   font-size: 100%;
   font-family: 'Manrope', sans-serif;
   color: #e8e2d1;
@@ -18,13 +20,17 @@
   --muted: #a8afa4;
   --line: #344038;
   --serif: 'Cormorant Garamond', Georgia, serif;
+  --range-fill: #f4d78a;
+  --range-rail: #a3b194;
+  --range-edge: #dbe0bd;
+  --range-thumb: #ffe9ad;
 }
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 280px;
   line-height: 1.6;
 }
 button,
@@ -363,6 +369,8 @@ a svg {
   }
 }
 .method-dialog {
+  color-scheme: light;
+  color-scheme: only light;
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--brass);

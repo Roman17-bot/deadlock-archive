@@ -16,6 +16,7 @@ import {
 import type { HeroSnapshot, HeroStats, SortDirection, SortKey } from '../../../shared/types';
 import { selectHeroes, statsAtLevel, toCsv } from '../../../shared/heroes';
 import { asset, format } from '../../lib/format';
+import { useMediaQuery } from '../../lib/useMediaQuery';
 
 const columns: {
   key: keyof HeroStats;
@@ -23,12 +24,33 @@ const columns: {
   unit: string;
   growth?: boolean;
   className?: string;
+  mobileLabel?: string;
+  mobileUnit?: string;
 }[] = [
-  { key: 'shotDamage', label: 'Урон выстрела', unit: 'HP', className: 'weapon-stat' },
-  { key: 'dps', label: 'DPS', unit: 'расчётный', className: 'weapon-stat' },
-  { key: 'health', label: 'Здоровье', unit: 'HP', className: 'health-stat' },
-  { key: 'spirit', label: 'Spirit', unit: 'мощь', className: 'spirit-stat' },
-  { key: 'regen', label: 'Регенерация', unit: 'HP/с', className: 'health-stat' },
+  {
+    key: 'shotDamage',
+    label: 'Урон выстрела',
+    mobileLabel: 'Урон',
+    unit: 'HP',
+    className: 'weapon-stat',
+  },
+  { key: 'dps', label: 'DPS', unit: 'расчётный', mobileUnit: 'HP/с', className: 'weapon-stat' },
+  {
+    key: 'health',
+    label: 'Здоровье',
+    mobileLabel: 'HP',
+    unit: 'HP',
+    mobileUnit: '',
+    className: 'health-stat',
+  },
+  { key: 'spirit', label: 'Spirit', unit: 'мощь', mobileUnit: '', className: 'spirit-stat' },
+  {
+    key: 'regen',
+    label: 'Регенерация',
+    mobileLabel: 'Реген.',
+    unit: 'HP/с',
+    className: 'health-stat',
+  },
   { key: 'damageGrowth', label: '+ Урон', unit: 'за уровень', growth: true },
   { key: 'healthGrowth', label: '+ HP', unit: 'за уровень', growth: true },
   { key: 'spiritGrowth', label: '+ Spirit', unit: 'за уровень', growth: true },
@@ -46,14 +68,30 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
   const [sortKey, setSortKey] = useState<SortKey>('name');
   const [direction, setDirection] = useState<SortDirection>('asc');
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [statView, setStatView] = useState<'stats' | 'growth'>('stats');
+  const isMobile = useMediaQuery('(max-width: 760px)');
+  const visibleColumns = isMobile
+    ? columns.filter((column) => Boolean(column.growth) === (statView === 'growth'))
+    : columns;
+  const activeSortKey =
+    sortKey === 'name' || visibleColumns.some((column) => column.key === sortKey)
+      ? sortKey
+      : 'name';
+  const activeDirection = activeSortKey === sortKey ? direction : 'asc';
   const selected = useMemo(
-    () => selectHeroes(data.heroes, query, sortKey, direction, level),
-    [data, query, sortKey, direction, level],
+    () => selectHeroes(data.heroes, query, activeSortKey, activeDirection, level),
+    [data, query, activeSortKey, activeDirection, level],
   );
   const sort = (key: SortKey) => {
     setSortKey(key);
     setDirection(
-      sortKey === key ? (direction === 'asc' ? 'desc' : 'asc') : key === 'name' ? 'asc' : 'desc',
+      activeSortKey === key
+        ? activeDirection === 'asc'
+          ? 'desc'
+          : 'asc'
+        : key === 'name'
+          ? 'asc'
+          : 'desc',
     );
   };
   const reset = () => {
@@ -62,11 +100,24 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
     setSortKey('name');
     setDirection('asc');
     setExpanded(null);
+    setStatView('stats');
+  };
+  const changeStatView = (next: 'stats' | 'growth') => {
+    setStatView(next);
+    if (
+      sortKey !== 'name' &&
+      !columns.some(
+        (column) => column.key === sortKey && Boolean(column.growth) === (next === 'growth'),
+      )
+    ) {
+      setSortKey('name');
+      setDirection('asc');
+    }
   };
   const icon = (key: SortKey) =>
-    sortKey !== key ? (
+    activeSortKey !== key ? (
       <ArrowUpDown size={12} />
-    ) : direction === 'asc' ? (
+    ) : activeDirection === 'asc' ? (
       <ArrowUp size={13} />
     ) : (
       <ArrowDown size={13} />
@@ -183,6 +234,19 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           </button>
         </div>
       </section>
+      {isMobile && (
+        <div className="mobile-table-tools">
+          <div className="stat-view-switch" role="group" aria-label="Показатели таблицы">
+            <button aria-pressed={statView === 'stats'} onClick={() => changeStatView('stats')}>
+              Характеристики
+            </button>
+            <button aria-pressed={statView === 'growth'} onClick={() => changeStatView('growth')}>
+              Приросты за LVL
+            </button>
+          </div>
+          <p>Листай столбцы вбок. Нажми на героя для примечаний.</p>
+        </div>
+      )}
       <div className="table-caption">
         <span aria-live="polite">
           В реестре <strong>{selected.length}</strong> из {data.heroes.length} героев
@@ -196,7 +260,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           Как считаем
         </button>
       </div>
-      <div className="table-frame">
+      <div className="table-frame" data-stat-view={isMobile ? statView : 'all'}>
         <div
           className="table-scroll"
           tabIndex={0}
@@ -213,21 +277,25 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                   className="hero-column"
                   scope="col"
                   aria-sort={
-                    sortKey === 'name' ? (direction === 'asc' ? 'ascending' : 'descending') : 'none'
+                    activeSortKey === 'name'
+                      ? activeDirection === 'asc'
+                        ? 'ascending'
+                        : 'descending'
+                      : 'none'
                   }
                 >
                   <button aria-label="Герой: сортировать" onClick={() => sort('name')}>
                     ГЕРОЙ{icon('name')}
                   </button>
                 </th>
-                {columns.map((column) => (
+                {visibleColumns.map((column) => (
                   <th
                     key={column.key}
                     scope="col"
-                    className={`${column.growth ? 'growth-column' : ''} ${column.key === 'damageGrowth' ? 'growth-first' : ''} ${sortKey === column.key ? 'sorted-column' : ''}`}
+                    className={`${column.growth ? 'growth-column' : ''} ${column.key === 'damageGrowth' ? 'growth-first' : ''} ${activeSortKey === column.key ? 'sorted-column' : ''}`}
                     aria-sort={
-                      sortKey === column.key
-                        ? direction === 'asc'
+                      activeSortKey === column.key
+                        ? activeDirection === 'asc'
                           ? 'ascending'
                           : 'descending'
                         : 'none'
@@ -238,8 +306,14 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                       onClick={() => sort(column.key)}
                     >
                       <span>
-                        {column.label}
-                        <small>{column.unit}</small>
+                        {isMobile ? (column.mobileLabel ?? column.label) : column.label}
+                        <small>
+                          {isMobile
+                            ? column.growth
+                              ? ''
+                              : (column.mobileUnit ?? column.unit)
+                            : column.unit}
+                        </small>
                       </span>
                       {icon(column.key)}
                     </button>
@@ -257,7 +331,12 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                       className={expanded === hero.id ? 'expanded-row' : ''}
                     >
                       <th className="hero-column" scope="row">
-                        <div className="hero-cell">
+                        <button
+                          className="hero-cell"
+                          aria-label={`Примечания: ${hero.name}`}
+                          aria-expanded={expanded === hero.id}
+                          onClick={() => setExpanded(expanded === hero.id ? null : hero.id)}
+                        >
                           <span className="row-index">{String(index + 1).padStart(2, '0')}</span>
                           <img
                             src={asset(hero.portrait)}
@@ -273,21 +352,14 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                             {hero.name}
                             {hero.isNew && <small>НОВЫЙ ГЕРОЙ</small>}
                           </span>
-                          <button
-                            className="row-info"
-                            aria-label={`Примечания: ${hero.name}`}
-                            aria-expanded={expanded === hero.id}
-                            onClick={() => setExpanded(expanded === hero.id ? null : hero.id)}
-                          >
-                            <Info size={14} />
-                          </button>
-                        </div>
+                          <Info className="row-info-icon" size={18} aria-hidden="true" />
+                        </button>
                       </th>
-                      {columns.map((column) => (
+                      {visibleColumns.map((column) => (
                         <td
                           key={column.key}
                           data-testid={`stat-${hero.slug}-${column.key}`}
-                          className={`${column.className ?? ''} ${column.growth ? 'growth-column' : ''} ${column.key === 'damageGrowth' ? 'growth-first' : ''} ${sortKey === column.key ? 'sorted-column' : ''}`}
+                          className={`${column.className ?? ''} ${column.growth ? 'growth-column' : ''} ${column.key === 'damageGrowth' ? 'growth-first' : ''} ${activeSortKey === column.key ? 'sorted-column' : ''}`}
                         >
                           <span>
                             {column.growth && stats[column.key] > 0 ? '+' : ''}
@@ -303,7 +375,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                     </tr>
                     {expanded === hero.id && (
                       <tr className="details-row">
-                        <td colSpan={10}>
+                        <td colSpan={visibleColumns.length + 1}>
                           <div>
                             <strong>{hero.name} / параметры оружия</strong>
                             <p>

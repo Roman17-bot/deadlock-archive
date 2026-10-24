@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import snapshot from '../data/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
@@ -23,6 +23,82 @@ beforeEach(() => {
 afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
+
+function useMobileViewport() {
+  let matches = true;
+  const media = new EventTarget();
+  Object.defineProperty(media, 'matches', { get: () => matches });
+  vi.stubGlobal('matchMedia', () => media);
+  return (next: boolean) => {
+    matches = next;
+    act(() => {
+      media.dispatchEvent(Object.assign(new Event('change'), { matches }));
+    });
+  };
+}
+
+describe('mobile register views', () => {
+  it('shows five core stats for every hero instead of nine numeric columns', () => {
+    useMobileViewport();
+    render(<App initialSnapshot={data} />);
+    const table = screen.getByRole('table');
+    expect(within(table).getAllByRole('columnheader')).toHaveLength(6);
+    expect(within(table).getAllByRole('row')).toHaveLength(45);
+    expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
+    expect(screen.queryByTestId('stat-nurse-harrow-healthGrowth')).not.toBeInTheDocument();
+  });
+
+  it('switches growth views while preserving the selected hero and level', async () => {
+    useMobileViewport();
+    const user = userEvent.setup();
+    render(<App initialSnapshot={data} />);
+    await user.type(screen.getByRole('searchbox'), 'харроу');
+    fireEvent.change(screen.getByRole('slider'), { target: { value: '11' } });
+    await user.click(screen.getByRole('button', { name: 'Приросты за LVL' }));
+    expect(within(screen.getByRole('table')).getAllByRole('columnheader')).toHaveLength(5);
+    expect(screen.getByTestId('stat-nurse-harrow-healthGrowth')).toHaveTextContent('+32');
+    expect(screen.queryByTestId('stat-nurse-harrow-health')).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Характеристики' }));
+    expect(screen.getByTestId('stat-nurse-harrow-health').textContent?.replace(/\s/g, '')).toBe(
+      '1050',
+    );
+    expect(screen.getByRole('slider')).toHaveValue('11');
+  });
+
+  it('clears a hidden numeric sort when changing the visible stat group', async () => {
+    useMobileViewport();
+    const user = userEvent.setup();
+    render(<App initialSnapshot={data} />);
+    await user.click(screen.getByRole('button', { name: 'Здоровье: сортировать' }));
+    expect(screen.getByRole('table').querySelector('tbody tr')).toHaveAttribute(
+      'data-hero',
+      'mo-krill',
+    );
+    await user.click(screen.getByRole('button', { name: 'Приросты за LVL' }));
+    expect(screen.getByRole('table').querySelector('tbody tr')).toHaveAttribute(
+      'data-hero',
+      'abrams',
+    );
+    await user.click(screen.getByRole('button', { name: '+ HP: сортировать' }));
+    expect(screen.getByRole('table').querySelector('tbody tr')).toHaveAttribute(
+      'data-hero',
+      'mo-krill',
+    );
+  });
+
+  it('restores all columns when a mobile viewport becomes wide', async () => {
+    const changeViewport = useMobileViewport();
+    const user = userEvent.setup();
+    render(<App initialSnapshot={data} />);
+    await user.click(screen.getByRole('button', { name: 'Приросты за LVL' }));
+    changeViewport(false);
+    expect(within(screen.getByRole('table')).getAllByRole('columnheader')).toHaveLength(10);
+    expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
+    expect(screen.getByTestId('stat-nurse-harrow-healthGrowth')).toHaveTextContent('+32');
+    expect(screen.queryByRole('button', { name: 'Приросты за LVL' })).not.toBeInTheDocument();
+  });
 });
 
 it('keeps the home usable when a spotlight hero is absent from a valid snapshot', () => {

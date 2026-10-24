@@ -458,6 +458,26 @@
   }
 }
 @media (max-width: 760px) {
+  .roster-portrait {
+    aspect-ratio: auto;
+    padding-bottom: 2px;
+  }
+  .roster-portrait img {
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .roster-portrait > span {
+    position: static;
+    display: block;
+    margin-top: 2px;
+    padding: 2px 0;
+    min-height: 16px;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 0.625rem;
+    color: #c2cbb1;
+    background: none;
+  }
   .roster-art {
     margin: 38px 28px 35px;
     padding: 24px;
