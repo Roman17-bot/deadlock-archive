@@ -29,3 +29,12 @@ User authorized autonomous decisions, new GitHub repository and Pages deployment
 - Public browser verified44 rows, no focused hero row, all44 portraits loaded, numeric sorting, Russian search, LVL36 and real CSV download44 rows. Screenshots saved in outputs/site-home.png and site-heroes.png.
 - Owned development processes stopped after Ctrl+C verification; no listeners on5173/3001. Restart with npm run dev; Chrome opens automatically.
 - Final private knowledge ZIP regenerated with the user's clarification; integrity and CSV values checked.
+
+## Readability refinement
+- User requests larger text/UI and natural-height table scrolling with the document.
+- Baseline public DOM: number12px, growth10px, search11px; wrapper672px for2659px of content at654px viewport.
+- Updated source typography to rem: core16–18px, numeric cells18px, labels12–14px; input56px and controls44–56px. Changed both pages, method dialog and footer.
+- Removed all table height caps; desktop table/header scroll with the document, smaller screens retain horizontal columns. All44 rows have natural height.
+- Browser verified18px numbers,18px search, wrapper content/client heights equal (4075–4612px depending on width), wrapper scrollTop0 while document scroll reached4427px and Yamato became visible.
+- Mobile at325px: fixed archive-strip min-content overflow; compact170px hero column leaves108px for a102.5px stat column. Numeric health sorting, Russian search, LVL36 and method dialog checked; no page-level horizontal overflow. Independent CSS review raised the same narrow hero column issue; now fixed.
+- Desktop and mobile viewport overrides reset. All28 tests and the Pages production build/typecheck passed. Publication pending.

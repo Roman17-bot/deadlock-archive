@@ -201,7 +201,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           className="table-scroll"
           tabIndex={0}
           role="region"
-          aria-label="Таблица героев с горизонтальной прокруткой"
+          aria-label="Таблица характеристик героев"
         >
           <table aria-label="Характеристики героев">
             <caption className="sr-only">

@@ -1,11 +1,11 @@
 .home-page {
-  max-width: 1380px;
+  max-width: 1600px;
   margin: auto;
 }
 .home-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 620px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 760px;
   position: relative;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@
   z-index: 2;
 }
 .issue-number {
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1.2px;
   color: #72816e;
   margin-top: 40px;
@@ -25,9 +25,9 @@
   color: #9f9f84;
 }
 .hero-copy h1 {
-  font: 600 clamp(43px, 4.4vw, 66px)/0.98 var(--serif);
+  font: 600 clamp(3.25rem, 5.2vw, 5rem)/0.98 var(--serif);
   letter-spacing: -1.5px;
-  margin: 18px -25px 22px 0;
+  margin: 18px 0 26px;
   color: #ece6d4;
 }
 .hero-copy h1 em {
@@ -35,8 +35,8 @@
   font-weight: 500;
 }
 .hero-description {
-  max-width: 390px;
-  font-size: 12px;
+  max-width: 500px;
+  font-size: 1.125rem;
   color: #a5b19f;
   line-height: 1.95;
 }
@@ -45,36 +45,38 @@
   align-items: center;
   gap: 22px;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 .hero-cta > span {
   color: #8c9b84;
-  font-size: 9px;
+  font-size: 0.875rem;
   line-height: 1.8;
 }
 .hero-verification {
   margin-top: 42px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 .verification-seal {
   color: #b5a479;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
   border: 1px solid #4c5743;
   border-radius: 50%;
 }
 .hero-verification strong {
   display: block;
-  font-size: 9px;
+  font-size: 0.875rem;
   color: #c3c9b6;
   font-weight: 600;
 }
 .hero-verification div > span {
   display: block;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: #7e8e76;
   margin-top: 6px;
 }
@@ -99,13 +101,13 @@
   justify-content: space-between;
   gap: 15px;
   color: #b8b693;
-  font-size: 7px;
+  font-size: 0.75rem;
   letter-spacing: 1.2px;
   padding-bottom: 16px;
   border-bottom: 1px solid #65735466;
 }
 .roster-art-title {
-  font: 500 clamp(32px, 3.5vw, 50px)/0.95 var(--serif);
+  font: 500 clamp(2.375rem, 4.1vw, 3.75rem)/0.95 var(--serif);
   color: #ece6d4;
 }
 .roster-art-title span,
@@ -140,7 +142,7 @@
   right: 2px;
   color: #e8e6cd;
   background: #18251ed9;
-  font-size: 5px;
+  font-size: 0.6875rem;
   padding: 1px 2px;
   font-variant-numeric: tabular-nums;
 }
@@ -148,7 +150,7 @@
   grid-column: span 4;
   display: grid;
   place-items: center;
-  font: 38px/1 var(--serif);
+  font: 2.875rem/1 var(--serif);
   color: #b9b68a;
 }
 .roster-art-footer {
@@ -159,11 +161,11 @@
   border-top: 1px solid #65735466;
 }
 .roster-art-footer > strong {
-  font: 500 52px/0.9 var(--serif);
+  font: 500 3.875rem/0.9 var(--serif);
   color: #e5dfc8;
 }
 .roster-art-footer > span {
-  font-size: 6px;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   line-height: 1.9;
   color: #a7b195;
@@ -182,7 +184,7 @@
   margin: 0 44px;
   border-top: 1px solid #4b5745;
   border-bottom: 1px solid #4b5745;
-  min-height: 95px;
+  min-height: 120px;
   align-items: center;
 }
 .archive-strip > div {
@@ -196,12 +198,12 @@
   padding-left: 20px;
 }
 .archive-strip strong {
-  font: 500 35px/1 var(--serif);
+  font: 500 2.625rem/1 var(--serif);
   color: #e0ddc7;
   white-space: nowrap;
 }
 .archive-strip span {
-  font-size: 7px;
+  font-size: 0.75rem;
   line-height: 1.8;
   letter-spacing: 1px;
   color: #a4ac94;
@@ -233,20 +235,21 @@
   margin: 14px 0 25px;
 }
 .intro-columns h2 {
-  font: 500 37px/1.05 var(--serif);
+  font: 500 2.75rem/1.05 var(--serif);
   color: #e4dfcc;
 }
 .intro-columns p {
-  max-width: 400px;
+  max-width: 500px;
   color: #a2ad99;
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.9;
 }
 .feature-line {
   display: flex;
   gap: 30px;
-  font-size: 9px;
+  font-size: 0.875rem;
   color: #b4bba7;
+  flex-wrap: wrap;
 }
 .feature-line > span {
   display: flex;
@@ -269,7 +272,7 @@
   margin-bottom: 26px;
 }
 .section-heading h2 {
-  font: 600 39px/1.1 var(--serif);
+  font: 600 2.875rem/1.1 var(--serif);
   margin-top: 7px;
 }
 .section-heading > a {
@@ -285,13 +288,13 @@
   grid-template-columns: 38% 62%;
   border: 1px solid #bdc4b1;
   overflow: hidden;
-  min-height: 258px;
+  min-height: 380px;
 }
 .spotlight-image {
   position: relative;
   overflow: hidden;
   background: #c9d0bf;
-  min-height: 258px;
+  min-height: 380px;
 }
 .spotlight-image img {
   position: absolute;
@@ -308,7 +311,7 @@
   position: absolute;
   bottom: 9px;
   left: 12px;
-  font: 600 26px/1 var(--serif);
+  font: 600 2rem/1 var(--serif);
   color: #eee9d8;
   text-shadow: 1px 1px #17231f;
 }
@@ -319,17 +322,17 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 6px;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   font-weight: 700;
-  color: #758267;
+  color: #586845;
 }
 .spotlight-copy h3 {
-  font: 600 32px/1 var(--serif);
+  font: 600 2.375rem/1 var(--serif);
   margin: 11px 0;
 }
 .spotlight-copy p {
-  font-size: 9px;
+  font-size: 1rem;
   line-height: 1.85;
   color: #6d7463;
 }
@@ -341,20 +344,20 @@
   margin: 16px 0 15px;
 }
 .spotlight-stats span {
-  color: #7d846f;
-  font-size: 7px;
+  color: #5c684f;
+  font-size: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 .spotlight-stats strong {
-  font-size: 15px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #344733;
   font-variant-numeric: tabular-nums;
 }
 .spotlight-copy > a {
-  font-size: 9px;
+  font-size: 1rem;
   gap: 6px;
 }
 .archive-note {
@@ -367,16 +370,16 @@
   border-top: 1px solid #c5c9b7;
 }
 .note-mark {
-  font: 36px/1 var(--serif);
+  font: 2.75rem/1 var(--serif);
   color: #7d896a;
   flex-shrink: 0;
 }
 .archive-note h2 {
-  font: 600 25px/1.2 var(--serif);
+  font: 600 1.875rem/1.2 var(--serif);
 }
 .archive-note p {
-  font-size: 9px;
-  color: #79806c;
+  font-size: 1rem;
+  color: #5c684e;
   line-height: 1.8;
   max-width: 520px;
   margin-top: 5px;
@@ -384,8 +387,8 @@
 .archive-note .button {
   margin-left: auto;
   white-space: nowrap;
-  min-height: 40px;
-  font-size: 9px;
+  min-height: 52px;
+  font-size: 1rem;
   padding: 0 18px;
 }
 @media (min-width: 1500px) {
@@ -393,7 +396,7 @@
     padding-top: 65px;
   }
   .home-hero {
-    min-height: 645px;
+    min-height: 800px;
   }
 }
 @media (max-width: 1100px) {
@@ -406,7 +409,7 @@
     gap: 5px;
   }
   .roster-art-heading {
-    font-size: 6px;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
   }
   .roster-art-heading span:last-child {
@@ -417,7 +420,7 @@
     padding-left: 44px;
   }
   .hero-copy h1 {
-    font-size: 54px;
+    font-size: 4rem;
   }
   .archive-strip {
     margin: 0 28px;
@@ -427,10 +430,10 @@
     gap: 12px;
   }
   .archive-strip strong {
-    font-size: 29px;
+    font-size: 2.125rem;
   }
   .archive-strip span {
-    font-size: 6px;
+    font-size: 0.75rem;
   }
   .home-register-intro {
     margin: 55px 44px 45px;
@@ -445,7 +448,7 @@
     padding: 20px 15px;
   }
   .spotlight-copy h3 {
-    font-size: 29px;
+    font-size: 2.125rem;
   }
   .spotlight-stats {
     gap: 14px;
@@ -461,10 +464,16 @@
     gap: 22px;
   }
   .roster-art-title {
-    font-size: 39px;
+    font-size: 2.875rem;
   }
   .roster-art-heading span:last-child {
-    display: inline;
+    display: none;
+  }
+  .roster-art-footer {
+    flex-wrap: wrap;
+  }
+  .roster-art-footer > .roster-seal {
+    display: none;
   }
 
   .home-hero {
@@ -474,7 +483,7 @@
     padding: 40px 28px 0;
   }
   .hero-copy h1 {
-    font-size: clamp(46px, 8vw, 66px);
+    font-size: clamp(3.25rem, 9vw, 4.5rem);
     margin-right: 0;
   }
   .issue-number {
@@ -487,10 +496,12 @@
     margin-top: 28px;
   }
   .archive-strip {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .archive-strip > div {
-    padding: 20px !important;
+    min-width: 0;
+    flex-wrap: wrap;
+    padding: 16px !important;
     border-bottom: 1px solid var(--line);
   }
   .archive-strip > div:nth-child(2) {
@@ -500,10 +511,13 @@
     border-bottom: 0;
   }
   .archive-strip > button {
-    padding: 20px;
+    padding: 16px;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
   .archive-strip span {
-    font-size: 7px;
+    font-size: 0.75rem;
   }
   .home-register-intro {
     margin: 42px 28px 38px;
@@ -513,7 +527,7 @@
     gap: 20px;
   }
   .intro-columns h2 {
-    font-size: 35px;
+    font-size: 2.625rem;
   }
   .feature-line {
     flex-wrap: wrap;
@@ -523,7 +537,7 @@
     padding: 35px 28px;
   }
   .section-heading h2 {
-    font-size: 34px;
+    font-size: 2.5rem;
   }
   .section-heading > .text-link {
     display: none;
@@ -532,14 +546,14 @@
     grid-template-columns: 1fr;
   }
   .spotlight {
-    grid-template-columns: 35% 65%;
-    min-height: 240px;
+    grid-template-columns: 1fr;
+    min-height: 0;
   }
   .spotlight-copy {
     padding: 25px 22px;
   }
   .spotlight-image {
-    min-height: 240px;
+    min-height: 300px;
   }
   .archive-note {
     padding: 28px;
@@ -551,6 +565,6 @@
     min-width: 220px;
   }
   .archive-note .button {
-    margin: 0 0 0 50px;
+    margin: 0;
   }
 }
