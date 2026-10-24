@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+public/data/
+.env
+.env.*
+!.env.example
+work/
+outputs/
+knowledge/
+.superpowers/
+*.log
+*.tsbuildinfo
+.DS_Store
