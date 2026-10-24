@@ -1,6 +1,6 @@
 # Deadlock Archive Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Ship a trustworthy, styled hero stat register and home page with a GitHub Pages URL.
 
@@ -24,30 +24,35 @@
 - Source errors cannot silently become zero-valued hero stats or an apparently fresh snapshot.
 
 ### Task 1: Verified dataset and knowledge snapshot
-Files: data/heroes.json, data/provenance.json, scripts/update-data.mjs, knowledge/current/, outputs/.
-- [ ] Save exact primary assets, version and local install agreement; document weapon exceptions.
-- [ ] Normalize all44 heroes and emit readable table; validate IDs, finite required values and expected progression.
-- [ ] Generate current full ability/item reference and retain old match research as dated history.
+Files: data/heroes.json, data/provenance.json, knowledge/current/, outputs/.
+- [x] Save exact primary assets, version and local install agreement; document weapon exceptions.
+- [x] Normalize all44 heroes and emit readable table; validate IDs, finite required values and expected progression.
+- [x] Generate current full ability/item reference and retain old match research as dated history.
 
 ### Task 2: Shared domain and Node API
 Files: shared/heroes.ts, shared/heroes.test.ts, server/app.ts, server/app.test.ts, server/index.ts.
 Interfaces: HeroSnapshot/Hero/HeroStats/SortKey; statsAtLevel(hero,level), selectHeroes(heroes,query,sort,level); createApp(snapshot): http.Server.
-- [ ] Write tests first for level1/36, Spirit coupling, bounds, case/alias search, 9-vs100 numeric sorting and both directions.
-- [ ] Run npm test; observe missing implementation failure; implement minimal domain; run tests to green.
-- [ ] Write real loopback API tests for /api/heroes, /api/health,404, and405; RED→GREEN.
-- [ ] Commit dataset/domain/API after full relevant suite passes.
+- [x] Write tests first for level1/36, Spirit coupling, bounds, case/alias search, 9-vs100 numeric sorting and both directions.
+- [x] Run npm test; observe missing implementation failure; implement minimal domain; run tests to green.
+- [x] Write real loopback API tests for /api/heroes, /api/health,404, and405; RED→GREEN.
+- [x] Commit dataset/domain/API after full relevant suite passes.
 
 ### Task 3: React pages and interactions
 Files: src/app/, src/components/, src/features/heroes/, src/pages/, src/styles/, tests/ui.test.tsx.
-- [ ] Write interaction tests for home CTA, 44-row register, search/empty, sorting, level, reset and methods; run RED.
-- [ ] Implement editorial home, register, state and accessible controls; run GREEN.
-- [ ] Add local portraits/font assets and responsive plain CSS, source/method explanations and CSV export.
-- [ ] Verify data failure renders an actionable error and retry; no live API required for static export.
+- [x] Write interaction tests for home CTA, 44-row register, search/empty, sorting, level, reset and methods; run RED.
+- [x] Implement editorial home, register, state and accessible controls; run GREEN.
+- [x] Add local portraits/font assets and responsive plain CSS, source/method explanations and CSV export.
+- [x] Verify data failure renders an actionable error and retry; no live API required for static export.
 
 ### Task 4: Build, review and release
 Files: vite.config.ts, tsconfig*.json, .github/workflows/pages.yml, README.md, .gitignore.
-- [ ] Run complete tests, typecheck and production build. Inspect local rendered pages if supported.
-- [ ] Fresh reviewer checks full code/data and Review Focus; fix material issues with regression tests.
-- [ ] Create GitHub repository using existing credential helper; push only intended files; enable Pages.
-- [ ] Verify deployment terminal success and fetch the actual public home/data/deep-link assets.
-- [ ] Deliver public URL, repository, table and update notes; state material limits.
+- [x] Run complete tests, typecheck and production build. Inspect local rendered pages if supported.
+- [x] Fresh reviewer checks full code/data and Review Focus; fix material issues with regression tests.
+- [x] Create GitHub repository using existing credential helper; push only intended files; enable Pages.
+- [x] Verify deployment terminal success and fetch the actual public home/data/deep-link assets.
+- [x] Deliver public URL, repository, table and update notes; state material limits.
+
+### Final user refinements
+- [x] npm run dev starts both services, waits for readiness, and opens the home in Google Chrome; Ctrl+C stops both. Tested actual start and cleanup, no remaining listeners.
+- [x] Website gives equal emphasis to the roster; Nurse Harrow remains a personal research priority only.
+- [x] Public Pages build c2cc7a3 succeeded (run40122485411), public JSON matches the source, assets load and browser interaction/CSV were verified.
