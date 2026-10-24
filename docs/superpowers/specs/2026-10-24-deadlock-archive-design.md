@@ -1,7 +1,7 @@
 # Deadlock Archive — design
 
 ## Intent and authorization
-Russian personal reference for the user and friends: accurate comparisons of every playable hero before future build experiments. Nurse Harrow is the user's current main. On 24 October the user explicitly delegated implementation and design decisions without intermediate approval.
+Russian personal reference for the user and friends: accurate comparisons of every playable hero before future build experiments. Nurse Harrow is the user's current main for future build and replay analysis; this preference must not create visual emphasis on the website. The homepage represents the entire roster, new releases receive equal treatment, and table rows use equal styling. On 24 October the user explicitly delegated implementation and design decisions without intermediate approval.
 
 ## Scope
 - Refresh mechanical knowledge from client 6819, keep older match statistics clearly historical, add detailed Violet/Nurse reports.

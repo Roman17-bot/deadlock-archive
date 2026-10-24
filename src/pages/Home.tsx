@@ -55,37 +55,34 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
             </div>
           </div>
         </div>
-        <div className="hero-art" aria-hidden="true">
-          <img
-            className="hero-art-bg"
-            src={asset('assets/feature/nurse-harrow-background.webp')}
-            alt=""
-          />
-          <div className="art-deco-frame" />
-          <div className="hero-art-caption">
-            <span>ОБЪЕКТ № 087</span>
-            <span>MARBLE HILL POSSESSION WARD</span>
+        <div className="roster-art" aria-hidden="true">
+          <div className="roster-art-heading">
+            <span>DEADLOCK / CHARACTER INDEX</span>
+            <span>№ 001—{String(data.heroes.length).padStart(3, '0')}</span>
           </div>
-          <span className="hero-art-type">HARROW</span>
-          <div className="portrait-oval">
-            <img
-              className="hero-portrait"
-              src={asset('assets/feature/nurse-harrow-card.webp')}
-              alt=""
-              fetchPriority="high"
-            />
+          <div className="roster-art-title">
+            <span>Личные дела</span>
+            <em>старого города.</em>
           </div>
-          <div className="hero-art-bottom">
-            <span className="medical-cross">✚</span>
-            <p>
-              Лечение требует
+          <div className="roster-portraits">
+            {data.heroes.map((hero, index) => (
+              <div className="roster-portrait" key={hero.id}>
+                <img src={asset(hero.portrait)} alt="" width="54" height="54" />
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
+            ))}
+            <span className="roster-endmark">✦</span>
+          </div>
+          <div className="roster-art-footer">
+            <strong>{data.heroes.length}</strong>
+            <span>
+              ГЕРОЯ В АРХИВЕ
+              <br />У КАЖДОГО СВОЯ ИСТОРИЯ
+            </span>
+            <span className="roster-seal">
+              СВЕРЕНО
               <br />
-              <em>твёрдой руки.</em>»
-            </p>
-            <span className="stamp">
-              ДОСЬЕ
-              <br />
-              ОТКРЫТО
+              {data.meta.clientVersion}
             </span>
           </div>
         </div>
@@ -165,7 +162,7 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
               <div className="spotlight-copy">
                 <span className="record-label">
                   <Sparkles size={12} />
-                  {hero.name === 'Nurse Harrow' ? 'ФОКУС ИССЛЕДОВАНИЯ' : 'ДОБАВЛЕНО В АРХИВ'}
+                  НОВЫЙ ГЕРОЙ
                 </span>
                 <h3>{hero.name}</h3>
                 <p>

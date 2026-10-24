@@ -78,122 +78,103 @@
   color: #7e8e76;
   margin-top: 6px;
 }
-.hero-art {
-  position: relative;
-  margin: 25px 38px 20px 0;
-  min-height: 550px;
-  overflow: hidden;
-}
-.hero-art-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.26;
-  object-position: 70% center;
-}
-.art-deco-frame {
-  position: absolute;
-  inset: 25px 12px 24px 24px;
-  border: 1px solid #7c785548;
-  clip-path: polygon(
-    0 0,
-    34% 0,
-    34% 1%,
-    0 1%,
-    0 99%,
-    100% 99%,
-    100% 1%,
-    68% 1%,
-    68% 0,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-}
-.hero-art-caption {
-  position: absolute;
-  top: 32px;
-  left: 44px;
-  right: 32px;
+.roster-art {
+  margin: 32px 38px 30px 24px;
+  padding: 28px;
+  min-width: 0;
   display: flex;
-  justify-content: space-between;
-  font-size: 7px;
-  letter-spacing: 1.1px;
-  color: #9c9c79;
-  z-index: 2;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px solid #667457;
+  outline: 1px solid #66745755;
+  outline-offset: -7px;
+  background: radial-gradient(ellipse at top right, #35402a66, transparent 70%), #1c2a22;
+  box-shadow: 12px 14px 0 #101b1566;
+  align-self: center;
+  transform: rotate(-1.5deg);
 }
-.hero-art-type {
-  position: absolute;
-  top: 70px;
-  left: 20px;
-  right: 0;
-  text-align: center;
-  font: 600 clamp(70px, 9vw, 130px)/1 var(--serif);
-  letter-spacing: -5px;
-  color: #bbc8ad12;
-}
-.portrait-oval {
-  position: absolute;
-  width: 355px;
-  height: 405px;
-  left: 50%;
-  top: 92px;
-  transform: translateX(-43%) rotate(-5deg);
-  border: 1px solid #8d91775c;
-  border-radius: 48% 48% 3px 3px;
-  background: #67715b25;
-}
-.portrait-oval::after {
-  content: '';
-  position: absolute;
-  inset: -9px;
-  border: 1px solid #78836b40;
-  border-radius: inherit;
-}
-.hero-portrait {
-  position: absolute;
-  bottom: -3px;
-  width: 350px;
-  height: 474px;
-  max-width: none;
-  object-fit: contain;
-  filter: saturate(0.65) contrast(1.02);
-  transform: rotate(5deg);
-}
-.hero-art-bottom {
-  position: absolute;
-  bottom: 38px;
-  left: 43px;
-  right: 26px;
-  z-index: 3;
+.roster-art-heading {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
+  color: #b8b693;
+  font-size: 7px;
+  letter-spacing: 1.2px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #65735466;
 }
-.medical-cross {
-  font-size: 34px;
-  color: #9ca88b;
+.roster-art-title {
+  font: 500 clamp(32px, 3.5vw, 50px)/0.95 var(--serif);
+  color: #ece6d4;
 }
-.hero-art-bottom p {
-  font: 500 23px/1 var(--serif);
-  color: #d7dbc7;
+.roster-art-title span,
+.roster-art-title em {
+  display: block;
 }
-.hero-art-bottom em {
-  font-size: 21px;
-  color: #a6b098;
+.roster-art-title em {
+  color: #aebc99;
+  font-weight: 400;
 }
-.stamp {
-  border: 2px solid #a8ae7b;
-  color: #a8ae7b;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  line-height: 1.7;
-  padding: 9px 10px;
-  transform: rotate(-12deg);
+.roster-portraits {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 7px;
+}
+.roster-portrait {
+  position: relative;
+  aspect-ratio: 1;
+  background: #91a07b16;
+  border: 1px solid #77866344;
+}
+.roster-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(0.65);
+}
+.roster-portrait > span {
+  position: absolute;
+  bottom: 1px;
+  right: 2px;
+  color: #e8e6cd;
+  background: #18251ed9;
+  font-size: 5px;
+  padding: 1px 2px;
+  font-variant-numeric: tabular-nums;
+}
+.roster-endmark {
+  grid-column: span 4;
+  display: grid;
+  place-items: center;
+  font: 38px/1 var(--serif);
+  color: #b9b68a;
+}
+.roster-art-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid #65735466;
+}
+.roster-art-footer > strong {
+  font: 500 52px/0.9 var(--serif);
+  color: #e5dfc8;
+}
+.roster-art-footer > span {
+  font-size: 6px;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  color: #a7b195;
+}
+.roster-art-footer > .roster-seal {
   margin-left: auto;
-  opacity: 0.8;
+  padding: 6px 10px;
+  border: 2px solid #9ca474;
+  color: #c4c49b;
+  text-align: center;
+  transform: rotate(-8deg);
 }
 .archive-strip {
   display: grid;
@@ -416,29 +397,27 @@
   }
 }
 @media (max-width: 1100px) {
+  .roster-art {
+    margin: 30px 25px 30px 15px;
+    padding: 24px;
+    gap: 20px;
+  }
+  .roster-portraits {
+    gap: 5px;
+  }
+  .roster-art-heading {
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+  .roster-art-heading span:last-child {
+    display: none;
+  }
+
   .hero-copy {
     padding-left: 44px;
   }
   .hero-copy h1 {
     font-size: 54px;
-  }
-  .hero-art {
-    margin-right: 22px;
-  }
-  .hero-art-caption span:last-child {
-    display: none;
-  }
-  .hero-art-bottom p {
-    display: none;
-  }
-  .portrait-oval {
-    width: 290px;
-    height: 370px;
-    transform: translateX(-50%) rotate(-5deg);
-  }
-  .hero-portrait {
-    width: 300px;
-    height: 408px;
   }
   .archive-strip {
     margin: 0 28px;
@@ -476,6 +455,18 @@
   }
 }
 @media (max-width: 760px) {
+  .roster-art {
+    margin: 38px 28px 35px;
+    padding: 24px;
+    gap: 22px;
+  }
+  .roster-art-title {
+    font-size: 39px;
+  }
+  .roster-art-heading span:last-child {
+    display: inline;
+  }
+
   .home-hero {
     grid-template-columns: 1fr;
   }
@@ -494,32 +485,6 @@
   }
   .hero-verification {
     margin-top: 28px;
-  }
-  .hero-art {
-    height: 390px;
-    min-height: 390px;
-    margin: 0 25px 20px;
-  }
-  .portrait-oval {
-    top: 50px;
-    height: 280px;
-    width: 265px;
-  }
-  .hero-portrait {
-    width: 270px;
-    height: 366px;
-  }
-  .hero-art-type {
-    top: 45px;
-    font-size: 100px;
-  }
-  .hero-art-bottom {
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
-  }
-  .hero-art-caption {
-    top: 35px;
   }
   .archive-strip {
     grid-template-columns: 1fr 1fr;

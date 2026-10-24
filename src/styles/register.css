@@ -459,12 +459,6 @@
 .table-scroll td.sorted-column {
   background-color: #dce4c9;
 }
-.table-scroll .focus-hero > .hero-column {
-  box-shadow: inset 3px 0 #829766;
-}
-.table-scroll .focus-hero .hero-cell-name {
-  color: #3c592f;
-}
 .pellet-note {
   display: block;
   color: #9e947c;

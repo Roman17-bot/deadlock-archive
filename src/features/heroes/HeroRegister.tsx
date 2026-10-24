@@ -124,7 +124,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
               className={query === 'Nurse Harrow' ? 'selected' : ''}
               onClick={() => setQuery(query === 'Nurse Harrow' ? '' : 'Nurse Harrow')}
             >
-              Nurse Harrow<span>ФОКУС</span>
+              Nurse Harrow<span>НОВЫЙ</span>
             </button>
             <button
               className={query === 'Violet' ? 'selected' : ''}
@@ -254,7 +254,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                   <Fragment key={hero.id}>
                     <tr
                       data-hero={hero.slug}
-                      className={`${hero.name === 'Nurse Harrow' ? 'focus-hero' : ''} ${expanded === hero.id ? 'expanded-row' : ''}`}
+                      className={expanded === hero.id ? 'expanded-row' : ''}
                     >
                       <th className="hero-column" scope="row">
                         <div className="hero-cell">
