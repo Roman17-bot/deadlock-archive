@@ -7,12 +7,13 @@ import {
   ScanLine,
   Sparkles,
 } from 'lucide-react';
-import type { HeroSnapshot } from '../../shared/types';
+import type { Hero, HeroSnapshot } from '../../shared/types';
 import { asset, format } from '../lib/format';
 
 export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => void }) {
-  const nurse = data.heroes.find((h) => h.name === 'Nurse Harrow')!;
-  const violet = data.heroes.find((h) => h.name === 'Violet')!;
+  const featured = ['Nurse Harrow', 'Violet']
+    .map((name) => data.heroes.find((hero) => hero.name === name))
+    .filter((hero): hero is Hero => hero !== undefined);
   return (
     <div className="home-page">
       <section className="home-hero">
@@ -148,8 +149,11 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
           </a>
         </div>
         <div className="spotlight-grid">
-          {[nurse, violet].map((hero, index) => (
-            <article className={`spotlight spotlight-${index}`} key={hero.id}>
+          {featured.map((hero) => (
+            <article
+              className={`spotlight spotlight-${hero.name === 'Nurse Harrow' ? 0 : 1}`}
+              key={hero.id}
+            >
               <div className="spotlight-image">
                 <img
                   src={asset(`assets/feature/${hero.slug}-card.webp`)}
@@ -161,11 +165,11 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
               <div className="spotlight-copy">
                 <span className="record-label">
                   <Sparkles size={12} />
-                  {index === 0 ? 'ФОКУС ИССЛЕДОВАНИЯ' : 'ДОБАВЛЕНО В АРХИВ'}
+                  {hero.name === 'Nurse Harrow' ? 'ФОКУС ИССЛЕДОВАНИЯ' : 'ДОБАВЛЕНО В АРХИВ'}
                 </span>
                 <h3>{hero.name}</h3>
                 <p>
-                  {index === 0
+                  {hero.name === 'Nurse Harrow'
                     ? 'Строгие методы. Спасительные иглы. У неё есть всё, кроме права на ошибку.'
                     : 'Живые чернила и опасное вдохновение. Искусство, которое отвечает взаимностью.'}
                 </p>

@@ -25,6 +25,17 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+it('keeps the home usable when a spotlight hero is absent from a valid snapshot', () => {
+  window.location.hash = '#/';
+  const partial = structuredClone(data);
+  partial.heroes = partial.heroes.filter((hero) => hero.name !== 'Nurse Harrow');
+  partial.meta.heroCount = partial.heroes.length;
+  render(<App initialSnapshot={partial} />);
+  expect(screen.getByRole('link', { name: /^Открыть реестр$/ })).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'Violet' })).toBeVisible();
+  expect(screen.queryByRole('heading', { name: 'Nurse Harrow' })).not.toBeInTheDocument();
+});
+
 describe('hero register', () => {
   it('keyboard skip link keeps the current page and focuses its content', async () => {
     const user = userEvent.setup();
