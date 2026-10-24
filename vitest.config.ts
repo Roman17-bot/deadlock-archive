@@ -6,6 +6,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['shared/**/*.test.ts', 'server/**/*.test.ts', 'tests/**/*.test.tsx'],
+    include: [
+      'shared/**/*.test.ts',
+      'server/**/*.test.ts',
+      'tests/**/*.test.tsx',
+      'scripts/**/*.test.ts',
+    ],
   },
 });

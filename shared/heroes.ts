@@ -54,12 +54,33 @@ export function selectHeroes(
 export function validateSnapshot(value: unknown): value is HeroSnapshot {
   if (!value || typeof value !== 'object') return false;
   const data = value as HeroSnapshot;
+  const text = (input: unknown): input is string => typeof input === 'string' && input.length > 0;
+  const strings = (input: unknown): input is string[] => Array.isArray(input) && input.every(text);
+  const https = (input: unknown) => {
+    if (!text(input)) return false;
+    try {
+      return new URL(input).protocol === 'https:';
+    } catch {
+      return false;
+    }
+  };
   if (
     !data.meta ||
+    data.meta.schemaVersion !== 1 ||
     !Number.isInteger(data.meta.clientVersion) ||
-    !data.meta.snapshotDate ||
+    !text(data.meta.snapshotDate) ||
+    !text(data.meta.checkedAt) ||
+    !text(data.meta.buildDate) ||
+    !Number.isInteger(data.meta.sourceRevision) ||
+    !text(data.meta.gameCommit) ||
+    !/^[a-f0-9]{40}$/.test(data.meta.gameCommit) ||
+    !Array.isArray(data.meta.levelRange) ||
+    data.meta.levelRange.length !== 2 ||
+    data.meta.levelRange[0] !== 1 ||
+    data.meta.levelRange[1] !== 36 ||
     !Array.isArray(data.meta.sources) ||
-    !Array.isArray(data.meta.methodology)
+    !data.meta.sources.every((source) => source && text(source.label) && https(source.url)) ||
+    !strings(data.meta.methodology)
   )
     return false;
   if (
@@ -74,9 +95,17 @@ export function validateSnapshot(value: unknown): value is HeroSnapshot {
       if (
         !Number.isInteger(hero.id) ||
         ids.has(hero.id) ||
-        !hero.name ||
-        !hero.slug ||
-        !hero.portrait
+        !text(hero.name) ||
+        !text(hero.slug) ||
+        !text(hero.portrait) ||
+        typeof hero.aliases !== 'string' ||
+        !strings(hero.tags) ||
+        typeof hero.isNew !== 'boolean' ||
+        !hero.source ||
+        !https(hero.source.heroUrl) ||
+        !https(hero.source.weaponUrl) ||
+        !Number.isInteger(hero.source.heroLine) ||
+        !Number.isInteger(hero.source.weaponLine)
       )
         return false;
       ids.add(hero.id);
@@ -85,14 +114,27 @@ export function validateSnapshot(value: unknown): value is HeroSnapshot {
         !hero.growth ||
         !hero.scaling ||
         !hero.weapon ||
-        !Array.isArray(hero.weapon.notes)
+        !strings(hero.weapon.notes) ||
+        !text(hero.weapon.className) ||
+        typeof hero.weapon.spinsUp !== 'boolean' ||
+        typeof hero.weapon.hitOnce !== 'boolean'
       )
         return false;
       if (
         !Number.isInteger(hero.weapon.projectiles) ||
         hero.weapon.projectiles < 1 ||
         !Number.isFinite(hero.weapon.shotsPerSecond) ||
-        hero.weapon.shotsPerSecond <= 0
+        hero.weapon.shotsPerSecond <= 0 ||
+        !Number.isInteger(hero.weapon.burst) ||
+        hero.weapon.burst < 1 ||
+        !Number.isFinite(hero.weapon.cycleTime) ||
+        hero.weapon.cycleTime <= 0 ||
+        !Number.isFinite(hero.weapon.intraBurstTime) ||
+        hero.weapon.intraBurstTime < 0 ||
+        !Number.isFinite(hero.weapon.clipSize) ||
+        !Number.isFinite(hero.weapon.reloadSeconds) ||
+        (hero.weapon.fullSpinCycle !== null &&
+          (!Number.isFinite(hero.weapon.fullSpinCycle) || hero.weapon.fullSpinCycle <= 0))
       )
         return false;
       if (

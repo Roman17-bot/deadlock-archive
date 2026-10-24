@@ -21,6 +21,28 @@ describe('verified hero data', () => {
     bad.heroes[0].base.health = Number.NaN;
     expect(validateSnapshot(bad)).toBe(false);
   });
+  it('rejects missing or invalid display metadata before rendering', () => {
+    for (const mutate of [
+      (bad: any) => delete bad.meta.gameCommit,
+      (bad: any) => {
+        bad.meta.snapshotDate = 123;
+      },
+      (bad: any) => {
+        bad.meta.sources[0].url = 'javascript:alert(1)';
+      },
+      (bad: any) => delete bad.heroes[0].source,
+      (bad: any) => {
+        bad.heroes[0].weapon.notes = [null];
+      },
+      (bad: any) => {
+        bad.heroes[0].tags = 'broken';
+      },
+    ]) {
+      const bad = structuredClone(data);
+      mutate(bad);
+      expect(validateSnapshot(bad)).toBe(false);
+    }
+  });
 });
 
 describe('level comparisons without items', () => {

@@ -14,22 +14,26 @@ export function createApp(snapshot: HeroSnapshot) {
         .end(JSON.stringify({ error: 'Read-only API' }));
       return;
     }
-    const pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
+    let pathname: string;
+    try {
+      pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
+    } catch {
+      response.writeHead(400).end(JSON.stringify({ error: 'Invalid request target' }));
+      return;
+    }
     if (pathname === '/api/heroes') {
       response.setHeader('Cache-Control', 'no-cache');
       response.writeHead(200).end(request.method === 'HEAD' ? undefined : payload);
     } else if (pathname === '/api/health') {
-      response
-        .writeHead(200)
-        .end(
-          request.method === 'HEAD'
-            ? undefined
-            : JSON.stringify({
-                status: 'ok',
-                clientVersion: snapshot.meta.clientVersion,
-                heroCount: snapshot.meta.heroCount,
-              }),
-        );
+      response.writeHead(200).end(
+        request.method === 'HEAD'
+          ? undefined
+          : JSON.stringify({
+              status: 'ok',
+              clientVersion: snapshot.meta.clientVersion,
+              heroCount: snapshot.meta.heroCount,
+            }),
+      );
     } else response.writeHead(404).end(JSON.stringify({ error: 'Not found' }));
   });
 }
