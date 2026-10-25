@@ -2,18 +2,29 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight, BookOpen, CircleAlert, RefreshCw } from 'lucide-react';
 import type { HeroSnapshot } from '../../shared/types';
 import { validateSnapshot } from '../../shared/heroes';
-import { asset } from '../lib/format';
+import { asset, formatDate } from '../lib/format';
 import { Home } from '../pages/Home';
 import { HeroRegister } from '../features/heroes/HeroRegister';
 import { MethodDialog } from '../components/MethodDialog';
+import { MechanicsPage } from '../features/mechanics/MechanicsPage';
+import { UpdatePage } from '../features/updates/UpdatePage';
 
 export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
   const [routeHash, setRouteHash] = useState(() => window.location.hash);
-  const route = routeHash.startsWith('#/heroes') ? 'heroes' : 'home';
+  const route = routeHash.startsWith('#/heroes')
+    ? 'heroes'
+    : routeHash.startsWith('#/mechanics')
+      ? 'mechanics'
+      : routeHash.startsWith('#/updates')
+        ? 'updates'
+        : 'home';
   const [data, setData] = useState<HeroSnapshot | null>(initialSnapshot ?? null);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [method, setMethod] = useState(false);
+  useEffect(() => {
+    document.title = `Deadlock Archive — ${{ home: 'справочник', heroes: 'реестр героев', mechanics: 'механики и калькуляторы', updates: 'обновление данных' }[route]}`;
+  }, [route]);
   useEffect(() => {
     const changed = () => {
       setRouteHash(window.location.hash);
@@ -26,7 +37,9 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
     if (initialSnapshot) return;
     const controller = new AbortController();
     setError(false);
-    const url = import.meta.env.VITE_API_URL || asset('data/heroes.json');
+    const url =
+      import.meta.env.VITE_API_URL ||
+      (import.meta.env.DEV ? '/api/heroes' : asset('data/heroes.json'));
     fetch(url, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error('Data request failed');
@@ -76,13 +89,29 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
               aria-current={route === 'heroes' ? 'page' : undefined}
               href="#/heroes"
             >
-              Реестр героев <span className="nav-count">44</span>
+              Реестр героев <span className="nav-count">{data?.heroes.length ?? '—'}</span>
+            </a>
+            <a
+              className={route === 'mechanics' ? 'active' : ''}
+              aria-current={route === 'mechanics' ? 'page' : undefined}
+              href="#/mechanics"
+            >
+              Механики
+            </a>
+            <a
+              className={route === 'updates' ? 'active' : ''}
+              aria-current={route === 'updates' ? 'page' : undefined}
+              href="#/updates"
+            >
+              Обновления
             </a>
           </nav>
           <div className="header-edition">
             <span className="status-dot" />
-            КЛИЕНТ {data?.meta.clientVersion ?? '6819'}
-            <span className="edition-date">Срез от 24.10.26</span>
+            КЛИЕНТ {data?.meta.clientVersion ?? '…'}
+            <span className="edition-date">
+              {data ? `Срез от ${formatDate(data.meta.snapshotDate, true)}` : 'Загрузка данных'}
+            </span>
           </div>
         </div>
       </header>
@@ -111,6 +140,10 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
             <span className="loader" />
             <p>Поднимаем материалы из архива…</p>
           </section>
+        ) : route === 'mechanics' ? (
+          <MechanicsPage data={data} />
+        ) : route === 'updates' ? (
+          <UpdatePage data={data} onSnapshot={setData} />
         ) : route === 'heroes' ? (
           <HeroRegister key={routeHash} data={data} onMethod={() => setMethod(true)} />
         ) : (

@@ -9,6 +9,18 @@ import { selectHeroes } from '../shared/heroes';
 import { App } from '../src/app/App';
 
 const data = snapshot as HeroSnapshot;
+
+it('opens the mechanics route through the main navigation and uses live metadata', () => {
+  window.location.hash = '#/mechanics';
+  const updated = structuredClone(data);
+  updated.meta.clientVersion = 6820;
+  updated.meta.snapshotDate = '2026-10-25';
+  render(<App initialSnapshot={updated} />);
+  expect(screen.getByRole('heading', { name: 'Механики и формулы.' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Механики' })).toHaveAttribute('aria-current', 'page');
+  expect(screen.getByRole('link', { name: 'Обновления' })).toHaveAttribute('href', '#/updates');
+  expect(screen.getByText('КЛИЕНТ 6820')).toBeVisible();
+});
 beforeEach(() => {
   window.location.hash = '#/heroes';
   vi.spyOn(window, 'scrollTo').mockImplementation(() => {});

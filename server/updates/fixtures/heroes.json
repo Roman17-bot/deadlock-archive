@@ -1,0 +1,2064 @@
+[
+  {
+    "id": 2,
+    "class_name": "hero_gigawatt",
+    "name": "Seven",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "player_selectable": true,
+    "tags": ["High Voltage", "Merciless", "Area Denial"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/seven_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/seven_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/seven.svg"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 6.7,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.8,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 730,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 3,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 1,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.222222,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 0.45,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.68,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.47,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.24,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 41,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {},
+    "items": {
+      "weapon_primary": "citadel_weapon_gigawatt_set",
+      "weapon_melee": "citadel_ability_melee_gigawatt",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "citadel_ability_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "citadel_ability_lightning_ball",
+      "signature2": "citadel_ability_static_charge",
+      "signature3": "ability_power_surge",
+      "signature4": "citadel_ability_storm_cloud"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  },
+  {
+    "id": 3,
+    "class_name": "hero_hornet",
+    "name": "Vindicta",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "player_selectable": true,
+    "tags": ["Sniper", "Soaring", "One Shot Kill"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/vindicta_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/vindicta_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/vindicta.svg"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 7.9,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.6,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 755,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 2,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 2,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.222222,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 1,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.68,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.47,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.495,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 28,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {
+      "EBulletDamage": {
+        "scaling_stat": "ETechPower",
+        "scale": 0.022
+      }
+    },
+    "items": {
+      "weapon_primary": "citadel_weapon_hornet_set",
+      "weapon_melee": "citadel_ability_melee_hornet",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "citadel_ability_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "citadel_ability_hornet_chain",
+      "signature2": "citadel_ability_hornet_leap",
+      "signature3": "citadel_ability_hornet_sting",
+      "signature4": "citadel_ability_hornet_snipe"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  },
+  {
+    "id": 25,
+    "class_name": "hero_warden",
+    "name": "Warden",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "player_selectable": true,
+    "tags": ["Initiator", "Fearless", "One Man Army"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/warden_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/warden_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/warden.svg"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 6.3,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.6,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 805,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 3,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 2,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.222222,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 1,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.68,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.47,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.25,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 60,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {
+      "ERoundsPerSecond": {
+        "scaling_stat": "ETechPower",
+        "scale": 0.008
+      },
+      "EFireRate": {
+        "scaling_stat": "ETechPower",
+        "scale": 0.21
+      }
+    },
+    "items": {
+      "weapon_primary": "citadel_weapon_warden_set",
+      "weapon_melee": "citadel_ability_melee_warden",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "citadel_ability_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "ability_warden_crowd_control",
+      "signature2": "ability_warden_high_alert",
+      "signature3": "ability_warden_lock_down",
+      "signature4": "ability_warden_riot_protocol"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  },
+  {
+    "id": 66,
+    "class_name": "hero_frank",
+    "name": "Victor",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "player_selectable": true,
+    "tags": ["You", "Can't", "Kill Me"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/victor_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/victor_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/victor.svg"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 6.3,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.1,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 800,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 3,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 1.5,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.222222,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 1,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_armor_damage_reduction": {
+        "value": 0,
+        "display_stat_name": "ETechArmorDamageReduction"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.72,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.51,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.26,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 34,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {
+      "EBaseHealthRegen": {
+        "scaling_stat": "ETechPower",
+        "scale": 0.08
+      }
+    },
+    "items": {
+      "weapon_primary": "citadel_weapon_frank_set2",
+      "weapon_melee": "ability_melee_frank",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "citadel_ability_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "ability_frank_shocktarget2",
+      "signature2": "ability_frank_selfzap",
+      "signature3": "ability_frank_painaura",
+      "signature4": "ability_frank_revive"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  },
+  {
+    "id": 78,
+    "class_name": "hero_deadpack",
+    "name": "Deadman Danny",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "player_selectable": true,
+    "tags": ["Reckless", "High-flying", "Explosive"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/deadpack_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/deadpack_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/deadpack.svg",
+      "vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_deadpack.png",
+      "vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_deadpack.webp"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 6.4,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.6,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 730,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 3,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 3.25,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.2,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 1,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.62,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.43,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.42,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 1.6,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 39,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {},
+    "items": {
+      "weapon_primary": "ability_deadpack_primary_weapon_charge",
+      "weapon_melee": "ability_melee_deadpack",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "ability_deadpack_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "ability_deadpack_chargeblast",
+      "signature2": "ability_deadpack_rocketeer",
+      "signature3": "ability_deadpack_flamethrower",
+      "signature4": "ability_deadpack_ultimate"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  },
+  {
+    "id": 88,
+    "class_name": "hero_baba",
+    "name": "Baba",
+    "development_state": "release",
+    "disabled": false,
+    "in_development": true,
+    "player_selectable": true,
+    "tags": ["Cackling", "Beady", "Hexing"],
+    "images": {
+      "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card.png",
+      "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card.webp",
+      "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_sm.png",
+      "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_sm.webp",
+      "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_mm.png",
+      "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_mm.webp",
+      "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card_critical.png",
+      "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card_critical.webp",
+      "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card_gloat.png",
+      "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card_gloat.webp",
+      "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_vertical.png",
+      "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_vertical.webp",
+      "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/baba_bg.png",
+      "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/baba_bg.webp",
+      "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/baba.svg",
+      "vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_baba.png",
+      "vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_baba.webp"
+    },
+    "starting_stats": {
+      "max_move_speed": {
+        "value": 6.5,
+        "display_stat_name": "EMaxMoveSpeed"
+      },
+      "sprint_speed": {
+        "value": 1.6,
+        "display_stat_name": "ESprintSpeed"
+      },
+      "crouch_speed": {
+        "value": 4.75,
+        "display_stat_name": "ECrouchSpeed"
+      },
+      "move_acceleration": {
+        "value": 4,
+        "display_stat_name": "EMoveAcceleration"
+      },
+      "light_melee_damage": {
+        "value": 50,
+        "display_stat_name": "ELightMeleeDamage"
+      },
+      "heavy_melee_damage": {
+        "value": 116,
+        "display_stat_name": "EHeavyMeleeDamage"
+      },
+      "max_health": {
+        "value": 780,
+        "display_stat_name": "EMaxHealth"
+      },
+      "weapon_power": {
+        "value": 0,
+        "display_stat_name": "EWeaponPower"
+      },
+      "reload_speed": {
+        "value": 1,
+        "display_stat_name": "EReloadSpeed"
+      },
+      "weapon_power_scale": {
+        "value": 1,
+        "display_stat_name": "EWeaponPowerScale"
+      },
+      "proc_build_up_rate_scale": {
+        "value": 1,
+        "display_stat_name": "EProcBuildUpRateScale"
+      },
+      "stamina": {
+        "value": 2,
+        "display_stat_name": "EStamina"
+      },
+      "base_health_regen": {
+        "value": 2.5,
+        "display_stat_name": "EBaseHealthRegen"
+      },
+      "stamina_regen_per_second": {
+        "value": 0.222222,
+        "display_stat_name": "EStaminaRegenPerSecond"
+      },
+      "ability_resource_max": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceMax"
+      },
+      "ability_resource_regen_per_second": {
+        "value": 0,
+        "display_stat_name": "EAbilityResourceRegenPerSecond"
+      },
+      "crit_damage_received_scale": {
+        "value": 1,
+        "display_stat_name": "ECritDamageReceivedScale"
+      },
+      "tech_duration": {
+        "value": 1,
+        "display_stat_name": "ETechDuration"
+      },
+      "tech_armor_damage_reduction": {
+        "value": 8,
+        "display_stat_name": "ETechArmorDamageReduction"
+      },
+      "tech_range": {
+        "value": 1,
+        "display_stat_name": "ETechRange"
+      },
+      "bullet_armor_damage_reduction": {
+        "value": -7,
+        "display_stat_name": "EBulletArmorDamageReduction"
+      },
+      "ground_dash_distance_in_meters": {
+        "value": 10,
+        "display_stat_name": "EGroundDashDistanceInMeters"
+      },
+      "ground_dash_duration": {
+        "value": 0.68,
+        "display_stat_name": "EGroundDashDuration"
+      },
+      "air_dash_distance_in_meters": {
+        "value": 8,
+        "display_stat_name": "EAirDashDistanceInMeters"
+      },
+      "air_dash_duration": {
+        "value": 0.47,
+        "display_stat_name": "EAirDashDuration"
+      },
+      "ooc_health_regen": {
+        "value": 0,
+        "display_stat_name": "EOOCHealthRegen"
+      }
+    },
+    "standard_level_up_upgrades": {
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.41,
+      "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+      "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 45,
+      "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 0.7,
+      "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+      "MODIFIER_VALUE_BOON_COUNT": 1,
+      "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+      "MODIFIER_VALUE_TECH_RESIST": 0,
+      "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+      "MODIFIER_VALUE_TECH_POWER": 1.1,
+      "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "scaling_stats": {
+      "ETechArmorDamageReduction": {
+        "scaling_stat": "ETechPower",
+        "scale": 0.1
+      }
+    },
+    "items": {
+      "weapon_primary": "citadel_weapon_baba_set",
+      "weapon_melee": "ability_melee_baba",
+      "ability_mantle": "citadel_ability_mantle",
+      "ability_jump": "citadel_ability_jump",
+      "ability_slide": "citadel_ability_slide",
+      "ability_zip_line": "citadel_ability_zip_line",
+      "ability_zip_line_boost": "citadel_ability_zipline_boost",
+      "ability_climb_rope": "citadel_ability_climb_rope",
+      "ability_innate1": "citadel_ability_dash",
+      "ability_innate2": "citadel_ability_sprint",
+      "ability_innate3": "citadel_ability_melee_parry",
+      "signature1": "ability_baba_bubbling_brew",
+      "signature2": "ability_baba_bench_run",
+      "signature3": "ability_baba_hexing_brew",
+      "signature4": "ability_baba_ultimate_2"
+    },
+    "level_info": {
+      "1": {
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 0
+      },
+      "2": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 200
+      },
+      "3": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 500
+      },
+      "4": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 900
+      },
+      "5": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 1400
+      },
+      "6": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2000
+      },
+      "7": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 2600
+      },
+      "8": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityUnlocks"],
+        "required_gold": 3200
+      },
+      "9": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 3900
+      },
+      "10": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 4600
+      },
+      "11": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 5300
+      },
+      "12": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6000
+      },
+      "13": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 6800
+      },
+      "14": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 7600
+      },
+      "15": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 8400
+      },
+      "16": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 9200
+      },
+      "17": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 10100
+      },
+      "18": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11000
+      },
+      "19": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 11900
+      },
+      "20": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 12800
+      },
+      "21": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 13800
+      },
+      "22": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 14900
+      },
+      "23": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 16100
+      },
+      "24": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 17400
+      },
+      "25": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 18900
+      },
+      "26": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 20600
+      },
+      "27": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 22500
+      },
+      "28": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 24600
+      },
+      "29": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 26900
+      },
+      "30": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 29400
+      },
+      "31": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 32100
+      },
+      "32": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 35000
+      },
+      "33": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 38100
+      },
+      "34": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 41400
+      },
+      "35": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 44900
+      },
+      "36": {
+        "use_standard_upgrade": true,
+        "bonus_currencies": ["EAbilityPoints"],
+        "required_gold": 48600
+      }
+    }
+  }
+]

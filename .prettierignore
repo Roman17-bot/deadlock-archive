@@ -2,7 +2,7 @@ node_modules
 dist
 work
 outputs
-knowledge
+/knowledge
 public/assets/fonts
 data
 public/data

@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import type { HeroSnapshot, HeroStats, SortDirection, SortKey } from '../../../shared/types';
 import { selectHeroes, statsAtLevel, toCsv } from '../../../shared/heroes';
-import { asset, format } from '../../lib/format';
+import { asset, format, formatDate } from '../../lib/format';
 import { useMediaQuery } from '../../lib/useMediaQuery';
 
 const columns: {
@@ -150,7 +150,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
         <div className="snapshot-plaque">
           <span className="status-dot" />
           СВЕРЕНО С КЛИЕНТОМ<strong>{data.meta.clientVersion}</strong>
-          <span>ПРОВЕРЕНО 24.10.2026</span>
+          <span>ПРОВЕРЕНО {formatDate(data.meta.snapshotDate)}</span>
         </div>
       </section>
       <section className="register-workspace" aria-label="Параметры сравнения">
@@ -367,7 +367,9 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                           </span>
                           {column.key === 'shotDamage' && hero.weapon.projectiles > 1 && (
                             <small className="pellet-note">
-                              {hero.weapon.projectiles} × {format(stats.bulletDamage)}
+                              {hero.weapon.hitOnce
+                                ? 'Одно попадание'
+                                : `${hero.weapon.projectiles} × ${format(stats.bulletDamage)}`}
                             </small>
                           )}
                         </td>
@@ -422,8 +424,9 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
         <p>
           <Info size={14} />
           <span>
-            Урон выстрела включает дробины. DPS — расчёт без перезарядки; особые режимы отмечены в
-            строках. Нулевой Spirit на LVL 1 — корректное базовое значение.
+            Урон выстрела учитывает обычные дробины и исключение hit-once. DPS — расчёт без
+            перезарядки; особые режимы отмечены в строках. Нулевой Spirit на LVL 1 — корректное
+            базовое значение.
           </span>
         </p>
         <span className="data-stamp">

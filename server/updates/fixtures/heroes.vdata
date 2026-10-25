@@ -1,0 +1,1967 @@
+<!-- compact projection of commit 17462b250a0ca80e7f80102f2c83cc3eecff5f12 -->
+{
+"generic_data_type" = "CitadelHeroData_t"
+"hero_base" = {
+"m_HeroID" = 0
+"m_mapStartingStats" = {
+"EMaxHealth" = 9999
+}
+}
+"hero_gigawatt" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 2
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = false
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 6.7
+"ESprintSpeed" = 1.8
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 730
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 3
+"EBaseHealthRegen" = 1
+"EStaminaRegenPerSecond" = 0.222222
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 0.45
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 1
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.68
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.47
+"EOOCHealthRegen" = 0
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.24
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 0
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 41
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 1.58
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "citadel_weapon_gigawatt_set"
+"ESlot_Weapon_Melee" = "citadel_ability_melee_gigawatt"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "citadel_ability_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "citadel_ability_lightning_ball"
+"ESlot_Signature_2" = "citadel_ability_static_charge"
+"ESlot_Signature_3" = "ability_power_surge"
+"ESlot_Signature_4" = "citadel_ability_storm_cloud"
+}
+}
+"hero_hornet" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 3
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = false
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 7.9
+"ESprintSpeed" = 1.6
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 755
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 2
+"EBaseHealthRegen" = 2
+"EStaminaRegenPerSecond" = 0.222222
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 1
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 1
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.68
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.47
+"EOOCHealthRegen" = 0
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.495
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 0
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 28
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 1.58
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+"EBulletDamage" = {
+"eScalingStat" = "ETechPower"
+"flScale" = 0.022
+}
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "citadel_weapon_hornet_set"
+"ESlot_Weapon_Melee" = "citadel_ability_melee_hornet"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "citadel_ability_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "citadel_ability_hornet_chain"
+"ESlot_Signature_2" = "citadel_ability_hornet_leap"
+"ESlot_Signature_3" = "citadel_ability_hornet_sting"
+"ESlot_Signature_4" = "citadel_ability_hornet_snipe"
+}
+}
+"hero_warden" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 25
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = false
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 6.3
+"ESprintSpeed" = 1.6
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 805
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 3
+"EBaseHealthRegen" = 2
+"EStaminaRegenPerSecond" = 0.222222
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 1
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 1
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.68
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.47
+"EOOCHealthRegen" = 0
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.25
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 0
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 60
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 1.58
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+"ERoundsPerSecond" = {
+"eScalingStat" = "ETechPower"
+"flScale" = 0.008
+}
+"EFireRate" = {
+"eScalingStat" = "ETechPower"
+"flScale" = 0.21
+}
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "citadel_weapon_warden_set"
+"ESlot_Weapon_Melee" = "citadel_ability_melee_warden"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "citadel_ability_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "ability_warden_crowd_control"
+"ESlot_Signature_2" = "ability_warden_high_alert"
+"ESlot_Signature_3" = "ability_warden_lock_down"
+"ESlot_Signature_4" = "ability_warden_riot_protocol"
+}
+}
+"hero_frank" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 66
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = false
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 6.3
+"ESprintSpeed" = 1.1
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 800
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 3
+"EBaseHealthRegen" = 1.5
+"EStaminaRegenPerSecond" = 0.222222
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 1
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 1
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.72
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.51
+"EOOCHealthRegen" = 0
+"ETechArmorDamageReduction" = 0
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.26
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 0
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 34
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 1.58
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+"EBaseHealthRegen" = {
+"eScalingStat" = "ETechPower"
+"flScale" = 0.08
+}
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "citadel_weapon_frank_set2"
+"ESlot_Weapon_Melee" = "ability_melee_frank"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "citadel_ability_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "ability_frank_shocktarget2"
+"ESlot_Signature_2" = "ability_frank_selfzap"
+"ESlot_Signature_3" = "ability_frank_painaura"
+"ESlot_Signature_4" = "ability_frank_revive"
+}
+}
+"hero_deadpack" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 78
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = false
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 6.4
+"ESprintSpeed" = 1.6
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 730
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 3
+"EBaseHealthRegen" = 3.25
+"EStaminaRegenPerSecond" = 0.2
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 1
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 1
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.62
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.43
+"EOOCHealthRegen" = 0
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.42
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 1.6
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 39
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 1.58
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "ability_deadpack_primary_weapon_charge"
+"ESlot_Weapon_Melee" = "ability_melee_deadpack"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "ability_deadpack_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "ability_deadpack_chargeblast"
+"ESlot_Signature_2" = "ability_deadpack_rocketeer"
+"ESlot_Signature_3" = "ability_deadpack_flamethrower"
+"ESlot_Signature_4" = "ability_deadpack_ultimate"
+}
+}
+"hero_baba" = {
+"_class" = "CitadelHeroData_t"
+"m_HeroID" = 88
+"m_eHeroDevelopmentState" = "EHeroDevState_Release"
+"m_bDisabled" = false
+"m_bInDevelopment" = true
+"m_mapStartingStats" = {
+"EMaxMoveSpeed" = 6.5
+"ESprintSpeed" = 1.6
+"ECrouchSpeed" = 4.75
+"EMoveAcceleration" = 4
+"ELightMeleeDamage" = 50
+"EHeavyMeleeDamage" = 116
+"EMaxHealth" = 780
+"EWeaponPower" = 0
+"EReloadSpeed" = 1
+"EWeaponPowerScale" = 1
+"EProcBuildUpRateScale" = 1
+"EStamina" = 2
+"EBaseHealthRegen" = 2.5
+"EStaminaRegenPerSecond" = 0.222222
+"EAbilityResourceMax" = 0
+"EAbilityResourceRegenPerSecond" = 0
+"ECritDamageReceivedScale" = 1
+"ETechDuration" = 1
+"ETechRange" = 1
+"ECritDamageBonusScale" = 0.8
+"EHeroSpiritLifestealEffectiveness" = 1
+"EHeroBulletLifestealEffectiveness" = 1
+"EGroundDashDistanceInMeters" = 10
+"EGroundDashDuration" = 0.68
+"EAirDashDistanceInMeters" = 8
+"EAirDashDuration" = 0.47
+"EOOCHealthRegen" = 0
+"ETechArmorDamageReduction" = 8
+"EBulletArmorDamageReduction" = -7
+}
+"m_mapStandardLevelUpUpgrades" = {
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL" = 0.41
+"MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE" = 0
+"MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL" = 45
+"MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL" = 0.7
+"MODIFIER_VALUE_BONUS_ATTACK_RANGE" = 0
+"MODIFIER_VALUE_BOON_COUNT" = 1
+"MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST" = 0
+"MODIFIER_VALUE_TECH_RESIST" = 0
+"MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER" = 0
+"MODIFIER_VALUE_TECH_POWER" = 1.1
+"MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN" = 0
+}
+"m_mapScalingStats" = {
+"ETechArmorDamageReduction" = {
+"eScalingStat" = "ETechPower"
+"flScale" = 0.1
+}
+}
+"m_mapLevelInfo" = {
+"1" = {
+"m_unRequiredGold" = 0
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"2" = {
+"m_unRequiredGold" = 200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"3" = {
+"m_unRequiredGold" = 500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"4" = {
+"m_unRequiredGold" = 900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"5" = {
+"m_unRequiredGold" = 1400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"6" = {
+"m_unRequiredGold" = 2000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"7" = {
+"m_unRequiredGold" = 2600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"8" = {
+"m_unRequiredGold" = 3200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityUnlocks" = 1
+}
+}
+"9" = {
+"m_unRequiredGold" = 3900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"10" = {
+"m_unRequiredGold" = 4600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"11" = {
+"m_unRequiredGold" = 5300
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"12" = {
+"m_unRequiredGold" = 6000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"13" = {
+"m_unRequiredGold" = 6800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"14" = {
+"m_unRequiredGold" = 7600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"15" = {
+"m_unRequiredGold" = 8400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"16" = {
+"m_unRequiredGold" = 9200
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"17" = {
+"m_unRequiredGold" = 10100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"18" = {
+"m_unRequiredGold" = 11000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"19" = {
+"m_unRequiredGold" = 11900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"20" = {
+"m_unRequiredGold" = 12800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"21" = {
+"m_unRequiredGold" = 13800
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"22" = {
+"m_unRequiredGold" = 14900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"23" = {
+"m_unRequiredGold" = 16100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"24" = {
+"m_unRequiredGold" = 17400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"25" = {
+"m_unRequiredGold" = 18900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"26" = {
+"m_unRequiredGold" = 20600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"27" = {
+"m_unRequiredGold" = 22500
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"28" = {
+"m_unRequiredGold" = 24600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"29" = {
+"m_unRequiredGold" = 26900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"30" = {
+"m_unRequiredGold" = 29400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"31" = {
+"m_unRequiredGold" = 32100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"32" = {
+"m_unRequiredGold" = 35000
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"33" = {
+"m_unRequiredGold" = 38100
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"34" = {
+"m_unRequiredGold" = 41400
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"35" = {
+"m_unRequiredGold" = 44900
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+"36" = {
+"m_unRequiredGold" = 48600
+"m_bUseStandardUpgrade" = true
+"m_mapBonusCurrencies" = {
+"EAbilityPoints" = 1
+}
+}
+}
+"m_mapBoundAbilities" = {
+"ESlot_Weapon_Primary" = "citadel_weapon_baba_set"
+"ESlot_Weapon_Melee" = "ability_melee_baba"
+"ESlot_Ability_Mantle" = "citadel_ability_mantle"
+"ESlot_Ability_Jump" = "citadel_ability_jump"
+"ESlot_Ability_Slide" = "citadel_ability_slide"
+"ESlot_Ability_ZipLine" = "citadel_ability_zip_line"
+"ESlot_Ability_ZipLineBoost" = "citadel_ability_zipline_boost"
+"ESlot_Ability_ClimbRope" = "citadel_ability_climb_rope"
+"ESlot_Ability_Innate_1" = "citadel_ability_dash"
+"ESlot_Ability_Innate_2" = "citadel_ability_sprint"
+"ESlot_Ability_Innate_3" = "citadel_ability_melee_parry"
+"ESlot_Cosmetic_1" = "cosmetic_ability_voting_poster"
+"ESlot_Signature_1" = "ability_baba_bubbling_brew"
+"ESlot_Signature_2" = "ability_baba_bench_run"
+"ESlot_Signature_3" = "ability_baba_hexing_brew"
+"ESlot_Signature_4" = "ability_baba_ultimate_2"
+}
+}
+}

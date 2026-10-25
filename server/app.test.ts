@@ -5,6 +5,7 @@ import { spawn } from 'node:child_process';
 import snapshot from '../data/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import { createApp } from './app';
+import { createUpdateManager } from './updates/manager';
 
 const app = createApp(snapshot as HeroSnapshot);
 let base: string;
@@ -28,6 +29,48 @@ it('reports the data version in health', async () => {
     status: 'ok',
     clientVersion: 6819,
   });
+});
+
+it('connects the local owner API to the live hero and health responses', async () => {
+  const next = structuredClone(snapshot) as HeroSnapshot;
+  next.meta.clientVersion = 6820;
+  const updates = createUpdateManager({
+    snapshot: snapshot as HeroSnapshot,
+    root: '.',
+    refresh: async () => ({
+      snapshot: next,
+      changed: true,
+      checkedAt: '2026-10-25T10:00:00Z',
+      sourceCommit: next.meta.gameCommit,
+      summary: { heroCount: 44, added: 0, removed: 0, updated: 1, text: 'Updated' },
+    }),
+  });
+  const managed = createApp(snapshot as HeroSnapshot, { updates });
+  await new Promise<void>((resolve) => managed.listen(0, '127.0.0.1', resolve));
+  const url = `http://127.0.0.1:${(managed.address() as AddressInfo).port}`;
+  try {
+    const sessionResponse = await fetch(`${url}/api/update/session`);
+    expect(sessionResponse.status).toBe(200);
+    const session = await sessionResponse.json();
+    expect(
+      (
+        await fetch(`${url}/api/update`, {
+          method: 'POST',
+          headers: {
+            Origin: 'http://127.0.0.1:5173',
+            'Content-Type': 'application/json',
+            'X-Archive-Token': session.token,
+          },
+          body: JSON.stringify({ publish: false }),
+        })
+      ).status,
+    ).toBe(202);
+    await vi.waitFor(() => expect(updates.getState().phase).toBe('succeeded'));
+    expect((await (await fetch(`${url}/api/heroes`)).json()).meta.clientVersion).toBe(6820);
+    expect((await (await fetch(`${url}/api/health`)).json()).clientVersion).toBe(6820);
+  } finally {
+    await new Promise<void>((resolve) => managed.close(() => resolve()));
+  }
 });
 it('returns explicit 404 and rejects writes', async () => {
   expect((await fetch(`${base}/missing`)).status).toBe(404);

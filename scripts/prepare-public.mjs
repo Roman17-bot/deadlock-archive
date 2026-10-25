@@ -11,4 +11,12 @@ await copyFile(
   path.join(root, 'data/provenance.json'),
   path.join(root, 'public/data/provenance.json'),
 );
+await copyFile(
+  path.join(root, 'data/mechanics.json'),
+  path.join(root, 'public/data/mechanics.json'),
+);
+await copyFile(
+  path.join(root, 'docs/mechanics-reference.md'),
+  path.join(root, 'public/data/mechanics-reference.md'),
+);
 console.log(`Prepared ${snapshot.heroes.length} heroes for static deployment.`);

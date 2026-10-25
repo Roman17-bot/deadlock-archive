@@ -5,6 +5,34 @@ const snapshot = JSON.parse(
   await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
 );
 if (!validateSnapshot(snapshot)) throw new Error('Invalid hero snapshot');
+const mechanics = JSON.parse(
+  await readFile(new URL('../data/mechanics.json', import.meta.url), 'utf8'),
+);
+if (
+  !Number.isSafeInteger(mechanics.meta.reviewedClientVersion) ||
+  !Array.isArray(mechanics.sources) ||
+  !Array.isArray(mechanics.formulas) ||
+  !mechanics.formulas.length
+)
+  throw new Error('Invalid mechanics catalogue');
+const sources = new Set(mechanics.sources.map((source) => source.id));
+if (
+  sources.size !== mechanics.sources.length ||
+  mechanics.sources.some((source) => !source.label || new URL(source.url).protocol !== 'https:')
+)
+  throw new Error('Invalid or duplicate mechanics source');
+if (
+  new Set(mechanics.formulas.map((formula) => formula.id)).size !== mechanics.formulas.length ||
+  mechanics.formulas.some(
+    (formula) =>
+      !formula.title ||
+      !formula.expression ||
+      !formula.explanation.length ||
+      !formula.sourceIds.length ||
+      formula.sourceIds.some((id) => !sources.has(id)),
+  )
+)
+  throw new Error('Invalid formula or missing evidence');
 await Promise.all(
   snapshot.heroes.map((hero) => access(new URL('../public/' + hero.portrait, import.meta.url))),
 );

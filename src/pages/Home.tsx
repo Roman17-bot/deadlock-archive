@@ -8,7 +8,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import type { Hero, HeroSnapshot } from '../../shared/types';
-import { asset, format } from '../lib/format';
+import { asset, format, formatDate } from '../lib/format';
 
 export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => void }) {
   const featured = ['Nurse Harrow', 'Violet']
@@ -40,7 +40,7 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
               <ArrowRight size={19} />
             </a>
             <span>
-              44 героя.
+              {data.heroes.length} героя.
               <br />
               Все уровни в одном реестре.
             </span>
@@ -51,7 +51,9 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
             </span>
             <div>
               <strong>Сверено с файлами игры</strong>
-              <span>Клиент {data.meta.clientVersion} · проверено 24 октября</span>
+              <span>
+                Клиент {data.meta.clientVersion} · проверено {formatDate(data.meta.snapshotDate)}
+              </span>
             </div>
           </div>
         </div>
@@ -89,7 +91,7 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
       </section>
       <section className="archive-strip" aria-label="О справочнике">
         <div>
-          <strong>44</strong>
+          <strong>{data.heroes.length}</strong>
           <span>ДОСТУПНЫХ ГЕРОЯ</span>
         </div>
         <div>
@@ -195,8 +197,8 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
         <div>
           <h2>Цифры меняются. Источники остаются.</h2>
           <p>
-            Это снимок игры на 24 октября 2026 года. У каждого значения есть версия клиента, а у
-            расчётных показателей — своя формула.
+            Это снимок игры на {formatDate(data.meta.snapshotDate)}. У каждого значения есть версия
+            клиента, а у расчётных показателей — своя формула.
           </p>
         </div>
         <button className="button button-outline" onClick={onMethod}>

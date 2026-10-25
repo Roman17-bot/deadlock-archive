@@ -9,7 +9,8 @@ export function statsAtLevel(hero: Hero, level: number): HeroStats {
     hero.base.bulletDamage +
     boons * hero.growth.bulletDamage +
     spirit * hero.scaling.bulletDamagePerSpirit;
-  const shotDamage = bulletDamage * hero.weapon.projectiles;
+  const damagePaths = hero.weapon.hitOnce ? 1 : hero.weapon.projectiles;
+  const shotDamage = bulletDamage * damagePaths;
   const fireRateMultiplier = 1 + (spirit * hero.scaling.fireRatePercentPerSpirit) / 100;
   return {
     health: hero.base.health + boons * hero.growth.health,
@@ -20,7 +21,7 @@ export function statsAtLevel(hero: Hero, level: number): HeroStats {
     dps: shotDamage * hero.weapon.shotsPerSecond * fireRateMultiplier,
     damageGrowth:
       (hero.growth.bulletDamage + hero.growth.spirit * hero.scaling.bulletDamagePerSpirit) *
-      hero.weapon.projectiles,
+      damagePaths,
     healthGrowth: hero.growth.health,
     spiritGrowth: hero.growth.spirit,
     regenGrowth: hero.growth.regen + hero.growth.spirit * hero.scaling.regenPerSpirit,

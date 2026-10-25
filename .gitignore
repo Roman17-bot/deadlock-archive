@@ -7,7 +7,7 @@ public/data/
 !.env.example
 work/
 outputs/
-knowledge/
+/knowledge/
 .superpowers/
 *.log
 *.tsbuildinfo

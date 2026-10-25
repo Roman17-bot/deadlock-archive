@@ -1,5 +1,7 @@
 @import './home.css';
 @import './register.css';
+@import './mechanics.css';
+@import './updates.css';
 
 :root {
   color-scheme: dark;
@@ -524,5 +526,58 @@ a svg {
     animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+}
+
+/* Four destinations remain visible on phones without a narrow horizontal menu. */
+.site-header nav {
+  gap: clamp(16px, 2.3vw, 38px);
+}
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .header-edition {
+    display: none;
+  }
+  .header-inner {
+    gap: 30px;
+  }
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: auto;
+  }
+  .header-inner {
+    padding: 20px 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+  }
+  .site-header nav {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 24px;
+    margin: 0;
+    width: 100%;
+  }
+  .site-header nav a {
+    min-height: 46px;
+    padding: 9px 0;
+    font-size: 1rem;
+  }
+  .site-header nav a.active:after {
+    bottom: 0;
+  }
+}
+@media (max-width: 380px) {
+  .site-header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    text-align: center;
+  }
+  .header-inner {
+    padding-inline: 18px;
   }
 }

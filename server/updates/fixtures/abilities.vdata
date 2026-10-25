@@ -1,0 +1,100 @@
+{
+"generic_data_type" = "CitadelAbilityVData"
+"citadel_weapon_gigawatt_set" = {
+"_class" = "citadel_ability_primary_weapon"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 10.8
+"m_iBullets" = 1
+"m_iBurstShotCount" = 3
+"m_flCycleTime" = 0.2625
+"m_flIntraBurstCycleTime" = 0.084
+"m_iClipSize" = 29
+"m_reloadDuration" = 2.35
+}
+}
+}
+"citadel_weapon_hornet_set" = {
+"_class" = "citadel_ability_primary_weapon"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 12.33
+"m_iBullets" = 1
+"m_iBurstShotCount" = 1
+"m_flCycleTime" = 0.231
+"m_flIntraBurstCycleTime" = 0
+"m_iClipSize" = 19
+"m_reloadDuration" = 2.914
+}
+}
+}
+"citadel_weapon_warden_set" = {
+"_class" = "citadel_ability_primary_weapon"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 17.34
+"m_iBullets" = 1
+"m_iBurstShotCount" = 1
+"m_flCycleTime" = 0.2625
+"m_flIntraBurstCycleTime" = 0
+"m_iClipSize" = 17
+"m_reloadDuration" = 2.914
+}
+}
+}
+"citadel_weapon_frank_set2" = {
+"_class" = "citadel_ability_primary_weapon"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 12
+"m_iBullets" = 1
+"m_iBurstShotCount" = 1
+"m_flCycleTime" = 0.198
+"m_flIntraBurstCycleTime" = 0
+"m_iClipSize" = 24
+"m_reloadDuration" = 2.4
+"m_bSpinsUp" = true
+"m_flMaxSpinCycleTime" = 0.171
+}
+}
+}
+"ability_deadpack_primary_weapon_charge" = {
+"_class" = "ability_deadpack_primary_weapon_charge"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 15
+"m_iBullets" = 1
+"m_iBurstShotCount" = 1
+"m_flCycleTime" = 0.25
+"m_flIntraBurstCycleTime" = 0
+"m_iClipSize" = 14
+"m_reloadDuration" = 3.2
+"m_bHitOnceAcrossAllBullets" = false
+"m_bChargesUp" = true
+"m_flChargeUpTime" = 0.8
+"m_flChargedBulletDamage" = 48
+}
+}
+}
+"citadel_weapon_baba_set" = {
+"_class" = "citadel_ability_primary_weapon"
+"_multibase" = ["hero_weapon_base"]
+"m_mapWeaponInfos" = {
+"primary" = {
+"m_flBulletDamage" = 8.8
+"m_iBullets" = 3
+"m_iBurstShotCount" = 1
+"m_flCycleTime" = 0.31
+"m_flIntraBurstCycleTime" = 0
+"m_iClipSize" = 15
+"m_reloadDuration" = 2.5
+"m_bHitOnceAcrossAllBullets" = true
+}
+}
+}
+}

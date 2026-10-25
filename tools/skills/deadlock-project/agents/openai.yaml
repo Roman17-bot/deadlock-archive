@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deadlock Project"
+  short_description: "Контекст Deadlock, формулы и локальная база знаний"
+  default_prompt: "Используй $deadlock-project, чтобы восстановить контекст проекта и найти актуальные источники по моему вопросу."

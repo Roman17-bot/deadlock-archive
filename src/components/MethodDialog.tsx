@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ExternalLink, X } from 'lucide-react';
 import type { HeroSnapshot } from '../../shared/types';
+import { formatDate } from '../lib/format';
 
 export function MethodDialog({ data, onClose }: { data: HeroSnapshot; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -29,7 +30,8 @@ export function MethodDialog({ data, onClose }: { data: HeroSnapshot; onClose: (
         <h2 id="method-title">Как устроены цифры</h2>
         <p>
           База, приросты и расчётные показатели здесь разделены. Всё относится к клиенту{' '}
-          <strong>{data.meta.clientVersion}</strong>, проверенному 24 октября 2026 года.
+          <strong>{data.meta.clientVersion}</strong>, проверенному{' '}
+          {formatDate(data.meta.snapshotDate)}.
         </p>
         <ol>
           {data.meta.methodology.map((text) => (
@@ -39,8 +41,8 @@ export function MethodDialog({ data, onClose }: { data: HeroSnapshot; onClose: (
         <div className="method-callout">
           <strong>Особое оружие</strong>
           <p>
-            У очередей, зарядов и раскрутки есть нюансы. Нажми на значок информации в строке героя,
-            чтобы увидеть параметры и ограничения его модели.
+            У очередей, зарядов и раскрутки есть нюансы. Нажми на имя героя в строке, чтобы увидеть
+            параметры и ограничения его модели.
           </p>
         </div>
         <h3>Откуда данные</h3>

@@ -1,0 +1,655 @@
+.mechanics-checkline {
+  display: none;
+}
+@media (max-width: 760px) {
+  .mechanics-intro > div > .mechanics-checkline {
+    display: block;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    color: #b9c6a9;
+  }
+}
+.mechanics-page {
+  max-width: 1600px;
+  margin: auto;
+  padding: 60px 44px 76px;
+}
+.mechanics-intro {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: center;
+  padding: 20px 0 76px;
+  border-bottom: 1px solid var(--line);
+}
+.mechanics-intro h1 {
+  font: 500 clamp(4rem, 7vw, 7.25rem)/0.95 var(--serif);
+  letter-spacing: -2px;
+  margin: 30px 0;
+}
+.mechanics-intro h1 em {
+  font-weight: 400;
+  color: var(--sage);
+}
+.mechanics-intro > div > p {
+  max-width: 660px;
+  font-size: 1.125rem;
+  color: #bdc6b8;
+  line-height: 1.85;
+}
+.mechanics-intro-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 30px;
+}
+.research-stamp {
+  padding: 28px;
+  border: 1px solid #66725e;
+  text-align: center;
+  position: relative;
+  background: #1d2b24;
+  box-shadow:
+    inset 0 0 0 7px var(--ink),
+    inset 0 0 0 8px #344438;
+  transform: rotate(1deg);
+}
+.stamp-symbol {
+  display: block;
+  font: 4rem/1 var(--serif);
+  color: var(--brass);
+  margin: 4px 0 20px;
+}
+.research-stamp > span:not(.stamp-symbol) {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--sage);
+}
+.research-stamp strong {
+  display: block;
+  font: 5.5rem/1 var(--serif);
+  margin: 18px 0;
+}
+.research-stamp strong small {
+  display: block;
+  font:
+    400 1rem Manrope,
+    sans-serif;
+  margin-top: 10px;
+  color: var(--sage);
+}
+.research-stamp p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.research-stamp > div {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--sage);
+}
+.mechanics-stale {
+  padding: 20px 24px;
+  border: 1px solid var(--brass);
+  background: #32301f;
+  color: #eee1b7;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.mechanics-calculator {
+  margin: 60px 0 80px;
+}
+.calculator-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 26px;
+  gap: 20px;
+}
+.calculator-title > svg {
+  color: var(--brass);
+}
+.calculator-title h2,
+.library-heading h2 {
+  font: 500 clamp(2.5rem, 4vw, 3.75rem)/1.1 var(--serif);
+  margin-top: 14px;
+}
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border: 1px solid #67745f;
+}
+.calculator-form {
+  padding: 32px;
+  background: var(--paper);
+  color: var(--ink);
+  color-scheme: only light;
+}
+.calc-task-label {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.calculator-form select {
+  width: 100%;
+  padding: 14px 36px 14px 14px;
+  min-height: 52px;
+  border: 1px solid #9a9f8e;
+  background: #f9f4e8;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 0;
+}
+.calc-entry-hint {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: #515e4b;
+  margin: 18px 0 24px;
+}
+.calculator-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.calculator-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.calculator-fields label > span {
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1.6;
+}
+.calculator-fields input {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px;
+  background: #f9f5ea;
+  color: #1f2d20;
+  border: 1px solid #a1a58f;
+  border-radius: 0;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+.calculator-fields small {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: #59654e;
+}
+.calc-reset {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  background: transparent;
+  color: #4f6049;
+  min-height: 44px;
+  padding: 8px 0;
+  margin-top: 20px;
+  font-size: 0.875rem;
+}
+.calculator-result {
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #203027;
+  min-width: 0;
+}
+.result-kicker {
+  color: #b5bc99;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 26px;
+}
+.calculator-result h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #d7dfcd;
+  line-height: 1.7;
+}
+.calc-primary {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 12px 0 25px;
+  max-width: 100%;
+}
+.calc-primary strong {
+  font: 500 clamp(2.75rem, 4.6vw, 5.25rem)/1.1 var(--serif);
+  letter-spacing: -1px;
+  color: #f3e7bd;
+  overflow-wrap: anywhere;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.calc-primary > span {
+  font-size: 1rem;
+  color: var(--sage);
+}
+.calculator-result dl {
+  width: 100%;
+  margin: 0 0 25px;
+  font-size: 0.875rem;
+}
+.calculator-result dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #41503d;
+  padding: 13px 0;
+}
+.calculator-result dt {
+  color: #bdc9b4;
+  max-width: 65%;
+}
+.calculator-result dd {
+  margin: 0;
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+  text-align: right;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  color: #ece9d8;
+}
+.calculator-result dd span {
+  color: var(--sage);
+  font-size: 0.75rem;
+}
+.result-equation {
+  padding: 14px 18px;
+  background: #16261c;
+  border: 1px solid #3e513c;
+  color: #c7d2b5;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+.calculator-assumption {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: #c1cbb7;
+  margin: 24px 0 18px;
+}
+.calculator-result > .text-link {
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: #e9dab0;
+  min-height: 44px;
+  text-align: left;
+}
+.calc-error {
+  padding: 10px 0 25px;
+  color: #f0caab;
+}
+.calc-error h3 {
+  margin: 15px 0 10px;
+  color: inherit;
+  font-size: 1.125rem;
+}
+.calc-error p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.formula-library {
+  scroll-margin-top: 24px;
+}
+.library-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+.library-heading > p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #bdc8b5;
+}
+.library-tools {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+.library-tools > span {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--sage);
+}
+.formula-search {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 0 18px;
+  min-height: 54px;
+  border: 1px solid #65715e;
+  background: #1e2c23;
+  width: min(100%, 660px);
+  color: var(--sage);
+}
+.formula-search input {
+  font-size: 1rem;
+  color: var(--paper);
+  background: transparent;
+  min-width: 0;
+  flex: 1;
+  padding: 13px 0;
+  border: 0;
+}
+.formula-search input::placeholder {
+  color: #a1ad98;
+  opacity: 1;
+}
+.formula-search button {
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  font-size: 1.5rem;
+}
+.formula-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 30px;
+}
+.formula-categories button {
+  padding: 9px 18px;
+  min-height: 44px;
+  border: 1px solid #4a5b44;
+  background: transparent;
+  font-size: 0.875rem;
+  color: #c4ceba;
+}
+.formula-categories button[aria-pressed='true'] {
+  background: #bdc6ab;
+  color: #18251b;
+  border-color: #bdc6ab;
+}
+.formula-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.formula-card {
+  min-width: 0;
+  padding: 28px 30px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid #b7b79f;
+  color-scheme: only light;
+}
+.formula-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #627055;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.formula-card h3 {
+  font: 600 2rem/1.15 var(--serif);
+  margin-bottom: 20px;
+}
+.formula-expression {
+  background: #dfe3d0;
+  padding: 16px 18px;
+  border-left: 2px solid #6b7b58;
+  font:
+    500 1rem/1.9 ui-monospace,
+    Consolas,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.formula-confidence {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 17px 0;
+  font-size: 0.75rem;
+  color: #4c6340;
+}
+.formula-confidence > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.formula-confidence.is-model {
+  color: #806123;
+}
+.formula-preview,
+.formula-details {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #3e4c37;
+}
+.formula-card summary {
+  cursor: pointer;
+  padding: 16px 0;
+  min-height: 48px;
+  margin-top: 18px;
+  border-top: 1px solid #b7bba5;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #334f2e;
+}
+.formula-details {
+  padding-top: 5px;
+}
+.formula-details h4 {
+  margin: 22px 0 9px;
+  font-size: 1rem;
+  color: #283d24;
+}
+.formula-details p + p {
+  margin-top: 14px;
+}
+.formula-details ul {
+  padding-left: 22px;
+  margin: 8px 0 18px;
+}
+.formula-details li {
+  padding-left: 3px;
+  margin: 8px 0;
+}
+.formula-example {
+  margin: 22px 0;
+  padding: 18px 20px;
+  background: #dadfcd;
+  border: 1px solid #c1c9ac;
+}
+.formula-example > span {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #526441;
+}
+.formula-example p {
+  margin-top: 8px;
+  color: #2e4029;
+}
+.formula-sources {
+  list-style: none;
+  padding: 0 !important;
+}
+.formula-sources a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+.formula-sources small {
+  display: block;
+  font-size: 0.75rem;
+  color: #68745b;
+}
+.formula-empty {
+  padding: 45px 0;
+  color: var(--sage);
+}
+.formula-empty .button {
+  margin-top: 20px;
+}
+.mechanics-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+  margin-top: 45px;
+  color: #acb9a2;
+  font-size: 0.875rem;
+  line-height: 1.9;
+}
+.mechanics-footnote svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+@media (max-width: 1100px) {
+  .mechanics-intro {
+    gap: 40px;
+    grid-template-columns: 1fr 280px;
+  }
+  .calculator-form,
+  .calculator-result {
+    padding: 26px;
+  }
+  .formula-card {
+    padding: 24px;
+  }
+  .header-inner {
+    gap: 25px;
+  }
+}
+@media (max-width: 760px) {
+  .mechanics-page {
+    padding: 35px 22px 48px;
+  }
+  .mechanics-intro {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-bottom: 40px;
+  }
+  .mechanics-intro h1 {
+    font-size: 4.5rem;
+    letter-spacing: -1px;
+  }
+  .mechanics-intro > div > p {
+    font-size: 1rem;
+  }
+  .research-stamp {
+    transform: none;
+    display: none;
+  }
+  .mechanics-calculator {
+    margin: 38px 0 50px;
+  }
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+  .calculator-title h2,
+  .library-heading h2 {
+    font-size: 2.75rem;
+  }
+  .calculator-title > .lucide {
+    display: none;
+  }
+  .calculator-form,
+  .calculator-result {
+    padding: 24px;
+  }
+  .calculator-fields {
+    gap: 18px 14px;
+  }
+  .calculator-fields label > span {
+    font-size: 0.875rem;
+  }
+  .calc-primary strong {
+    font-size: 4.25rem;
+  }
+  .library-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .library-tools {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .library-tools > span {
+    font-size: 0.75rem;
+  }
+  .formula-search {
+    width: 100%;
+  }
+  .formula-categories {
+    gap: 8px;
+  }
+  .formula-categories button {
+    padding: 8px 12px;
+  }
+  .formula-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .formula-card h3 {
+    font-size: 2rem;
+  }
+  .formula-card {
+    padding: 24px;
+  }
+  .formula-expression {
+    font-size: 0.875rem;
+    padding: 14px;
+  }
+  .formula-details,
+  .formula-preview {
+    font-size: 1rem;
+  }
+  .calculator-result dt {
+    max-width: 65%;
+  }
+  .mechanics-footnote {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 380px) {
+  .mechanics-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .calculator-form,
+  .calculator-result,
+  .formula-card {
+    padding: 20px;
+  }
+  .calculator-fields {
+    grid-template-columns: 1fr;
+  }
+  .calc-primary strong {
+    font-size: 3.5rem;
+  }
+  .mechanics-intro-actions {
+    gap: 20px;
+  }
+  .mechanics-intro h1 {
+    font-size: 3.75rem;
+  }
+}
