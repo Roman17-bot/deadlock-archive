@@ -115,3 +115,10 @@ describe('register filters and sorting', () => {
     expect(csv).toContain('Level');
   });
 });
+it('localizes CSV column titles while preserving the numeric data format', () => {
+  const english = toCsv(snapshot.heroes.slice(0, 1), 1, 'en').split('\r\n');
+  const russian = toCsv(snapshot.heroes.slice(0, 1), 1, 'ru').split('\r\n');
+  expect(russian[0]).toMatch(/^Герой,Уровень,/);
+  expect(english[0]).toMatch(/^Hero,Level,/);
+  expect(russian[1]).toBe(english[1]);
+});

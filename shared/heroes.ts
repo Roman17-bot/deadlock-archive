@@ -153,7 +153,7 @@ export function validateSnapshot(value: unknown): value is HeroSnapshot {
   return true;
 }
 
-export function toCsv(heroes: Hero[], level: number): string {
+export function toCsv(heroes: Hero[], level: number, language: 'ru' | 'en' = 'en'): string {
   const columns: (keyof HeroStats)[] = [
     'shotDamage',
     'bulletDamage',
@@ -173,5 +173,21 @@ export function toCsv(heroes: Hero[], level: number): string {
       ',',
     );
   });
-  return [['Hero', 'Level', ...columns].join(','), ...rows].join('\r\n');
+  const titles: Record<keyof HeroStats, string> = {
+    shotDamage: 'Урон выстрела',
+    bulletDamage: 'Урон пули',
+    dps: 'DPS',
+    health: 'Здоровье HP',
+    spirit: 'Spirit',
+    regen: 'Регенерация HP/с',
+    damageGrowth: 'Прирост урона за LVL',
+    healthGrowth: 'Прирост HP за LVL',
+    spiritGrowth: 'Прирост Spirit за LVL',
+    regenGrowth: 'Прирост регенерации за LVL',
+  };
+  const headers =
+    language === 'ru'
+      ? ['Герой', 'Уровень', ...columns.map((key) => titles[key])]
+      : ['Hero', 'Level', ...columns];
+  return [headers.join(','), ...rows].join('\r\n');
 }

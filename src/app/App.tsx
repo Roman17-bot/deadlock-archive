@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowUpRight, BookOpen, CircleAlert, RefreshCw } from 'lucide-react';
 import type { HeroSnapshot } from '../../shared/types';
 import { validateSnapshot } from '../../shared/heroes';
@@ -6,10 +6,17 @@ import { asset, formatDate } from '../lib/format';
 import { Home } from '../pages/Home';
 import { HeroRegister } from '../features/heroes/HeroRegister';
 import { MethodDialog } from '../components/MethodDialog';
-import { MechanicsPage } from '../features/mechanics/MechanicsPage';
 import { UpdatePage } from '../features/updates/UpdatePage';
+import { useI18n } from '../i18n';
+
+const MechanicsPage = lazy(() =>
+  import('../features/mechanics/MechanicsPage').then((module) => ({
+    default: module.MechanicsPage,
+  })),
+);
 
 export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
+  const { t, language, setLanguage } = useI18n();
   const [routeHash, setRouteHash] = useState(() => window.location.hash);
   const route = routeHash.startsWith('#/heroes')
     ? 'heroes'
@@ -23,8 +30,8 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
   const [attempt, setAttempt] = useState(0);
   const [method, setMethod] = useState(false);
   useEffect(() => {
-    document.title = `Deadlock Archive — ${{ home: 'справочник', heroes: 'реестр героев', mechanics: 'механики и калькуляторы', updates: 'обновление данных' }[route]}`;
-  }, [route]);
+    document.title = `Deadlock Archive — ${t({ home: 'справочник', heroes: 'реестр героев', mechanics: 'механики и калькуляторы', updates: 'обновление данных' }[route])}`;
+  }, [route, t]);
   useEffect(() => {
     const changed = () => {
       setRouteHash(window.location.hash);
@@ -64,11 +71,11 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
           document.getElementById('main')?.focus();
         }}
       >
-        К содержимому
+        {t('К содержимому')}
       </a>
       <header className="site-header">
         <div className="header-inner">
-          <a className="brand" href="#/" aria-label="Deadlock Archive — главная">
+          <a className="brand" href="#/" aria-label={t('Deadlock Archive — главная')}>
             <span className="brand-sigil" aria-hidden="true">
               D
             </span>
@@ -76,42 +83,65 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
               DEADLOCK<span>ARCHIVE</span>
             </span>
           </a>
-          <nav aria-label="Основная навигация">
+          <nav aria-label={t('Основная навигация')}>
             <a
               className={route === 'home' ? 'active' : ''}
               aria-current={route === 'home' ? 'page' : undefined}
               href="#/"
             >
-              Главная
+              {t('Главная')}
             </a>
             <a
               className={route === 'heroes' ? 'active' : ''}
               aria-current={route === 'heroes' ? 'page' : undefined}
               href="#/heroes"
             >
-              Реестр героев <span className="nav-count">{data?.heroes.length ?? '—'}</span>
+              {t('Реестр героев')} <span className="nav-count">{data?.heroes.length ?? '—'}</span>
             </a>
             <a
               className={route === 'mechanics' ? 'active' : ''}
               aria-current={route === 'mechanics' ? 'page' : undefined}
               href="#/mechanics"
             >
-              Механики
+              {t('Механики')}
             </a>
             <a
               className={route === 'updates' ? 'active' : ''}
               aria-current={route === 'updates' ? 'page' : undefined}
               href="#/updates"
             >
-              Обновления
+              {t('Обновления')}
             </a>
           </nav>
           <div className="header-edition">
             <span className="status-dot" />
-            КЛИЕНТ {data?.meta.clientVersion ?? '…'}
+            {t('КЛИЕНТ')} {data?.meta.clientVersion ?? '…'}
             <span className="edition-date">
-              {data ? `Срез от ${formatDate(data.meta.snapshotDate, true)}` : 'Загрузка данных'}
+              {data
+                ? t('Срез от {{date}}', { date: formatDate(data.meta.snapshotDate, true) })
+                : t('Загрузка данных')}
             </span>
+          </div>
+          <div className="language-switch" role="group" aria-label={t('Язык сайта')}>
+            <button
+              type="button"
+              lang="ru"
+              aria-label="Русский"
+              aria-pressed={language === 'ru'}
+              onClick={() => void setLanguage('ru')}
+            >
+              RU
+            </button>
+            <span aria-hidden="true">/</span>
+            <button
+              type="button"
+              lang="en"
+              aria-label="English"
+              aria-pressed={language === 'en'}
+              onClick={() => void setLanguage('en')}
+            >
+              EN
+            </button>
           </div>
         </div>
       </header>
@@ -119,10 +149,11 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
         {error ? (
           <section className="load-state" role="alert">
             <CircleAlert size={38} />
-            <h1>Не удалось загрузить досье</h1>
+            <h1>{t('Не удалось загрузить досье')}</h1>
             <p>
-              Проверь подключение и попробуй ещё раз. Данные не будут заменены случайными
-              значениями.
+              {t(
+                'Проверь подключение и попробуй ещё раз. Данные не будут заменены случайными значениями.',
+              )}
             </p>
             <button
               className="button button-primary"
@@ -132,16 +163,25 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
               }}
             >
               <RefreshCw size={16} />
-              Повторить загрузку
+              {t('Повторить загрузку')}
             </button>
           </section>
         ) : !data ? (
           <section className="load-state" aria-busy="true">
             <span className="loader" />
-            <p>Поднимаем материалы из архива…</p>
+            <p>{t('Поднимаем материалы из архива…')}</p>
           </section>
         ) : route === 'mechanics' ? (
-          <MechanicsPage data={data} />
+          <Suspense
+            fallback={
+              <section className="load-state" aria-busy="true">
+                <span className="loader" />
+                <p>{t('Поднимаем материалы из архива…')}</p>
+              </section>
+            }
+          >
+            <MechanicsPage data={data} />
+          </Suspense>
         ) : route === 'updates' ? (
           <UpdatePage data={data} onSnapshot={setData} />
         ) : route === 'heroes' ? (
@@ -155,13 +195,13 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
           <a className="footer-wordmark" href="#/">
             DEADLOCK / ARCHIVE
           </a>
-          <p>Независимый справочник. Игра и изображения принадлежат Valve.</p>
+          <p>{t('Независимый справочник. Игра и изображения принадлежат Valve.')}</p>
         </div>
         <div className="footer-actions">
           {data && (
             <button onClick={() => setMethod(true)}>
               <BookOpen size={15} />
-              Источники и методика
+              {t('Источники и методика')}
             </button>
           )}
           <a
@@ -169,7 +209,7 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
             target="_blank"
             rel="noreferrer"
           >
-            Исходный код
+            {t('Исходный код')}
             <ArrowUpRight size={16} />
           </a>
         </div>

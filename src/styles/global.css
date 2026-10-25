@@ -581,3 +581,56 @@ a svg {
     padding-inline: 18px;
   }
 }
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 3px;
+  border: 1px solid #6a7055;
+  color: var(--brass);
+  background: #1c2b23;
+  font-size: 0.8125rem;
+}
+.language-switch button {
+  min-width: 38px;
+  min-height: 38px;
+  padding: 6px;
+  color: #b8c3ac;
+  background: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.language-switch button[aria-pressed='true'] {
+  color: var(--ink);
+  background: var(--paper);
+}
+.language-switch button:hover {
+  box-shadow: inset 0 0 0 1px var(--brass);
+}
+@media (min-width: 761px) {
+  .header-inner {
+    gap: clamp(22px, 3vw, 48px);
+  }
+}
+@media (max-width: 1440px) {
+  .header-edition {
+    display: none;
+  }
+  .language-switch {
+    margin-left: auto;
+  }
+}
+@media (max-width: 760px) {
+  .brand {
+    margin-right: auto;
+  }
+  .language-switch {
+    order: 2;
+    margin-left: 0;
+  }
+  .site-header nav {
+    order: 3;
+  }
+}

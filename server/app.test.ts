@@ -37,6 +37,7 @@ it('connects the local owner API to the live hero and health responses', async (
   const updates = createUpdateManager({
     snapshot: snapshot as HeroSnapshot,
     root: '.',
+    checkVersion: async () => ({ version: 6820, revision: 11162697, buildDate: '2026-10-25' }),
     refresh: async () => ({
       snapshot: next,
       changed: true,

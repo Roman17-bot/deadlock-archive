@@ -90,7 +90,7 @@ export async function persistSnapshot(
   }
 }
 
-async function writeExclusive(path: string, bytes: string | Uint8Array) {
+export async function writeExclusive(path: string, bytes: string | Uint8Array) {
   const handle = await open(path, 'wx');
   try {
     await handle.writeFile(bytes);

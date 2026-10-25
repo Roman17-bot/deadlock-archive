@@ -9,8 +9,10 @@ import {
 } from 'lucide-react';
 import type { Hero, HeroSnapshot } from '../../shared/types';
 import { asset, format, formatDate } from '../lib/format';
+import { useI18n } from '../i18n';
 
 export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => void }) {
+  const { t } = useI18n();
   const featured = ['Nurse Harrow', 'Violet']
     .map((name) => data.heroes.find((hero) => hero.name === name))
     .filter((hero): hero is Hero => hero !== undefined);
@@ -20,29 +22,30 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
         <div className="hero-copy">
           <div className="section-kicker light">
             <span />
-            НЕЗАВИСИМОЕ БЮРО ИССЛЕДОВАНИЙ
+            {t('НЕЗАВИСИМОЕ БЮРО ИССЛЕДОВАНИЙ')}
           </div>
           <p className="issue-number">
-            ТОМ I <span>ОКТЯБРЬ, 2026</span>
+            {t('ТОМ I')} <span>{t('ОКТЯБРЬ, 2026')}</span>
           </p>
           <h1>
-            У каждого героя
+            {t('У каждого героя')}
             <br />
-            есть <em>свои цифры.</em>
+            {t('есть')} <em>{t('свои цифры.')}</em>
           </h1>
           <p className="hero-description">
-            Сравнивай, замечай различия и находи свой стиль игры. Досье на всех героев Deadlock — от
-            первого уровня до последнего Boon.
+            {t(
+              'Сравнивай, замечай различия и находи свой стиль игры. Досье на всех героев Deadlock — от первого уровня до последнего Boon.',
+            )}
           </p>
           <div className="hero-cta">
-            <a className="button button-paper" href="#/heroes" aria-label="Открыть реестр">
-              Открыть реестр
+            <a className="button button-paper" href="#/heroes" aria-label={t('Открыть реестр')}>
+              {t('Открыть реестр')}
               <ArrowRight size={19} />
             </a>
             <span>
-              {data.heroes.length} героя.
+              {t('{{count}} героя.', { count: data.heroes.length })}
               <br />
-              Все уровни в одном реестре.
+              {t('Все уровни в одном реестре.')}
             </span>
           </div>
           <div className="hero-verification">
@@ -50,9 +53,12 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
               <ScanLine size={20} />
             </span>
             <div>
-              <strong>Сверено с файлами игры</strong>
+              <strong>{t('Сверено с файлами игры')}</strong>
               <span>
-                Клиент {data.meta.clientVersion} · проверено {formatDate(data.meta.snapshotDate)}
+                {t('Клиент {{version}} · проверено {{date}}', {
+                  version: data.meta.clientVersion,
+                  date: formatDate(data.meta.snapshotDate),
+                })}
               </span>
             </div>
           </div>
@@ -63,8 +69,8 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
             <span>№ 001—{String(data.heroes.length).padStart(3, '0')}</span>
           </div>
           <div className="roster-art-title">
-            <span>Личные дела</span>
-            <em>старого города.</em>
+            <span>{t('Личные дела')}</span>
+            <em>{t('старого города.')}</em>
           </div>
           <div className="roster-portraits">
             {data.heroes.map((hero, index) => (
@@ -78,72 +84,73 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
           <div className="roster-art-footer">
             <strong>{data.heroes.length}</strong>
             <span>
-              ГЕРОЯ В АРХИВЕ
-              <br />У КАЖДОГО СВОЯ ИСТОРИЯ
+              {t('ГЕРОЯ В АРХИВЕ')}
+              <br />
+              {t('У КАЖДОГО СВОЯ ИСТОРИЯ')}
             </span>
             <span className="roster-seal">
-              СВЕРЕНО
+              {t('СВЕРЕНО')}
               <br />
               {data.meta.clientVersion}
             </span>
           </div>
         </div>
       </section>
-      <section className="archive-strip" aria-label="О справочнике">
+      <section className="archive-strip" aria-label={t('О справочнике')}>
         <div>
           <strong>{data.heroes.length}</strong>
-          <span>ДОСТУПНЫХ ГЕРОЯ</span>
+          <span>{t('ДОСТУПНЫХ ГЕРОЯ')}</span>
         </div>
         <div>
           <strong>1—36</strong>
-          <span>УРОВНИ ДЛЯ СРАВНЕНИЯ</span>
+          <span>{t('УРОВНИ ДЛЯ СРАВНЕНИЯ')}</span>
         </div>
         <div>
           <Crosshair size={26} />
-          <span>БЕЗ ПРЕДМЕТОВ И БАФФОВ</span>
+          <span>{t('БЕЗ ПРЕДМЕТОВ И БАФФОВ')}</span>
         </div>
         <button onClick={onMethod}>
-          <span>КАК УСТРОЕНЫ ДАННЫЕ</span>
+          <span>{t('КАК УСТРОЕНЫ ДАННЫЕ')}</span>
           <ArrowUpRight size={23} />
         </button>
       </section>
       <section className="home-register-intro">
-        <div className="section-kicker">СНАЧАЛА ФАКТЫ, ЗАТЕМ ЭКСПЕРИМЕНТЫ</div>
+        <div className="section-kicker">{t('СНАЧАЛА ФАКТЫ, ЗАТЕМ ЭКСПЕРИМЕНТЫ')}</div>
         <div className="intro-columns">
           <h2>
-            Хороший билд начинается
+            {t('Хороший билд начинается')}
             <br />
-            со знакомства с героем.
+            {t('со знакомства с героем.')}
           </h2>
           <p>
-            Урон одного выстрела не равен урону в секунду. Spirit растёт по-разному, а регенерация
-            не всегда появляется сама. Мы сохранили эти различия — и дали тебе инструменты для
-            сравнения.
+            {t(
+              'Урон одного выстрела не равен урону в секунду. Spirit растёт по-разному, а регенерация не всегда появляется сама. Мы сохранили эти различия — и дали тебе инструменты для сравнения.',
+            )}
           </p>
         </div>
         <div className="feature-line">
           <span>
             <Layers3 size={17} />
-            Базовые статы и приросты
+            {t('Базовые статы и приросты')}
           </span>
           <span>
             <Heart size={17} />
-            Параметры на любом уровне
+            {t('Параметры на любом уровне')}
           </span>
           <span>
             <ScanLine size={17} />
-            Проверяемые источники
+            {t('Проверяемые источники')}
           </span>
         </div>
       </section>
       <section className="new-records">
         <div className="section-heading">
           <div>
-            <div className="section-kicker">НОВЫЕ ПОСТУПЛЕНИЯ</div>
-            <h2>Новые лица в старом городе.</h2>
+            <div className="section-kicker">{t('НОВЫЕ ПОСТУПЛЕНИЯ')}</div>
+            <h2>{t('Новые лица в старом городе.')}</h2>
           </div>
           <a className="text-link" href="#/heroes">
-            Весь реестр
+            {t('Весь реестр')}
             <ArrowRight size={17} />
           </a>
         </div>
@@ -164,27 +171,30 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
               <div className="spotlight-copy">
                 <span className="record-label">
                   <Sparkles size={12} />
-                  НОВЫЙ ГЕРОЙ
+                  {t('НОВЫЙ ГЕРОЙ')}
                 </span>
                 <h3>{hero.name}</h3>
                 <p>
-                  {hero.name === 'Nurse Harrow'
-                    ? 'Строгие методы. Спасительные иглы. У неё есть всё, кроме права на ошибку.'
-                    : 'Живые чернила и опасное вдохновение. Искусство, которое отвечает взаимностью.'}
+                  {t(
+                    hero.name === 'Nurse Harrow'
+                      ? 'Строгие методы. Спасительные иглы. У неё есть всё, кроме права на ошибку.'
+                      : 'Живые чернила и опасное вдохновение. Искусство, которое отвечает взаимностью.',
+                  )}
                 </p>
                 <div className="spotlight-stats">
                   <span>
                     <strong>{format(hero.base.health)}</strong>HP
                   </span>
                   <span>
-                    <strong>{format(hero.base.regen)}</strong>HP/с
+                    <strong>{format(hero.base.regen)}</strong>
+                    {t('HP/с')}
                   </span>
                   <span>
                     <strong>+{format(hero.growth.health)}</strong>HP / LVL
                   </span>
                 </div>
                 <a className="text-link" href={`#/heroes?hero=${hero.slug}`}>
-                  Изучить характеристики
+                  {t('Изучить характеристики')}
                   <ArrowUpRight size={17} />
                 </a>
               </div>
@@ -195,14 +205,16 @@ export function Home({ data, onMethod }: { data: HeroSnapshot; onMethod: () => v
       <section className="archive-note">
         <span className="note-mark">✦</span>
         <div>
-          <h2>Цифры меняются. Источники остаются.</h2>
+          <h2>{t('Цифры меняются. Источники остаются.')}</h2>
           <p>
-            Это снимок игры на {formatDate(data.meta.snapshotDate)}. У каждого значения есть версия
-            клиента, а у расчётных показателей — своя формула.
+            {t(
+              'Это снимок игры на {{date}}. У каждого значения есть версия клиента, а у расчётных показателей — своя формула.',
+              { date: formatDate(data.meta.snapshotDate) },
+            )}
           </p>
         </div>
         <button className="button button-outline" onClick={onMethod}>
-          Открыть методику
+          {t('Открыть методику')}
           <ArrowUpRight size={17} />
         </button>
       </section>

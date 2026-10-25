@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "versions": [
+    {
+      "clientVersion": 6819,
+      "buildDate": "2026-10-22",
+      "firstPublishedAt": "2026-10-24T14:39:45.000Z",
+      "provenance": {
+        "kind": "repository-commit",
+        "reference": "8330a523c6ebb94125286693df79bc3a06b7917c"
+      }
+    }
+  ]
+}

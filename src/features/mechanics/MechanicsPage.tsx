@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, BookOpen, Search, Download, Check, FlaskConical } from 'lucide-react';
-import catalog from '../../../data/mechanics.json';
+import ruCatalog from '../../../data/mechanics.json';
+import enCatalog from '../../../data/mechanics.en.json';
+import { useI18n } from '../../i18n';
 import type { HeroSnapshot } from '../../../shared/types';
 import { asset, formatDate } from '../../lib/format';
 import { Calculator } from './Calculator';
@@ -14,6 +16,8 @@ const confidence: Record<string, { label: string; icon: 'check' | 'model' }> = {
 const normalize = (text: string) => text.toLocaleLowerCase('ru').replaceAll('ё', 'е');
 
 export function MechanicsPage({ data }: { data: HeroSnapshot }) {
+  const { t, language } = useI18n();
+  const catalog = language === 'en' ? enCatalog : ruCatalog;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Все');
   const [target, setTarget] = useState<{ id: string; request: number } | null>(null);
@@ -24,22 +28,31 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
     heading?.focus({ preventScroll: true });
     heading?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
   }, [target]);
-  const categories = ['Все', ...new Set(catalog.formulas.map((entry) => entry.category))];
-  const matching = catalog.formulas.filter(
-    (entry) =>
-      (category === 'Все' || entry.category === category) &&
-      normalize(
-        [
-          entry.title,
-          entry.id,
-          entry.expression,
-          ...entry.variables,
-          ...entry.explanation,
-          ...entry.caveats,
-          entry.example,
-        ].join(' '),
-      ).includes(normalize(query.trim())),
-  );
+  const categories = ['Все', ...new Set(ruCatalog.formulas.map((entry) => entry.category))];
+  const categoryLabel = (key: string) => {
+    if (key === 'Все') return t('Все');
+    const source = ruCatalog.formulas.find((entry) => entry.category === key)!;
+    return catalog.formulas.find((entry) => entry.id === source.id)!.category;
+  };
+  const matching = catalog.formulas.filter((entry) => {
+    const original = ruCatalog.formulas.find((formula) => formula.id === entry.id)!;
+    const english = enCatalog.formulas.find((formula) => formula.id === entry.id)!;
+    const searchable = [original, english]
+      .flatMap((formula) => [
+        formula.title,
+        formula.id,
+        formula.expression,
+        ...formula.variables,
+        ...formula.explanation,
+        ...formula.caveats,
+        formula.example,
+      ])
+      .join(' ');
+    return (
+      (category === 'Все' || original.category === category) &&
+      normalize(searchable).includes(normalize(query.trim()))
+    );
+  });
   const onRule = (id: string) => {
     const formula = catalog.formulas.find((entry) => entry.id === id);
     if (!formula) return;
@@ -53,18 +66,23 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
         <div>
           <div className="section-kicker light">
             <span />
-            БЮРО ПРИКЛАДНОЙ МАТЕМАТИКИ
+            {t('БЮРО ПРИКЛАДНОЙ МАТЕМАТИКИ')}
           </div>
           <h1>
-            Механики <br />и <em>формулы.</em>
+            {t('Механики')} <br />
+            {t('и')} <em>{t('формулы.')}</em>
           </h1>
           <p>
-            Понимай, откуда берутся цифры. Сравнивай защиту, рассчитывай лечение и проверяй идеи для
-            следующего билда.
+            {t(
+              'Понимай, откуда берутся цифры. Сравнивай защиту, рассчитывай лечение и проверяй идеи для следующего билда.',
+            )}
           </p>
           <p className="mechanics-checkline">
-            {catalog.formulas.length} правил · клиент {catalog.meta.reviewedClientVersion} ·
-            проверено {formatDate(catalog.meta.checkedAt)}
+            {t('{{count}} правил · клиент {{version}} · проверено {{date}}', {
+              count: catalog.formulas.length,
+              version: catalog.meta.reviewedClientVersion,
+              date: formatDate(catalog.meta.checkedAt),
+            })}
           </p>
           <div className="mechanics-intro-actions">
             <a
@@ -75,50 +93,64 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
                 library.current?.scrollIntoView?.({ behavior: 'smooth' });
               }}
             >
-              <BookOpen size={18} />К справочнику
+              <BookOpen size={18} />
+              {t('К справочнику')}
               <ArrowDown size={18} />
             </a>
-            <a className="text-link" href={asset('data/mechanics-reference.md')} download>
+            <a
+              className="text-link"
+              href={asset(
+                language === 'en'
+                  ? 'data/mechanics-reference.en.md'
+                  : 'data/mechanics-reference.md',
+              )}
+              download
+            >
               <Download size={17} />
-              Скачать разбор
+              {t('Скачать разбор')}
             </a>
           </div>
         </div>
         <aside className="research-stamp">
           <span className="stamp-symbol">∑</span>
-          <span>ПРОВЕРЕННЫЕ МАТЕРИАЛЫ</span>
+          <span>{t('ПРОВЕРЕННЫЕ МАТЕРИАЛЫ')}</span>
           <strong>
             {catalog.formulas.length}
-            <small>правил и моделей</small>
+            <small>{t('правил и моделей')}</small>
           </strong>
           <p>
-            {catalog.sources.length} источника · клиент{catalog.meta.reviewedClientVersion}
+            {t('{{count}} источника · клиент {{version}}', {
+              count: catalog.sources.length,
+              version: catalog.meta.reviewedClientVersion,
+            })}
             <br />
             {formatDate(catalog.meta.checkedAt)}
           </p>
           <div>
             <Check size={16} />
-            Файлы игры и наблюдения игроков
+            {t('Файлы игры и наблюдения игроков')}
           </div>
         </aside>
       </section>
       {data.meta.clientVersion !== catalog.meta.reviewedClientVersion && (
         <p className="mechanics-stale" role="status">
-          Механики проверены для клиента {catalog.meta.reviewedClientVersion}. В таблице уже клиент{' '}
-          {data.meta.clientVersion}: числовые данные героев обновлены, правила ещё требуют повторной
-          сверки.
+          {t(
+            'Механики проверены для клиента {{reviewed}}. В таблице уже клиент {{current}}: числовые данные героев обновлены, правила ещё требуют повторной сверки.',
+            { reviewed: catalog.meta.reviewedClientVersion, current: data.meta.clientVersion },
+          )}
         </p>
       )}
       <Calculator onRule={onRule} />
       <section className="formula-library" ref={library} aria-labelledby="formula-library-title">
         <div className="library-heading">
           <div>
-            <span className="section-kicker">ОТ ОБЩЕГО ПРАВИЛА К ЧАСТНОМУ СЛУЧАЮ</span>
-            <h2 id="formula-library-title">Справочник механик.</h2>
+            <span className="section-kicker">{t('ОТ ОБЩЕГО ПРАВИЛА К ЧАСТНОМУ СЛУЧАЮ')}</span>
+            <h2 id="formula-library-title">{t('Справочник механик.')}</h2>
           </div>
           <p>
-            У каждого правила — область действия, числовой пример и происхождение. Согласованные
-            наблюдения принимаем за рабочую основу; конкретные расхождения сохраняем.
+            {t(
+              'У каждого правила — область действия, числовой пример и происхождение. Согласованные наблюдения принимаем за рабочую основу; конкретные расхождения сохраняем.',
+            )}
           </p>
         </div>
         <div className="library-tools">
@@ -126,29 +158,32 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
             <Search size={20} aria-hidden="true" />
             <input
               type="search"
-              aria-label="Найти формулу"
-              placeholder="Урон, сопротивление, лечение…"
+              aria-label={t('Найти формулу')}
+              placeholder={t('Урон, сопротивление, лечение…')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             {query && (
-              <button aria-label="Очистить поиск формул" onClick={() => setQuery('')}>
+              <button aria-label={t('Очистить поиск формул')} onClick={() => setQuery('')}>
                 ×
               </button>
             )}
           </label>
           <span>
-            {matching.length} из {catalog.formulas.length} правил
+            {t('{{count}} из {{total}} правил', {
+              count: matching.length,
+              total: catalog.formulas.length,
+            })}
           </span>
         </div>
-        <div className="formula-categories" role="group" aria-label="Темы формул">
+        <div className="formula-categories" role="group" aria-label={t('Темы формул')}>
           {categories.map((entry) => (
             <button
               key={entry}
               aria-pressed={category === entry}
               onClick={() => setCategory(entry)}
             >
-              {entry}
+              {categoryLabel(entry)}
             </button>
           ))}
         </div>
@@ -167,13 +202,13 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
                 <div className="formula-expression">{entry.expression}</div>
                 <span className={`formula-confidence ${proof.icon === 'model' ? 'is-model' : ''}`}>
                   {proof.icon === 'check' ? <Check size={15} /> : <FlaskConical size={15} />}{' '}
-                  {proof.label}
+                  {t(proof.label)}
                 </span>
                 <p className="formula-preview">{entry.explanation[0]}</p>
                 <details open={target?.id === entry.id ? true : undefined}>
-                  <summary>Разбор, пример и источники</summary>
+                  <summary>{t('Разбор, пример и источники')}</summary>
                   <div className="formula-details">
-                    <h4>Обозначения</h4>
+                    <h4>{t('Обозначения')}</h4>
                     <ul>
                       {entry.variables.map((line) => (
                         <li key={line}>{line}</li>
@@ -183,16 +218,16 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
                       <p key={line}>{line}</p>
                     ))}
                     <div className="formula-example">
-                      <span>НА ЧИСЛАХ</span>
+                      <span>{t('НА ЧИСЛАХ')}</span>
                       <p>{entry.example}</p>
                     </div>
-                    <h4>Границы применения</h4>
+                    <h4>{t('Границы применения')}</h4>
                     <ul>
                       {entry.caveats.map((line) => (
                         <li key={line}>{line}</li>
                       ))}
                     </ul>
-                    <h4>Источники</h4>
+                    <h4>{t('Источники')}</h4>
                     <ul className="formula-sources">
                       {entry.sourceIds.map((id) => {
                         const source = catalog.sources.find((s) => s.id === id)!;
@@ -203,10 +238,10 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
                             </a>
                             <small>
                               {source.kind === 'raw'
-                                ? 'Файлы / схема'
+                                ? t('Файлы / схема')
                                 : source.kind === 'official'
-                                  ? 'Публикация Valve'
-                                  : 'Наблюдения / описание'}
+                                  ? t('Публикация Valve')
+                                  : t('Наблюдения / описание')}
                             </small>
                           </li>
                         );
@@ -220,8 +255,8 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
         </div>
         {!matching.length && (
           <div className="formula-empty">
-            <h3>Такого правила не нашлось.</h3>
-            <p>Попробуй короткий термин или другую тему.</p>
+            <h3>{t('Такого правила не нашлось.')}</h3>
+            <p>{t('Попробуй короткий термин или другую тему.')}</p>
             <button
               className="button button-paper"
               onClick={() => {
@@ -229,7 +264,7 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
                 setCategory('Все');
               }}
             >
-              Показать весь справочник
+              {t('Показать весь справочник')}
             </button>
           </div>
         )}
@@ -237,9 +272,9 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
       <aside className="mechanics-footnote">
         <BookOpen size={24} />
         <p>
-          Проценты в уравнениях записаны долями:30%=0,30. В калькулятор вводи30. Округляется только
-          вывод. Проверка источников не является собственным замером движка; игра при исследовании
-          не запускалась.
+          {t(
+            'Проценты в уравнениях записаны долями:30%=0,30. В калькулятор вводи30. Округляется только вывод. Проверка источников не является собственным замером движка; игра при исследовании не запускалась.',
+          )}
         </p>
       </aside>
     </div>

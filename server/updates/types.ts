@@ -11,5 +11,6 @@ export interface RefreshResult {
   checkedAt: string;
   sourceCommit: string;
   backupPath?: string;
+  historySaved?: boolean;
   summary: { heroCount: number; added: number; removed: number; updated: number; text: string };
 }

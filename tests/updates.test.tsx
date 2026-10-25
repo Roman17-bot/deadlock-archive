@@ -1,12 +1,14 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import snapshot from '../data/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import type { UpdateState } from '../shared/update-types';
 import { UpdatePage } from '../src/features/updates/UpdatePage';
 import { StrictMode } from 'react';
+import { i18n, setLanguage } from '../src/i18n';
+import initialHistory from '../data/version-history.json';
 
 const data = snapshot as HeroSnapshot;
 const workflow =
@@ -35,6 +37,9 @@ function fetchRoutes(handle: (url: string, init?: RequestInit) => Response | Pro
     .spyOn(globalThis, 'fetch')
     .mockImplementation(async (input, init) => handle(String(input), init));
 }
+beforeEach(async () => {
+  await i18n.changeLanguage('ru');
+});
 afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
@@ -42,6 +47,33 @@ afterEach(() => {
 });
 
 describe('owner updates', () => {
+  it('shows a translated up-to-date result without reloading a snapshot or a publication link', async () => {
+    await setLanguage('en');
+    const onSnapshot = vi.fn();
+    const calls: string[] = [];
+    fetchRoutes((url) => {
+      calls.push(url);
+      if (url === '/api/version-history') return json(initialHistory);
+      if (url === '/api/update/session') return json({ token: 'nonce', state: idle });
+      if (url === '/api/update')
+        return json({
+          ...idle,
+          phase: 'succeeded',
+          upToDate: true,
+          message: 'Текущая версия актуальна.',
+        });
+      throw Error('Unexpected URL');
+    });
+    render(<UpdatePage mode="local" data={data} onSnapshot={onSnapshot} />);
+    const button = screen.getByRole('button', { name: 'Update data' });
+    await waitFor(() => expect(button).toBeEnabled());
+    fireEvent.click(button);
+    expect(await screen.findByText('The current version is up to date.')).toBeVisible();
+    expect(onSnapshot).not.toHaveBeenCalled();
+    expect(calls).not.toContain('/api/heroes');
+    expect(screen.queryByRole('link', { name: 'Open the GitHub job' })).not.toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/[А-Яа-яЁё]/);
+  });
   it('connects under the real application StrictMode lifecycle', async () => {
     fetchRoutes((url) => {
       if (url === '/api/update/session') return json({ token: 'nonce', state: idle });
@@ -197,6 +229,28 @@ describe('owner updates', () => {
 });
 
 describe('public updates', () => {
+  it('loads persisted history and distinguishes the client build date from the archive date', async () => {
+    const history = {
+      schemaVersion: 1,
+      versions: [
+        ...initialHistory.versions,
+        {
+          clientVersion: 6818,
+          buildDate: '2026-10-21',
+          firstPublishedAt: '2026-10-23T12:00:00Z',
+          provenance: { kind: 'snapshot-save', reference: '2026-10-23T12:00:00Z' },
+        },
+      ],
+    };
+    fetchRoutes((url) => (url.endsWith('data/version-history.json') ? json(history) : json(data)));
+    render(<UpdatePage mode="public" data={data} onSnapshot={vi.fn()} />);
+    expect(
+      await screen.findByText('6818', { selector: '.version-history-list strong' }),
+    ).toBeVisible();
+    expect(document.querySelectorAll('.version-history-list li')).toHaveLength(2);
+    expect(screen.getAllByText('Сборка клиента')).toHaveLength(2);
+    expect(document.querySelector('time[datetime="2026-10-23T12:00:00Z"]')).toBeVisible();
+  });
   it('applies a verified same-version snapshot when its commit or content changes', async () => {
     const updated = structuredClone(data);
     updated.meta.gameCommit = 'a'.repeat(40);
@@ -241,7 +295,7 @@ describe('public updates', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Проверить обновления' }));
     expect(await screen.findByRole('alert')).toHaveTextContent(/Текущий снимок сохранён/);
     expect(onSnapshot).not.toHaveBeenCalled();
-    expect(screen.getByText('6819')).toBeVisible();
+    expect(screen.getByText('6819', { selector: '.updates-version' })).toBeVisible();
   });
 
   it('explains a newer upstream version while retaining the published snapshot', async () => {
@@ -256,7 +310,7 @@ describe('public updates', () => {
     expect(await screen.findByText(/Клиент 6821 уже доступен/)).toHaveTextContent(
       /ещё не опубликован/,
     );
-    expect(screen.getByText('6819')).toBeVisible();
+    expect(screen.getByText('6819', { selector: '.updates-version' })).toBeVisible();
   });
 
   it('still loads a valid published snapshot when the version API is unavailable', async () => {

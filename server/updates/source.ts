@@ -6,6 +6,7 @@ import type { RefreshOptions, RefreshResult } from './types.ts';
 import { parseKv3 } from './kv3.ts';
 import { buildSnapshot } from './snapshot.ts';
 import { persistSnapshot } from './storage.ts';
+import { recordSavedVersion } from './history.ts';
 export type { RefreshOptions, RefreshResult } from './types.ts';
 
 const api = 'https://api.deadlock-api.com/v1/assets';
@@ -71,13 +72,19 @@ async function batch<T>(jobs: Promise<T>[]): Promise<T[]> {
   if (failed?.status === 'rejected') throw failed.reason;
   return results.map((result) => (result as PromiseFulfilledResult<T>).value);
 }
-function steamInfo(input: any): { version: number; revision: number; buildDate: string } {
+export interface SteamVersionInfo {
+  version: number;
+  revision: number;
+  buildDate: string;
+}
+function steamInfo(input: any): SteamVersionInfo {
+  if (!input || typeof input !== 'object') throw new Error('Invalid steam version');
   const version = input.client_version,
     revision = input.source_revision;
   if (
-    !Number.isInteger(version) ||
+    !Number.isSafeInteger(version) ||
     version < 1 ||
-    !Number.isInteger(revision) ||
+    !Number.isSafeInteger(revision) ||
     revision < 1 ||
     input.server_version !== version
   )
@@ -85,6 +92,13 @@ function steamInfo(input: any): { version: number; revision: number; buildDate: 
   const date = new Date(`${input.version_date} ${input.version_time ?? '00:00:00'} UTC`);
   if (!Number.isFinite(date.getTime())) throw new Error('Invalid build date');
   return { version, revision, buildDate: date.toISOString().slice(0, 10) };
+}
+
+/** Bounded, validated version-only preflight; it fetches no assets or repository metadata. */
+export async function getLatestVersion({
+  fetchImpl = fetch,
+}: { fetchImpl?: typeof fetch } = {}): Promise<SteamVersionInfo> {
+  return steamInfo(JSON.parse(text(await request(fetchImpl, `${api}/steam-info`, 100_000))));
 }
 function rawSteam(source: string) {
   const result: Record<string, string> = {};
@@ -216,5 +230,14 @@ export async function refreshData({
   const snapshot = changed ? candidate : current;
   const backupPath =
     changed && !dryRun ? await persistSnapshot(root, snapshot, previousBytes, icons) : undefined;
-  return { snapshot, changed, checkedAt, sourceCommit: commit, backupPath, summary };
+  let historySaved: boolean | undefined;
+  if (changed && !dryRun) {
+    try {
+      await recordSavedVersion(root, snapshot);
+      historySaved = true;
+    } catch {
+      historySaved = false;
+    }
+  }
+  return { snapshot, changed, checkedAt, sourceCommit: commit, backupPath, summary, historySaved };
 }

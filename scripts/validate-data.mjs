@@ -1,10 +1,24 @@
 import { readFile, access } from 'node:fs/promises';
 import { validateSnapshot, statsAtLevel } from '../shared/heroes.ts';
+import { validateVersionHistory } from '../shared/version-history.ts';
+import { isDeepStrictEqual } from 'node:util';
 
 const snapshot = JSON.parse(
   await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
 );
 if (!validateSnapshot(snapshot)) throw new Error('Invalid hero snapshot');
+const history = JSON.parse(
+  await readFile(new URL('../data/version-history.json', import.meta.url), 'utf8'),
+);
+if (
+  !validateVersionHistory(history) ||
+  !history.versions.some(
+    (entry) =>
+      entry.clientVersion === snapshot.meta.clientVersion &&
+      entry.buildDate === snapshot.meta.buildDate,
+  )
+)
+  throw new Error('Invalid or incomplete version history');
 const mechanics = JSON.parse(
   await readFile(new URL('../data/mechanics.json', import.meta.url), 'utf8'),
 );
@@ -33,6 +47,33 @@ if (
   )
 )
   throw new Error('Invalid formula or missing evidence');
+const english = JSON.parse(
+  await readFile(new URL('../data/mechanics.en.json', import.meta.url), 'utf8'),
+);
+if (
+  english.meta.reviewedClientVersion !== mechanics.meta.reviewedClientVersion ||
+  english.meta.sourceRevision !== mechanics.meta.sourceRevision ||
+  english.meta.gameCommit !== mechanics.meta.gameCommit ||
+  english.meta.checkedAt !== mechanics.meta.checkedAt ||
+  !isDeepStrictEqual(
+    english.formulas.map((f) => f.id),
+    mechanics.formulas.map((f) => f.id),
+  ) ||
+  !isDeepStrictEqual(
+    english.sources.map(({ label: _, ...source }) => source),
+    mechanics.sources.map(({ label: _, ...source }) => source),
+  ) ||
+  english.formulas.some(
+    (f, index) =>
+      f.confidence !== mechanics.formulas[index].confidence ||
+      !isDeepStrictEqual(f.sourceIds, mechanics.formulas[index].sourceIds) ||
+      ['variables', 'explanation', 'caveats'].some(
+        (key) => f[key].length !== mechanics.formulas[index][key].length,
+      ),
+  ) ||
+  /[А-Яа-яЁё]/.test(JSON.stringify(english))
+)
+  throw new Error('English mechanics translation is missing or out of sync');
 await Promise.all(
   snapshot.heroes.map((hero) => access(new URL('../public/' + hero.portrait, import.meta.url))),
 );

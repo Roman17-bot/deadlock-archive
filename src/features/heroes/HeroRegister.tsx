@@ -17,6 +17,7 @@ import type { HeroSnapshot, HeroStats, SortDirection, SortKey } from '../../../s
 import { selectHeroes, statsAtLevel, toCsv } from '../../../shared/heroes';
 import { asset, format, formatDate } from '../../lib/format';
 import { useMediaQuery } from '../../lib/useMediaQuery';
+import { useI18n, translateDataText } from '../../i18n';
 
 const columns: {
   key: keyof HeroStats;
@@ -63,6 +64,7 @@ function initialSearch(data: HeroSnapshot) {
 }
 
 export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod: () => void }) {
+  const { t, language } = useI18n();
   const [query, setQuery] = useState(() => initialSearch(data));
   const [level, setLevel] = useState(1);
   const [sortKey, setSortKey] = useState<SortKey>('name');
@@ -124,7 +126,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
     );
   const exportCsv = () => {
     const url = URL.createObjectURL(
-      new Blob(['\ufeff' + toCsv(selected, level)], { type: 'text/csv;charset=utf-8;' }),
+      new Blob(['\ufeff' + toCsv(selected, level, language)], { type: 'text/csv;charset=utf-8;' }),
     );
     const link = document.createElement('a');
     link.href = url;
@@ -135,37 +137,43 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
   return (
     <div className="register-page">
       <div className="breadcrumbs">
-        <a href="#/">Архив</a>
+        <a href="#/">{t('Архив')}</a>
         <ChevronRight size={12} />
-        <span>Реестр героев</span>
+        <span>{t('Реестр героев')}</span>
       </div>
       <section className="register-heading">
         <div>
-          <div className="section-kicker">ЛИЧНЫЕ ДЕЛА · ВЫПУСК 001</div>
+          <div className="section-kicker">{t('ЛИЧНЫЕ ДЕЛА · ВЫПУСК 001')}</div>
           <h1>
-            Реестр героев<span className="title-star">✦</span>
+            {t('Реестр героев')}
+            <span className="title-star">✦</span>
           </h1>
-          <p>Разные характеры. Разные возможности. Все базовые характеристики — в одном месте.</p>
+          <p>
+            {t('Разные характеры. Разные возможности. Все базовые характеристики — в одном месте.')}
+          </p>
         </div>
         <div className="snapshot-plaque">
           <span className="status-dot" />
-          СВЕРЕНО С КЛИЕНТОМ<strong>{data.meta.clientVersion}</strong>
-          <span>ПРОВЕРЕНО {formatDate(data.meta.snapshotDate)}</span>
+          {t('СВЕРЕНО С КЛИЕНТОМ')}
+          <strong>{data.meta.clientVersion}</strong>
+          <span>
+            {t('ПРОВЕРЕНО')} {formatDate(data.meta.snapshotDate)}
+          </span>
         </div>
       </section>
-      <section className="register-workspace" aria-label="Параметры сравнения">
+      <section className="register-workspace" aria-label={t('Параметры сравнения')}>
         <div className="register-toolbar">
           <div className="search-field">
             <Search size={18} />
             <input
               type="search"
-              aria-label="Найти героя"
-              placeholder="Найти героя…"
+              aria-label={t('Найти героя')}
+              placeholder={t('Найти героя…')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             {query && (
-              <button aria-label="Очистить поиск" onClick={() => setQuery('')}>
+              <button aria-label={t('Очистить поиск')} onClick={() => setQuery('')}>
                 <X size={16} />
               </button>
             )}
@@ -175,23 +183,23 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
               className={query === 'Nurse Harrow' ? 'selected' : ''}
               onClick={() => setQuery(query === 'Nurse Harrow' ? '' : 'Nurse Harrow')}
             >
-              Nurse Harrow<span>НОВЫЙ</span>
+              Nurse Harrow<span>{t('НОВЫЙ')}</span>
             </button>
             <button
               className={query === 'Violet' ? 'selected' : ''}
               onClick={() => setQuery(query === 'Violet' ? '' : 'Violet')}
             >
-              Violet<span>НОВЫЙ</span>
+              Violet<span>{t('НОВЫЙ')}</span>
             </button>
           </div>
           <button className="export-button" onClick={exportCsv} disabled={!selected.length}>
             <Download size={16} />
-            <span>Скачать CSV</span>
+            <span>{t('Скачать CSV')}</span>
           </button>
         </div>
         <div className="level-toolbar">
           <div className="level-label">
-            <span>УРОВЕНЬ ГЕРОЯ</span>
+            <span>{t('УРОВЕНЬ ГЕРОЯ')}</span>
             <strong>
               LVL <span>{String(level).padStart(2, '0')}</span>
             </strong>
@@ -199,7 +207,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           <div className="level-control">
             <button
               className="level-step"
-              aria-label="Уменьшить уровень"
+              aria-label={t('Уменьшить уровень')}
               disabled={level === 1}
               onClick={() => setLevel((n) => n - 1)}
             >
@@ -210,14 +218,14 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
               min="1"
               max="36"
               step="1"
-              aria-label="Уровень героя"
+              aria-label={t('Уровень героя')}
               value={level}
               onChange={(e) => setLevel(Number(e.target.value))}
               style={{ '--range-progress': `${((level - 1) / 35) * 100}%` } as React.CSSProperties}
             />
             <button
               className="level-step"
-              aria-label="Увеличить уровень"
+              aria-label={t('Увеличить уровень')}
               disabled={level === 36}
               onClick={() => setLevel((n) => n + 1)}
             >
@@ -225,39 +233,44 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
             </button>
           </div>
           <p>
-            {level === 1 ? 'Базовые параметры' : 'С учётом ' + (level - 1) + ' Boons'}
-            <span>Без предметов и активных эффектов</span>
+            {level === 1
+              ? t('Базовые параметры')
+              : t('С учётом {{count}} Boons', { count: level - 1 })}
+            <span>{t('Без предметов и активных эффектов')}</span>
           </p>
-          <button className="reset-button" aria-label="Сбросить настройки" onClick={reset}>
+          <button className="reset-button" aria-label={t('Сбросить настройки')} onClick={reset}>
             <RotateCcw size={14} />
-            <span>Сбросить</span>
+            <span>{t('Сбросить')}</span>
           </button>
         </div>
       </section>
       {isMobile && (
         <div className="mobile-table-tools">
-          <div className="stat-view-switch" role="group" aria-label="Показатели таблицы">
+          <div className="stat-view-switch" role="group" aria-label={t('Показатели таблицы')}>
             <button aria-pressed={statView === 'stats'} onClick={() => changeStatView('stats')}>
-              Характеристики
+              {t('Характеристики')}
             </button>
             <button aria-pressed={statView === 'growth'} onClick={() => changeStatView('growth')}>
-              Приросты за LVL
+              {t('Приросты за LVL')}
             </button>
           </div>
-          <p>Листай столбцы вбок. Нажми на героя для примечаний.</p>
+          <p>{t('Листай столбцы вбок. Нажми на героя для примечаний.')}</p>
         </div>
       )}
       <div className="table-caption">
         <span aria-live="polite">
-          В реестре <strong>{selected.length}</strong> из {data.heroes.length} героев
+          {t('В реестре {{selected}} из {{count}} героев', {
+            selected: selected.length,
+            count: data.heroes.length,
+          })}
         </span>
         <div>
           <span className="legend-square" />
-          Приросты учитывают встроенный Spirit-скейл
+          {t('Приросты учитывают встроенный Spirit-скейл')}
         </div>
-        <button aria-label="Как считаем характеристики" onClick={onMethod}>
+        <button aria-label={t('Как считаем характеристики')} onClick={onMethod}>
           <Info size={14} />
-          Как считаем
+          {t('Как считаем')}
         </button>
       </div>
       <div className="table-frame" data-stat-view={isMobile ? statView : 'all'}>
@@ -265,11 +278,13 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           className="table-scroll"
           tabIndex={0}
           role="region"
-          aria-label="Таблица характеристик героев"
+          aria-label={t('Таблица характеристик героев')}
         >
-          <table aria-label="Характеристики героев">
+          <table aria-label={t('Характеристики героев')}>
             <caption className="sr-only">
-              Параметры героев на уровне {level}. Нажми на заголовок для сортировки.
+              {t('Параметры героев на уровне {{level}}. Нажми на заголовок для сортировки.', {
+                level,
+              })}
             </caption>
             <thead>
               <tr>
@@ -284,8 +299,9 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                       : 'none'
                   }
                 >
-                  <button aria-label="Герой: сортировать" onClick={() => sort('name')}>
-                    ГЕРОЙ{icon('name')}
+                  <button aria-label={t('Герой: сортировать')} onClick={() => sort('name')}>
+                    {t('ГЕРОЙ')}
+                    {icon('name')}
                   </button>
                 </th>
                 {visibleColumns.map((column) => (
@@ -302,17 +318,19 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                     }
                   >
                     <button
-                      aria-label={`${column.label}: сортировать`}
+                      aria-label={t('{{label}}: сортировать', { label: t(column.label) })}
                       onClick={() => sort(column.key)}
                     >
                       <span>
-                        {isMobile ? (column.mobileLabel ?? column.label) : column.label}
+                        {t(isMobile ? (column.mobileLabel ?? column.label) : column.label)}
                         <small>
-                          {isMobile
-                            ? column.growth
-                              ? ''
-                              : (column.mobileUnit ?? column.unit)
-                            : column.unit}
+                          {t(
+                            isMobile
+                              ? column.growth
+                                ? ''
+                                : (column.mobileUnit ?? column.unit)
+                              : column.unit,
+                          )}
                         </small>
                       </span>
                       {icon(column.key)}
@@ -333,7 +351,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                       <th className="hero-column" scope="row">
                         <button
                           className="hero-cell"
-                          aria-label={`Примечания: ${hero.name}`}
+                          aria-label={t('Примечания: {{hero}}', { hero: hero.name })}
                           aria-expanded={expanded === hero.id}
                           onClick={() => setExpanded(expanded === hero.id ? null : hero.id)}
                         >
@@ -350,7 +368,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                           />
                           <span className="hero-cell-name">
                             {hero.name}
-                            {hero.isNew && <small>НОВЫЙ ГЕРОЙ</small>}
+                            {hero.isNew && <small>{t('НОВЫЙ ГЕРОЙ')}</small>}
                           </span>
                           <Info className="row-info-icon" size={18} aria-hidden="true" />
                         </button>
@@ -368,7 +386,7 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                           {column.key === 'shotDamage' && hero.weapon.projectiles > 1 && (
                             <small className="pellet-note">
                               {hero.weapon.hitOnce
-                                ? 'Одно попадание'
+                                ? t('Одно попадание')
                                 : `${hero.weapon.projectiles} × ${format(stats.bulletDamage)}`}
                             </small>
                           )}
@@ -379,23 +397,33 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
                       <tr className="details-row">
                         <td colSpan={visibleColumns.length + 1}>
                           <div>
-                            <strong>{hero.name} / параметры оружия</strong>
+                            <strong>{t('{{hero}} / параметры оружия', { hero: hero.name })}</strong>
                             <p>
-                              Пуля или дробина: {format(stats.bulletDamage, 4)} · Траекторий:{' '}
-                              {hero.weapon.projectiles} · Выстрелов в очереди: {hero.weapon.burst} ·
-                              Магазин: {hero.weapon.clipSize}.
+                              {t(
+                                'Пуля или дробина: {{damage}} · Траекторий: {{projectiles}} · Выстрелов в очереди: {{burst}} · Магазин: {{clip}}.',
+                                {
+                                  damage: format(stats.bulletDamage, 4),
+                                  projectiles: hero.weapon.projectiles,
+                                  burst: hero.weapon.burst,
+                                  clip: hero.weapon.clipSize,
+                                },
+                              )}
                             </p>
                             {hero.weapon.notes.map((note) => (
-                              <p key={note}>{note}</p>
+                              <p key={note}>{translateDataText(note)}</p>
                             ))}
                             <p>
-                              Прямой прирост пули: +{format(hero.growth.bulletDamage, 5)} / LVL
+                              {t('Прямой прирост пули: +{{growth}} / LVL', {
+                                growth: format(hero.growth.bulletDamage, 5),
+                              })}
                               {hero.scaling.bulletDamagePerSpirit > 0
-                                ? ` · Дополнительно +${format(hero.scaling.bulletDamagePerSpirit, 5)} урона за Spirit.`
+                                ? t(' · Дополнительно +{{scale}} урона за Spirit.', {
+                                    scale: format(hero.scaling.bulletDamagePerSpirit, 5),
+                                  })
                                 : '.'}
                             </p>
                             <a href={hero.source.weaponUrl} target="_blank" rel="noreferrer">
-                              Открыть исходные параметры
+                              {t('Открыть исходные параметры')}
                               <ArrowUpRight size={13} />
                             </a>
                           </div>
@@ -410,10 +438,10 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
           {!selected.length && (
             <div className="empty-state">
               <Search size={28} />
-              <h2>Таких героев в досье нет</h2>
-              <p>Попробуй другое имя — можно на русском или английском.</p>
+              <h2>{t('Таких героев в досье нет')}</h2>
+              <p>{t('Попробуй другое имя — можно на русском или английском.')}</p>
               <button className="text-link" onClick={() => setQuery('')}>
-                Показать всех героев
+                {t('Показать всех героев')}
                 <ArrowRightFallback />
               </button>
             </div>
@@ -424,9 +452,9 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
         <p>
           <Info size={14} />
           <span>
-            Урон выстрела учитывает обычные дробины и исключение hit-once. DPS — расчёт без
-            перезарядки; особые режимы отмечены в строках. Нулевой Spirit на LVL 1 — корректное
-            базовое значение.
+            {t(
+              'Урон выстрела учитывает обычные дробины и исключение hit-once. DPS — расчёт без перезарядки; особые режимы отмечены в строках. Нулевой Spirit на LVL 1 — корректное базовое значение.',
+            )}
           </span>
         </p>
         <span className="data-stamp">
@@ -436,11 +464,13 @@ export function HeroRegister({ data, onMethod }: { data: HeroSnapshot; onMethod:
       <aside className="register-aside">
         <span className="note-mark">✦</span>
         <p>
-          <strong>Смотри на сочетания, а не на одну цифру.</strong> Высокий урон выстрела не
-          гарантирует высокий DPS. Приросты и выбранный уровень меняют картину.
+          <strong>{t('Смотри на сочетания, а не на одну цифру.')}</strong>{' '}
+          {t(
+            'Высокий урон выстрела не гарантирует высокий DPS. Приросты и выбранный уровень меняют картину.',
+          )}
         </p>
         <button className="text-link" onClick={onMethod}>
-          Читать методику
+          {t('Читать методику')}
           <ArrowUpRight size={16} />
         </button>
       </aside>

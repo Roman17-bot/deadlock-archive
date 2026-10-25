@@ -94,6 +94,10 @@
 }
 .search-field:focus-within {
   border-color: var(--brass);
+  box-shadow: 0 0 0 1px var(--brass);
+}
+.search-field button:focus-visible {
+  outline-offset: -3px;
 }
 .search-field input {
   min-width: 0;

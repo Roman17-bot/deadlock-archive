@@ -1,7 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { createServer, request } from 'node:http';
 import type { AddressInfo } from 'node:net';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import original from '../../data/heroes.json';
+import originalHistory from '../../data/version-history.json';
 import type { HeroSnapshot } from '../../shared/types';
 import { createUpdateManager } from './manager';
 import { handleUpdateRequest } from './http';
@@ -10,11 +14,16 @@ const origin = 'http://127.0.0.1:5173';
 let manager: ReturnType<typeof createUpdateManager>;
 let app: ReturnType<typeof createServer>;
 let port: number;
+let root: string;
 let release: (() => void) | undefined;
 beforeEach(async () => {
+  root = await mkdtemp(join(tmpdir(), 'deadlock-history-http-'));
+  await mkdir(join(root, 'data'));
+  await writeFile(join(root, 'data/version-history.json'), JSON.stringify(originalHistory));
   manager = createUpdateManager({
     snapshot: original as HeroSnapshot,
-    root: '.',
+    root,
+    checkVersion: async () => ({ version: 6820, revision: 11162697, buildDate: '2026-10-25' }),
     refresh: async () => {
       await new Promise<void>((resolve) => {
         release = resolve;
@@ -40,6 +49,7 @@ afterEach(async () => {
   release?.();
   release = undefined;
   await new Promise<void>((resolve) => app.close(() => resolve()));
+  await rm(root, { recursive: true, force: true });
 });
 
 function send(
@@ -82,6 +92,67 @@ const post = (headers = {}, body = '{"publish":false}') =>
   });
 
 describe('loopback owner update HTTP boundary', () => {
+  it('serves fresh validated history after an on-disk save without restarting the manager', async () => {
+    const initial = await send('/api/version-history');
+    expect(initial.status).toBe(200);
+    expect(JSON.parse(initial.body)).toEqual(originalHistory);
+    expect(initial.headers['cache-control']).toBe('no-store');
+    expect(initial.body).not.toContain(manager.getSessionToken());
+    const next = structuredClone(originalHistory);
+    next.versions.unshift({ ...next.versions[0], clientVersion: 6820 });
+    await writeFile(join(root, 'data/version-history.json'), JSON.stringify(next));
+    const refreshed = await send('/api/version-history?path=knowledge/private.json', {
+      headers: { Origin: origin },
+    });
+    expect(refreshed.status).toBe(200);
+    expect(JSON.parse(refreshed.body)).toEqual(next);
+    expect(refreshed.headers['access-control-allow-origin']).toBe(origin);
+    const head = await send('/api/version-history', { method: 'HEAD' });
+    expect(head.status).toBe(200);
+    expect(head.body).toBe('');
+    expect((await send('/api/version-history', { method: 'POST' })).status).toBe(405);
+  });
+  it.each(['missing', 'malformed', 'duplicate', 'oversized'])(
+    'redacts %s history failures',
+    async (condition) => {
+      if (condition === 'missing') await rm(join(root, 'data/version-history.json'));
+      if (condition === 'malformed')
+        await writeFile(join(root, 'data/version-history.json'), '{private-path');
+      if (condition === 'duplicate')
+        await writeFile(
+          join(root, 'data/version-history.json'),
+          JSON.stringify({
+            ...originalHistory,
+            versions: [originalHistory.versions[0], originalHistory.versions[0]],
+          }),
+        );
+      if (condition === 'oversized')
+        await writeFile(join(root, 'data/version-history.json'), ' '.repeat(256_001));
+      const response = await send('/api/version-history');
+      expect(response.status).toBe(503);
+      expect(JSON.parse(response.body)).toEqual({ error: 'Version history unavailable' });
+      expect(response.body).not.toContain(root);
+      expect(response.headers['cache-control']).toBe('no-store');
+    },
+  );
+  it('protects the history route with the local read boundary', async () => {
+    const forbidden: Record<string, string>[] = [
+      { Origin: 'https://evil.test' },
+      { Host: 'evil.test' },
+      { 'Sec-Fetch-Site': 'cross-site' },
+    ];
+    for (const headers of forbidden) {
+      const response = await send('/api/version-history', { headers });
+      expect(response.status).toBe(403);
+      expect(response.headers['access-control-allow-origin']).toBeUndefined();
+    }
+    const preflight = await send('/api/version-history', {
+      method: 'OPTIONS',
+      headers: { Origin: origin },
+    });
+    expect(preflight.status).toBe(204);
+    expect(preflight.headers['access-control-allow-methods']).toBe('GET, HEAD, OPTIONS');
+  });
   it('issues a same-origin session, exposes status without nonce and supports HEAD', async () => {
     const session = await send('/api/update/session');
     expect(session.status).toBe(200);

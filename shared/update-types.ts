@@ -11,6 +11,8 @@ export interface UpdateState {
   clientVersion: number;
   localSaved: boolean;
   changed: boolean;
+  upToDate?: boolean;
+  historySaved?: boolean;
   message: string;
   updatedAt: string;
   jobId?: string;

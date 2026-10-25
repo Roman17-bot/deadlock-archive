@@ -4,7 +4,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import original from '../../data/heroes.json';
 import originalProvenance from '../../data/provenance.json';
-import { refreshData } from './source.ts';
+import originalHistory from '../../data/version-history.json';
+import { getLatestVersion, refreshData } from './source.ts';
 
 const fixture = (name: string) => readFile(new URL(`./fixtures/${name}`, import.meta.url), 'utf8');
 const sha = '17462b250a0ca80e7f80102f2c83cc3eecff5f12';
@@ -52,6 +53,7 @@ beforeEach(async () => {
   await mkdir(join(root, 'data'));
   await writeFile(join(root, 'data/heroes.json'), JSON.stringify(original));
   await writeFile(join(root, 'data/provenance.json'), JSON.stringify(originalProvenance));
+  await writeFile(join(root, 'data/version-history.json'), JSON.stringify(originalHistory));
   await writeFile(
     join(root, 'data/updater-policy.json'),
     await readFile(new URL('../../data/updater-policy.json', import.meta.url), 'utf8'),
@@ -70,6 +72,65 @@ afterEach(async () => {
 });
 
 describe('version-bound refresh transaction', () => {
+  it('checks only the bounded steam-info document for preflight', async () => {
+    const calls: string[] = [];
+    expect(
+      await getLatestVersion({
+        fetchImpl: async (input) => {
+          calls.push(String(input));
+          return Response.json(info());
+        },
+      }),
+    ).toEqual({ version: 6819, revision: 11162696, buildDate: '2026-10-22' });
+    expect(calls).toEqual(['https://api.deadlock-api.com/v1/assets/steam-info']);
+  });
+  it.each([
+    null,
+    { ...info(), client_version: 0 },
+    { ...info(), server_version: 6820 },
+    { ...info(), source_revision: 0 },
+    { ...info(), version_date: 'garbage' },
+  ])('rejects invalid version-only responses: %j', async (value) => {
+    await expect(
+      getLatestVersion({ fetchImpl: async () => Response.json(value) }),
+    ).rejects.toThrow();
+  });
+  it('rejects oversized version-only responses', async () => {
+    await expect(
+      getLatestVersion({ fetchImpl: async () => new Response(' '.repeat(100_001)) }),
+    ).rejects.toThrow(/large/);
+  });
+  it('records a new saved client in history without duplicating subsequent refreshes', async () => {
+    const prior = structuredClone(original);
+    prior.meta.clientVersion = 6818;
+    await writeFile(join(root, 'data/heroes.json'), JSON.stringify(prior));
+    await writeFile(
+      join(root, 'data/version-history.json'),
+      JSON.stringify({ schemaVersion: 1, versions: [] }),
+    );
+    const result = await refreshData({ root, fetchImpl });
+    const history = JSON.parse(await readFile(join(root, 'data/version-history.json'), 'utf8'));
+    expect(history.versions).toHaveLength(1);
+    expect(history.versions[0]).toMatchObject({
+      clientVersion: 6819,
+      buildDate: '2026-10-22',
+      provenance: { kind: 'snapshot-save' },
+    });
+    expect(result).toMatchObject({ changed: true, historySaved: true });
+    latestCalls = 0;
+    const bytes = await readFile(join(root, 'data/version-history.json'), 'utf8');
+    await refreshData({ root, fetchImpl });
+    expect(await readFile(join(root, 'data/version-history.json'), 'utf8')).toBe(bytes);
+  });
+  it('retains a successful snapshot save and reports a history failure separately', async () => {
+    await writeFile(join(root, 'data/version-history.json'), '{broken');
+    const result = await refreshData({ root, fetchImpl });
+    expect(result).toMatchObject({ changed: true, historySaved: false });
+    expect(JSON.parse(await readFile(join(root, 'data/heroes.json'), 'utf8'))).toEqual(
+      result.snapshot,
+    );
+    expect(await readFile(join(root, 'data/version-history.json'), 'utf8')).toBe('{broken');
+  });
   it('rejects raw legacy release flags that disagree with the active API roster', async () => {
     const start = heroesText.indexOf('"hero_baba" = ');
     heroesText =
@@ -209,6 +270,7 @@ describe('version-bound refresh transaction', () => {
       'heroes.json',
       'provenance.json',
       'updater-policy.json',
+      'version-history.json',
     ]);
     if (iconUrl)
       await expect(readFile(join(root, 'public/assets/heroes/seven.webp'))).rejects.toThrow();

@@ -1,10 +1,13 @@
 import { randomBytes, randomUUID } from 'node:crypto';
 import type { HeroSnapshot } from '../../shared/types';
 import type { PublicationState, UpdateState } from '../../shared/update-types';
-import { refreshData } from './source';
+import { getLatestVersion, refreshData } from './source';
+import { readVersionHistory } from './history';
+import type { VersionHistory } from '../../shared/version-history';
 
 export interface UpdateManager {
   getSnapshot(): HeroSnapshot;
+  getHistory(): Promise<VersionHistory>;
   getState(): UpdateState;
   getSessionToken(): string;
   start(options: { publish: boolean }): UpdateState;
@@ -20,6 +23,7 @@ export interface UpdateManagerOptions {
   snapshot: HeroSnapshot;
   root: string;
   refresh?: typeof refreshData;
+  checkVersion?: typeof getLatestVersion;
   publish?: (options: { expectedVersion: number }) => Promise<PublicationState>;
   onSaved?: (snapshot: HeroSnapshot) => void | Promise<void>;
 }
@@ -43,18 +47,42 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
   async function execute(publish: boolean) {
     let warning = '';
     try {
-      const refreshed = await (options.refresh ?? refreshData)({ root: options.root });
+      const latest = await (options.checkVersion ?? getLatestVersion)();
+      if (latest.version < current.meta.clientVersion)
+        throw new Error('Refusing version downgrade');
+      if (latest.version === current.meta.clientVersion) {
+        update({ phase: 'succeeded', upToDate: true, message: 'Текущая версия актуальна.' });
+        return;
+      }
+      const refreshed = await (options.refresh ?? refreshData)({
+        root: options.root,
+        expectedVersion: latest.version,
+      });
+      if (!refreshed.changed) {
+        update({ phase: 'succeeded', upToDate: true, message: 'Текущая версия актуальна.' });
+        return;
+      }
       update({ phase: 'saving', message: 'Проверенные данные сохранены локально.' });
       current = structuredClone(refreshed.snapshot);
       update({
         localSaved: true,
         changed: refreshed.changed,
         clientVersion: current.meta.clientVersion,
+        historySaved: refreshed.historySaved,
       });
       try {
         await options.onSaved?.(structuredClone(current));
       } catch {
         warning = ' Индекс базы знаний не обновлён; повторите импорт.';
+      }
+      if (refreshed.historySaved === false) {
+        update({
+          phase: 'succeeded',
+          message:
+            'Локальные данные сохранены. История версий не сохранена; публикация не отправлена. Исправьте историю перед публикацией.' +
+            warning,
+        });
+        return;
       }
       if (publish) {
         update({
@@ -81,7 +109,7 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
       }
     } catch {
       const error = state.localSaved
-        ? 'Локальные данные сохранены, но отправка публикации не удалась. Повторите позже или запустите GitHub Actions вручную.'
+        ? 'Локальные данные сохранены, но отправка публикации не удалась. Запустите GitHub Actions вручную: повторное обновление той же версии не отправляет публикацию.'
         : 'Обновление не удалось. Предыдущий локальный снимок сохранён.';
       update({ phase: 'failed', error, message: error + warning });
     } finally {
@@ -90,6 +118,7 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
   }
   return {
     getSnapshot: () => structuredClone(current),
+    getHistory: () => readVersionHistory(options.root),
     getState: readState,
     getSessionToken: () => token,
     start({ publish }) {

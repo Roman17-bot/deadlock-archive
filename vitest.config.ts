@@ -10,6 +10,7 @@ export default defineConfig({
       'shared/**/*.test.ts',
       'server/**/*.test.ts',
       'tests/**/*.test.tsx',
+      'tests/**/*.test.ts',
       'scripts/**/*.test.ts',
     ],
   },

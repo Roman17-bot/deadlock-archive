@@ -3,7 +3,10 @@ import { ArrowUpRight, RefreshCw } from 'lucide-react';
 import type { HeroSnapshot } from '../../../shared/types';
 import type { UpdateSession, UpdateState } from '../../../shared/update-types';
 import { validateSnapshot } from '../../../shared/heroes';
-import { asset } from '../../lib/format';
+import { asset, formatDate } from '../../lib/format';
+import { useI18n, translateError } from '../../i18n';
+import initialHistory from '../../../data/version-history.json';
+import { validateVersionHistory, type VersionHistory } from '../../../shared/version-history';
 import '../../styles/updates.css';
 
 const workflow =
@@ -67,7 +70,10 @@ interface UpdatePageProps {
 }
 
 export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageProps) {
+  const { t } = useI18n();
   const mode = modeOverride ?? modeForLocation();
+  const [history, setHistory] = useState<VersionHistory>(initialHistory as VersionHistory);
+  const [historyEpoch, setHistoryEpoch] = useState(0);
   const [state, setState] = useState<UpdateState | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [connected, setConnected] = useState(false);
@@ -84,6 +90,21 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   const loadedJob = useRef<string | null>(null);
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const polls = useRef(0);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void readJson(mode === 'local' ? '/api/version-history' : asset('data/version-history.json'), {
+      cache: 'no-store',
+      signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20_000)]),
+    })
+      .then((value) => {
+        if (!controller.signal.aborted && validateVersionHistory(value)) setHistory(value);
+      })
+      .catch(() => {
+        /* Keep the validated history bundled with this release. */
+      });
+    return () => controller.abort();
+  }, [mode, data.meta.clientVersion, historyEpoch]);
 
   useEffect(() => {
     current.current = data;
@@ -111,6 +132,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
         if (live.current) {
           current.current = candidate;
           onSnapshot(candidate);
+          setHistoryEpoch((n) => n + 1);
         }
       } catch {
         if (live.current)
@@ -226,6 +248,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
       setError('Опубликованный снимок недоступен или устарел. Текущий снимок сохранён.');
     } else {
       const candidate = published.value;
+      setHistoryEpoch((n) => n + 1);
       if (JSON.stringify(candidate) !== JSON.stringify(current.current)) {
         current.current = candidate;
         onSnapshot(candidate);
@@ -244,29 +267,34 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   return (
     <section className="updates-page" aria-labelledby="updates-title">
       <div className="updates-hero">
-        <span className="updates-eyebrow">АРХИВ / ДАННЫЕ</span>
-        <h1 id="updates-title">Центр обновлений</h1>
+        <span className="updates-eyebrow">{t('АРХИВ / ДАННЫЕ')}</span>
+        <h1 id="updates-title">{t('Центр обновлений')}</h1>
         <p>
-          Проверяйте версию игры и состояние снимка героев. Изменения механик требуют отдельной
-          сверки.
+          {t(
+            'Проверяйте версию игры и состояние снимка героев. Изменения механик требуют отдельной сверки.',
+          )}
         </p>
       </div>
       <div className="updates-grid">
         <div className="updates-panel">
-          <span className="updates-label">ТЕКУЩИЙ СНИМОК</span>
+          <span className="updates-label">{t('ТЕКУЩИЙ СНИМОК')}</span>
           <p className="updates-version">{data.meta.clientVersion}</p>
           <p>
-            Ревизия {data.meta.sourceRevision} · {data.meta.heroCount} героев
+            {t('Ревизия {{revision}} · {{count}} героев', {
+              revision: data.meta.sourceRevision,
+              count: data.meta.heroCount,
+            })}
           </p>
-          <p>Проверен {data.meta.checkedAt.slice(0, 10)}</p>
+          <p>{t('Проверен {{date}}', { date: formatDate(data.meta.checkedAt) })}</p>
         </div>
         {mode === 'local' ? (
           <div className="updates-panel updates-control">
-            <span className="updates-label">ЛОКАЛЬНЫЙ ЦЕНТР</span>
-            <h2>Проверить и сохранить</h2>
+            <span className="updates-label">{t('ЛОКАЛЬНЫЙ ЦЕНТР')}</span>
+            <h2>{t('Проверить и сохранить')}</h2>
             <p>
-              Новые данные сначала проходят проверку, затем сохраняются локально. Публикация
-              запускается отдельной задачей GitHub Actions.
+              {t(
+                'Новые данные сначала проходят проверку, затем сохраняются локально. Публикация запускается отдельной задачей GitHub Actions.',
+              )}
             </p>
             <label className="updates-option">
               <input
@@ -274,7 +302,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
                 checked={publish}
                 onChange={(event) => setPublish(event.target.checked)}
               />
-              <span>Опубликовать после сохранения</span>
+              <span>{t('Опубликовать после сохранения')}</span>
             </label>
             <button
               className="updates-button"
@@ -285,41 +313,45 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
               onClick={() => void start()}
             >
               <RefreshCw size={18} />
-              Обновить данные
+              {t('Обновить данные')}
             </button>
             {state && (
               <div className="updates-state" role="status" aria-live="polite">
                 <strong>
-                  {state.localSaved
-                    ? 'Сохранено локально'
-                    : state.phase === 'failed'
-                      ? 'Обновление не удалось'
-                      : activePhases.has(state.phase)
-                        ? 'Обновление выполняется'
-                        : 'Готово к проверке'}
+                  {t(
+                    state.upToDate
+                      ? 'Текущая версия актуальна'
+                      : state.localSaved
+                        ? 'Сохранено локально'
+                        : state.phase === 'failed'
+                          ? 'Обновление не удалось'
+                          : activePhases.has(state.phase)
+                            ? 'Обновление выполняется'
+                            : 'Готово к проверке',
+                  )}
                 </strong>
-                <p>{state.message}</p>
+                <p>{translateError(state.message)}</p>
                 {state.localSaved &&
                   (state.publication?.status === 'queued' ||
                     state.publication?.status === 'in_progress') && (
-                    <p>Публикация в очереди. Развёртывание пока не подтверждено.</p>
+                    <p>{t('Публикация в очереди. Развёртывание пока не подтверждено.')}</p>
                   )}
                 {state.localSaved && state.phase === 'failed' && (
                   <>
-                    <p>Публикация не отправлена</p>
-                    <p>Локальный снимок сохранён.</p>
+                    <p>{t('Публикация не отправлена')}</p>
+                    <p>{t('Локальный снимок сохранён.')}</p>
                   </>
                 )}
                 {publicationUrl && (
                   <a href={publicationUrl} target="_blank" rel="noopener noreferrer">
-                    Открыть задачу GitHub <ArrowUpRight size={15} />
+                    {t('Открыть задачу GitHub')} <ArrowUpRight size={15} />
                   </a>
                 )}
               </div>
             )}
             {error && (
               <p className="updates-error" role="alert">
-                {error}
+                {t(error)}
               </p>
             )}
             {(!connected || (!!error && !!state && activePhases.has(state.phase))) && (
@@ -329,15 +361,19 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
                 disabled={connecting}
                 onClick={() => void connect()}
               >
-                Повторить подключение
+                {t('Повторить подключение')}
               </button>
             )}
           </div>
         ) : (
           <div className="updates-panel updates-control">
-            <span className="updates-label">ОПУБЛИКОВАННЫЕ ДАННЫЕ</span>
-            <h2>Проверить снимок</h2>
-            <p>Загрузим актуальный опубликованный снимок и сравним его с доступной версией игры.</p>
+            <span className="updates-label">{t('ОПУБЛИКОВАННЫЕ ДАННЫЕ')}</span>
+            <h2>{t('Проверить снимок')}</h2>
+            <p>
+              {t(
+                'Загрузим актуальный опубликованный снимок и сравним его с доступной версией игры.',
+              )}
+            </p>
             <button
               className="updates-button"
               type="button"
@@ -345,33 +381,98 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
               onClick={() => void checkPublic()}
             >
               <RefreshCw size={18} />
-              Проверить обновления
+              {t('Проверить обновления')}
             </button>
             {notice && (
               <p className="updates-notice" role="status" aria-live="polite">
-                {notice}
+                {notice.split(' Версию игры проверить не удалось.').map((part, index) => (
+                  <span key={index}>
+                    {index > 0 && <> {t('Версию игры проверить не удалось.')}</>}
+                    {part && t(part)}
+                  </span>
+                ))}
               </p>
             )}
             {error && (
               <p className="updates-error" role="alert">
-                {error}
+                {t(error)}
               </p>
             )}
             {upstream !== null && upstream > data.meta.clientVersion && (
               <p className="updates-pending">
-                Клиент {upstream} уже доступен, но снимок для этой версии ещё не опубликован.
+                {t(
+                  'Клиент {{version}} уже доступен, но снимок для этой версии ещё не опубликован.',
+                  { version: upstream },
+                )}
               </p>
             )}
           </div>
         )}
       </div>
+      <section className="version-history" aria-labelledby="version-history-title">
+        <div className="version-history-heading">
+          <span className="updates-label">{t('ЖУРНАЛ АРХИВА')}</span>
+          <h2 id="version-history-title">{t('История версий')}</h2>
+          <p>
+            {t(
+              'Версии клиента, которые появлялись в нашем архиве. Дата сборки клиента и дата появления в архиве указаны отдельно.',
+            )}
+          </p>
+        </div>
+        <ol className="version-history-list">
+          {[...history.versions]
+            .sort((a, b) => b.clientVersion - a.clientVersion)
+            .map((entry) => (
+              <li
+                key={entry.clientVersion}
+                className={entry.clientVersion === data.meta.clientVersion ? 'is-current' : ''}
+              >
+                <div>
+                  <span className="version-history-dot" aria-hidden="true" />
+                  <strong>{entry.clientVersion}</strong>
+                  {entry.clientVersion === data.meta.clientVersion && (
+                    <span className="version-current">{t('Текущая')}</span>
+                  )}
+                </div>
+                <dl>
+                  <div>
+                    <dt>{t('Сборка клиента')}</dt>
+                    <dd>
+                      <time dateTime={entry.buildDate}>{formatDate(entry.buildDate)}</time>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{t('В архиве с')}</dt>
+                    <dd>
+                      <time dateTime={entry.firstPublishedAt}>
+                        {formatDate(entry.firstPublishedAt)}
+                      </time>
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+        </ol>
+        {history.versions.length === 1 && (
+          <p className="history-note">
+            {t(
+              'Это первая версия клиента, опубликованная в архиве. Новые версии будут добавляться сюда при обновлении данных.',
+            )}
+          </p>
+        )}
+        {!history.versions.some((entry) => entry.clientVersion === data.meta.clientVersion) && (
+          <p className="updates-pending">
+            {t('Запись текущей версии ещё не загружена. Показана последняя доступная история.')}
+          </p>
+        )}
+      </section>
       <div className="updates-links">
         <a href={workflow} target="_blank" rel="noopener noreferrer">
           GitHub Actions <ArrowUpRight size={16} />
         </a>
         {mode === 'public' && (
           <a href={localCenter} target="_blank" rel="noopener noreferrer">
-            Открыть локальный центр <ArrowUpRight size={16} />
+            {t('Открыть локальный центр')} <ArrowUpRight size={16} />
           </a>
         )}
       </div>

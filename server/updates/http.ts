@@ -3,7 +3,12 @@ import { timingSafeEqual } from 'node:crypto';
 import { UpdateConflictError, type UpdateManager } from './manager';
 
 const origins = new Set(['http://127.0.0.1:5173', 'http://localhost:5173']);
-const routes = new Set(['/api/update', '/api/update/session', '/api/update/status']);
+const routes = new Set([
+  '/api/update',
+  '/api/update/session',
+  '/api/update/status',
+  '/api/version-history',
+]);
 const maxBytes = 4096;
 
 function loopbackHost(host: string | undefined) {
@@ -105,6 +110,13 @@ export async function handleUpdateRequest(
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.setHeader('Allow', 'GET, HEAD, OPTIONS');
       return reply(405, { error: 'Method not allowed' });
+    }
+    if (pathname === '/api/version-history') {
+      try {
+        return reply(200, await manager.getHistory());
+      } catch {
+        return reply(503, { error: 'Version history unavailable' });
+      }
     }
     return reply(
       200,

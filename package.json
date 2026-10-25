@@ -24,9 +24,11 @@
     "skill:install": "node scripts/install-skill.mjs"
   },
   "dependencies": {
+    "i18next": "26.5.10",
     "lucide-react": "1.61.0",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "react-i18next": "17.1.9"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "7.0.1",

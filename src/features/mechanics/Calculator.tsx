@@ -2,6 +2,8 @@ import { useId, useState } from 'react';
 import { Calculator as CalculatorIcon, RotateCcw, ArrowDown, CircleAlert } from 'lucide-react';
 import * as math from '../../../shared/mechanics';
 import { format } from '../../lib/format';
+import { StyledSelect } from '../../components/StyledSelect';
+import { useI18n, translateError } from '../../i18n';
 
 type Field = { key: string; label: string; value: string; list?: boolean; hint?: string };
 type Task = { id: string; label: string; rule: string; note: string; fields: Field[] };
@@ -470,6 +472,7 @@ function evaluate(task: string, values: Record<string, string>): Result {
 }
 
 export function Calculator({ onRule }: { onRule: (id: string) => void }) {
+  const { t } = useI18n();
   const id = useId();
   const [mode, setMode] = useState('defense');
   const [values, setValues] = useState<Record<string, Record<string, string>>>(() =>
@@ -485,43 +488,44 @@ export function Calculator({ onRule }: { onRule: (id: string) => void }) {
   try {
     result = evaluate(mode, values[mode]);
   } catch (e) {
-    error = e instanceof Error ? e.message : 'Не удалось рассчитать.';
+    error = e instanceof Error ? translateError(e.message) : t('Не удалось рассчитать.');
   }
   return (
     <section className="mechanics-calculator" aria-labelledby={`${id}-heading`}>
       <div className="calculator-title">
         <div>
-          <span className="section-kicker">ПОЛЕВАЯ ЛАБОРАТОРИЯ</span>
-          <h2 id={`${id}-heading`}>Проверь идею цифрами.</h2>
+          <span className="section-kicker">{t('ПОЛЕВАЯ ЛАБОРАТОРИЯ')}</span>
+          <h2 id={`${id}-heading`}>{t('Проверь идею цифрами.')}</h2>
         </div>
         <CalculatorIcon size={34} aria-hidden="true" />
       </div>
       <div className="calculator-layout">
         <div className="calculator-form">
-          <label className="calc-task-label" htmlFor={`${id}-mode`}>
-            Задача расчёта
+          <label className="calc-task-label" id={`${id}-mode-label`} htmlFor={`${id}-mode`}>
+            {t('Задача расчёта')}
           </label>
-          <select id={`${id}-mode`} value={mode} onChange={(e) => setMode(e.target.value)}>
-            {tasks.map((entry) => (
-              <option key={entry.id} value={entry.id}>
-                {entry.label}
-              </option>
-            ))}
-          </select>
+          <StyledSelect
+            id={`${id}-mode`}
+            labelledBy={`${id}-mode-label`}
+            value={mode}
+            onChange={setMode}
+            options={tasks.map((entry) => ({ value: entry.id, label: t(entry.label) }))}
+          />
           <p className="calc-entry-hint">
-            Числа можно вводить с запятой. Отдельные проценты разделяй точкой с запятой:{' '}
-            <b>30;20</b>. Пустой список — нет эффектов.
+            {t('Числа можно вводить с запятой. Отдельные проценты разделяй точкой с запятой:')}{' '}
+            <b>30;20</b>
+            {t('. Пустой список — нет эффектов.')}
           </p>
           <div className="calculator-fields">
             {task.fields.map((field) => (
               <label key={field.key} htmlFor={`${id}-${mode}-${field.key}`}>
-                <span>{field.label}</span>
+                <span>{t(field.label)}</span>
                 <input
                   id={`${id}-${mode}-${field.key}`}
                   type="text"
                   inputMode={field.list ? 'text' : 'decimal'}
                   value={values[mode][field.key]}
-                  placeholder={field.list ? 'Нет источников' : undefined}
+                  placeholder={field.list ? t('Нет источников') : undefined}
                   autoComplete="off"
                   onChange={(e) =>
                     setValues((current) => ({
@@ -530,7 +534,7 @@ export function Calculator({ onRule }: { onRule: (id: string) => void }) {
                     }))
                   }
                 />
-                {field.hint && <small>{field.hint}</small>}
+                {field.hint && <small>{t(field.hint)}</small>}
               </label>
             ))}
           </div>
@@ -544,45 +548,47 @@ export function Calculator({ onRule }: { onRule: (id: string) => void }) {
             }
           >
             <RotateCcw size={16} />
-            Вернуть пример
+            {t('Вернуть пример')}
           </button>
         </div>
         <div className="calculator-result" aria-live="polite" aria-atomic="true">
           <span className="result-kicker">
-            РАСЧЁТНОЕ ДЕЛО / {String(tasks.indexOf(task) + 1).padStart(2, '0')}
+            {t('РАСЧЁТНОЕ ДЕЛО / {{number}}', {
+              number: String(tasks.indexOf(task) + 1).padStart(2, '0'),
+            })}
           </span>
           {error ? (
             <div className="calc-error" role="alert">
               <CircleAlert size={30} />
-              <h3>Проверь значения</h3>
+              <h3>{t('Проверь значения')}</h3>
               <p>{error}</p>
             </div>
           ) : (
             result && (
               <>
-                <h3>{result.label}</h3>
+                <h3>{t(result.label)}</h3>
                 <div className="calc-primary">
                   <strong data-testid="calc-primary">{format(result.value, 3)}</strong>
-                  <span>{result.unit}</span>
+                  <span>{t(result.unit)}</span>
                 </div>
                 <dl>
                   {result.rows.map((row) => (
                     <div key={row.label}>
-                      <dt>{row.label}</dt>
+                      <dt>{t(row.label)}</dt>
                       <dd>
                         <b>{format(row.value, 3)}</b>
-                        {row.unit && <span>{row.unit}</span>}
+                        {row.unit && <span>{t(row.unit)}</span>}
                       </dd>
                     </div>
                   ))}
                 </dl>
-                <p className="result-equation">{result.equation}</p>
+                <p className="result-equation">{t(result.equation)}</p>
               </>
             )
           )}
-          <p className="calculator-assumption">{task.note}</p>
+          <p className="calculator-assumption">{t(task.note)}</p>
           <button className="text-link" onClick={() => onRule(task.rule)}>
-            Разбор и границы формулы
+            {t('Разбор и границы формулы')}
             <ArrowDown size={17} />
           </button>
         </div>
