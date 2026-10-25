@@ -90,10 +90,19 @@ Interfaces: CLI `npm run knowledge -- status|import|search QUERY|entity NAME|for
 
 ## Task 6: integration, review, release
 
-- [ ] Run npm test, typecheck, data:check and Pages-base production build; inspect all outputs.
-- [ ] Fresh independent code/research review covering arithmetic, source freshness, updater failure isolation, credentials, SQLite import and mobile UI.
-- [ ] Fix material review findings with targeted regressions and rerun relevant checks.
-- [ ] Browser: desktop and mobile320/412px; calculator values/errors, formula search, nav wrapping, current table, public/local update paths. Save screenshots as ignored outputs.
-- [ ] Merge verified feature into main, push, wait for Pages deployment success and verify public code/data/page.
-- [ ] Exercise manual updater workflow on current version, checking no unintended data changes and successful deployment.
-- [ ] Record release IDs, data/formula provenance and skill location; stop owned local servers and reset viewport before handoff.
+- [x] Run npm test, typecheck, data:check and Pages-base production build; inspect all outputs.
+- [x] Fresh independent code/research review covering arithmetic, source freshness, updater failure isolation, credentials, SQLite import and mobile UI.
+- [x] Fix material review findings with targeted regressions and rerun relevant checks.
+- [x] Browser: desktop and mobile320/412px; calculator values/errors, formula search, nav wrapping, current table, public/local update paths. Save screenshots as ignored outputs.
+- [x] Merge verified feature into main, push, wait for Pages deployment success and verify public code/data/page.
+- [x] Exercise manual updater workflow on current version, checking no unintended data changes and successful deployment.
+- [x] Record release IDs, data/formula provenance and skill location; stop owned local servers and reset viewport before handoff.
+
+## Release evidence
+
+- Code37b63ad merged fast-forward to main and published by Actions40217626662: build/deploy success.
+- Real local browser update without publish: verified6819/44 unchanged. Real publish checkbox+button dispatched40217772861 through server-side GCM; manual refresh workflow completed success and published Pages. No game launched.
+- Public JSON heroes/mechanics matches local parsed JSON exactly; Markdown reference HTTP200. Browser verified27rules/15calculator options, public version check, EHP explanation opened+focused, Baba8.8/DPS28.39 and44 natural-height rows2574px.
+- Mobile320/412 and desktop1280 checked; no document overflow. Proof screenshots outputs/mechanics-desktop.png and mechanics-mobile.png. Viewport reset and public page retained.
+-147tests, typecheck, data validation and Pages production build passed. Owned dev session97780 stopped; no listeners5173/3001.
+- SQLite schema2 and installed deadlock-project skill validated by independent retrieval and version-transition tests. Private database/research never published.
