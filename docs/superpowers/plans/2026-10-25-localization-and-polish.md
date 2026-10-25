@@ -57,5 +57,7 @@ Do not launch the game. Keep knowledge, backups and credentials private. Preserv
 - [x] Show persisted version history with current/past labels and both date meanings, translated.
 - [x] Run npm test, npm run typecheck, npm run data:check, npm run build; independent review of behavior, access and translations.
 - [x] Verify desktop/mobile routes and real unchanged update (no Actions dispatch).
-- [ ] Commit, fast-forward main, push, verify successful Pages deployment and public UI.
-- [ ] Update docs/progress.md and private knowledge decisions/import. Stop owned dev services, deliver links and screenshots.
+- [x] Commit, fast-forward main, push, verify successful Pages deployment and public UI.
+- [x] Update docs/progress.md and private knowledge decisions/import. Preserve pre-existing user dev services; leave no new owned service. Deliver links and screenshots.
+
+Release: code935a114; Pages run40223331859 build/deploy succeeded. Public JS index-VadAZjgN.js, English catalogue/reference and history returned200. Public RU/EN/calculator/history and published snapshot check verified; mobile397px viewport had303px inputs at left47px, no horizontal overflow. Additional search-focus fix included. 187/187 tests passing.
