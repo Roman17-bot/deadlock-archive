@@ -8,6 +8,7 @@ import { useI18n, translateError } from '../../i18n';
 import initialHistory from '../../../data/version-history.json';
 import { validateVersionHistory, type VersionHistory } from '../../../shared/version-history';
 import '../../styles/updates.css';
+import { SyncPanel } from './SyncPanel';
 
 const workflow =
   'https://github.com/Roman17-bot/deadlock-archive/actions/workflows/refresh-data.yml';
@@ -39,11 +40,23 @@ function isState(value: unknown): value is UpdateState {
 
 function safePublicationUrl(state: UpdateState): string | undefined {
   const url = state.publication?.url;
-  if (url === workflow) return url;
   if (
-    state.publication?.runId &&
-    url ===
-      `https://github.com/Roman17-bot/deadlock-archive/actions/runs/${state.publication.runId}`
+    url === workflow ||
+    url === 'https://github.com/Roman17-bot/deadlock-archive/actions/workflows/pages.yml'
+  )
+    return url;
+  const runId = state.publication?.runId;
+  if (
+    Number.isSafeInteger(runId) &&
+    Number(runId) > 0 &&
+    url === `https://github.com/Roman17-bot/deadlock-archive/actions/runs/${runId}`
+  )
+    return url;
+  const commit = state.publication?.commitSha;
+  if (
+    typeof commit === 'string' &&
+    /^[a-f0-9]{40}$/.test(commit) &&
+    url === `https://github.com/Roman17-bot/deadlock-archive/commit/${commit}`
   )
     return url;
   return undefined;
@@ -84,6 +97,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   const [publish, setPublish] = useState(true);
   const [requesting, setRequesting] = useState(false);
   const [checking, setChecking] = useState(false);
+  const [syncBusy, setSyncBusy] = useState(false);
   const [notice, setNotice] = useState('');
   const [error, setError] = useState('');
   const [upstream, setUpstream] = useState<number | null>(null);
@@ -91,6 +105,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   const live = useRef(true);
   const requestLock = useRef(false);
   const loadedJob = useRef<string | null>(null);
+  const loadedSync = useRef(new Set<string>());
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const polls = useRef(0);
 
@@ -153,6 +168,30 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
     [onSnapshot],
   );
 
+  const receiveSyncSnapshot = useCallback(
+    async (hash: string) => {
+      if (loadedSync.current.has(hash)) return;
+      loadedSync.current.add(hash);
+      try {
+        const candidate = await readJson('/api/heroes', { cache: 'no-store' });
+        if (!validateSnapshot(candidate) || !isNewerOrEqual(candidate, current.current))
+          throw new Error('Invalid or older snapshot');
+        if (live.current) {
+          current.current = candidate;
+          onSnapshot(candidate);
+          setHistoryEpoch((n) => n + 1);
+        }
+      } catch {
+        loadedSync.current.delete(hash);
+        if (live.current)
+          setError(
+            'Локальные данные сохранены, но загрузить новый снимок не удалось. Обновите страницу.',
+          );
+      }
+    },
+    [onSnapshot],
+  );
+
   const connect = useCallback(async () => {
     setConnecting(true);
     setError('');
@@ -205,7 +244,13 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   }, [mode, state, receiveState]);
 
   const start = async () => {
-    if (!token || !connected || requestLock.current || (state && activePhases.has(state.phase)))
+    if (
+      !token ||
+      !connected ||
+      syncBusy ||
+      requestLock.current ||
+      (state && activePhases.has(state.phase))
+    )
       return;
     requestLock.current = true;
     setRequesting(true);
@@ -303,7 +348,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
             <h2>{t('Проверить и сохранить')}</h2>
             <p>
               {t(
-                'Новые данные сначала проходят проверку, затем сохраняются локально. Публикация запускается отдельной задачей GitHub Actions.',
+                'Новые данные сначала проходят проверку, затем сохраняются локально. При публикации Pages получает точный снимок PostgreSQL.',
               )}
             </p>
             <label className="updates-option">
@@ -318,7 +363,11 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
               className="updates-button"
               type="button"
               disabled={
-                !connected || connecting || requesting || !!(state && activePhases.has(state.phase))
+                !connected ||
+                connecting ||
+                requesting ||
+                syncBusy ||
+                !!(state && activePhases.has(state.phase))
               }
               onClick={() => void start()}
             >
@@ -351,7 +400,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
                   )}
                 {state.localSaved && state.phase === 'failed' && (
                   <>
-                    <p>{t('Публикация не отправлена')}</p>
+                    <p>{t('Публикация не подтверждена')}</p>
                     <p>{t('Локальный снимок сохранён.')}</p>
                   </>
                 )}
@@ -422,6 +471,14 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
           </div>
         )}
       </div>
+      {mode === 'local' && (
+        <SyncPanel
+          token={token}
+          updateBusy={requesting || !!(state && activePhases.has(state.phase))}
+          onBusyChange={setSyncBusy}
+          onLocalSnapshot={receiveSyncSnapshot}
+        />
+      )}
       <section className="version-history" aria-labelledby="version-history-title">
         <div className="version-history-heading">
           <span className="updates-label">{t('ЖУРНАЛ АРХИВА')}</span>

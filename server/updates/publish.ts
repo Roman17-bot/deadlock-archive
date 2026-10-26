@@ -18,7 +18,7 @@ function validCredential(value: string) {
 }
 
 /** Read GCM directly rather than `git credential fill`, which may execute arbitrary configured helpers. */
-async function existingCredential(): Promise<string> {
+export async function existingCredential(): Promise<string> {
   if (process.env.GH_TOKEN && validCredential(process.env.GH_TOKEN)) return process.env.GH_TOKEN;
   return new Promise((resolve, reject) => {
     const child = spawn(

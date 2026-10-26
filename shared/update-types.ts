@@ -3,6 +3,8 @@ export type UpdatePhase = 'idle' | 'checking' | 'saving' | 'publishing' | 'succe
 export interface PublicationState {
   status: 'queued' | 'in_progress' | 'success' | 'failure' | 'unknown';
   runId?: number;
+  commitSha?: string;
+  hash?: string;
   url: string;
 }
 

@@ -28,6 +28,7 @@ export interface UpdateManagerOptions {
   onSaved?: (snapshot: HeroSnapshot) => void | Promise<void>;
   syncDatabase?: (snapshot: HeroSnapshot) => Promise<void>;
   readSnapshot?: () => Promise<HeroSnapshot>;
+  prepareRefresh?: () => Promise<void>;
   readHistory?: () => Promise<VersionHistory>;
 }
 
@@ -61,6 +62,7 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
         update({ phase: 'succeeded', upToDate: true, message: 'Текущая версия актуальна.' });
         return;
       }
+      await options.prepareRefresh?.();
       const refreshed = await (options.refresh ?? refreshData)({
         root: options.root,
         expectedVersion: latest.version,
@@ -131,7 +133,7 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
       }
     } catch {
       const error = state.localSaved
-        ? 'Локальные данные сохранены, но отправка публикации не удалась. Запустите GitHub Actions вручную: повторное обновление той же версии не отправляет публикацию.'
+        ? 'Локальные данные сохранены, но публикация не подтверждена. Повторите синхронизацию с GitHub Pages в локальном центре.'
         : 'Обновление не удалось. Предыдущий локальный снимок сохранён.';
       update({ phase: 'failed', error, message: error + warning });
     } finally {

@@ -157,8 +157,10 @@ function decodeHero(row: Record<string, unknown>): Hero {
   };
 }
 
-async function currentId(pool: Pool): Promise<number | null> {
-  const result = await pool.query<{ snapshot_id: string }>(
+type ArchiveReader = Pick<PoolClient, 'query'>;
+
+async function currentId(reader: ArchiveReader): Promise<number | null> {
+  const result = await reader.query<{ snapshot_id: string }>(
     'SELECT snapshot_id FROM archive_current WHERE singleton = true',
   );
   return result.rows[0] ? integer(result.rows[0].snapshot_id) : null;
@@ -306,17 +308,18 @@ export class PostgresArchive {
       );
   }
 
-  private async heroesFor(snapshotId: number): Promise<HeroSnapshot> {
-    const [snapshot, heroes] = await Promise.all([
-      this.pool.query<{ hero_meta: HeroSnapshot['meta'] }>(
-        'SELECT hero_meta FROM archive_snapshots WHERE id = $1',
-        [snapshotId],
-      ),
-      this.pool.query<Record<string, unknown>>(
-        'SELECT * FROM heroes WHERE snapshot_id = $1 ORDER BY ordinal',
-        [snapshotId],
-      ),
-    ]);
+  private async heroesFor(
+    snapshotId: number,
+    reader: ArchiveReader = this.pool,
+  ): Promise<HeroSnapshot> {
+    const snapshot = await reader.query<{ hero_meta: HeroSnapshot['meta'] }>(
+      'SELECT hero_meta FROM archive_snapshots WHERE id = $1',
+      [snapshotId],
+    );
+    const heroes = await reader.query<Record<string, unknown>>(
+      'SELECT * FROM heroes WHERE snapshot_id = $1 ORDER BY ordinal',
+      [snapshotId],
+    );
     if (!snapshot.rows.length) throw new Error('Current archive snapshot is missing');
     return { meta: snapshot.rows[0].hero_meta, heroes: heroes.rows.map(decodeHero) };
   }
@@ -326,25 +329,27 @@ export class PostgresArchive {
     return id === null ? null : this.heroesFor(id);
   }
 
-  private async mechanicsFor(snapshotId: number, language: 'ru' | 'en'): Promise<MechanicsCatalog> {
-    const [meta, sources, formulas, links] = await Promise.all([
-      this.pool.query<{ meta: MechanicsCatalog['meta'] }>(
-        'SELECT meta FROM mechanics_catalogues WHERE snapshot_id = $1 AND language = $2',
-        [snapshotId, language],
-      ),
-      this.pool.query<MechanicsCatalog['sources'][number]>(
-        'SELECT source_id AS id, label, url, kind FROM mechanics_sources WHERE snapshot_id = $1 AND language = $2 ORDER BY ordinal',
-        [snapshotId, language],
-      ),
-      this.pool.query<Record<string, unknown>>(
-        'SELECT * FROM mechanics_formulas WHERE snapshot_id = $1 AND language = $2 ORDER BY ordinal',
-        [snapshotId, language],
-      ),
-      this.pool.query<{ formula_id: string; source_id: string }>(
-        'SELECT formula_id, source_id FROM mechanics_formula_sources WHERE snapshot_id = $1 AND language = $2 ORDER BY formula_id, ordinal',
-        [snapshotId, language],
-      ),
-    ]);
+  private async mechanicsFor(
+    snapshotId: number,
+    language: 'ru' | 'en',
+    reader: ArchiveReader = this.pool,
+  ): Promise<MechanicsCatalog> {
+    const meta = await reader.query<{ meta: MechanicsCatalog['meta'] }>(
+      'SELECT meta FROM mechanics_catalogues WHERE snapshot_id = $1 AND language = $2',
+      [snapshotId, language],
+    );
+    const sources = await reader.query<MechanicsCatalog['sources'][number]>(
+      'SELECT source_id AS id, label, url, kind FROM mechanics_sources WHERE snapshot_id = $1 AND language = $2 ORDER BY ordinal',
+      [snapshotId, language],
+    );
+    const formulas = await reader.query<Record<string, unknown>>(
+      'SELECT * FROM mechanics_formulas WHERE snapshot_id = $1 AND language = $2 ORDER BY ordinal',
+      [snapshotId, language],
+    );
+    const links = await reader.query<{ formula_id: string; source_id: string }>(
+      'SELECT formula_id, source_id FROM mechanics_formula_sources WHERE snapshot_id = $1 AND language = $2 ORDER BY formula_id, ordinal',
+      [snapshotId, language],
+    );
     if (!meta.rows.length) throw new Error('Mechanics catalogue is missing');
     const byFormula = new Map<string, string[]>();
     for (const link of links.rows) {
@@ -375,8 +380,11 @@ export class PostgresArchive {
     return id === null ? null : this.mechanicsFor(id, language);
   }
 
-  private async historyFor(snapshotId: number): Promise<VersionHistory> {
-    const rows = await this.pool.query<Record<string, unknown>>(
+  private async historyFor(
+    snapshotId: number,
+    reader: ArchiveReader = this.pool,
+  ): Promise<VersionHistory> {
+    const rows = await reader.query<Record<string, unknown>>(
       'SELECT * FROM history_entries WHERE snapshot_id = $1 ORDER BY ordinal',
       [snapshotId],
     );
@@ -400,26 +408,37 @@ export class PostgresArchive {
   }
 
   async getBundle(): Promise<CuratedBundle | null> {
-    const id = await currentId(this.pool);
-    if (id === null) return null;
-    const [heroes, ru, en, history, provenance] = await Promise.all([
-      this.heroesFor(id),
-      this.mechanicsFor(id, 'ru'),
-      this.mechanicsFor(id, 'en'),
-      this.historyFor(id),
-      this.pool.query<{ provenance: unknown }>(
+    const client = await this.pool.connect();
+    try {
+      await client.query('BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY');
+      const id = await currentId(client);
+      if (id === null) {
+        await client.query('COMMIT');
+        return null;
+      }
+      const heroes = await this.heroesFor(id, client);
+      const ru = await this.mechanicsFor(id, 'ru', client);
+      const en = await this.mechanicsFor(id, 'en', client);
+      const history = await this.historyFor(id, client);
+      const provenance = await client.query<{ provenance: unknown }>(
         'SELECT provenance FROM archive_snapshots WHERE id = $1',
         [id],
-      ),
-    ]);
-    const bundle = {
-      heroes,
-      mechanics: { ru, en },
-      provenance: provenance.rows[0].provenance,
-      history,
-    };
-    validateCuratedBundle(bundle);
-    return bundle;
+      );
+      const bundle = {
+        heroes,
+        mechanics: { ru, en },
+        provenance: provenance.rows[0].provenance,
+        history,
+      };
+      validateCuratedBundle(bundle);
+      await client.query('COMMIT');
+      return bundle;
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
   }
 
   async status(): Promise<ArchiveStatus> {

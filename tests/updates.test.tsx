@@ -36,13 +36,20 @@ function fetchRoutes(
   handle: (url: string, init?: RequestInit) => Response | Promise<Response>,
   defaultHistory = true,
 ) {
-  return vi
-    .spyOn(globalThis, 'fetch')
-    .mockImplementation(async (input, init) =>
-      defaultHistory && String(input) === '/api/version-history'
+  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) =>
+    String(input) === '/api/sync/status'
+      ? json({
+          available: false,
+          source: 'json',
+          phase: 'idle',
+          localSaved: false,
+          updatedAt: '2026-10-26T12:00:00Z',
+          message: 'Для синхронизации настройте локальную PostgreSQL.',
+        })
+      : defaultHistory && String(input) === '/api/version-history'
         ? json(initialHistory)
         : handle(String(input), init),
-    );
+  );
 }
 beforeEach(async () => {
   await i18n.changeLanguage('ru');
@@ -170,7 +177,7 @@ describe('owner updates', () => {
     fireEvent.click(screen.getByRole('checkbox', { name: /Опубликовать/ }));
     fireEvent.click(button);
     expect(await screen.findByText('Сохранено локально')).toBeVisible();
-    expect(await screen.findByText('Публикация не отправлена')).toBeVisible();
+    expect(await screen.findByText('Публикация не подтверждена')).toBeVisible();
     await waitFor(() => expect(onSnapshot).toHaveBeenCalledTimes(1));
     expect(publish).toBe(false);
     expect(button).toBeEnabled();
@@ -248,6 +255,26 @@ describe('owner updates', () => {
     render(<UpdatePage mode="local" data={data} onSnapshot={vi.fn()} />);
     await screen.findByText(/Публикация в очереди/);
     expect(document.querySelector('a[href*="evil.example"]')).toBeNull();
+  });
+
+  it('opens the exact stored-data commit returned by the publisher', async () => {
+    const commitSha = 'c'.repeat(40);
+    const url = `https://github.com/Roman17-bot/deadlock-archive/commit/${commitSha}`;
+    fetchRoutes((input) =>
+      json(
+        input === '/api/update/session'
+          ? {
+              token: 'nonce',
+              state: { ...saved, publication: { status: 'queued', url, commitSha } },
+            }
+          : newer(),
+      ),
+    );
+    render(<UpdatePage mode="local" data={data} onSnapshot={vi.fn()} />);
+    expect(await screen.findByRole('link', { name: 'Открыть задачу GitHub' })).toHaveAttribute(
+      'href',
+      url,
+    );
   });
 });
 

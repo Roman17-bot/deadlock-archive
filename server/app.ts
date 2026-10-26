@@ -8,6 +8,7 @@ import mechanicsEn from '../data/mechanics.en.json';
 import initialHistory from '../data/version-history.json';
 import type { UpdateManager } from './updates/manager';
 import { handleUpdateRequest } from './updates/http';
+import type { SyncManager } from './sync/manager';
 
 /** Only public, bounded archive reads are exposed to HTTP. */
 export interface ArchiveReader {
@@ -21,6 +22,7 @@ export interface ArchiveReader {
 
 export interface AppOptions {
   updates?: UpdateManager;
+  sync?: SyncManager;
   archive?: ArchiveReader;
   mechanics?: { ru: MechanicsCatalog; en: MechanicsCatalog };
   readMechanics?: (language: 'ru' | 'en') => Promise<MechanicsCatalog>;
@@ -56,7 +58,10 @@ export function createApp(snapshot: HeroSnapshot, options: AppOptions = {}) {
     try {
       response.setHeader('Content-Type', 'application/json; charset=utf-8');
       response.setHeader('X-Content-Type-Options', 'nosniff');
-      if (options.updates && (await handleUpdateRequest(request, response, options.updates)))
+      if (
+        options.updates &&
+        (await handleUpdateRequest(request, response, options.updates, options.sync))
+      )
         return;
       if (request.method !== 'GET' && request.method !== 'HEAD') {
         reply(405, { error: 'Read-only API' }, { Allow: 'GET, HEAD' });

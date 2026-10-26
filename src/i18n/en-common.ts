@@ -1,4 +1,44 @@
 export const enCommon: Record<string, string> = {
+  'Публикация не подтверждена': 'Publication has not been confirmed',
+  'Локальные данные сохранены, но публикация не подтверждена. Повторите синхронизацию с GitHub Pages в локальном центре.':
+    'Local data was saved, but publication has not been confirmed. Retry GitHub Pages synchronization in the local center.',
+  'ТОЧНЫЙ СНИМОК': 'EXACT SNAPSHOT',
+  'Синхронизация с Pages': 'Sync with Pages',
+  'PostgreSQL — источник публикации. Отправляем все текущие публичные данные, включая правки в той же версии клиента.':
+    'PostgreSQL is the publication source. Send all current public data, including edits within the same client version.',
+  'Новые данные сначала проходят проверку, затем сохраняются локально. При публикации Pages получает точный снимок PostgreSQL.':
+    'New data is validated, then saved locally. Publication sends the exact PostgreSQL snapshot to Pages.',
+  'Источник и назначение': 'Source and destination',
+  'Не проверено': 'Not checked',
+  'Проверить синхронизацию': 'Check sync',
+  'Синхронизировать с Pages': 'Sync with Pages',
+  'Повторить синхронизацию': 'Retry sync',
+  'Pages подтверждён': 'Pages verified',
+  'Синхронизация выполняется': 'Sync in progress',
+  'Нужна повторная попытка': 'Retry needed',
+  'Состояние синхронизации': 'Sync status',
+  'Можно проверить синхронизацию.': 'Ready to check sync.',
+  'Проверяем данные PostgreSQL и GitHub Pages.': 'Checking PostgreSQL and GitHub Pages data.',
+  'Сохраняем точный снимок PostgreSQL.': 'Saving the exact PostgreSQL snapshot.',
+  'Отправляем снимок в GitHub.': 'Sending the snapshot to GitHub.',
+  'Снимок отправлен. Ожидаем развёртывание Pages.': 'Snapshot sent. Waiting for Pages deployment.',
+  'GitHub Pages публикует снимок.': 'GitHub Pages is deploying the snapshot.',
+  'Данные PostgreSQL и GitHub Pages синхронизированы.':
+    'PostgreSQL and GitHub Pages data are synchronized.',
+  'Синхронизация не удалась. Локальные данные сохранены; повторите попытку.':
+    'Sync failed. Local data is preserved; try again.',
+  'Для синхронизации настройте локальную PostgreSQL.': 'Configure local PostgreSQL to enable sync.',
+  'Снимок отличается от опубликованной версии.': 'The snapshot differs from the published version.',
+  'GitHub Pages не подтвердил развёртывание. Повторите синхронизацию.':
+    'GitHub Pages has not confirmed deployment. Retry sync.',
+  'Не удалось проверить синхронизацию. Повторите попытку.': 'Could not check sync. Try again.',
+  'Не удалось запустить синхронизацию. Повторите попытку.': 'Could not start sync. Try again.',
+  'Ожидание Pages заняло слишком много времени. Проверьте синхронизацию снова.':
+    'Pages is taking too long. Check sync again.',
+  'Развёртывание ещё не подтверждено.': 'Deployment has not been verified yet.',
+  'Все три снимка совпадают. Новый коммит не требуется.':
+    'All three snapshots match. No new commit is needed.',
+  'Открыть публикацию GitHub': 'Open GitHub publication',
   'Загружаем историю из локального API…': 'Loading history from the local API…',
   'Не удалось загрузить историю из локального API.': 'Could not load history from the local API.',
   'Повторить загрузку истории': 'Retry loading history',

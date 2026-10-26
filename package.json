@@ -7,12 +7,12 @@
     "node": ">=24.15.0"
   },
   "scripts": {
-    "predev": "node scripts/export-mechanics.mjs && node scripts/prepare-public.mjs",
+    "predev": "node scripts/export-mechanics.mjs && node --import tsx scripts/prepare-public.mjs",
     "dev": "node scripts/dev.mjs",
-    "predev:web": "node scripts/export-mechanics.mjs && node scripts/prepare-public.mjs",
+    "predev:web": "node scripts/export-mechanics.mjs && node --import tsx scripts/prepare-public.mjs",
     "dev:web": "vite --host 127.0.0.1",
     "dev:api": "tsx watch server/index.ts",
-    "build": "tsc --noEmit && node scripts/export-mechanics.mjs && node scripts/prepare-public.mjs && vite build",
+    "build": "tsc --noEmit && node scripts/export-mechanics.mjs && node --import tsx scripts/prepare-public.mjs && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -27,6 +27,8 @@
     "db:backup": "node --import tsx scripts/database/cli.mjs backup",
     "db:query": "node --import tsx scripts/database/cli.mjs query",
     "db:test": "node --import tsx scripts/database/cli.mjs test",
+    "db:sync": "node --import tsx scripts/sync-data.mjs",
+    "data:verify-publication": "node --import tsx scripts/verify-public-snapshot.mjs",
     "knowledge": "node scripts/knowledge/cli.mjs",
     "knowledge:import": "node scripts/knowledge/cli.mjs import",
     "skill:install": "node scripts/install-skill.mjs"

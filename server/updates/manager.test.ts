@@ -274,7 +274,13 @@ describe('PostgreSQL update synchronization', () => {
       snapshot,
       root: '.',
       checkVersion,
-      refresh: async () => result,
+      prepareRefresh: async () => {
+        order.push('export');
+      },
+      refresh: async () => {
+        order.push('refresh');
+        return result;
+      },
       syncDatabase: async (value) => {
         expect(value.meta.clientVersion).toBe(6820);
         order.push('db');
@@ -293,7 +299,7 @@ describe('PostgreSQL update synchronization', () => {
     });
     manager.start({ publish: true });
     await settle();
-    expect(order).toEqual(['db', 'index', 'publish']);
+    expect(order).toEqual(['export', 'refresh', 'db', 'index', 'publish']);
     expect(manager.getState()).toMatchObject({
       phase: 'succeeded',
       databaseSaved: true,

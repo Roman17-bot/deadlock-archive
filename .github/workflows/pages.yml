@@ -4,13 +4,22 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      expected_commit:
+        description: Exact snapshot commit for a deployment retry
+        required: false
+        type: string
+      expected_hash:
+        description: Expected public snapshot SHA256
+        required: false
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
   build:
@@ -20,12 +29,23 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.expected_commit || github.sha }}
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Reject an outdated build before starting publication
+        run: node server/sync/deployment.ts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit || github.sha }}
       - run: npm run data:check
+      - run: npm run data:verify-publication
+        env:
+          EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit }}
+          EXPECTED_SNAPSHOT_HASH: ${{ inputs.expected_hash }}
       - run: npm test
       - run: npm run build
         env:
@@ -38,12 +58,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.expected_commit || github.sha }}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Reject a stale snapshot immediately before deployment
+        run: node server/sync/deployment.ts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit || github.sha }}
       - name: Publish verified static site
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

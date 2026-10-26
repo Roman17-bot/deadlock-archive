@@ -7,6 +7,8 @@ import { createDatabasePool, loadDatabaseEnvironment } from './database/config';
 import { PostgresArchive } from './database/repository';
 import { syncCuratedDatabase } from './database/sync';
 import { createUpdateManager } from './updates/manager';
+import { createSyncManager } from './sync/manager';
+import { mirrorSnapshot, prepareSnapshot } from './sync/snapshot';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
@@ -33,11 +35,29 @@ async function start() {
       ) as HeroSnapshot;
     }
 
+    const onSaved = async () => {
+      const { importKnowledge } = await import(
+        new URL('../scripts/knowledge/import.mjs', import.meta.url).href
+      );
+      importKnowledge({ root });
+    };
+    const readDatabaseBundle = async () => {
+      const bundle = await archive!.getBundle();
+      if (!bundle) throw new Error('Archive has no current public bundle');
+      return bundle;
+    };
+    const sync = archive
+      ? createSyncManager({ root, readBundle: readDatabaseBundle, onSaved })
+      : undefined;
     const updates = createUpdateManager({
       snapshot,
       root,
       ...(archive
         ? {
+            prepareRefresh: async () => {
+              await mirrorSnapshot(root, await prepareSnapshot(root, await readDatabaseBundle()));
+            },
+            publish: async () => sync!.publishCurrent(),
             readSnapshot: async () => {
               const saved = await archive.getHeroes();
               if (!saved) throw new Error('Archive has no current hero snapshot');
@@ -53,16 +73,12 @@ async function start() {
             },
           }
         : {}),
-      onSaved: async () => {
-        const { importKnowledge } = await import(
-          new URL('../scripts/knowledge/import.mjs', import.meta.url).href
-        );
-        importKnowledge({ root });
-      },
+      onSaved,
     });
 
     const app = createApp(snapshot, {
       updates,
+      sync,
       archive: archive ?? undefined,
       ...(!archive
         ? {

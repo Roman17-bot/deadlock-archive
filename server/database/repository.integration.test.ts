@@ -77,7 +77,7 @@ suite('PostgresArchive on an owned test database', () => {
     const count = await pool.query('SELECT count(*)::int AS n FROM heroes WHERE snapshot_id = $1', [
       first.snapshotId,
     ]);
-    expect(count.rows[0].n).toBe(44);
+    expect(count.rows[0].n).toBe(bundle.heroes.heroes.length);
   });
 
   it('rejects invalid import without changing current pointers', async () => {
@@ -109,7 +109,7 @@ suite('PostgresArchive on an owned test database', () => {
       'SELECT count(*)::int AS n FROM heroes WHERE snapshot_id = $1',
       [previous.currentSnapshotId],
     );
-    expect(retained.rows[0].n).toBe(44);
+    expect(retained.rows[0].n).toBe(previous.heroes);
     const run = await pool.query(
       'SELECT count(*)::int AS n FROM archive_import_runs WHERE snapshot_id = $1',
       [result.snapshotId],
@@ -127,8 +127,14 @@ suite('PostgresArchive on an owned test database', () => {
 
   it('imports a newer hero patch while retaining older mechanics review metadata', async () => {
     const bundle = await readCuratedBundle(root);
-    bundle.heroes.meta.clientVersion = 6820;
-    bundle.heroes.meta.buildDate = '2026-10-26';
+    const futureClient = bundle.heroes.meta.clientVersion + 1;
+    const reviewedClient = bundle.mechanics.en.meta.reviewedClientVersion;
+    const futureBuildDate = new Date(Date.parse(bundle.heroes.meta.buildDate) + 86_400_000)
+      .toISOString()
+      .slice(0, 10);
+    const publishedAt = `${futureBuildDate}T00:00:00.000Z`;
+    bundle.heroes.meta.clientVersion = futureClient;
+    bundle.heroes.meta.buildDate = futureBuildDate;
     bundle.heroes.meta.sourceRevision += 1;
     bundle.heroes.meta.gameCommit = 'a'.repeat(40);
     const provenance = bundle.provenance as {
@@ -146,26 +152,87 @@ suite('PostgresArchive on an owned test database', () => {
     provenance.meta.gameCommit = bundle.heroes.meta.gameCommit;
     provenance.testRunId = randomUUID();
     bundle.history.versions.unshift({
-      clientVersion: 6820,
-      buildDate: '2026-10-26',
-      firstPublishedAt: '2026-10-26T00:00:00.000Z',
-      provenance: { kind: 'snapshot-save', reference: '2026-10-26T00:00:00.000Z' },
+      clientVersion: futureClient,
+      buildDate: futureBuildDate,
+      firstPublishedAt: publishedAt,
+      provenance: { kind: 'snapshot-save', reference: publishedAt },
     });
     const result = await archive.importBundle(bundle, 'new-hero-patch');
     expect(result.imported).toBe(true);
-    expect(result.clientVersion).toBe(6820);
+    expect(result.clientVersion).toBe(futureClient);
     expect(await archive.getBundle()).toEqual(bundle);
-    expect((await archive.getMechanics('en'))?.meta.reviewedClientVersion).toBe(6819);
-    expect((await archive.status()).currentClientVersion).toBe(6820);
+    expect((await archive.getMechanics('en'))?.meta.reviewedClientVersion).toBe(reviewedClient);
+    expect((await archive.status()).currentClientVersion).toBe(futureClient);
   });
 
   it('refuses to move the active snapshot back to an older client', async () => {
     const previous = await archive.status();
-    expect(previous.currentClientVersion).toBe(6820);
     const oldBundle = await readCuratedBundle(root);
+    expect(previous.currentClientVersion).toBe(oldBundle.heroes.meta.clientVersion + 1);
     await expect(archive.importBundle(oldBundle, 'accidental-old-files')).rejects.toThrow(
       /older|downgrade/i,
     );
     expect(await archive.status()).toEqual(previous);
+  });
+
+  it('exports one consistent state when SQL edits commit during the read', async () => {
+    const before = await archive.getBundle();
+    if (!before) throw new Error('Expected imported test snapshot');
+    const lock = Math.floor(Math.random() * 1_000_000_000) + 1;
+    const writer = await control.connect();
+    let exporting: Promise<unknown> | undefined;
+    try {
+      // Gate catalogue reads inside PostgreSQL, after the exporter has read archive_current.
+      await writer.query(
+        `ALTER TABLE "${schemaName}".mechanics_catalogues RENAME TO consistency_catalogues`,
+      );
+      await writer.query(`CREATE VIEW "${schemaName}".mechanics_catalogues AS
+        SELECT catalogue.* FROM "${schemaName}".consistency_catalogues catalogue
+        CROSS JOIN (SELECT pg_advisory_xact_lock(${lock})) gate`);
+      await writer.query('SELECT pg_advisory_lock($1)', [lock]);
+      exporting = archive.getBundle();
+      const deadline = Date.now() + 5000;
+      let waiting = false;
+      while (Date.now() < deadline) {
+        const blocked = await writer.query<{ waiting: boolean }>(
+          "SELECT EXISTS (SELECT 1 FROM pg_locks WHERE locktype = 'advisory' AND objid = $1 AND NOT granted) AS waiting",
+          [lock],
+        );
+        if (blocked.rows[0].waiting) {
+          waiting = true;
+          break;
+        }
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+      expect(waiting).toBe(true);
+      await writer.query('BEGIN');
+      await writer.query(
+        `UPDATE "${schemaName}".heroes SET base_regen = $1 WHERE snapshot_id = (SELECT snapshot_id FROM "${schemaName}".archive_current) AND ordinal = 0`,
+        [0.123456789123],
+      );
+      await writer.query(
+        `UPDATE "${schemaName}".consistency_catalogues SET meta = jsonb_set(meta, '{title}', '"concurrent SQL edit"') WHERE snapshot_id = (SELECT snapshot_id FROM "${schemaName}".archive_current)`,
+      );
+      await writer.query(
+        `UPDATE "${schemaName}".archive_snapshots SET provenance = jsonb_set(provenance, '{consistencyEdit}', '"concurrent SQL edit"') WHERE id = (SELECT snapshot_id FROM "${schemaName}".archive_current)`,
+      );
+      await writer.query('COMMIT');
+      await writer.query('SELECT pg_advisory_unlock($1)', [lock]);
+      expect(await exporting).toEqual(before);
+      const after = await archive.getBundle();
+      expect(after?.heroes.heroes[0].base.regen).toBe(0.123456789123);
+      expect(after?.mechanics.ru.meta.title).toBe('concurrent SQL edit');
+      expect(after?.mechanics.en.meta.title).toBe('concurrent SQL edit');
+      expect(after?.provenance).toHaveProperty('consistencyEdit', 'concurrent SQL edit');
+    } finally {
+      await writer.query('ROLLBACK');
+      await writer.query('SELECT pg_advisory_unlock_all()');
+      await exporting?.catch(() => {});
+      await writer.query(`DROP VIEW IF EXISTS "${schemaName}".mechanics_catalogues`);
+      await writer.query(
+        `ALTER TABLE "${schemaName}".consistency_catalogues RENAME TO mechanics_catalogues`,
+      );
+      writer.release();
+    }
   });
 });

@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { timingSafeEqual } from 'node:crypto';
 import { UpdateConflictError, type UpdateManager } from './manager';
+import { SyncConflictError, type SyncManager } from '../sync/manager';
 
 const origins = new Set(['http://127.0.0.1:5173', 'http://localhost:5173']);
 const routes = new Set([
@@ -8,6 +9,8 @@ const routes = new Set([
   '/api/update/session',
   '/api/update/status',
   '/api/version-history',
+  '/api/sync',
+  '/api/sync/status',
 ]);
 const maxBytes = 4096;
 
@@ -69,10 +72,13 @@ export async function handleUpdateRequest(
   req: IncomingMessage,
   res: ServerResponse,
   manager: UpdateManager,
+  sync?: SyncManager,
 ): Promise<boolean> {
   let pathname: string;
+  let url: URL;
   try {
-    pathname = new URL(req.url ?? '/', 'http://localhost').pathname;
+    url = new URL(req.url ?? '/', 'http://localhost');
+    pathname = url.pathname;
   } catch {
     return false;
   }
@@ -101,12 +107,14 @@ export async function handleUpdateRequest(
     if (!origin) return reply(403, { error: 'Local Origin required' });
     res.setHeader(
       'Access-Control-Allow-Methods',
-      pathname === '/api/update' ? 'POST, OPTIONS' : 'GET, HEAD, OPTIONS',
+      pathname === '/api/update' || pathname === '/api/sync'
+        ? 'POST, OPTIONS'
+        : 'GET, HEAD, OPTIONS',
     );
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Archive-Token');
     return reply(204);
   }
-  if (pathname !== '/api/update') {
+  if (pathname !== '/api/update' && pathname !== '/api/sync') {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.setHeader('Allow', 'GET, HEAD, OPTIONS');
       return reply(405, { error: 'Method not allowed' });
@@ -116,6 +124,27 @@ export async function handleUpdateRequest(
         return reply(200, await manager.getHistory());
       } catch {
         return reply(503, { error: 'Version history unavailable' });
+      }
+    }
+    if (pathname === '/api/sync/status') {
+      if (!sync)
+        return reply(200, {
+          available: false,
+          source: 'json',
+          phase: 'idle',
+          localSaved: false,
+          updatedAt: new Date().toISOString(),
+          message: 'Для синхронизации настройте локальную PostgreSQL.',
+        });
+      try {
+        return reply(
+          200,
+          ['checking', 'saving', 'publishing'].includes(manager.getState().phase)
+            ? sync.readState()
+            : await sync.getState({ refresh: url.searchParams.get('refresh') === '1' }),
+        );
+      } catch {
+        return reply(503, { error: 'Synchronization status unavailable' });
       }
     }
     return reply(
@@ -141,6 +170,19 @@ export async function handleUpdateRequest(
   }
   try {
     const body = await readBody(req);
+    if (pathname === '/api/sync') {
+      if (!sync) return reply(503, { error: 'PostgreSQL is required' });
+      if (
+        !body ||
+        typeof body !== 'object' ||
+        Array.isArray(body) ||
+        Object.keys(body).length !== 0
+      )
+        return reply(400, { error: 'Expected an empty object' });
+      if (['checking', 'saving', 'publishing'].includes(manager.getState().phase))
+        throw new UpdateConflictError();
+      return reply(202, sync.start());
+    }
     if (
       !body ||
       typeof body !== 'object' ||
@@ -150,13 +192,14 @@ export async function handleUpdateRequest(
       typeof body.publish !== 'boolean'
     )
       return reply(400, { error: 'Expected {publish:boolean}' });
+    if (sync?.isBusy()) throw new SyncConflictError();
     return reply(202, manager.start({ publish: body.publish }));
   } catch (error) {
     if (error instanceof BodyError)
       return reply(error.status, {
         error: error.status === 413 ? 'Request body too large' : 'Invalid JSON request',
       });
-    if (error instanceof UpdateConflictError)
+    if (error instanceof UpdateConflictError || error instanceof SyncConflictError)
       return reply(409, { error: 'An update is already in progress', state: manager.getState() });
     return reply(500, { error: 'Unable to start update' });
   }
