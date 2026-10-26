@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, BookOpen, Search, Download, Check, FlaskConical } from 'lucide-react';
-import ruCatalog from '../../../data/mechanics.json';
-import enCatalog from '../../../data/mechanics.en.json';
+import { useMechanicsData } from './useMechanicsData';
 import { useI18n } from '../../i18n';
 import type { HeroSnapshot } from '../../../shared/types';
 import { asset, formatDate } from '../../lib/format';
@@ -15,8 +14,10 @@ const confidence: Record<string, { label: string; icon: 'check' | 'model' }> = {
 };
 const normalize = (text: string) => text.toLocaleLowerCase('ru').replaceAll('ё', 'е');
 
-export function MechanicsPage({ data }: { data: HeroSnapshot }) {
+export function MechanicsPage({ data, localApi }: { data: HeroSnapshot; localApi?: boolean }) {
   const { t, language } = useI18n();
+  const { catalogs, loading, error, retry } = useMechanicsData(data.meta.clientVersion, localApi);
+  const { ru: ruCatalog, en: enCatalog } = catalogs;
   const catalog = language === 'en' ? enCatalog : ruCatalog;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Все');
@@ -60,6 +61,23 @@ export function MechanicsPage({ data }: { data: HeroSnapshot }) {
     setQuery(formula.title);
     setTarget((current) => ({ id, request: (current?.request ?? 0) + 1 }));
   };
+  if (loading)
+    return (
+      <section className="load-state" aria-busy="true">
+        <span className="loader" />
+        <p>{t('Загружаем механики из локального API…')}</p>
+      </section>
+    );
+  if (error)
+    return (
+      <section className="load-state" role="alert">
+        <h1>{t('Не удалось загрузить механики')}</h1>
+        <p>{t('Проверь подключение к локальному серверу и PostgreSQL.')}</p>
+        <button className="button button-primary" onClick={retry}>
+          {t('Повторить загрузку')}
+        </button>
+      </section>
+    );
   return (
     <div className="mechanics-page">
       <section className="mechanics-intro">

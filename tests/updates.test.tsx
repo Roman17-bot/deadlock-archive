@@ -32,10 +32,17 @@ const saved: UpdateState = {
 };
 const newer = (): HeroSnapshot => ({ ...data, meta: { ...data.meta, clientVersion: 6820 } });
 const json = (value: unknown, status = 200) => new Response(JSON.stringify(value), { status });
-function fetchRoutes(handle: (url: string, init?: RequestInit) => Response | Promise<Response>) {
+function fetchRoutes(
+  handle: (url: string, init?: RequestInit) => Response | Promise<Response>,
+  defaultHistory = true,
+) {
   return vi
     .spyOn(globalThis, 'fetch')
-    .mockImplementation(async (input, init) => handle(String(input), init));
+    .mockImplementation(async (input, init) =>
+      defaultHistory && String(input) === '/api/version-history'
+        ? json(initialHistory)
+        : handle(String(input), init),
+    );
 }
 beforeEach(async () => {
   await i18n.changeLanguage('ru');
@@ -47,6 +54,22 @@ afterEach(() => {
 });
 
 describe('owner updates', () => {
+  it('does not show bundled history when the local database read fails and can retry', async () => {
+    let available = false;
+    fetchRoutes((url) => {
+      if (url === '/api/update/session') return json({ token: 'nonce', state: idle });
+      if (url === '/api/version-history') return available ? json(initialHistory) : json({}, 503);
+      throw Error('Unexpected URL');
+    }, false);
+    render(<UpdatePage mode="local" data={data} onSnapshot={vi.fn()} />);
+    expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить историю');
+    expect(document.querySelector('.version-history-list')).toBeNull();
+    available = true;
+    fireEvent.click(screen.getByRole('button', { name: 'Повторить загрузку истории' }));
+    expect(
+      await screen.findByText('6819', { selector: '.version-history-list strong' }),
+    ).toBeVisible();
+  });
   it('shows a translated up-to-date result without reloading a snapshot or a publication link', async () => {
     await setLanguage('en');
     const onSnapshot = vi.fn();

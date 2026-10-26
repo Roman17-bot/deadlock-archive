@@ -1,5 +1,11 @@
 # Focused retrieval
 
+## Local website data and calculations
+
+After `npm run knowledge -- status`, use `npm run db:status` for the local website's actual PostgreSQL state. `npm run db:query -- hero "Nurse Harrow"` returns bounded current hero data; `npm run db:query -- formula ehp ru` returns one formula, and `history` returns bounded versions. These commands read ignored `.env.local` internally; never print that file or credentials. If PostgreSQL is unavailable, distinguish that from the separately available SQLite evidence archive. See `docs/database.md` and current `server/database/` code for migrations/export/backup; a DB export is a review artifact, not an automatic publication.
+
+For numeric scenarios retrieve the formula's assumptions and version, then call the tested functions in `shared/mechanics.ts` through Node/tsx or use the website calculator. Percent inputs are ordinary percentages (30, not0.3); decimal comma is accepted by input parsing. Preserve both lifesteal/heal-amp models when unresolved. The calculator is a model, not a measurement of the game engine. Private research/profile/decisions remain in SQLite/FTS5 and are not copied into public website data.
+
 The installed `local-profile.json` contains `repoRoot`, written by the installer on this machine. If the repository moved, locate its `package.json` and `scripts/knowledge/cli.mjs`, then reinstall. The private repo `knowledge/profile.json` holds stable preferences; `status` returns only its relevant public-to-agent fields. Never publish either local profile or the database.
 
 Run from the repository with Node 24.15+:

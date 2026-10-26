@@ -240,3 +240,118 @@ describe('owner update job', () => {
     expect(publish).not.toHaveBeenCalled();
   });
 });
+describe('PostgreSQL update synchronization', () => {
+  it('uses the current database snapshot after a separate CLI import without dispatching again', async () => {
+    const refresh = vi.fn(async () => result);
+    const syncDatabase = vi.fn();
+    const publish = vi.fn();
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion,
+      readSnapshot: async () => next,
+      refresh,
+      syncDatabase,
+      publish,
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(manager.getState()).toMatchObject({
+      phase: 'succeeded',
+      clientVersion: 6820,
+      upToDate: true,
+      localSaved: false,
+    });
+    expect(manager.getSnapshot()).toEqual(next);
+    expect(refresh).not.toHaveBeenCalled();
+    expect(syncDatabase).not.toHaveBeenCalled();
+    expect(publish).not.toHaveBeenCalled();
+  });
+  it('commits the database before indexing and publication and reads its history', async () => {
+    const order: string[] = [];
+    const history = { schemaVersion: 1 as const, versions: [] };
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion,
+      refresh: async () => result,
+      syncDatabase: async (value) => {
+        expect(value.meta.clientVersion).toBe(6820);
+        order.push('db');
+      },
+      onSaved: async () => {
+        order.push('index');
+      },
+      readHistory: async () => history,
+      publish: async () => {
+        order.push('publish');
+        return {
+          status: 'queued',
+          url: 'https://github.com/Roman17-bot/deadlock-archive/actions/workflows/refresh-data.yml',
+        };
+      },
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(order).toEqual(['db', 'index', 'publish']);
+    expect(manager.getState()).toMatchObject({
+      phase: 'succeeded',
+      databaseSaved: true,
+      localSaved: true,
+    });
+    expect(await manager.getHistory()).toEqual(history);
+  });
+  it('preserves the previous database snapshot on sync failure and retries a newer saved JSON', async () => {
+    const syncDatabase = vi
+      .fn()
+      .mockRejectedValueOnce(new Error('private-db-password'))
+      .mockResolvedValue(undefined);
+    const publish = vi.fn(async () => ({
+      status: 'queued' as const,
+      url: 'https://github.com/Roman17-bot/deadlock-archive/actions/workflows/refresh-data.yml',
+    }));
+    const onSaved = vi.fn();
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion,
+      refresh: async () => ({ ...result, changed: false }),
+      syncDatabase,
+      publish,
+      onSaved,
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(manager.getState()).toMatchObject({
+      phase: 'failed',
+      databaseSaved: false,
+      localSaved: true,
+    });
+    expect(JSON.stringify(manager.getState())).not.toContain('private-db-password');
+    expect(manager.getSnapshot()).toEqual(snapshot);
+    expect(publish).not.toHaveBeenCalled();
+    expect(onSaved).not.toHaveBeenCalled();
+    manager.start({ publish: true });
+    await settle();
+    expect(syncDatabase).toHaveBeenCalledTimes(2);
+    expect(manager.getSnapshot().meta.clientVersion).toBe(6820);
+    expect(manager.getState()).toMatchObject({ phase: 'succeeded', databaseSaved: true });
+    expect(publish).toHaveBeenCalledTimes(1);
+  });
+  it('does not import into PostgreSQL or publish for an already current client', async () => {
+    const syncDatabase = vi.fn(),
+      publish = vi.fn();
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion: async () => ({ version: 6819, revision: 11162696, buildDate: '2026-10-22' }),
+      syncDatabase,
+      publish,
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(manager.getState()).toMatchObject({ phase: 'succeeded', upToDate: true });
+    expect(syncDatabase).not.toHaveBeenCalled();
+    expect(publish).not.toHaveBeenCalled();
+  });
+});

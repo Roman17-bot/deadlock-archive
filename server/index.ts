@@ -1,26 +1,99 @@
 import { readFile } from 'node:fs/promises';
-import { createApp } from './app';
-import type { HeroSnapshot } from '../shared/types';
 import { fileURLToPath } from 'node:url';
+import type { HeroSnapshot } from '../shared/types';
+import { createApp } from './app';
+import { readCuratedBundle } from './database/bundle';
+import { createDatabasePool, loadDatabaseEnvironment } from './database/config';
+import { PostgresArchive } from './database/repository';
+import { syncCuratedDatabase } from './database/sync';
 import { createUpdateManager } from './updates/manager';
 
-const snapshot = JSON.parse(
-  await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
-) as HeroSnapshot;
-const port = Number(process.env.API_PORT ?? 3001);
-if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid API_PORT');
 const root = fileURLToPath(new URL('../', import.meta.url));
-const updates = createUpdateManager({
-  snapshot,
-  root,
-  onSaved: async () => {
-    const { importKnowledge } = await import(
-      new URL('../scripts/knowledge/import.mjs', import.meta.url).href
-    );
-    importKnowledge({ root });
-  },
+
+async function start() {
+  const port = Number(process.env.API_PORT ?? 3001);
+  if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid API_PORT');
+
+  const databaseConfig = loadDatabaseEnvironment(root);
+  const archive = databaseConfig ? new PostgresArchive(createDatabasePool(databaseConfig)) : null;
+  try {
+    let snapshot: HeroSnapshot;
+    if (archive) {
+      await archive.migrate();
+      let current = await archive.getHeroes();
+      if (!current) {
+        await archive.importBundle(await readCuratedBundle(root), 'initial-seed');
+        current = await archive.getHeroes();
+      }
+      if (!current) throw new Error('Archive has no current hero snapshot');
+      snapshot = current;
+    } else {
+      snapshot = JSON.parse(
+        await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
+      ) as HeroSnapshot;
+    }
+
+    const updates = createUpdateManager({
+      snapshot,
+      root,
+      ...(archive
+        ? {
+            readSnapshot: async () => {
+              const saved = await archive.getHeroes();
+              if (!saved) throw new Error('Archive has no current hero snapshot');
+              return saved;
+            },
+            readHistory: async () => {
+              const history = await archive.getHistory();
+              if (!history) throw new Error('Archive has no current version history');
+              return history;
+            },
+            syncDatabase: async (saved: HeroSnapshot) => {
+              await syncCuratedDatabase(root, saved, archive);
+            },
+          }
+        : {}),
+      onSaved: async () => {
+        const { importKnowledge } = await import(
+          new URL('../scripts/knowledge/import.mjs', import.meta.url).href
+        );
+        importKnowledge({ root });
+      },
+    });
+
+    const app = createApp(snapshot, {
+      updates,
+      archive: archive ?? undefined,
+      ...(!archive
+        ? {
+            readMechanics: async (language: 'ru' | 'en') =>
+              (await readCuratedBundle(root)).mechanics[language],
+          }
+        : {}),
+    });
+    app.listen(port, '127.0.0.1', () => console.log(`API: http://127.0.0.1:${port}/api/health`));
+    let closing = false;
+    const close = async () => {
+      if (closing) return;
+      closing = true;
+      await new Promise<void>((resolve) => app.close(() => resolve()));
+      await archive?.close();
+    };
+    for (const signal of ['SIGINT', 'SIGTERM'] as const) {
+      process.once(signal, () => {
+        void close().catch(() => {
+          process.exitCode = 1;
+        });
+      });
+    }
+  } catch {
+    await archive?.close();
+    throw new Error('API startup failed; check PostgreSQL configuration and curated data');
+  }
+}
+
+void start().catch(() => {
+  // Never print database client errors: they can include host or credential details.
+  console.error('API startup failed; check PostgreSQL configuration and curated data');
+  process.exitCode = 1;
 });
-const app = createApp(snapshot, { updates });
-app.listen(port, '127.0.0.1', () => console.log(`API: http://127.0.0.1:${port}/api/health`));
-process.once('SIGINT', () => app.close());
-process.once('SIGTERM', () => app.close());

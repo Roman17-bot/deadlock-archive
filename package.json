@@ -19,6 +19,14 @@
     "typecheck": "tsc --noEmit",
     "data:check": "node scripts/validate-data.mjs",
     "data:update": "node --import tsx scripts/update-data.mjs",
+    "db:setup": "node --import tsx scripts/database/cli.mjs setup",
+    "db:migrate": "node --import tsx scripts/database/cli.mjs migrate",
+    "db:import": "node --import tsx scripts/database/cli.mjs import",
+    "db:status": "node --import tsx scripts/database/cli.mjs status",
+    "db:export": "node --import tsx scripts/database/cli.mjs export",
+    "db:backup": "node --import tsx scripts/database/cli.mjs backup",
+    "db:query": "node --import tsx scripts/database/cli.mjs query",
+    "db:test": "node --import tsx scripts/database/cli.mjs test",
     "knowledge": "node scripts/knowledge/cli.mjs",
     "knowledge:import": "node scripts/knowledge/cli.mjs import",
     "skill:install": "node scripts/install-skill.mjs"
@@ -26,6 +34,7 @@
   "dependencies": {
     "i18next": "26.5.10",
     "lucide-react": "1.61.0",
+    "pg": "8.23.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-i18next": "17.1.9"
@@ -35,6 +44,7 @@
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.8",
     "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",

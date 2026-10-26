@@ -73,6 +73,9 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   const { t } = useI18n();
   const mode = modeOverride ?? modeForLocation();
   const [history, setHistory] = useState<VersionHistory>(initialHistory as VersionHistory);
+  const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'failed'>(
+    mode === 'local' ? 'loading' : 'ready',
+  );
   const [historyEpoch, setHistoryEpoch] = useState(0);
   const [state, setState] = useState<UpdateState | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -93,15 +96,21 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
 
   useEffect(() => {
     const controller = new AbortController();
+    if (mode === 'local') setHistoryStatus('loading');
     void readJson(mode === 'local' ? '/api/version-history' : asset('data/version-history.json'), {
       cache: 'no-store',
       signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20_000)]),
     })
       .then((value) => {
-        if (!controller.signal.aborted && validateVersionHistory(value)) setHistory(value);
+        if (!validateVersionHistory(value)) throw new Error('Invalid version history');
+        if (!controller.signal.aborted) {
+          setHistory(value);
+          setHistoryStatus('ready');
+        }
       })
       .catch(() => {
-        /* Keep the validated history bundled with this release. */
+        if (!controller.signal.aborted && mode === 'local') setHistoryStatus('failed');
+        /* Public builds retain the validated history bundled with the release. */
       });
     return () => controller.abort();
   }, [mode, data.meta.clientVersion, historyEpoch]);
@@ -121,7 +130,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
     async (next: UpdateState) => {
       if (!live.current) return;
       setState(next);
-      if (!next.localSaved || activePhases.has(next.phase)) return;
+      if (!next.localSaved || next.databaseSaved === false || activePhases.has(next.phase)) return;
       const key = next.jobId ?? next.updatedAt;
       if (loadedJob.current === key) return;
       loadedJob.current = key;
@@ -264,6 +273,7 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
   };
 
   const publicationUrl = state ? safePublicationUrl(state) : undefined;
+  const historyVisible = mode === 'public' || historyStatus === 'ready';
   return (
     <section className="updates-page" aria-labelledby="updates-title">
       <div className="updates-hero">
@@ -319,18 +329,21 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
               <div className="updates-state" role="status" aria-live="polite">
                 <strong>
                   {t(
-                    state.upToDate
-                      ? 'Текущая версия актуальна'
-                      : state.localSaved
-                        ? 'Сохранено локально'
-                        : state.phase === 'failed'
-                          ? 'Обновление не удалось'
-                          : activePhases.has(state.phase)
-                            ? 'Обновление выполняется'
-                            : 'Готово к проверке',
+                    state.databaseSaved === false
+                      ? 'JSON сохранён, БД не обновлена'
+                      : state.upToDate
+                        ? 'Текущая версия актуальна'
+                        : state.localSaved
+                          ? 'Сохранено локально'
+                          : state.phase === 'failed'
+                            ? 'Обновление не удалось'
+                            : activePhases.has(state.phase)
+                              ? 'Обновление выполняется'
+                              : 'Готово к проверке',
                   )}
                 </strong>
                 <p>{translateError(state.message)}</p>
+                {state.databaseSaved === true && <p>{t('Данные сохранены в PostgreSQL.')}</p>}
                 {state.localSaved &&
                   (state.publication?.status === 'queued' ||
                     state.publication?.status === 'in_progress') && (
@@ -419,52 +432,73 @@ export function UpdatePage({ data, onSnapshot, mode: modeOverride }: UpdatePageP
             )}
           </p>
         </div>
-        <ol className="version-history-list">
-          {[...history.versions]
-            .sort((a, b) => b.clientVersion - a.clientVersion)
-            .map((entry) => (
-              <li
-                key={entry.clientVersion}
-                className={entry.clientVersion === data.meta.clientVersion ? 'is-current' : ''}
-              >
-                <div>
-                  <span className="version-history-dot" aria-hidden="true" />
-                  <strong>{entry.clientVersion}</strong>
-                  {entry.clientVersion === data.meta.clientVersion && (
-                    <span className="version-current">{t('Текущая')}</span>
-                  )}
-                </div>
-                <dl>
+        {mode === 'local' && historyStatus === 'loading' && (
+          <p className="history-note">{t('Загружаем историю из локального API…')}</p>
+        )}
+        {mode === 'local' && historyStatus === 'failed' && (
+          <div>
+            <p className="updates-error" role="alert">
+              {t('Не удалось загрузить историю из локального API.')}
+            </p>
+            <button
+              className="updates-button"
+              type="button"
+              onClick={() => setHistoryEpoch((n) => n + 1)}
+            >
+              <RefreshCw size={18} />
+              {t('Повторить загрузку истории')}
+            </button>
+          </div>
+        )}
+        {historyVisible && (
+          <ol className="version-history-list">
+            {[...history.versions]
+              .sort((a, b) => b.clientVersion - a.clientVersion)
+              .map((entry) => (
+                <li
+                  key={entry.clientVersion}
+                  className={entry.clientVersion === data.meta.clientVersion ? 'is-current' : ''}
+                >
                   <div>
-                    <dt>{t('Сборка клиента')}</dt>
-                    <dd>
-                      <time dateTime={entry.buildDate}>{formatDate(entry.buildDate)}</time>
-                    </dd>
+                    <span className="version-history-dot" aria-hidden="true" />
+                    <strong>{entry.clientVersion}</strong>
+                    {entry.clientVersion === data.meta.clientVersion && (
+                      <span className="version-current">{t('Текущая')}</span>
+                    )}
                   </div>
-                  <div>
-                    <dt>{t('В архиве с')}</dt>
-                    <dd>
-                      <time dateTime={entry.firstPublishedAt}>
-                        {formatDate(entry.firstPublishedAt)}
-                      </time>
-                    </dd>
-                  </div>
-                </dl>
-              </li>
-            ))}
-        </ol>
-        {history.versions.length === 1 && (
+                  <dl>
+                    <div>
+                      <dt>{t('Сборка клиента')}</dt>
+                      <dd>
+                        <time dateTime={entry.buildDate}>{formatDate(entry.buildDate)}</time>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t('В архиве с')}</dt>
+                      <dd>
+                        <time dateTime={entry.firstPublishedAt}>
+                          {formatDate(entry.firstPublishedAt)}
+                        </time>
+                      </dd>
+                    </div>
+                  </dl>
+                </li>
+              ))}
+          </ol>
+        )}
+        {historyVisible && history.versions.length === 1 && (
           <p className="history-note">
             {t(
               'Это первая версия клиента, опубликованная в архиве. Новые версии будут добавляться сюда при обновлении данных.',
             )}
           </p>
         )}
-        {!history.versions.some((entry) => entry.clientVersion === data.meta.clientVersion) && (
-          <p className="updates-pending">
-            {t('Запись текущей версии ещё не загружена. Показана последняя доступная история.')}
-          </p>
-        )}
+        {historyVisible &&
+          !history.versions.some((entry) => entry.clientVersion === data.meta.clientVersion) && (
+            <p className="updates-pending">
+              {t('Запись текущей версии ещё не загружена. Показана последняя доступная история.')}
+            </p>
+          )}
       </section>
       <div className="updates-links">
         <a href={workflow} target="_blank" rel="noopener noreferrer">

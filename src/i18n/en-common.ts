@@ -1,4 +1,15 @@
 export const enCommon: Record<string, string> = {
+  'Загружаем историю из локального API…': 'Loading history from the local API…',
+  'Не удалось загрузить историю из локального API.': 'Could not load history from the local API.',
+  'Повторить загрузку истории': 'Retry loading history',
+  'Загружаем механики из локального API…': 'Loading mechanics from the local API…',
+  'Не удалось загрузить механики': 'Could not load the mechanics',
+  'Проверь подключение к локальному серверу и PostgreSQL.':
+    'Check the connection to the local server and PostgreSQL.',
+  'JSON сохранён, БД не обновлена': 'JSON saved, database not updated',
+  'Данные сохранены в PostgreSQL.': 'Data has been saved to PostgreSQL.',
+  'JSON сохранён, но PostgreSQL не обновлён. Предыдущая версия в БД сохранена, публикация не отправлена. Проверьте подключение к БД и повторите обновление.':
+    'JSON was saved, but PostgreSQL was not updated. The previous database version is preserved and publication was not submitted. Check the database connection and retry the update.',
   справочник: 'reference',
   'реестр героев': 'hero register',
   'механики и калькуляторы': 'mechanics and calculators',

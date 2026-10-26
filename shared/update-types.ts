@@ -13,6 +13,7 @@ export interface UpdateState {
   changed: boolean;
   upToDate?: boolean;
   historySaved?: boolean;
+  databaseSaved?: boolean;
   message: string;
   updatedAt: string;
   jobId?: string;

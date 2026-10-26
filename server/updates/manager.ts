@@ -26,6 +26,9 @@ export interface UpdateManagerOptions {
   checkVersion?: typeof getLatestVersion;
   publish?: (options: { expectedVersion: number }) => Promise<PublicationState>;
   onSaved?: (snapshot: HeroSnapshot) => void | Promise<void>;
+  syncDatabase?: (snapshot: HeroSnapshot) => Promise<void>;
+  readSnapshot?: () => Promise<HeroSnapshot>;
+  readHistory?: () => Promise<VersionHistory>;
 }
 
 export function createUpdateManager(options: UpdateManagerOptions): UpdateManager {
@@ -47,6 +50,10 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
   async function execute(publish: boolean) {
     let warning = '';
     try {
+      if (options.readSnapshot) {
+        current = structuredClone(await options.readSnapshot());
+        update({ clientVersion: current.meta.clientVersion });
+      }
       const latest = await (options.checkVersion ?? getLatestVersion)();
       if (latest.version < current.meta.clientVersion)
         throw new Error('Refusing version downgrade');
@@ -58,18 +65,33 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
         root: options.root,
         expectedVersion: latest.version,
       });
-      if (!refreshed.changed) {
+      // Saved JSON can already be newer after an earlier DB synchronization failed.
+      const advancesClient = refreshed.snapshot.meta.clientVersion > current.meta.clientVersion;
+      if (!refreshed.changed && !advancesClient) {
         update({ phase: 'succeeded', upToDate: true, message: 'Текущая версия актуальна.' });
         return;
       }
       update({ phase: 'saving', message: 'Проверенные данные сохранены локально.' });
-      current = structuredClone(refreshed.snapshot);
       update({
         localSaved: true,
-        changed: refreshed.changed,
-        clientVersion: current.meta.clientVersion,
+        changed: refreshed.changed || advancesClient,
+        clientVersion: refreshed.snapshot.meta.clientVersion,
         historySaved: refreshed.historySaved,
       });
+      if (options.syncDatabase) {
+        update({ databaseSaved: false });
+        try {
+          if (refreshed.historySaved === false) throw new Error('History save failed');
+          await options.syncDatabase(structuredClone(refreshed.snapshot));
+          update({ databaseSaved: true });
+        } catch {
+          const error =
+            'JSON сохранён, но PostgreSQL не обновлён. Предыдущая версия в БД сохранена, публикация не отправлена. Проверьте подключение к БД и повторите обновление.';
+          update({ phase: 'failed', error, message: error });
+          return;
+        }
+      }
+      current = structuredClone(refreshed.snapshot);
       try {
         await options.onSaved?.(structuredClone(current));
       } catch {
@@ -118,7 +140,8 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
   }
   return {
     getSnapshot: () => structuredClone(current),
-    getHistory: () => readVersionHistory(options.root),
+    getHistory: () =>
+      options.readHistory ? options.readHistory() : readVersionHistory(options.root),
     getState: readState,
     getSessionToken: () => token,
     start({ publish }) {
