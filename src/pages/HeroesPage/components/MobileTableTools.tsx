@@ -15,7 +15,7 @@ export function MobileTableTools({ statView, changeStatView }: Props) {
           {t('Приросты за LVL')}
         </button>
       </div>
-      <p>{t('Листай столбцы вбок. Нажми на героя для примечаний.')}</p>
+      <p>{t('Нажми на героя, чтобы открыть подробности.')}</p>
     </div>
   );
 }

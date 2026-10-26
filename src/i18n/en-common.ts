@@ -145,6 +145,13 @@ export const enCommon: Record<string, string> = {
   'Приросты за LVL': 'Growth per LVL',
   'Листай столбцы вбок. Нажми на героя для примечаний.':
     'Swipe sideways for more columns. Tap a hero for notes.',
+  'Нажми на героя, чтобы открыть подробности.': 'Tap a hero to open their details.',
+  'Навигация по столбцам': 'Column navigation',
+  'Листай характеристики': 'Swipe for more stats',
+  'Урон · DPS · HP · Spirit · Реген.': 'Damage · DPS · HP · Spirit · Regen',
+  'Предыдущие столбцы': 'Previous columns',
+  'Следующие столбцы': 'Next columns',
+  'Прокрутка характеристик': 'Scroll hero stats',
   'В реестре {{selected}} из {{count}} героев': '{{selected}} of {{count}} heroes in the register',
   'Приросты учитывают встроенный Spirit-скейл': 'Growth includes native Spirit scaling',
   'Как считаем характеристики': 'How the stats are calculated',

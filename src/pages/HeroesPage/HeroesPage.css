@@ -345,6 +345,9 @@
 .table-scroll {
   overflow: visible;
 }
+.table-viewport {
+  position: relative;
+}
 .table-scroll table {
   width: 100%;
   min-width: 1120px;
@@ -814,6 +817,105 @@
   font-size: 0.75rem;
   line-height: 1.5;
 }
+.table-scroll-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  padding: 10px 12px 6px;
+  border-bottom: 1px solid #a7b288;
+  background: #24372b;
+  color: #f5ebd0;
+  color-scheme: dark;
+  box-shadow: 0 3px 8px #101b1733;
+}
+.table-scroll-navigation strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.table-scroll-navigation strong svg {
+  flex-shrink: 0;
+  color: #f4d78a;
+}
+.table-scroll-navigation p {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #d2ddc3;
+}
+.table-scroll-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+.table-scroll-controls button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b6bd94;
+  color: #fff0bd;
+  background: #3e5239;
+}
+.table-scroll-controls button:disabled {
+  opacity: 0.35;
+}
+.table-scroll-controls input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: ew-resize;
+}
+.table-scroll-controls input::-webkit-slider-runnable-track {
+  height: 8px;
+  border: 1px solid #c1ccaa;
+  border-radius: 4px;
+  background: linear-gradient(
+    to right,
+    #f4d78a var(--table-scroll-progress),
+    #869b78 var(--table-scroll-progress)
+  );
+}
+.table-scroll-controls input::-moz-range-track {
+  height: 6px;
+  border: 1px solid #c1ccaa;
+  border-radius: 4px;
+  background: #869b78;
+}
+.table-scroll-controls input::-moz-range-progress {
+  height: 6px;
+  border-radius: 4px;
+  background: #f4d78a;
+}
+.table-scroll-controls input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 18px;
+  margin-top: -6px;
+  border: 2px solid #fff2c6;
+  border-radius: 3px;
+  background: #d5b96b;
+  box-shadow: 0 1px 4px #101b1766;
+}
+.table-scroll-controls input::-moz-range-thumb {
+  width: 26px;
+  height: 14px;
+  border: 2px solid #fff2c6;
+  border-radius: 3px;
+  background: #d5b96b;
+  box-shadow: 0 1px 4px #101b1766;
+}
 @media (max-width: 760px) {
   .register-page {
     padding: 18px 12px 0;
@@ -949,12 +1051,42 @@
     font-size: 0.9375rem;
   }
   .table-frame[data-stat-view='growth'] table {
-    min-width: 22.5rem;
+    min-width: 0;
+  }
+  .table-frame[data-stat-view='growth'] .hero-column {
+    min-width: 0;
+    width: 30%;
+    max-width: none;
+  }
+  .table-frame[data-stat-view='growth'] .growth-first {
+    border-left: 0;
   }
   .table-scroll .hero-column {
     min-width: 7rem;
     width: 7rem;
     padding: 0;
+    border-right: 2px solid #8b9872;
+  }
+  .table-frame[data-scroll-left='true'] .hero-column::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(to right, #455a4266, transparent);
+    pointer-events: none;
+  }
+  .table-frame[data-scroll-right='true'] .table-viewport::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 16px;
+    background: linear-gradient(to left, #455a4266, transparent);
+    pointer-events: none;
   }
   .table-scroll thead th {
     height: 64px;
@@ -995,6 +1127,7 @@
   }
   .table-scroll td.growth-column {
     font-size: 0.875rem;
+    padding-inline: 4px;
   }
   .hero-cell {
     min-height: 56px;
@@ -1050,5 +1183,22 @@
   }
   .register-aside > button {
     margin-left: 0;
+  }
+}
+@media (max-width: 380px) {
+  .table-frame[data-stat-view='growth'] .hero-cell {
+    gap: 4px;
+    padding-inline: 4px;
+  }
+  .table-frame[data-stat-view='growth'] .hero-cell img {
+    width: 24px;
+    height: 24px;
+  }
+  .table-frame[data-stat-view='growth'] .hero-cell-name,
+  .table-frame[data-stat-view='growth'] td.growth-column {
+    font-size: 0.8125rem;
+  }
+  .table-frame[data-stat-view='growth'] thead button {
+    padding-inline: 4px;
   }
 }
