@@ -54,7 +54,7 @@ No game launch; no admin password persistence; ignored .env.local/application pa
 - [x] Install verified Microsoft PostgreSQL VS Code extension; reuse existing SQL formatter and add workspace recommendations.
 - [x] Update/install project skill for PG queries vs private evidence and shared calculator module.
 - [x] Full tests/typecheck/data/build, independent review, real local PostgreSQL/API/browser checks and credentials-in-build audit.
-- [ ] Commit/push/publish portable changes; record deployment proof and private DB setup evidence; preserve existing services.
+- [x] Commit/push/publish portable changes; record deployment proof and private DB setup evidence; preserve existing services.
 
 ## Verification — 26 October 2026
 
@@ -64,4 +64,4 @@ No game launch; no admin password persistence; ignored .env.local/application pa
 - Live local API reports `storage: postgresql`; browser loads bilingual mechanics and history. Same-client button returns up-to-date and leaves import-run count unchanged (2 → 2).
 - Independent reviews completed. Fixed slug search parity and explicit local history-load errors; the updater also rereads the database before version preflight after a separate CLI import.
 - Public build audit: no application password, backend configuration, or private archive files. Microsoft PostgreSQL extension 1.32.1 installed; maintained project skill installed and validated.
-- Remote PostgreSQL CI and Pages publication: pending release verification.
+- Release `495bdf5` published on 26 October 2026. [PostgreSQL CI](https://github.com/Roman17-bot/deadlock-archive/actions/runs/40252817278) and [Pages build/deploy](https://github.com/Roman17-bot/deadlock-archive/actions/runs/40252817647) succeeded. Public browser and HTTP checks confirm the released assets, 44 heroes, 27 formulas per language and current history.
