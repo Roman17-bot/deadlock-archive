@@ -1,0 +1,88 @@
+import { ArrowRight, ScanLine } from 'lucide-react';
+import { asset, formatDate } from '../../../lib/format';
+import type { HeroSnapshot } from '../../../../shared/types';
+import { useI18n } from '../../../i18n';
+
+export function HomeHero({ data }: { data: HeroSnapshot }) {
+  const { t } = useI18n();
+  return (
+    <section className="home-hero">
+      <div className="hero-copy">
+        <div className="section-kicker light">
+          <span />
+          {t('НЕЗАВИСИМОЕ БЮРО ИССЛЕДОВАНИЙ')}
+        </div>
+        <p className="issue-number">
+          {t('ТОМ I')} <span>{t('ОКТЯБРЬ, 2026')}</span>
+        </p>
+        <h1>
+          {t('У каждого героя')}
+          <br />
+          {t('есть')} <em>{t('свои цифры.')}</em>
+        </h1>
+        <p className="hero-description">
+          {t(
+            'Сравнивай, замечай различия и находи свой стиль игры. Досье на всех героев Deadlock — от первого уровня до последнего Boon.',
+          )}
+        </p>
+        <div className="hero-cta">
+          <a className="button button-paper" href="#/heroes" aria-label={t('Открыть реестр')}>
+            {t('Открыть реестр')}
+            <ArrowRight size={19} />
+          </a>
+          <span>
+            {t('{{count}} героя.', { count: data.heroes.length })}
+            <br />
+            {t('Все уровни в одном реестре.')}
+          </span>
+        </div>
+        <div className="hero-verification">
+          <span className="verification-seal">
+            <ScanLine size={20} />
+          </span>
+          <div>
+            <strong>{t('Сверено с файлами игры')}</strong>
+            <span>
+              {t('Клиент {{version}} · проверено {{date}}', {
+                version: data.meta.clientVersion,
+                date: formatDate(data.meta.snapshotDate),
+              })}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="roster-art" aria-hidden="true">
+        <div className="roster-art-heading">
+          <span>DEADLOCK / CHARACTER INDEX</span>
+          <span>№ 001—{String(data.heroes.length).padStart(3, '0')}</span>
+        </div>
+        <div className="roster-art-title">
+          <span>{t('Личные дела')}</span>
+          <em>{t('старого города.')}</em>
+        </div>
+        <div className="roster-portraits">
+          {data.heroes.map((hero, index) => (
+            <div className="roster-portrait" key={hero.id}>
+              <img src={asset(hero.portrait)} alt="" width="54" height="54" />
+              <span>{String(index + 1).padStart(2, '0')}</span>
+            </div>
+          ))}
+          <span className="roster-endmark">✦</span>
+        </div>
+        <div className="roster-art-footer">
+          <strong>{data.heroes.length}</strong>
+          <span>
+            {t('ГЕРОЯ В АРХИВЕ')}
+            <br />
+            {t('У КАЖДОГО СВОЯ ИСТОРИЯ')}
+          </span>
+          <span className="roster-seal">
+            {t('СВЕРЕНО')}
+            <br />
+            {data.meta.clientVersion}
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}

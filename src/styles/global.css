@@ -1,7 +1,10 @@
-@import './home.css';
-@import './register.css';
-@import './mechanics.css';
-@import './updates.css';
+@import '../pages/HomePage/HomePage.css';
+@import '../pages/HeroesPage/HeroesPage.css';
+@import '../pages/MechanicsPage/MechanicsPage.css';
+@import '../features/calculator/Calculator.css';
+@import '../components/ui/StyledSelect/StyledSelect.css';
+@import '../pages/UpdatesPage/UpdatesPage.css';
+@import '../features/synchronization/Synchronization.css';
 
 :root {
   color-scheme: dark;

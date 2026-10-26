@@ -2,7 +2,7 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import { MechanicsPage } from '../src/features/mechanics/MechanicsPage';
+import { MechanicsPage } from '../src/pages/MechanicsPage/MechanicsPage';
 import heroes from '../data/heroes.json';
 import ru from '../data/mechanics.json';
 import en from '../data/mechanics.en.json';

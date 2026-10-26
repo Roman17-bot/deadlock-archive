@@ -3,7 +3,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
-import { MechanicsPage } from '../src/features/mechanics/MechanicsPage';
+import { MechanicsPage } from '../src/pages/MechanicsPage/MechanicsPage';
 import data from '../data/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import { setLanguage } from '../src/i18n';

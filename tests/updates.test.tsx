@@ -5,7 +5,7 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import snapshot from '../data/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import type { UpdateState } from '../shared/update-types';
-import { UpdatePage } from '../src/features/updates/UpdatePage';
+import { UpdatesPage as UpdatePage } from '../src/pages/UpdatesPage/UpdatesPage';
 import { StrictMode } from 'react';
 import { i18n, setLanguage } from '../src/i18n';
 import initialHistory from '../data/version-history.json';
