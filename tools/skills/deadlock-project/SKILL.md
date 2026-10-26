@@ -11,6 +11,8 @@ Locate the repository from the working directory (`scripts/knowledge/cli.mjs`), 
 
 Choose retrieval for the task:
 
+In an isolated worktree without `knowledge/archive.sqlite`, use the original repository recorded in the installed `references/local-profile.json` for knowledge commands (`node "<original>/scripts/knowledge/cli.mjs" --root "<original>" status`). Keep that private evidence archive as the recovery source instead of creating an incomplete duplicate; inspect implementation code in the active workspace.
+
 | Request                                     | First retrieval                                                                                |
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Hero, ability, item, build or replay        | `entity "NAME"`, then focused `search`                                                         |
