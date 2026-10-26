@@ -1,17 +1,2379 @@
 {
+  "heroes": [
+    {
+      "aliases": "Абрамс",
+      "base": {
+        "bulletDamage": 3.6,
+        "health": 800,
+        "moveSpeed": 6.4,
+        "regen": 1.5,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.1,
+        "health": 49,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 6,
+      "isNew": false,
+      "name": "Abrams",
+      "portrait": "assets/heroes/abrams.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "abrams",
+      "source": {
+        "heroLine": 10229,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L10229",
+        "weaponLine": 30066,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L30066"
+      },
+      "tags": [
+        "Tank",
+        "Brawler",
+        "Bull-Headed"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_bull_set",
+        "clipSize": 9,
+        "cycleTime": 0.63,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 9,
+        "reloadSeconds": 0.3525,
+        "shotsPerSecond": 1.5873015873015872,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Аполло",
+      "base": {
+        "bulletDamage": 18.5,
+        "health": 770,
+        "moveSpeed": 7.2,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.825,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 77,
+      "isNew": false,
+      "name": "Apollo",
+      "portrait": "assets/heroes/apollo.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "apollo",
+      "source": {
+        "heroLine": 110554,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L110554",
+        "weaponLine": 268130,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L268130"
+      },
+      "tags": [
+        "Finesse",
+        "Mobility",
+        "A Cut Above"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_fencer_set",
+        "clipSize": 15,
+        "cycleTime": 0.38,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0,
+        "notes": [
+          "Проектильные взмахи меча; HitOnceAcrossAllBullets=true, без бонусов способностей.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.5,
+        "shotsPerSecond": 2.6315789473684212,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Баба бабка",
+      "base": {
+        "bulletDamage": 8.8,
+        "health": 780,
+        "moveSpeed": 6.5,
+        "regen": 2.5,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.41,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 88,
+      "isNew": false,
+      "name": "Baba",
+      "portrait": "assets/heroes/baba.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "baba",
+      "source": {
+        "heroLine": 133340,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L133340",
+        "weaponLine": 294406,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L294406"
+      },
+      "tags": [
+        "Cackling",
+        "Beady",
+        "Hexing"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_baba_set",
+        "clipSize": 15,
+        "cycleTime": 0.31,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0,
+        "notes": [
+          "Три визуальных снаряда, HitOnceAcrossAllBullets=true. Сам флаг не доказывает, что полный урон залпа нужно делить на три; raw и альтернативные модели сохранены.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 3,
+        "reloadSeconds": 2.5,
+        "shotsPerSecond": 3.2258064516129035,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Бибоп",
+      "base": {
+        "bulletDamage": 4.98,
+        "health": 880,
+        "moveSpeed": 6.45,
+        "regen": 2.5,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.115,
+        "health": 52,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 15,
+      "isNew": false,
+      "name": "Bebop",
+      "portrait": "assets/heroes/bebop.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "bebop",
+      "source": {
+        "heroLine": 27380,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L27380",
+        "weaponLine": 33058,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L33058"
+      },
+      "tags": [
+        "Hook",
+        "Bomb",
+        "Punch"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_bebop_set",
+        "clipSize": 66,
+        "cycleTime": 0.084,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Оружие является лучом; базовый DPS здесь после начальной задержки WindUpTime=0.3 с, без неё."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 11.904761904761903,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Билли",
+      "base": {
+        "bulletDamage": 6.3,
+        "health": 820,
+        "moveSpeed": 7,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.127,
+        "health": 53,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 72,
+      "isNew": false,
+      "name": "Billy",
+      "portrait": "assets/heroes/billy.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "billy",
+      "source": {
+        "heroLine": 101034,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L101034",
+        "weaponLine": 169232,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L169232"
+      },
+      "tags": [
+        "Punk",
+        "Chaotic",
+        "G.O.A.T."
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_punkgoat_set",
+        "clipSize": 30,
+        "cycleTime": 0.085,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Прицеливание оружия использует конус; указана одна цель, без бонусов способностей."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.9,
+        "shotsPerSecond": 11.76470588235294,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Калико",
+      "base": {
+        "bulletDamage": 1.84,
+        "health": 730,
+        "moveSpeed": 6.8,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.043,
+        "health": 37,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 16,
+      "isNew": false,
+      "name": "Calico",
+      "portrait": "assets/heroes/calico.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "calico",
+      "source": {
+        "heroLine": 29555,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L29555",
+        "weaponLine": 80827,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L80827"
+      },
+      "tags": [
+        "Tricksy",
+        "Slippery",
+        "Burst Damage"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_nano_set",
+        "clipSize": 12,
+        "cycleTime": 0.21,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 9,
+        "reloadSeconds": 2.6,
+        "shotsPerSecond": 4.761904761904762,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Селеста",
+      "base": {
+        "bulletDamage": 18,
+        "health": 690,
+        "moveSpeed": 6.2,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 4
+      },
+      "growth": {
+        "bulletDamage": 0.82,
+        "health": 33,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 81,
+      "isNew": false,
+      "name": "Celeste",
+      "portrait": "assets/heroes/celeste.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "celeste",
+      "source": {
+        "heroLine": 119096,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L119096",
+        "weaponLine": 285401,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L285401"
+      },
+      "tags": [
+        "Performer",
+        "Disruptive",
+        "Dazzling"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_unicorn_set",
+        "clipSize": 8,
+        "cycleTime": 0.58,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Указано одно прямое попадание; дополнительные отскоки не включены."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2,
+        "shotsPerSecond": 1.7241379310344829,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Дэнни мертвец",
+      "base": {
+        "bulletDamage": 15,
+        "health": 730,
+        "moveSpeed": 6.4,
+        "regen": 3.25,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.42,
+        "health": 39,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 78,
+      "isNew": false,
+      "name": "Deadman Danny",
+      "portrait": "assets/heroes/deadman-danny.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "deadman-danny",
+      "source": {
+        "heroLine": 112674,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L112674",
+        "weaponLine": 304985,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L304985"
+      },
+      "tags": [
+        "Reckless",
+        "High-flying",
+        "Explosive"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "ability_deadpack_primary_weapon_charge",
+        "clipSize": 14,
+        "cycleTime": 0.25,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Обычная атака без заряда; заряженная атака: raw m_flChargedBulletDamage=48, charge_up_time=0.8 с. Её DPS не выводится как 48/обычный cycle_time.",
+          "Основной незаряженный выстрел; заряд и взрывная область не включены в сравнение."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 3.2,
+        "shotsPerSecond": 4,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Дрифтер",
+      "base": {
+        "bulletDamage": 19.5,
+        "health": 755,
+        "moveSpeed": 6.9,
+        "regen": 3.5,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.49,
+        "health": 41,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 64,
+      "isNew": false,
+      "name": "Drifter",
+      "portrait": "assets/heroes/drifter.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "drifter",
+      "source": {
+        "heroLine": 85068,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L85068",
+        "weaponLine": 173144,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L173144"
+      },
+      "tags": [
+        "Stalker",
+        "Bloodthirsty",
+        "Cruel"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_drifter_set",
+        "clipSize": 12,
+        "cycleTime": 0.441,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0,
+        "notes": [
+          "Три траектории взмаха; HitOnceAcrossAllBullets=true. Полный урон одной цели и raw m_flBulletDamage требуют различать; в JSON сохранены оба прочтения без заявления о проверке в игре.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 3,
+        "reloadSeconds": 2.444,
+        "shotsPerSecond": 2.2675736961451247,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Динамо",
+      "base": {
+        "bulletDamage": 12.6,
+        "health": 880,
+        "moveSpeed": 6.7,
+        "regen": 1.75,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.5,
+        "health": 61,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 11,
+      "isNew": false,
+      "name": "Dynamo",
+      "portrait": "assets/heroes/dynamo.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "dynamo",
+      "source": {
+        "heroLine": 18814,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L18814",
+        "weaponLine": 44530,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L44530"
+      },
+      "tags": [
+        "Teamplay",
+        "Initiator",
+        "Clutch"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_sumo_set",
+        "clipSize": 20,
+        "cycleTime": 0.2625,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 3.8095238095238093,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Грейвс",
+      "base": {
+        "bulletDamage": 3.6,
+        "health": 730,
+        "moveSpeed": 7,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.054,
+        "health": 35,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 76,
+      "isNew": false,
+      "name": "Graves",
+      "portrait": "assets/heroes/graves.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "graves",
+      "source": {
+        "heroLine": 108416,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L108416",
+        "weaponLine": 272121,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L272121"
+      },
+      "tags": [
+        "Morbid",
+        "Area Denial",
+        "Necromancer"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_necro_set",
+        "clipSize": 40,
+        "cycleTime": 0.102,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Тики tether-оружия: урон за один тик; указана одна цель, без рикошета/нескольких целей."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.8,
+        "shotsPerSecond": 9.803921568627452,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Грей талон серый коготь",
+      "base": {
+        "bulletDamage": 23.51,
+        "health": 780,
+        "moveSpeed": 6.3,
+        "regen": 1.5,
+        "spirit": 0,
+        "stamina": 4
+      },
+      "growth": {
+        "bulletDamage": 0.85,
+        "health": 38,
+        "regen": 0,
+        "spirit": 1.6
+      },
+      "id": 17,
+      "isNew": false,
+      "name": "Grey Talon",
+      "portrait": "assets/heroes/grey-talon.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0.08,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "grey-talon",
+      "source": {
+        "heroLine": 31606,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L31606",
+        "weaponLine": 86916,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L86916"
+      },
+      "tags": [
+        "Precision",
+        "Hunter",
+        "Area Denial"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_archer_set",
+        "clipSize": 17,
+        "cycleTime": 0.6,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0,
+        "notes": [
+          "К прямому приросту урона 0.85/Boon добавляется 0.08×SP, при SP +1.6/Boon.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 1.6666666666666667,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Хейз",
+      "base": {
+        "bulletDamage": 5.26,
+        "health": 730,
+        "moveSpeed": 8.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.143,
+        "health": 33,
+        "regen": 0,
+        "spirit": 0.5
+      },
+      "id": 13,
+      "isNew": false,
+      "name": "Haze",
+      "portrait": "assets/heroes/haze.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "haze",
+      "source": {
+        "heroLine": 23076,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L23076",
+        "weaponLine": 60328,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L60328"
+      },
+      "tags": [
+        "Assassin",
+        "Stealthy",
+        "Lethal"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_haze_set",
+        "clipSize": 25,
+        "cycleTime": 0.105,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 9.523809523809524,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Холидей",
+      "base": {
+        "bulletDamage": 19.7,
+        "health": 780,
+        "moveSpeed": 8.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 1.144,
+        "health": 43,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 14,
+      "isNew": false,
+      "name": "Holliday",
+      "portrait": "assets/heroes/holliday.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "holliday",
+      "source": {
+        "heroLine": 25210,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L25210",
+        "weaponLine": 27183,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L27183"
+      },
+      "tags": [
+        "Crackshot",
+        "Explosive",
+        "Apprehender"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_astro_set",
+        "clipSize": 10,
+        "cycleTime": 0.4725,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.75,
+        "shotsPerSecond": 2.1164021164021167,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Инфернус",
+      "base": {
+        "bulletDamage": 5.5,
+        "health": 830,
+        "moveSpeed": 6.7,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.088,
+        "health": 39,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 1,
+      "isNew": false,
+      "name": "Infernus",
+      "portrait": "assets/heroes/infernus.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "infernus",
+      "source": {
+        "heroLine": 1718,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L1718",
+        "weaponLine": 65833,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L65833"
+      },
+      "tags": [
+        "Arsonist",
+        "Explosive",
+        "Burn Rubber"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_inferno_set",
+        "clipSize": 27,
+        "cycleTime": 0.105,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.25,
+        "shotsPerSecond": 9.523809523809524,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Айви",
+      "base": {
+        "bulletDamage": 4.45,
+        "health": 755,
+        "moveSpeed": 7.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 4
+      },
+      "growth": {
+        "bulletDamage": 0.08,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.2
+      },
+      "id": 20,
+      "isNew": false,
+      "name": "Ivy",
+      "portrait": "assets/heroes/ivy.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "ivy",
+      "source": {
+        "heroLine": 37921,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L37921",
+        "weaponLine": 99301,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L99301"
+      },
+      "tags": [
+        "Team-up",
+        "Disruptor",
+        "Rock Solid"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_tengu_set",
+        "clipSize": 33,
+        "cycleTime": 0.0735,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.444,
+        "shotsPerSecond": 13.60544217687075,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Кельвин",
+      "base": {
+        "bulletDamage": 18.6,
+        "health": 880,
+        "moveSpeed": 6.7,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.418,
+        "health": 60,
+        "regen": 0,
+        "spirit": 1.3
+      },
+      "id": 12,
+      "isNew": false,
+      "name": "Kelvin",
+      "portrait": "assets/heroes/kelvin.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "kelvin",
+      "source": {
+        "heroLine": 20945,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L20945",
+        "weaponLine": 68745,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L68745"
+      },
+      "tags": [
+        "Protector",
+        "Explorer",
+        "Ice Cold"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_kelvin_set",
+        "clipSize": 14,
+        "cycleTime": 0.2625,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.585,
+        "shotsPerSecond": 3.8095238095238093,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Гейст леди",
+      "base": {
+        "bulletDamage": 20.7,
+        "health": 880,
+        "moveSpeed": 6.3,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 1,
+        "health": 51,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 4,
+      "isNew": false,
+      "name": "Lady Geist",
+      "portrait": "assets/heroes/lady-geist.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "lady-geist",
+      "source": {
+        "heroLine": 8099,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L8099",
+        "weaponLine": 54176,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L54176"
+      },
+      "tags": [
+        "Lifesteal",
+        "Self Damage",
+        "Fatale"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_ghost_set",
+        "clipSize": 9,
+        "cycleTime": 0.4725,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.585,
+        "shotsPerSecond": 2.1164021164021167,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Лэш Лаш",
+      "base": {
+        "bulletDamage": 8.46,
+        "health": 780,
+        "moveSpeed": 7.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.31,
+        "health": 50,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 31,
+      "isNew": false,
+      "name": "Lash",
+      "portrait": "assets/heroes/lash.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "lash",
+      "source": {
+        "heroLine": 46113,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L46113",
+        "weaponLine": 71836,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L71836"
+      },
+      "tags": [
+        "Initiator",
+        "High-Flying",
+        "Arrogant"
+      ],
+      "weapon": {
+        "burst": 3,
+        "className": "citadel_weapon_lash_set",
+        "clipSize": 29,
+        "cycleTime": 0.2625,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.084,
+        "notes": [
+          "Очередь из 3 выстрелов; урон одного выстрела отличается от урона полной очереди."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 6.968641114982579,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Макгиннис",
+      "base": {
+        "bulletDamage": 6.08,
+        "health": 780,
+        "moveSpeed": 6.7,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.171,
+        "health": 52,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 8,
+      "isNew": false,
+      "name": "McGinnis",
+      "portrait": "assets/heroes/mcginnis.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "mcginnis",
+      "source": {
+        "heroLine": 14487,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L14487",
+        "weaponLine": 47653,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L47653"
+      },
+      "tags": [
+        "Inventor",
+        "Support",
+        "Disruption"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_engineer_set",
+        "clipSize": 66,
+        "cycleTime": 0.21,
+        "fullSpinCycle": 0.084,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "DPS меняется по мере раскрутки; отдельно приведён DPS при полной раскрутке.",
+          "В колонке DPS показан старт стрельбы. При полной раскрутке: 72.38 урона/с на уровне 1."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 3.29,
+        "shotsPerSecond": 4.761904761904762,
+        "spinsUp": true
+      }
+    },
+    {
+      "aliases": "Мина",
+      "base": {
+        "bulletDamage": 7.31,
+        "health": 660,
+        "moveSpeed": 6.5,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.275,
+        "health": 27,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 63,
+      "isNew": false,
+      "name": "Mina",
+      "portrait": "assets/heroes/mina.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "mina",
+      "source": {
+        "heroLine": 83030,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L83030",
+        "weaponLine": 137754,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L137754"
+      },
+      "tags": [
+        "Harasser",
+        "Nimble",
+        "Vexing"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_vampirebat_set",
+        "clipSize": 12,
+        "cycleTime": 0.252,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 1.7,
+        "shotsPerSecond": 3.9682539682539684,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Мираж",
+      "base": {
+        "bulletDamage": 14.8,
+        "health": 730,
+        "moveSpeed": 7,
+        "regen": 1.5,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.3,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 52,
+      "isNew": false,
+      "name": "Mirage",
+      "portrait": "assets/heroes/mirage.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "mirage",
+      "source": {
+        "heroLine": 62859,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L62859",
+        "weaponLine": 74664,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L74664"
+      },
+      "tags": [
+        "Bodyguard",
+        "Traveller",
+        "Focused"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_mirage_set",
+        "clipSize": 16,
+        "cycleTime": 0.3675,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.6,
+        "shotsPerSecond": 2.7210884353741496,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Мо Крилл",
+      "base": {
+        "bulletDamage": 2.82,
+        "health": 930,
+        "moveSpeed": 8,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.0847,
+        "health": 65,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 18,
+      "isNew": false,
+      "name": "Mo & Krill",
+      "portrait": "assets/heroes/mo-krill.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "mo-krill",
+      "source": {
+        "heroLine": 33697,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L33697",
+        "weaponLine": 77520,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L77520"
+      },
+      "tags": [
+        "Tag-Team",
+        "Initiator",
+        "Burrower"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_digger_set",
+        "clipSize": 20,
+        "cycleTime": 0.189,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 4,
+        "reloadSeconds": 2.82,
+        "shotsPerSecond": 5.291005291005291,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Нёрс Нерс Харроу медсестра",
+      "base": {
+        "bulletDamage": 14.858,
+        "health": 730,
+        "moveSpeed": 6.8,
+        "regen": 0,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.37436,
+        "health": 32,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 87,
+      "isNew": true,
+      "name": "Nurse Harrow",
+      "portrait": "assets/heroes/nurse-harrow.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "nurse-harrow",
+      "source": {
+        "heroLine": 131126,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L131126",
+        "weaponLine": 308835,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L308835"
+      },
+      "tags": [
+        "Strict",
+        "Terrifying",
+        "Savior"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_nurse_set",
+        "clipSize": 11,
+        "cycleTime": 0.38,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Базовое восстановление HP равно 0; прямой оружейный выстрел указан без активных способностей."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 1.9,
+        "shotsPerSecond": 2.6315789473684212,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Пейдж",
+      "base": {
+        "bulletDamage": 35,
+        "health": 680,
+        "moveSpeed": 6.9,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.52,
+        "health": 31,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 67,
+      "isNew": false,
+      "name": "Paige",
+      "portrait": "assets/heroes/paige.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "paige",
+      "source": {
+        "heroLine": 91536,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L91536",
+        "weaponLine": 164963,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L164963"
+      },
+      "tags": [
+        "Helpful",
+        "Protector",
+        "Booksmart"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_bookworm_set2",
+        "clipSize": 14,
+        "cycleTime": 0.5,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.1,
+        "notes": [
+          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.5,
+        "shotsPerSecond": 2,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Парадокс",
+      "base": {
+        "bulletDamage": 6.8,
+        "health": 730,
+        "moveSpeed": 6.7,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.26,
+        "health": 46,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 10,
+      "isNew": false,
+      "name": "Paradox",
+      "portrait": "assets/heroes/paradox.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "paradox",
+      "source": {
+        "heroLine": 16659,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L16659",
+        "weaponLine": 41739,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L41739"
+      },
+      "tags": [
+        "Calculated",
+        "Disruptor",
+        "Tactician"
+      ],
+      "weapon": {
+        "burst": 5,
+        "className": "citadel_weapon_chrono_set",
+        "clipSize": 40,
+        "cycleTime": 0.294,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.0735,
+        "notes": [
+          "Очередь из 5 выстрелов; урон одного выстрела отличается от урона полной очереди."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.585,
+        "shotsPerSecond": 8.503401360544219,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Покет",
+      "base": {
+        "bulletDamage": 4.28,
+        "health": 780,
+        "moveSpeed": 7.2,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.14,
+        "health": 36,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 50,
+      "isNew": false,
+      "name": "Pocket",
+      "portrait": "assets/heroes/pocket.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "pocket",
+      "source": {
+        "heroLine": 59035,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L59035",
+        "weaponLine": 97164,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L97164"
+      },
+      "tags": [
+        "Trickster",
+        "Burst Damage",
+        "Frogs"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_synth_set",
+        "clipSize": 11,
+        "cycleTime": 0.525,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 7,
+        "reloadSeconds": 2.82,
+        "shotsPerSecond": 1.9047619047619047,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Рэт кинг крысиный король",
+      "base": {
+        "bulletDamage": 6,
+        "health": 800,
+        "moveSpeed": 6.8,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.18,
+        "health": 50,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 84,
+      "isNew": false,
+      "name": "Rat King",
+      "portrait": "assets/heroes/rat-king.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "rat-king",
+      "source": {
+        "heroLine": 124706,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L124706",
+        "weaponLine": 312481,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L312481"
+      },
+      "tags": [
+        "Scrappy",
+        "Regal",
+        "Tenacious"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_ratking_set",
+        "clipSize": 24,
+        "cycleTime": 0.2,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.1,
+        "notes": [
+          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
+        ],
+        "projectiles": 2,
+        "reloadSeconds": 2.8,
+        "shotsPerSecond": 5,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Рем Рэм",
+      "base": {
+        "bulletDamage": 16,
+        "health": 680,
+        "moveSpeed": 7.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.34,
+        "health": 28,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 79,
+      "isNew": false,
+      "name": "Rem",
+      "portrait": "assets/heroes/rem.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "rem",
+      "source": {
+        "heroLine": 114764,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L114764",
+        "weaponLine": 264397,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L264397"
+      },
+      "tags": [
+        "Helpful",
+        "Tiny",
+        "zZzzZ"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "ability_familiar_primary_weapon_bubblegun",
+        "clipSize": 13,
+        "cycleTime": 0.26,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Используются пузырьковые снаряды; указано прямое попадание по одной цели."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2,
+        "shotsPerSecond": 3.846153846153846,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Севен",
+      "base": {
+        "bulletDamage": 10.8,
+        "health": 730,
+        "moveSpeed": 6.7,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.24,
+        "health": 41,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 2,
+      "isNew": false,
+      "name": "Seven",
+      "portrait": "assets/heroes/seven.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "seven",
+      "source": {
+        "heroLine": 3802,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L3802",
+        "weaponLine": 57100,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L57100"
+      },
+      "tags": [
+        "High Voltage",
+        "Merciless",
+        "Area Denial"
+      ],
+      "weapon": {
+        "burst": 3,
+        "className": "citadel_weapon_gigawatt_set",
+        "clipSize": 29,
+        "cycleTime": 0.2625,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.084,
+        "notes": [
+          "Очередь из 3 выстрелов; урон одного выстрела отличается от урона полной очереди."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.35,
+        "shotsPerSecond": 6.968641114982579,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Шив",
+      "base": {
+        "bulletDamage": 4.8,
+        "health": 830,
+        "moveSpeed": 6.5,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.165,
+        "health": 46,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 19,
+      "isNew": false,
+      "name": "Shiv",
+      "portrait": "assets/heroes/shiv.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "shiv",
+      "source": {
+        "heroLine": 35804,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L35804",
+        "weaponLine": 89903,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L89903"
+      },
+      "tags": [
+        "Rage",
+        "Bleed",
+        "Repeat"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_shiv_set",
+        "clipSize": 10,
+        "cycleTime": 0.55125,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 6,
+        "reloadSeconds": 2.8,
+        "shotsPerSecond": 1.8140589569160996,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Сильвер",
+      "base": {
+        "bulletDamage": 5.1,
+        "health": 830,
+        "moveSpeed": 6.7,
+        "regen": 2.5,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.117,
+        "health": 31,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 80,
+      "isNew": false,
+      "name": "Silver",
+      "portrait": "assets/heroes/silver.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "silver",
+      "source": {
+        "heroLine": 116948,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L116948",
+        "weaponLine": 278947,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L278947"
+      },
+      "tags": [
+        "Feral",
+        "Hot Mess",
+        "Transformation"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_werewolf_rifle",
+        "clipSize": 7,
+        "cycleTime": 0.85,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "Указана исходная винтовка; превращение в волка меняет оружие (зависимый citadel_weapon_werewolf_claws)."
+        ],
+        "projectiles": 7,
+        "reloadSeconds": 0.3,
+        "shotsPerSecond": 1.1764705882352942,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Синклер",
+      "base": {
+        "bulletDamage": 16.5,
+        "health": 730,
+        "moveSpeed": 7.2,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.55,
+        "health": 38,
+        "regen": 0,
+        "spirit": 1.3
+      },
+      "id": 60,
+      "isNew": false,
+      "name": "Sinclair",
+      "portrait": "assets/heroes/sinclair.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "sinclair",
+      "source": {
+        "heroLine": 77427,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L77427",
+        "weaponLine": 124904,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L124904"
+      },
+      "tags": [
+        "Trickster",
+        "Copycat",
+        "Versatile"
+      ],
+      "weapon": {
+        "burst": 2,
+        "className": "citadel_weapon_magician_set",
+        "clipSize": 16,
+        "cycleTime": 0.525,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.105,
+        "notes": [
+          "Очередь из 2 выстрелов; урон одного выстрела отличается от урона полной очереди."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.5,
+        "shotsPerSecond": 3.1746031746031744,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Соломон",
+      "base": {
+        "bulletDamage": 30,
+        "health": 780,
+        "moveSpeed": 6.7,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.4,
+        "health": 40,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 85,
+      "isNew": false,
+      "name": "Solomon",
+      "portrait": "assets/heroes/solomon.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0.14,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "solomon",
+      "source": {
+        "heroLine": 126856,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L126856",
+        "weaponLine": 298359,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L298359"
+      },
+      "tags": [
+        "Strategist",
+        "Focused",
+        "Checkmate"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_chessmaster_shotgun",
+        "clipSize": 8,
+        "cycleTime": 0.5,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0.075,
+        "notes": [
+          "Указан обычный выстрел; командование фигурами и m_bSuppressBulletOnBishopFire исключены.",
+          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку.",
+          "К прямому приросту урона 0.4/Boon добавляется 0.14×SP, при SP +1.1/Boon.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 3,
+        "shotsPerSecond": 2,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Дорман швейцар",
+      "base": {
+        "bulletDamage": 24,
+        "health": 755,
+        "moveSpeed": 7.9,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 1.25,
+        "health": 42,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 69,
+      "isNew": false,
+      "name": "The Doorman",
+      "portrait": "assets/heroes/the-doorman.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "the-doorman",
+      "source": {
+        "heroLine": 95437,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L95437",
+        "weaponLine": 165360,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L165360"
+      },
+      "tags": [
+        "Disorienting",
+        "Map Control",
+        "Mind Games"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_doorman_set",
+        "clipSize": 8,
+        "cycleTime": 0.63,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0.05,
+        "notes": [
+          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.4,
+        "shotsPerSecond": 1.5873015873015872,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Венатор",
+      "base": {
+        "bulletDamage": 8,
+        "health": 820,
+        "moveSpeed": 6.4,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.27,
+        "health": 43,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 65,
+      "isNew": false,
+      "name": "Venator",
+      "portrait": "assets/heroes/venator.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "venator",
+      "source": {
+        "heroLine": 87268,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L87268",
+        "weaponLine": 258729,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L258729"
+      },
+      "tags": [
+        "Devout",
+        "Arms Expert",
+        "Tactical"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_priest_set",
+        "clipSize": 33,
+        "cycleTime": 0.126,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.8,
+        "shotsPerSecond": 7.936507936507937,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Виктор",
+      "base": {
+        "bulletDamage": 12,
+        "health": 800,
+        "moveSpeed": 6.3,
+        "regen": 1.5,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.26,
+        "health": 34,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 66,
+      "isNew": false,
+      "name": "Victor",
+      "portrait": "assets/heroes/victor.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0.08
+      },
+      "slug": "victor",
+      "source": {
+        "heroLine": 89404,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L89404",
+        "weaponLine": 158731,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L158731"
+      },
+      "tags": [
+        "You",
+        "Can't",
+        "Kill Me"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_frank_set2",
+        "clipSize": 24,
+        "cycleTime": 0.198,
+        "fullSpinCycle": 0.171,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "DPS меняется по мере раскрутки; отдельно приведён DPS при полной раскрутке.",
+          "Восстановление HP дополнительно получает +0.08×SP; эффективный прирост +0.088 HP/с за Boon.",
+          "В колонке DPS показан старт стрельбы. При полной раскрутке: 70.18 урона/с на уровне 1."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.4,
+        "shotsPerSecond": 5.05050505050505,
+        "spinsUp": true
+      }
+    },
+    {
+      "aliases": "Виндикта",
+      "base": {
+        "bulletDamage": 12.33,
+        "health": 755,
+        "moveSpeed": 7.9,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 2
+      },
+      "growth": {
+        "bulletDamage": 0.495,
+        "health": 28,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 3,
+      "isNew": false,
+      "name": "Vindicta",
+      "portrait": "assets/heroes/vindicta.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0.022,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "vindicta",
+      "source": {
+        "heroLine": 5978,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L5978",
+        "weaponLine": 63138,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L63138"
+      },
+      "tags": [
+        "Sniper",
+        "Soaring",
+        "One Shot Kill"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_hornet_set",
+        "clipSize": 19,
+        "cycleTime": 0.231,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "К прямому приросту урона 0.495/Boon добавляется 0.022×SP, при SP +1.1/Boon."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.914,
+        "shotsPerSecond": 4.329004329004329,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Вайолет Виолет",
+      "base": {
+        "bulletDamage": 30,
+        "health": 710,
+        "moveSpeed": 6.9,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.55,
+        "health": 34,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 86,
+      "isNew": true,
+      "name": "Violet",
+      "portrait": "assets/heroes/violet.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "violet",
+      "source": {
+        "heroLine": 129012,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L129012",
+        "weaponLine": 288513,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L288513"
+      },
+      "tags": [
+        "Ambitious",
+        "Nimble",
+        "Creative"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_artist_set",
+        "clipSize": 15,
+        "cycleTime": 0.65,
+        "fullSpinCycle": null,
+        "hitOnce": true,
+        "intraBurstTime": 0,
+        "notes": [
+          "4 базовых / 8 усиленных вспомогательных траекторий; HitOnceAcrossAllBullets=true. Не умножать damage на 4 или 8; raw primary m_iBullets=1.",
+          "Обычный выстрел без усиленного альтернативного режима и бонусов Sketchbook.",
+          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.7,
+        "shotsPerSecond": 1.5384615384615383,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Вискус",
+      "base": {
+        "bulletDamage": 10.34,
+        "health": 780,
+        "moveSpeed": 7.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.36,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.3
+      },
+      "id": 35,
+      "isNew": false,
+      "name": "Viscous",
+      "portrait": "assets/heroes/viscous.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "viscous",
+      "source": {
+        "heroLine": 48194,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L48194",
+        "weaponLine": 102492,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L102492"
+      },
+      "tags": [
+        "Evasive",
+        "Disruptor",
+        "Gooey"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_viscous_set",
+        "clipSize": 20,
+        "cycleTime": 0.21,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.5,
+        "shotsPerSecond": 4.761904761904762,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Вайпер",
+      "base": {
+        "bulletDamage": 6.58,
+        "health": 780,
+        "moveSpeed": 6.9,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 4
+      },
+      "growth": {
+        "bulletDamage": 0.178,
+        "health": 35,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 58,
+      "isNew": false,
+      "name": "Vyper",
+      "portrait": "assets/heroes/vyper.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "vyper",
+      "source": {
+        "heroLine": 73544,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L73544",
+        "weaponLine": 118364,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L118364"
+      },
+      "tags": [
+        "Gunner",
+        "Slippery",
+        "Rat-a-Tat"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_viper_set",
+        "clipSize": 24,
+        "cycleTime": 0.07,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 1.6,
+        "shotsPerSecond": 14.285714285714285,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Варден",
+      "base": {
+        "bulletDamage": 17.34,
+        "health": 805,
+        "moveSpeed": 6.3,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.25,
+        "health": 60,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 25,
+      "isNew": false,
+      "name": "Warden",
+      "portrait": "assets/heroes/warden.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0.21,
+        "regenPerSpirit": 0
+      },
+      "slug": "warden",
+      "source": {
+        "heroLine": 41831,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L41831",
+        "weaponLine": 105847,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L105847"
+      },
+      "tags": [
+        "Initiator",
+        "Fearless",
+        "One Man Army"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_warden_set",
+        "clipSize": 17,
+        "cycleTime": 0.2625,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [
+          "ERoundsPerSecond и EFireRate представляют одну Spirit-зависимость скорости огня; не суммировать их как два независимых бонуса.",
+          "Скорострельность растёт от Spirit. EFireRate и ERoundsPerSecond — два представления одного скейла, не два складываемых бонуса."
+        ],
+        "projectiles": 1,
+        "reloadSeconds": 2.914,
+        "shotsPerSecond": 3.8095238095238093,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Рейф",
+      "base": {
+        "bulletDamage": 5.64,
+        "health": 730,
+        "moveSpeed": 7.2,
+        "regen": 2,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.14,
+        "health": 35,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 7,
+      "isNew": false,
+      "name": "Wraith",
+      "portrait": "assets/heroes/wraith.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "wraith",
+      "source": {
+        "heroLine": 12382,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L12382",
+        "weaponLine": 108519,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L108519"
+      },
+      "tags": [
+        "Duelist",
+        "Isolator",
+        "Telekinetic"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_wraith_set",
+        "clipSize": 52,
+        "cycleTime": 0.0945,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 1,
+        "reloadSeconds": 2.82,
+        "shotsPerSecond": 10.582010582010582,
+        "spinsUp": false
+      }
+    },
+    {
+      "aliases": "Ямато",
+      "base": {
+        "bulletDamage": 5.31,
+        "health": 730,
+        "moveSpeed": 8.2,
+        "regen": 1,
+        "spirit": 0,
+        "stamina": 3
+      },
+      "growth": {
+        "bulletDamage": 0.154,
+        "health": 45,
+        "regen": 0,
+        "spirit": 1.1
+      },
+      "id": 27,
+      "isNew": false,
+      "name": "Yamato",
+      "portrait": "assets/heroes/yamato.webp",
+      "scaling": {
+        "bulletDamagePerSpirit": 0,
+        "fireRatePercentPerSpirit": 0,
+        "regenPerSpirit": 0
+      },
+      "slug": "yamato",
+      "source": {
+        "heroLine": 43961,
+        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L43961",
+        "weaponLine": 115014,
+        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L115014"
+      },
+      "tags": [
+        "Relentless",
+        "Acrobatics",
+        "Pursuer"
+      ],
+      "weapon": {
+        "burst": 1,
+        "className": "citadel_weapon_yamato_set",
+        "clipSize": 12,
+        "cycleTime": 0.42,
+        "fullSpinCycle": null,
+        "hitOnce": false,
+        "intraBurstTime": 0,
+        "notes": [],
+        "projectiles": 5,
+        "reloadSeconds": 2.444,
+        "shotsPerSecond": 2.380952380952381,
+        "spinsUp": false
+      }
+    }
+  ],
   "meta": {
-    "schemaVersion": 1,
-    "snapshotDate": "2026-10-25",
+    "buildDate": "2026-10-22",
     "checkedAt": "2026-10-25T08:34:25.945077+00:00",
     "clientVersion": 6819,
-    "sourceRevision": 11162696,
     "gameCommit": "17462b250a0ca80e7f80102f2c83cc3eecff5f12",
-    "buildDate": "2026-10-22",
     "heroCount": 44,
     "levelRange": [
       1,
       36
     ],
+    "methodology": [
+      "Уровень 1: базовые значения. Уровни 2–36: по одному стандартному Boon. B = LVL − 1.",
+      "У каждого героя собственные прибавки к HP, Spirit и урону. Нативные Spirit-скейлы оружия и регенерации учитываются при изменении уровня.",
+      "Урон выстрела по одной цели: сумма попавших обычных дробин; для hit-once оружия один полный урон независимо от числа попавших траекторий. Очередь не считается одним выстрелом.",
+      "DPS — расчётная модель непрерывной стрельбы без перезарядки: shots/s = burst / (cycle + (burst−1) × intraBurst). Она не является замером игрового движка.",
+      "Нет предметов, активных способностей, усиленных режимов, хедшотов, сопротивлений и падения урона от дистанции. У раскручивающегося оружия показан стартовый DPS.",
+      "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
+    ],
+    "schemaVersion": 1,
+    "snapshotDate": "2026-10-25",
+    "sourceRevision": 11162696,
     "sources": [
       {
         "label": "Параметры героев · клиент 6819",
@@ -29,2368 +2391,6 @@
         "label": "Версия игрового клиента",
         "url": "https://api.deadlock-api.com/v1/assets/steam-info"
       }
-    ],
-    "methodology": [
-      "Уровень 1: базовые значения. Уровни 2–36: по одному стандартному Boon. B = LVL − 1.",
-      "У каждого героя собственные прибавки к HP, Spirit и урону. Нативные Spirit-скейлы оружия и регенерации учитываются при изменении уровня.",
-      "Урон выстрела по одной цели: сумма попавших обычных дробин; для hit-once оружия один полный урон независимо от числа попавших траекторий. Очередь не считается одним выстрелом.",
-      "DPS — расчётная модель непрерывной стрельбы без перезарядки: shots/s = burst / (cycle + (burst−1) × intraBurst). Она не является замером игрового движка.",
-      "Нет предметов, активных способностей, усиленных режимов, хедшотов, сопротивлений и падения урона от дистанции. У раскручивающегося оружия показан стартовый DPS.",
-      "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
     ]
-  },
-  "heroes": [
-    {
-      "id": 6,
-      "slug": "abrams",
-      "name": "Abrams",
-      "aliases": "Абрамс",
-      "tags": [
-        "Tank",
-        "Brawler",
-        "Bull-Headed"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/abrams.webp",
-      "base": {
-        "health": 800,
-        "spirit": 0,
-        "regen": 1.5,
-        "bulletDamage": 3.6,
-        "moveSpeed": 6.4,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 49.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.1
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_bull_set",
-        "projectiles": 9,
-        "burst": 1,
-        "cycleTime": 0.63,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.5873015873015872,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 9,
-        "reloadSeconds": 0.3525,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 10229,
-        "weaponLine": 30066,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L10229",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L30066"
-      }
-    },
-    {
-      "id": 77,
-      "slug": "apollo",
-      "name": "Apollo",
-      "aliases": "Аполло",
-      "tags": [
-        "Finesse",
-        "Mobility",
-        "A Cut Above"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/apollo.webp",
-      "base": {
-        "health": 770,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 18.5,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.825
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_fencer_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.38,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.6315789473684212,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 15,
-        "reloadSeconds": 2.5,
-        "notes": [
-          "Проектильные взмахи меча; HitOnceAcrossAllBullets=true, без бонусов способностей.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 110554,
-        "weaponLine": 268130,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L110554",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L268130"
-      }
-    },
-    {
-      "id": 88,
-      "slug": "baba",
-      "name": "Baba",
-      "aliases": "Баба бабка",
-      "tags": [
-        "Cackling",
-        "Beady",
-        "Hexing"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/baba.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.5,
-        "bulletDamage": 8.8,
-        "moveSpeed": 6.5,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.41
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_baba_set",
-        "projectiles": 3,
-        "burst": 1,
-        "cycleTime": 0.31,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.2258064516129035,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 15,
-        "reloadSeconds": 2.5,
-        "notes": [
-          "Три визуальных снаряда, HitOnceAcrossAllBullets=true. Сам флаг не доказывает, что полный урон залпа нужно делить на три; raw и альтернативные модели сохранены.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 133340,
-        "weaponLine": 294406,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L133340",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L294406"
-      }
-    },
-    {
-      "id": 15,
-      "slug": "bebop",
-      "name": "Bebop",
-      "aliases": "Бибоп",
-      "tags": [
-        "Hook",
-        "Bomb",
-        "Punch"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/bebop.webp",
-      "base": {
-        "health": 880,
-        "spirit": 0,
-        "regen": 2.5,
-        "bulletDamage": 4.98,
-        "moveSpeed": 6.45,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 52.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.115
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_bebop_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.084,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 11.904761904761903,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 66,
-        "reloadSeconds": 2.35,
-        "notes": [
-          "Оружие является лучом; базовый DPS здесь после начальной задержки WindUpTime=0.3 с, без неё."
-        ]
-      },
-      "source": {
-        "heroLine": 27380,
-        "weaponLine": 33058,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L27380",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L33058"
-      }
-    },
-    {
-      "id": 72,
-      "slug": "billy",
-      "name": "Billy",
-      "aliases": "Билли",
-      "tags": [
-        "Punk",
-        "Chaotic",
-        "G.O.A.T."
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/billy.webp",
-      "base": {
-        "health": 820,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 6.3,
-        "moveSpeed": 7.0,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 53.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.127
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_punkgoat_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.085,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 11.76470588235294,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 30,
-        "reloadSeconds": 2.9,
-        "notes": [
-          "Прицеливание оружия использует конус; указана одна цель, без бонусов способностей."
-        ]
-      },
-      "source": {
-        "heroLine": 101034,
-        "weaponLine": 169232,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L101034",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L169232"
-      }
-    },
-    {
-      "id": 16,
-      "slug": "calico",
-      "name": "Calico",
-      "aliases": "Калико",
-      "tags": [
-        "Tricksy",
-        "Slippery",
-        "Burst Damage"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/calico.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 1.84,
-        "moveSpeed": 6.8,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 37.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.043
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_nano_set",
-        "projectiles": 9,
-        "burst": 1,
-        "cycleTime": 0.21,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 4.761904761904762,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 12,
-        "reloadSeconds": 2.6,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 29555,
-        "weaponLine": 80827,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L29555",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L80827"
-      }
-    },
-    {
-      "id": 81,
-      "slug": "celeste",
-      "name": "Celeste",
-      "aliases": "Селеста",
-      "tags": [
-        "Performer",
-        "Disruptive",
-        "Dazzling"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/celeste.webp",
-      "base": {
-        "health": 690,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 18,
-        "moveSpeed": 6.2,
-        "stamina": 4
-      },
-      "growth": {
-        "health": 33.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.82
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_unicorn_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.58,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.7241379310344829,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 8,
-        "reloadSeconds": 2.0,
-        "notes": [
-          "Указано одно прямое попадание; дополнительные отскоки не включены."
-        ]
-      },
-      "source": {
-        "heroLine": 119096,
-        "weaponLine": 285401,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L119096",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L285401"
-      }
-    },
-    {
-      "id": 78,
-      "slug": "deadman-danny",
-      "name": "Deadman Danny",
-      "aliases": "Дэнни мертвец",
-      "tags": [
-        "Reckless",
-        "High-flying",
-        "Explosive"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/deadman-danny.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 3.25,
-        "bulletDamage": 15,
-        "moveSpeed": 6.4,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 39.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.42
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "ability_deadpack_primary_weapon_charge",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.25,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 4.0,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 14,
-        "reloadSeconds": 3.2,
-        "notes": [
-          "Обычная атака без заряда; заряженная атака: raw m_flChargedBulletDamage=48, charge_up_time=0.8 с. Её DPS не выводится как 48/обычный cycle_time.",
-          "Основной незаряженный выстрел; заряд и взрывная область не включены в сравнение."
-        ]
-      },
-      "source": {
-        "heroLine": 112674,
-        "weaponLine": 304985,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L112674",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L304985"
-      }
-    },
-    {
-      "id": 64,
-      "slug": "drifter",
-      "name": "Drifter",
-      "aliases": "Дрифтер",
-      "tags": [
-        "Stalker",
-        "Bloodthirsty",
-        "Cruel"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/drifter.webp",
-      "base": {
-        "health": 755,
-        "spirit": 0,
-        "regen": 3.5,
-        "bulletDamage": 19.5,
-        "moveSpeed": 6.9,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 41.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.49
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_drifter_set",
-        "projectiles": 3,
-        "burst": 1,
-        "cycleTime": 0.441,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.2675736961451247,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 12,
-        "reloadSeconds": 2.444,
-        "notes": [
-          "Три траектории взмаха; HitOnceAcrossAllBullets=true. Полный урон одной цели и raw m_flBulletDamage требуют различать; в JSON сохранены оба прочтения без заявления о проверке в игре.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 85068,
-        "weaponLine": 173144,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L85068",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L173144"
-      }
-    },
-    {
-      "id": 11,
-      "slug": "dynamo",
-      "name": "Dynamo",
-      "aliases": "Динамо",
-      "tags": [
-        "Teamplay",
-        "Initiator",
-        "Clutch"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/dynamo.webp",
-      "base": {
-        "health": 880,
-        "spirit": 0,
-        "regen": 1.75,
-        "bulletDamage": 12.6,
-        "moveSpeed": 6.7,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 61.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.5
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_sumo_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.2625,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.8095238095238093,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 20,
-        "reloadSeconds": 2.35,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 18814,
-        "weaponLine": 44530,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L18814",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L44530"
-      }
-    },
-    {
-      "id": 76,
-      "slug": "graves",
-      "name": "Graves",
-      "aliases": "Грейвс",
-      "tags": [
-        "Morbid",
-        "Area Denial",
-        "Necromancer"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/graves.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 3.6,
-        "moveSpeed": 7.0,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 35.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.054
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_necro_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.102,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 9.803921568627452,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 40,
-        "reloadSeconds": 2.8,
-        "notes": [
-          "Тики tether-оружия: урон за один тик; указана одна цель, без рикошета/нескольких целей."
-        ]
-      },
-      "source": {
-        "heroLine": 108416,
-        "weaponLine": 272121,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L108416",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L272121"
-      }
-    },
-    {
-      "id": 17,
-      "slug": "grey-talon",
-      "name": "Grey Talon",
-      "aliases": "Грей талон серый коготь",
-      "tags": [
-        "Precision",
-        "Hunter",
-        "Area Denial"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/grey-talon.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 1.5,
-        "bulletDamage": 23.51,
-        "moveSpeed": 6.3,
-        "stamina": 4
-      },
-      "growth": {
-        "health": 38.0,
-        "spirit": 1.6,
-        "regen": 0.0,
-        "bulletDamage": 0.85
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0.08,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_archer_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.6,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.6666666666666667,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 17,
-        "reloadSeconds": 2.35,
-        "notes": [
-          "К прямому приросту урона 0.85/Boon добавляется 0.08×SP, при SP +1.6/Boon.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 31606,
-        "weaponLine": 86916,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L31606",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L86916"
-      }
-    },
-    {
-      "id": 13,
-      "slug": "haze",
-      "name": "Haze",
-      "aliases": "Хейз",
-      "tags": [
-        "Assassin",
-        "Stealthy",
-        "Lethal"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/haze.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 5.26,
-        "moveSpeed": 8.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 33.0,
-        "spirit": 0.5,
-        "regen": 0.0,
-        "bulletDamage": 0.143
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_haze_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.105,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 9.523809523809524,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 25,
-        "reloadSeconds": 2.35,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 23076,
-        "weaponLine": 60328,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L23076",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L60328"
-      }
-    },
-    {
-      "id": 14,
-      "slug": "holliday",
-      "name": "Holliday",
-      "aliases": "Холидей",
-      "tags": [
-        "Crackshot",
-        "Explosive",
-        "Apprehender"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/holliday.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 19.7,
-        "moveSpeed": 8.2,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 43.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 1.144
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_astro_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.4725,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.1164021164021167,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 10,
-        "reloadSeconds": 2.75,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 25210,
-        "weaponLine": 27183,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L25210",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L27183"
-      }
-    },
-    {
-      "id": 1,
-      "slug": "infernus",
-      "name": "Infernus",
-      "aliases": "Инфернус",
-      "tags": [
-        "Arsonist",
-        "Explosive",
-        "Burn Rubber"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/infernus.webp",
-      "base": {
-        "health": 830,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 5.5,
-        "moveSpeed": 6.7,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 39.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.088
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_inferno_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.105,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 9.523809523809524,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 27,
-        "reloadSeconds": 2.25,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 1718,
-        "weaponLine": 65833,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L1718",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L65833"
-      }
-    },
-    {
-      "id": 20,
-      "slug": "ivy",
-      "name": "Ivy",
-      "aliases": "Айви",
-      "tags": [
-        "Team-up",
-        "Disruptor",
-        "Rock Solid"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/ivy.webp",
-      "base": {
-        "health": 755,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 4.45,
-        "moveSpeed": 7.2,
-        "stamina": 4
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.2,
-        "regen": 0.0,
-        "bulletDamage": 0.08
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_tengu_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.0735,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 13.60544217687075,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 33,
-        "reloadSeconds": 2.444,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 37921,
-        "weaponLine": 99301,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L37921",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L99301"
-      }
-    },
-    {
-      "id": 12,
-      "slug": "kelvin",
-      "name": "Kelvin",
-      "aliases": "Кельвин",
-      "tags": [
-        "Protector",
-        "Explorer",
-        "Ice Cold"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/kelvin.webp",
-      "base": {
-        "health": 880,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 18.6,
-        "moveSpeed": 6.7,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 60.0,
-        "spirit": 1.3,
-        "regen": 0.0,
-        "bulletDamage": 0.418
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_kelvin_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.2625,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.8095238095238093,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 14,
-        "reloadSeconds": 2.585,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 20945,
-        "weaponLine": 68745,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L20945",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L68745"
-      }
-    },
-    {
-      "id": 4,
-      "slug": "lady-geist",
-      "name": "Lady Geist",
-      "aliases": "Гейст леди",
-      "tags": [
-        "Lifesteal",
-        "Self Damage",
-        "Fatale"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/lady-geist.webp",
-      "base": {
-        "health": 880,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 20.7,
-        "moveSpeed": 6.3,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 51.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 1.0
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_ghost_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.4725,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.1164021164021167,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 9,
-        "reloadSeconds": 2.585,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 8099,
-        "weaponLine": 54176,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L8099",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L54176"
-      }
-    },
-    {
-      "id": 31,
-      "slug": "lash",
-      "name": "Lash",
-      "aliases": "Лэш Лаш",
-      "tags": [
-        "Initiator",
-        "High-Flying",
-        "Arrogant"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/lash.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 8.46,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 50.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.31
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_lash_set",
-        "projectiles": 1,
-        "burst": 3,
-        "cycleTime": 0.2625,
-        "intraBurstTime": 0.084,
-        "shotsPerSecond": 6.968641114982579,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 29,
-        "reloadSeconds": 2.35,
-        "notes": [
-          "Очередь из 3 выстрелов; урон одного выстрела отличается от урона полной очереди."
-        ]
-      },
-      "source": {
-        "heroLine": 46113,
-        "weaponLine": 71836,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L46113",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L71836"
-      }
-    },
-    {
-      "id": 8,
-      "slug": "mcginnis",
-      "name": "McGinnis",
-      "aliases": "Макгиннис",
-      "tags": [
-        "Inventor",
-        "Support",
-        "Disruption"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/mcginnis.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 6.08,
-        "moveSpeed": 6.7,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 52.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.171
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_engineer_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.21,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 4.761904761904762,
-        "spinsUp": true,
-        "fullSpinCycle": 0.084,
-        "hitOnce": false,
-        "clipSize": 66,
-        "reloadSeconds": 3.29,
-        "notes": [
-          "DPS меняется по мере раскрутки; отдельно приведён DPS при полной раскрутке.",
-          "В колонке DPS показан старт стрельбы. При полной раскрутке: 72.38 урона/с на уровне 1."
-        ]
-      },
-      "source": {
-        "heroLine": 14487,
-        "weaponLine": 47653,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L14487",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L47653"
-      }
-    },
-    {
-      "id": 63,
-      "slug": "mina",
-      "name": "Mina",
-      "aliases": "Мина",
-      "tags": [
-        "Harasser",
-        "Nimble",
-        "Vexing"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/mina.webp",
-      "base": {
-        "health": 660,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 7.31,
-        "moveSpeed": 6.5,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 27.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.275
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_vampirebat_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.252,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.9682539682539684,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 12,
-        "reloadSeconds": 1.7,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 83030,
-        "weaponLine": 137754,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L83030",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L137754"
-      }
-    },
-    {
-      "id": 52,
-      "slug": "mirage",
-      "name": "Mirage",
-      "aliases": "Мираж",
-      "tags": [
-        "Bodyguard",
-        "Traveller",
-        "Focused"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/mirage.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.5,
-        "bulletDamage": 14.8,
-        "moveSpeed": 7.0,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.3
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_mirage_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.3675,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.7210884353741496,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 16,
-        "reloadSeconds": 2.6,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 62859,
-        "weaponLine": 74664,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L62859",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L74664"
-      }
-    },
-    {
-      "id": 18,
-      "slug": "mo-krill",
-      "name": "Mo & Krill",
-      "aliases": "Мо Крилл",
-      "tags": [
-        "Tag-Team",
-        "Initiator",
-        "Burrower"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/mo-krill.webp",
-      "base": {
-        "health": 930,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 2.82,
-        "moveSpeed": 8.0,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 65.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.0847
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_digger_set",
-        "projectiles": 4,
-        "burst": 1,
-        "cycleTime": 0.189,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 5.291005291005291,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 20,
-        "reloadSeconds": 2.82,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 33697,
-        "weaponLine": 77520,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L33697",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L77520"
-      }
-    },
-    {
-      "id": 87,
-      "slug": "nurse-harrow",
-      "name": "Nurse Harrow",
-      "aliases": "Нёрс Нерс Харроу медсестра",
-      "tags": [
-        "Strict",
-        "Terrifying",
-        "Savior"
-      ],
-      "isNew": true,
-      "portrait": "assets/heroes/nurse-harrow.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 0.0,
-        "bulletDamage": 14.858,
-        "moveSpeed": 6.8,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 32.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.37436
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_nurse_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.38,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.6315789473684212,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 11,
-        "reloadSeconds": 1.9,
-        "notes": [
-          "Базовое восстановление HP равно 0; прямой оружейный выстрел указан без активных способностей."
-        ]
-      },
-      "source": {
-        "heroLine": 131126,
-        "weaponLine": 308835,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L131126",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L308835"
-      }
-    },
-    {
-      "id": 67,
-      "slug": "paige",
-      "name": "Paige",
-      "aliases": "Пейдж",
-      "tags": [
-        "Helpful",
-        "Protector",
-        "Booksmart"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/paige.webp",
-      "base": {
-        "health": 680,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 35.0,
-        "moveSpeed": 6.9,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 31.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.52
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_bookworm_set2",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.5,
-        "intraBurstTime": 0.1,
-        "shotsPerSecond": 2.0,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 14,
-        "reloadSeconds": 2.5,
-        "notes": [
-          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
-        ]
-      },
-      "source": {
-        "heroLine": 91536,
-        "weaponLine": 164963,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L91536",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L164963"
-      }
-    },
-    {
-      "id": 10,
-      "slug": "paradox",
-      "name": "Paradox",
-      "aliases": "Парадокс",
-      "tags": [
-        "Calculated",
-        "Disruptor",
-        "Tactician"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/paradox.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 6.8,
-        "moveSpeed": 6.7,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 46.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.26
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_chrono_set",
-        "projectiles": 1,
-        "burst": 5,
-        "cycleTime": 0.294,
-        "intraBurstTime": 0.0735,
-        "shotsPerSecond": 8.503401360544219,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 40,
-        "reloadSeconds": 2.585,
-        "notes": [
-          "Очередь из 5 выстрелов; урон одного выстрела отличается от урона полной очереди."
-        ]
-      },
-      "source": {
-        "heroLine": 16659,
-        "weaponLine": 41739,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L16659",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L41739"
-      }
-    },
-    {
-      "id": 50,
-      "slug": "pocket",
-      "name": "Pocket",
-      "aliases": "Покет",
-      "tags": [
-        "Trickster",
-        "Burst Damage",
-        "Frogs"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/pocket.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 4.28,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 36.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.14
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_synth_set",
-        "projectiles": 7,
-        "burst": 1,
-        "cycleTime": 0.525,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.9047619047619047,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 11,
-        "reloadSeconds": 2.82,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 59035,
-        "weaponLine": 97164,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L59035",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L97164"
-      }
-    },
-    {
-      "id": 84,
-      "slug": "rat-king",
-      "name": "Rat King",
-      "aliases": "Рэт кинг крысиный король",
-      "tags": [
-        "Scrappy",
-        "Regal",
-        "Tenacious"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/rat-king.webp",
-      "base": {
-        "health": 800,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 6.0,
-        "moveSpeed": 6.8,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 50.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.18
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_ratking_set",
-        "projectiles": 2,
-        "burst": 1,
-        "cycleTime": 0.2,
-        "intraBurstTime": 0.1,
-        "shotsPerSecond": 5.0,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 24,
-        "reloadSeconds": 2.8,
-        "notes": [
-          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
-        ]
-      },
-      "source": {
-        "heroLine": 124706,
-        "weaponLine": 312481,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L124706",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L312481"
-      }
-    },
-    {
-      "id": 79,
-      "slug": "rem",
-      "name": "Rem",
-      "aliases": "Рем Рэм",
-      "tags": [
-        "Helpful",
-        "Tiny",
-        "zZzzZ"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/rem.webp",
-      "base": {
-        "health": 680,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 16,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 28.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.34
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "ability_familiar_primary_weapon_bubblegun",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.26,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.846153846153846,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 13,
-        "reloadSeconds": 2.0,
-        "notes": [
-          "Используются пузырьковые снаряды; указано прямое попадание по одной цели."
-        ]
-      },
-      "source": {
-        "heroLine": 114764,
-        "weaponLine": 264397,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L114764",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L264397"
-      }
-    },
-    {
-      "id": 2,
-      "slug": "seven",
-      "name": "Seven",
-      "aliases": "Севен",
-      "tags": [
-        "High Voltage",
-        "Merciless",
-        "Area Denial"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/seven.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 10.8,
-        "moveSpeed": 6.7,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 41.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.24
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_gigawatt_set",
-        "projectiles": 1,
-        "burst": 3,
-        "cycleTime": 0.2625,
-        "intraBurstTime": 0.084,
-        "shotsPerSecond": 6.968641114982579,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 29,
-        "reloadSeconds": 2.35,
-        "notes": [
-          "Очередь из 3 выстрелов; урон одного выстрела отличается от урона полной очереди."
-        ]
-      },
-      "source": {
-        "heroLine": 3802,
-        "weaponLine": 57100,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L3802",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L57100"
-      }
-    },
-    {
-      "id": 19,
-      "slug": "shiv",
-      "name": "Shiv",
-      "aliases": "Шив",
-      "tags": [
-        "Rage",
-        "Bleed",
-        "Repeat"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/shiv.webp",
-      "base": {
-        "health": 830,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 4.8,
-        "moveSpeed": 6.5,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 46.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.165
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_shiv_set",
-        "projectiles": 6,
-        "burst": 1,
-        "cycleTime": 0.55125,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.8140589569160996,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 10,
-        "reloadSeconds": 2.8,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 35804,
-        "weaponLine": 89903,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L35804",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L89903"
-      }
-    },
-    {
-      "id": 80,
-      "slug": "silver",
-      "name": "Silver",
-      "aliases": "Сильвер",
-      "tags": [
-        "Feral",
-        "Hot Mess",
-        "Transformation"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/silver.webp",
-      "base": {
-        "health": 830,
-        "spirit": 0,
-        "regen": 2.5,
-        "bulletDamage": 5.1,
-        "moveSpeed": 6.7,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 31.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.117
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_werewolf_rifle",
-        "projectiles": 7,
-        "burst": 1,
-        "cycleTime": 0.85,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.1764705882352942,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 7,
-        "reloadSeconds": 0.3,
-        "notes": [
-          "Указана исходная винтовка; превращение в волка меняет оружие (зависимый citadel_weapon_werewolf_claws)."
-        ]
-      },
-      "source": {
-        "heroLine": 116948,
-        "weaponLine": 278947,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L116948",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L278947"
-      }
-    },
-    {
-      "id": 60,
-      "slug": "sinclair",
-      "name": "Sinclair",
-      "aliases": "Синклер",
-      "tags": [
-        "Trickster",
-        "Copycat",
-        "Versatile"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/sinclair.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 16.5,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 38.0,
-        "spirit": 1.3,
-        "regen": 0.0,
-        "bulletDamage": 0.55
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_magician_set",
-        "projectiles": 1,
-        "burst": 2,
-        "cycleTime": 0.525,
-        "intraBurstTime": 0.105,
-        "shotsPerSecond": 3.1746031746031744,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 16,
-        "reloadSeconds": 2.5,
-        "notes": [
-          "Очередь из 2 выстрелов; урон одного выстрела отличается от урона полной очереди."
-        ]
-      },
-      "source": {
-        "heroLine": 77427,
-        "weaponLine": 124904,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L77427",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L124904"
-      }
-    },
-    {
-      "id": 85,
-      "slug": "solomon",
-      "name": "Solomon",
-      "aliases": "Соломон",
-      "tags": [
-        "Strategist",
-        "Focused",
-        "Checkmate"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/solomon.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 30.0,
-        "moveSpeed": 6.7,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 40.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.4
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0.14,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_chessmaster_shotgun",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.5,
-        "intraBurstTime": 0.075,
-        "shotsPerSecond": 2.0,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 8,
-        "reloadSeconds": 3.0,
-        "notes": [
-          "Указан обычный выстрел; командование фигурами и m_bSuppressBulletOnBishopFire исключены.",
-          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку.",
-          "К прямому приросту урона 0.4/Boon добавляется 0.14×SP, при SP +1.1/Boon.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 126856,
-        "weaponLine": 298359,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L126856",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L298359"
-      }
-    },
-    {
-      "id": 69,
-      "slug": "the-doorman",
-      "name": "The Doorman",
-      "aliases": "Дорман швейцар",
-      "tags": [
-        "Disorienting",
-        "Map Control",
-        "Mind Games"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/the-doorman.webp",
-      "base": {
-        "health": 755,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 24,
-        "moveSpeed": 7.9,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 42.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 1.25
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_doorman_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.63,
-        "intraBurstTime": 0.05,
-        "shotsPerSecond": 1.5873015873015872,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 8,
-        "reloadSeconds": 2.4,
-        "notes": [
-          "В raw задан intra_burst_cycle_time при burst_shot_count=1; явная модель исключает эту задержку."
-        ]
-      },
-      "source": {
-        "heroLine": 95437,
-        "weaponLine": 165360,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L95437",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L165360"
-      }
-    },
-    {
-      "id": 65,
-      "slug": "venator",
-      "name": "Venator",
-      "aliases": "Венатор",
-      "tags": [
-        "Devout",
-        "Arms Expert",
-        "Tactical"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/venator.webp",
-      "base": {
-        "health": 820,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 8.0,
-        "moveSpeed": 6.4,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 43.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.27
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_priest_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.126,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 7.936507936507937,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 33,
-        "reloadSeconds": 2.8,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 87268,
-        "weaponLine": 258729,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L87268",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L258729"
-      }
-    },
-    {
-      "id": 66,
-      "slug": "victor",
-      "name": "Victor",
-      "aliases": "Виктор",
-      "tags": [
-        "You",
-        "Can't",
-        "Kill Me"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/victor.webp",
-      "base": {
-        "health": 800,
-        "spirit": 0,
-        "regen": 1.5,
-        "bulletDamage": 12.0,
-        "moveSpeed": 6.3,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 34.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.26
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0.08,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_frank_set2",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.198,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 5.05050505050505,
-        "spinsUp": true,
-        "fullSpinCycle": 0.171,
-        "hitOnce": false,
-        "clipSize": 24,
-        "reloadSeconds": 2.4,
-        "notes": [
-          "DPS меняется по мере раскрутки; отдельно приведён DPS при полной раскрутке.",
-          "Восстановление HP дополнительно получает +0.08×SP; эффективный прирост +0.088 HP/с за Boon.",
-          "В колонке DPS показан старт стрельбы. При полной раскрутке: 70.18 урона/с на уровне 1."
-        ]
-      },
-      "source": {
-        "heroLine": 89404,
-        "weaponLine": 158731,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L89404",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L158731"
-      }
-    },
-    {
-      "id": 3,
-      "slug": "vindicta",
-      "name": "Vindicta",
-      "aliases": "Виндикта",
-      "tags": [
-        "Sniper",
-        "Soaring",
-        "One Shot Kill"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/vindicta.webp",
-      "base": {
-        "health": 755,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 12.33,
-        "moveSpeed": 7.9,
-        "stamina": 2
-      },
-      "growth": {
-        "health": 28.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.495
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0.022,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_hornet_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.231,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 4.329004329004329,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 19,
-        "reloadSeconds": 2.914,
-        "notes": [
-          "К прямому приросту урона 0.495/Boon добавляется 0.022×SP, при SP +1.1/Boon."
-        ]
-      },
-      "source": {
-        "heroLine": 5978,
-        "weaponLine": 63138,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L5978",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L63138"
-      }
-    },
-    {
-      "id": 86,
-      "slug": "violet",
-      "name": "Violet",
-      "aliases": "Вайолет Виолет",
-      "tags": [
-        "Ambitious",
-        "Nimble",
-        "Creative"
-      ],
-      "isNew": true,
-      "portrait": "assets/heroes/violet.webp",
-      "base": {
-        "health": 710,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 30.0,
-        "moveSpeed": 6.9,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 34.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.55
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_artist_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.65,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 1.5384615384615383,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": true,
-        "clipSize": 15,
-        "reloadSeconds": 2.7,
-        "notes": [
-          "4 базовых / 8 усиленных вспомогательных траекторий; HitOnceAcrossAllBullets=true. Не умножать damage на 4 или 8; raw primary m_iBullets=1.",
-          "Обычный выстрел без усиленного альтернативного режима и бонусов Sketchbook.",
-          "Hit-once: несколько траекторий дают один полный урон по одной цели за выстрел. Число траекторий не умножает этот урон. Рабочее правило по schema и наблюдениям игроков; специальные режимы отдельно."
-        ]
-      },
-      "source": {
-        "heroLine": 129012,
-        "weaponLine": 288513,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L129012",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L288513"
-      }
-    },
-    {
-      "id": 35,
-      "slug": "viscous",
-      "name": "Viscous",
-      "aliases": "Вискус",
-      "tags": [
-        "Evasive",
-        "Disruptor",
-        "Gooey"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/viscous.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 10.34,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.3,
-        "regen": 0.0,
-        "bulletDamage": 0.36
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_viscous_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.21,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 4.761904761904762,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 20,
-        "reloadSeconds": 2.5,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 48194,
-        "weaponLine": 102492,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L48194",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L102492"
-      }
-    },
-    {
-      "id": 58,
-      "slug": "vyper",
-      "name": "Vyper",
-      "aliases": "Вайпер",
-      "tags": [
-        "Gunner",
-        "Slippery",
-        "Rat-a-Tat"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/vyper.webp",
-      "base": {
-        "health": 780,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 6.58,
-        "moveSpeed": 6.9,
-        "stamina": 4
-      },
-      "growth": {
-        "health": 35.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.178
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_viper_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.07,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 14.285714285714285,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 24,
-        "reloadSeconds": 1.6,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 73544,
-        "weaponLine": 118364,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L73544",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L118364"
-      }
-    },
-    {
-      "id": 25,
-      "slug": "warden",
-      "name": "Warden",
-      "aliases": "Варден",
-      "tags": [
-        "Initiator",
-        "Fearless",
-        "One Man Army"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/warden.webp",
-      "base": {
-        "health": 805,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 17.34,
-        "moveSpeed": 6.3,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 60.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.25
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0.21
-      },
-      "weapon": {
-        "className": "citadel_weapon_warden_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.2625,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 3.8095238095238093,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 17,
-        "reloadSeconds": 2.914,
-        "notes": [
-          "ERoundsPerSecond и EFireRate представляют одну Spirit-зависимость скорости огня; не суммировать их как два независимых бонуса.",
-          "Скорострельность растёт от Spirit. EFireRate и ERoundsPerSecond — два представления одного скейла, не два складываемых бонуса."
-        ]
-      },
-      "source": {
-        "heroLine": 41831,
-        "weaponLine": 105847,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L41831",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L105847"
-      }
-    },
-    {
-      "id": 7,
-      "slug": "wraith",
-      "name": "Wraith",
-      "aliases": "Рейф",
-      "tags": [
-        "Duelist",
-        "Isolator",
-        "Telekinetic"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/wraith.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 2.0,
-        "bulletDamage": 5.64,
-        "moveSpeed": 7.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 35.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.14
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_wraith_set",
-        "projectiles": 1,
-        "burst": 1,
-        "cycleTime": 0.0945,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 10.582010582010582,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 52,
-        "reloadSeconds": 2.82,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 12382,
-        "weaponLine": 108519,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L12382",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L108519"
-      }
-    },
-    {
-      "id": 27,
-      "slug": "yamato",
-      "name": "Yamato",
-      "aliases": "Ямато",
-      "tags": [
-        "Relentless",
-        "Acrobatics",
-        "Pursuer"
-      ],
-      "isNew": false,
-      "portrait": "assets/heroes/yamato.webp",
-      "base": {
-        "health": 730,
-        "spirit": 0,
-        "regen": 1.0,
-        "bulletDamage": 5.31,
-        "moveSpeed": 8.2,
-        "stamina": 3
-      },
-      "growth": {
-        "health": 45.0,
-        "spirit": 1.1,
-        "regen": 0.0,
-        "bulletDamage": 0.154
-      },
-      "scaling": {
-        "bulletDamagePerSpirit": 0,
-        "regenPerSpirit": 0,
-        "fireRatePercentPerSpirit": 0
-      },
-      "weapon": {
-        "className": "citadel_weapon_yamato_set",
-        "projectiles": 5,
-        "burst": 1,
-        "cycleTime": 0.42,
-        "intraBurstTime": 0,
-        "shotsPerSecond": 2.380952380952381,
-        "spinsUp": false,
-        "fullSpinCycle": null,
-        "hitOnce": false,
-        "clipSize": 12,
-        "reloadSeconds": 2.444,
-        "notes": []
-      },
-      "source": {
-        "heroLine": 43961,
-        "weaponLine": 115014,
-        "heroUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata#L43961",
-        "weaponUrl": "https://github.com/SteamDatabase/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata#L115014"
-      }
-    }
-  ]
+  }
 }

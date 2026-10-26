@@ -1,319 +1,45 @@
 {
-  "meta": {
-    "schemaVersion": 1,
-    "reviewedClientVersion": 6819,
-    "sourceRevision": 11162696,
-    "gameCommit": "17462b250a0ca80e7f80102f2c83cc3eecff5f12",
-    "checkedAt": "2026-10-25T08:29:24.063722+00:00",
-    "title": "Deadlock — формулы и механики",
-    "policy": "Consensus независимых наблюдений применяется как рабочее правило; степень подтверждения и противоречия сохраняются."
-  },
-  "sources": [
-    {
-      "id": "heroes",
-      "label": "Файлы героя: база, приросты и коэффициенты",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata",
-      "kind": "raw"
-    },
-    {
-      "id": "abilities",
-      "label": "Файлы оружия, способностей и предметов",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata",
-      "kind": "raw"
-    },
-    {
-      "id": "weapon-schema",
-      "label": "Описание полей оружия",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CCitadelWeaponInfo.h#L18",
-      "kind": "raw"
-    },
-    {
-      "id": "modifiers",
-      "label": "Раздельные типы модификаторов",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/EModifierValue.h",
-      "kind": "raw"
-    },
-    {
-      "id": "modifier-flags",
-      "label": "Флаги длительности и применимости",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CCitadelModifierVData.h",
-      "kind": "raw"
-    },
-    {
-      "id": "properties",
-      "label": "Параметры и функции масштабирования",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CitadelAbilityProperty_t.h",
-      "kind": "raw"
-    },
-    {
-      "id": "convars",
-      "label": "Настройки игры: lifesteal и ограничения",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/convars.txt",
-      "kind": "raw"
-    },
-    {
-      "id": "healing-types",
-      "label": "Типы лечения в схеме",
-      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/EHealingTypes.h",
-      "kind": "raw"
-    },
-    {
-      "id": "diminishing",
-      "label": "Mekahippie: независимый разбор diminishing, 2024",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1hb8b7z/heres_how_deadlocks_diminishing_returns_work_for/",
-      "kind": "community"
-    },
-    {
-      "id": "oct-tests",
-      "label": "CoreDump742: измерения, октябрь 2026",
-      "url": "https://www.reddit.com/r/DeadlockGame/comments/1xbhphj/theorycraft_is_the_crit_bonus_scale/",
-      "kind": "community"
-    },
-    {
-      "id": "oct-independent",
-      "label": "Bluedragon2513: отдельные проверки 23 октября",
-      "url": "https://www.reddit.com/r/DeadlockGame/comments/1xbhphj/comment/19rijhefuq35u/",
-      "kind": "community"
-    },
-    {
-      "id": "baba-tests",
-      "label": "Отдельное исследование Baba и shred",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1x5nkp1/shredding_spirit_resist_baba_hate/",
-      "kind": "community"
-    },
-    {
-      "id": "pocket-negative",
-      "label": "Nailcliper: отрицательный innate Pocket",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1gmlzfk/daily_item_discussion_42116_spirit_armor/",
-      "kind": "community"
-    },
-    {
-      "id": "resilience",
-      "label": "Независимый тест условных резистов, март 2026",
-      "url": "https://forums.playdeadlock.com/threads/frenzy-conditional-resist-is-inconsistent-with-resilience.115272/",
-      "kind": "community"
-    },
-    {
-      "id": "resist-wiki",
-      "label": "Wiki: сопротивления, закреплённая редакция",
-      "url": "https://deadlock.wiki/index.php?title=Damage_Resistance&oldid=197376",
-      "kind": "community"
-    },
-    {
-      "id": "weapon-wiki",
-      "label": "Wiki: урон оружия, редакция со спорной записью крита",
-      "url": "https://deadlock.wiki/index.php?title=Weapon_Damage&oldid=194393",
-      "kind": "community"
-    },
-    {
-      "id": "amp-wiki",
-      "label": "Wiki: усиление урона, закреплённая редакция",
-      "url": "https://deadlock.wiki/index.php?title=Damage_amplification&oldid=203362",
-      "kind": "community"
-    },
-    {
-      "id": "amp-conflict",
-      "label": "Опубликованный тест Inhibitor + Scarabs",
-      "url": "https://forums.playdeadlock.com/threads/damage-reduction-stacking.148395/",
-      "kind": "community"
-    },
-    {
-      "id": "may22",
-      "label": "Valve: изменения total damage reduction, 22.05.2026",
-      "url": "https://store.steampowered.com/news/app/1422450/view/1833334318572828",
-      "kind": "official"
-    },
-    {
-      "id": "onhit",
-      "label": "Valve: shred действует на последующие попадания, 30.01.2026",
-      "url": "https://forums.playdeadlock.com/threads/01-30-2026-update.102822/",
-      "kind": "official"
-    },
-    {
-      "id": "crit-patch",
-      "label": "Valve: обычный headshot 1.65, 21.11.2025",
-      "url": "https://forums.playdeadlock.com/threads/11-21-2025-update.90383/",
-      "kind": "official"
-    },
-    {
-      "id": "fire-rate",
-      "label": "Wiki: темп огня",
-      "url": "https://deadlock.wiki/index.php?title=Fire_Rate&oldid=192243",
-      "kind": "community"
-    },
-    {
-      "id": "fire-test",
-      "label": "Отдельные измерения fire-rate buffs/slows",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1i07acp/is_it_just_me_or_does_attack_speed_need_to_be_looked_at/",
-      "kind": "community"
-    },
-    {
-      "id": "reload",
-      "label": "Wiki: виды перезарядки",
-      "url": "https://deadlock.wiki/Reload",
-      "kind": "community"
-    },
-    {
-      "id": "reload-test",
-      "label": "Наблюдения длительности перезарядки",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1fe8z6d/we_all_did_that/",
-      "kind": "community"
-    },
-    {
-      "id": "api-timing",
-      "label": "Реализация расчётного DPS в API",
-      "url": "https://github.com/deadlock-api/deadlock-api/blob/902a603c444796943cb8db268143aeb11c747fab/api/src/services/assets/versions/items/build.rs#L733",
-      "kind": "raw"
-    },
-    {
-      "id": "debuff",
-      "label": "Независимые авторы о debuff resist, август 2026",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1vq87x1/stacking_debuff_resistance_on_wraith_is_actually/",
-      "kind": "community"
-    },
-    {
-      "id": "debuff-patch",
-      "label": "Valve: debuff resist diminishing, 08.05.2025",
-      "url": "https://store.steampowered.com/news/app/1422450/view/524216645064852902",
-      "kind": "official"
-    },
-    {
-      "id": "healing",
-      "label": "Wiki: лечение и его модификаторы",
-      "url": "https://deadlock.wiki/Healing",
-      "kind": "community"
-    },
-    {
-      "id": "antiheal-test",
-      "label": "Разные игроки: Toxic + Healbane, июнь 2026",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1tvbr69/does_toxic_bullets_healing_reduction_stack_with/",
-      "kind": "community"
-    },
-    {
-      "id": "antiheal-independent",
-      "label": "Другие авторы: складывание anti-heal, апрель 2026",
-      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1s93kp5/anti_heal_stacks_or_no/",
-      "kind": "community"
-    },
-    {
-      "id": "lifesteal",
-      "label": "Wiki: вампиризм",
-      "url": "https://deadlock.wiki/Lifesteal",
-      "kind": "community"
-    },
-    {
-      "id": "lifesteal-patch",
-      "label": "Valve: diminishing lifesteal, 10.10.2024",
-      "url": "https://forums.playdeadlock.com/threads/10-10-2024-update.36958/",
-      "kind": "official"
-    },
-    {
-      "id": "cooldown",
-      "label": "Wiki: перезарядка способности",
-      "url": "https://deadlock.wiki/Ability_Cooldown",
-      "kind": "community"
-    },
-    {
-      "id": "cooldown-patch",
-      "label": "Valve: diminishing CDR, 18.07.2024",
-      "url": "https://forums.playdeadlock.com/threads/07-18-2024-update.11831/",
-      "kind": "official"
-    },
-    {
-      "id": "duration",
-      "label": "Wiki: длительность (числа предметов местами устарели)",
-      "url": "https://deadlock.wiki/Ability_Duration",
-      "kind": "community"
-    },
-    {
-      "id": "range",
-      "label": "Wiki: радиус и дальность",
-      "url": "https://deadlock.wiki/Range",
-      "kind": "community"
-    },
-    {
-      "id": "range-patch",
-      "label": "Valve: diminishing duration/range, 06.12.2024",
-      "url": "https://forums.playdeadlock.com/threads/12-06-2024-update.50599/",
-      "kind": "official"
-    },
-    {
-      "id": "slow",
-      "label": "Wiki: движение и slow resistance",
-      "url": "https://deadlock.wiki/Slow_Resistance",
-      "kind": "community"
-    },
-    {
-      "id": "slow-mirror",
-      "label": "Deadlock Guru: совпадающее описание замедлений",
-      "url": "https://deadlock.guru/wiki/mechanics/movement-slow/",
-      "kind": "community"
-    },
-    {
-      "id": "health",
-      "label": "Wiki: базовое и добавочное здоровье",
-      "url": "https://deadlock.wiki/Bonus_Health",
-      "kind": "community"
-    },
-    {
-      "id": "health-independent",
-      "label": "Deadlock Shop: независимая реализация характеристик",
-      "url": "https://deadlockshop.app/",
-      "kind": "community"
-    },
-    {
-      "id": "health-investment",
-      "label": "Deadlock Meta: вложения в категорию",
-      "url": "https://www.deadlockmeta.dev/en/mechanics/investment-bonus",
-      "kind": "community"
-    }
-  ],
   "formulas": [
     {
-      "id": "stacking",
       "category": "Основы",
-      "title": "Проценты: сумма, произведение и убывающее сложение",
-      "expression": "Σx = x₁ + x₂ + …;   P(x) = 1 − ∏(1 − xᵢ)",
-      "variables": [
-        "xᵢ — отдельный применимый источник; в уравнении 30% = 0,30.",
-        "∏ означает перемножить все скобки. P пустого списка = 0."
+      "caveats": [
+        "До объединения надо установить тип стата, условие действия и независимость источников.",
+        "Несколько стаков одного эффекта не обязательно являются разными источниками."
       ],
+      "confidence": "math_identity",
+      "example": "30% и 20%: 1 − 0,70 × 0,80 = 44%. Обычная сумма дала бы 50%, а два положительных множителя 1,3 × 1,2 дали бы+56% — три разных результата.",
       "explanation": [
         "Убывающее сложение применяет новый процент к ещё не занятой доле. При текущем результате p новый источник x добавляет x × (1 − p). Порядок разных источников внутри одного такого пула не меняет результат.",
         "Это операция для конкретного стата, а не универсальный закон всех баффов. Weapon Damage обычного пула складывается суммой; сопротивления, CDR и некоторые другие статы имеют свои правила.",
         "Процентные пункты и проценты различаются: переход с 30% на 40% — это +10 п.п.; оставшийся урон меняется с 70% на 60%, то есть уменьшается примерно на 14,29%."
       ],
-      "example": "30% и 20%: 1 − 0,70 × 0,80 = 44%. Обычная сумма дала бы 50%, а два положительных множителя 1,3 × 1,2 дали бы+56% — три разных результата.",
-      "caveats": [
-        "До объединения надо установить тип стата, условие действия и независимость источников.",
-        "Несколько стаков одного эффекта не обязательно являются разными источниками."
-      ],
+      "expression": "Σx = x₁ + x₂ + …;   P(x) = 1 − ∏(1 − xᵢ)",
+      "id": "stacking",
       "sourceIds": [
         "diminishing",
         "modifiers"
       ],
-      "confidence": "math_identity"
+      "title": "Проценты: сумма, произведение и убывающее сложение",
+      "variables": [
+        "xᵢ — отдельный применимый источник; в уравнении 30% = 0,30.",
+        "∏ означает перемножить все скобки. P пустого списка = 0."
+      ]
     },
     {
-      "id": "resistance",
       "category": "Защита",
-      "title": "Сопротивления и снижение сопротивлений",
-      "expression": "R⁺ = P(r₁,…);   S⁻ = P(s₁,…);   R = R⁺ − S⁻;   D = D₀ × (1 − R)",
-      "variables": [
-        "rᵢ ≥ 0 — положительный источник выбранного типа сопротивления.",
-        "sᵢ ≥ 0 — величина shred или отрицательного innate без знака минус.",
-        "Bullet и Spirit считаются раздельно."
-      ],
-      "explanation": [
-        "Сначала отдельно объединяются положительные резисты, затем отдельно отрицательные резисты и shred. Из первого результата вычитается второй. Нельзя перемножать все положительные и отрицательные числа одним списком.",
-        "Отрицательное сопротивление увеличивает входящий урон и не обрезается на нуле. По документированному правилу врождённые отрицательные резисты тоже входят в отрицательный пул; для этого края прямое объяснение старше остальных измерений."
-      ],
-      "example": "Резисты 40%;20% дают 52%. Shred25%;20% даёт 40%. Итоговый резист 12%: из 1000 урона проходит 880. Pocket−15% и предмет+30% в двухпуловой модели дают 15%, а не 19,5%.",
       "caveats": [
         "Один тип урона за один расчёт; Pure не приобретает bullet/spirit резисты.",
         "Конкретные защиты, piercing, барьеры и ограничения урона могут иметь отдельную стадию.",
         "Вводи каждый отрицательный источник отдельно положительной величиной:15;10, а не−15;−10."
       ],
+      "confidence": "community_documented",
+      "example": "Резисты 40%;20% дают 52%. Shred25%;20% даёт 40%. Итоговый резист 12%: из 1000 урона проходит 880. Pocket−15% и предмет+30% в двухпуловой модели дают 15%, а не 19,5%.",
+      "explanation": [
+        "Сначала отдельно объединяются положительные резисты, затем отдельно отрицательные резисты и shred. Из первого результата вычитается второй. Нельзя перемножать все положительные и отрицательные числа одним списком.",
+        "Отрицательное сопротивление увеличивает входящий урон и не обрезается на нуле. По документированному правилу врождённые отрицательные резисты тоже входят в отрицательный пул; для этого края прямое объяснение старше остальных измерений."
+      ],
+      "expression": "R⁺ = P(r₁,…);   S⁻ = P(s₁,…);   R = R⁺ − S⁻;   D = D₀ × (1 − R)",
+      "id": "resistance",
       "sourceIds": [
         "resist-wiki",
         "diminishing",
@@ -322,183 +48,183 @@
         "pocket-negative",
         "modifiers"
       ],
-      "confidence": "community_documented"
+      "title": "Сопротивления и снижение сопротивлений",
+      "variables": [
+        "rᵢ ≥ 0 — положительный источник выбранного типа сопротивления.",
+        "sᵢ ≥ 0 — величина shred или отрицательного innate без знака минус.",
+        "Bullet и Spirit считаются раздельно."
+      ]
     },
     {
-      "id": "source-grouping",
       "category": "Защита",
-      "title": "Стак внутри эффекта и отдельный источник — разные вещи",
-      "expression": "r_источника = base + активный внутренний бонус; затем R⁺ = P(r_источника,…)",
-      "variables": [
-        "Формула внутри источника определяется конкретным эффектом.",
-        "Consumed component отсутствует в текущем инвентаре."
-      ],
-      "explanation": [
-        "Bullet Resilience в проверенных наблюдениях даёт 30% плюс 15% при выполненном условии как 45% одного источника. Затем этот источник объединяется с другими предметами.",
-        "Не переносим такое сложение на любой условный бафф: для Frenzy опубликовано другое поведение. Аналогично линейные стаки одного debuff сначала собираются до собственного лимита и только потом участвуют в общем пуле."
-      ],
-      "example": "Resilience45% и Battle Vest18%: 1 − 0,55 × 0,82 = 54,9%. Ошибочное разбиение на 30%;15%;18% даёт 51,21%.",
       "caveats": [
         "В обычном EHP-калькуляторе введи 45 одним числом при активном условии.",
         "Резист, включающийся только на части полоски HP, нельзя распространять на всё здоровье."
       ],
+      "confidence": "community_documented",
+      "example": "Resilience45% и Battle Vest18%: 1 − 0,55 × 0,82 = 54,9%. Ошибочное разбиение на 30%;15%;18% даёт 51,21%.",
+      "explanation": [
+        "Bullet Resilience в проверенных наблюдениях даёт 30% плюс 15% при выполненном условии как 45% одного источника. Затем этот источник объединяется с другими предметами.",
+        "Не переносим такое сложение на любой условный бафф: для Frenzy опубликовано другое поведение. Аналогично линейные стаки одного debuff сначала собираются до собственного лимита и только потом участвуют в общем пуле."
+      ],
+      "expression": "r_источника = base + активный внутренний бонус; затем R⁺ = P(r_источника,…)",
+      "id": "source-grouping",
       "sourceIds": [
         "abilities",
         "resilience",
         "oct-tests",
         "baba-tests"
       ],
-      "confidence": "community_documented"
+      "title": "Стак внутри эффекта и отдельный источник — разные вещи",
+      "variables": [
+        "Формула внутри источника определяется конкретным эффектом.",
+        "Consumed component отсутствует в текущем инвентаре."
+      ]
     },
     {
-      "id": "ehp",
       "category": "Защита",
-      "title": "Эффективное здоровье: сколько исходного урона выдержит герой",
-      "expression": "EHP = HP / (1 − R);   ΔEHP = EHP − HP",
-      "variables": [
-        "HP — фактическое максимальное здоровье в рассматриваемом состоянии.",
-        "R — уже рассчитанное итоговое сопротивление выбранному типу."
-      ],
-      "explanation": [
-        "Сопротивление не прибавляет настоящее HP к полоске. EHP показывает эквивалентный запас против конкретного входящего урона до его уменьшения защитой.",
-        "Модель предполагает постоянное сопротивление, отсутствие лечения, уклонения, исполнения и дополнительных защит. Если есть известный независимый множитель получаемого урона m, знаменатель становится (1 − R) × m."
-      ],
-      "example": "1000 HP при 44% сопротивления:1000 / 0,56 = 1785,71 EHP. Настоящее HP остаётся 1000; эквивалентная прибавка против этого урона 785,71. При−15%:869,57 EHP.",
       "caveats": [
         "При 100% или большем сопротивлении простая конечная модель не определена; калькулятор объясняет ошибку.",
         "Для условной защиты разбей HP на участки и сложи HP_участка / множитель_участка.",
         "Нельзя автоматически добавить барьер к HP и применить к сумме один резист."
       ],
+      "confidence": "math_identity",
+      "example": "1000 HP при 44% сопротивления:1000 / 0,56 = 1785,71 EHP. Настоящее HP остаётся 1000; эквивалентная прибавка против этого урона 785,71. При−15%:869,57 EHP.",
+      "explanation": [
+        "Сопротивление не прибавляет настоящее HP к полоске. EHP показывает эквивалентный запас против конкретного входящего урона до его уменьшения защитой.",
+        "Модель предполагает постоянное сопротивление, отсутствие лечения, уклонения, исполнения и дополнительных защит. Если есть известный независимый множитель получаемого урона m, знаменатель становится (1 − R) × m."
+      ],
+      "expression": "EHP = HP / (1 − R);   ΔEHP = EHP − HP",
+      "id": "ehp",
       "sourceIds": [
         "diminishing",
         "resist-wiki"
       ],
-      "confidence": "math_identity"
+      "title": "Эффективное здоровье: сколько исходного урона выдержит герой",
+      "variables": [
+        "HP — фактическое максимальное здоровье в рассматриваемом состоянии.",
+        "R — уже рассчитанное итоговое сопротивление выбранному типу."
+      ]
     },
     {
-      "id": "mixed-ehp",
       "category": "Защита",
-      "title": "Смешанный урон: нет единственного EHP без состава атаки",
-      "expression": "EHP_mix = HP / [w_b × (1−R_b) + w_s × (1−R_s) + w_p];   w_b+w_s+w_p=1",
-      "variables": [
-        "w_b, w_s, w_p — доли исходного Bullet, Spirit и Pure урона.",
-        "R_b, R_s — итоговые сопротивления соответствующих типов."
-      ],
-      "explanation": [
-        "Удельный урон каждого типа сначала уменьшается своим сопротивлением, затем результаты складываются. Складывать Bullet EHP и Spirit EHP нельзя.",
-        "Это модель фиксированной смеси. Реальное комбо может менять состав, резисты и условия между попаданиями; тогда нужны отдельные события по времени."
-      ],
-      "example": "2000 HP,60% Bullet при 40% резиста и 40% Spirit при 20%: знаменатель 0,6×0,6 + 0,4×0,8 = 0,68. EHP смеси 2941,18.",
       "caveats": [
         "Сумма долей должна быть 100%.",
         "В этой модели Pure имеет множитель 1; специальные all-damage эффекты задаются отдельно."
       ],
+      "confidence": "math_identity",
+      "example": "2000 HP,60% Bullet при 40% резиста и 40% Spirit при 20%: знаменатель 0,6×0,6 + 0,4×0,8 = 0,68. EHP смеси 2941,18.",
+      "explanation": [
+        "Удельный урон каждого типа сначала уменьшается своим сопротивлением, затем результаты складываются. Складывать Bullet EHP и Spirit EHP нельзя.",
+        "Это модель фиксированной смеси. Реальное комбо может менять состав, резисты и условия между попаданиями; тогда нужны отдельные события по времени."
+      ],
+      "expression": "EHP_mix = HP / [w_b × (1−R_b) + w_s × (1−R_s) + w_p];   w_b+w_s+w_p=1",
+      "id": "mixed-ehp",
       "sourceIds": [
         "resist-wiki",
         "modifiers"
       ],
-      "confidence": "math_identity"
+      "title": "Смешанный урон: нет единственного EHP без состава атаки",
+      "variables": [
+        "w_b, w_s, w_p — доли исходного Bullet, Spirit и Pure урона.",
+        "R_b, R_s — итоговые сопротивления соответствующих типов."
+      ]
     },
     {
-      "id": "weapon-base",
       "category": "Урон",
-      "title": "Урон оружия: уровни, Spirit и Weapon Damage",
-      "expression": "d_base = d₀ + B × g + S × k;   d_weapon = d_base × (1 + ΣW)",
-      "variables": [
-        "B = LVL − 1, обычные Boons0…35.",
-        "g — прямой прирост одной пули/дробины за Boon.",
-        "k — нативный Spirit-коэффициент оружия; W — применимые обычные Weapon Damage bonuses в долях."
-      ],
-      "explanation": [
-        "Сначала получаем собственную базу оружия на данном уровне и Spirit. Затем применяем сумму обычного Weapon Damage пула, включая соответствующий investment bonus.",
-        "Приросты не одинаковы для всех героев. У Vindicta, Grey Talon и Solomon в 6819 есть Spirit-вклад в пулю; у Warden Spirit изменяет темп. Эквивалентные EFireRate и ERoundsPerSecond Warden не являются двумя отдельными усилениями."
-      ],
-      "example": "Nurse Harrow при 10 Boons:14,858 + 10×0,37436 =18,6016. При Weapon Damage46%+20%:18,6016×1,66 =30,878656 до других слоёв.",
       "caveats": [
         "Дополнительный proc, flat post-scale и альтернативный заряд не включаются в базу без отдельного правила.",
         "Значения старого предмета из исторического гайда не являются текущими входами."
       ],
+      "confidence": "community_documented",
+      "example": "Nurse Harrow при 10 Boons:14,858 + 10×0,37436 =18,6016. При Weapon Damage46%+20%:18,6016×1,66 =30,878656 до других слоёв.",
+      "explanation": [
+        "Сначала получаем собственную базу оружия на данном уровне и Spirit. Затем применяем сумму обычного Weapon Damage пула, включая соответствующий investment bonus.",
+        "Приросты не одинаковы для всех героев. У Vindicta, Grey Talon и Solomon в 6819 есть Spirit-вклад в пулю; у Warden Spirit изменяет темп. Эквивалентные EFireRate и ERoundsPerSecond Warden не являются двумя отдельными усилениями."
+      ],
+      "expression": "d_base = d₀ + B × g + S × k;   d_weapon = d_base × (1 + ΣW)",
+      "id": "weapon-base",
       "sourceIds": [
         "heroes",
         "abilities",
         "oct-tests",
         "diminishing"
       ],
-      "confidence": "community_documented"
+      "title": "Урон оружия: уровни, Spirit и Weapon Damage",
+      "variables": [
+        "B = LVL − 1, обычные Boons0…35.",
+        "g — прямой прирост одной пули/дробины за Boon.",
+        "k — нативный Spirit-коэффициент оружия; W — применимые обычные Weapon Damage bonuses в долях."
+      ]
     },
     {
-      "id": "spirit-scaling",
       "category": "Урон",
-      "title": "Линейное масштабирование способности",
-      "expression": "X = X₀ + Σflat_upgrade + (k₀ + Σscale_upgrade) × S",
-      "variables": [
-        "X — конкретное свойство: например, урон, лечение или длительность.",
-        "S — стат, названный в scaling function; не всегда Spirit.",
-        "EAddToScale добавляет к коэффициенту, обычный flat upgrade — к базе."
-      ],
-      "explanation": [
-        "Считай каждое свойство умения отдельно. Наличие значка Spirit не означает, что все части умения получают один множитель.",
-        "После расчёта raw damage применяются соответствующий тип защиты и остальные условия попадания. Несколько тиков или целей — отдельные события."
-      ],
-      "example": "Kelvin Ice Grenade: база 60, T1+30, коэффициент 0,6, T3+0,8. При 100 Spirit:60+30+(0,6+0,8)×100 =230. При итоговом 20% Spirit Resist проходит 184.",
       "caveats": [
         "Специальные scale functions, required upgrades, округление, Brawl и отключённые функции требуют своего адаптера.",
         "Не подставляй уже усиленное значение tooltip как неусиленную базу повторно."
       ],
+      "confidence": "community_documented",
+      "example": "Kelvin Ice Grenade: база 60, T1+30, коэффициент 0,6, T3+0,8. При 100 Spirit:60+30+(0,6+0,8)×100 =230. При итоговом 20% Spirit Resist проходит 184.",
+      "explanation": [
+        "Считай каждое свойство умения отдельно. Наличие значка Spirit не означает, что все части умения получают один множитель.",
+        "После расчёта raw damage применяются соответствующий тип защиты и остальные условия попадания. Несколько тиков или целей — отдельные события."
+      ],
+      "expression": "X = X₀ + Σflat_upgrade + (k₀ + Σscale_upgrade) × S",
+      "id": "spirit-scaling",
       "sourceIds": [
         "abilities",
         "properties",
         "oct-tests",
         "baba-tests"
       ],
-      "confidence": "community_documented"
+      "title": "Линейное масштабирование способности",
+      "variables": [
+        "X — конкретное свойство: например, урон, лечение или длительность.",
+        "S — стат, названный в scaling function; не всегда Spirit.",
+        "EAddToScale добавляет к коэффициенту, обычный flat upgrade — к базе."
+      ]
     },
     {
-      "id": "hit-once",
       "category": "Урон",
-      "title": "Несколько траекторий и правило hit-once",
-      "expression": "Обычные дробины: D_залпа = Σd_попавших;   hitOnce: D_залпа_по_цели = d при любом попадании",
-      "variables": [
-        "P — число raw траекторий, не число гарантированных повреждений одной цели.",
-        "HitOnce = m_bHitOnceAcrossAllBullets."
-      ],
-      "explanation": [
-        "Для обычного дробовика все попавшие дробины дают отдельные слагаемые. При hit-once попадание любой траектории даёт полный одиночный урон по этой цели; три пути не дают тройного урона.",
-        "Это исправляет прежнюю гипотезу таблицы 24 октября. Raw число траекторий сохраняется в примечаниях для понимания оружия."
-      ],
-      "example": "Baba:8,8, три пути, hitOnce=true →8,8 по одной цели, а не 26,4. Drifter:19,5 и три пути →19,5, а не 58,5. Rat King:две обычные пули по 6 →12.",
       "caveats": [
         "Baba/Drifter проверены сильнее, чем перенос правила на все специальные режимы.",
         "Violet rawP=1; дополнительные custom пути 4/8 не являются множителем обычного урона."
       ],
+      "confidence": "community_documented",
+      "example": "Baba:8,8, три пути, hitOnce=true →8,8 по одной цели, а не 26,4. Drifter:19,5 и три пути →19,5, а не 58,5. Rat King:две обычные пули по 6 →12.",
+      "explanation": [
+        "Для обычного дробовика все попавшие дробины дают отдельные слагаемые. При hit-once попадание любой траектории даёт полный одиночный урон по этой цели; три пути не дают тройного урона.",
+        "Это исправляет прежнюю гипотезу таблицы 24 октября. Raw число траекторий сохраняется в примечаниях для понимания оружия."
+      ],
+      "expression": "Обычные дробины: D_залпа = Σd_попавших;   hitOnce: D_залпа_по_цели = d при любом попадании",
+      "id": "hit-once",
       "sourceIds": [
         "weapon-schema",
         "abilities",
         "oct-independent",
         "weapon-wiki"
       ],
-      "confidence": "community_documented"
+      "title": "Несколько траекторий и правило hit-once",
+      "variables": [
+        "P — число raw траекторий, не число гарантированных повреждений одной цели.",
+        "HitOnce = m_bHitOnceAcrossAllBullets."
+      ]
     },
     {
-      "id": "headshots",
       "category": "Урон",
-      "title": "Попадание в голову: масштабируется бонусная часть",
-      "expression": "C = 1 + (c − 1) × q_out × q_in;   D_head = D_body × C",
-      "variables": [
-        "c — множитель конкретного оружия на данной дистанции.",
-        "q_out — CritDamageBonusScale атакующего;0,7 означает 70% бонусной части.",
-        "q_in — CritDamageReceivedScale цели; это не обычный bullet resist."
-      ],
-      "explanation": [
-        "Для обычного оружия текущая база часто 1,65, но есть исключения: у Rat King1,35. Сначала отнимаем единицу, изменяем только добавочную часть, потом возвращаем обычный урон.",
-        "Свежие измерения двух авторов поддерживают эту запись; одна из закреплённых wiki-редакций записывает исходящий crit scale иначе и даёт другой ответ для Vyper. Для работы принимаем модель измерений."
-      ],
-      "example": "Vyper:1+0,65×0,7 =1,455. По Seven с incoming scale0,45:1+0,65×0,7×0,45 =1,20475. Body100 →120,475 до обычного сопротивления.",
       "caveats": [
         "У оружия с CanCrit=false множитель не применяется.",
         "Graves и специальные handlers требуют отдельной проверки; один raw флаг не гарантирует обычный headshot.",
         "NPC weakpoints и бонусы против NPC не сворачиваются в это правило автоматически."
       ],
+      "confidence": "community_documented",
+      "example": "Vyper:1+0,65×0,7 =1,455. По Seven с incoming scale0,45:1+0,65×0,7×0,45 =1,20475. Body100 →120,475 до обычного сопротивления.",
+      "explanation": [
+        "Для обычного оружия текущая база часто 1,65, но есть исключения: у Rat King1,35. Сначала отнимаем единицу, изменяем только добавочную часть, потом возвращаем обычный урон.",
+        "Свежие измерения двух авторов поддерживают эту запись; одна из закреплённых wiki-редакций записывает исходящий crit scale иначе и даёт другой ответ для Vyper. Для работы принимаем модель измерений."
+      ],
+      "expression": "C = 1 + (c − 1) × q_out × q_in;   D_head = D_body × C",
+      "id": "headshots",
       "sourceIds": [
         "heroes",
         "weapon-schema",
@@ -507,55 +233,55 @@
         "oct-independent",
         "weapon-wiki"
       ],
-      "confidence": "community_documented"
+      "title": "Попадание в голову: масштабируется бонусная часть",
+      "variables": [
+        "c — множитель конкретного оружия на данной дистанции.",
+        "q_out — CritDamageBonusScale атакующего;0,7 означает 70% бонусной части.",
+        "q_in — CritDamageReceivedScale цели; это не обычный bullet resist."
+      ]
     },
     {
-      "id": "falloff",
       "category": "Урон",
-      "title": "Падение урона по дистанции",
-      "expression": "t = clamp((x−a)/(b−a),0,1);   F = F_a + (F_b−F_a) × t;   D = D₀ × F",
-      "variables": [
-        "a,b — начало и конец falloff; x — пройденная дистанция.",
-        "F_a,F_b — масштабы на границах."
-      ],
-      "explanation": [
-        "Линейная рабочая модель применяется к проверенному bias0,5. Перед началом урон равен стартовому масштабу, после конца — конечному, пока снаряд вообще может долететь.",
-        "Порог и остаточный урон индивидуальны: у Drifter конец 0,6, у Sinclair0,3, у Graves0,5. Нельзя ставить всем 10%."
-      ],
-      "example": "При порогах 590 и 1300 units, масштабе 1→0,1 середина 945 units даёт 0,55. Из 100 остаётся 55 до других защит.",
       "caveats": [
         "Для другого bias эта интерполяция не подтверждена.",
         "При совпадающих порогах с одинаковыми scales берётся постоянный scale.",
         "Прямая дистанция между героями может отличаться от пути через портал."
       ],
+      "confidence": "inferred",
+      "example": "При порогах 590 и 1300 units, масштабе 1→0,1 середина 945 units даёт 0,55. Из 100 остаётся 55 до других защит.",
+      "explanation": [
+        "Линейная рабочая модель применяется к проверенному bias0,5. Перед началом урон равен стартовому масштабу, после конца — конечному, пока снаряд вообще может долететь.",
+        "Порог и остаточный урон индивидуальны: у Drifter конец 0,6, у Sinclair0,3, у Graves0,5. Нельзя ставить всем 10%."
+      ],
+      "expression": "t = clamp((x−a)/(b−a),0,1);   F = F_a + (F_b−F_a) × t;   D = D₀ × F",
+      "id": "falloff",
       "sourceIds": [
         "weapon-schema",
         "abilities",
         "weapon-wiki",
         "crit-patch"
       ],
-      "confidence": "inferred"
+      "title": "Падение урона по дистанции",
+      "variables": [
+        "a,b — начало и конец falloff; x — пройденная дистанция.",
+        "F_a,F_b — масштабы на границах."
+      ]
     },
     {
-      "id": "damage-amps",
       "category": "Урон",
-      "title": "Усиления урона: различай пулы и новые попадания",
-      "expression": "D = [d_base × (1+W) × (1+ΣA) + flat_post] × ∏(1+M) × F × C × (1−R)",
-      "variables": [
-        "A — только эффекты подтверждённого additive пула, штрафы со знаком минус.",
-        "M — отдельные подтверждённые multiplicative amps.",
-        "flat_post — плоское добавление на своей стадии."
+      "caveats": [
+        "Калькулятор принимает уже установленные пулы, а не угадывает их по названию предмета.",
+        "Не складывай все damage reductions одной суммой и не перемножай их все автоматически."
       ],
+      "confidence": "community_documented",
+      "example": "База 100, Weapon Damage50%, additive amp20% и штраф 30%, flat10:100×1,5×0,9+10 =145. Отдельный amp25% →181,25; при резисте 20% →145.",
       "explanation": [
         "Названия «усиление» или «снижение урона» не определяют формулу. В raw существуют отдельные increases, multipliers, target amplification, post-armor reduction и новые damage instances.",
         "Для Inhibitor−30% и Fire Scarabs−20% опубликован тест additive штрафа 50%, вопреки общему направлению патча 22 мая. Принимаем это как указанную рабочую модель с конфликтом; защиту Rat King из другого modifier type к ней не приписываем.",
         "Для независимых постоянных множителей порядок алгебраически не меняет ответ. Это не доказывает порядок игровых событий: on-hit shred может усиливать только следующие попадания, proc — создавать отдельный урон."
       ],
-      "example": "База 100, Weapon Damage50%, additive amp20% и штраф 30%, flat10:100×1,5×0,9+10 =145. Отдельный amp25% →181,25; при резисте 20% →145.",
-      "caveats": [
-        "Калькулятор принимает уже установленные пулы, а не угадывает их по названию предмета.",
-        "Не складывай все damage reductions одной суммой и не перемножай их все автоматически."
-      ],
+      "expression": "D = [d_base × (1+W) × (1+ΣA) + flat_post] × ∏(1+M) × F × C × (1−R)",
+      "id": "damage-amps",
       "sourceIds": [
         "modifiers",
         "amp-wiki",
@@ -563,28 +289,28 @@
         "may22",
         "onhit"
       ],
-      "confidence": "community_documented"
+      "title": "Усиления урона: различай пулы и новые попадания",
+      "variables": [
+        "A — только эффекты подтверждённого additive пула, штрафы со знаком минус.",
+        "M — отдельные подтверждённые multiplicative amps.",
+        "flat_post — плоское добавление на своей стадии."
+      ]
     },
     {
-      "id": "debuff-duration",
       "category": "Контроль",
-      "title": "Debuff resistance уменьшает время применимого статуса",
-      "expression": "R_d = P(r₁,…);   t_target = t_base × (1+U) × (1−R_d)",
-      "variables": [
-        "t_base — длительность после плоских апгрейдов и применимого scaling.",
-        "U — уже объединённый бонус длительности атакующего.",
-        "R_d — сопротивление дебаффам цели."
-      ],
-      "explanation": [
-        "Разные применимые источники debuff resist складываются убывающе. Усиление длительности атакующего и сопротивление цели — разные слои, поэтому их множители перемножаются.",
-        "Проверяй конкретный modifier: duration reducible/extendible, аура, linger и fuse не равны одному таймеру. Постоянно обновляющаяся аура может удерживать эффект почти непрерывно даже при коротком отдельном статусе."
-      ],
-      "example": "25% и 22% debuff resist →41,5%. Статус 4 с без увеличения длится 2,34 с. Если база 4 с, длительность+20% и один DR25%:4×1,2×0,75 =3,6 с.",
       "caveats": [
         "Нельзя автоматически сокращать все таймеры умения и сохранять тот же totalDoT.",
         "Покупка Dispel Magic не даёт старый passive DR из исторического Debuff Remover.",
         "Универсальная chain-CC система не доказана одним полем schema."
       ],
+      "confidence": "community_documented",
+      "example": "25% и 22% debuff resist →41,5%. Статус 4 с без увеличения длится 2,34 с. Если база 4 с, длительность+20% и один DR25%:4×1,2×0,75 =3,6 с.",
+      "explanation": [
+        "Разные применимые источники debuff resist складываются убывающе. Усиление длительности атакующего и сопротивление цели — разные слои, поэтому их множители перемножаются.",
+        "Проверяй конкретный modifier: duration reducible/extendible, аура, linger и fuse не равны одному таймеру. Постоянно обновляющаяся аура может удерживать эффект почти непрерывно даже при коротком отдельном статусе."
+      ],
+      "expression": "R_d = P(r₁,…);   t_target = t_base × (1+U) × (1−R_d)",
+      "id": "debuff-duration",
       "sourceIds": [
         "debuff",
         "debuff-patch",
@@ -592,78 +318,79 @@
         "modifier-flags",
         "abilities"
       ],
-      "confidence": "community_documented"
+      "title": "Debuff resistance уменьшает время применимого статуса",
+      "variables": [
+        "t_base — длительность после плоских апгрейдов и применимого scaling.",
+        "U — уже объединённый бонус длительности атакующего.",
+        "R_d — сопротивление дебаффам цели."
+      ]
     },
     {
-      "id": "control-types",
       "category": "Контроль",
-      "title": "Сопротивление, иммунитет и очищение",
-      "expression": "Resistance → короче применимый статус;   Immunity/Suppression → запрет или подавление;   Purge → удалить разрешённый modifier",
-      "variables": [
-        "У каждого эффекта собственные состояния, flags и исключения."
-      ],
-      "explanation": [
-        "Эти операции нельзя заменить числом 100% debuff resistance. Сопротивление не удаляет уже существующий дебафф. Иммунитет может подавить состояние, пока таймер модификатора продолжает идти.",
-        "Очищение удаляет только разрешённые эффекты. Unstoppable имеет отдельные masks и unpurgeable buff; Dispel Magic — отдельный active. Нельзя обещать снятие любого ультимейта только по слову purge."
-      ],
-      "example": "Если aura повторно накладывает короткий slow, уменьшение каждого экземпляра не обязательно освобождает героя внутри самой ауры.",
       "caveats": [
         "Проверяй disable и конкретный modifier, а не только название умения.",
         "Damage immunity не равна CC immunity."
       ],
+      "confidence": "config_confirmed",
+      "example": "Если aura повторно накладывает короткий slow, уменьшение каждого экземпляра не обязательно освобождает героя внутри самой ауры.",
+      "explanation": [
+        "Эти операции нельзя заменить числом 100% debuff resistance. Сопротивление не удаляет уже существующий дебафф. Иммунитет может подавить состояние, пока таймер модификатора продолжает идти.",
+        "Очищение удаляет только разрешённые эффекты. Unstoppable имеет отдельные masks и unpurgeable buff; Dispel Magic — отдельный active. Нельзя обещать снятие любого ультимейта только по слову purge."
+      ],
+      "expression": "Resistance → короче применимый статус;   Immunity/Suppression → запрет или подавление;   Purge → удалить разрешённый modifier",
+      "id": "control-types",
       "sourceIds": [
         "abilities",
         "modifier-flags",
         "modifiers"
       ],
-      "confidence": "config_confirmed"
+      "title": "Сопротивление, иммунитет и очищение",
+      "variables": [
+        "У каждого эффекта собственные состояния, flags и исключения."
+      ]
     },
     {
-      "id": "movement-slow",
       "category": "Контроль",
-      "title": "Замедления и сопротивление замедлению",
-      "expression": "S = P(s₁,…);   Q = Σqᵢ;   S_eff = S × (1−Q);   v = 2 + (v₀−2) × (1−S_eff)",
-      "variables": [
-        "sᵢ — обычные процентные movement slows.",
-        "qᵢ — применимые slow-resistance бонусы; в этой рабочей модели они аддитивны.",
-        "v₀ ≥ 2 м/с — скорость до этих замедлений."
-      ],
-      "explanation": [
-        "Обычные slows уменьшающе объединяются. Затем slow resistance уменьшает силу slow, а не его длительность. Рабочая модель уменьшает часть скорости выше 2 м/с.",
-        "Независимость совпадающего описания Wiki и Guru не установлена, поэтому эта модель отмечена слабее, чем DR или CDR. Она пригодна для оценки, но не является замером текущей физики."
-      ],
-      "example": "Slow30% и 25% →47,5%. Slow resist25%+35% →60%. Эффективный slow19%. Из 10 м/с:2+8×0,81 =8,48 м/с.",
       "caveats": [
         "Поддерживаются только 0…100% slow resist; за 100% нельзя получать вымышленное ускорение.",
         "Не применяется к stun/root, dash penalties, воздуху, спринту, Urn limits и movement overrides."
       ],
+      "confidence": "inferred",
+      "example": "Slow30% и 25% →47,5%. Slow resist25%+35% →60%. Эффективный slow19%. Из 10 м/с:2+8×0,81 =8,48 м/с.",
+      "explanation": [
+        "Обычные slows уменьшающе объединяются. Затем slow resistance уменьшает силу slow, а не его длительность. Рабочая модель уменьшает часть скорости выше 2 м/с.",
+        "Независимость совпадающего описания Wiki и Guru не установлена, поэтому эта модель отмечена слабее, чем DR или CDR. Она пригодна для оценки, но не является замером текущей физики."
+      ],
+      "expression": "S = P(s₁,…);   Q = Σqᵢ;   S_eff = S × (1−Q);   v = 2 + (v₀−2) × (1−S_eff)",
+      "id": "movement-slow",
       "sourceIds": [
         "slow",
         "slow-mirror",
         "convars",
         "modifiers"
       ],
-      "confidence": "inferred"
+      "title": "Замедления и сопротивление замедлению",
+      "variables": [
+        "sᵢ — обычные процентные movement slows.",
+        "qᵢ — применимые slow-resistance бонусы; в этой рабочей модели они аддитивны.",
+        "v₀ ≥ 2 м/с — скорость до этих замедлений."
+      ]
     },
     {
-      "id": "anti-heal",
       "category": "Лечение",
-      "title": "Anti-heal уменьшает и обычное лечение, и вампиризм",
-      "expression": "A = P(a₁,…);   M_anti = ∏(1−aᵢ);   H_after = H_before × M_anti",
-      "variables": [
-        "aᵢ — разные применимые семейства anti-heal.",
-        "Receive и regen penalties одного источника обслуживают разные routes и не считаются двумя anti-heal."
-      ],
-      "explanation": [
-        "Применимый anti-heal ослабляет соответствующее восстановление HP: direct heal, regen и healing от lifesteal. Несколько разных источников уменьшающе складываются; две копии одного и того же debuff не становятся автоматически двумя независимыми источниками.",
-        "Current Healbane и Toxic Bullets имеют 35% receive и 35% regen penalties каждый. Это не 70% с одного предмета. Барьер, изменение maxHP и специальная external regen без reduction — отдельные механики."
-      ],
-      "example": "Healbane35% + Toxic35% →57,75% reduction. Heal200 с outgoing amp20%:200×1,2×0,65×0,65 =101,4 HP до ограничения недостающим здоровьем.",
       "caveats": [
         "Для одинаковых копий сначала установи семейство эффекта; точная политика refresh/strongest может быть особой.",
         "Pocket T3 Affliction использует отдельный DisableHealing, а не обычное сложение процентов.",
         "Fountain/external regen может иметь явное исключение NO_REDUCTION."
       ],
+      "confidence": "community_documented",
+      "example": "Healbane35% + Toxic35% →57,75% reduction. Heal200 с outgoing amp20%:200×1,2×0,65×0,65 =101,4 HP до ограничения недостающим здоровьем.",
+      "explanation": [
+        "Применимый anti-heal ослабляет соответствующее восстановление HP: direct heal, regen и healing от lifesteal. Несколько разных источников уменьшающе складываются; две копии одного и того же debuff не становятся автоматически двумя независимыми источниками.",
+        "Current Healbane и Toxic Bullets имеют 35% receive и 35% regen penalties каждый. Это не 70% с одного предмета. Барьер, изменение maxHP и специальная external regen без reduction — отдельные механики."
+      ],
+      "expression": "A = P(a₁,…);   M_anti = ∏(1−aᵢ);   H_after = H_before × M_anti",
+      "id": "anti-heal",
       "sourceIds": [
         "abilities",
         "healing-types",
@@ -672,80 +399,79 @@
         "antiheal-test",
         "antiheal-independent"
       ],
-      "confidence": "community_documented"
+      "title": "Anti-heal уменьшает и обычное лечение, и вампиризм",
+      "variables": [
+        "aᵢ — разные применимые семейства anti-heal.",
+        "Receive и regen penalties одного источника обслуживают разные routes и не считаются двумя anti-heal."
+      ]
     },
     {
-      "id": "direct-heal",
       "category": "Лечение",
-      "title": "Лечение: кто усиливает и кто получает",
-      "expression": "H_potential = H₀ × M_cast × M_receive × M_anti;   H_actual = min(HP_missing, max(0,H_potential))",
-      "variables": [
-        "M_cast — применимое исходящее усиление от источника лечения.",
-        "M_receive — отдельный применимый множитель получателя.",
-        "Вводятся уже объединённые множители своих групп."
-      ],
-      "explanation": [
-        "Сначала установи владельца лечения и тип эффекта. Healing Booster в 6819 даёт 20% outgoing cast и 20% regen, но не универсальное receive amp. Booster у получателя сам по себе не означает+20% к любому чужому direct heal.",
-        "Self-heal совмещает caster и receiver, что часто скрывает эту разницу. Если исходное число уже усилено, второй раз тот же бонус не применяется. Полного универсального правила объединения нескольких разных positive heal amps источники не устанавливают."
-      ],
-      "example": "Heal250, исходящее усиление 20%, anti-heal35%:потенциально 195. Если не хватает 100 HP, реально восстановится 100, остальное — overheal.",
       "caveats": [
         "Барьер имеет собственные amp статы.",
         "Receive и regen являются разными ветками; не умножай Booster cast20 и regen20 в 1,44 на каждом тике без отдельного правила."
       ],
+      "confidence": "community_documented",
+      "example": "Heal250, исходящее усиление 20%, anti-heal35%:потенциально 195. Если не хватает 100 HP, реально восстановится 100, остальное — overheal.",
+      "explanation": [
+        "Сначала установи владельца лечения и тип эффекта. Healing Booster в 6819 даёт 20% outgoing cast и 20% regen, но не универсальное receive amp. Booster у получателя сам по себе не означает+20% к любому чужому direct heal.",
+        "Self-heal совмещает caster и receiver, что часто скрывает эту разницу. Если исходное число уже усилено, второй раз тот же бонус не применяется. Полного универсального правила объединения нескольких разных positive heal amps источники не устанавливают."
+      ],
+      "expression": "H_potential = H₀ × M_cast × M_receive × M_anti;   H_actual = min(HP_missing, max(0,H_potential))",
+      "id": "direct-heal",
       "sourceIds": [
         "abilities",
         "modifiers",
         "healing-types",
         "healing"
       ],
-      "confidence": "community_documented"
+      "title": "Лечение: кто усиливает и кто получает",
+      "variables": [
+        "M_cast — применимое исходящее усиление от источника лечения.",
+        "M_receive — отдельный применимый множитель получателя.",
+        "Вводятся уже объединённые множители своих групп."
+      ]
     },
     {
-      "id": "regen",
       "category": "Лечение",
-      "title": "Регенерация и лечение со временем",
-      "expression": "H(t) = rate × t × M_применимой_ветки, с ограничением HP_missing",
-      "variables": [
-        "rate — корректная скорость HP/с после базы/flat/OOC/scaling для данного эффекта."
-      ],
-      "explanation": [
-        "При постоянных условиях полученное HP равно скорости восстановления, умноженной на время. Но усиление totalheal, rate и duration — не одно и то же: длиннее HoT не всегда означает больше восстановления.",
-        "У Victor нативный regen1,5+0,08×Spirit. При естественных 38,5 Spirit наLVL36 получается 4,58 HP/с без предметов. Nurse Harrow имеет 0 базовой regen; чужой лечащий эффект не создаёт у неё нативную regen автоматически."
-      ],
-      "example": "Постоянная применимая regen10 HP/с за 5 с дала бы 50 HP; при одном anti-heal35% —32,5 HP, если всё это время здоровье недостающее.",
       "caveats": [
         "OOC regen, fountain и внешние источники имеют отдельные правила.",
         "Количество тиков, очередность medic heals и начальный/конечный тик конкретного HoT проверяются отдельно."
       ],
+      "confidence": "math_identity",
+      "example": "Постоянная применимая regen10 HP/с за 5 с дала бы 50 HP; при одном anti-heal35% —32,5 HP, если всё это время здоровье недостающее.",
+      "explanation": [
+        "При постоянных условиях полученное HP равно скорости восстановления, умноженной на время. Но усиление totalheal, rate и duration — не одно и то же: длиннее HoT не всегда означает больше восстановления.",
+        "У Victor нативный regen1,5+0,08×Spirit. При естественных 38,5 Spirit наLVL36 получается 4,58 HP/с без предметов. Nurse Harrow имеет 0 базовой regen; чужой лечащий эффект не создаёт у неё нативную regen автоматически."
+      ],
+      "expression": "H(t) = rate × t × M_применимой_ветки, с ограничением HP_missing",
+      "id": "regen",
       "sourceIds": [
         "heroes",
         "abilities",
         "modifiers",
         "healing-types"
       ],
-      "confidence": "math_identity"
+      "title": "Регенерация и лечение со временем",
+      "variables": [
+        "rate — корректная скорость HP/с после базы/flat/OOC/scaling для данного эффекта."
+      ]
     },
     {
-      "id": "lifesteal",
       "category": "Лечение",
-      "title": "Вампиризм: отдельные каналы и эффективность цели",
-      "expression": "L = P(l₁,…);   H₀ = D_eligible × L × k_target × e_hero",
-      "variables": [
-        "Bullet и Spirit lifesteal — отдельные пулы.",
-        "D_eligible — подходящий фактически нанесённый урон, до вычисления healing.",
-        "k_target =1 по героям; обычные nonhero коэффициенты 0,6 Bullet /0,4 Spirit."
-      ],
-      "explanation": [
-        "Сначала объединяется применимый lifesteal одного канала. Источник, работающий только по отмеченной цели или для одного умения, не становится глобальным lifesteal для всех попаданий.",
-        "Затем применяются ограничения эффективности цели/героя и соответствующая ветка healing/anti-heal. У Rat King в raw отдельная эффективность 0,75; её нельзя принять за+75% бонуса."
-      ],
-      "example": "13% и 28% →37,36%. От 200 подходящего урона герою:74,72 HP до других healing-модификаторов. Для обычного Bullet nonhero:44,832; Spirit nonhero:29,888.",
       "caveats": [
         "Урон в барьер, overkill, summons и структуры требуют отдельной применимости.",
         "Fixed Melee Lifesteal heal не является процентом глобального bullet lifesteal.",
         "Не смешивай ability-inherent healing и общий LS без проверки source/scope."
       ],
+      "confidence": "community_documented",
+      "example": "13% и 28% →37,36%. От 200 подходящего урона герою:74,72 HP до других healing-модификаторов. Для обычного Bullet nonhero:44,832; Spirit nonhero:29,888.",
+      "explanation": [
+        "Сначала объединяется применимый lifesteal одного канала. Источник, работающий только по отмеченной цели или для одного умения, не становится глобальным lifesteal для всех попаданий.",
+        "Затем применяются ограничения эффективности цели/героя и соответствующая ветка healing/anti-heal. У Rat King в raw отдельная эффективность 0,75; её нельзя принять за+75% бонуса."
+      ],
+      "expression": "L = P(l₁,…);   H₀ = D_eligible × L × k_target × e_hero",
+      "id": "lifesteal",
       "sourceIds": [
         "lifesteal",
         "lifesteal-patch",
@@ -754,53 +480,54 @@
         "heroes",
         "modifiers"
       ],
-      "confidence": "community_documented"
+      "title": "Вампиризм: отдельные каналы и эффективность цели",
+      "variables": [
+        "Bullet и Spirit lifesteal — отдельные пулы.",
+        "D_eligible — подходящий фактически нанесённый урон, до вычисления healing.",
+        "k_target =1 по героям; обычные nonhero коэффициенты 0,6 Bullet /0,4 Spirit."
+      ]
     },
     {
-      "id": "lifesteal-amp",
       "category": "Лечение",
-      "title": "Вампиризм с heal amp: две проверяемые модели",
-      "expression": "Модель A: D × P(lᵢ) × (1+a);   модель B: D × P(lᵢ × (1+a))",
-      "variables": [
-        "a — применимое исходящее усиление, если значения LS ещё не учитывают его.",
-        "A усиливает общий heal после pooling; B сначала усиливает каждый LS input."
-      ],
-      "explanation": [
-        "Распространённое объяснение используетA. Однако у нескольких raw LS properties стоит EHealingOutput scaling, что допускаетB. Доступные наблюдения не различают их достаточно надёжно.",
-        "Калькулятор показывает обе оценки, когда задан amp, и не скрывает разницу. При amp0 ответы совпадают. Если вводишь уже усиленные значения LS, оставь outgoing amp0."
-      ],
-      "example": "13%+28%, amp20%, damage200: A=89,664 HP; B=87,9168 HP до anti-heal и missingHP cap.",
       "caveats": [
         "Это локализованное расхождение очередности; сама формула diminishing LS остаётся рабочей.",
         "Если усиленный отдельный источник достигает 100%, модельB за областью поддерживаемых значений."
       ],
+      "confidence": "inferred",
+      "example": "13%+28%, amp20%, damage200: A=89,664 HP; B=87,9168 HP до anti-heal и missingHP cap.",
+      "explanation": [
+        "Распространённое объяснение используетA. Однако у нескольких raw LS properties стоит EHealingOutput scaling, что допускаетB. Доступные наблюдения не различают их достаточно надёжно.",
+        "Калькулятор показывает обе оценки, когда задан amp, и не скрывает разницу. При amp0 ответы совпадают. Если вводишь уже усиленные значения LS, оставь outgoing amp0."
+      ],
+      "expression": "Модель A: D × P(lᵢ) × (1+a);   модель B: D × P(lᵢ × (1+a))",
+      "id": "lifesteal-amp",
       "sourceIds": [
         "abilities",
         "properties",
         "lifesteal",
         "healing"
       ],
-      "confidence": "inferred"
+      "title": "Вампиризм с heal amp: две проверяемые модели",
+      "variables": [
+        "a — применимое исходящее усиление, если значения LS ещё не учитывают его.",
+        "A усиливает общий heal после pooling; B сначала усиливает каждый LS input."
+      ]
     },
     {
-      "id": "cooldown",
       "category": "Темп",
-      "title": "Перезарядка способности и частота применений",
-      "expression": "C = P(c₁,…);   T_final = T_upgraded × (1−C);   ideal_rate = 1/T_final",
-      "variables": [
-        "T_upgraded — cooldown после плоских апгрейдов нужного свойства.",
-        "cᵢ — разные подходящие источники CDR одного timer type."
-      ],
-      "explanation": [
-        "Несколько обычных CDR бонусов уменьшающе складываются. Процент сокращает время, поэтому 20% CDR не равно+20% частоты: при неизменных прочих условиях частота увеличивается в 1/0,8=1,25 раза.",
-        "Ability, item, ultimate, charge-recharge, delay между charges и parry — разные таймеры. Обычный ability CDR не сокращает item active, если у него EItemCooldown."
-      ],
-      "example": "60 с, CDR20% и 5%:итог 24%; cooldown45,6 с. Если плоский талант сначала сделал базу 50 с, получится 38 с. Dispel45 с с подходящим itemCDR25% →33,75 с.",
       "caveats": [
         "Момент старта cooldown, cast/channel time, ресурсы и charges ограничивают реальную частоту.",
         "Reset и уменьшение оставшегося таймера — отдельные операции.",
         "Не назначаем недоказанный универсальный cap или floor."
       ],
+      "confidence": "community_documented",
+      "example": "60 с, CDR20% и 5%:итог 24%; cooldown45,6 с. Если плоский талант сначала сделал базу 50 с, получится 38 с. Dispel45 с с подходящим itemCDR25% →33,75 с.",
+      "explanation": [
+        "Несколько обычных CDR бонусов уменьшающе складываются. Процент сокращает время, поэтому 20% CDR не равно+20% частоты: при неизменных прочих условиях частота увеличивается в 1/0,8=1,25 раза.",
+        "Ability, item, ultimate, charge-recharge, delay между charges и parry — разные таймеры. Обычный ability CDR не сокращает item active, если у него EItemCooldown."
+      ],
+      "expression": "C = P(c₁,…);   T_final = T_upgraded × (1−C);   ideal_rate = 1/T_final",
+      "id": "cooldown",
       "sourceIds": [
         "cooldown",
         "cooldown-patch",
@@ -808,25 +535,26 @@
         "abilities",
         "modifiers"
       ],
-      "confidence": "community_documented"
+      "title": "Перезарядка способности и частота применений",
+      "variables": [
+        "T_upgraded — cooldown после плоских апгрейдов нужного свойства.",
+        "cᵢ — разные подходящие источники CDR одного timer type."
+      ]
     },
     {
-      "id": "duration",
       "category": "Темп",
-      "title": "Увеличение длительности тоже складывается убывающе",
-      "expression": "U = P(u₁,…);   t_final = t_upgraded × (1+U)",
-      "variables": [
-        "uᵢ — независимые действующие duration bonuses."
-      ],
-      "explanation": [
-        "Для обычных применимых duration bonuses рабочее правило — убывающий положительный бонус, а не произведение(1+u). Это согласуется с независимым объяснением и направлением патча Valve.",
-        "Current Duration Extender даёт 20%, Superior28%. Wiki местами показывает старые 22%: для численных входов используем raw6819. Поглощённый компонент не остаётся вторым предметом."
-      ],
-      "example": "28% и 15% →1−0,72×0,85=38,8%. База 10 с становится 13,88 с. Это не 14,72 с от 1,28×1,15.",
       "caveats": [
         "Умение должно разрешать duration scaling данного modifier.",
         "Flat duration, Spirit duration, channel и projectile lifetime требуют своего порядка/свойства."
       ],
+      "confidence": "community_documented",
+      "example": "28% и 15% →1−0,72×0,85=38,8%. База 10 с становится 13,88 с. Это не 14,72 с от 1,28×1,15.",
+      "explanation": [
+        "Для обычных применимых duration bonuses рабочее правило — убывающий положительный бонус, а не произведение(1+u). Это согласуется с независимым объяснением и направлением патча Valve.",
+        "Current Duration Extender даёт 20%, Superior28%. Wiki местами показывает старые 22%: для численных входов используем raw6819. Поглощённый компонент не остаётся вторым предметом."
+      ],
+      "expression": "U = P(u₁,…);   t_final = t_upgraded × (1+U)",
+      "id": "duration",
       "sourceIds": [
         "duration",
         "range-patch",
@@ -834,25 +562,25 @@
         "abilities",
         "modifier-flags"
       ],
-      "confidence": "community_documented"
+      "title": "Увеличение длительности тоже складывается убывающе",
+      "variables": [
+        "uᵢ — независимые действующие duration bonuses."
+      ]
     },
     {
-      "id": "range",
       "category": "Темп",
-      "title": "Увеличение радиуса и дальности",
-      "expression": "U_range = P(r₁,…);   range_final = range_upgraded × (1+U_range)",
-      "variables": [
-        "range_upgraded — уже выбранная база конкретного свойства в метрах."
-      ],
-      "explanation": [
-        "Проценты обычного range/radius бонуса объединяются убывающе. Но cast range, explosion radius, ширина, высота и максимальный путь снаряда — разные свойства.",
-        "Raw отдельно содержит TECH_RANGE_PERCENT и TECH_RADIUS_PERCENT. Даже совпадающие 30% не гарантируют, что любое число дистанции умения читает этот stat."
-      ],
-      "example": "30% и 5% →33,5%. Радиус 20 м становится 26,7 м при применимости обоих источников.",
       "caveats": [
         "Не изменяет автоматически оружейный falloff или дальность dash.",
         "LOS и ограничения по высоте не выводятся из одного радиуса."
       ],
+      "confidence": "community_documented",
+      "example": "30% и 5% →33,5%. Радиус 20 м становится 26,7 м при применимости обоих источников.",
+      "explanation": [
+        "Проценты обычного range/radius бонуса объединяются убывающе. Но cast range, explosion radius, ширина, высота и максимальный путь снаряда — разные свойства.",
+        "Raw отдельно содержит TECH_RANGE_PERCENT и TECH_RADIUS_PERCENT. Даже совпадающие 30% не гарантируют, что любое число дистанции умения читает этот stat."
+      ],
+      "expression": "U_range = P(r₁,…);   range_final = range_upgraded × (1+U_range)",
+      "id": "range",
       "sourceIds": [
         "range",
         "range-patch",
@@ -860,27 +588,25 @@
         "abilities",
         "modifiers"
       ],
-      "confidence": "community_documented"
+      "title": "Увеличение радиуса и дальности",
+      "variables": [
+        "range_upgraded — уже выбранная база конкретного свойства в метрах."
+      ]
     },
     {
-      "id": "max-health",
       "category": "Характеристики",
-      "title": "Максимальное HP: базовый бонус и плоское здоровье",
-      "expression": "HP_max = ceil[(HP₀ + B × g_HP) × (1+b_base) + HP_flat]",
-      "variables": [
-        "b_base — применимый уже объединённый бонус на базовое здоровье+прирост.",
-        "HP_flat — сумма обычных добавлений, не масштабируемых этим base bonus.",
-        "ceil — округление вверх до целого в принятой модели."
-      ],
-      "explanation": [
-        "База героя и здоровье от Boons входят в base-health часть. Обычное плоское здоровье предметов добавляется после её усиления. Нельзя повторно умножать плоский itemHP на base bonus.",
-        "Vitality investment берётся как текущий итог соответствующего порога вложений. Это не сумма исторических процентов за каждый когда-либо купленный tier."
-      ],
-      "example": "База 800,10 Boons по 49, base bonus20%, flat210:ceil((800+490)×1,2+210)=1758 HP.",
       "caveats": [
         "Glass Cannon total max-health penalty, no-scale bonus, HP steal и override имеют другие типы; эта простая формула их не моделирует.",
         "Текущее HP после изменения максимального — отдельное правило."
       ],
+      "confidence": "community_documented",
+      "example": "База 800,10 Boons по 49, base bonus20%, flat210:ceil((800+490)×1,2+210)=1758 HP.",
+      "explanation": [
+        "База героя и здоровье от Boons входят в base-health часть. Обычное плоское здоровье предметов добавляется после её усиления. Нельзя повторно умножать плоский itemHP на base bonus.",
+        "Vitality investment берётся как текущий итог соответствующего порога вложений. Это не сумма исторических процентов за каждый когда-либо купленный tier."
+      ],
+      "expression": "HP_max = ceil[(HP₀ + B × g_HP) × (1+b_base) + HP_flat]",
+      "id": "max-health",
       "sourceIds": [
         "health",
         "health-independent",
@@ -889,108 +615,382 @@
         "abilities",
         "modifiers"
       ],
-      "confidence": "community_documented"
+      "title": "Максимальное HP: базовый бонус и плоское здоровье",
+      "variables": [
+        "b_base — применимый уже объединённый бонус на базовое здоровье+прирост.",
+        "HP_flat — сумма обычных добавлений, не масштабируемых этим base bonus.",
+        "ceil — округление вверх до целого в принятой модели."
+      ]
     },
     {
-      "id": "fire-rate",
       "category": "Темп",
-      "title": "Скорострельность и замедление стрельбы",
-      "expression": "H=Σhᵢ; Q=P(sᵢ); z=max(−0,50,H−Q); f=f₀×(1+z) при z≥0; f=f₀/(1−z) при z<0",
-      "variables": [
-        "hᵢ — обычные положительные fire-rate bonuses.",
-        "sᵢ — отдельные fire-rate slows; не movement slows."
-      ],
-      "explanation": [
-        "Положительные бонусы и замедления стрельбы объединяются разными пулами. Нативное изменение base cycle относится к другой стадии.",
-        "Отрицательная ветка 1/(1−z) описана текущей wiki, но независимый свежий timing test не найден. В калькуляторе и справочнике это рабочая оценка с пониженной уверенностью."
-      ],
-      "example": "Базовые 10 выстр./с и бонусы 20%+30% →15. Бонус 38%, slows25%+28% →Q46%, z−8%; модель даёт 10/1,08=9,25926.",
       "caveats": [
         "Не переносится автоматически на burst, spin-up, charged или channel оружие.",
         "−50% в этой conversion-модели не означает ровно половину частоты."
       ],
+      "confidence": "inferred",
+      "example": "Базовые 10 выстр./с и бонусы 20%+30% →15. Бонус 38%, slows25%+28% →Q46%, z−8%; модель даёт 10/1,08=9,25926.",
+      "explanation": [
+        "Положительные бонусы и замедления стрельбы объединяются разными пулами. Нативное изменение base cycle относится к другой стадии.",
+        "Отрицательная ветка 1/(1−z) описана текущей wiki, но независимый свежий timing test не найден. В калькуляторе и справочнике это рабочая оценка с пониженной уверенностью."
+      ],
+      "expression": "H=Σhᵢ; Q=P(sᵢ); z=max(−0,50,H−Q); f=f₀×(1+z) при z≥0; f=f₀/(1−z) при z<0",
+      "id": "fire-rate",
       "sourceIds": [
         "fire-rate",
         "fire-test",
         "convars",
         "modifiers"
       ],
-      "confidence": "inferred"
+      "title": "Скорострельность и замедление стрельбы",
+      "variables": [
+        "hᵢ — обычные положительные fire-rate bonuses.",
+        "sᵢ — отдельные fire-rate slows; не movement slows."
+      ]
     },
     {
-      "id": "dps",
       "category": "Темп",
-      "title": "DPS, точность, крит и спорный тайминг очередей",
-      "expression": "DPS = D_залпа × f;   expected = DPS × p_hit × [1+h×(C−1)]",
-      "variables": [
-        "h — доля headshots среди попавших; p_hit — доля попаданий.",
-        "В таблице f = N / [cycle + (N−1)×intra] — сравнительная модель."
+      "caveats": [
+        "У hitOnce сначала используй правильный урон одной цели, у spin-up выбери старт/полную раскрутку.",
+        "Это не engine-measured DPS и не гарантированный TTK."
       ],
+      "confidence": "inferred",
+      "example": "D10, f5/с, магазин 10, reload2 с →50 DPS во время огня и 25 DPS в непрерывной модели с reload. Seven rawN3/cycle0,2625/intra0,084 даёт по трём трактовкам 11,42857;6,96864;5,83090 выстр./с.",
       "explanation": [
         "DPS — не урон одного попадания и не точное время убийства. Если промахи уже учтены в фактическом damage, не умножай на точность ещё раз.",
         "Для burst обнаружены три разные трактовки: schemaN/cycle, принятая модельN/[cycle+(N−1)intra] и API N/[cycle+Nintra]. Без независимого timing-теста не выбираем молча новую как истину. Сохраняем в таблице явную сравнительную модель.",
         "Для обычного магазина усреднённая оценка с перезарядкой: m×D/(m/f+reload). Начало первого выстрела, перекрытие reload и особые режимы могут менять точную границу цикла."
       ],
-      "example": "D10, f5/с, магазин 10, reload2 с →50 DPS во время огня и 25 DPS в непрерывной модели с reload. Seven rawN3/cycle0,2625/intra0,084 даёт по трём трактовкам 11,42857;6,96864;5,83090 выстр./с.",
-      "caveats": [
-        "У hitOnce сначала используй правильный урон одной цели, у spin-up выбери старт/полную раскрутку.",
-        "Это не engine-measured DPS и не гарантированный TTK."
-      ],
+      "expression": "DPS = D_залпа × f;   expected = DPS × p_hit × [1+h×(C−1)]",
+      "id": "dps",
       "sourceIds": [
         "weapon-schema",
         "api-timing",
         "abilities"
       ],
-      "confidence": "inferred"
+      "title": "DPS, точность, крит и спорный тайминг очередей",
+      "variables": [
+        "h — доля headshots среди попавших; p_hit — доля попаданий.",
+        "В таблице f = N / [cycle + (N−1)×intra] — сравнительная модель."
+      ]
     },
     {
-      "id": "reload",
       "category": "Темп",
-      "title": "Перезарядка магазина и по одному патрону",
-      "expression": "Обычная: T=T_reload;   по одному патрону: T≈initial_delay+n×T_round;   один reduction q: T≈T₀×(1−q)",
-      "variables": [
-        "n — сколько патронов требуется вставить.",
-        "m_reloadDuration у single-bullet reload означает одну операцию, а не полный магазин."
-      ],
-      "explanation": [
-        "Читай тип перезарядки. Abrams и Silver вставляют патроны по одному; Nurse Harrow имеет обычную перезарядку магазина. Одно и то же имя raw duration не означает одну и ту же операцию.",
-        "Одна обычная Reload Reduction20% соответствует примерно 80% исходного времени. Для нескольких разных reload modifiers универсальное сложение здесь не установлено."
-      ],
-      "example": "Abrams:0,705 с initial delay +9×0,3525 с =3,8775 с. Silver:0,5+7×0,3=2,6 с. Nurse полный reload1,9 с; один reduction10% даёт 1,71 с в обычной модели.",
       "caveats": [
         "Active Reload, instant ammo refill, отмена и активный режим имеют отдельные таймеры.",
         "Число дробин не равно расходу патронов."
       ],
+      "confidence": "inferred",
+      "example": "Abrams:0,705 с initial delay +9×0,3525 с =3,8775 с. Silver:0,5+7×0,3=2,6 с. Nurse полный reload1,9 с; один reduction10% даёт 1,71 с в обычной модели.",
+      "explanation": [
+        "Читай тип перезарядки. Abrams и Silver вставляют патроны по одному; Nurse Harrow имеет обычную перезарядку магазина. Одно и то же имя raw duration не означает одну и ту же операцию.",
+        "Одна обычная Reload Reduction20% соответствует примерно 80% исходного времени. Для нескольких разных reload modifiers универсальное сложение здесь не установлено."
+      ],
+      "expression": "Обычная: T=T_reload;   по одному патрону: T≈initial_delay+n×T_round;   один reduction q: T≈T₀×(1−q)",
+      "id": "reload",
       "sourceIds": [
         "weapon-schema",
         "abilities",
         "reload",
         "reload-test"
       ],
-      "confidence": "inferred"
+      "title": "Перезарядка магазина и по одному патрону",
+      "variables": [
+        "n — сколько патронов требуется вставить.",
+        "m_reloadDuration у single-bullet reload означает одну операцию, а не полный магазин."
+      ]
     },
     {
-      "id": "uptime",
       "category": "Темп",
-      "title": "Покрытие баффа и перекрывающиеся дебаффы",
-      "expression": "uptime = min(1, duration / period);   overlap = длина объединения интервалов",
-      "variables": [
-        "period — реальное время между началами применений, а не всегда число cooldown."
-      ],
-      "explanation": [
-        "Если один и тот же эффект регулярно применяется каждыеPсекунд и живётTсекунд, при постоянных условиях покрытие времени равноmin(1,T/P). Период надо определить по механике старта cooldown, cast и ресурсам.",
-        "Сумма длительностей двух одновременно наложенных станов не равна общему времени контроля. На временной оси складываются только неперекрытые участки. У refresh и queue свои правила."
-      ],
-      "example": "Бафф 6 с каждые 10 с →60% покрытия. Станы[0;2] и[1;3] контролируют 3 с, а не 4 с.",
       "caveats": [
         "Это математическая модель по известному расписанию, а не обещание стака конкретных CC.",
         "Ауры, сопротивление длительности и непредсказуемое попадание меняют интервалы."
       ],
+      "confidence": "math_identity",
+      "example": "Бафф 6 с каждые 10 с →60% покрытия. Станы[0;2] и[1;3] контролируют 3 с, а не 4 с.",
+      "explanation": [
+        "Если один и тот же эффект регулярно применяется каждыеPсекунд и живётTсекунд, при постоянных условиях покрытие времени равноmin(1,T/P). Период надо определить по механике старта cooldown, cast и ресурсам.",
+        "Сумма длительностей двух одновременно наложенных станов не равна общему времени контроля. На временной оси складываются только неперекрытые участки. У refresh и queue свои правила."
+      ],
+      "expression": "uptime = min(1, duration / period);   overlap = длина объединения интервалов",
+      "id": "uptime",
       "sourceIds": [
         "modifier-flags",
         "properties"
       ],
-      "confidence": "math_identity"
+      "title": "Покрытие баффа и перекрывающиеся дебаффы",
+      "variables": [
+        "period — реальное время между началами применений, а не всегда число cooldown."
+      ]
+    }
+  ],
+  "meta": {
+    "checkedAt": "2026-10-25T08:29:24.063722+00:00",
+    "gameCommit": "17462b250a0ca80e7f80102f2c83cc3eecff5f12",
+    "policy": "Consensus независимых наблюдений применяется как рабочее правило; степень подтверждения и противоречия сохраняются.",
+    "reviewedClientVersion": 6819,
+    "schemaVersion": 1,
+    "sourceRevision": 11162696,
+    "title": "Deadlock — формулы и механики"
+  },
+  "sources": [
+    {
+      "id": "heroes",
+      "kind": "raw",
+      "label": "Файлы героя: база, приросты и коэффициенты",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/heroes.vdata"
+    },
+    {
+      "id": "abilities",
+      "kind": "raw",
+      "label": "Файлы оружия, способностей и предметов",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts/abilities.vdata"
+    },
+    {
+      "id": "weapon-schema",
+      "kind": "raw",
+      "label": "Описание полей оружия",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CCitadelWeaponInfo.h#L18"
+    },
+    {
+      "id": "modifiers",
+      "kind": "raw",
+      "label": "Раздельные типы модификаторов",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/EModifierValue.h"
+    },
+    {
+      "id": "modifier-flags",
+      "kind": "raw",
+      "label": "Флаги длительности и применимости",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CCitadelModifierVData.h"
+    },
+    {
+      "id": "properties",
+      "kind": "raw",
+      "label": "Параметры и функции масштабирования",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/CitadelAbilityProperty_t.h"
+    },
+    {
+      "id": "convars",
+      "kind": "raw",
+      "label": "Настройки игры: lifesteal и ограничения",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/convars.txt"
+    },
+    {
+      "id": "healing-types",
+      "kind": "raw",
+      "label": "Типы лечения в схеме",
+      "url": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/17462b250a0ca80e7f80102f2c83cc3eecff5f12/DumpSource2/schemas/client/EHealingTypes.h"
+    },
+    {
+      "id": "diminishing",
+      "kind": "community",
+      "label": "Mekahippie: независимый разбор diminishing, 2024",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1hb8b7z/heres_how_deadlocks_diminishing_returns_work_for/"
+    },
+    {
+      "id": "oct-tests",
+      "kind": "community",
+      "label": "CoreDump742: измерения, октябрь 2026",
+      "url": "https://www.reddit.com/r/DeadlockGame/comments/1xbhphj/theorycraft_is_the_crit_bonus_scale/"
+    },
+    {
+      "id": "oct-independent",
+      "kind": "community",
+      "label": "Bluedragon2513: отдельные проверки 23 октября",
+      "url": "https://www.reddit.com/r/DeadlockGame/comments/1xbhphj/comment/19rijhefuq35u/"
+    },
+    {
+      "id": "baba-tests",
+      "kind": "community",
+      "label": "Отдельное исследование Baba и shred",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1x5nkp1/shredding_spirit_resist_baba_hate/"
+    },
+    {
+      "id": "pocket-negative",
+      "kind": "community",
+      "label": "Nailcliper: отрицательный innate Pocket",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1gmlzfk/daily_item_discussion_42116_spirit_armor/"
+    },
+    {
+      "id": "resilience",
+      "kind": "community",
+      "label": "Независимый тест условных резистов, март 2026",
+      "url": "https://forums.playdeadlock.com/threads/frenzy-conditional-resist-is-inconsistent-with-resilience.115272/"
+    },
+    {
+      "id": "resist-wiki",
+      "kind": "community",
+      "label": "Wiki: сопротивления, закреплённая редакция",
+      "url": "https://deadlock.wiki/index.php?title=Damage_Resistance&oldid=197376"
+    },
+    {
+      "id": "weapon-wiki",
+      "kind": "community",
+      "label": "Wiki: урон оружия, редакция со спорной записью крита",
+      "url": "https://deadlock.wiki/index.php?title=Weapon_Damage&oldid=194393"
+    },
+    {
+      "id": "amp-wiki",
+      "kind": "community",
+      "label": "Wiki: усиление урона, закреплённая редакция",
+      "url": "https://deadlock.wiki/index.php?title=Damage_amplification&oldid=203362"
+    },
+    {
+      "id": "amp-conflict",
+      "kind": "community",
+      "label": "Опубликованный тест Inhibitor + Scarabs",
+      "url": "https://forums.playdeadlock.com/threads/damage-reduction-stacking.148395/"
+    },
+    {
+      "id": "may22",
+      "kind": "official",
+      "label": "Valve: изменения total damage reduction, 22.05.2026",
+      "url": "https://store.steampowered.com/news/app/1422450/view/1833334318572828"
+    },
+    {
+      "id": "onhit",
+      "kind": "official",
+      "label": "Valve: shred действует на последующие попадания, 30.01.2026",
+      "url": "https://forums.playdeadlock.com/threads/01-30-2026-update.102822/"
+    },
+    {
+      "id": "crit-patch",
+      "kind": "official",
+      "label": "Valve: обычный headshot 1.65, 21.11.2025",
+      "url": "https://forums.playdeadlock.com/threads/11-21-2025-update.90383/"
+    },
+    {
+      "id": "fire-rate",
+      "kind": "community",
+      "label": "Wiki: темп огня",
+      "url": "https://deadlock.wiki/index.php?title=Fire_Rate&oldid=192243"
+    },
+    {
+      "id": "fire-test",
+      "kind": "community",
+      "label": "Отдельные измерения fire-rate buffs/slows",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1i07acp/is_it_just_me_or_does_attack_speed_need_to_be_looked_at/"
+    },
+    {
+      "id": "reload",
+      "kind": "community",
+      "label": "Wiki: виды перезарядки",
+      "url": "https://deadlock.wiki/Reload"
+    },
+    {
+      "id": "reload-test",
+      "kind": "community",
+      "label": "Наблюдения длительности перезарядки",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1fe8z6d/we_all_did_that/"
+    },
+    {
+      "id": "api-timing",
+      "kind": "raw",
+      "label": "Реализация расчётного DPS в API",
+      "url": "https://github.com/deadlock-api/deadlock-api/blob/902a603c444796943cb8db268143aeb11c747fab/api/src/services/assets/versions/items/build.rs#L733"
+    },
+    {
+      "id": "debuff",
+      "kind": "community",
+      "label": "Независимые авторы о debuff resist, август 2026",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1vq87x1/stacking_debuff_resistance_on_wraith_is_actually/"
+    },
+    {
+      "id": "debuff-patch",
+      "kind": "official",
+      "label": "Valve: debuff resist diminishing, 08.05.2025",
+      "url": "https://store.steampowered.com/news/app/1422450/view/524216645064852902"
+    },
+    {
+      "id": "healing",
+      "kind": "community",
+      "label": "Wiki: лечение и его модификаторы",
+      "url": "https://deadlock.wiki/Healing"
+    },
+    {
+      "id": "antiheal-test",
+      "kind": "community",
+      "label": "Разные игроки: Toxic + Healbane, июнь 2026",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1tvbr69/does_toxic_bullets_healing_reduction_stack_with/"
+    },
+    {
+      "id": "antiheal-independent",
+      "kind": "community",
+      "label": "Другие авторы: складывание anti-heal, апрель 2026",
+      "url": "https://www.reddit.com/r/DeadlockTheGame/comments/1s93kp5/anti_heal_stacks_or_no/"
+    },
+    {
+      "id": "lifesteal",
+      "kind": "community",
+      "label": "Wiki: вампиризм",
+      "url": "https://deadlock.wiki/Lifesteal"
+    },
+    {
+      "id": "lifesteal-patch",
+      "kind": "official",
+      "label": "Valve: diminishing lifesteal, 10.10.2024",
+      "url": "https://forums.playdeadlock.com/threads/10-10-2024-update.36958/"
+    },
+    {
+      "id": "cooldown",
+      "kind": "community",
+      "label": "Wiki: перезарядка способности",
+      "url": "https://deadlock.wiki/Ability_Cooldown"
+    },
+    {
+      "id": "cooldown-patch",
+      "kind": "official",
+      "label": "Valve: diminishing CDR, 18.07.2024",
+      "url": "https://forums.playdeadlock.com/threads/07-18-2024-update.11831/"
+    },
+    {
+      "id": "duration",
+      "kind": "community",
+      "label": "Wiki: длительность (числа предметов местами устарели)",
+      "url": "https://deadlock.wiki/Ability_Duration"
+    },
+    {
+      "id": "range",
+      "kind": "community",
+      "label": "Wiki: радиус и дальность",
+      "url": "https://deadlock.wiki/Range"
+    },
+    {
+      "id": "range-patch",
+      "kind": "official",
+      "label": "Valve: diminishing duration/range, 06.12.2024",
+      "url": "https://forums.playdeadlock.com/threads/12-06-2024-update.50599/"
+    },
+    {
+      "id": "slow",
+      "kind": "community",
+      "label": "Wiki: движение и slow resistance",
+      "url": "https://deadlock.wiki/Slow_Resistance"
+    },
+    {
+      "id": "slow-mirror",
+      "kind": "community",
+      "label": "Deadlock Guru: совпадающее описание замедлений",
+      "url": "https://deadlock.guru/wiki/mechanics/movement-slow/"
+    },
+    {
+      "id": "health",
+      "kind": "community",
+      "label": "Wiki: базовое и добавочное здоровье",
+      "url": "https://deadlock.wiki/Bonus_Health"
+    },
+    {
+      "id": "health-independent",
+      "kind": "community",
+      "label": "Deadlock Shop: независимая реализация характеристик",
+      "url": "https://deadlockshop.app/"
+    },
+    {
+      "id": "health-investment",
+      "kind": "community",
+      "label": "Deadlock Meta: вложения в категорию",
+      "url": "https://www.deadlockmeta.dev/en/mechanics/investment-bonus"
     }
   ]
 }
