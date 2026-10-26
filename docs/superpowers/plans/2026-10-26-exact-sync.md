@@ -29,10 +29,10 @@ Data and assets are whitelisted, asset symlinks cannot escape public/, failed lo
 - [x] Add local synchronization panel with RU/EN statuses, check/sync controls and deploy feedback; validate same-client changes and retry.
 - [x] Update database guide/README/AGENTS/project skill and private routing decision; install maintained skill after integration in original checkout.
 - [x] Run full suite with4 workers, typecheck/data/build, real DB checks and independent review, browser desktop/mobile QA and credential audit.
-- [ ] Commit/push feature into main, execute real exact DB sync, verify Pages by hashes, verify second sync no-op, record deployment evidence and return original checkout.
+- [x] Commit/push feature into main, execute real exact DB sync, verify Pages by hashes, verify second sync no-op, record deployment evidence and return original checkout.
 
 ## Verification before publication — 26 October 2026
 
 Full suite307/307 passed in isolated worktree; typecheck, data validation, public-snapshot verification and Pages-base production build passed. Consistent real PostgreSQL export regression passed. Independent whole-feature review and scoped rereview resolved all reported blockers (stale deployment retry, CLI restart, concurrent status/update). Browser checked RU/EN, desktop and390px layout with no horizontal overflow. Credential audit found0 leaks and no backend code/private files in browser builds. Exact baseline snapshot hash:5e219055279b873d9c81fc28b8fd15ab984521909bb2c9b296fa37bd44da51e4 (50 public files).
 
-Live publication, served-file verification and repeated sync no-op: pending release.
+Live publication completed: feature `1010332`, exact DB snapshot commit `85441b85d0189113823b3af8fc4c10480f1e8a0e`. [Pages verification](https://github.com/Roman17-bot/deadlock-archive/actions/runs/40274987813) and [PostgreSQL CI](https://github.com/Roman17-bot/deadlock-archive/actions/runs/40274987865) succeeded. Actual served bytes, repository and DB have identical SHA256 `5e219055279b873d9c81fc28b8fd15ab984521909bb2c9b296fa37bd44da51e4`. A repeated `db:sync -- --wait` returned upToDate=true, localSaved=false with unchanged remote HEAD and no additional workflow. Original checkout reconciled by verifying all six exported blobs against origin, backing up these owned exports, then fast-forwarding. Maintained skill installed at original root and validated; private knowledge decision7 records the workflow.
