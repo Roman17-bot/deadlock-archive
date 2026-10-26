@@ -33,7 +33,11 @@ const fetchImpl: typeof fetch = async (input) => {
       changedVersion && latestCalls > 1 ? { ...info(), client_version: 6820 } : info(),
     );
   }
-  if (url.pathname.endsWith('/commits/master')) return Response.json({ sha });
+  if (url.pathname.endsWith('/commits/master'))
+    return Response.json({
+      sha,
+      commit: { message: '6819 | updated files\n\nhttps://steamdb.info/patchnotes/26147187/' },
+    });
   if (url.pathname.endsWith('/steam.inf'))
     return new Response(
       'ClientVersion=6819\nServerVersion=6819\nSourceRevision=11162696\nVersionDate=Oct 22 2026\nVersionTime=16:40:35',
@@ -115,6 +119,13 @@ describe('version-bound refresh transaction', () => {
       clientVersion: 6819,
       buildDate: '2026-10-22',
       provenance: { kind: 'snapshot-save' },
+      patch: {
+        source: 'steamdb',
+        steamBuildId: 26147187,
+        url: 'https://steamdb.info/patchnotes/26147187/',
+        gameCommit: sha,
+        notes: 'unknown',
+      },
     });
     expect(result).toMatchObject({ changed: true, historySaved: true });
     latestCalls = 0;

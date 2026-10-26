@@ -47,6 +47,44 @@ it('roundtrips an appended client with distinct client build and archive dates',
   expect(Date.parse(saved.versions[0].firstPublishedAt)).toBeGreaterThan(Date.parse('2026-10-23'));
   expect(saved.versions[1]).toEqual(history.versions[0]);
 });
+
+it('records an exact pinned file-change link for a new version without an announcement', async () => {
+  const next = { ...snapshot, meta: { ...snapshot.meta, clientVersion: 6820 } };
+  await writeFile(join(root, 'data/heroes.json'), JSON.stringify(next));
+  await recordSavedVersion(root, next);
+  const saved = JSON.parse(await readFile(join(root, 'data/version-history.json'), 'utf8'));
+  expect(saved.versions[0].patch).toMatchObject({
+    source: 'game-tracking',
+    gameCommit: snapshot.meta.gameCommit,
+    url: `https://github.com/SteamTracking/GameTracking-Deadlock/commit/${snapshot.meta.gameCommit}`,
+    notes: 'unknown',
+  });
+});
+
+it.each([
+  ['6820 | updated files\n\nhttps://steamdb.info/patchnotes/26148000/', 'steamdb'],
+  ['6819 | old version\n\nhttps://steamdb.info/patchnotes/26147187/', 'game-tracking'],
+  ['6820 | files\nhttps://steamdb.info.evil.test/patchnotes/26148000/', 'game-tracking'],
+  [
+    '6820 | files\nhttps://steamdb.info/patchnotes/1/\nhttps://steamdb.info/patchnotes/2/',
+    'game-tracking',
+  ],
+])(
+  'links only an unambiguous Steam build from the matching client commit: %s',
+  async (message, source) => {
+    const next = { ...snapshot, meta: { ...snapshot.meta, clientVersion: 6820 } };
+    await writeFile(join(root, 'data/heroes.json'), JSON.stringify(next));
+    await recordSavedVersion(root, next, message);
+    const saved = JSON.parse(await readFile(join(root, 'data/version-history.json'), 'utf8'));
+    expect(saved.versions[0].patch.source).toBe(source);
+    if (source === 'steamdb')
+      expect(saved.versions[0].patch).toMatchObject({
+        steamBuildId: 26148000,
+        url: 'https://steamdb.info/patchnotes/26148000/',
+        notes: 'unknown',
+      });
+  },
+);
 it('preserves both the saved snapshot and previous history if history rename fails', async () => {
   const next = { ...snapshot, meta: { ...snapshot.meta, clientVersion: 6820 } };
   const canonical = JSON.stringify(next);

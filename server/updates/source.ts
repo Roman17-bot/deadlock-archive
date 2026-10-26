@@ -233,7 +233,7 @@ export async function refreshData({
   let historySaved: boolean | undefined;
   if (changed && !dryRun) {
     try {
-      await recordSavedVersion(root, snapshot);
+      await recordSavedVersion(root, snapshot, head.commit?.message);
       historySaved = true;
     } catch {
       historySaved = false;

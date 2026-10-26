@@ -222,11 +222,60 @@
 }
 .version-history-list > li {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   padding: 24px 28px;
   border-bottom: 1px solid var(--line);
+}
+.history-version-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  text-decoration: underline;
+  text-decoration-color: #9d976c;
+  text-underline-offset: 7px;
+}
+.history-version-link:hover {
+  color: #f1db9a;
+}
+.history-version-link:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 5px;
+}
+.history-patch {
+  flex: 0 0 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid #42503d;
+  overflow-wrap: anywhere;
+}
+.history-patch-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  color: #c8c19d;
+  font-size: 0.8125rem;
+}
+.history-patch-badge {
+  border: 1px solid #738365;
+  padding: 3px 8px;
+}
+.history-patch p {
+  max-width: 850px;
+  margin: 10px 0 0;
+  color: #c1cbb7;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+.history-patch .history-patch-title {
+  color: var(--paper);
+  font-weight: 600;
 }
 .version-history-list > li:last-child {
   border-bottom: 0;

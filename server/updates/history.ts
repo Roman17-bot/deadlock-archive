@@ -8,6 +8,7 @@ import {
   type VersionHistoryEntry,
 } from '../../shared/version-history.ts';
 import { writeExclusive } from './storage.ts';
+import { patchForSavedVersion } from './patch-metadata.ts';
 
 /** Read only the fixed public history file, with a hard allocation/read limit. */
 export async function readVersionHistory(root: string): Promise<VersionHistory> {
@@ -35,7 +36,11 @@ export async function readVersionHistory(root: string): Promise<VersionHistory> 
 }
 
 /** Append only after canonical save. Failure must never roll back the saved snapshot. */
-export async function recordSavedVersion(root: string, snapshot: HeroSnapshot): Promise<void> {
+export async function recordSavedVersion(
+  root: string,
+  snapshot: HeroSnapshot,
+  commitMessage?: string,
+): Promise<void> {
   const path = join(root, 'data/version-history.json');
   const previous = await readFile(path, 'utf8');
   const history: unknown = JSON.parse(previous);
@@ -55,6 +60,7 @@ export async function recordSavedVersion(root: string, snapshot: HeroSnapshot): 
     buildDate: snapshot.meta.buildDate,
     firstPublishedAt,
     provenance: { kind: 'snapshot-save', reference: firstPublishedAt },
+    patch: patchForSavedVersion(snapshot, commitMessage),
   };
   history.versions.unshift(next);
   if (!validateVersionHistory(history)) throw new Error('Invalid saved version');

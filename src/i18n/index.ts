@@ -4,6 +4,8 @@ import { useCallback } from 'react';
 import { enCommon } from './en-common';
 import { enData } from './en-data';
 import { enCalculator } from './en-calculator';
+import { enHistory } from './en-history';
+import { enHeroes } from './en-heroes';
 
 export type Language = 'ru' | 'en';
 const storageKey = 'deadlock-language';
@@ -28,7 +30,7 @@ void i18n.use(initReactI18next).init({
   react: { useSuspense: false },
   resources: {
     ru: { translation: {} },
-    en: { translation: { ...enCommon, ...enData, ...enCalculator } },
+    en: { translation: { ...enCommon, ...enData, ...enCalculator, ...enHistory, ...enHeroes } },
   },
 });
 

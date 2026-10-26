@@ -71,7 +71,12 @@ export function HeroTableRow({
         ))}
       </tr>
       {expanded === hero.id && (
-        <HeroNotesRow hero={hero} stats={stats} columnCount={visibleColumns.length + 1} />
+        <HeroNotesRow
+          hero={hero}
+          stats={stats}
+          level={level}
+          columnCount={visibleColumns.length + 1}
+        />
       )}
     </>
   );

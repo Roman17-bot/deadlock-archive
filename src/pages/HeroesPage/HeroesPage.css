@@ -577,6 +577,116 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+.hero-notes {
+  width: 100%;
+  min-width: 0;
+  color: #344730;
+}
+.hero-notes-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+.hero-notes-heading h2 {
+  font: 600 1.375rem/1.35 var(--serif);
+  margin: 0;
+}
+.hero-notes-heading > span {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #596548;
+}
+.hero-notes-section {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #b3bea2;
+}
+.hero-notes-section h3 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.hero-notes .hero-notes-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+}
+.hero-notes-metric {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.hero-notes-metrics .hero-notes-metric {
+  padding: 12px 14px;
+  border: 1px solid #bbc4aa;
+  background: #e9eadb;
+}
+.hero-notes-metric dt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #58664b;
+}
+.hero-notes-metric dd {
+  margin: 6px 0 0;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hero-notes p {
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.hero-notes p.hero-notes-caveat {
+  color: #58664b;
+  font-size: 0.8125rem;
+}
+.hero-notes-source {
+  margin-top: 20px;
+  border-top: 1px solid #aeb99d;
+  font-weight: 400;
+}
+.hero-notes-source summary {
+  padding: 14px 0;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.hero-notes-source summary:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero-notes-source summary:focus-visible {
+  outline-offset: 3px;
+}
+.hero-notes-source-parameters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.hero-notes-source-parameters .hero-notes-metric dd {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.hero-notes-source ul {
+  padding-left: 20px;
+  margin: 12px 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.hero-notes-source li + li {
+  margin-top: 8px;
+}
+.hero-notes-source code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 .empty-state {
   display: flex;
   align-items: center;
@@ -919,6 +1029,21 @@
   .details-row p,
   .details-row a {
     font-size: 0.875rem;
+  }
+  .hero-notes-heading h2 {
+    font-size: 1.125rem;
+  }
+  .hero-notes .hero-notes-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero-notes-metrics .hero-notes-metric {
+    padding: 10px;
+  }
+  .hero-notes-metric dd {
+    font-size: 1rem;
+  }
+  .hero-notes-source-parameters {
+    grid-template-columns: minmax(0, 1fr);
   }
   .register-aside {
     gap: 18px;

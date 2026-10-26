@@ -5,7 +5,7 @@
     "data/mechanics.en.json": "c37e1f81ef3187c334be49476064b9bfb2c10d3d323a8993e65f44c794773ed5",
     "data/mechanics.json": "c549cffe1b90cd70233a07b2ab946df6c107076abbc776da621736369d98f10d",
     "data/provenance.json": "2a4ec2ae6f622ec2969ec43052da07c790ca2bcb97f8af0945989ec5f75238d5",
-    "data/version-history.json": "b6da8080ca4f5ae020b42aadc92ba268dd2ce970d1a3d6de1ac7288f1bd54c0a",
+    "data/version-history.json": "008fecdc6b21eb40572087644ea485c51a883f33fdb89a69939b9100766516e0",
     "public/assets/heroes/abrams.webp": "9805f81c31a1e0bf2bde1c6c7447dbb6203df384aee1497f9a9f7ea1fa74e5a7",
     "public/assets/heroes/apollo.webp": "36f73552ce0b10e6276d9c6dd6b6203a54af8885a382c51ada8d3698af8756c3",
     "public/assets/heroes/baba.webp": "f244fcb7c72f86d66c2c5a247761aea2d2263e427dc5c49db8865ac71639f239",
@@ -51,7 +51,7 @@
     "public/assets/heroes/wraith.webp": "a4825c12ae6f1be101c099a07c86f19bd4e228114fa7bf05092041c00a15a757",
     "public/assets/heroes/yamato.webp": "493ef030833e193a9783024f8f3eb9d6de8b039a2ab9a93881354c32d0c9b907"
   },
-  "hash": "5e219055279b873d9c81fc28b8fd15ab984521909bb2c9b296fa37bd44da51e4",
+  "hash": "baab3cd253ea710dc388d7e4b63b9c05a5c8467cfbbc6c22997add71cabb6865",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }

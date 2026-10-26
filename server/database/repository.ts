@@ -294,8 +294,8 @@ export class PostgresArchive {
     for (const [ordinal, entry] of bundle.history.versions.entries())
       await client.query(
         `INSERT INTO history_entries
-        (snapshot_id, ordinal, client_version, build_date, first_published_at, provenance_kind, provenance_reference)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+        (snapshot_id, ordinal, client_version, build_date, first_published_at, provenance_kind, provenance_reference, patch)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
           snapshotId,
           ordinal,
@@ -304,6 +304,7 @@ export class PostgresArchive {
           entry.firstPublishedAt,
           entry.provenance.kind,
           entry.provenance.reference,
+          entry.patch ? json(entry.patch) : null,
         ],
       );
   }
@@ -398,6 +399,9 @@ export class PostgresArchive {
           kind: row.provenance_kind as 'repository-commit' | 'snapshot-save',
           reference: String(row.provenance_reference),
         },
+        ...(row.patch == null
+          ? {}
+          : { patch: row.patch as VersionHistory['versions'][number]['patch'] }),
       })),
     };
   }

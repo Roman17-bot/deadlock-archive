@@ -88,6 +88,23 @@ suite('PostgresArchive on an owned test database', () => {
     expect(await archive.status()).toEqual(previous);
   });
 
+  it('roundtrips patch links through relational history without losing their provenance', async () => {
+    const bundle = structuredClone(await readCuratedBundle(root));
+    const patch = {
+      source: 'steamdb',
+      steamBuildId: 26147187,
+      gameCommit: bundle.heroes.meta.gameCommit,
+      url: 'https://steamdb.info/patchnotes/26147187/',
+      notes: 'unpublished',
+      checkedAt: '2026-10-26T09:00:00.000Z',
+      summary: { ru: 'Описание не опубликовано.', en: 'No notes published.' },
+    };
+    Object.assign(bundle.history.versions[0], { patch });
+    await archive.importBundle(bundle, 'patch-history-test');
+    expect((await archive.getHistory())?.versions[0]).toHaveProperty('patch', patch);
+    expect((await archive.getBundle())?.history).toEqual(bundle.history);
+  });
+
   it('rolls back a database constraint failure and retains the earlier snapshot', async () => {
     const previous = await archive.status();
     const original = await archive.getBundle();

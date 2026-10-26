@@ -1,8 +1,9 @@
-import { RefreshCw } from 'lucide-react';
+import { ArrowUpRight, RefreshCw } from 'lucide-react';
 import type { HeroSnapshot } from '../../../../shared/types';
 import type { VersionHistory as HistoryData } from '../../../../shared/version-history';
 import { formatDate } from '../../../lib/format';
 import { useI18n } from '../../../i18n';
+import { PatchDetails } from './PatchDetails';
 
 interface Props {
   data: HeroSnapshot;
@@ -58,7 +59,22 @@ export function VersionHistory({
               >
                 <div>
                   <span className="version-history-dot" aria-hidden="true" />
-                  <strong>{entry.clientVersion}</strong>
+                  {entry.patch ? (
+                    <a
+                      className="history-version-link"
+                      href={entry.patch.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t('Версия {{version}} — открыть изменения', {
+                        version: entry.clientVersion,
+                      })}
+                    >
+                      <strong>{entry.clientVersion}</strong>
+                      <ArrowUpRight size={20} aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <strong>{entry.clientVersion}</strong>
+                  )}
                   {entry.clientVersion === data.meta.clientVersion && (
                     <span className="version-current">{t('Текущая')}</span>
                   )}
@@ -79,6 +95,7 @@ export function VersionHistory({
                     </dd>
                   </div>
                 </dl>
+                <PatchDetails patch={entry.patch} />
               </li>
             ))}
         </ol>
