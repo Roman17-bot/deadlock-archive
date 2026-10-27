@@ -314,6 +314,40 @@ describe('exact approved GitHub snapshot publication', () => {
 });
 
 describe('verified Pages publication', () => {
+  it('checks fresh public bytes after an earlier pre-deployment response was cached', async () => {
+    const s = snapshot(),
+      r = remote(s);
+    const fetchRemote = r.deps.fetchImpl!;
+    const cache = new Map<string, Uint8Array>();
+    let deployed = false;
+    const deps = {
+      ...r.deps,
+      fetchImpl: (async (input, init) => {
+        const url = new URL(String(input));
+        if (url.origin !== new URL(pages).origin) return fetchRemote(input, init);
+        if (!cache.has(url.href)) {
+          const response =
+            !deployed && url.pathname.endsWith('snapshot-manifest.json')
+              ? Response.json({
+                  ...s.manifest,
+                  clientVersion: s.clientVersion - 1,
+                  reviewedClientVersion: s.clientVersion - 1,
+                })
+              : await fetchRemote(input, init);
+          cache.set(url.href, new Uint8Array(await response.arrayBuffer()));
+        }
+        return new Response(Uint8Array.from(cache.get(url.href)!));
+      }) as typeof fetch,
+    };
+    expect(await inspectPublication(s, {}, deps)).toMatchObject({ pagesMatches: false });
+    deployed = true;
+    expect(await inspectPublication(s, {}, deps)).toMatchObject({
+      repositoryMatches: true,
+      pagesMatches: true,
+      pagesHash: s.hash,
+      status: 'success',
+    });
+  });
   it('requires the exact repo blobs, exact workflow commit and all served file hashes', async () => {
     const s = snapshot(),
       r = remote(s);

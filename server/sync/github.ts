@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import type { PublicSnapshot, SnapshotManifest } from './types';
 import { existingCredential, type PublicationDependencies } from '../updates/publish';
@@ -171,6 +171,7 @@ async function context(deps: PublicationDependencies): Promise<Context> {
   if (!token || token.length > 8192 || /\s/.test(token)) throw safeError();
   const fetchImpl = deps.fetchImpl ?? fetch;
   const deadline = AbortSignal.timeout(90000);
+  const verification = randomUUID();
   return {
     request: async (path, method = 'GET', body) => {
       const response = await fetchImpl(api + path, {
@@ -194,12 +195,15 @@ async function context(deps: PublicationDependencies): Promise<Context> {
       return JSON.parse((await readBounded(response, 8 * 1024 * 1024)).toString('utf8')) as unknown;
     },
     fetchPublic: async (path, hash) => {
-      const response = await fetchImpl(`${pagesUrl}${path}?snapshot=${hash}`, {
-        redirect: 'error',
-        cache: 'no-store',
-        signal: AbortSignal.any([deadline, AbortSignal.timeout(15000)]),
-        headers: { Accept: 'application/octet-stream', 'Cache-Control': 'no-cache' },
-      });
+      const response = await fetchImpl(
+        `${pagesUrl}${path}?snapshot=${hash}&verification=${verification}`,
+        {
+          redirect: 'error',
+          cache: 'no-store',
+          signal: AbortSignal.any([deadline, AbortSignal.timeout(15000)]),
+          headers: { Accept: 'application/octet-stream', 'Cache-Control': 'no-cache' },
+        },
+      );
       if (!response.ok) {
         await response.body?.cancel();
         throw safeError();
