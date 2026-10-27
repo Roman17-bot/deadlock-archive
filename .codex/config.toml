@@ -1,0 +1,31 @@
+# Managed by Deadlock team: npm run team -- configure
+[agents]
+max_threads = 3
+
+[agents.deadlock_heroes]
+description = "Deadlock hero abilities, stats, builds, matchups and replay evidence."
+config_file = "agents/deadlock-heroes.toml"
+
+[agents.deadlock_items]
+description = "Deadlock items, purchase timing, situational choices and item interactions."
+config_file = "agents/deadlock-items.toml"
+
+[agents.deadlock_mechanics]
+description = "Deadlock formulas, stacking order, calculations and conflicting mechanical evidence."
+config_file = "agents/deadlock-mechanics.toml"
+
+[agents.deadlock_website]
+description = "Deadlock Archive frontend, API implementation, accessibility and UI verification."
+config_file = "agents/deadlock-website.toml"
+
+[agents.deadlock_data]
+description = "Deadlock Archive PostgreSQL, ingestion, patch provenance and exact Pages synchronization."
+config_file = "agents/deadlock-data.toml"
+
+[agents.deadlock_critic]
+description = "Independent Deadlock project review for unsupported claims, stale evidence, regressions and scope drift."
+config_file = "agents/deadlock-critic.toml"
+
+[agents.deadlock_scout]
+description = "Small read-only Deadlock lookups, file ownership checks and bounded verification tasks."
+config_file = "agents/deadlock-scout.toml"

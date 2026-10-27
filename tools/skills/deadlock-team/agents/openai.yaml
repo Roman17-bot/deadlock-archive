@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Deadlock — команда специалистов'
+  short_description: 'Роли, частная память и экономные вызовы агентов'
+  default_prompt: 'Use $deadlock-team to assign this Deadlock task to the smallest useful specialist team.'

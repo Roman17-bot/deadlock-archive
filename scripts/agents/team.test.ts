@@ -1,0 +1,237 @@
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+// @ts-ignore Native ESM team helpers.
+import {
+  createBrief,
+  initTeam,
+  installTeam,
+  readContext,
+  resolveArchiveRoot,
+  teamStatus,
+  writeNativeConfig,
+} from './team.mjs';
+
+let sandbox: string;
+let root: string;
+let archive: string;
+let locator: string;
+
+beforeEach(() => {
+  sandbox = mkdtempSync(join(tmpdir(), 'deadlock-team-'));
+  root = join(sandbox, 'checkout');
+  archive = join(sandbox, 'original');
+  for (const dir of [root, archive]) {
+    mkdirSync(join(dir, 'scripts/knowledge'), { recursive: true });
+    writeFileSync(join(dir, 'package.json'), JSON.stringify({ name: 'deadlock-archive' }));
+    writeFileSync(join(dir, 'scripts/knowledge/cli.mjs'), '// fixture');
+  }
+  mkdirSync(join(root, 'tools'), { recursive: true });
+  cpSync(join(process.cwd(), 'tools/agents'), join(root, 'tools/agents'), { recursive: true });
+  cpSync(
+    join(process.cwd(), 'tools/skills/deadlock-team'),
+    join(root, 'tools/skills/deadlock-team'),
+    { recursive: true },
+  );
+  mkdirSync(join(archive, 'knowledge'));
+  writeFileSync(
+    join(archive, 'knowledge/archive.sqlite'),
+    'fixture: team helpers do not open SQLite',
+  );
+  locator = join(sandbox, 'locator.json');
+  writeFileSync(locator, JSON.stringify({ repoRoot: archive }));
+});
+
+afterEach(() => rmSync(sandbox, { recursive: true, force: true }));
+const options = () => ({ root, locator });
+
+describe('durable specialist context', () => {
+  it('resolves the original archive from a worktree without creating another evidence index', () => {
+    expect(resolveArchiveRoot(options())).toBe(archive);
+    expect(existsSync(join(root, 'knowledge'))).toBe(false);
+    expect(() => resolveArchiveRoot({ root, locator: join(sandbox, 'absent.json') })).toThrow(
+      /archive/i,
+    );
+  });
+
+  it('initializes seven role folders once and preserves existing memory on another run', () => {
+    const first = initTeam(options());
+    expect(first.created).toHaveLength(7);
+    const context = join(archive, 'knowledge/agents/heroes/CONTEXT.md');
+    writeFileSync(context, 'Accepted research pointer: knowledge/research/heroes-example.md');
+    expect(initTeam(options()).created).toHaveLength(0);
+    expect(readContext({ ...options(), role: 'heroes' }).content).toBe(
+      'Accepted research pointer: knowledge/research/heroes-example.md',
+    );
+    expect(
+      teamStatus(options()).roles.every((role: { initialized: boolean }) => role.initialized),
+    ).toBe(true);
+  });
+
+  it('bounds large context reads and rejects unknown roles rather than using an arbitrary path', () => {
+    initTeam(options());
+    writeFileSync(join(archive, 'knowledge/agents/items/CONTEXT.md'), 'я'.repeat(8000));
+    const context = readContext({ ...options(), role: 'items' });
+    expect(context.content.length).toBe(6000);
+    expect(context.truncated).toBe(true);
+    expect(() => readContext({ ...options(), role: '../../outside' })).toThrow(/role/i);
+  });
+
+  it('refuses a symlinked memory directory and leaves its target untouched', () => {
+    const outside = join(sandbox, 'outside');
+    mkdirSync(outside);
+    symlinkSync(outside, join(archive, 'knowledge/agents'), 'junction');
+    expect(() => initTeam(options())).toThrow(/symlink/i);
+    expect(readdirSync(outside)).toEqual([]);
+  });
+});
+
+describe('economical task briefs', () => {
+  it('uses Luna/low for a quick check with a fresh bounded prompt and no filesystem writes', () => {
+    const before = readdirSync(join(archive, 'knowledge'));
+    const brief = createBrief({
+      ...options(),
+      role: 'scout',
+      task: 'Find the owner of the hero table CSS.',
+    });
+    expect(brief.spawn.model).toBe('gpt-6-luna');
+    expect(brief.spawn.reasoning_effort).toBe('low');
+    expect(brief.spawn.fork_turns).toBe('none');
+    expect(brief.spawn.message).toContain(root);
+    expect(brief.spawn.message).toContain(archive);
+    expect(brief.spawn.message).toContain('Find the owner of the hero table CSS.');
+    expect(brief.outputWords).toBe(180);
+    expect(readdirSync(join(archive, 'knowledge'))).toEqual(before);
+  });
+
+  it('selects both model and effort for specialist work and explicit escalation', () => {
+    const normal = createBrief({ ...options(), role: 'heroes', task: 'Analyze a build.' });
+    expect([normal.spawn.model, normal.spawn.reasoning_effort]).toEqual(['gpt-6.1-sol', 'medium']);
+    const mechanic = createBrief({
+      ...options(),
+      role: 'mechanics',
+      task: 'Compare two stacking models.',
+    });
+    expect([mechanic.spawn.model, mechanic.spawn.reasoning_effort]).toEqual([
+      'gpt-6.1-sol',
+      'high',
+    ]);
+    const audit = createBrief({
+      ...options(),
+      role: 'critic',
+      depth: 'audit',
+      task: 'Audit a contested formula.',
+      escalationReason: 'Independent sources conflict.',
+    });
+    expect([audit.spawn.model, audit.spawn.reasoning_effort]).toEqual(['gpt-6-astra', 'high']);
+    expect(() =>
+      createBrief({ ...options(), role: 'scout', depth: 'audit', task: 'Check one file.' }),
+    ).toThrow(/audit/i);
+  });
+
+  it('requires an explicit reason for expensive escalation and validates write ownership', () => {
+    expect(() =>
+      createBrief({ ...options(), role: 'critic', depth: 'audit', task: 'Audit it.' }),
+    ).toThrow(/reason/i);
+    expect(() =>
+      createBrief({
+        ...options(),
+        role: 'website',
+        task: 'Fix it.',
+        writeFiles: ['../other/file.ts'],
+      }),
+    ).toThrow(/outside|relative/i);
+    expect(() =>
+      createBrief({ ...options(), role: 'website', task: 'Fix it.', writeFiles: ['.env.local'] }),
+    ).toThrow(/private|reserved/i);
+    expect(() =>
+      createBrief({
+        ...options(),
+        role: 'critic',
+        task: 'Review it.',
+        writeFiles: ['src/main.tsx'],
+      }),
+    ).toThrow(/read.only/i);
+    const brief = createBrief({
+      ...options(),
+      role: 'website',
+      task: 'Fix the table.',
+      writeFiles: ['src/pages/HeroesPage/HeroesPage.css'],
+    });
+    expect(brief.writeFiles).toEqual(['src/pages/HeroesPage/HeroesPage.css']);
+  });
+
+  it('gives simultaneous work on one role separate report destinations', () => {
+    const first = createBrief({ ...options(), role: 'heroes', task: 'Read Abrams.' });
+    const second = createBrief({ ...options(), role: 'heroes', task: 'Read Violet.' });
+    expect(first.reportDirectory).not.toBe(second.reportDirectory);
+    expect(first.spawn.task_name).not.toBe(second.spawn.task_name);
+    expect(first.contextPath).toBe(second.contextPath);
+  });
+
+  it('rejects normalized escapes into private ownership and emits canonical relative code paths', () => {
+    for (const path of [
+      'src/../.env.local',
+      'src/../knowledge/private.md',
+      'src/../.git/config',
+      'src\\..\\.env.local',
+    ]) {
+      expect(() =>
+        createBrief({ ...options(), role: 'website', task: 'Fix one file.', writeFiles: [path] }),
+      ).toThrow(/private|reserved/i);
+    }
+    const brief = createBrief({
+      ...options(),
+      role: 'website',
+      task: 'Fix one file.',
+      writeFiles: ['src/ui/../pages/HeroesPage/HeroesPage.css'],
+    });
+    expect(brief.writeFiles).toEqual(['src/pages/HeroesPage/HeroesPage.css']);
+  });
+
+  it('supplies executable archive retrieval arguments rather than relying on the worktree cwd', () => {
+    const brief = createBrief({ ...options(), role: 'scout', task: 'Locate one component.' });
+    expect(brief.knowledgeCommand).toEqual({
+      cwd: archive,
+      argv: ['npm', 'run', 'knowledge', '--', 'status'],
+    });
+    expect(brief.spawn.message).toContain(`Knowledge commands: run with workdir ${archive}`);
+  });
+});
+
+describe('installation boundaries', () => {
+  it('installs only the team skill, locates the canonical archive and preserves sibling/user files', () => {
+    const target = join(sandbox, 'skills/deadlock-team');
+    mkdirSync(join(sandbox, 'skills/other'), { recursive: true });
+    writeFileSync(join(sandbox, 'skills/other/SKILL.md'), 'User skill');
+    installTeam({ ...options(), target });
+    writeFileSync(join(target, 'personal-note.txt'), 'Keep me');
+    installTeam({ ...options(), target });
+    const profile = JSON.parse(readFileSync(join(target, 'references/local-profile.json'), 'utf8'));
+    expect(profile.repoRoot).toBe(archive);
+    expect(readFileSync(join(target, 'personal-note.txt'), 'utf8')).toBe('Keep me');
+    expect(readFileSync(join(sandbox, 'skills/other/SKILL.md'), 'utf8')).toBe('User skill');
+    expect(existsSync(join(target, 'references/roles/critic.md'))).toBe(true);
+    expect(() => installTeam({ ...options(), target: root })).toThrow(/source|target/i);
+  });
+
+  it('creates native project roles without changing an existing project config', () => {
+    const result = writeNativeConfig({ root });
+    expect(result.files).toHaveLength(8);
+    const config = join(root, '.codex/config.toml');
+    writeFileSync(config, '[custom]\nvalue = "user"\n');
+    expect(() => writeNativeConfig({ root })).toThrow(/existing|owned/i);
+    expect(readFileSync(config, 'utf8')).toBe('[custom]\nvalue = "user"\n');
+  });
+});

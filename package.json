@@ -31,7 +31,10 @@
     "data:verify-publication": "node --import tsx scripts/verify-public-snapshot.mjs",
     "knowledge": "node scripts/knowledge/cli.mjs",
     "knowledge:import": "node scripts/knowledge/cli.mjs import",
-    "skill:install": "node scripts/install-skill.mjs"
+    "skill:install": "node scripts/install-skill.mjs",
+    "team": "node scripts/agents/cli.mjs",
+    "team:init": "node scripts/agents/cli.mjs init",
+    "team:install": "node scripts/agents/cli.mjs install"
   },
   "dependencies": {
     "i18next": "26.5.10",

@@ -1,0 +1,6 @@
+# Managed by Deadlock team: npm run team -- configure
+name = "deadlock_heroes"
+description = "Deadlock hero abilities, stats, builds, matchups and replay evidence."
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+developer_instructions = "Work only on this parent's assigned Deadlock task. Read tools/skills/deadlock-team/SKILL.md and references/roles/heroes.md relative to that skill. Run npm run team -- context heroes to recover private role memory, then use bounded project retrieval. Follow references/protocol.md. Save results in your assigned report directory; the coordinator merges durable context. Do not spawn children or publish. Instructions limit intended scope; they do not create a separate filesystem sandbox."

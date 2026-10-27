@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "maxConcurrentChildren": 3,
+  "profiles": {
+    "quick": { "model": "gpt-6-luna", "effort": "low" },
+    "standard": { "model": "gpt-6.1-sol", "effort": "medium" },
+    "deep": { "model": "gpt-6.1-sol", "effort": "high" },
+    "audit": { "model": "gpt-6-astra", "effort": "high" }
+  },
+  "roles": [
+    {
+      "id": "heroes",
+      "label": "Герои и билды",
+      "description": "Deadlock hero abilities, stats, builds, matchups and replay evidence.",
+      "depth": "standard",
+      "outputWords": 450,
+      "canEditCode": false
+    },
+    {
+      "id": "items",
+      "label": "Предметы",
+      "description": "Deadlock items, purchase timing, situational choices and item interactions.",
+      "depth": "standard",
+      "outputWords": 400,
+      "canEditCode": false
+    },
+    {
+      "id": "mechanics",
+      "label": "Механики и формулы",
+      "description": "Deadlock formulas, stacking order, calculations and conflicting mechanical evidence.",
+      "depth": "deep",
+      "outputWords": 500,
+      "canEditCode": false
+    },
+    {
+      "id": "website",
+      "label": "Сайт",
+      "description": "Deadlock Archive frontend, API implementation, accessibility and UI verification.",
+      "depth": "standard",
+      "outputWords": 400,
+      "canEditCode": true
+    },
+    {
+      "id": "data",
+      "label": "Данные и синхронизация",
+      "description": "Deadlock Archive PostgreSQL, ingestion, patch provenance and exact Pages synchronization.",
+      "depth": "standard",
+      "outputWords": 400,
+      "canEditCode": true
+    },
+    {
+      "id": "critic",
+      "label": "Независимый критик",
+      "description": "Independent Deadlock project review for unsupported claims, stale evidence, regressions and scope drift.",
+      "depth": "standard",
+      "outputWords": 500,
+      "canEditCode": false
+    },
+    {
+      "id": "scout",
+      "label": "Быстрая проверка",
+      "description": "Small read-only Deadlock lookups, file ownership checks and bounded verification tasks.",
+      "depth": "quick",
+      "outputWords": 180,
+      "canEditCode": false
+    }
+  ]
+}
