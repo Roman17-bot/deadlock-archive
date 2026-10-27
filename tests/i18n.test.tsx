@@ -73,3 +73,21 @@ it('uses safe defaults and translates validation details without changing number
     /[А-Яа-яЁё]/,
   );
 });
+
+it.each([
+  [
+    'Локальные данные сохранены. Публикация отправлена в очередь GitHub Actions; развёртывание ещё не подтверждено.',
+    'Local data saved. Publication is queued in GitHub Actions.',
+  ],
+  [
+    'Локальные данные сохранены, но публикация не подтверждена. Повторите синхронизацию с GitHub Pages в локальном центре.',
+    'Local data saved. The site has not updated yet. Retry sync.',
+  ],
+])(
+  'retains the update outcome and index warning when translating a composed API message',
+  async (message, expected) => {
+    await setLanguage('en');
+    const result = translateError(message + ' Индекс базы знаний не обновлён; повторите импорт.');
+    expect(result).toBe(expected + ' The knowledge index was not updated; run the import again.');
+  },
+);

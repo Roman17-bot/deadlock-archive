@@ -5,7 +5,6 @@ import { useI18n } from '../../../i18n';
 import { weaponNotes } from '../model/weaponNotes';
 import { HeroNoteMetric } from './HeroNoteMetrics';
 import { HeroGrowthNotes } from './HeroGrowthNotes';
-import { HeroSourceNotes } from './HeroSourceNotes';
 
 export function HeroNotesRow({
   hero,
@@ -170,7 +169,6 @@ export function HeroNotesRow({
             )}
           </section>
           <HeroGrowthNotes hero={hero} stats={stats} />
-          <HeroSourceNotes hero={hero} />
         </div>
       </td>
     </tr>

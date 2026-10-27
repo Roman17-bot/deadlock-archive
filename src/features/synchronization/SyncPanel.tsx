@@ -15,14 +15,14 @@ export function SyncPanel(props: SyncPanelProps) {
     >
       <div className="sync-heading">
         <div>
-          <span className="updates-label">{t('ТОЧНЫЙ СНИМОК')}</span>
+          <span className="updates-label">{t('ПУБЛИКАЦИЯ')}</span>
           <h2 id="sync-title">{t('Синхронизация с Pages')}</h2>
         </div>
         <Database className="sync-emblem" size={36} aria-hidden="true" />
       </div>
       <p>
         {t(
-          'PostgreSQL — источник публикации. Отправляем все текущие публичные данные, включая правки в той же версии клиента.',
+          'Отправь текущие данные из локальной базы на сайт. Это работает и для исправлений внутри одной версии игры.',
         )}
       </p>
       <div className="sync-route" aria-label={t('Источник и назначение')}>
@@ -30,24 +30,6 @@ export function SyncPanel(props: SyncPanelProps) {
         <ArrowRight size={18} aria-hidden="true" />
         <span>GitHub Pages</span>
       </div>
-      <dl className="sync-hashes">
-        {(
-          [
-            ['PostgreSQL', state?.snapshotHash],
-            ['GitHub', state?.repositoryHash],
-            ['Pages', state?.pagesHash],
-          ] as const
-        ).map(([label, hash]) => (
-          <div key={label}>
-            <dt>{label}</dt>
-            <dd>
-              <code title={hash ?? undefined}>
-                {hash ? `${hash.slice(0, 12)}…` : t('Не проверено')}
-              </code>
-            </dd>
-          </div>
-        ))}
-      </dl>
       <div className="sync-actions">
         <button
           className="updates-secondary"
@@ -78,7 +60,7 @@ export function SyncPanel(props: SyncPanelProps) {
           <strong>
             {t(
               success
-                ? 'Pages подтверждён'
+                ? 'Сайт обновлён'
                 : busy
                   ? 'Синхронизация выполняется'
                   : state?.phase === 'failed'
@@ -89,10 +71,10 @@ export function SyncPanel(props: SyncPanelProps) {
         </p>
         <p>{t(error || (state ? messageFor(state) : 'Можно проверить синхронизацию.'))}</p>
         {state && ['queued', 'in_progress'].includes(state.phase) && !success && (
-          <p>{t('Развёртывание ещё не подтверждено.')}</p>
+          <p>{t('Ожидаем обновление сайта.')}</p>
         )}
         {success && state?.upToDate && (
-          <p>{t('Все три снимка совпадают. Новый коммит не требуется.')}</p>
+          <p>{t('На сайте уже те же данные. Повторная публикация не нужна.')}</p>
         )}
         {url && (
           <a href={url} target="_blank" rel="noopener noreferrer">

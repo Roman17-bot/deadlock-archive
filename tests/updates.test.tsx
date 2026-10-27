@@ -140,7 +140,7 @@ describe('owner updates', () => {
       ),
     );
     expect(screen.getByText('Сохранено локально')).toBeVisible();
-    expect(screen.getByText(/Публикация в очереди/)).toBeVisible();
+    expect(screen.getByText(/Изменения отправлены/)).toBeVisible();
     const post = calls.find((call) => call.url === '/api/update')!;
     expect(post.init?.method).toBe('POST');
     expect(post.init?.body).toBe('{"publish":true}');
@@ -177,7 +177,7 @@ describe('owner updates', () => {
     fireEvent.click(screen.getByRole('checkbox', { name: /Опубликовать/ }));
     fireEvent.click(button);
     expect(await screen.findByText('Сохранено локально')).toBeVisible();
-    expect(await screen.findByText('Публикация не подтверждена')).toBeVisible();
+    expect(await screen.findByText('Сайт пока не обновлён')).toBeVisible();
     await waitFor(() => expect(onSnapshot).toHaveBeenCalledTimes(1));
     expect(publish).toBe(false);
     expect(button).toBeEnabled();
@@ -253,7 +253,7 @@ describe('owner updates', () => {
       ),
     );
     render(<UpdatePage mode="local" data={data} onSnapshot={vi.fn()} />);
-    await screen.findByText(/Публикация в очереди/);
+    await screen.findByText(/Изменения отправлены/);
     expect(document.querySelector('a[href*="evil.example"]')).toBeNull();
   });
 
@@ -298,7 +298,7 @@ describe('public updates', () => {
       await screen.findByText('6818', { selector: '.version-history-list strong' }),
     ).toBeVisible();
     expect(document.querySelectorAll('.version-history-list li')).toHaveLength(2);
-    expect(screen.getAllByText('Сборка клиента')).toHaveLength(2);
+    expect(screen.getAllByText('Дата выхода')).toHaveLength(2);
     expect(document.querySelector('time[datetime="2026-10-23T12:00:00Z"]')).toBeVisible();
   });
   it('applies a verified same-version snapshot when its commit or content changes', async () => {
@@ -321,17 +321,16 @@ describe('public updates', () => {
     render(<UpdatePage mode="public" data={data} onSnapshot={onSnapshot} />);
     fireEvent.click(screen.getByRole('button', { name: 'Проверить обновления' }));
     await waitFor(() => expect(onSnapshot).toHaveBeenCalledTimes(1));
-    expect(screen.getByRole('status')).toHaveTextContent(/Опубликованный снимок загружен/);
+    expect(screen.getByRole('status')).toHaveTextContent(/Данные сайта обновлены/);
     expect(calls.find((call) => call.url.endsWith('data/heroes.json'))?.init?.cache).toBe(
       'no-store',
     );
     expect(
       calls.some((call) => call.url.startsWith('/api/') || call.url.includes('127.0.0.1')),
     ).toBe(false);
-    expect(screen.getByRole('link', { name: /локальный центр/ })).toHaveAttribute(
-      'target',
-      '_blank',
-    );
+    expect(
+      screen.queryByRole('link', { name: /локальный центр|GitHub Actions/ }),
+    ).not.toBeInTheDocument();
   });
 
   it.each([
@@ -343,7 +342,7 @@ describe('public updates', () => {
     fetchRoutes((url) => json(url.includes('steam-info') ? { client_version: 6819 } : candidate));
     render(<UpdatePage mode="public" data={data} onSnapshot={onSnapshot} />);
     fireEvent.click(screen.getByRole('button', { name: 'Проверить обновления' }));
-    expect(await screen.findByRole('alert')).toHaveTextContent(/Текущий снимок сохранён/);
+    expect(await screen.findByRole('alert')).toHaveTextContent(/Текущая версия сохранена/);
     expect(onSnapshot).not.toHaveBeenCalled();
     expect(screen.getByText('6819', { selector: '.updates-version' })).toBeVisible();
   });
@@ -357,7 +356,7 @@ describe('public updates', () => {
     });
     render(<UpdatePage mode="public" data={data} onSnapshot={vi.fn()} />);
     fireEvent.click(screen.getByRole('button', { name: 'Проверить обновления' }));
-    expect(await screen.findByText(/Клиент 6821 уже доступен/)).toHaveTextContent(
+    expect(await screen.findByText(/Вышла версия игры 6821/)).toHaveTextContent(
       /ещё не опубликован/,
     );
     expect(screen.getByText('6819', { selector: '.updates-version' })).toBeVisible();

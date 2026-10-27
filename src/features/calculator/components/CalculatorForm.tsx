@@ -48,7 +48,7 @@ export function CalculatorForm({
               type="text"
               inputMode={field.list ? 'text' : 'decimal'}
               value={values[mode][field.key]}
-              placeholder={field.list ? t('Нет источников') : undefined}
+              placeholder={field.list ? t('Нет эффектов') : undefined}
               autoComplete="off"
               onChange={(e) =>
                 setValues((current) => ({

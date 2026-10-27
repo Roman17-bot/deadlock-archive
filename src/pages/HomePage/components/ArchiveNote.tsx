@@ -1,24 +1,21 @@
 import { ArrowUpRight } from 'lucide-react';
-import { formatDate } from '../../../lib/format';
-import type { HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
 
-export function ArchiveNote({ data, onMethod }: { data: HeroSnapshot; onMethod: () => void }) {
+export function ArchiveNote({ onMethod }: { onMethod: () => void }) {
   const { t } = useI18n();
   return (
     <section className="archive-note">
       <span className="note-mark">✦</span>
       <div>
-        <h2>{t('Цифры меняются. Источники остаются.')}</h2>
+        <h2>{t('Сравнивай героев на одном уровне.')}</h2>
         <p>
           {t(
-            'Это снимок игры на {{date}}. У каждого значения есть версия клиента, а у расчётных показателей — своя формула.',
-            { date: formatDate(data.meta.snapshotDate) },
+            'Выбери уровень в таблице, чтобы увидеть, как меняются урон, здоровье и Spirit. В подробностях героя разобраны его оружие и приросты.',
           )}
         </p>
       </div>
       <button className="button button-outline" onClick={onMethod}>
-        {t('Открыть методику')}
+        {t('Как считаем')}
         <ArrowUpRight size={17} />
       </button>
     </section>

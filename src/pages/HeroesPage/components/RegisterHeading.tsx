@@ -25,10 +25,10 @@ export function RegisterHeading({ data }: { data: HeroSnapshot }) {
         </div>
         <div className="snapshot-plaque">
           <span className="status-dot" />
-          {t('СВЕРЕНО С КЛИЕНТОМ')}
+          {t('ВЕРСИЯ ИГРЫ')}
           <strong>{data.meta.clientVersion}</strong>
           <span>
-            {t('ПРОВЕРЕНО')} {formatDate(data.meta.snapshotDate)}
+            {t('ОБНОВЛЕНО')} {formatDate(data.meta.snapshotDate)}
           </span>
         </div>
       </section>

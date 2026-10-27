@@ -33,52 +33,50 @@ it('keeps invalid input visible and explains it instead of displaying a zero res
   expect(screen.queryByTestId('calc-primary')).not.toBeInTheDocument();
 });
 
-it('shows both lifesteal amp estimates and their explicit model labels', async () => {
+it('shows both lifesteal amplification orders with a clear explanation', async () => {
   const user = userEvent.setup();
   render(<MechanicsPage data={data as HeroSnapshot} />);
   await user.click(screen.getByRole('combobox', { name: 'Задача расчёта' }));
   await user.click(screen.getByRole('option', { name: 'Вампиризм и усиление лечения' }));
   expect(screen.getByTestId('calc-primary')).toHaveTextContent('89,664');
   expect(screen.getByText('87,917')).toBeVisible();
-  expect(screen.getByText(/Порядок усиления не разрешён/)).toBeVisible();
+  expect(screen.getByText(/Сравни два порядка:/)).toBeVisible();
 });
 
-it('filters the actual reference and keeps source links in the corresponding article', async () => {
+it('filters the reference and shows explanations without source lists or verification badges', async () => {
   const user = userEvent.setup();
   render(<MechanicsPage data={data as HeroSnapshot} />);
   const search = screen.getByRole('searchbox', { name: 'Найти формулу' });
   await user.type(search, 'hit-once');
+  expect(screen.getByRole('heading', { name: 'Дробины и однократный урон по цели' })).toBeVisible();
   expect(
-    screen.getByRole('heading', { name: 'Несколько траекторий и правило hit-once' }),
-  ).toBeVisible();
-  expect(
-    screen.queryByRole('heading', { name: 'Увеличение радиуса и дальности' }),
+    screen.queryByRole('heading', { name: 'Увеличение дальности и радиуса' }),
   ).not.toBeInTheDocument();
-  await user.click(screen.getByText('Разбор, пример и источники'));
-  expect(screen.getByRole('link', { name: 'Описание полей оружия' })).toHaveAttribute(
-    'href',
-    expect.stringContaining('17462b250a0ca80e7f80102f2c83cc3eecff5f12'),
-  );
+  await user.click(screen.getByText('Объяснение и пример'));
+  const article = document.getElementById('formula-hit-once')!;
+  expect(within(article).getByRole('heading', { name: 'Обозначения' })).toBeVisible();
+  expect(article.querySelector('a')).toBeNull();
+  expect(article.querySelector('.formula-confidence')).toBeNull();
 });
 
 it('opens the promised formula details and moves keyboard focus to its heading', async () => {
   const user = userEvent.setup();
   render(<MechanicsPage data={data as HeroSnapshot} />);
-  await user.click(screen.getByRole('button', { name: 'Разбор и границы формулы' }));
+  await user.click(screen.getByRole('button', { name: 'Как это считается' }));
   const article = document.getElementById('formula-ehp')!;
   expect(article.querySelector('details')).toHaveAttribute('open');
   expect(
     screen.getByRole('heading', {
-      name: 'Эффективное здоровье: сколько исходного урона выдержит герой',
+      name: 'Эффективное здоровье',
     }),
   ).toHaveFocus();
 });
 
-it('warns when refreshed hero data is newer than the reviewed mechanics', () => {
+it('shows the version difference when hero data is newer than the formulas', () => {
   const updated = structuredClone(data) as HeroSnapshot;
   updated.meta.clientVersion = 6820;
   render(<MechanicsPage data={updated} />);
-  expect(screen.getByRole('status')).toHaveTextContent('Механики проверены для клиента 6819');
+  expect(screen.getByRole('status')).toHaveTextContent('Формулы относятся к версии 6819');
   expect(screen.getByRole('status')).toHaveTextContent('6820');
 });
 
@@ -166,8 +164,8 @@ it('translates every calculator task, its results and validation into English', 
     'Linear Spirit scaling',
     'Headshot multiplier',
     'Speed after slows',
-    'Damage falloff, bias 0.5',
-    'Fire rate with buffs and slows',
+    'Damage falloff',
+    'Fire rate with bonuses and slows',
     'DPS, accuracy, and reload',
   ];
   for (const name of labels) {
@@ -207,10 +205,10 @@ it('keeps domain validation explanations readable in English', async () => {
     target: { value: '100' },
   });
   expect(screen.getByRole('alert')).toHaveTextContent(
-    'In model B, an amplified lifesteal source exceeds 100%',
+    'Each amplified lifesteal effect must not exceed 100%',
   );
   await user.click(picker);
-  await user.click(screen.getByRole('option', { name: 'Damage falloff, bias 0.5' }));
+  await user.click(screen.getByRole('option', { name: 'Damage falloff' }));
   fireEvent.change(screen.getByRole('textbox', { name: 'Falloff end' }), {
     target: { value: '100' },
   });

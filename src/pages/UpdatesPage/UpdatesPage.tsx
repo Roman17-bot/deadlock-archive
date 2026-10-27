@@ -3,7 +3,7 @@ import { formatDate } from '../../lib/format';
 import { useI18n, translateError } from '../../i18n';
 import { siteMode } from '../../services/environment';
 import { SyncPanel } from '../../features/synchronization/SyncPanel';
-import { activePhases, localCenter, workflow } from './model';
+import { activePhases, workflow } from './model';
 import { VersionHistory } from './components/VersionHistory';
 import { useUpdatesPage, type UpdatesPageProps } from './hooks/useUpdatesPage';
 
@@ -39,23 +39,18 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
       <div className="updates-hero">
         <span className="updates-eyebrow">{t('АРХИВ / ДАННЫЕ')}</span>
         <h1 id="updates-title">{t('Центр обновлений')}</h1>
-        <p>
-          {t(
-            'Проверяйте версию игры и состояние снимка героев. Изменения механик требуют отдельной сверки.',
-          )}
-        </p>
+        <p>{t('Проверь наличие обновлений и посмотри, что изменилось в новых версиях игры.')}</p>
       </div>
       <div className="updates-grid">
         <div className="updates-panel">
-          <span className="updates-label">{t('ТЕКУЩИЙ СНИМОК')}</span>
+          <span className="updates-label">{t('ТЕКУЩАЯ ВЕРСИЯ')}</span>
           <p className="updates-version">{data.meta.clientVersion}</p>
           <p>
-            {t('Ревизия {{revision}} · {{count}} героев', {
-              revision: data.meta.sourceRevision,
+            {t('{{count}} героев', {
               count: data.meta.heroCount,
             })}
           </p>
-          <p>{t('Проверен {{date}}', { date: formatDate(data.meta.checkedAt) })}</p>
+          <p>{t('Данные от {{date}}', { date: formatDate(data.meta.checkedAt) })}</p>
         </div>
         {mode === 'local' ? (
           <div className="updates-panel updates-control">
@@ -63,7 +58,7 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
             <h2>{t('Проверить и сохранить')}</h2>
             <p>
               {t(
-                'Новые данные сначала проходят проверку, затем сохраняются локально. При публикации Pages получает точный снимок PostgreSQL.',
+                'Обнови характеристики героев после патча. Можно сразу отправить изменения на сайт для друзей.',
               )}
             </p>
             <label className="updates-option">
@@ -94,7 +89,7 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
                 <strong>
                   {t(
                     state.databaseSaved === false
-                      ? 'JSON сохранён, БД не обновлена'
+                      ? 'Не удалось сохранить в базу данных'
                       : state.upToDate
                         ? 'Текущая версия актуальна'
                         : state.localSaved
@@ -111,12 +106,12 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
                 {state.localSaved &&
                   (state.publication?.status === 'queued' ||
                     state.publication?.status === 'in_progress') && (
-                    <p>{t('Публикация в очереди. Развёртывание пока не подтверждено.')}</p>
+                    <p>{t('Изменения отправлены. Ожидаем обновление сайта.')}</p>
                   )}
                 {state.localSaved && state.phase === 'failed' && (
                   <>
-                    <p>{t('Публикация не подтверждена')}</p>
-                    <p>{t('Локальный снимок сохранён.')}</p>
+                    <p>{t('Сайт пока не обновлён')}</p>
+                    <p>{t('Локальные данные сохранены.')}</p>
                   </>
                 )}
                 {publicationUrl && (
@@ -145,12 +140,8 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
         ) : (
           <div className="updates-panel updates-control">
             <span className="updates-label">{t('ОПУБЛИКОВАННЫЕ ДАННЫЕ')}</span>
-            <h2>{t('Проверить снимок')}</h2>
-            <p>
-              {t(
-                'Загрузим актуальный опубликованный снимок и сравним его с доступной версией игры.',
-              )}
-            </p>
+            <h2>{t('Проверить обновления')}</h2>
+            <p>{t('Проверь, есть ли новая версия данных для этого сайта.')}</p>
             <button
               className="updates-button"
               type="button"
@@ -177,10 +168,9 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
             )}
             {upstream !== null && upstream > data.meta.clientVersion && (
               <p className="updates-pending">
-                {t(
-                  'Клиент {{version}} уже доступен, но снимок для этой версии ещё не опубликован.',
-                  { version: upstream },
-                )}
+                {t('Вышла версия игры {{version}}. Данные для неё ещё не опубликованы.', {
+                  version: upstream,
+                })}
               </p>
             )}
           </div>
@@ -195,16 +185,13 @@ export function UpdatesPage({ data, onSnapshot, mode: modeOverride }: UpdatesPag
         />
       )}
       <VersionHistory {...{ data, mode, history, historyStatus, historyVisible, retryHistory }} />
-      <div className="updates-links">
-        <a href={workflow} target="_blank" rel="noopener noreferrer">
-          GitHub Actions <ArrowUpRight size={16} />
-        </a>
-        {mode === 'public' && (
-          <a href={localCenter} target="_blank" rel="noopener noreferrer">
-            {t('Открыть локальный центр')} <ArrowUpRight size={16} />
+      {mode === 'local' && (
+        <div className="updates-links">
+          <a href={workflow} target="_blank" rel="noopener noreferrer">
+            GitHub Actions <ArrowUpRight size={16} />
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

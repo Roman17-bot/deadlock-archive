@@ -52,34 +52,6 @@
   font-size: 0.875rem;
   line-height: 1.8;
 }
-.hero-verification {
-  margin-top: 42px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.verification-seal {
-  color: #b5a479;
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
-  border: 1px solid #4c5743;
-  border-radius: 50%;
-}
-.hero-verification strong {
-  display: block;
-  font-size: 0.875rem;
-  color: #c3c9b6;
-  font-weight: 600;
-}
-.hero-verification div > span {
-  display: block;
-  font-size: 0.875rem;
-  color: #7e8e76;
-  margin-top: 6px;
-}
 .roster-art {
   margin: 32px 38px 30px 24px;
   padding: 28px;
@@ -511,9 +483,6 @@
   }
   .hero-description {
     max-width: 450px;
-  }
-  .hero-verification {
-    margin-top: 28px;
   }
   .archive-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));

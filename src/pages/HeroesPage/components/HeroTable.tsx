@@ -61,7 +61,7 @@ export function HeroTable({
         </span>
         <div>
           <span className="legend-square" />
-          {t('Приросты учитывают встроенный Spirit-скейл')}
+          {t('Приросты учитывают усиление от Spirit')}
         </div>
         <button aria-label={t('Как считаем характеристики')} onClick={onMethod}>
           <Info size={14} />

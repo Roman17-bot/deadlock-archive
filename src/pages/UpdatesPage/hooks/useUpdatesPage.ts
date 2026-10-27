@@ -101,9 +101,7 @@ export function useUpdatesPage({
         }
       } catch {
         if (live.current)
-          setError(
-            'Локальные данные сохранены, но загрузить новый снимок не удалось. Обновите страницу.',
-          );
+          setError('Данные сохранены. Обновите страницу, чтобы загрузить изменения.');
       }
     },
     [onSnapshot],
@@ -125,9 +123,7 @@ export function useUpdatesPage({
       } catch {
         loadedSync.current.delete(hash);
         if (live.current)
-          setError(
-            'Локальные данные сохранены, но загрузить новый снимок не удалось. Обновите страницу.',
-          );
+          setError('Данные сохранены. Обновите страницу, чтобы загрузить изменения.');
       }
     },
     [onSnapshot],
@@ -236,16 +232,16 @@ export function useUpdatesPage({
       !validateSnapshot(published.value) ||
       !isNewerOrEqual(published.value, current.current)
     ) {
-      setError('Опубликованный снимок недоступен или устарел. Текущий снимок сохранён.');
+      setError('Не удалось загрузить свежие данные. Текущая версия сохранена.');
     } else {
       const candidate = published.value;
       setHistoryEpoch((n) => n + 1);
       if (JSON.stringify(candidate) !== JSON.stringify(current.current)) {
         current.current = candidate;
         onSnapshot(candidate);
-        setNotice('Опубликованный снимок загружен.');
+        setNotice('Данные сайта обновлены.');
       } else {
-        setNotice('Опубликованный снимок уже актуален.');
+        setNotice('У тебя уже актуальная версия данных.');
       }
       if (latest.status !== 'fulfilled' || gameVersion === null)
         setNotice((value) => `${value} Версию игры проверить не удалось.`);

@@ -16,7 +16,7 @@ export function Footer({ data, onMethod }: { data: HeroSnapshot | null; onMethod
         {data && (
           <button onClick={onMethod}>
             <BookOpen size={15} />
-            {t('Источники и методика')}
+            {t('Как считаем')}
           </button>
         )}
         <a href="https://github.com/Roman17-bot/deadlock-archive" target="_blank" rel="noreferrer">

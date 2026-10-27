@@ -1,4 +1,10 @@
 export const enHeroes: Record<string, string> = {
+  'Приросты учитывают усиление от Spirit': 'Growth includes bonuses from Spirit',
+  'ВЕРСИЯ ИГРЫ': 'GAME VERSION',
+  ОБНОВЛЕНО: 'UPDATED',
+  'Версия игры': 'Game version',
+  'Урон выстрела указан для одной цели. Дробины складываются при попадании в неё; особенности оружия описаны в подробностях героя. DPS — урон в секунду без перезарядки. На первом уровне Spirit может быть равен нулю.':
+    'Shot damage is shown against one target. Pellets add together when they hit it; hero details explain special weapon behavior. DPS is damage per second without reloading. Spirit can be zero at level one.',
   'Уровень {{level}}': 'Level {{level}}',
   'Урон и магазин': 'Damage and magazine',
   'Урон одного тика': 'Damage per tick',
@@ -12,8 +18,6 @@ export const enHeroes: Record<string, string> = {
     'All {{count}} pellets must hit one target: {{count}} × {{damage}} = {{total}} damage per shot.',
   'В таблице один выстрел наносит цели {{damage}} урона. Несколько снарядов одного выстрела не складывают урон по этой же цели.':
     'The table counts {{damage}} damage per shot against one target. Multiple projectiles from the same shot do not add damage against that target.',
-  'Рабочая модель по данным и наблюдениям игроков; это не проверка игрового движка. Особые режимы требуют отдельного расчёта.':
-    'A working model based on data and player observations; this is not engine verification. Special modes need a separate calculation.',
   'Один выстрел — часть очереди, а не урон всей очереди. Показаны обычные попадания всех выстрелов по одной цели.':
     'One shot is part of the burst, not the damage of the whole burst. Values assume every ordinary shot hits one target.',
   'Отдельная порция урона от связи с целью — тик; в таблице он считается выстрелом. Учтена одна цель, без отскоков и других целей.':
@@ -33,8 +37,6 @@ export const enHeroes: Record<string, string> = {
     'The main DPS and table describe the start of firing. Full spin increases fire rate; its DPS excludes the time spent spinning up.',
   'Каждая единица Spirit добавляет {{scale}}% к скорострельности. На выбранном уровне естественная мощь даёт +{{bonus}}%; этот бонус уже включён в DPS один раз.':
     'Each point of Spirit adds {{scale}}% fire rate. At this level, natural Spirit gives +{{bonus}}%; this bonus is already included in DPS once.',
-  'Это расчёт по снимку параметров, а не замер в игре.':
-    'This is a calculation from the parameter snapshot, not an in-game measurement.',
   'Рост за уровень': 'Growth per level',
   'Каждый уровень после первого увеличивает характеристики на указанные значения. Spirit — спиритическая мощь; у некоторых героев она дополнительно усиливает оружие или восстановление здоровья.':
     'Each level after the first increases these stats by the listed amounts. Spirit is Spirit Power; for some heroes it also increases weapon damage or health regeneration.',
@@ -62,19 +64,10 @@ export const enHeroes: Record<string, string> = {
     'Natural health regeneration is zero. Healing from active abilities is excluded.',
   'Пузырьковый снаряд: показано прямое попадание по одной цели.':
     'A bubble projectile: values describe a direct hit against one target.',
-  'Показана исходная винтовка. При превращении в волка оружие меняется; эти значения к форме волка не относятся.':
+  'Показана обычная винтовка. При превращении в волка оружие меняется; эти значения к форме волка не относятся.':
     'Values describe the base rifle. Transforming into a wolf changes the weapon; these values do not apply to wolf form.',
   'Показан обычный выстрел. Командование фигурами требует отдельного расчёта.':
     'Values describe an ordinary shot. Commanding pieces needs a separate calculation.',
   'Показан обычный выстрел без усиленного альтернативного режима и бонусов Sketchbook.':
     'Values describe an ordinary shot without the empowered alternate mode or Sketchbook bonuses.',
-  'Исходные данные и оговорки': 'Source data and caveats',
-  'Класс оружия в файле': 'Weapon class in source',
-  'Траекторий в данных': 'Trajectories in source',
-  'Выстрелов в очереди в данных': 'Shots per burst in source',
-  'Интервал между циклами': 'Interval between cycles',
-  'Интервал внутри очереди': 'Interval within a burst',
-  'Перезарядка в данных': 'Reload value in source',
-  'Это параметры снимка. Значение перезарядки само по себе не описывает полный цикл поштучной загрузки.':
-    'These are snapshot parameters. The reload value alone does not describe a full cycle when ammunition is loaded individually.',
 };

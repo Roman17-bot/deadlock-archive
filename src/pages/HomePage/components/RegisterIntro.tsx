@@ -1,4 +1,4 @@
-import { Heart, Layers3, ScanLine } from 'lucide-react';
+import { Heart, Layers3, Calculator } from 'lucide-react';
 import { useI18n } from '../../../i18n';
 
 export function RegisterIntro() {
@@ -14,7 +14,7 @@ export function RegisterIntro() {
         </h2>
         <p>
           {t(
-            'Урон одного выстрела не равен урону в секунду. Spirit растёт по-разному, а регенерация не всегда появляется сама. Мы сохранили эти различия — и дали тебе инструменты для сравнения.',
+            'Сравни здоровье, урон и скорость стрельбы героев. Посмотри, как они растут с уровнем, а затем рассчитай, что дадут предметы твоему билду.',
           )}
         </p>
       </div>
@@ -28,8 +28,8 @@ export function RegisterIntro() {
           {t('Параметры на любом уровне')}
         </span>
         <span>
-          <ScanLine size={17} />
-          {t('Проверяемые источники')}
+          <Calculator size={17} />
+          {t('Калькулятор урона и защиты')}
         </span>
       </div>
     </section>

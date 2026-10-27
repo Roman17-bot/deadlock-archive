@@ -12,7 +12,7 @@ export function HomePage({ data, onMethod }: { data: HeroSnapshot; onMethod: () 
       <ArchiveStrip data={data} onMethod={onMethod} />
       <RegisterIntro />
       <FeaturedRecords data={data} />
-      <ArchiveNote data={data} onMethod={onMethod} />
+      <ArchiveNote onMethod={onMethod} />
     </div>
   );
 }

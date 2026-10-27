@@ -25,7 +25,7 @@ const state: SyncState = {
   repositoryMatches: false,
   pagesMatches: false,
   updatedAt: '2026-10-26T12:00:00Z',
-  message: 'Снимок отличается от опубликованной версии.',
+  message: 'На сайте опубликована другая версия данных.',
 };
 const completed: SyncState = {
   ...state,
@@ -63,8 +63,8 @@ describe('exact sync panel', () => {
         onLocalSnapshot={vi.fn()}
       />,
     );
-    expect(await screen.findByText('Снимок отличается от опубликованной версии.')).toBeVisible();
-    expect(screen.getAllByText(/aaaaaaaaaaaa/)).toHaveLength(1);
+    expect(await screen.findByText('На сайте опубликована другая версия данных.')).toBeVisible();
+    expect(screen.queryByText(/aaaaaaaaaaaa/)).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Проверить синхронизацию' }));
     await waitFor(() => expect(requests).toContain('/api/sync/status?refresh=1'));
     expect(screen.getByRole('button', { name: 'Синхронизировать с Pages' })).toBeEnabled();
@@ -110,7 +110,7 @@ describe('exact sync panel', () => {
     await act(async () => {
       await vi.advanceTimersByTimeAsync(0);
     });
-    expect(screen.getByText('Развёртывание ещё не подтверждено.')).toBeVisible();
+    expect(screen.getByText('Ожидаем обновление сайта.')).toBeVisible();
     expect(button).toBeDisabled();
     expect(posts).toHaveLength(1);
     expect(posts[0]).toMatchObject({
@@ -121,7 +121,7 @@ describe('exact sync panel', () => {
     await act(async () => {
       await vi.advanceTimersByTimeAsync(3000);
     });
-    expect(screen.getByText('Pages подтверждён')).toBeVisible();
+    expect(screen.getByText('Сайт обновлён')).toBeVisible();
     expect(onLocalSnapshot).toHaveBeenCalledExactlyOnceWith(hash);
     view.unmount();
     const count = vi.mocked(fetch).mock.calls.length;
@@ -151,8 +151,10 @@ describe('exact sync panel', () => {
     expect(retry).toBeEnabled();
     result = completed;
     fireEvent.click(retry);
-    expect(await screen.findByText('Pages подтверждён')).toBeVisible();
-    expect(screen.getByText('Все три снимка совпадают. Новый коммит не требуется.')).toBeVisible();
+    expect(await screen.findByText('Сайт обновлён')).toBeVisible();
+    expect(
+      screen.getByText('На сайте уже те же данные. Повторная публикация не нужна.'),
+    ).toBeVisible();
   });
 
   it('translates local-only states and does not render unsafe publication links or messages', async () => {
@@ -168,9 +170,7 @@ describe('exact sync panel', () => {
         onLocalSnapshot={vi.fn()}
       />,
     );
-    expect(
-      await screen.findByText('The snapshot differs from the published version.'),
-    ).toBeVisible();
+    expect(await screen.findByText('The site has a different version of the data.')).toBeVisible();
     expect(document.body.textContent).not.toMatch(/[А-Яа-яЁё]|secret raw backend error/);
     expect(document.querySelector('a[href*="evil"]')).toBeNull();
   });
@@ -190,7 +190,7 @@ describe('exact sync panel', () => {
     expect(
       await screen.findByText('Не удалось проверить синхронизацию. Повторите попытку.'),
     ).toBeVisible();
-    expect(screen.queryByText('Pages подтверждён')).not.toBeInTheDocument();
+    expect(screen.queryByText('Сайт обновлён')).not.toBeInTheDocument();
   });
 
   it('does not label a successful request as deployed when Pages serves different data', async () => {
@@ -204,9 +204,11 @@ describe('exact sync panel', () => {
       />,
     );
     expect(
-      await screen.findByText('GitHub Pages не подтвердил развёртывание. Повторите синхронизацию.'),
+      await screen.findByText(
+        'Не удалось дождаться обновления сайта. Проверьте синхронизацию ещё раз.',
+      ),
     ).toBeVisible();
-    expect(screen.queryByText('Pages подтверждён')).not.toBeInTheDocument();
+    expect(screen.queryByText('Сайт обновлён')).not.toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Повторить синхронизацию' })).toBeEnabled();
   });
 
@@ -221,7 +223,7 @@ describe('exact sync panel', () => {
       />,
     );
     expect(await screen.findByText('Нужна повторная попытка')).toBeVisible();
-    expect(screen.queryByText('Pages подтверждён')).not.toBeInTheDocument();
+    expect(screen.queryByText('Сайт обновлён')).not.toBeInTheDocument();
   });
 
   it('bounds an unfinished deployment and lets the owner check again', async () => {
@@ -285,10 +287,10 @@ describe('exact sync panel', () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async () => json(next));
     const props = { token: 'nonce', onBusyChange: vi.fn(), onLocalSnapshot: vi.fn() };
     const view = render(<SyncPanel {...props} updateBusy={true} />);
-    await screen.findByText('Снимок отличается от опубликованной версии.');
+    await screen.findByText('На сайте опубликована другая версия данных.');
     next = { ...state, phase: 'queued' };
     view.rerender(<SyncPanel {...props} updateBusy={false} />);
-    expect(await screen.findByText('Развёртывание ещё не подтверждено.')).toBeVisible();
+    expect(await screen.findByText('Ожидаем обновление сайта.')).toBeVisible();
     expect(screen.getByRole('button', { name: 'Синхронизировать с Pages' })).toBeDisabled();
   });
 

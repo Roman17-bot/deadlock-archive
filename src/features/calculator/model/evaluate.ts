@@ -100,15 +100,15 @@ export function evaluate(task: string, values: Record<string, string>): Result {
         missing: n('missing'),
       });
       return {
-        label: 'Модель A · усиление после объединения',
+        label: 'Усиление общего вампиризма',
         value: r.actualA,
         unit: 'HP',
         rows: [
-          row('Модель B · усиление до объединения', r.actualB, 'HP'),
-          row('LS до усиления', r.rate, '%'),
+          row('Усиление каждого эффекта', r.actualB, 'HP'),
+          row('Вампиризм до усиления', r.rate, '%'),
         ],
         equation:
-          'A: damage × P(LS) × amp; B: damage × P(LS × amp). Оба результата ограничены недостающим HP.',
+          'Общий вампиризм × усиление. Второй вариант складывает уже усиленные эффекты. Лечение ограничено недостающим HP.',
       };
     }
     case 'duration': {
@@ -127,11 +127,11 @@ export function evaluate(task: string, values: Record<string, string>): Result {
     case 'cooldown': {
       const r = math.calculateCooldown(n('base'), p('cdr'));
       return {
-        label: 'Итоговый cooldown',
+        label: 'Итоговая перезарядка',
         value: r.seconds,
         unit: 'с',
         rows: [
-          row('Суммарный CDR', r.reduction, '%'),
+          row('Общее сокращение перезарядки', r.reduction, '%'),
           row('Идеальных применений в минуту', r.castsPerMinute),
         ],
         equation: 'base × произведение (1 − каждый CDR)',
@@ -176,7 +176,7 @@ export function evaluate(task: string, values: Record<string, string>): Result {
     case 'headshot': {
       const value = math.headshotMultiplier(n('crit'), n('out'), n('incoming'));
       return {
-        label: 'Множитель headshot',
+        label: 'Множитель попадания в голову',
         value,
         unit: '×',
         rows: [row('Урон попадания в голову', n('body') * value, 'HP')],
@@ -190,9 +190,9 @@ export function evaluate(task: string, values: Record<string, string>): Result {
         value: r.speed,
         unit: 'м/с',
         rows: [
-          row('Суммарный slow', r.slow, '%'),
+          row('Общее замедление', r.slow, '%'),
           row('Slow resistance', r.resistance, '%'),
-          row('Эффективный slow', r.effective, '%'),
+          row('Замедление с учётом сопротивления', r.effective, '%'),
         ],
         equation: '2 + (скорость − 2) × (1 − effective slow)',
       };
@@ -213,10 +213,10 @@ export function evaluate(task: string, values: Record<string, string>): Result {
         unit: 'выстр./с',
         rows: [
           row('Сумма бонусов', r.bonus, '%'),
-          row('Пул slows', r.slow, '%'),
-          row('Итоговый стат с ограничением', r.net, '%'),
+          row('Общее замедление стрельбы', r.slow, '%'),
+          row('Итоговое изменение скорострельности', r.net, '%'),
         ],
-        equation: r.net >= 0 ? 'f₀ × (1+z)' : 'f₀ / (1−z), отрицательная ветка модели',
+        equation: r.net >= 0 ? 'f₀ × (1+z)' : 'f₀ / (1−z)',
       };
     }
     case 'dps': {

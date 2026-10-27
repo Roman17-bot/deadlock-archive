@@ -45,7 +45,7 @@ function metric(root: HTMLElement, label: string) {
 }
 
 describe('readable hero details', () => {
-  it('shows Solomon’s complete natural growth and keeps source flags behind a disclosure', async () => {
+  it('shows Solomon’s complete natural growth without technical source details', async () => {
     const user = userEvent.setup();
     render(<HeroesPage data={data} onMethod={() => {}} />);
     await user.click(screen.getByRole('button', { name: 'Примечания: Solomon' }));
@@ -54,17 +54,12 @@ describe('readable hero details', () => {
     expect(metric(notes, 'Урон за уровень')).toHaveTextContent('+0,554 HP');
     expect(within(notes).getByText(/Прямой прирост.*0,4.*0,154.*0,554/)).toBeVisible();
     expect(within(notes).getByText(/1,1.*0,14/)).toBeVisible();
-    const original = within(notes).getByText(/m_bSuppressBulletOnBishopFire/);
-    expect(original).not.toBeVisible();
-    expect(within(notes).getByText(/intra_burst_cycle_time/)).not.toBeVisible();
-    await user.click(
-      within(notes).getByText('Исходные данные и оговорки', { selector: 'summary' }),
+    expect(notes.querySelector('details')).toBeNull();
+    expect(within(notes).queryByRole('link')).not.toBeInTheDocument();
+    expect(notes.textContent).not.toMatch(
+      /m_bSuppressBulletOnBishopFire|intra_burst_cycle_time|Исходные данные/,
     );
-    expect(original).toBeVisible();
-    expect(within(notes).getByRole('link', { name: 'Открыть исходные параметры' })).toHaveAttribute(
-      'href',
-      hero('Solomon').source.weaponUrl,
-    );
+    expect(document.body.textContent).not.toMatch(/hit-once|СВЕРЕНО С КЛИЕНТОМ|ПРОВЕРЕНО/);
   });
 
   it('recalculates an open panel at the chosen level without reusing the base example', async () => {
@@ -95,8 +90,8 @@ describe('readable hero details', () => {
     expect(within(notes).queryByText('Урон одной дробины')).not.toBeInTheDocument();
     expect(within(notes).getByText(/один выстрел.*8,8.*Несколько снарядов/)).toBeVisible();
     expect(
-      within(notes).getByText(/Рабочая модель.*наблюдениям игроков.*не проверка игрового движка/),
-    ).not.toBeVisible();
+      within(notes).queryByText(/Рабочая модель.*наблюдениям игроков/),
+    ).not.toBeInTheDocument();
   });
 
   it('distinguishes a single shot from its burst and explains how burst pauses affect DPS', () => {
@@ -138,7 +133,7 @@ describe('readable hero details', () => {
       ['Bebop', /задержка 0,3 с.*после неё/],
       ['Deadman Danny', /без заряда.*Заряженная атака.*отдельного расчёта/],
       ['Graves', /порция урона.*тик.*одна цель/],
-      ['Silver', /исходная винтовка.*форме волка не относятся/],
+      ['Silver', /обычная винтовка.*форме волка не относятся/],
       ['Violet', /без усиленного альтернативного режима.*Sketchbook/],
     ] as const;
     for (const [name, explanation] of cases) {
@@ -173,27 +168,36 @@ describe('readable hero details', () => {
     );
   });
 
-  it('renders every hero and its source disclosure in English without untranslated notes', async () => {
-    await setLanguage('en');
-    render(
-      <table>
-        <tbody>
-          {data.heroes.map((selected) => (
-            <HeroNotesRow
-              key={selected.id}
-              hero={selected}
-              stats={statsAtLevel(selected, 11)}
-              level={11}
-              columnCount={10}
-            />
-          ))}
-        </tbody>
-      </table>,
-    );
-    expect(screen.getAllByRole('region', { name: /\/ weapon parameters$/ })).toHaveLength(44);
-    const notes = screen.getByRole('region', { name: 'Solomon / weapon parameters' });
-    expect(metric(notes, 'Damage per level')).toHaveTextContent('+0.554 HP');
-    expect(within(notes).getByText(/Direct growth.*0.4.*0.154.*0.554/)).toBeVisible();
-    expect(document.body.textContent).not.toMatch(/[А-Яа-яЁё]/);
-  });
+  it.each(['ru', 'en'] as const)(
+    'renders every hero in %s without raw notes, source links or verification disclaimers',
+    async (language) => {
+      await setLanguage(language);
+      render(
+        <table>
+          <tbody>
+            {data.heroes.map((selected) => (
+              <HeroNotesRow
+                key={selected.id}
+                hero={selected}
+                stats={statsAtLevel(selected, 11)}
+                level={11}
+                columnCount={10}
+              />
+            ))}
+          </tbody>
+        </table>,
+      );
+      expect(screen.getAllByRole('region')).toHaveLength(data.heroes.length);
+      expect(document.querySelector('details, a, code')).toBeNull();
+      expect(document.body.textContent).not.toMatch(
+        /m_[a-zA-Z]|HitOnce|hit-once|cycle_time|WindUpTime|citadel_weapon|Рабочая модель|проверка игрового движка|Source data|engine verification|in-game measurement/,
+      );
+      if (language === 'en') {
+        const notes = screen.getByRole('region', { name: 'Solomon / weapon parameters' });
+        expect(metric(notes, 'Damage per level')).toHaveTextContent('+0.554 HP');
+        expect(within(notes).getByText(/Direct growth.*0.4.*0.154.*0.554/)).toBeVisible();
+        expect(document.body.textContent).not.toMatch(/[А-Яа-яЁё]/);
+      }
+    },
+  );
 });

@@ -51,7 +51,7 @@ export function CalculatorResult({ task, result, error, onRule }: CalculatorResu
       )}
       <p className="calculator-assumption">{t(task.note)}</p>
       <button className="text-link" onClick={() => onRule(task.rule)}>
-        {t('Разбор и границы формулы')}
+        {t('Как это считается')}
         <ArrowDown size={17} />
       </button>
     </div>

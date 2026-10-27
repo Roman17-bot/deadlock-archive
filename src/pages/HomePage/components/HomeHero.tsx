@@ -1,5 +1,5 @@
-import { ArrowRight, ScanLine } from 'lucide-react';
-import { asset, formatDate } from '../../../lib/format';
+import { ArrowRight } from 'lucide-react';
+import { asset } from '../../../lib/format';
 import type { HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
 
@@ -22,7 +22,7 @@ export function HomeHero({ data }: { data: HeroSnapshot }) {
         </h1>
         <p className="hero-description">
           {t(
-            'Сравнивай, замечай различия и находи свой стиль игры. Досье на всех героев Deadlock — от первого уровня до последнего Boon.',
+            'Характеристики всех героев Deadlock, приросты за уровень и калькулятор для сравнения билдов.',
           )}
         </p>
         <div className="hero-cta">
@@ -35,20 +35,6 @@ export function HomeHero({ data }: { data: HeroSnapshot }) {
             <br />
             {t('Все уровни в одном реестре.')}
           </span>
-        </div>
-        <div className="hero-verification">
-          <span className="verification-seal">
-            <ScanLine size={20} />
-          </span>
-          <div>
-            <strong>{t('Сверено с файлами игры')}</strong>
-            <span>
-              {t('Клиент {{version}} · проверено {{date}}', {
-                version: data.meta.clientVersion,
-                date: formatDate(data.meta.snapshotDate),
-              })}
-            </span>
-          </div>
         </div>
       </div>
       <div className="roster-art" aria-hidden="true">
@@ -77,7 +63,7 @@ export function HomeHero({ data }: { data: HeroSnapshot }) {
             {t('У КАЖДОГО СВОЯ ИСТОРИЯ')}
           </span>
           <span className="roster-seal">
-            {t('СВЕРЕНО')}
+            {t('ВЕРСИЯ')}
             <br />
             {data.meta.clientVersion}
           </span>

@@ -28,19 +28,15 @@ export function VersionHistory({
       <div className="version-history-heading">
         <span className="updates-label">{t('ЖУРНАЛ АРХИВА')}</span>
         <h2 id="version-history-title">{t('История версий')}</h2>
-        <p>
-          {t(
-            'Версии клиента, которые появлялись в нашем архиве. Дата сборки клиента и дата появления в архиве указаны отдельно.',
-          )}
-        </p>
+        <p>{t('Версии игры, даты выхода и изменения в каждом обновлении.')}</p>
       </div>
       {mode === 'local' && historyStatus === 'loading' && (
-        <p className="history-note">{t('Загружаем историю из локального API…')}</p>
+        <p className="history-note">{t('Загружаем историю версий…')}</p>
       )}
       {mode === 'local' && historyStatus === 'failed' && (
         <div>
           <p className="updates-error" role="alert">
-            {t('Не удалось загрузить историю из локального API.')}
+            {t('Не удалось загрузить историю версий.')}
           </p>
           <button className="updates-button" type="button" onClick={retryHistory}>
             <RefreshCw size={18} />
@@ -81,7 +77,7 @@ export function VersionHistory({
                 </div>
                 <dl>
                   <div>
-                    <dt>{t('Сборка клиента')}</dt>
+                    <dt>{t('Дата выхода')}</dt>
                     <dd>
                       <time dateTime={entry.buildDate}>{formatDate(entry.buildDate)}</time>
                     </dd>
@@ -102,9 +98,7 @@ export function VersionHistory({
       )}
       {historyVisible && history.versions.length === 1 && (
         <p className="history-note">
-          {t(
-            'Это первая версия клиента, опубликованная в архиве. Новые версии будут добавляться сюда при обновлении данных.',
-          )}
+          {t('Новые версии будут появляться здесь после обновления данных.')}
         </p>
       )}
       {historyVisible &&

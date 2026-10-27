@@ -1,14 +1,7 @@
 import type { RefObject } from 'react';
-import { Search, Check, FlaskConical } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { useI18n } from '../../../i18n';
 import type { useFormulaLibrary } from '../hooks/useFormulaLibrary';
-
-const confidence: Record<string, { label: string; icon: 'check' | 'model' }> = {
-  math_identity: { label: 'Математика при заданных условиях', icon: 'check' },
-  config_confirmed: { label: 'Параметры и флаги из файлов игры', icon: 'check' },
-  community_documented: { label: 'Рабочее правило по источникам', icon: 'check' },
-  inferred: { label: 'Модель · есть ограничения проверки', icon: 'model' },
-};
 
 type FormulaLibraryProps = {
   library: RefObject<HTMLElement | null>;
@@ -37,7 +30,7 @@ export function FormulaLibrary({ library, state }: FormulaLibraryProps) {
         </div>
         <p>
           {t(
-            'У каждого правила — область действия, числовой пример и происхождение. Согласованные наблюдения принимаем за рабочую основу; конкретные расхождения сохраняем.',
+            'Найди нужную механику по названию или выбери тему. В каждом разделе есть формула, объяснение и пример расчёта.',
           )}
         </p>
       </div>
@@ -73,7 +66,6 @@ export function FormulaLibrary({ library, state }: FormulaLibraryProps) {
       </div>
       <div className="formula-grid">
         {matching.map((entry, index) => {
-          const proof = confidence[entry.confidence];
           return (
             <article className="formula-card" id={`formula-${entry.id}`} key={entry.id}>
               <div className="formula-card-top">
@@ -84,13 +76,9 @@ export function FormulaLibrary({ library, state }: FormulaLibraryProps) {
                 {entry.title}
               </h3>
               <div className="formula-expression">{entry.expression}</div>
-              <span className={`formula-confidence ${proof.icon === 'model' ? 'is-model' : ''}`}>
-                {proof.icon === 'check' ? <Check size={15} /> : <FlaskConical size={15} />}{' '}
-                {t(proof.label)}
-              </span>
               <p className="formula-preview">{entry.explanation[0]}</p>
               <details open={target?.id === entry.id ? true : undefined}>
-                <summary>{t('Разбор, пример и источники')}</summary>
+                <summary>{t('Объяснение и пример')}</summary>
                 <div className="formula-details">
                   <h4>{t('Обозначения')}</h4>
                   <ul>
@@ -105,32 +93,16 @@ export function FormulaLibrary({ library, state }: FormulaLibraryProps) {
                     <span>{t('НА ЧИСЛАХ')}</span>
                     <p>{entry.example}</p>
                   </div>
-                  <h4>{t('Границы применения')}</h4>
-                  <ul>
-                    {entry.caveats.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                  <h4>{t('Источники')}</h4>
-                  <ul className="formula-sources">
-                    {entry.sourceIds.map((id) => {
-                      const source = catalog.sources.find((s) => s.id === id)!;
-                      return (
-                        <li key={id}>
-                          <a href={source.url} target="_blank" rel="noreferrer">
-                            {source.label}
-                          </a>
-                          <small>
-                            {source.kind === 'raw'
-                              ? t('Файлы / схема')
-                              : source.kind === 'official'
-                                ? t('Публикация Valve')
-                                : t('Наблюдения / описание')}
-                          </small>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  {entry.caveats.length > 0 && (
+                    <>
+                      <h4>{t('Что учитывать')}</h4>
+                      <ul>
+                        {entry.caveats.map((line) => (
+                          <li key={line}>{line}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
               </details>
             </article>

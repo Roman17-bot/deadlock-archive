@@ -84,17 +84,6 @@
   color: var(--muted);
   line-height: 1.9;
 }
-.research-stamp > div {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-  align-items: center;
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  margin-top: 20px;
-  font-size: 0.75rem;
-  color: var(--sage);
-}
 .mechanics-stale {
   padding: 20px 24px;
   border: 1px solid var(--brass);
@@ -234,21 +223,6 @@
     monospace;
   overflow-wrap: anywhere;
 }
-.formula-confidence {
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
-  margin: 17px 0;
-  font-size: 0.75rem;
-  color: #4c6340;
-}
-.formula-confidence > svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.formula-confidence.is-model {
-  color: #806123;
-}
 .formula-preview,
 .formula-details {
   font-size: 1rem;
@@ -299,21 +273,6 @@
 .formula-example p {
   margin-top: 8px;
   color: #2e4029;
-}
-.formula-sources {
-  list-style: none;
-  padding: 0 !important;
-}
-.formula-sources a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  font-size: 0.875rem;
-  overflow-wrap: anywhere;
-}
-.formula-sources small {
-  display: block;
-  font-size: 0.75rem;
-  color: #68745b;
 }
 .formula-empty {
   padding: 45px 0;

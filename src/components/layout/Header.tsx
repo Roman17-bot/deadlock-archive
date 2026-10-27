@@ -48,11 +48,9 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
         </nav>
         <div className="header-edition">
           <span className="status-dot" />
-          {t('КЛИЕНТ')} {data?.meta.clientVersion ?? '…'}
+          {t('ВЕРСИЯ')} {data?.meta.clientVersion ?? '…'}
           <span className="edition-date">
-            {data
-              ? t('Срез от {{date}}', { date: formatDate(data.meta.snapshotDate, true) })
-              : t('Загрузка данных')}
+            {data ? formatDate(data.meta.snapshotDate, true) : t('Загрузка данных')}
           </span>
         </div>
         <div className="language-switch" role="group" aria-label={t('Язык сайта')}>

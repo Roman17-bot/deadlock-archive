@@ -5,7 +5,7 @@ export const active = syncActivePhases;
 const repo = 'https://github.com/Roman17-bot/deadlock-archive';
 const failure = 'Синхронизация не удалась. Локальные данные сохранены; повторите попытку.';
 const unavailable = 'Для синхронизации настройте локальную PostgreSQL.';
-const mismatch = 'Снимок отличается от опубликованной версии.';
+const mismatch = 'На сайте опубликована другая версия данных.';
 
 export function verified(state: SyncState): boolean {
   return (
@@ -28,13 +28,13 @@ export function messageFor(state: SyncState): string {
   if (!state.available) return unavailable;
   if (state.phase === 'failed') return failure;
   if (state.phase === 'checking') return 'Проверяем данные PostgreSQL и GitHub Pages.';
-  if (state.phase === 'saving') return 'Сохраняем точный снимок PostgreSQL.';
-  if (state.phase === 'publishing') return 'Отправляем снимок в GitHub.';
-  if (state.phase === 'queued') return 'Снимок отправлен. Ожидаем развёртывание Pages.';
-  if (state.phase === 'in_progress') return 'GitHub Pages публикует снимок.';
+  if (state.phase === 'saving') return 'Сохраняем данные из базы.';
+  if (state.phase === 'publishing') return 'Отправляем данные на GitHub.';
+  if (state.phase === 'queued') return 'Данные отправлены. Публикация в очереди.';
+  if (state.phase === 'in_progress') return 'GitHub Pages обновляет сайт.';
   if (verified(state)) return 'Данные PostgreSQL и GitHub Pages синхронизированы.';
   if (state.phase === 'succeeded')
-    return 'GitHub Pages не подтвердил развёртывание. Повторите синхронизацию.';
+    return 'Не удалось дождаться обновления сайта. Проверьте синхронизацию ещё раз.';
   if (state.repositoryMatches === false || state.pagesMatches === false) return mismatch;
   return 'Можно проверить синхронизацию.';
 }

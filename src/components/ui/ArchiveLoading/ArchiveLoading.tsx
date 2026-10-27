@@ -5,7 +5,7 @@ export function ArchiveLoading() {
   return (
     <section className="load-state" aria-busy="true">
       <span className="loader" />
-      <p>{t('Поднимаем материалы из архива…')}</p>
+      <p>{t('Загружаем данные…')}</p>
     </section>
   );
 }

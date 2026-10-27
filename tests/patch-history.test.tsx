@@ -69,7 +69,7 @@ it('opens the exact Steam build from the client version and explains absent note
   expect(link).toHaveAttribute('href', patch.url);
   expect(link).toHaveAttribute('target', '_blank');
   expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
-  expect(screen.getByText(/Официальный патчноут.*не опубликован/)).toBeVisible();
+  expect(screen.getByText(/Описание обновления не опубликовано/)).toBeVisible();
   expect(screen.getByText(/26147187/)).toBeVisible();
 });
 
@@ -89,5 +89,5 @@ it('renders a published patch title and bilingual summary as text with an honest
   cleanup();
   show(legacyHistory);
   expect(screen.queryByRole('link', { name: /6819/ })).not.toBeInTheDocument();
-  expect(screen.getByText(/Patch details have not been linked/)).toBeVisible();
+  expect(screen.getByText(/Update details are not available yet/)).toBeVisible();
 });

@@ -435,20 +435,6 @@ a svg {
   font-size: 1rem;
   margin: 26px 0 14px;
 }
-.source-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.source-list a {
-  font-size: 1rem;
-  display: inline-flex;
-  gap: 9px;
-  align-items: center;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  min-height: 44px;
-}
 .dialog-inner .fine-print {
   margin-top: 25px;
   font-size: 0.875rem;

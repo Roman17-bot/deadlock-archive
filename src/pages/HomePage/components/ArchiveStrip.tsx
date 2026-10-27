@@ -19,7 +19,7 @@ export function ArchiveStrip({ data, onMethod }: { data: HeroSnapshot; onMethod:
         <span>{t('БЕЗ ПРЕДМЕТОВ И БАФФОВ')}</span>
       </div>
       <button onClick={onMethod}>
-        <span>{t('КАК УСТРОЕНЫ ДАННЫЕ')}</span>
+        <span>{t('КАК СЧИТАЕМ')}</span>
         <ArrowUpRight size={23} />
       </button>
     </section>

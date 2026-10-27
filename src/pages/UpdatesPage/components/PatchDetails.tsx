@@ -5,9 +5,7 @@ export function PatchDetails({ patch }: { patch?: VersionPatch }) {
   const { t, language } = useI18n();
   if (!patch)
     return (
-      <p className="history-patch history-note">
-        {t('Описание патча ещё не привязано к этой версии.')}
-      </p>
+      <p className="history-patch history-note">{t('Описание обновления пока недоступно.')}</p>
     );
   return (
     <section className="history-patch" aria-label={t('Описание обновления')}>
@@ -27,10 +25,10 @@ export function PatchDetails({ patch }: { patch?: VersionPatch }) {
         <p>
           {t(
             patch.notes === 'unpublished'
-              ? 'Официальный патчноут для этой сборки не опубликован. В SteamDB доступен список изменённых файлов.'
+              ? 'Описание обновления не опубликовано. Список изменений доступен в SteamDB.'
               : patch.source === 'steamdb'
-                ? 'Открой версию, чтобы прочитать патчноут в SteamDB. Если Valve не публиковала описание, там будет список изменённых файлов.'
-                : 'Открой версию, чтобы посмотреть изменения игровых файлов. Официальное описание к этой записи не привязано.',
+                ? 'Нажми на версию, чтобы посмотреть изменения в SteamDB.'
+                : 'Нажми на версию, чтобы посмотреть изменения игровых файлов.',
           )}
         </p>
       )}

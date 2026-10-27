@@ -26,12 +26,8 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
         {error ? (
           <section className="load-state" role="alert">
             <CircleAlert size={38} />
-            <h1>{t('Не удалось загрузить досье')}</h1>
-            <p>
-              {t(
-                'Проверь подключение и попробуй ещё раз. Данные не будут заменены случайными значениями.',
-              )}
-            </p>
+            <h1>{t('Не удалось загрузить данные')}</h1>
+            <p>{t('Проверь подключение и попробуй ещё раз.')}</p>
             <button className="button button-primary" onClick={retry}>
               <RefreshCw size={16} />
               {t('Повторить загрузку')}

@@ -19,7 +19,7 @@ it('opens the mechanics route through the main navigation and uses live metadata
   expect(await screen.findByRole('heading', { name: 'Механики и формулы.' })).toBeVisible();
   expect(screen.getByRole('link', { name: 'Механики' })).toHaveAttribute('aria-current', 'page');
   expect(screen.getByRole('link', { name: 'Обновления' })).toHaveAttribute('href', '#/updates');
-  expect(screen.getByText('КЛИЕНТ 6820')).toBeVisible();
+  expect(screen.getByText('ВЕРСИЯ 6820')).toBeVisible();
 });
 beforeEach(() => {
   window.location.hash = '#/heroes';
@@ -191,15 +191,14 @@ describe('hero register', () => {
     expect(screen.getByRole('slider')).toHaveValue('1');
     expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
   });
-  it('opens source methodology in a closeable dialog', async () => {
+  it('opens clear table explanations in a closeable dialog without source links', async () => {
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
     await user.click(screen.getByRole('button', { name: 'Как считаем характеристики' }));
     expect(screen.getByRole('dialog', { name: 'Как устроены цифры' })).toBeVisible();
-    expect(screen.getByRole('link', { name: /Параметры героев/ })).toHaveAttribute(
-      'href',
-      expect.stringContaining('client_version=6819'),
-    );
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toHaveTextContent('DPS показывает урон за секунду стрельбы без перезарядки');
+    expect(within(dialog).queryByRole('link')).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Закрыть методику' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
@@ -219,7 +218,7 @@ it('shows a data error and can retry successfully', async () => {
     .mockRejectedValueOnce(new Error('offline'))
     .mockResolvedValueOnce(new Response(JSON.stringify(data), { status: 200 }));
   render(<App />);
-  expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить досье');
+  expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить данные');
   await user.click(screen.getByRole('button', { name: 'Повторить загрузку' }));
   expect(await screen.findByRole('table', { name: 'Характеристики героев' })).toBeVisible();
 });

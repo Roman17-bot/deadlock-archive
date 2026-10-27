@@ -6,6 +6,17 @@ import { enData } from './en-data';
 import { enCalculator } from './en-calculator';
 import { enHistory } from './en-history';
 import { enHeroes } from './en-heroes';
+import { enPublic } from './en-public';
+import { publicMessage } from './publicMessages';
+
+const englishTranslations = {
+  ...enCommon,
+  ...enData,
+  ...enCalculator,
+  ...enHistory,
+  ...enHeroes,
+  ...enPublic,
+};
 
 export type Language = 'ru' | 'en';
 const storageKey = 'deadlock-language';
@@ -30,7 +41,7 @@ void i18n.use(initReactI18next).init({
   react: { useSuspense: false },
   resources: {
     ru: { translation: {} },
-    en: { translation: { ...enCommon, ...enData, ...enCalculator, ...enHistory, ...enHeroes } },
+    en: { translation: englishTranslations },
   },
 });
 
@@ -71,6 +82,7 @@ export function useI18n() {
 
 /** Translate validated server sentences and domain errors without losing their numeric details. */
 export function translateError(message: string): string {
+  message = publicMessage(message);
   if (i18n.language !== 'en') return message;
   if (i18n.exists(message, { lng: 'en' })) return translate(message);
   const numberError = message.match(/^(.*): введи число; десятичная запятая разрешена\.$/);
@@ -81,7 +93,9 @@ export function translateError(message: string): string {
     return `${translate(rangeError[1])}: use a value from ${rangeError[2]} to ${rangeError[3]}.`;
   let translated = message;
   // Compound status messages may append an indexing/history warning to a successful save.
-  for (const [ru, en] of Object.entries(enCommon).sort((a, b) => b[0].length - a[0].length)) {
+  for (const [ru, en] of Object.entries(englishTranslations).sort(
+    (a, b) => b[0].length - a[0].length,
+  )) {
     if (/[А-Яа-яЁё]/.test(ru) && translated.includes(ru))
       translated = translated.replaceAll(ru, en);
   }

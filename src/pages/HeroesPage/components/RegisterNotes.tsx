@@ -11,12 +11,12 @@ export function RegisterNotes({ data, onMethod }: { data: HeroSnapshot; onMethod
           <Info size={14} />
           <span>
             {t(
-              'Урон выстрела учитывает обычные дробины и исключение hit-once. DPS — расчёт без перезарядки; особые режимы отмечены в строках. Нулевой Spirit на LVL 1 — корректное базовое значение.',
+              'Урон выстрела указан для одной цели. Дробины складываются при попадании в неё; особенности оружия описаны в подробностях героя. DPS — урон в секунду без перезарядки. На первом уровне Spirit может быть равен нулю.',
             )}
           </span>
         </p>
         <span className="data-stamp">
-          BUILD {data.meta.clientVersion} / {data.meta.gameCommit.slice(0, 7)}
+          {t('Версия игры')} {data.meta.clientVersion}
         </span>
       </div>
       <aside className="register-aside">
