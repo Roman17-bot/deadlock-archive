@@ -9,6 +9,9 @@ import { UpdatesPage as UpdatePage } from '../src/pages/UpdatesPage/UpdatesPage'
 import { StrictMode } from 'react';
 import { i18n, setLanguage } from '../src/i18n';
 import initialHistory from '../data/version-history.json';
+import { startUpdateRequest } from '../src/services/updatesApi';
+import { fetchSyncState } from '../src/services/synchronizationApi';
+import { readJson } from '../src/services/http';
 
 const data = snapshot as HeroSnapshot;
 const workflow =
@@ -32,6 +35,185 @@ const saved: UpdateState = {
 };
 const newer = (): HeroSnapshot => ({ ...data, meta: { ...data.meta, clientVersion: 6820 } });
 const json = (value: unknown, status = 200) => new Response(JSON.stringify(value), { status });
+const syncResult = {
+  available: true,
+  source: 'postgresql',
+  phase: 'idle',
+  localSaved: false,
+  message: 'Ready',
+  updatedAt: '2026-10-27T12:00:00Z',
+};
+
+describe('local mutation session recovery', () => {
+  const operations = [
+    {
+      name: 'update',
+      url: '/api/update',
+      result: idle,
+      send: () => startUpdateRequest('stale', false),
+    },
+    {
+      name: 'sync',
+      url: '/api/sync',
+      result: syncResult,
+      send: () =>
+        fetchSyncState('/api/sync', {
+          method: 'POST',
+          cache: 'no-store',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Archive-Token': 'stale',
+            'X-Extra': 'kept',
+          },
+          body: '{}',
+        }),
+    },
+  ];
+
+  it('exposes the HTTP status without consuming an error body', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('not JSON', { status: 403 }));
+    await expect(readJson('/api/update')).rejects.toMatchObject({ status: 403 });
+  });
+
+  describe.each(operations)('$name', ({ url, result, send }) => {
+    it('recovers a stale nonce once and preserves the original request', async () => {
+      const calls: { url: string; init?: RequestInit }[] = [];
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
+        calls.push({ url: String(input), init });
+        if (input === '/api/update/session')
+          return json({
+            token: 'fresh',
+            state: idle,
+            url: 'https://evil.example',
+            request: '/api/other',
+          });
+        if (input === url) return calls.length === 1 ? json({}, 403) : json(result);
+        throw Error('Unexpected URL');
+      });
+      await expect(send()).resolves.toEqual(result);
+      expect(calls.map((call) => call.url)).toEqual([url, '/api/update/session', url]);
+      const original = calls[0].init!;
+      const retry = calls[2].init!;
+      expect(retry).toMatchObject({ method: 'POST', body: original.body });
+      expect(retry.cache).toBe(original.cache);
+      expect(retry.signal).toBe(original.signal);
+      const headers = new Headers(original.headers);
+      headers.set('X-Archive-Token', 'fresh');
+      expect([...new Headers(retry.headers)]).toEqual([...headers]);
+      expect(calls[1].init?.cache).toBe('no-store');
+    });
+
+    it.each([403, 500])('does not recover again after retry returns %s', async (status) => {
+      const calls: string[] = [];
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        calls.push(String(input));
+        if (input === '/api/update/session') return json({ token: 'fresh', state: idle });
+        return json({}, calls.length === 1 ? 403 : status);
+      });
+      await expect(send()).rejects.toMatchObject({ status });
+      expect(calls).toEqual([url, '/api/update/session', url]);
+    });
+
+    it('does not resend or refresh after an initial server failure', async () => {
+      const fetch = vi.spyOn(globalThis, 'fetch').mockResolvedValue(json({}, 500));
+      await expect(send()).rejects.toMatchObject({ status: 500 });
+      expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
+    it.each([
+      { token: 'stale', state: idle },
+      { token: '', state: idle },
+      { token: '   ', state: idle },
+      { token: 123, state: idle },
+      { token: 'fresh' },
+      { token: 'fresh', state: {} },
+    ])('does not resend with an unchanged or invalid session %#', async (session) => {
+      const calls: string[] = [];
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        calls.push(String(input));
+        return input === '/api/update/session' ? json(session) : json({}, 403);
+      });
+      await expect(send()).rejects.toThrow();
+      expect(calls).toEqual([url, '/api/update/session']);
+    });
+
+    it('does not resend when the session refresh fails', async () => {
+      const calls: string[] = [];
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        calls.push(String(input));
+        return json({}, input === '/api/update/session' ? 500 : 403);
+      });
+      await expect(send()).rejects.toThrow();
+      expect(calls).toEqual([url, '/api/update/session']);
+    });
+
+    it('does not repeat a request after a transport failure', async () => {
+      const fetch = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new TypeError('offline'));
+      await expect(send()).rejects.toThrow('offline');
+      expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not resend after malformed session JSON', async () => {
+      const calls: string[] = [];
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        calls.push(String(input));
+        return input === '/api/update/session' ? new Response('not JSON') : json({}, 403);
+      });
+      await expect(send()).rejects.toThrow();
+      expect(calls).toEqual([url, '/api/update/session']);
+    });
+  });
+
+  it('keeps sync cancellation and all caller options through recovery', async () => {
+    const controller = new AbortController();
+    const request: RequestInit = {
+      method: 'POST',
+      cache: 'no-store',
+      signal: controller.signal,
+      credentials: 'same-origin',
+      body: '{"publish":false}',
+      headers: new Headers({ 'Content-Type': 'application/json', 'X-Archive-Token': 'stale' }),
+    };
+    const calls: RequestInit[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
+      calls.push(init!);
+      if (input === '/api/update/session') return json({ token: 'fresh', state: idle });
+      return calls.length === 1 ? json({}, 403) : json(syncResult);
+    });
+    await expect(fetchSyncState('/api/sync', request)).resolves.toEqual(syncResult);
+    expect(calls[1].signal).toBe(controller.signal);
+    expect(calls[2]).toMatchObject({
+      method: 'POST',
+      cache: 'no-store',
+      signal: controller.signal,
+      credentials: 'same-origin',
+      body: '{"publish":false}',
+    });
+    expect(new Headers(request.headers).get('X-Archive-Token')).toBe('stale');
+  });
+
+  it('does not resend sync after cancellation during session recovery', async () => {
+    const controller = new AbortController();
+    const calls: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      calls.push(String(input));
+      if (input === '/api/update/session') {
+        controller.abort();
+        return json({ token: 'fresh', state: idle });
+      }
+      return json({}, 403);
+    });
+    await expect(
+      fetchSyncState('/api/sync', {
+        method: 'POST',
+        signal: controller.signal,
+        headers: { 'X-Archive-Token': 'stale' },
+        body: '{}',
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+    expect(calls).toEqual(['/api/sync', '/api/update/session']);
+  });
+});
 function fetchRoutes(
   handle: (url: string, init?: RequestInit) => Response | Promise<Response>,
   defaultHistory = true,

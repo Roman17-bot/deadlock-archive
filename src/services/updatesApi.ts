@@ -1,5 +1,6 @@
 import { asset } from '../lib/format';
 import { readJson } from './http';
+import { readLocalMutation } from './localSession';
 
 const steamInfo = 'https://api.deadlock-api.com/v1/assets/steam-info';
 
@@ -15,7 +16,7 @@ export const fetchVersionHistory = (mode: 'local' | 'public', signal: AbortSigna
     signal,
   });
 export const startUpdateRequest = (token: string, publish: boolean) =>
-  readJson('/api/update', {
+  readLocalMutation('/api/update', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-Archive-Token': token },
     body: JSON.stringify({ publish }),

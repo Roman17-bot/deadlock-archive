@@ -10,7 +10,7 @@ const controller = new AbortController();
 const { result } = concurrently(
   [
     { name: 'WEB', command: 'vite --host 127.0.0.1', prefixColor: 'cyan' },
-    { name: 'API', command: 'tsx watch server/index.ts', prefixColor: 'green' },
+    { name: 'API', command: 'npm run dev:api', prefixColor: 'green' },
   ],
   { killOthersOn: ['failure', 'success'] },
 );

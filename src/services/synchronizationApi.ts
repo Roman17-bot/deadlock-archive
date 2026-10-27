@@ -1,4 +1,5 @@
 import { readJson } from './http';
+import { readLocalMutation } from './localSession';
 import type { SyncState } from '../../shared/sync-types';
 
 export const syncActivePhases = new Set([
@@ -39,7 +40,10 @@ function isSyncState(value: unknown): value is SyncState {
 }
 
 export async function fetchSyncState(url: string, init?: RequestInit): Promise<SyncState> {
-  const value = await readJson(url, init);
+  const value =
+    url === '/api/sync' && init?.method === 'POST'
+      ? await readLocalMutation('/api/sync', init)
+      : await readJson(url, init);
   if (!isSyncState(value)) throw new Error('Invalid sync response');
   return value;
 }
