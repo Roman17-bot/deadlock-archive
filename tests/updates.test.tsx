@@ -2,13 +2,13 @@
 import '@testing-library/jest-dom/vitest';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import snapshot from '../data/heroes.json';
+import snapshot from './fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import type { UpdateState } from '../shared/update-types';
 import { UpdatesPage as UpdatePage } from '../src/pages/UpdatesPage/UpdatesPage';
 import { StrictMode } from 'react';
 import { i18n, setLanguage } from '../src/i18n';
-import initialHistory from '../data/version-history.json';
+import initialHistory from './fixtures/6819/version-history.json';
 import { startUpdateRequest } from '../src/services/updatesApi';
 import { fetchSyncState } from '../src/services/synchronizationApi';
 import { readJson } from '../src/services/http';

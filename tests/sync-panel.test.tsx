@@ -8,8 +8,8 @@ import { UpdatesPage as UpdatePage } from '../src/pages/UpdatesPage/UpdatesPage'
 import { i18n } from '../src/i18n';
 import type { SyncState } from '../shared/sync-types';
 import type { HeroSnapshot } from '../shared/types';
-import snapshot from '../data/heroes.json';
-import history from '../data/version-history.json';
+import snapshot from './fixtures/6819/heroes.json';
+import history from './fixtures/6819/version-history.json';
 
 const hash = 'a'.repeat(64);
 const other = 'b'.repeat(64);

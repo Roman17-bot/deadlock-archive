@@ -1,12 +1,10 @@
 {
   "allRawStatsVerified": true,
-  "localClientVersion": 6819,
-  "localVersionAgrees": true,
   "meta": {
-    "buildDate": "2026-10-22",
-    "checkedAt": "2026-10-25T08:34:25.945077+00:00",
-    "clientVersion": 6819,
-    "gameCommit": "17462b250a0ca80e7f80102f2c83cc3eecff5f12",
+    "buildDate": "2026-10-26",
+    "checkedAt": "2026-10-27T15:06:57.840Z",
+    "clientVersion": 6821,
+    "gameCommit": "d251cf9d9a796061c90f58724230b7e17b97121b",
     "heroCount": 44,
     "levelRange": [
       1,
@@ -21,28 +19,30 @@
       "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
     ],
     "schemaVersion": 1,
-    "snapshotDate": "2026-10-25",
-    "sourceRevision": 11162696,
+    "snapshotDate": "2026-10-27",
+    "sourceRevision": 11170534,
     "sources": [
       {
-        "label": "Параметры героев · клиент 6819",
-        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6819"
+        "label": "Параметры героев · клиент 6821",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6821"
       },
       {
-        "label": "Оружие и способности · клиент 6819",
-        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6819"
+        "label": "Оружие · клиент 6821",
+        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6821"
       },
       {
         "label": "Исходные файлы игры · фиксированная ревизия",
-        "url": "https://github.com/SteamDatabase/GameTracking-Deadlock/tree/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts"
-      },
-      {
-        "label": "Версия игрового клиента",
-        "url": "https://api.deadlock-api.com/v1/assets/steam-info"
+        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/pak01_dir/scripts"
       }
     ]
   },
-  "modelRevision": "2026-10-25-hit-once",
-  "oldThirdPartySnapshotRejected": 6785,
-  "runtimeMeasured": false
+  "runtimeMeasured": false,
+  "verification": {
+    "adapter": "materialized-kv3-v1",
+    "checkedAt": "2026-10-27T15:06:57.840Z",
+    "clientVersion": 6821,
+    "heroCount": 44,
+    "scope": "Snapshot base/growth/scaling/raw primary weapon parameters cross-checked against version-pinned API and GameTracking; special flags read from raw; DPS is an explicit model.",
+    "sourceCommit": "d251cf9d9a796061c90f58724230b7e17b97121b"
+  }
 }

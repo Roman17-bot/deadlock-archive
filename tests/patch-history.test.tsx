@@ -2,8 +2,8 @@
 import '@testing-library/jest-dom/vitest';
 import { afterEach, beforeEach, expect, it } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
-import history from '../data/version-history.json';
-import snapshot from '../data/heroes.json';
+import history from './fixtures/6819/version-history.json';
+import snapshot from './fixtures/6819/heroes.json';
 import { validateVersionHistory } from '../shared/version-history';
 import { VersionHistory } from '../src/pages/UpdatesPage/components/VersionHistory';
 import { setLanguage } from '../src/i18n';

@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/vitest';
 import { App } from '../src/app/App';
 import { i18n, setLanguage, savedLanguage, translateError } from '../src/i18n';
 import { format, formatDate } from '../src/lib/format';
-import data from '../data/heroes.json';
+import data from './fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 
 beforeEach(async () => {

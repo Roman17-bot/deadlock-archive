@@ -22,22 +22,27 @@ afterAll(
 it('serves the same verified snapshot without a database', async () => {
   const response = await fetch(`${base}/api/heroes`);
   expect(response.status).toBe(200);
-  expect((await response.json()).heroes).toHaveLength(44);
+  expect((await response.json()).heroes).toHaveLength(snapshot.heroes.length);
 });
 it('reports the data version in health', async () => {
   expect(await (await fetch(`${base}/api/health`)).json()).toMatchObject({
     status: 'ok',
-    clientVersion: 6819,
+    clientVersion: snapshot.meta.clientVersion,
   });
 });
 
 it('connects the local owner API to the live hero and health responses', async () => {
   const next = structuredClone(snapshot) as HeroSnapshot;
-  next.meta.clientVersion = 6820;
+  next.meta.clientVersion = snapshot.meta.clientVersion + 1;
+  next.meta.sourceRevision = snapshot.meta.sourceRevision + 1;
   const updates = createUpdateManager({
     snapshot: snapshot as HeroSnapshot,
     root: '.',
-    checkVersion: async () => ({ version: 6820, revision: 11162697, buildDate: '2026-10-25' }),
+    checkVersion: async () => ({
+      version: next.meta.clientVersion,
+      revision: next.meta.sourceRevision,
+      buildDate: '2026-10-25',
+    }),
     refresh: async () => ({
       snapshot: next,
       changed: true,
@@ -67,8 +72,12 @@ it('connects the local owner API to the live hero and health responses', async (
       ).status,
     ).toBe(202);
     await vi.waitFor(() => expect(updates.getState().phase).toBe('succeeded'));
-    expect((await (await fetch(`${url}/api/heroes`)).json()).meta.clientVersion).toBe(6820);
-    expect((await (await fetch(`${url}/api/health`)).json()).clientVersion).toBe(6820);
+    expect((await (await fetch(`${url}/api/heroes`)).json()).meta.clientVersion).toBe(
+      next.meta.clientVersion,
+    );
+    expect((await (await fetch(`${url}/api/health`)).json()).clientVersion).toBe(
+      next.meta.clientVersion,
+    );
   } finally {
     await new Promise<void>((resolve) => managed.close(() => resolve()));
   }

@@ -2,7 +2,7 @@ import { expect, it } from 'vitest';
 import ru from '../data/mechanics.json';
 import en from '../data/mechanics.en.json';
 import { enData } from '../src/i18n/en-data';
-import heroes from '../data/heroes.json';
+import heroes from './fixtures/6819/heroes.json';
 
 it('preserves every rule and source identity and confidence in the English edition', () => {
   expect(en.formulas.map((f) => f.id)).toEqual(ru.formulas.map((f) => f.id));

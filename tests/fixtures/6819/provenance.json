@@ -1,0 +1,48 @@
+{
+  "allRawStatsVerified": true,
+  "localClientVersion": 6819,
+  "localVersionAgrees": true,
+  "meta": {
+    "buildDate": "2026-10-22",
+    "checkedAt": "2026-10-25T08:34:25.945077+00:00",
+    "clientVersion": 6819,
+    "gameCommit": "17462b250a0ca80e7f80102f2c83cc3eecff5f12",
+    "heroCount": 44,
+    "levelRange": [
+      1,
+      36
+    ],
+    "methodology": [
+      "Уровень 1: базовые значения. Уровни 2–36: по одному стандартному Boon. B = LVL − 1.",
+      "У каждого героя собственные прибавки к HP, Spirit и урону. Нативные Spirit-скейлы оружия и регенерации учитываются при изменении уровня.",
+      "Урон выстрела по одной цели: сумма попавших обычных дробин; для hit-once оружия один полный урон независимо от числа попавших траекторий. Очередь не считается одним выстрелом.",
+      "DPS — расчётная модель непрерывной стрельбы без перезарядки: shots/s = burst / (cycle + (burst−1) × intraBurst). Она не является замером игрового движка.",
+      "Нет предметов, активных способностей, усиленных режимов, хедшотов, сопротивлений и падения урона от дистанции. У раскручивающегося оружия показан стартовый DPS.",
+      "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
+    ],
+    "schemaVersion": 1,
+    "snapshotDate": "2026-10-25",
+    "sourceRevision": 11162696,
+    "sources": [
+      {
+        "label": "Параметры героев · клиент 6819",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6819"
+      },
+      {
+        "label": "Оружие и способности · клиент 6819",
+        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6819"
+      },
+      {
+        "label": "Исходные файлы игры · фиксированная ревизия",
+        "url": "https://github.com/SteamDatabase/GameTracking-Deadlock/tree/17462b250a0ca80e7f80102f2c83cc3eecff5f12/game/citadel/pak01_dir/scripts"
+      },
+      {
+        "label": "Версия игрового клиента",
+        "url": "https://api.deadlock-api.com/v1/assets/steam-info"
+      }
+    ]
+  },
+  "modelRevision": "2026-10-25-hit-once",
+  "oldThirdPartySnapshotRejected": 6785,
+  "runtimeMeasured": false
+}

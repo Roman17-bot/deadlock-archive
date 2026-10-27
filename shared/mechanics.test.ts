@@ -16,7 +16,7 @@ import {
   calculateFalloff,
   calculateFireRate,
 } from './mechanics';
-import snapshot from '../data/heroes.json';
+import snapshot from '../tests/fixtures/6819/heroes.json';
 import { statsAtLevel } from './heroes';
 import type { Hero } from './types';
 

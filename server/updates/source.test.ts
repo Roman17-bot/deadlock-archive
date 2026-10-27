@@ -2,9 +2,9 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { mkdtemp, mkdir, readFile, writeFile, rm, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import original from '../../data/heroes.json';
-import originalProvenance from '../../data/provenance.json';
-import originalHistory from '../../data/version-history.json';
+import original from '../../tests/fixtures/6819/heroes.json';
+import originalProvenance from '../../tests/fixtures/6819/provenance.json';
+import originalHistory from '../../tests/fixtures/6819/version-history.json';
 import { getLatestVersion, refreshData } from './source.ts';
 
 const fixture = (name: string) => readFile(new URL(`./fixtures/${name}`, import.meta.url), 'utf8');

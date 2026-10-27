@@ -45,7 +45,7 @@ function archive(overrides: Record<string, unknown> = {}) {
         heroes: 1,
         formulas: 27,
         sources: 43,
-        historyVersions: 1,
+        historyVersions: history.versions.length,
       }) as ArchiveStatus,
     searchHeroes: async (_query: string, _limit: number) => stored.heroes,
     getFormula: async (id: string, language: 'ru' | 'en') =>
@@ -64,7 +64,9 @@ it('reads live heroes, mechanics, history, and health from configured archive', 
   expect((await (await fetch(`${url}/api/mechanics?language=en`)).json()).meta.title).toBe(
     mechanicsEn.meta.title,
   );
-  expect((await (await fetch(`${url}/api/version-history`)).json()).versions).toHaveLength(1);
+  expect((await (await fetch(`${url}/api/version-history`)).json()).versions).toEqual(
+    history.versions,
+  );
   expect(await (await fetch(`${url}/api/health`)).json()).toMatchObject({
     status: 'ok',
     storage: 'postgresql',
@@ -121,7 +123,9 @@ it('keeps JSON mechanics and history available without database settings', async
   expect((await (await fetch(`${url}/api/mechanics`)).json()).meta.title).toBe(
     mechanicsRu.meta.title,
   );
-  expect((await (await fetch(`${url}/api/version-history`)).json()).versions).toHaveLength(1);
+  expect((await (await fetch(`${url}/api/version-history`)).json()).versions).toEqual(
+    history.versions,
+  );
   expect((await (await fetch(`${url}/api/health`)).json()).storage).toBe('json');
   const head = await fetch(`${url}/api/mechanics`, { method: 'HEAD' });
   expect(head.status).toBe(200);

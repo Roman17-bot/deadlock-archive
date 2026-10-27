@@ -2,6 +2,23 @@
   "schemaVersion": 1,
   "versions": [
     {
+      "buildDate": "2026-10-26",
+      "clientVersion": 6821,
+      "firstPublishedAt": "2026-10-27T15:07:00.165Z",
+      "patch": {
+        "checkedAt": "2026-10-27T15:07:00.165Z",
+        "gameCommit": "d251cf9d9a796061c90f58724230b7e17b97121b",
+        "notes": "unknown",
+        "source": "steamdb",
+        "steamBuildId": 26224525,
+        "url": "https://steamdb.info/patchnotes/26224525/"
+      },
+      "provenance": {
+        "kind": "snapshot-save",
+        "reference": "2026-10-27T15:07:00.165Z"
+      }
+    },
+    {
       "buildDate": "2026-10-22",
       "clientVersion": 6819,
       "firstPublishedAt": "2026-10-24T14:39:45.000Z",

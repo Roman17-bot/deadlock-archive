@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AddressInfo } from 'node:net';
-import snapshot from '../../data/heroes.json';
+import snapshot from '../../tests/fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../../shared/types';
 import type { SyncState } from '../../shared/sync-types';
 import type { UpdateState } from '../../shared/update-types';

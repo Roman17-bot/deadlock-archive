@@ -2,8 +2,8 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { mkdtemp, mkdir, readFile, writeFile, rename, readdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import snapshot from '../../data/heroes.json';
-import history from '../../data/version-history.json';
+import snapshot from '../../tests/fixtures/6819/heroes.json';
+import history from '../../tests/fixtures/6819/version-history.json';
 import { validateVersionHistory } from '../../shared/version-history';
 import { recordSavedVersion } from './history';
 

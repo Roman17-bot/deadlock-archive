@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import snapshot from '../data/heroes.json';
+import snapshot from '../tests/fixtures/6819/heroes.json';
 import { statsAtLevel, selectHeroes, validateSnapshot, toCsv } from './heroes';
 import type { HeroSnapshot } from './types';
 

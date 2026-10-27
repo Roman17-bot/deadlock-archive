@@ -4,7 +4,7 @@ import { act, cleanup, fireEvent, render, screen, within } from '@testing-librar
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
 import { MechanicsPage } from '../src/pages/MechanicsPage/MechanicsPage';
-import data from '../data/heroes.json';
+import data from './fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../shared/types';
 import { setLanguage } from '../src/i18n';
 

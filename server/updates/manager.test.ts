@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import original from '../../data/heroes.json';
+import original from '../../tests/fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../../shared/types';
 import { createUpdateManager } from './manager';
 
