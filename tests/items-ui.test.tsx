@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ItemCatalog, ItemStatistics, ShopItem } from '../shared/item-types';
 import { ItemsPage } from '../src/pages/ItemsPage/ItemsPage';
@@ -95,7 +95,7 @@ it('retains meaningful lead prose that differs from effects', () => {
 it('combines search and category, preserves URL and recovers empty results', async () => {
   const user = userEvent.setup();
   render(<ItemsPage initialCatalog={catalog} />);
-  await user.type(screen.getByRole('searchbox'), 'Alpha');
+  await user.type(screen.getByRole('searchbox', { name: 'Поиск предметов' }), 'Alpha');
   await user.click(screen.getByRole('button', { name: 'Спирит' }));
   expect(screen.getByText('Ничего не найдено')).toBeVisible();
   expect(window.location.hash).toContain('q=Alpha');
@@ -127,7 +127,7 @@ it('combines situational conditions with explicit all and any modes', async () =
     ],
   };
   render(<ItemsPage initialCatalog={tagged} />);
-  await user.click(screen.getByText('Под задачу'));
+  await user.click(screen.getByText('Все свойства'));
   await user.click(screen.getByText('Противодействие'));
   await user.click(screen.getByRole('checkbox', { name: /Антихил/ }));
   await user.click(screen.getByText('Способности'));
@@ -164,13 +164,14 @@ it('supports English detail and absent statistics', async () => {
   expect(await screen.findByText('Purchase statistics are unavailable.')).toBeVisible();
 });
 it('keeps phone categories available while secondary filters are collapsed', async () => {
-  vi.stubGlobal('matchMedia', () => ({
-    matches: true,
+  vi.stubGlobal('matchMedia', (query: string) => ({
+    matches: query.includes('max-width'),
     addEventListener() {},
     removeEventListener() {},
   }));
   render(<ItemsPage initialCatalog={catalog} />);
-  expect(screen.getByText('Фильтры магазина').closest('details')).not.toHaveAttribute('open');
+  expect(screen.getByText('Все свойства').closest('details')).not.toHaveAttribute('open');
+  expect(screen.getByRole('button', { name: /Антихил/ }).closest('details')).toBeNull();
   const spirit = screen.getByRole('button', { name: 'Спирит' });
   expect(spirit.closest('details')).toBeNull();
   await userEvent.click(spirit);
@@ -222,4 +223,141 @@ it('treats zero purchases as absent observations instead of zero winrate', () =>
   );
   expect(screen.getByText('За этот период покупок нет.')).toBeVisible();
   expect(screen.queryByText('0%')).not.toBeInTheDocument();
+});
+
+it('synchronizes common situations and full property controls without merging tags', async () => {
+  const user = userEvent.setup();
+  render(
+    <ItemsPage
+      initialCatalog={{
+        ...catalog,
+        items: [
+          { ...catalog.items[0], tags: ['cleanse'] },
+          { ...catalog.items[1], tags: ['cc-immunity'] },
+        ],
+      }}
+    />,
+  );
+  await user.click(screen.getByRole('button', { name: 'Снятие дебаффов' }));
+  expect(screen.getByRole('link', { name: /Alpha/ })).toBeVisible();
+  expect(screen.queryByRole('link', { name: /Beta/ })).not.toBeInTheDocument();
+  await user.click(screen.getByText('Все свойства'));
+  await user.click(screen.getByText('Защита', { selector: 'summary span' }));
+  const checkbox = screen.getByRole('checkbox', { name: /Снятие дебаффов/ });
+  expect(checkbox).toBeChecked();
+  await user.click(checkbox);
+  expect(checkbox).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Снятие дебаффов' })).toHaveAttribute(
+    'aria-pressed',
+    'false',
+  );
+  expect(screen.getByRole('link', { name: /Beta/ })).toBeVisible();
+});
+it('searches properties independently, opens matching controls, and resets every criterion', async () => {
+  const user = userEvent.setup();
+  window.history.replaceState(
+    null,
+    '',
+    '#/items?q=Alpha&category=weapon&tier=1&activation=passive&tags=anti-heal&mode=any',
+  );
+  render(
+    <ItemsPage
+      initialCatalog={{
+        ...catalog,
+        items: [{ ...catalog.items[0], tags: ['anti-heal'] }, catalog.items[1]],
+      }}
+    />,
+  );
+  const propertySearch = screen.getByRole('searchbox', { name: 'Поиск свойств' });
+  const originalHash = window.location.hash;
+  await user.type(propertySearch, 'диспел');
+  expect(screen.getByRole('checkbox', { name: /Снятие дебаффов/ })).toBeVisible();
+  expect(screen.getByRole('searchbox', { name: 'Поиск предметов' })).toHaveValue('Alpha');
+  expect(window.location.hash).toBe(originalHash);
+  expect(screen.getByRole('link', { name: /Alpha/ })).toBeVisible();
+  await user.clear(propertySearch);
+  await user.type(propertySearch, 'zzzz');
+  expect(screen.getByText('Свойства не найдены')).toBeVisible();
+  expect(screen.getByRole('link', { name: /Alpha/ })).toBeVisible();
+  await user.click(screen.getByRole('button', { name: 'Сбросить фильтры' }));
+  expect(propertySearch).toHaveValue('');
+  expect(window.location.hash).toBe('#/items');
+  expect(screen.getByRole('searchbox', { name: 'Поиск предметов' })).toHaveValue('');
+  expect(screen.getByRole('link', { name: /Beta/ })).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Сбросить фильтры' })).toBeVisible();
+});
+it('derives tier costs from the catalog and keeps activation independent', async () => {
+  const user = userEvent.setup();
+  render(
+    <ItemsPage
+      initialCatalog={{
+        ...catalog,
+        items: [
+          catalog.items[0],
+          { ...catalog.items[1], tier: 2, cost: 1750, activation: 'active' },
+        ],
+      }}
+    />,
+  );
+  const tiers = screen.getByRole('group', { name: 'Тиры' });
+  const secondTier = within(tiers).getByRole('button', { name: 'Тир 2' });
+  expect(secondTier).toHaveTextContent(/II.*1.750/);
+  await user.click(secondTier);
+  expect(screen.queryByRole('link', { name: /Alpha/ })).not.toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /Beta/ })).toBeVisible();
+  await user.click(
+    within(screen.getByRole('group', { name: 'Активация' })).getByRole('button', {
+      name: 'Пассивные',
+    }),
+  );
+  expect(screen.getByText('Ничего не найдено')).toBeVisible();
+  expect(window.location.hash).toContain('tier=2');
+  expect(window.location.hash).toContain('activation=passive');
+});
+
+it('resets a property-only search and exposes translated controls in English', async () => {
+  await i18n.changeLanguage('en');
+  const user = userEvent.setup();
+  render(<ItemsPage initialCatalog={catalog} />);
+  expect(screen.getByRole('heading', { name: 'Items for the situation' })).toBeVisible();
+  const effectSearch = screen.getByRole('searchbox', { name: 'Search effects' });
+  await user.type(effectSearch, 'zzzz');
+  expect(screen.getByText('No effects found')).toBeVisible();
+  const reset = screen.getByRole('button', { name: 'Reset filters' });
+  expect(reset).toBeEnabled();
+  await user.click(reset);
+  expect(effectSearch).toHaveValue('');
+  expect(screen.queryByText('No effects found')).not.toBeInTheDocument();
+  expect(screen.getByRole('group', { name: 'Activation' })).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Tier 1' })).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Control immunity' })).toBeVisible();
+  expect(window.location.hash).toBe('#/items');
+});
+
+it('puts property discovery first in the situational panel keyboard order', async () => {
+  const user = userEvent.setup();
+  render(<ItemsPage initialCatalog={catalog} />);
+  await user.click(screen.getByRole('button', { name: 'Сбросить фильтры' }));
+  await user.tab();
+  expect(screen.getByRole('searchbox', { name: 'Поиск свойств' })).toHaveFocus();
+  await user.tab();
+  expect(screen.getByRole('button', { name: 'Антихил' })).toHaveFocus();
+});
+
+it('lets players use the visible shortcut label as its accessible name', async () => {
+  const user = userEvent.setup();
+  render(
+    <ItemsPage
+      initialCatalog={{
+        ...catalog,
+        items: [{ ...catalog.items[0], tags: ['bullet-resist'] }, catalog.items[1]],
+      }}
+    />,
+  );
+  const bulletResistance = screen.getByRole('button', { name: 'Против пуль' });
+  await user.click(bulletResistance);
+  expect(bulletResistance).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('link', { name: /Alpha/ })).toBeVisible();
+  expect(screen.queryByRole('link', { name: /Beta/ })).not.toBeInTheDocument();
+  expect(window.location.hash).toContain('tags=bullet-resist');
 });
