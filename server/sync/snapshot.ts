@@ -13,11 +13,13 @@ const DATA_PATHS = [
   'data/provenance.json',
   'data/version-history.json',
 ];
-const MAX_FILES = 200;
+const ITEM_DATA_PATHS = ['data/items.json', 'data/item-statistics.json'];
+const MAX_FILES = 512;
 const MAX_FILE_BYTES = 4 * 1024 * 1024;
 const MAX_TOTAL_BYTES = 32 * 1024 * 1024;
 const portraitPath =
   /^public\/assets\/heroes\/[A-Za-z0-9][A-Za-z0-9._-]*\.(?:webp|png|jpe?g|avif)$/;
+const itemIconPath = /^public\/assets\/items\/[A-Za-z0-9][A-Za-z0-9._-]*\.webp$/;
 const sha256 = (bytes: string | Buffer): string => createHash('sha256').update(bytes).digest('hex');
 const missing = (error: unknown): boolean => (error as NodeJS.ErrnoException).code === 'ENOENT';
 
@@ -79,8 +81,10 @@ function validateFileLimits(files: SnapshotFile[]): void {
   for (const file of files) {
     if (
       (!DATA_PATHS.includes(file.path) &&
+        !ITEM_DATA_PATHS.includes(file.path) &&
         file.path !== SNAPSHOT_MANIFEST_PATH &&
-        !portraitPath.test(file.path)) ||
+        !portraitPath.test(file.path) &&
+        !itemIconPath.test(file.path)) ||
       paths.has(file.path)
     )
       throw new Error('Unapproved or duplicate snapshot path');
@@ -179,13 +183,20 @@ async function readBoundedFile(root: string, relative: string): Promise<Buffer> 
 }
 
 function dataFiles(bundle: CuratedBundle): SnapshotFile[] {
-  return [
+  const files = [
     bundle.heroes,
     bundle.mechanics.ru,
     bundle.mechanics.en,
     bundle.provenance,
     bundle.history,
   ].map((value, i) => ({ path: DATA_PATHS[i], content: Buffer.from(canonicalJson(value)) }));
+  if (bundle.items && bundle.itemStatistics) {
+    files.push(
+      { path: ITEM_DATA_PATHS[0], content: Buffer.from(canonicalJson(bundle.items)) },
+      { path: ITEM_DATA_PATHS[1], content: Buffer.from(canonicalJson(bundle.itemStatistics)) },
+    );
+  }
+  return files;
 }
 
 export async function prepareSnapshot(root: string, input: CuratedBundle): Promise<PublicSnapshot> {
@@ -196,12 +207,15 @@ export async function prepareSnapshot(root: string, input: CuratedBundle): Promi
   ].sort();
   for (const relative of portraits)
     if (!portraitPath.test(relative)) throw new Error('Unapproved hero portrait path');
-  if (portraits.length + DATA_PATHS.length + 1 > MAX_FILES)
+  const icons = [...new Set(bundle.items?.items.map((item) => `public/${item.icon}`) ?? [])].sort();
+  for (const relative of icons)
+    if (!itemIconPath.test(relative)) throw new Error('Unapproved item icon path');
+  if (portraits.length + icons.length + dataFiles(bundle).length + 1 > MAX_FILES)
     throw new Error('Snapshot file count exceeds limit');
   const files = dataFiles(bundle);
   validateFileLimits(files);
   // Sequential bounded reads keep allocations bounded when an asset set exceeds the total limit.
-  for (const relative of portraits) {
+  for (const relative of [...portraits, ...icons]) {
     files.push({ path: relative, content: await readBoundedFile(root, relative) });
     validateFileLimits(files);
   }
@@ -217,13 +231,26 @@ export async function prepareSnapshot(root: string, input: CuratedBundle): Promi
 }
 
 export async function readFileSnapshot(root: string): Promise<PublicSnapshot> {
-  const [heroes, ru, en, provenance, history] = await Promise.all(
-    DATA_PATHS.map(
-      async (relative) =>
-        JSON.parse((await readBoundedFile(root, relative)).toString('utf8')) as unknown,
-    ),
-  );
-  const bundle = { heroes, mechanics: { ru, en }, provenance, history };
+  const read = async (relative: string) =>
+    JSON.parse((await readBoundedFile(root, relative)).toString('utf8')) as unknown;
+  const [heroes, ru, en, provenance, history] = await Promise.all(DATA_PATHS.map(read));
+  const optional = async (relative: string) => {
+    try {
+      return await read(relative);
+    } catch (error) {
+      if (missing(error)) return undefined;
+      throw error;
+    }
+  };
+  const [items, itemStatistics] = await Promise.all(ITEM_DATA_PATHS.map(optional));
+  const bundle = {
+    heroes,
+    mechanics: { ru, en },
+    provenance,
+    history,
+    ...(items === undefined ? {} : { items }),
+    ...(itemStatistics === undefined ? {} : { itemStatistics }),
+  };
   validateCuratedBundle(bundle);
   return prepareSnapshot(root, bundle);
 }
@@ -231,6 +258,7 @@ export async function readFileSnapshot(root: string): Promise<PublicSnapshot> {
 export async function mirrorSnapshot(
   root: string,
   snapshot: PublicSnapshot,
+  options: { expectedFiles?: ReadonlyMap<string, Buffer | null> } = {},
 ): Promise<{ changed: boolean }> {
   validateCuratedBundle(snapshot.bundle);
   validateFileLimits(snapshot.files);
@@ -240,6 +268,20 @@ export async function mirrorSnapshot(
     if (!actual || !actual.content.equals(file.content))
       throw new Error('Snapshot data does not match bundle');
   }
+  const assets = [
+    ...new Set([
+      ...snapshot.bundle.heroes.heroes.map((hero) => `public/${hero.portrait}`),
+      ...(snapshot.bundle.items?.items.map((item) => `public/${item.icon}`) ?? []),
+    ]),
+  ];
+  for (const asset of assets) {
+    const file = snapshot.files.find((candidate) => candidate.path === asset);
+    if (!file || (!portraitPath.test(asset) && !itemIconPath.test(asset)))
+      throw new Error('Snapshot is missing a referenced public asset');
+    expected.push(file);
+  }
+  if (snapshot.files.length !== expected.length + 1)
+    throw new Error('Snapshot contains unreferenced files');
   const manifest = createSnapshotManifest(
     snapshot.files.filter((file) => file.path !== SNAPSHOT_MANIFEST_PATH),
     snapshot.bundle.heroes.meta.clientVersion,
@@ -271,6 +313,11 @@ export async function mirrorSnapshot(
       if (!missing(error)) throw error;
       previous = null;
     }
+    if (options.expectedFiles?.has(file.path)) {
+      const original = options.expectedFiles.get(file.path)!;
+      if (original === null ? previous !== null : previous === null || !previous.equals(original))
+        throw new Error('Local curated file changed during refresh');
+    }
     if (previous?.equals(file.content)) continue;
     changes.push({ file, target, previous, temporary: `${target}.${id}.tmp` });
   }
@@ -282,11 +329,15 @@ export async function mirrorSnapshot(
     await mkdir(backup, { recursive: true });
     await safePath(root, `${backupRelative}/data`);
     for (const change of changes) {
-      if (change.previous !== null)
+      if (change.previous !== null) {
+        await mkdir(path.dirname(path.join(root, backupRelative, change.file.path)), {
+          recursive: true,
+        });
         await writeFile(path.join(root, backupRelative, change.file.path), change.previous, {
           flag: 'wx',
           mode: 0o600,
         });
+      }
       await mkdir(path.dirname(change.target), { recursive: true });
       await safePath(root, change.file.path, true);
       await writeFile(change.temporary, change.file.content, { flag: 'wx', mode: 0o600 });

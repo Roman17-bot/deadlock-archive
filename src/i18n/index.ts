@@ -7,6 +7,7 @@ import { enCalculator } from './en-calculator';
 import { enHistory } from './en-history';
 import { enHeroes } from './en-heroes';
 import { enPublic } from './en-public';
+import { enItems } from './en-items';
 import { publicMessage } from './publicMessages';
 
 const englishTranslations = {
@@ -16,6 +17,7 @@ const englishTranslations = {
   ...enHistory,
   ...enHeroes,
   ...enPublic,
+  ...enItems,
 };
 
 export type Language = 'ru' | 'en';

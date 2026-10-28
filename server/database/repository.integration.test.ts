@@ -3,11 +3,12 @@ import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseEnv } from 'node:util';
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { Pool } from 'pg';
 import { PostgresArchive } from './repository';
 import { readCuratedBundle } from './bundle';
 import { createDatabasePool, loadDatabaseEnvironment } from './config';
+import { itemFixture } from './item-fixture';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const local: Record<string, string | undefined> = (() => {
@@ -80,12 +81,72 @@ suite('PostgresArchive on an owned test database', () => {
     expect(count.rows[0].n).toBe(bundle.heroes.heroes.length);
   });
 
+  it('reads schema2 DB-owned companion edits without migrating, then preserves them through item import', async () => {
+    const legacySchema = `archive_test_${randomUUID().replaceAll('-', '')}`;
+    await control.query(`CREATE SCHEMA "${legacySchema}"`);
+    const legacyPool = new Pool({
+      ...environment,
+      database: testName,
+      options: `-c search_path=${legacySchema}`,
+      max: 2,
+    });
+    const legacy = new PostgresArchive(legacyPool);
+    try {
+      await legacyPool.query(
+        'CREATE TABLE archive_migrations (version text PRIMARY KEY, checksum text NOT NULL, applied_at timestamptz NOT NULL DEFAULT now())',
+      );
+      for (const file of ['001_archive.sql', '002_history_patch.sql']) {
+        const sql = readFileSync(join(root, 'db/migrations', file), 'utf8');
+        await legacyPool.query(sql);
+        await legacyPool.query(
+          'INSERT INTO archive_migrations (version, checksum) VALUES ($1, $2)',
+          [file, createHash('sha256').update(sql).digest('hex')],
+        );
+      }
+      const bundle = await readCuratedBundle(root);
+      delete bundle.items;
+      delete bundle.itemStatistics;
+      bundle.heroes.heroes[0].base.health = 1234;
+      await legacy.importBundle(bundle, 'schema2-owner-edit');
+      expect(await legacy.getBundle()).toEqual(bundle);
+      expect(await legacy.getItems()).toBeNull();
+      expect(await legacy.getItemStatistics()).toBeNull();
+      expect((await legacy.status()).schemaVersion).toBe(2);
+      await legacy.migrate();
+      const upgraded = { ...bundle, ...itemFixture(bundle.heroes.meta.clientVersion) };
+      await legacy.importBundle(upgraded, 'schema3-item-refresh');
+      expect(await legacy.getBundle()).toEqual(upgraded);
+      expect((await legacy.status()).schemaVersion).toBe(3);
+    } finally {
+      await legacy.close();
+      await control.query(`DROP SCHEMA "${legacySchema}" CASCADE`);
+    }
+  });
+
   it('rejects invalid import without changing current pointers', async () => {
     const previous = await archive.status();
     const bad = structuredClone(await readCuratedBundle(root));
     bad.mechanics.ru.formulas[0].sourceIds = ['missing-source'];
     await expect(archive.importBundle(bad)).rejects.toThrow();
     expect(await archive.status()).toEqual(previous);
+  });
+
+  it('roundtrips item rows and statistics, retaining older itemless versions exactly', async () => {
+    const legacy = await readCuratedBundle(root);
+    delete legacy.items;
+    delete legacy.itemStatistics;
+    (legacy.provenance as Record<string, unknown>).testRunId = randomUUID();
+    await archive.importBundle(legacy);
+    expect(await archive.getItems()).toBeNull();
+    expect(await archive.getItemStatistics()).toBeNull();
+    expect(await archive.getBundle()).toEqual(legacy);
+    const bundle = { ...legacy, ...itemFixture(legacy.heroes.meta.clientVersion) };
+    await archive.importBundle(bundle);
+    expect(await archive.getItems()).toEqual(bundle.items);
+    expect(await archive.getItemStatistics()).toEqual(bundle.itemStatistics);
+    expect(await archive.getBundle()).toEqual(bundle);
+    await archive.importBundle(legacy);
+    expect(await archive.getBundle()).toEqual(legacy);
   });
 
   it('roundtrips patch links through relational history without losing their provenance', async () => {
@@ -144,6 +205,8 @@ suite('PostgresArchive on an owned test database', () => {
 
   it('imports a newer hero patch while retaining older mechanics review metadata', async () => {
     const bundle = await readCuratedBundle(root);
+    delete bundle.items;
+    delete bundle.itemStatistics;
     const futureClient = bundle.heroes.meta.clientVersion + 1;
     const reviewedClient = bundle.mechanics.en.meta.reviewedClientVersion;
     const futureBuildDate = new Date(Date.parse(bundle.heroes.meta.buildDate) + 86_400_000)

@@ -1,7 +1,9 @@
 import { createServer } from 'node:http';
+import { fileURLToPath } from 'node:url';
 import type { HeroSnapshot } from '../shared/types';
 import type { ArchiveStatus, MechanicsCatalog, MechanicsFormula } from '../shared/database-types';
 import type { VersionHistory } from '../shared/version-history';
+import type { ItemCatalog, ItemStatistics } from '../shared/item-types';
 import { validateSnapshot } from '../shared/heroes';
 import mechanicsRu from '../data/mechanics.json';
 import mechanicsEn from '../data/mechanics.en.json';
@@ -9,9 +11,12 @@ import initialHistory from '../data/version-history.json';
 import type { UpdateManager } from './updates/manager';
 import { handleUpdateRequest } from './updates/http';
 import type { SyncManager } from './sync/manager';
+import { readCuratedBundle } from './database/bundle';
 
 /** Only public, bounded archive reads are exposed to HTTP. */
 export interface ArchiveReader {
+  getItems?(): Promise<ItemCatalog | null>;
+  getItemStatistics?(): Promise<ItemStatistics | null>;
   getHeroes(): Promise<HeroSnapshot | null>;
   getMechanics(language: 'ru' | 'en'): Promise<MechanicsCatalog | null>;
   getHistory(): Promise<VersionHistory | null>;
@@ -21,6 +26,8 @@ export interface ArchiveReader {
 }
 
 export interface AppOptions {
+  readItems?: () => Promise<ItemCatalog | null>;
+  readItemStatistics?: () => Promise<ItemStatistics | null>;
   updates?: UpdateManager;
   sync?: SyncManager;
   archive?: ArchiveReader;
@@ -83,6 +90,26 @@ export function createApp(snapshot: HeroSnapshot, options: AppOptions = {}) {
           : (options.updates?.getSnapshot() ?? snapshot);
         if (!heroes) throw new Error('Archive has no current snapshot');
         reply(200, heroes);
+      } else if (pathname === '/api/items' || pathname === '/api/item-statistics') {
+        response.setHeader('Cache-Control', 'no-cache');
+        const value =
+          pathname === '/api/items'
+            ? options.archive
+              ? await options.archive.getItems?.()
+              : options.readItems
+                ? await options.readItems()
+                : (await readCuratedBundle(fileURLToPath(new URL('../', import.meta.url)))).items
+            : options.archive
+              ? await options.archive.getItemStatistics?.()
+              : options.readItemStatistics
+                ? await options.readItemStatistics()
+                : (await readCuratedBundle(fileURLToPath(new URL('../', import.meta.url))))
+                    .itemStatistics;
+        if (!value) {
+          reply(404, { error: 'Item data unavailable' });
+          return;
+        }
+        reply(200, value);
       } else if (pathname === '/api/health') {
         const heroes = options.archive
           ? await options.archive.getHeroes()

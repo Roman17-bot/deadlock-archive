@@ -24,7 +24,7 @@ const canonical = (value: unknown): string => {
         : v;
   return JSON.stringify(sort(value), null, 2) + '\n';
 };
-function snapshot(): PublicSnapshot {
+function snapshot(withItems = false): PublicSnapshot {
   const files = [
     {
       path: 'data/heroes.json',
@@ -48,6 +48,15 @@ function snapshot(): PublicSnapshot {
     { path: 'data/version-history.json', content: Buffer.from('{}\n') },
     { path: 'public/assets/heroes/harrow.png', content: Buffer.from('portrait-fixture') },
   ];
+  if (withItems)
+    files.push(
+      { path: 'data/items.json', content: Buffer.from('{}\n') },
+      { path: 'data/item-statistics.json', content: Buffer.from('{}\n') },
+      ...Array.from({ length: 210 }, (_, i) => ({
+        path: `public/assets/items/item-${i}.webp`,
+        content: Buffer.from(`icon-${i}`),
+      })),
+    );
   const hashes = Object.fromEntries(files.map((f) => [f.path, sha256(f.content)]));
   const hash = sha256(canonical(hashes));
   const manifest = {
@@ -196,6 +205,21 @@ function remote(
 }
 
 describe('exact approved GitHub snapshot publication', () => {
+  it('upgrades a legacy manifest with paired item JSON and over200 bounded approved files', async () => {
+    const s = snapshot(true),
+      r = remote(snapshot());
+    expect(await publishSnapshot(s, r.deps)).toMatchObject({ changed: true });
+    const requests = r.calls.filter(
+      (call) => call.url.pathname.endsWith('/git/trees') && call.method === 'POST',
+    );
+    expect(requests[0].body.tree).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ path: 'data/items.json' }),
+        expect.objectContaining({ path: 'data/item-statistics.json' }),
+        expect.objectContaining({ path: 'public/assets/items/item-209.webp' }),
+      ]),
+    );
+  });
   it('creates only changed public blobs on the observed tree, then fast-forwards without dispatch', async () => {
     const s = snapshot(),
       r = remote(s, { changed: true });

@@ -84,6 +84,8 @@ async function start() {
         ? {
             readMechanics: async (language: 'ru' | 'en') =>
               (await readCuratedBundle(root)).mechanics[language],
+            readItems: async () => (await readCuratedBundle(root)).items ?? null,
+            readItemStatistics: async () => (await readCuratedBundle(root)).itemStatistics ?? null,
           }
         : {}),
     });

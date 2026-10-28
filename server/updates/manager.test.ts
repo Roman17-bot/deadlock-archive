@@ -1,7 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import original from '../../tests/fixtures/6819/heroes.json';
 import type { HeroSnapshot } from '../../shared/types';
 import { createUpdateManager } from './manager';
+import * as stagedRefresh from '../items/archive-refresh';
+afterEach(() => vi.restoreAllMocks());
 
 const snapshot = original as HeroSnapshot;
 const checkVersion = async () => ({ version: 6820, revision: 11162697, buildDate: '2026-10-25' });
@@ -18,6 +20,62 @@ const settle = async () => {
 };
 
 describe('owner update job', () => {
+  it('uses the complete staged refresh before importing or publishing', async () => {
+    const events: string[] = [];
+    vi.spyOn(stagedRefresh, 'refreshArchiveData').mockImplementation(async () => {
+      events.push('staged');
+      return result;
+    });
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion,
+      syncDatabase: async () => {
+        events.push('database');
+      },
+      publish: async () => {
+        events.push('publish');
+        return {
+          status: 'queued',
+          url: 'https://github.com/Roman17-bot/deadlock-archive/actions/runs/1',
+        };
+      },
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(events).toEqual(['staged', 'database', 'publish']);
+  });
+  it('preserves the old version when staging fails and retries the same pending version', async () => {
+    const database = vi.fn(),
+      publish = vi.fn(async () => ({
+        status: 'queued' as const,
+        url: 'https://github.com/Roman17-bot/deadlock-archive/actions/runs/1',
+      }));
+    const staged = vi
+      .spyOn(stagedRefresh, 'refreshArchiveData')
+      .mockRejectedValueOnce(new Error('private upstream information'))
+      .mockResolvedValue(result);
+    const manager = createUpdateManager({
+      snapshot,
+      root: '.',
+      checkVersion,
+      syncDatabase: database,
+      publish,
+    });
+    manager.start({ publish: true });
+    await settle();
+    expect(manager.getState().phase).toBe('failed');
+    expect(manager.getSnapshot().meta.clientVersion).toBe(6819);
+    expect(database).not.toHaveBeenCalled();
+    expect(publish).not.toHaveBeenCalled();
+    expect(JSON.stringify(manager.getState())).not.toContain('private upstream');
+    manager.start({ publish: true });
+    await settle();
+    expect(staged).toHaveBeenCalledTimes(2);
+    expect(manager.getState().phase).toBe('succeeded');
+    expect(database).toHaveBeenCalledTimes(1);
+    expect(publish).toHaveBeenCalledTimes(1);
+  });
   it('reserves synchronously, rejects overlapping updates and serves the saved snapshot', async () => {
     let finish!: (value: typeof result) => void;
     const manager = createUpdateManager({

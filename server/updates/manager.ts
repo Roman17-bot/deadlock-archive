@@ -1,7 +1,8 @@
 import { randomBytes, randomUUID } from 'node:crypto';
 import type { HeroSnapshot } from '../../shared/types';
 import type { PublicationState, UpdateState } from '../../shared/update-types';
-import { getLatestVersion, refreshData } from './source';
+import { getLatestVersion, type refreshData } from './source';
+import { refreshArchiveData } from '../items/archive-refresh';
 import { readVersionHistory } from './history';
 import type { VersionHistory } from '../../shared/version-history';
 
@@ -63,7 +64,7 @@ export function createUpdateManager(options: UpdateManagerOptions): UpdateManage
         return;
       }
       await options.prepareRefresh?.();
-      const refreshed = await (options.refresh ?? refreshData)({
+      const refreshed = await (options.refresh ?? refreshArchiveData)({
         root: options.root,
         expectedVersion: latest.version,
       });

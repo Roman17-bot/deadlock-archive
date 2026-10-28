@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { readCuratedBundle } from '../database/bundle';
+import { itemFixture } from '../database/item-fixture';
 import { canonicalJson, mirrorSnapshot, prepareSnapshot, readFileSnapshot } from './snapshot';
 
 vi.mock('node:fs/promises', async (original) => {
@@ -26,6 +27,8 @@ async function fixture() {
   const root = await mkdtemp(join(tmpdir(), 'deadlock-sync-'));
   directories.push(root);
   const bundle = await readCuratedBundle(repository);
+  delete bundle.items;
+  delete bundle.itemStatistics;
   for (const hero of bundle.heroes.heroes) hero.portrait = 'assets/heroes/test.webp';
   await mkdir(join(root, 'public/assets/heroes'), { recursive: true });
   await writeFile(join(root, 'public/assets/heroes/test.webp'), Buffer.from([1, 2, 3]));
@@ -41,6 +44,22 @@ afterEach(async () => {
 });
 
 describe('public snapshot', () => {
+  it('includes the paired item JSON and exact local WebP icon bytes', async () => {
+    const { root, bundle } = await fixture();
+    Object.assign(bundle, itemFixture(bundle.heroes.meta.clientVersion));
+    await mkdir(join(root, 'public/assets/items'), { recursive: true });
+    await writeFile(join(root, 'public/assets/items/test-item.webp'), Buffer.from([4, 5, 6]));
+    const snapshot = await prepareSnapshot(root, bundle);
+    expect(snapshot.manifest.files).toHaveProperty('data/items.json');
+    expect(snapshot.manifest.files).toHaveProperty('data/item-statistics.json');
+    expect(
+      snapshot.files.find((f) => f.path === 'public/assets/items/test-item.webp')?.content,
+    ).toEqual(Buffer.from([4, 5, 6]));
+    await mirrorSnapshot(root, snapshot);
+    expect((await readFileSnapshot(root)).hash).toBe(snapshot.hash);
+    bundle.items!.items[0].icon = 'assets/items/../secret.webp';
+    await expect(prepareSnapshot(root, bundle)).rejects.toThrow();
+  });
   it('sorts nested object keys, retains array order and numeric precision with a final newline', () => {
     expect(canonicalJson({ z: [{ b: 0.123456789123, a: 2 }, 1], a: null })).toBe(
       '{\n  "a": null,\n  "z": [\n    {\n      "a": 2,\n      "b": 0.123456789123\n    },\n    1\n  ]\n}\n',
@@ -151,12 +170,12 @@ describe('public snapshot', () => {
     }
     await expect(prepareSnapshot(root, bundle)).rejects.toThrow(/size|limit|large/i);
     const hero = bundle.heroes.heroes[0];
-    bundle.heroes.heroes = Array.from({ length: 195 }, (_, i) => ({
+    bundle.heroes.heroes = Array.from({ length: 507 }, (_, i) => ({
       ...structuredClone(hero),
       id: i + 1,
       portrait: `assets/heroes/${i}.webp`,
     }));
-    bundle.heroes.meta.heroCount = 195;
+    bundle.heroes.meta.heroCount = 507;
     (bundle.provenance as { meta: unknown }).meta = structuredClone(bundle.heroes.meta);
     await expect(prepareSnapshot(root, bundle)).rejects.toThrow(/count|limit|many/i);
   });

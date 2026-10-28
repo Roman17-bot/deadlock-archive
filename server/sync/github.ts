@@ -16,7 +16,8 @@ const dataPaths = [
   'data/version-history.json',
 ];
 const maxFileBytes = 4 * 1024 * 1024;
-const maxFiles = 200;
+const itemDataPaths = ['data/items.json', 'data/item-statistics.json'];
+const maxFiles = 512;
 const maxTotalBytes = 32 * 1024 * 1024;
 const safeError = () =>
   new Error(
@@ -51,6 +52,8 @@ function canonical(value: unknown): string {
 function approvedPath(path: string): boolean {
   return (
     dataPaths.includes(path) ||
+    itemDataPaths.includes(path) ||
+    /^public\/assets\/items\/[A-Za-z0-9][A-Za-z0-9._-]*\.webp$/.test(path) ||
     /^public\/assets\/heroes\/[A-Za-z0-9][A-Za-z0-9._-]*\.(?:webp|png|jpe?g|avif)$/.test(path)
   );
 }
@@ -70,6 +73,8 @@ function parseManifest(value: unknown): SnapshotManifest {
     entries.length < dataPaths.length ||
     entries.length >= maxFiles ||
     dataPaths.some((p) => !Object.hasOwn(files, p)) ||
+    itemDataPaths.some((p) => Object.hasOwn(files, p)) !==
+      itemDataPaths.every((p) => Object.hasOwn(files, p)) ||
     entries.some(([path, hash]) => !approvedPath(path) || !validHash(hash)) ||
     sha256(canonical(files)) !== v.hash
   )

@@ -4,6 +4,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { validateSnapshot } from '../../shared/heroes';
 import { validateVersionHistory } from '../../shared/version-history';
 import type { CuratedBundle, MechanicsCatalog } from '../../shared/database-types';
+import { validateItemCatalog, validateItemStatistics } from '../../shared/items';
 
 const text = (value: unknown): value is string => typeof value === 'string' && value.length > 0;
 const strings = (value: unknown): value is string[] => Array.isArray(value) && value.every(text);
@@ -81,6 +82,16 @@ function validateCatalog(value: unknown): asserts value is MechanicsCatalog {
 export function validateCuratedBundle(input: unknown): asserts input is CuratedBundle {
   if (!input || typeof input !== 'object') throw new Error('Invalid curated bundle');
   const bundle = input as CuratedBundle;
+  if ((bundle.items === undefined) !== (bundle.itemStatistics === undefined))
+    throw new Error('Items and item statistics must be supplied together');
+  if (
+    bundle.items !== undefined &&
+    (!validateItemCatalog(bundle.items) ||
+      !validateItemStatistics(bundle.itemStatistics, bundle.items) ||
+      bundle.items.meta.clientVersion !== bundle.heroes?.meta.clientVersion ||
+      bundle.itemStatistics?.meta.clientVersion !== bundle.items.meta.clientVersion)
+  )
+    throw new Error('Invalid items or item statistics metadata');
   if (!validateSnapshot(bundle.heroes)) throw new Error('Invalid hero snapshot');
   if (!bundle.mechanics) throw new Error('Missing mechanics catalogues');
   validateCatalog(bundle.mechanics.ru);
@@ -150,7 +161,26 @@ export async function readCuratedBundle(root: string): Promise<CuratedBundle> {
     read('provenance.json'),
     read('version-history.json'),
   ]);
-  const bundle = { heroes, mechanics: { ru, en }, provenance, history };
+  const optional = async (name: string) => {
+    try {
+      return await read(name);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+      throw error;
+    }
+  };
+  const [items, itemStatistics] = await Promise.all([
+    optional('items.json'),
+    optional('item-statistics.json'),
+  ]);
+  const bundle = {
+    heroes,
+    mechanics: { ru, en },
+    provenance,
+    history,
+    ...(items === undefined ? {} : { items }),
+    ...(itemStatistics === undefined ? {} : { itemStatistics }),
+  };
   validateCuratedBundle(bundle);
   return bundle;
 }

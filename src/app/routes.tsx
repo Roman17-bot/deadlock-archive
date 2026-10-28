@@ -11,6 +11,14 @@ const MechanicsPage = lazy(() =>
     default: module.MechanicsPage,
   })),
 );
+const ItemsPage = lazy(() =>
+  import('../pages/ItemsPage/ItemsPage').then((module) => ({ default: module.ItemsPage })),
+);
+const ItemDetailPage = lazy(() =>
+  import('../pages/ItemDetailPage/ItemDetailPage').then((module) => ({
+    default: module.ItemDetailPage,
+  })),
+);
 
 export function AppRoutes({
   route,
@@ -25,6 +33,15 @@ export function AppRoutes({
   onMethod: () => void;
   onSnapshot: (snapshot: HeroSnapshot) => void;
 }) {
+  if (route === 'items') {
+    const slug = routeHash.split('?')[0].slice('#/items/'.length);
+    const detail = routeHash.split('?')[0].startsWith('#/items/');
+    return (
+      <Suspense fallback={<ArchiveLoading />}>
+        {detail ? <ItemDetailPage key={slug} slug={slug} heroes={data} /> : <ItemsPage />}
+      </Suspense>
+    );
+  }
   if (route === 'mechanics') {
     return (
       <Suspense fallback={<ArchiveLoading />}>

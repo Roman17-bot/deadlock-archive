@@ -3,6 +3,12 @@ import type { Pool, PoolClient } from 'pg';
 import type { Hero, HeroSnapshot } from '../../shared/types';
 import type { VersionHistory } from '../../shared/version-history';
 import type {
+  ItemCatalog,
+  ItemStatistics,
+  ShopItem,
+  ItemPurchaseStats,
+} from '../../shared/item-types';
+import type {
   ArchiveStatus,
   CuratedBundle,
   MechanicsCatalog,
@@ -246,6 +252,22 @@ export class PostgresArchive {
     snapshotId: number,
     bundle: CuratedBundle,
   ): Promise<void> {
+    if (bundle.items && bundle.itemStatistics) {
+      await client.query(
+        'INSERT INTO item_catalogues (snapshot_id, meta, statistics_meta) VALUES ($1, $2, $3)',
+        [snapshotId, json(bundle.items.meta), json(bundle.itemStatistics.meta)],
+      );
+      for (const [ordinal, item] of bundle.items.items.entries())
+        await client.query(
+          'INSERT INTO shop_items (snapshot_id, ordinal, item_id, slug, category, tier, data) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+          [snapshotId, ordinal, item.id, item.slug, item.category, item.tier, json(item)],
+        );
+      for (const [ordinal, item] of bundle.itemStatistics.items.entries())
+        await client.query(
+          'INSERT INTO item_purchase_statistics (snapshot_id, ordinal, item_id, data) VALUES ($1, $2, $3, $4)',
+          [snapshotId, ordinal, item.itemId, json(item)],
+        );
+    }
     for (const [ordinal, hero] of bundle.heroes.heroes.entries()) {
       const values = heroValues(snapshotId, ordinal, hero);
       await client.query(
@@ -328,6 +350,47 @@ export class PostgresArchive {
   async getHeroes(): Promise<HeroSnapshot | null> {
     const id = await currentId(this.pool);
     return id === null ? null : this.heroesFor(id);
+  }
+
+  private async itemsFor(
+    snapshotId: number,
+    reader: ArchiveReader = this.pool,
+  ): Promise<{ items: ItemCatalog; itemStatistics: ItemStatistics } | null> {
+    // Owner dry-runs must read pre-item archives without applying migrations or using JSON.
+    const schema = await reader.query<{ items_available: boolean }>(
+      "SELECT to_regclass(format('%I.item_catalogues', current_schema())) IS NOT NULL AS items_available",
+    );
+    if (!schema.rows[0]?.items_available) return null;
+    const meta = await reader.query<{
+      meta: ItemCatalog['meta'];
+      statistics_meta: ItemStatistics['meta'];
+    }>('SELECT meta, statistics_meta FROM item_catalogues WHERE snapshot_id = $1', [snapshotId]);
+    if (!meta.rows.length) return null;
+    const items = await reader.query<{ data: ShopItem }>(
+      'SELECT data FROM shop_items WHERE snapshot_id = $1 ORDER BY ordinal',
+      [snapshotId],
+    );
+    const statistics = await reader.query<{ data: ItemPurchaseStats }>(
+      'SELECT data FROM item_purchase_statistics WHERE snapshot_id = $1 ORDER BY ordinal',
+      [snapshotId],
+    );
+    return {
+      items: { meta: meta.rows[0].meta, items: items.rows.map((r) => r.data) },
+      itemStatistics: {
+        meta: meta.rows[0].statistics_meta,
+        items: statistics.rows.map((r) => r.data),
+      },
+    };
+  }
+
+  async getItems(): Promise<ItemCatalog | null> {
+    const id = await currentId(this.pool);
+    return id === null ? null : ((await this.itemsFor(id))?.items ?? null);
+  }
+
+  async getItemStatistics(): Promise<ItemStatistics | null> {
+    const id = await currentId(this.pool);
+    return id === null ? null : ((await this.itemsFor(id))?.itemStatistics ?? null);
   }
 
   private async mechanicsFor(
@@ -424,6 +487,7 @@ export class PostgresArchive {
       const ru = await this.mechanicsFor(id, 'ru', client);
       const en = await this.mechanicsFor(id, 'en', client);
       const history = await this.historyFor(id, client);
+      const items = await this.itemsFor(id, client);
       const provenance = await client.query<{ provenance: unknown }>(
         'SELECT provenance FROM archive_snapshots WHERE id = $1',
         [id],
@@ -433,6 +497,7 @@ export class PostgresArchive {
         mechanics: { ru, en },
         provenance: provenance.rows[0].provenance,
         history,
+        ...(items ?? {}),
       };
       validateCuratedBundle(bundle);
       await client.query('COMMIT');

@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import { refreshData } from '../server/updates/source.ts';
+import { refreshArchiveData } from '../server/items/archive-refresh.ts';
 import { loadDatabaseEnvironment, createDatabasePool } from '../server/database/config.ts';
 import { PostgresArchive } from '../server/database/repository.ts';
 import { syncCuratedDatabase } from '../server/database/sync.ts';
@@ -22,7 +22,7 @@ for (let index = 0; index < args.length; index++) {
 let savedLocally = false;
 let syncingDatabase = false;
 try {
-  const result = await refreshData({
+  const result = await refreshArchiveData({
     root,
     dryRun,
     expectedVersion,

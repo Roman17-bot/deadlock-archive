@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 
-export type PageRoute = 'home' | 'heroes' | 'mechanics' | 'updates';
+export type PageRoute = 'home' | 'heroes' | 'mechanics' | 'updates' | 'items';
 
 function resolveRoute(hash: string): PageRoute {
-  return hash.startsWith('#/heroes')
-    ? 'heroes'
-    : hash.startsWith('#/mechanics')
-      ? 'mechanics'
-      : hash.startsWith('#/updates')
-        ? 'updates'
-        : 'home';
+  return /^#\/items(?:\/|\?|$)/.test(hash)
+    ? 'items'
+    : hash.startsWith('#/heroes')
+      ? 'heroes'
+      : hash.startsWith('#/mechanics')
+        ? 'mechanics'
+        : hash.startsWith('#/updates')
+          ? 'updates'
+          : 'home';
 }
 
 export function useHashRoute() {

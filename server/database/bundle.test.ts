@@ -4,10 +4,19 @@ import { readCuratedBundle, validateCuratedBundle } from './bundle';
 import heroesFixture from '../../data/heroes.json';
 import mechanicsFixture from '../../data/mechanics.json';
 import englishMechanicsFixture from '../../data/mechanics.en.json';
+import { itemFixture } from './item-fixture';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
 describe('curated bundle', () => {
+  it('accepts legacy bundles but rejects incomplete or mismatched item pairs', async () => {
+    const bundle = await readCuratedBundle(root);
+    const fresh = { ...bundle, ...itemFixture(bundle.heroes.meta.clientVersion) };
+    expect(() => validateCuratedBundle(fresh)).not.toThrow();
+    expect(() => validateCuratedBundle({ ...fresh, itemStatistics: undefined })).toThrow(/item/i);
+    fresh.itemStatistics.meta.clientVersion += 1;
+    expect(() => validateCuratedBundle(fresh)).toThrow(/item/i);
+  });
   it('reads the four public files and rejects a cross-language source mismatch', async () => {
     const bundle = await readCuratedBundle(root);
     expect(bundle.heroes.heroes).toHaveLength(heroesFixture.heroes.length);
@@ -40,6 +49,8 @@ describe('curated bundle', () => {
 
   it('accepts a newer hero snapshot while mechanics remain reviewed for the prior client', async () => {
     const bundle = structuredClone(await readCuratedBundle(root));
+    delete bundle.items;
+    delete bundle.itemStatistics;
     const futureClient = bundle.heroes.meta.clientVersion + 1;
     const reviewedClient = bundle.mechanics.ru.meta.reviewedClientVersion;
     const futureBuildDate = new Date(Date.parse(bundle.heroes.meta.buildDate) + 86_400_000)

@@ -17,7 +17,7 @@ export function App({ initialSnapshot }: { initialSnapshot?: HeroSnapshot }) {
   const openMethod = () => setMethod(true);
 
   useEffect(() => {
-    document.title = `Deadlock Archive — ${t({ home: 'справочник', heroes: 'реестр героев', mechanics: 'механики и калькуляторы', updates: 'обновление данных' }[route])}`;
+    document.title = `Deadlock Archive — ${t({ home: 'справочник', heroes: 'реестр героев', mechanics: 'механики и калькуляторы', updates: 'обновление данных', items: 'Предметы' }[route])}`;
   }, [route, t]);
 
   return (

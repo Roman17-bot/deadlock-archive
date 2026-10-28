@@ -2,11 +2,38 @@ import { readFile, access } from 'node:fs/promises';
 import { validateSnapshot, statsAtLevel } from '../shared/heroes.ts';
 import { validateVersionHistory } from '../shared/version-history.ts';
 import { isDeepStrictEqual } from 'node:util';
+import { validateItemCatalog, validateItemStatistics } from '../shared/items.ts';
 
 const snapshot = JSON.parse(
   await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
 );
 if (!validateSnapshot(snapshot)) throw new Error('Invalid hero snapshot');
+const optionalItems = async (name) => {
+  try {
+    return JSON.parse(await readFile(new URL(`../data/${name}`, import.meta.url), 'utf8'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return undefined;
+    throw error;
+  }
+};
+const [items, itemStatistics] = await Promise.all([
+  optionalItems('items.json'),
+  optionalItems('item-statistics.json'),
+]);
+if ((items === undefined) !== (itemStatistics === undefined))
+  throw new Error('Items and statistics must be supplied together');
+if (items !== undefined) {
+  if (
+    !validateItemCatalog(items) ||
+    !validateItemStatistics(itemStatistics, items) ||
+    items.meta.clientVersion !== snapshot.meta.clientVersion ||
+    itemStatistics.meta.clientVersion !== items.meta.clientVersion
+  )
+    throw new Error('Invalid or outdated items and statistics');
+  await Promise.all(
+    items.items.map((item) => access(new URL('../public/' + item.icon, import.meta.url))),
+  );
+}
 const history = JSON.parse(
   await readFile(new URL('../data/version-history.json', import.meta.url), 'utf8'),
 );

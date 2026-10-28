@@ -19,6 +19,7 @@
     "typecheck": "tsc --noEmit",
     "data:check": "node scripts/validate-data.mjs",
     "data:update": "node --import tsx scripts/update-data.mjs",
+    "items:refresh": "node --import tsx scripts/update-items.mjs",
     "db:setup": "node --import tsx scripts/database/cli.mjs setup",
     "db:migrate": "node --import tsx scripts/database/cli.mjs migrate",
     "db:import": "node --import tsx scripts/database/cli.mjs import",

@@ -101,3 +101,13 @@ pg_restore --no-owner --no-acl --dbname=deadlock_archive_verify --username=deadl
 Клиент запросит пароль приложения. Не используй `--clean` против рабочего архива. Проверочная копия не изменяет `deadlock_archive` и публичные файлы. На Windows утилиты находятся в `C:\Program Files\PostgreSQL\18\bin`, если эта папка не добавлена в PATH.
 
 При проблемах начни с `npm run db:status`. Если пароль приложения потерян, `db:setup` не сбрасывает существующую роль: потребуется отдельно восстановить конфигурацию. Для контекста исследований по-прежнему используется `npm run knowledge -- status`, для числовых расчётов — проверенный модуль `shared/mechanics.ts` или калькулятор сайта с его допущениями.
+
+# Item catalogues
+
+Migration `003_items.sql` adds catalogue metadata, ordered shop-item rows and ordered purchase-statistics rows scoped to each archive version. Nested localized attributes and hero purchase aggregates retain their original JSON values. Older versions without items export without adding item fields; items and statistics must always be imported together and match the hero client version.
+
+`GET /api/items` and `GET /api/item-statistics` read PostgreSQL when configured. A version with no item catalogue returns 404; database failures return 503. File mode reads the curated bundle. `npm run db:query -- item "NAME"` returns at most20 matching items. `db:export` includes both JSON files when the selected version contains them.
+
+Initial catalog generation is explicit: take a private backup, run `npm run items:refresh -- --dry-run`, then `npm run items:refresh`. With configured PostgreSQL the command preserves database companion data and imports the complete validated bundle; it reports file/database outcomes separately and does not publish. Server startup preserves an existing database. New game versions stage heroes and items together before committing files, importing the database and publishing; a same-client game update remains a no-op. Explicit `db:sync` compares content hashes, including item JSON and referenced local WebP icons. See [items.md](items.md).
+
+Exact synchronization approves only the existing curated JSON, the paired `data/items.json` / `data/item-statistics.json`, hero portraits and `public/assets/items/*.webp`. The total file cap is512; per-file and total-byte caps remain4MiB and32MiB. Legacy remote manifests remain readable so the first item publication can upgrade an older deployment. Publication still verifies every approved file byte.

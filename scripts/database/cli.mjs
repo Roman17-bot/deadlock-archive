@@ -255,6 +255,12 @@ async function exportBundle(args) {
       ['mechanics.en.json', bundle.mechanics.en],
       ['provenance.json', bundle.provenance],
       ['version-history.json', bundle.history],
+      ...(bundle.items
+        ? [
+            ['items.json', bundle.items],
+            ['item-statistics.json', bundle.itemStatistics],
+          ]
+        : []),
     ];
     for (const [name, value] of files) {
       await writeFile(join(directory, name), JSON.stringify(value, null, 2) + '\n', { flag: 'wx' });
@@ -343,14 +349,28 @@ async function query(args) {
       };
     } else if (kind === 'hero' && terms.length === 1 && terms[0].length <= 100)
       result = await archive.searchHeroes(terms[0], 20);
-    else if (
+    else if (kind === 'item' && terms.length === 1 && terms[0].length <= 100) {
+      const catalog = await archive.getItems();
+      const term = terms[0].trim().toLocaleLowerCase();
+      result =
+        catalog?.items
+          .filter((item) =>
+            `${item.name} ${item.slug} ${item.localizedName.ru} ${item.localizedName.en}`
+              .toLocaleLowerCase()
+              .includes(term),
+          )
+          .slice(0, 20) ?? [];
+    } else if (
       kind === 'formula' &&
       (terms.length === 1 || terms.length === 2) &&
       terms[0].length <= 100 &&
       (!terms[1] || ['ru', 'en'].includes(terms[1]))
     )
       result = await archive.getFormula(terms[0], terms[1] ?? 'ru');
-    else throw new Error('Usage: db:query status|history|hero <name>|formula <id> [ru|en]');
+    else
+      throw new Error(
+        'Usage: db:query status|history|hero <name>|item <name>|formula <id> [ru|en]',
+      );
     console.log(JSON.stringify(result, null, 2));
   });
 }

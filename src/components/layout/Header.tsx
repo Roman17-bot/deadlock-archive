@@ -32,6 +32,13 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
             {t('Реестр героев')} <span className="nav-count">{data?.heroes.length ?? '—'}</span>
           </a>
           <a
+            href="#/items"
+            className={route === 'items' ? 'active' : ''}
+            aria-current={route === 'items' ? 'page' : undefined}
+          >
+            {t('Предметы')}
+          </a>
+          <a
             className={route === 'mechanics' ? 'active' : ''}
             aria-current={route === 'mechanics' ? 'page' : undefined}
             href="#/mechanics"

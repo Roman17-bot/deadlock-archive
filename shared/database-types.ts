@@ -1,5 +1,6 @@
 import type { Hero, HeroSnapshot } from './types';
 import type { VersionHistory } from './version-history';
+import type { ItemCatalog, ItemStatistics } from './item-types';
 
 export interface MechanicsSource {
   id: string;
@@ -36,6 +37,8 @@ export interface MechanicsCatalog {
 }
 
 export interface CuratedBundle {
+  items?: ItemCatalog;
+  itemStatistics?: ItemStatistics;
   heroes: HeroSnapshot;
   mechanics: { ru: MechanicsCatalog; en: MechanicsCatalog };
   provenance: unknown;

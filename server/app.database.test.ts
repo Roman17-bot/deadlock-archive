@@ -9,6 +9,7 @@ import type { HeroSnapshot } from '../shared/types';
 import type { ArchiveStatus, MechanicsCatalog } from '../shared/database-types';
 import type { VersionHistory } from '../shared/version-history';
 import { createApp } from './app';
+import { itemFixture } from './database/item-fixture';
 
 const servers: Server[] = [];
 afterEach(async () => {
@@ -74,6 +75,49 @@ it('reads live heroes, mechanics, history, and health from configured archive', 
     heroCount: 1,
     database: { schemaVersion: 1, snapshots: 2 },
   });
+});
+
+it('serves item endpoints from the configured archive and never falls back to files', async () => {
+  const pair = itemFixture(9999);
+  const url = await baseUrl(
+    createApp(snapshot as HeroSnapshot, {
+      archive: archive({
+        getItems: async () => pair.items,
+        getItemStatistics: async () => pair.itemStatistics,
+      }),
+    }),
+  );
+  expect(await (await fetch(`${url}/api/items`)).json()).toEqual(pair.items);
+  expect(await (await fetch(`${url}/api/item-statistics`)).json()).toEqual(pair.itemStatistics);
+  const empty = await baseUrl(
+    createApp(snapshot as HeroSnapshot, { archive: archive(), readItems: async () => pair.items }),
+  );
+  expect((await fetch(`${empty}/api/items`)).status).toBe(404);
+  const failed = await baseUrl(
+    createApp(snapshot as HeroSnapshot, {
+      archive: archive({
+        getItems: async () => {
+          throw new Error('private credentials');
+        },
+      }),
+      readItems: async () => pair.items,
+    }),
+  );
+  const response = await fetch(`${failed}/api/items`);
+  expect(response.status).toBe(503);
+  expect(await response.text()).toBe('{"error":"Archive unavailable"}');
+});
+
+it('serves paired item data through file-mode readers', async () => {
+  const pair = itemFixture(snapshot.meta.clientVersion);
+  const url = await baseUrl(
+    createApp(snapshot as HeroSnapshot, {
+      readItems: async () => pair.items,
+      readItemStatistics: async () => pair.itemStatistics,
+    }),
+  );
+  expect(await (await fetch(`${url}/api/items`)).json()).toEqual(pair.items);
+  expect(await (await fetch(`${url}/api/item-statistics`)).json()).toEqual(pair.itemStatistics);
 });
 
 it('does not fall back to JSON or expose database failures', async () => {
