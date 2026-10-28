@@ -62,11 +62,6 @@ export function HomeHero({ data }: { data: HeroSnapshot }) {
             <br />
             {t('У КАЖДОГО СВОЯ ИСТОРИЯ')}
           </span>
-          <span className="roster-seal">
-            {t('ВЕРСИЯ')}
-            <br />
-            {data.meta.clientVersion}
-          </span>
         </div>
       </div>
     </section>

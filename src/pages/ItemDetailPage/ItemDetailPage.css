@@ -214,18 +214,6 @@
   color: var(--sage);
   white-space: nowrap;
 }
-.item-stats-period {
-  margin-top: 24px;
-  padding-top: 15px;
-  border-top: 1px solid var(--line);
-  line-height: 1.8;
-}
-.item-statistics .item-stats-note {
-  font-size: 10px !important;
-  line-height: 1.7;
-  margin-top: 17px;
-  color: var(--sage) !important;
-}
 @media (max-width: 1000px) {
   .item-detail-columns {
     gap: 25px;

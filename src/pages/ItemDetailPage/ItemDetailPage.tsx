@@ -4,7 +4,7 @@ import { useItems } from '../../features/items/useItems';
 import { buyTime, categoryNames, itemHref, safeReturn } from '../../features/items/model';
 import { ItemContent } from '../../features/items/ItemContent';
 import { useI18n } from '../../i18n';
-import { asset, format, formatDate } from '../../lib/format';
+import { asset, format } from '../../lib/format';
 
 export function ItemDetailPage({
   slug,
@@ -117,9 +117,6 @@ export function ItemDetailPage({
             <span>
               {t(item.activation === 'active' ? 'Активный предмет' : 'Пассивный предмет')}
             </span>
-            <span>
-              {t('ВЕРСИЯ')} {catalog.meta.clientVersion}
-            </span>
           </div>
         </div>
       </header>
@@ -188,22 +185,6 @@ export function ItemDetailPage({
               )}
             </>
           )}
-          {statistics && (
-            <p className="item-stats-period">
-              {formatDate(statistics.meta.from, true)} — {formatDate(statistics.meta.to, true)}
-              <br />
-              {t('Обычный режим · рейтинговые и нерейтинговые')}
-              {statistics.meta.minAverageBadge === null && (
-                <>
-                  <br />
-                  {t('Все ранги')}
-                </>
-              )}
-            </p>
-          )}
-          <p className="item-stats-note">
-            {t('Доля побед после покупки не означает прибавку к шансу победы.')}
-          </p>
         </aside>
       </div>
     </div>

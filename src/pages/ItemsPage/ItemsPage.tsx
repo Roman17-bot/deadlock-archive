@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Search, SlidersHorizontal, X, Zap } from 'lucide-react';
+import {
+  Check,
+  Crosshair,
+  Search,
+  Shield,
+  SlidersHorizontal,
+  Sparkles,
+  X,
+  Zap,
+} from 'lucide-react';
 import type { ItemCatalog, ItemTier, ShopItem } from '../../../shared/item-types';
 import {
   EMPTY_ITEM_FILTERS,
@@ -19,6 +28,8 @@ import { ItemContent } from '../../features/items/ItemContent';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+
+const categoryIcons = { weapon: Crosshair, vitality: Shield, spirit: Sparkles };
 
 function ItemCard({ item, returnTo }: { item: ShopItem; returnTo: string }) {
   const { t, language } = useI18n();
@@ -149,11 +160,6 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
         <p className="items-eyebrow">{t('СНАРЯЖЕНИЕ / МАГАЗИН')}</p>
         <h1>{t('Предметы')}</h1>
         <p>{t('Подбери снаряжение под свою игру.')}</p>
-        {catalog && (
-          <span className="items-edition">
-            {t('ВЕРСИЯ')} {catalog.meta.clientVersion} · {catalog.items.length} {t('предметов')}
-          </span>
-        )}
       </header>
       <div className="items-search">
         <Search size={21} />
@@ -165,6 +171,25 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
           onChange={(event) => update({ ...filters, query: event.target.value })}
         />
       </div>
+      <div className="item-category-filters" role="group" aria-label={t('Категории')}>
+        {categories.map((category) => {
+          const Icon = categoryIcons[category];
+          return (
+            <button
+              key={category}
+              className={`item-category-button ${category}`}
+              aria-pressed={filters.categories.includes(category)}
+              onClick={() =>
+                update({ ...filters, categories: toggle(filters.categories, category) })
+              }
+            >
+              <Icon className="item-category-icon" size={23} />
+              <span>{t(categoryNames[category])}</span>
+              <Check className="item-category-check" size={17} />
+            </button>
+          );
+        })}
+      </div>
       <details className="item-filter-panel" open={!mobile}>
         <summary>
           <SlidersHorizontal size={16} />
@@ -172,20 +197,6 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
           <span>{chipLabels.length || ''}</span>
         </summary>
         <div className="item-basic-filters">
-          <div className="item-control-group" aria-label={t('Категории')}>
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`item-toggle ${category}`}
-                aria-pressed={filters.categories.includes(category)}
-                onClick={() =>
-                  update({ ...filters, categories: toggle(filters.categories, category) })
-                }
-              >
-                {t(categoryNames[category])}
-              </button>
-            ))}
-          </div>
           <div className="item-control-group" aria-label={t('Тиры')}>
             {([1, 2, 3, 4] as ItemTier[]).map((tier) => (
               <button
@@ -305,7 +316,10 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
                 .map((category) => (
                   <section className={`shop-category ${category}`} key={category}>
                     <header>
-                      <span className="category-mark" />
+                      {(() => {
+                        const Icon = categoryIcons[category];
+                        return <Icon size={23} />;
+                      })()}
                       <h2>{t(categoryNames[category])}</h2>
                       <span>{items.filter((i) => i.category === category).length}</span>
                     </header>

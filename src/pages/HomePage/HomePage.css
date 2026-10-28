@@ -152,7 +152,7 @@
 }
 .archive-strip {
   display: grid;
-  grid-template-columns: 0.9fr 1.05fr 1.4fr 1.15fr;
+  grid-template-columns: 1fr 1.2fr 1fr;
   margin: 0 44px;
   border-top: 1px solid #4b5745;
   border-bottom: 1px solid #4b5745;
@@ -496,14 +496,12 @@
   .archive-strip > div:nth-child(2) {
     border-right: 0;
   }
-  .archive-strip > div:nth-child(3) {
-    border-bottom: 0;
-  }
   .archive-strip > button {
+    grid-column: 1 / -1;
     padding: 16px;
     min-width: 0;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   .archive-strip span {
     font-size: 0.75rem;

@@ -163,7 +163,7 @@ it('supports English detail and absent statistics', async () => {
   expect(screen.getByText('Useful effect')).toBeVisible();
   expect(await screen.findByText('Purchase statistics are unavailable.')).toBeVisible();
 });
-it('keeps phone filters collapsed until requested', () => {
+it('keeps phone categories available while secondary filters are collapsed', async () => {
   vi.stubGlobal('matchMedia', () => ({
     matches: true,
     addEventListener() {},
@@ -171,6 +171,12 @@ it('keeps phone filters collapsed until requested', () => {
   }));
   render(<ItemsPage initialCatalog={catalog} />);
   expect(screen.getByText('Фильтры магазина').closest('details')).not.toHaveAttribute('open');
+  const spirit = screen.getByRole('button', { name: 'Спирит' });
+  expect(spirit.closest('details')).toBeNull();
+  await userEvent.click(spirit);
+  expect(spirit).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.queryByRole('link', { name: /Alpha/ })).not.toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /Beta/ })).toBeVisible();
 });
 it('renders loading and recovers a failed catalog request', async () => {
   const { unmount } = render(<ItemsPage />);
@@ -199,7 +205,7 @@ it('shows recorded wins, purchase count and rounded m:ss without causal claims',
   expect(screen.getByText('57.5%')).toBeVisible();
   expect(screen.getByText('40')).toBeVisible();
   expect(screen.getByText('15:05')).toBeVisible();
-  expect(screen.getByText(/All ranks/)).toBeVisible();
+  expect(screen.queryByText(/All ranks/)).not.toBeInTheDocument();
 });
 it('treats zero purchases as absent observations instead of zero winrate', () => {
   render(
