@@ -15,35 +15,39 @@ export function useItems(
   );
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {
-    if (initialCatalog) return;
     const controller = new AbortController();
     setError(false);
-    void loadItems(controller.signal)
-      .then(setCatalog)
+    const catalogRequest = initialCatalog
+      ? Promise.resolve(initialCatalog)
+      : loadItems(controller.signal);
+    void catalogRequest
+      .then((value) => {
+        if (!controller.signal.aborted) setCatalog(value);
+      })
       .catch(() => {
         if (!controller.signal.aborted) setError(true);
       });
+    // Start both transfers now; only validation needs to wait for the catalog.
+    if (withStatistics && !initialStatistics) {
+      setStatisticsState('loading');
+      void loadItemStatistics(controller.signal, catalogRequest)
+        .then((value) => {
+          if (controller.signal.aborted) return;
+          setStatistics(value);
+          setStatisticsState('ready');
+        })
+        .catch(() => {
+          if (!controller.signal.aborted) setStatisticsState('error');
+        });
+    }
     return () => controller.abort();
-  }, [initialCatalog, attempt]);
-  useEffect(() => {
-    if (!withStatistics || !catalog || initialStatistics) return;
-    const controller = new AbortController();
-    setStatisticsState('loading');
-    void loadItemStatistics(controller.signal, catalog)
-      .then((value) => {
-        setStatistics(value);
-        setStatisticsState('ready');
-      })
-      .catch(() => {
-        if (!controller.signal.aborted) setStatisticsState('error');
-      });
-    return () => controller.abort();
-  }, [catalog, initialStatistics, withStatistics]);
+  }, [initialCatalog, initialStatistics, withStatistics, attempt]);
   return {
     catalog,
     statistics,
     error,
     statisticsState,
     retry: () => setAttempt((value) => value + 1),
+    retryStatistics: () => setAttempt((value) => value + 1),
   };
 }

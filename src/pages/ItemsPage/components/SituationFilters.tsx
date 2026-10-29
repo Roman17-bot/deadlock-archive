@@ -49,7 +49,12 @@ import {
   Zap,
   type LucideIcon,
 } from 'lucide-react';
-import { ITEM_FILTER_GROUPS, filterItems, type ItemFilters } from '../../../../shared/item-filters';
+import {
+  ITEM_FILTER_GROUPS,
+  filterItems,
+  searchItemProperties,
+  type ItemFilters,
+} from '../../../../shared/item-filters';
 import type { ItemCatalog } from '../../../../shared/item-types';
 import { useI18n } from '../../../i18n';
 
@@ -138,21 +143,11 @@ export function SituationFilters({
     if (group)
       setExpanded((current) => (current.includes(group.id) ? current : [...current, group.id]));
   }, [selected]);
-  const words = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
+  const words = query.trim().split(/\s+/).filter(Boolean);
+  const matching = new Set(searchItemProperties(query).map((filter) => filter.id));
   const groups = ITEM_FILTER_GROUPS.map((group) => ({
     ...group,
-    filters: group.filters.filter((filter) => {
-      const corpus = [
-        filter.label.ru,
-        filter.label.en,
-        filter.description.ru,
-        filter.description.en,
-        ...(filter.aliases ?? []),
-      ]
-        .join(' ')
-        .toLocaleLowerCase();
-      return words.every((word) => corpus.includes(word));
-    }),
+    filters: group.filters.filter((filter) => matching.has(filter.id)),
   })).filter((group) => group.filters.length);
   const select = (id?: string) => update({ ...filters, tags: id ? [id] : [], tagMode: 'all' });
   const count = (id?: string) =>

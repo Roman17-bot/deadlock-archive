@@ -72,12 +72,12 @@ it('opens the promised formula details and moves keyboard focus to its heading',
   ).toHaveFocus();
 });
 
-it('shows the version difference when hero data is newer than the formulas', () => {
+it('keeps the reviewed formula version without a version difference banner', () => {
   const updated = structuredClone(data) as HeroSnapshot;
   updated.meta.clientVersion = 6820;
   render(<MechanicsPage data={updated} />);
-  expect(screen.getByRole('status')).toHaveTextContent('Формулы относятся к версии 6819');
-  expect(screen.getByRole('status')).toHaveTextContent('6820');
+  expect(screen.queryByText(/Формулы относятся к версии/)).not.toBeInTheDocument();
+  expect(screen.getByText('Версия игры 6819')).toBeVisible();
 });
 
 it('opens a keyboard operated menu, cancels a pending selection and retains values per task', async () => {

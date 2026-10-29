@@ -3,6 +3,7 @@ import type { HeroSnapshot } from '../../../shared/types';
 import { useItems } from '../../features/items/useItems';
 import { buyTime, categoryNames, itemHref, safeReturn } from '../../features/items/model';
 import { ItemContent } from '../../features/items/ItemContent';
+import { ItemSkeleton } from '../../features/items/ItemSkeleton';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
 
@@ -18,7 +19,7 @@ export function ItemDetailPage({
   heroes?: HeroSnapshot;
 }) {
   const { t, language } = useI18n();
-  const { catalog, statistics, statisticsState, error, retry } = useItems(
+  const { catalog, statistics, statisticsState, error, retry, retryStatistics } = useItems(
     initialCatalog,
     initialStatistics,
     true,
@@ -47,9 +48,7 @@ export function ItemDetailPage({
     return (
       <div className="items-page">
         {back}
-        <p className="item-state" role="status">
-          {t('Загрузка предметов…')}
-        </p>
+        <ItemSkeleton variant="detail" />
       </div>
     );
   const item = catalog.items.find((i) => i.slug === slug);
@@ -140,9 +139,14 @@ export function ItemDetailPage({
           <p className="items-eyebrow">{t('ПРАКТИКА ПОКУПОК')}</p>
           <h2>{t('Предмет в матчах')}</h2>
           {statisticsState === 'loading' ? (
-            <p role="status">{t('Загрузка статистики…')}</p>
+            <ItemSkeleton variant="statistics" />
           ) : statisticsState === 'error' ? (
-            <p>{t('Статистика покупок недоступна.')}</p>
+            <div>
+              <p>{t('Статистика покупок недоступна.')}</p>
+              <button className="button" onClick={retryStatistics}>
+                {t('Повторить загрузку')}
+              </button>
+            </div>
           ) : !stats || stats.matches === 0 ? (
             <p>{t('За этот период покупок нет.')}</p>
           ) : (

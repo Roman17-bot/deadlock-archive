@@ -17,6 +17,7 @@ import {
   normalizeItemFilters,
 } from '../../features/items/model';
 import { ItemContent } from '../../features/items/ItemContent';
+import { ItemSkeleton } from '../../features/items/ItemSkeleton';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
 
@@ -239,9 +240,7 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
               </button>
             </div>
           ) : !catalog ? (
-            <p className="item-state" role="status">
-              {t('Загрузка предметов…')}
-            </p>
+            <ItemSkeleton variant="catalog" />
           ) : (
             <>
               <p className="item-results" role="status">

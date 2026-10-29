@@ -1,3 +1,4 @@
+import { ITEM_SLANG, searchWords, slangProperties, matchesSearchWords } from './item-search';
 import type { ItemCategory, ItemTier, LocalizedText, ShopItem } from './item-types';
 
 export interface ItemFilters {
@@ -38,7 +39,7 @@ const tag = (
   id,
   label: { ru, en },
   description: { ru: descriptionRu, en: descriptionEn },
-  aliases,
+  aliases: [...aliases, ...(ITEM_SLANG[id] ?? [])],
 });
 
 export const ITEM_FILTER_GROUPS: ItemFilterGroup[] = [
@@ -511,9 +512,25 @@ export const ITEM_FILTER_GROUPS: ItemFilterGroup[] = [
   },
 ];
 
+const definitions = new Map(ITEM_FILTER_GROUPS.flatMap((g) => g.filters).map((f) => [f.id, f]));
+const itemTokens = new WeakMap<ShopItem, string[]>();
+
+export function searchItemProperties(query: string): ItemFilterDefinition[] {
+  const words = searchWords(query);
+  const slang = slangProperties(query);
+  return [...definitions.values()].filter((filter) =>
+    slang.length
+      ? slang.includes(filter.id)
+      : matchesSearchWords(
+          words,
+          searchWords([filter.label.ru, filter.label.en, ...(filter.aliases ?? [])].join(' ')),
+        ),
+  );
+}
+
 export function filterItems(items: ShopItem[], filters: ItemFilters): ShopItem[] {
-  const words = filters.query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-  const definitions = new Map(ITEM_FILTER_GROUPS.flatMap((g) => g.filters).map((f) => [f.id, f]));
+  const words = searchWords(filters.query);
+  const slang = slangProperties(filters.query);
   return items.filter((item) => {
     if (filters.categories.length && !filters.categories.includes(item.category)) return false;
     if (filters.tiers.length && !filters.tiers.includes(item.tier)) return false;
@@ -526,18 +543,23 @@ export function filterItems(items: ShopItem[], filters: ItemFilters): ShopItem[]
     )
       return false;
     if (!words.length) return true;
-    const labels = item.tags.map((id) => definitions.get(id)).filter(Boolean);
-    const corpus = [
-      item.name,
-      item.localizedName.ru,
-      item.localizedName.en,
-      item.description.ru,
-      item.description.en,
-      ...item.effects.flatMap((e) => [e.description.ru, e.description.en]),
-      ...labels.flatMap((f) => [f!.label.ru, f!.label.en, ...(f!.aliases ?? [])]),
-    ]
-      .join(' ')
-      .toLocaleLowerCase();
-    return words.every((word) => corpus.includes(word));
+    if (slang.length) return slang.some((id) => item.tags.includes(id));
+    let tokens = itemTokens.get(item);
+    if (!tokens) {
+      const labels = item.tags.map((id) => definitions.get(id)).filter(Boolean);
+      tokens = searchWords(
+        [
+          item.name,
+          item.localizedName.ru,
+          item.localizedName.en,
+          item.description.ru,
+          item.description.en,
+          ...item.effects.flatMap((e) => [e.description.ru, e.description.en]),
+          ...labels.flatMap((f) => [f!.label.ru, f!.label.en, ...(f!.aliases ?? [])]),
+        ].join(' '),
+      );
+      itemTokens.set(item, tokens);
+    }
+    return matchesSearchWords(words, tokens);
   });
 }

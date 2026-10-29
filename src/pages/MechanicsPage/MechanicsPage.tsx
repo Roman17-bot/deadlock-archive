@@ -95,14 +95,6 @@ export function MechanicsPage({ data, localApi }: { data: HeroSnapshot; localApi
           </p>
         </aside>
       </section>
-      {data.meta.clientVersion !== catalog.meta.reviewedClientVersion && (
-        <p className="mechanics-stale" role="status">
-          {t(
-            'Формулы относятся к версии {{reviewed}}. Характеристики героев уже обновлены до {{current}}.',
-            { reviewed: catalog.meta.reviewedClientVersion, current: data.meta.clientVersion },
-          )}
-        </p>
-      )}
       <Calculator onRule={onRule} />
       <FormulaLibrary library={library} state={libraryState} />
       <aside className="mechanics-footnote">
