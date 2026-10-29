@@ -1,0 +1,326 @@
+{
+  "Melee Lifesteal": [
+    {
+      "ru": "Помогает восстанавливать здоровье в разменах, если удаётся попадать ударами ближнего боя. По героям лечение заметно сильнее, а тяжёлые удары позволяют чаще пользоваться готовым эффектом, чем лёгкие.",
+      "en": "Helps you recover health in trades when you can land melee attacks. Healing is much stronger against heroes, and heavy melee lets the effect recover sooner than light melee."
+    }
+  ],
+  "Rebuttal": [
+    {
+      "ru": "Против героя, который часто бьёт в ближнем бою, успешное парирование одновременно лечит тебя и возвращает ему урон. Используй полученное усиление для ответной атаки.",
+      "en": "Against a hero who relies on melee, a successful parry both heals you and returns damage to them. Use the resulting damage buff to counterattack."
+    }
+  ],
+  "Counterspell": [
+    {
+      "ru": "Полезен против опасных способностей и активных предметов, если можешь встретить их парированием. Успешная защита даёт лечение, скорость и спиритическую мощь для ответной атаки.",
+      "en": "Useful against dangerous abilities and active items when you can time a parry against them. A successful spell parry provides healing, movement speed and Spirit Power for a counterattack."
+    }
+  ],
+  "Inhibitor": [
+    {
+      "ru": "Против сильного источника урона, который ещё и много лечится: попадания пулями накапливают ослабление его урона и лечения. Сосредоточь огонь на опасной цели, чтобы наложить оба эффекта.",
+      "en": "Useful against a major damage threat who also heals heavily: bullet hits build up damage suppression and healing reduction. Focus your shots on that threat to apply both effects."
+    }
+  ],
+  "Siphon Bullets": [
+    {
+      "ru": "Для затяжной перестрелки с живучей целью: пули временно отнимают у неё максимальное здоровье и передают его тебе. Продолжай попадать, чтобы поддерживать преимущество; после окончания дебаффа украденное здоровье возвращается врагу.",
+      "en": "For extended gunfights against a durable target: bullets temporarily steal their maximum health for you. Keep landing shots to maintain the advantage; the stolen health returns when the debuff expires."
+    }
+  ],
+  "Extra Health": [
+    {
+      "ru": "Ранняя покупка, когда не хватает запаса здоровья, чтобы пережить размен или комбинацию врага. Полезна независимо от того, каким типом урона тебя атакуют.",
+      "en": "An early purchase when you need more health to survive a trade or an enemy combo. The extra health helps regardless of the damage type you are facing."
+    }
+  ],
+  "Bullet Lifesteal": [
+    {
+      "ru": "Для героя, который восстанавливается прямо во время перестрелки за счёт попаданий пулями. Особенно полезен в долгих разменах, где есть возможность продолжать стрелять по цели.",
+      "en": "For a hero who can recover during gunfights by landing bullet damage. Most useful in extended trades where you can keep shooting your target."
+    }
+  ],
+  "Debuff Reducer": [
+    {
+      "ru": "Против длительных отрицательных эффектов, из-за которых не удаётся двигаться, применять способности или продолжать атаку. Постоянно сокращает их длительность и не требует отдельного нажатия.",
+      "en": "Against long debuffs that stop you moving, casting or continuing an attack. It passively shortens their duration without requiring an active use."
+    }
+  ],
+  "Dispel Magic": [
+    {
+      "ru": "Когда бой мешают продолжать снимаемые неультимативные дебаффы: очищение также лечит и ускоряет, если удалось что-то снять. Во время оглушения или сна активировать предмет нельзя.",
+      "en": "When removable non-ultimate debuffs prevent you from continuing a fight: a successful cleanse also heals and speeds you up. You cannot activate it while stunned or asleep."
+    }
+  ],
+  "Spirit Resilience": [
+    {
+      "ru": "Если основной урон приходит от способностей и других спиритических эффектов. Защита дополнительно усиливается при низком здоровье, помогая пережить продолжение атаки.",
+      "en": "When abilities and other spirit effects deal most of the damage you take. Its resistance increases further at low health, helping you survive the follow-up."
+    }
+  ],
+  "Bullet Resilience": [
+    {
+      "ru": "Против стрелков, которые быстро снимают здоровье обычными попаданиями. Постоянное сопротивление пулям становится ещё выше при низком здоровье.",
+      "en": "Against gun builds that quickly wear you down with bullet hits. Its permanent bullet resistance increases further at low health."
+    }
+  ],
+  "Metal Skin": [
+    {
+      "ru": "Включай под сильный обстрел, чтобы переждать усиленную стрельбу врага или отступить, пока его пули не наносят урона. Во время действия предмета скорость передвижения и дальность рывков снижаются.",
+      "en": "Activate under heavy gunfire to outlast an enemy's shooting buff or retreat while their bullets cannot hurt you. Your movement is slower and your dashes are shorter during the effect."
+    }
+  ],
+  "Healing Booster": [
+    {
+      "ru": "Для сборки, в которой регулярно лечишь себя или союзников способностями и предметами. Усиление лечения делает каждое такое применение полезнее.",
+      "en": "For builds that regularly heal yourself or allies with abilities and items. Healing amplification makes each of those uses more effective."
+    }
+  ],
+  "Fortitude": [
+    {
+      "ru": "Позволяет восстанавливать большой запас здоровья между стычками без возвращения на базу. Нужна пауза без полученного урона; при высоком здоровье предмет также ускоряет передвижение.",
+      "en": "Lets you recover a large health pool between skirmishes without returning to base. You need a break from incoming damage; at high health it also increases movement speed."
+    }
+  ],
+  "Leech": [
+    {
+      "ru": "Для затяжных боёв против команды с антихилом: даёт вампиризм от пуль и спиритического урона и ослабляет вражеское снижение лечения. Полезен, если можешь продолжать наносить урон и за счёт него восстанавливаться.",
+      "en": "For extended fights against a team with healing reduction: it provides bullet and spirit lifesteal and reduces the impact of enemy anti-heal. Useful when you can keep dealing damage and sustain through it."
+    }
+  ],
+  "Sprint Boots": [
+    {
+      "ru": "Удобны для частых переходов между линиями и лагерями: скорость бега сокращает время в пути, а восстановление вне боя помогает вернуться к следующему размену с большим запасом здоровья.",
+      "en": "Useful for frequent rotations between lanes and camps: sprint speed reduces travel time, while out-of-combat regeneration helps you enter the next trade with more health."
+    }
+  ],
+  "Trophy Collector": [
+    {
+      "ru": "Для активной игры с частыми убийствами и ассистами: участие в них постепенно усиливает бег, дальность способностей и доход душ. При этом предмет уменьшает урон оружия по неигровым целям.",
+      "en": "For active play with frequent kills and assists: participating in them gradually improves sprint speed, ability range and passive soul income. The item also reduces your weapon damage against NPCs."
+    }
+  ],
+  "Enduring Speed": [
+    {
+      "ru": "Против замедлений, которые мешают догнать врага или выйти из-под огня. Даёт постоянную скорость передвижения и ослабляет влияние вражеских замедлений.",
+      "en": "Against slows that keep you from catching an enemy or escaping gunfire. It gives permanent movement speed and reduces the impact of enemy movement slows."
+    }
+  ],
+  "Stamina Mastery": [
+    {
+      "ru": "Для погони, отхода и перемещения по высоте, когда обычного запаса выносливости мало. Дополнительное действие в воздухе и увеличенная дальность воздушных прыжков и рывков дают больше вариантов маршрута.",
+      "en": "For chasing, escaping and navigating vertical terrain when your normal stamina is not enough. An extra aerial action and longer air jumps and dashes open up more routes."
+    }
+  ],
+  "Extra Stamina": [
+    {
+      "ru": "Если на линии не хватает ещё одного рывка, чтобы уйти от атаки или закончить погоню. Дополнительная выносливость и более быстрое восстановление позволяют чаще уклоняться и менять позицию.",
+      "en": "When one more dash would let you avoid an attack or finish a chase in lane. Extra stamina and faster recovery let you dodge and reposition more often."
+    }
+  ],
+  "Grit": [
+    {
+      "ru": "Ранний защитный предмет для короткого опасного размена. Включай барьер перед ожидаемым попаданием или комбинацией, чтобы сохранить здоровье для ответной атаки.",
+      "en": "An early defensive option for a dangerous short trade. Activate the barrier before an expected hit or combo to preserve health for your counterattack."
+    }
+  ],
+  "Weapon Shielding": [
+    {
+      "ru": "Против быстрого урона оружием: после серии сильных попаданий автоматически даёт барьер и сопротивление пулям. Помогает выдержать продолжение обстрела после срабатывания защиты.",
+      "en": "Against bursts of weapon damage: after enough damage arrives in a short period, it automatically grants a barrier and bullet resistance. This helps you survive continued gunfire after it triggers."
+    }
+  ],
+  "Spirit Shielding": [
+    {
+      "ru": "Против серий спиритического урона, когда за первым попаданием сразу следуют другие. Полученный за короткое время урон запускает барьер и дополнительное спиритическое сопротивление.",
+      "en": "Against bursts of spirit damage followed quickly by more hits. Taking enough damage in a short period triggers a barrier and additional spirit resistance."
+    }
+  ],
+  "Battle Vest": [
+    {
+      "ru": "Для перестрелок, в которых можешь удерживать здоровье выше порога: вместе с защитой от пуль получаешь урон оружия и скорострельность. Восстановись перед новой атакой, чтобы наступательные бонусы снова работали.",
+      "en": "For gunfights where you can keep your health above the threshold: alongside bullet resistance, you gain weapon damage and fire rate. Recover before re-engaging to restore the offensive bonuses."
+    }
+  ],
+  "Enchanter's Emblem": [
+    {
+      "ru": "Когда нужна защита от спиритического урона и усиление собственных способностей. Спиритическая мощь и сокращение перезарядок действуют при высоком здоровье, поэтому выгодно начинать бой восстановленным.",
+      "en": "When you need spirit resistance as well as stronger abilities. Its Spirit Power and cooldown bonuses require high health, so entering a fight fully recovered makes better use of them."
+    }
+  ],
+  "Return Fire": [
+    {
+      "ru": "Полезен, когда враги продолжают наносить тебе урон в открытой перестрелке. Включай под ожидаемый фокус: ответные пули наказывают тех, кто атакует тебя оружием или способностями.",
+      "en": "Useful when enemies keep damaging you during an open fight. Activate before you are focused: retaliatory bullets punish attackers who hit you with weapons or abilities."
+    }
+  ],
+  "Spirit Lifesteal": [
+    {
+      "ru": "Для восстановления во время боя, если регулярно наносишь спиритический урон. Хорошо работает в затяжной атаке, где способности и другие спиритические эффекты продолжают попадать по врагу.",
+      "en": "For sustain during a fight when you regularly deal spirit damage. Useful in prolonged engagements where your abilities and other spirit effects keep hitting the enemy."
+    }
+  ],
+  "Healbane": [
+    {
+      "ru": "Против врагов, которые выживают за счёт лечения и вампиризма: накладывай антихил спиритическим уроном перед их восстановлением и поддерживай его повторными попаданиями. Смерть героя под эффектом дополнительно лечит тебя.",
+      "en": "Against enemies who survive through healing and lifesteal: apply healing reduction with spirit damage before they recover and refresh it with further hits. A hero dying under the effect also heals you."
+    }
+  ],
+  "Rescue Beam": [
+    {
+      "ru": "Для спасения союзника, которого фокусят или отрезали от команды: во время лечения можно подтянуть его к себе. Занимай позицию, из которой притягивание действительно выводит его из опасности.",
+      "en": "For saving an ally who is being focused or cut off from the team: you can pull them to you while healing. Position yourself so that the pull actually takes them away from danger."
+    }
+  ],
+  "Phantom Strike": [
+    {
+      "ru": "Позволяет сразу добраться до стрелка или героя в воздухе, опустить его на землю и обезоружить. Подходит для начала атаки вблизи; после прыжка ты оказываешься рядом с выбранным врагом.",
+      "en": "Lets you reach a gunner or airborne hero, pull them to the ground and disarm them. Useful for starting a close-range attack; the teleport puts you next to the chosen enemy."
+    }
+  ],
+  "Warp Stone": [
+    {
+      "ru": "Для мгновенной смены позиции: уйти за укрытие, пересечь опасный участок или сократить дистанцию до цели. Временное сопротивление пулям помогает пережить обстрел после перемещения.",
+      "en": "For immediate repositioning: reach cover, cross a dangerous gap or close on a target. Temporary bullet resistance helps you survive gunfire after the teleport."
+    }
+  ],
+  "Cheat Death": [
+    {
+      "ru": "Когда тебя убивают одной быстрой комбинацией и нужно время, чтобы отойти. После смертельного попадания временная защита от смерти даёт окно для спасения, но твои урон и получаемое лечение в это время снижены.",
+      "en": "When a fast combo kills you before you can escape. A lethal hit triggers temporary death immunity, giving you an escape window, but your damage and incoming healing are reduced during it."
+    }
+  ],
+  "Majestic Leap": [
+    {
+      "ru": "Для выхода на высоту, обхода позиции врага или начала атаки сверху. Используй до получения урона от героя: после вражеского попадания предмет некоторое время недоступен.",
+      "en": "For reaching high ground, approaching from another angle or starting an attack from above. Use it before taking hero damage, which temporarily prevents activation."
+    }
+  ],
+  "Healing Nova": [
+    {
+      "ru": "Полезна, когда несколько союзников потеряли здоровье в одном бою или при осаде. Собери их рядом с собой перед активацией, чтобы одно применение восстановило здоровье всей группе.",
+      "en": "Useful when several allies lose health during the same fight or siege. Bring them close before activating so a single use heals the group."
+    }
+  ],
+  "Restorative Locket": [
+    {
+      "ru": "В боях с частым применением вражеских способностей быстро набирает заряды для лечения. Потрать их, когда одновременно нужны здоровье и выносливость для продолжения боя или отхода.",
+      "en": "Fights with frequent nearby enemy casts build healing stacks quickly. Spend them when you need both health and stamina to continue fighting or retreat."
+    }
+  ],
+  "Healing Rite": [
+    {
+      "ru": "Для восстановления на линии без возвращения на базу — себе или союзнику. Сначала выйди из-под огня: урон от вражеских героев и объектов снимает лечение.",
+      "en": "For recovering in lane without returning to base, either on yourself or an ally. Get out of danger first: damage from enemy heroes and objectives removes the healing effect."
+    }
+  ],
+  "Infuser": [
+    {
+      "ru": "Для короткого периода сильного спиритического урона, когда нужно одновременно атаковать и лечиться. Включай перед своей комбинацией, чтобы использовать усиленную спиритическую мощь и вампиризм с первых попаданий.",
+      "en": "For a short burst of spirit damage when you need to attack and sustain at the same time. Activate before your combo to use the extra Spirit Power and lifesteal from the first hits."
+    }
+  ],
+  "Guardian Ward": [
+    {
+      "ru": "Защищает союзника, которого начинают фокусить, или помогает ему выйти из опасной зоны за счёт барьера и скорости. Применение на союзника сокращает перезарядку по сравнению с применением на себя.",
+      "en": "Protects an ally who is being focused or helps them escape danger with a barrier and movement speed. Casting on an ally has a shorter cooldown than self-casting."
+    }
+  ],
+  "Divine Barrier": [
+    {
+      "ru": "Для спасения союзника, которому мешают уйти дебаффы: снимает эффекты, кроме оглушения, и даёт барьер со скоростью. Можно использовать на себя; на союзнике предмет перезаряжается быстрее.",
+      "en": "For saving an ally whose escape is hindered by debuffs: it removes non-stun debuffs and grants a barrier plus movement speed. You can self-cast, but casting on an ally gives a shorter cooldown."
+    }
+  ],
+  "Unstoppable": [
+    {
+      "ru": "Для входа в бой или применения важной способности, которую враги могут сорвать контролем. Включай заранее: во время оглушения или сна предмет уже нельзя нажать.",
+      "en": "For entering a fight or using an important ability that enemies could interrupt with crowd control. Activate beforehand: you cannot use the item once stunned or asleep."
+    }
+  ],
+  "Colossus": [
+    {
+      "ru": "Для драки вблизи с несколькими противниками: временно усиливает защиту от пуль и спирита, а также ближний бой. Замедление и ослабление рывков врагов рядом помогают удерживать их возле себя.",
+      "en": "For close-range fights against several enemies: it temporarily improves bullet and spirit resistance as well as melee damage. Nearby enemies are slowed and have weaker dashes, helping you keep them close."
+    }
+  ],
+  "Fury Trance": [
+    {
+      "ru": "Для боя с упором на непрерывную стрельбу: повышает скорострельность и позволяет быстрее двигаться при стрельбе. Сначала примени нужные способности и выбери позицию — во время действия предмета способности недоступны, а выносливость нельзя тратить и восстанавливать.",
+      "en": "For a window of uninterrupted shooting: it gives fire rate and lets you move faster while firing. Cast the abilities you need and position first: during the effect you are silenced, and stamina use and regeneration are disabled."
+    }
+  ],
+  "Vampiric Burst": [
+    {
+      "ru": "Когда нужно добить цель за одну длинную очередь и восстановиться за счёт стрельбы. Включай, когда уже можешь попадать: временные скорострельность, вампиризм и добавленные патроны работают только в короткое окно усиления.",
+      "en": "When you need to finish a target in one sustained burst and heal through shooting. Activate once you can land hits: the temporary fire rate, lifesteal and added ammo give you a short damage window."
+    }
+  ],
+  "Lifestrike": [
+    {
+      "ru": "Для затяжной драки вблизи: удары периодически лечат и замедляют врага, помогая продолжать преследование. По героям лечение сильнее, а лёгкие удары запускают более долгую перезарядку эффекта.",
+      "en": "For extended close-range fighting: melee hits periodically heal you and slow the enemy to help you keep chasing. Healing is stronger against heroes, and light melee starts a longer effect cooldown."
+    }
+  ],
+  "Diviner's Kevlar": [
+    {
+      "ru": "Если после применения ультимейта нужно выдержать ответный урон и продолжить бой способностями. Барьер и временная спиритическая мощь появляются именно при использовании ультимейта, поэтому связывай вход в бой с его готовностью.",
+      "en": "When you need to survive retaliation after using your ultimate and keep fighting with abilities. The barrier and temporary Spirit Power trigger on casting your ultimate, so time your engagement around its availability."
+    }
+  ],
+  "Extra Regen": [
+    {
+      "ru": "На линии против частых небольших потерь здоровья, которые постепенно вынуждают отступать. Постоянное восстановление помогает между разменами, а дополнительная часть регенерации работает вне боя.",
+      "en": "In lane against repeated chip damage that gradually forces you back. Passive regeneration helps between trades, with an additional regeneration bonus while out of combat."
+    }
+  ],
+  "Veil Walker": [
+    {
+      "ru": "Для обходов и внезапного появления с фланга: проход через космическую завесу даёт невидимость, лечение и скорость. Прокладывай перемещения через завесы, чтобы регулярно получать эти эффекты.",
+      "en": "For rotations and surprise flanks: passing through a cosmic veil grants stealth, healing and movement speed. Route your movement through veils to make regular use of these effects."
+    }
+  ],
+  "Reactive Barrier": [
+    {
+      "ru": "Против комбинаций, где за контролем сразу идёт основной урон. После оглушения, связывания, обездвиживания, сна или безмолвия автоматически появляется барьер, который помогает пережить продолжение атаки.",
+      "en": "Against combos that follow crowd control with their main damage. A stun, chain, immobilize, sleep or silence automatically triggers a barrier to help you survive the follow-up."
+    }
+  ],
+  "Indomitable": [
+    {
+      "ru": "Когда опасен первый же контроль и трудно успеть нажать защитный предмет. Автоматически снимает следующее оглушение, связывание, обездвиживание, сон, безмолвие или страх, затем даёт барьер и сокращает перезарядки способностей.",
+      "en": "When the first control effect is dangerous and reacting with an active defense is difficult. It automatically cleanses the next stun, chain, immobilize, sleep, silence or fear, then grants a barrier and reduces ability cooldowns."
+    }
+  ],
+  "Witchmail": [
+    {
+      "ru": "Против крупных попаданий спиритическим уроном, если сам часто используешь способности. Такие попадания сокращают перезарядку случайной способности, позволяя чаще отвечать на вражеские атаки.",
+      "en": "Against heavy spirit hits when you also rely on frequent ability use. Those hits reduce a random ability cooldown, letting you respond to enemy attacks more often."
+    }
+  ],
+  "Healing Tempo": [
+    {
+      "ru": "Для героя, который часто лечит себя или союзников: лечение дополнительно усиливает скорострельность и передвижение получателя. Обычная регенерация и пассивный вампиризм этот бонус не запускают.",
+      "en": "For a hero who frequently heals yourself or allies: healing also buffs the recipient's fire rate and movement speed. Innate regeneration and passive lifesteal do not trigger this bonus."
+    }
+  ],
+  "Plated Armor": [
+    {
+      "ru": "Против стрелков, особенно если их пули накладывают опасные эффекты. Предмет даёт шанс предотвратить урон входящей пули либо её эффекты попадания, помогая выдерживать продолжительный обстрел.",
+      "en": "Against gun builds, especially those with dangerous bullet on-hit effects. The item gives a chance to prevent an incoming bullet's damage or its on-hit effects, helping you withstand sustained fire."
+    }
+  ],
+  "Spellbreaker": [
+    {
+      "ru": "Против сильных отдельных попаданий спиритическим уроном, которые снимают большую часть здоровья за раз. Готовый защитный эффект уменьшает следующее такое попадание, дополняя постоянное спиритическое сопротивление.",
+      "en": "Against large individual spirit hits that take a substantial chunk of health at once. The ready defensive effect reduces the next qualifying hit, on top of its permanent spirit resistance."
+    }
+  ],
+  "Juggernaut": [
+    {
+      "ru": "Для преследования и выхода из-под огня, когда мешают замедления и атаки вблизи. Повышает скорость и устойчивость к этим угрозам, а у стреляющих по тебе врагов снижает скорострельность.",
+      "en": "For chasing or escaping when slows and close-range attacks hold you back. It improves movement and resistance to those threats, while enemies who shoot you suffer reduced fire rate."
+    }
+  ]
+}

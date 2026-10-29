@@ -1,0 +1,296 @@
+{
+  "Silence Wave": [
+    {
+      "ru": "Бери, если враги успевают ответить защитным умением или уйти после твоего нападения: волна безмолвия даёт окно для атаки, особенно по нескольким стоящим рядом целям. Попадай до применения опасного умения — уже начавшееся поддерживаемое умение безмолвие не прервёт.",
+      "en": "Buy when enemies answer your initiation with a defensive ability or an escape: the silence wave creates an attack window, especially against several nearby targets. Land it before the dangerous cast; silence will not interrupt an ability already being channeled."
+    }
+  ],
+  "Extra Spirit": [
+    {
+      "ru": "Подходит для умений, у которых урон, лечение или другой нужный эффект растёт от спиритической мощи. Помогает усилить сразу несколько таких умений, если проблема в их силе, а не в дальности или перезарядке.",
+      "en": "Fits abilities whose damage, healing or another useful effect scales with Spirit Power. It strengthens several such abilities at once when their output is the problem, rather than their reach or cooldown."
+    }
+  ],
+  "Mystic Regeneration": [
+    {
+      "ru": "Помогает восстанавливаться между разменами на линии, если ты регулярно задеваешь героев спиритическим уроном. Попадания по разным героям накапливают восстановление; урон по бойцам сам по себе его не даёт.",
+      "en": "Helps sustain lane trades when you regularly deal spirit damage to heroes and want health back between attacks. Hitting different heroes stacks the regeneration; damaging troopers alone does not grant it."
+    }
+  ],
+  "Improved Spirit": [
+    {
+      "ru": "Улучшай Extra Spirit, если несколько важных умений зависят от спиритической мощи и им не хватает урона или силы эффекта. Восстановление вне боя дополнительно помогает возвращаться к зачистке и разменам после потери здоровья.",
+      "en": "Upgrade Extra Spirit when several important abilities scale with Spirit Power and need more damage or effect strength. Out-of-combat regeneration also helps you return to farming and trading after losing health."
+    }
+  ],
+  "Greater Expansion": [
+    {
+      "ru": "Расширяет возможности атаки, когда дальности или радиуса не хватает сразу нескольким умениям и предметам: с ним можно начинать атаку дальше от врага и накрывать больше целей. Это развитие Mystic Expansion для набора с несколькими важными эффектами по области.",
+      "en": "Useful when several abilities and items need more reach or radius: you can start attacks from farther away and cover more targets. This develops Mystic Expansion for a kit with several important area effects."
+    }
+  ],
+  "Mystic Expansion": [
+    {
+      "ru": "Помогает, когда одно ключевое умение регулярно не достаёт до цели или краем области не задевает соседних врагов. Усиль именно его, чтобы безопаснее начинать размен или попадать по группе.",
+      "en": "Helps when one key ability repeatedly falls short of its target or narrowly misses nearby enemies with its area. Imbue that ability to start trades from safer range or catch a group."
+    }
+  ],
+  "Extra Charge": [
+    {
+      "ru": "Полезен, если у твоего умения есть заряды и одного применения не хватает для добивания, зачистки или повторной попытки попадания. Дополнительный заряд даёт запас применений, а спиритическая мощь усиливает именно умения с зарядами.",
+      "en": "Useful when an ability uses charges and one cast is not enough to finish a target, clear a wave or try again after a miss. The extra charge adds a reserve cast, while its Spirit Power bonus applies specifically to charged abilities."
+    }
+  ],
+  "Bullet Resist Shredder": [
+    {
+      "ru": "Подходит для связки «спиритический урон, затем стрельба»: попадание снижает сопротивление цели пулям и помогает тебе и союзникам быстрее её расстрелять. Особенно полезен, если ты легко задеваешь нужного врага умением перед общей атакой.",
+      "en": "Fits a spirit-damage opener followed by gunfire: the hit reduces the target's bullet resistance, helping you and allies shoot them down faster. Especially useful when you can reliably tag the intended target with an ability before the team attacks."
+    }
+  ],
+  "Mystic Reverb": [
+    {
+      "ru": "Бери, если одно выбранное умение наносит большой урон и ты часто попадаешь по врагу рядом с его союзниками: отложенный повтор урона накажет их за тесную позицию. Замедление помогает продолжить атаку, а вампиризм выбранного умения поддерживает тебя в размене.",
+      "en": "Buy when one imbued ability deals heavy damage and often hits an enemy near their allies: the delayed damage echo punishes that grouping. Its slow helps you follow up, while the imbued ability's lifesteal sustains the trade."
+    }
+  ],
+  "Mystic Burst": [
+    {
+      "ru": "Подходит для отдельных сильных попаданий умением, наносящих больше 80 урона: заряженный эффект добавит урон к такому размену. Удобен, когда между атаками есть время на зарядку, а цель нужно добить за короткую связку.",
+      "en": "Buy for individual ability hits dealing more than 80 damage: the charged effect adds damage to that trade. It fits attacks spaced far enough apart to recharge, especially when you need to finish a target with a short combo."
+    }
+  ],
+  "Tankbuster": [
+    {
+      "ru": "Улучшай Mystic Burst против врагов с большим запасом здоровья, если твои попадания умением превышают порог 165 урона. Заряженное срабатывание добавляет урон от текущего здоровья цели, поэтому особенно полезно в начале атаки по ещё здоровому врагу.",
+      "en": "Upgrade Mystic Burst against enemies with large health pools when your ability hits exceed its 165-damage threshold. The charged proc adds damage based on the target's current health, making it especially useful when opening on a healthy enemy."
+    }
+  ],
+  "Mystic Vulnerability": [
+    {
+      "ru": "Подходит для атаки, в которой после первого спиритического попадания ты или союзники продолжаете наносить цели спиритический урон. Снижение спиритического сопротивления усиливает продолжение размена, особенно против врага, которого команда собирается атаковать вместе.",
+      "en": "Fits attacks where you or allies keep dealing spirit damage after the opening hit. The spirit resistance reduction strengthens the follow-up, especially against a target the team plans to focus together."
+    }
+  ],
+  "Mystic Slow": [
+    {
+      "ru": "Бери, если враги выходят из зоны твоих умений или отрываются после попадания: спиритический урон будет замедлять их и ослаблять наземные рывки. Особенно полезен при повторных попаданиях, которые помогают удерживать цель рядом для продолжения атаки.",
+      "en": "Buy when enemies leave your ability areas or pull away after a hit: your spirit damage slows them and weakens ground dashes. Repeated hits are especially useful for keeping the target close enough to continue attacking."
+    }
+  ],
+  "Escalating Exposure": [
+    {
+      "ru": "Подходит для длительного спиритического урона по одному врагу: повторные попадания накапливают усиление твоего урона по нему. Бери, если можешь поддерживать давление, а не рассчитываешь закончить весь бой одним попаданием.",
+      "en": "Fits sustained spirit damage against one enemy: repeated hits build up an amplification of your spirit damage to that target. Buy when you can maintain pressure rather than relying on a single hit to finish the fight."
+    }
+  ],
+  "Rapid Recharge": [
+    {
+      "ru": "Улучшай Extra Charge, если в затяжной драке постоянно заканчиваются заряды основного умения. Дополнительные заряды, более быстрое восстановление и меньшая пауза между применениями помогают провести несколько атак подряд и раньше подготовить следующие.",
+      "en": "Upgrade Extra Charge when your main charged ability keeps running dry in extended fights. More charges, faster recharge and a shorter delay between casts let you chain attacks and prepare the next ones sooner."
+    }
+  ],
+  "Compress Cooldown": [
+    {
+      "ru": "Помогает, когда одно ключевое умение не успевает восстановиться к следующему размену или второй части драки. Усиль его, чтобы чаще получать именно нужный урон, защиту или контроль.",
+      "en": "Helps when one key ability is still on cooldown at the next trade or the second part of a fight. Imbue it to gain more frequent access to the damage, protection or control you need most."
+    }
+  ],
+  "Superior Cooldown": [
+    {
+      "ru": "Улучшай Compress Cooldown, когда тебе нужно чаще применять несколько умений, например чередовать атаку, контроль и защиту в затяжной драке. Сокращение перезарядки всего набора уменьшает ожидание между такими связками.",
+      "en": "Upgrade Compress Cooldown when you need several abilities more often, such as alternating damage, control and defense in extended fights. Reducing the cooldowns across your kit shortens the wait between those sequences."
+    }
+  ],
+  "Transcendent Cooldown": [
+    {
+      "ru": "Подходит для сборки, где бой зависит и от умений, и от активных предметов: оба набора эффектов будут раньше готовы к повторной атаке. Улучшай Superior Cooldown, если именно ожидание их восстановления мешает продолжить давление или снова защититься.",
+      "en": "Fits builds whose fights depend on both abilities and active items: both sets of effects become ready sooner for another engagement. Upgrade Superior Cooldown when waiting for them prevents you from maintaining pressure or defending again."
+    }
+  ],
+  "Slowing Hex": [
+    {
+      "ru": "Бери против врага, который спасается умением или предметом передвижения: проклятие временно блокирует такие способы ухода и замедляет цель. Накладывай перед атакой; обычное использование выносливости оно не запрещает.",
+      "en": "Buy against enemies who escape with movement abilities or items: the hex temporarily blocks those escape tools and slows the target. Apply it before committing to the attack; it does not prevent normal stamina use."
+    }
+  ],
+  "Spirit Sap": [
+    {
+      "ru": "Полезен против врага, чьи умения зависят от спиритической мощи: снижение мощи ослабляет их, а снижение сопротивления делает твою спиритическую атаку опаснее. Применяй перед разменом по цели, которая собирается ответить умениями.",
+      "en": "Useful against an enemy whose abilities scale with Spirit Power: reducing that power weakens their output, while lowering their resistance strengthens your spirit damage. Apply it before trading with a target about to answer with abilities."
+    }
+  ],
+  "Focus Lens": [
+    {
+      "ru": "Подходит для общей атаки по одному врагу, которому нельзя дать ответить умениями: безмолвие создаёт окно, а часть нанесённого за это время урона повторится после его окончания. Особенно полезен, когда ты и союзники готовы сразу вложить урон в выбранную цель.",
+      "en": "Helps focus an enemy who must not answer with abilities: silence creates a window, and a portion of damage dealt during it is applied again when it ends. Especially useful when you and allies are ready to concentrate damage on that target immediately."
+    }
+  ],
+  "Rusted Barrel": [
+    {
+      "ru": "Помогает в размене с врагом, который много стреляет: снижение скорострельности уменьшит давление, а снижение сопротивления пулям усилит ответный огонь. Применяй в начале перестрелки по той цели, по которой будете стрелять ты и союзники.",
+      "en": "Helps trade with an enemy who relies on gunfire: reducing their fire rate eases the pressure, while reducing their bullet resistance strengthens return fire. Apply it at the start of the shootout to the enemy you and allies intend to shoot."
+    }
+  ],
+  "Disarming Hex": [
+    {
+      "ru": "Улучшай Rusted Barrel, если нужно временно выключить стрельбу опасного врага и пережить его атаку. Снижение сопротивления пулям одновременно помогает тебе и союзникам добить его за время обезоруживания.",
+      "en": "Upgrade Rusted Barrel when you need to temporarily stop a dangerous enemy's gunfire and survive their attack. The bullet resistance reduction also helps you and allies finish them during the disarm."
+    }
+  ],
+  "Decay": [
+    {
+      "ru": "Бери против цели с большим текущим здоровьем и сильным лечением: постепенный урон ослабляет её перед основной атакой, а снижение лечения мешает восстановиться. Нужен другой источник урона для добивания: Decay не убивает и не вызывает срабатывания предметов.",
+      "en": "Buy against a healthy target with strong healing: the damage over time softens them up, while healing reduction limits their recovery. Bring another damage source to finish them; Decay is non-lethal and does not trigger item procs."
+    }
+  ],
+  "Scourge": [
+    {
+      "ru": "Полезен, если ты или союзник долго сражаетесь вплотную к врагам с большим запасом здоровья: аура наносит урон от их максимального здоровья. Наложи на того, кто останется в центре драки, чтобы одновременно дать ему спиритическое сопротивление и сопротивление дебаффам и сократить уже действующие дебаффы.",
+      "en": "Useful when you or an ally stay close to enemies with large health pools: the aura deals damage based on their maximum health. Cast it on whoever will remain in the fight to also grant spirit and debuff resistance and shorten existing debuffs."
+    }
+  ],
+  "Knockdown": [
+    {
+      "ru": "Бери, если нужно остановить удалённую или летящую цель и дать команде время на атаку; против цели в воздухе оглушение длится дольше. Применяй заранее: эффект сработает только через 2 секунды.",
+      "en": "Buy to stop a distant or airborne target and give your team time to attack; airborne targets suffer a longer stun. Cast ahead of time because the effect takes 2 seconds to arrive."
+    }
+  ],
+  "Vortex Web": [
+    {
+      "ru": "Готовит врагов под общий урон по области: граната стягивает врагов вместе и накладывает Slowing Hex, мешая уйти с помощью умений и предметов передвижения. Бери, если команда может сразу атаковать собранную группу.",
+      "en": "Sets up allied area damage: the grenade pulls enemies together and applies Slowing Hex, hindering escapes through movement abilities and items. Buy when the team can immediately attack the gathered group."
+    }
+  ],
+  "Refresher": [
+    {
+      "ru": "Бери, когда повторное применение решающих умений, включая ульт, может выиграть одну важную драку. Используй после расходования нужных умений и зарядов, чтобы получить второй набор применений; долгая перезарядка предмета требует выбирать момент.",
+      "en": "Buy when casting decisive abilities, including your ultimate, again can win an important fight. Use it after spending the abilities and charges you need to gain a second set of casts; the item's long cooldown makes the timing matter."
+    }
+  ],
+  "Echo Shard": [
+    {
+      "ru": "Полезен, если исход атаки решает повтор одного обычного умения — например, ещё одно попадание или вторая порция контроля. Выбери его для сброса перезарядки: ульт повторить нельзя, а перезарядка самого предмета растёт с перезарядкой выбранного умения.",
+      "en": "Useful when repeating one non-ultimate ability decides the attack, such as landing another damaging hit or a second control effect. Imbue it for the reset; ultimates cannot be repeated, and the item's own cooldown increases with the chosen ability's cooldown."
+    }
+  ],
+  "Torment Pulse": [
+    {
+      "ru": "Добавляет урон в затяжной ближней драке: автоматические импульсы добавляют спиритический урон, пока ты дерёшься вблизи. За раз они поражают только двух ближайших врагов, поэтому в толпе урон может уйти не в нужного героя.",
+      "en": "Adds damage when you spend extended time close to enemies: automatic pulses add spirit damage while you fight at close range. Each pulse hits only the two nearest enemies, so a crowd can divert damage away from your intended hero."
+    }
+  ],
+  "Arcane Surge": [
+    {
+      "ru": "Полезен, если перед ключевым умением ты можешь сделать рывок с прыжком: следующее применение получит больше дальности, длительности и спиритической мощи. Подходит для начала атаки с усиленным контролем или уроном; применить умение нужно в течение 7 секунд.",
+      "en": "Useful when you can dash-jump before a key ability: the next cast gains range, duration and Spirit Power. It helps open an attack with stronger control or damage; cast the ability within 7 seconds."
+    }
+  ],
+  "Cold Front": [
+    {
+      "ru": "Помогает, когда в ближней драке враг уходит из-под твоей атаки или преследует тебя: ледяная волна наносит урон и сильно замедляет попавшие под неё цели. Радиус вокруг тебя позволяет заодно задеть нескольких врагов или добить группу бойцов.",
+      "en": "Helps when an enemy pulls out of your close-range attacks or chases you: the ice blast damages and heavily slows targets it hits. Its area around you can also catch several enemies or finish a group of troopers."
+    }
+  ],
+  "Arctic Blast": [
+    {
+      "ru": "Улучшай Cold Front для драки рядом с несколькими врагами: большая ледяная волна сначала замораживает цели, затем замедляет их и останавливает восстановление выносливости на время замедления. Это даёт команде окно для атаки и затрудняет последующий отход врагов.",
+      "en": "Upgrade Cold Front for fights near several enemies: the larger ice blast freezes targets, then slows them and stops their stamina regeneration while slowed. This gives your team an attack window and makes the enemies' follow-up retreat harder."
+    }
+  ],
+  "Ethereal Shift": [
+    {
+      "ru": "Помогает пережить короткую вражескую связку: мгновенная неуязвимость позволяет переждать её опасную часть. После выхода временные бонусы скорости, спиритической мощи и спиритического сопротивления помогают уйти или вернуться в драку.",
+      "en": "Helps you survive a short enemy combo: instant invulnerability lets you wait out its dangerous part. Temporary movement speed, Spirit Power and spirit resistance afterward help you escape or rejoin the fight."
+    }
+  ],
+  "Cursed Relic": [
+    {
+      "ru": "Бери, чтобы прервать решающее действие врага и на короткое время лишить его умений, стрельбы и предметов; снятие бонусов, не относящихся к ульту, дополнительно ослабляет цель. Лучше использовать при готовой поддержке союзников: твой собственный урон на время эффекта снижается.",
+      "en": "Buy to interrupt a decisive enemy action and briefly deny their abilities, gunfire and items; removing non-ultimate buffs further weakens the target. Use it with allies ready to follow up, since your own damage is reduced for the effect's duration."
+    }
+  ],
+  "Duration Extender": [
+    {
+      "ru": "Бери, если одно выбранное умение должно дольше удерживать врага, защищать союзника или наносить постепенный урон. Дополнительная длительность полезна, когда цель остаётся под эффектом и ты успеваешь использовать добавленное время.",
+      "en": "Buy when one imbued ability needs to hold an enemy, protect an ally or deal damage over time for longer. The extra duration pays off when the target remains affected and you can use the additional time."
+    }
+  ],
+  "Superior Duration": [
+    {
+      "ru": "Улучшай Duration Extender, если длительность важна сразу для нескольких умений и предметов — например, для защитных бонусов и контроля в одной драке. Более долгие эффекты помогают сохранить преимущество на протяжении затяжного размена.",
+      "en": "Upgrade Duration Extender when duration matters for several abilities and items, such as defensive buffs and control in the same fight. Longer effects help sustain your advantage through an extended trade."
+    }
+  ],
+  "Spirit Strike": [
+    {
+      "ru": "Подходит для размена, который ты начинаешь ударом по герою и продолжаешь спиритическим уроном: удар добавит урон и снизит сопротивление цели перед продолжением атаки. Лёгкий удар тоже запускает эффект, но его перезарядка будет вдвое дольше.",
+      "en": "Fits trades that start with a melee hit on a hero and continue with spirit damage: the hit adds damage and lowers their resistance for the follow-up. Light melee also triggers it, but the cooldown is twice as long."
+    }
+  ],
+  "Spirit Snatch": [
+    {
+      "ru": "Улучшай Spirit Strike для ближних разменов с героем, который зависит от спиритической мощи: удар крадёт его мощь и спиритическое сопротивление, одновременно усиливая тебя. Тяжёлый удар даёт полный эффект, а у лёгкого он слабее на 30%.",
+      "en": "Upgrade Spirit Strike for close-range trades against a hero who relies on Spirit Power: the melee hit steals their power and spirit resistance while strengthening you. Heavy melee gives the full effect; light melee effects are 30% weaker."
+    }
+  ],
+  "Radiant Regeneration": [
+    {
+      "ru": "Поддерживает тебя в затяжной драке с частым применением умений: срабатывания лечения и скорости помогают пережить размен и сменить позицию. Спиритические попадания по героям дополнительно дают восстановление, которое накапливается от разных целей.",
+      "en": "Helps you stay in extended fights when you cast abilities regularly: healing and movement-speed procs help you survive trades and reposition. Spirit hits on heroes also grant regeneration that stacks across different targets."
+    }
+  ],
+  "Boundless Spirit": [
+    {
+      "ru": "Развивает Improved Spirit для сборки, где несколько важных умений хорошо растут от спиритической мощи и ты уже набираешь её другими источниками. Предмет даёт и плоскую мощь, и процентный бонус, поэтому усиливает весь такой набор умений.",
+      "en": "Upgrade Improved Spirit when several important abilities scale well with Spirit Power and you are already building it from other sources. The item supplies both flat power and a percentage bonus, strengthening that whole set of abilities."
+    }
+  ],
+  "Surge of Power": [
+    {
+      "ru": "Подходит для преследования со стрельбой после одного часто используемого умения, которое ты хочешь усилить. Его применение даёт скорость передвижения и позволяет двигаться с полной скоростью во время атаки, помогая сохранять дистанцию до врага.",
+      "en": "Buy to strengthen one frequently used ability and follow it by chasing with gunfire. Casting it grants movement speed and lets you move at full speed while attacking, helping you keep the enemy within reach."
+    }
+  ],
+  "Suppressor": [
+    {
+      "ru": "Полезен против врагов, которые наносят основной урон стрельбой: твои спиритические попадания будут снижать их скорострельность. Бери, если можешь регулярно задевать опасного стрелка и уменьшать его давление на себя или союзника.",
+      "en": "Useful against enemies who deal most of their damage through gunfire: your spirit hits reduce their fire rate. Buy when you can regularly tag a dangerous shooter and ease their pressure on you or an ally."
+    }
+  ],
+  "Quicksilver Reload": [
+    {
+      "ru": "Подходит для чередования стрельбы с одним удобным умением: когда эффект предмета готов, применение выбранного умения перезарядит оружие и позволит продолжить огонь без обычной паузы. Особенно полезно применять его после расходования магазина, получая заодно дополнительный урон и скорострельность.",
+      "en": "Fits alternating gunfire with one convenient ability: when the item effect is ready, casting the imbued ability reloads your weapon so you can keep shooting without a normal reload break. It is especially useful after spending your magazine, adding damage and fire rate as well."
+    }
+  ],
+  "Mercurial Magnum": [
+    {
+      "ru": "Улучшай Quicksilver Reload, если после выбранного умения ты продолжаешь много стрелять и при этом набираешь спиритическую мощь. Когда эффект предмета готов, применение этого умения перезаряжает оружие, а до следующей перезарядки пули получают дополнительный спиритический урон, растущий от этой мощи.",
+      "en": "Upgrade Quicksilver Reload when you keep firing after the imbued ability and also build Spirit Power. When the item effect is ready, casting that ability reloads your weapon, then your bullets gain bonus spirit damage scaling with that power until your next reload."
+    }
+  ],
+  "Magic Carpet": [
+    {
+      "ru": "Помогает отступить или быстро перелететь в другое место, когда замедления мешают разорвать дистанцию: в полёте они не действуют. Начинай призыв до того, как останешься без времени на спасение: он занимает время, а любое действие во время полёта убирает ковёр.",
+      "en": "Helps with retreating or fast travel when slows keep you from opening distance: they do not affect you in flight. Start summoning before you run out of escape time; the summon takes time, and taking any action during flight dismisses the carpet."
+    }
+  ],
+  "Spirit Burn": [
+    {
+      "ru": "Бери против сильного лечения, если можешь нанести одной цели 500 спиритического урона за 5 секунд: горение добавит постепенный урон и резко снизит получаемое лечение. Урон по области полезен для запуска горения на нескольких врагах, поскольку перезарядка отдельная для каждой цели.",
+      "en": "Buy against strong healing when you can deal 500 spirit damage to one target within 5 seconds: the burn adds damage over time and sharply reduces incoming healing. Area damage helps trigger burns on several enemies because each target has a separate cooldown."
+    }
+  ],
+  "Lightning Scroll": [
+    {
+      "ru": "Дополняет атаку отложенным контролем, если твой ульт надёжно наносит урон нужным героям. Оглушение с дополнительным уроном приходит через 3 секунды и срабатывает на каждой цели только один раз за ульт.",
+      "en": "Adds delayed control to your attack when your ultimate reliably damages the intended heroes. The stun and bonus damage arrive after 3 seconds and trigger only once per target per ultimate."
+    }
+  ],
+  "Golden Goose Egg": [
+    {
+      "ru": "Бери, если можешь некоторое время развивать экономику с пониженным уроном: ценность яйца растёт, а при вылуплении ты получаешь души и постоянные бонусы. При необходимости немедленно драться штраф к урону делает такую покупку менее полезной.",
+      "en": "Buy when you can spend time building your economy with reduced damage: the egg gains value, then hatching grants souls and permanent buffs. The damage penalty makes it less useful when you need immediate fighting strength."
+    }
+  ]
+}

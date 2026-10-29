@@ -3,7 +3,7 @@
   "files": {
     "data/heroes.json": "23a0926419b0a81cfc62f1a7a0d35ee488b426a278b9eb698b33c17b2b607162",
     "data/item-statistics.json": "75eefd315b3a4cc76b29e9d6767e4569a79531c162c7a01f7a600ece66b8269e",
-    "data/items.json": "e6adf4e36a787253262bc00f2cf31ec8fb5d9ec9ee5fa930fc0aad6b0ba2d5c3",
+    "data/items.json": "b9fb6cc9fb951aeb2272413f2b3491dd00d67335e575ea511c6ba552e5c08782",
     "data/mechanics.en.json": "e7ad716010e2defdd5106e2cbd62b0df8f6f58ea67d45ca34787620bd8f9ddbe",
     "data/mechanics.json": "a1de878110425dec8f78a484647639f29964175cae7cda7fb18bff57cd760c83",
     "data/provenance.json": "69eab0fa50aee390413e544388f1f916be3014296c5e7f2464a6ac76ea413df3",
@@ -209,7 +209,7 @@
     "public/assets/items/weighted-shots.webp": "d991c6079d88d70b8a8c9a8a3113ea2ced6a7862d41591e3a6c269dba7437456",
     "public/assets/items/witchmail.webp": "588ea7711427d9ceda3c0d386b7b83179138a397ccfd2afe106d3830c917c204"
   },
-  "hash": "0f3e2d5a1e8b5a70d1e2f7e9306479e5107281d5a7626e70efee96e91f165111",
+  "hash": "cba0da673804bde1f9d74dd49250bda29504801cfdd68e8e6bdf2054527605d6",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }

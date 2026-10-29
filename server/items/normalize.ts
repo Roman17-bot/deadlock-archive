@@ -7,7 +7,8 @@ import type {
   PurchaseSummary,
 } from '../../shared/item-types';
 import { validateItemCatalog, validateItemStatistics } from '../../shared/items';
-import { itemAdvice, itemTags, type RawItem, type RawProperty } from './traits';
+import { itemTags, type RawItem, type RawProperty } from './traits';
+import { itemAdvice } from './advice';
 
 export function plainText(input: string): string {
   return input
@@ -233,7 +234,7 @@ export function normalizeCatalog(
         return id;
       }),
       upgrades: [] as number[],
-      advice: itemAdvice(en, tags),
+      advice: itemAdvice(en.name),
     };
   });
   for (const item of items)

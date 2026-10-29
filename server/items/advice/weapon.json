@@ -1,0 +1,320 @@
+{
+  "Extended Magazine": [
+    {
+      "ru": "Когда патроны заканчиваются раньше, чем удаётся добить цель или зачистить волну, дополнительный боезапас продлевает стрельбу без перезарядки.",
+      "en": "Extra ammo keeps you firing when the magazine would otherwise run dry before you finish a target or clear a wave."
+    }
+  ],
+  "Monster Rounds": [
+    {
+      "ru": "Ускоряет зачистку бойцов и нейтральных лагерей за счёт дополнительного урона по существам. Сопротивление их пулям уменьшает потерю здоровья во время фарма.",
+      "en": "Extra damage against NPCs speeds up clearing troopers and neutral camps. Resistance to their bullets reduces the health you lose while farming."
+    }
+  ],
+  "Cultist Sacrifice": [
+    {
+      "ru": "Позволяет получать дополнительные души и длительное усиление, если регулярно находишь вражеских существ для поглощения. Покупка особенно полезна, когда используешь и дополнительный заряд способности, и увеличенную дальность.",
+      "en": "Consuming enemy NPCs provides extra souls and a long-lasting buff, provided you can regularly find targets. The purchase is especially useful when you use both the extra ability charge and increased range."
+    }
+  ],
+  "Tesla Bullets": [
+    {
+      "ru": "При стрельбе по скоплению врагов электрические разряды перескакивают на соседние цели. Помогает зачищать группы, продолжая атаковать одну цель.",
+      "en": "When you shoot into a group, shocks jump to nearby enemies. This helps clear clustered targets while you keep firing at one of them."
+    }
+  ],
+  "Capacitor": [
+    {
+      "ru": "Против врага, который уходит рывками или умениями передвижения, активный снаряд даёт замедление и блокирует расход выносливости и средства передвижения. Цепные разряды также усиливают стрельбу по сгруппированным врагам.",
+      "en": "Against enemies who escape through dashes or movement abilities, the active projectile slows them and blocks stamina use and movement tools. Chain shocks also strengthen your fire against grouped enemies."
+    }
+  ],
+  "Hollow Point": [
+    {
+      "ru": "Раскрывается в перестрелках, где удаётся удерживать здоровье выше 65%: тогда получаешь дополнительный урон оружия и снижаешь сопротивление пулям у цели. Восстановление вне боя помогает вернуть нужный запас здоровья перед следующей атакой.",
+      "en": "Works best in gunfights where you can stay above 65% health, enabling bonus weapon damage and bullet resistance reduction. Out-of-combat regeneration helps restore that health before the next attack."
+    }
+  ],
+  "Opening Rounds": [
+    {
+      "ru": "Усиливает первые попадания по здоровой цели: дополнительный урон оружия действует, пока у врага больше половины здоровья. Ускоренные пули помогают попадать по движущимся целям.",
+      "en": "Strengthens opening shots against healthy targets: the extra weapon damage works while the enemy is above half health. Faster bullets help you hit moving targets."
+    }
+  ],
+  "High-Velocity Rounds": [
+    {
+      "ru": "Если по движущемуся врагу трудно попасть из-за времени полёта пуль, увеличение их скорости уменьшит необходимое упреждение. Предмет также добавляет урон оружия.",
+      "en": "When bullet travel time makes moving enemies hard to hit, higher velocity reduces the lead you need. The item also adds weapon damage."
+    }
+  ],
+  "Weighted Shots": [
+    {
+      "ru": "Для удержания цели под огнём: повторные попадания накапливают замедление и сокращают дистанцию её рывка. Дополнительные урон и сопротивление дебаффам оплачиваются снижением твоей скорости и восстановления выносливости.",
+      "en": "Helps keep a target under fire: repeated hits build up a slow and reduce their dash distance. The extra damage and debuff resistance come at the cost of your movement speed and stamina recovery."
+    }
+  ],
+  "Close Quarters": [
+    {
+      "ru": "Усиливает перестрелки в пределах 15 м дополнительным уроном оружия. Сопротивление ближнему бою помогает выдержать ответные удары на этой дистанции.",
+      "en": "Adds weapon damage to gunfights within 15 m. Melee resistance helps you withstand retaliatory punches at that distance."
+    }
+  ],
+  "Long Range": [
+    {
+      "ru": "Поддерживает стрельбу издалека, если удерживаешь врага дальше 15 м: там включается дополнительный урон оружия. Увеличенная дальность падения урона помогает сохранять урон на расстоянии.",
+      "en": "Supports distant shooting when you keep enemies beyond 15 m, where the bonus weapon damage activates. Extended damage falloff range helps preserve damage at distance."
+    }
+  ],
+  "Slowing Bullets": [
+    {
+      "ru": "Чтобы врагу было труднее выйти из-под огня, накапливай замедление повторными попаданиями. Эффект также сокращает дистанцию его рывка.",
+      "en": "Repeated bullet hits build up a slow, making it harder for an enemy to leave your firing line. The effect also reduces their dash distance."
+    }
+  ],
+  "Spirit Shredder": [
+    {
+      "ru": "Перед атакой спиритическим уроном пометь цель пулей: это снизит её спиритическое сопротивление и даст тебе и союзникам спиритический вампиризм против неё. Особенно полезен, когда несколько союзников наносят такой урон по одной цели.",
+      "en": "Tag a target with a bullet before attacking with spirit damage: this lowers their spirit resistance and grants you and allies spirit lifesteal against them. It is especially useful when several allies focus that target with spirit damage."
+    }
+  ],
+  "Heroic Aura": [
+    {
+      "ru": "Помогает совместному наступлению: аура защищает ближайших союзных существ от пуль, а активация ускоряет передвижение и стрельбу союзников. Для усиления волны используй рядом с союзными бойцами: они получают удвоенный активный бонус.",
+      "en": "Supports a coordinated push: the aura protects nearby friendly units from bullets, while activation boosts allied movement and fire rate. Use it near allied minions to strengthen a wave, since they receive double the active bonus."
+    }
+  ],
+  "Silencer": [
+    {
+      "ru": "Мешает врагу, которому нужны способности для урона или спасения: попадания уменьшают его исходящий спиритический урон и накапливают безмолвие. После окончания безмолвия цель временно невосприимчива к повторному накоплению.",
+      "en": "Disrupts an enemy who relies on abilities for damage or escape: bullet hits reduce their outgoing spirit damage and build up silence. After silence ends, the target is temporarily immune to further buildup."
+    }
+  ],
+  "Berserker": [
+    {
+      "ru": "В затяжной перестрелке превращает полученный урон в усиление оружия. Подходит, если выдерживаешь входящий урон и продолжаешь стрелять.",
+      "en": "Turns damage taken into bonus weapon damage during an extended gunfight. It suits fights where you can withstand incoming damage and keep firing."
+    }
+  ],
+  "Frenzy": [
+    {
+      "ru": "Помогает продолжить бой после падения ниже половины здоровья: срабатывание даёт скорострельность, скорость передвижения и сокращает уже действующие дебаффы. Наибольшую пользу получаешь, если в этот момент ещё можешь стрелять.",
+      "en": "Helps you keep fighting after dropping below half health: the trigger grants fire rate and movement speed and reduces existing debuffs. You get the most from it when you can still shoot at that point."
+    }
+  ],
+  "Headshot Booster": [
+    {
+      "ru": "Усиливает короткий обмен выстрелами, если регулярно попадаешь героям в голову: готовый эффект добавляет урон к точному попаданию.",
+      "en": "Strengthens a short trade when you regularly headshot heroes: the ready proc adds damage to a well-placed shot."
+    }
+  ],
+  "Weakening Headshot": [
+    {
+      "ru": "Начинай атаку попаданием в голову, чтобы снизить сопротивление пулям и усилить последующую стрельбу по цели.",
+      "en": "Open with a headshot to lower bullet resistance and strengthen follow-up fire against the target."
+    }
+  ],
+  "Sharpshooter": [
+    {
+      "ru": "Для атак дальше 15 м даёт дополнительный урон, увеличение прицела и скорость пуль. Обычная скорость передвижения снижается, поэтому позицию лучше занять до перестрелки.",
+      "en": "For attacks beyond 15 m, it provides bonus damage, stronger zoom and faster bullets. Your normal movement speed falls, so establish your position before trading shots."
+    }
+  ],
+  "Headhunter": [
+    {
+      "ru": "Вознаграждает точные попадания героям в голову во время коротких обменов: усиленный выстрел наносит дополнительный урон и лечит. Полученная скорость помогает продолжить атаку или сменить позицию.",
+      "en": "Rewards accurate headshots on heroes during short trades: the empowered shot adds damage and heals you. The movement speed it grants helps you continue attacking or reposition."
+    }
+  ],
+  "Spirit Rend": [
+    {
+      "ru": "Помогает сосредоточить спиритический урон на одной цели: пули снижают её спиритическое сопротивление и дают тебе и союзникам спиритический вампиризм против неё. Повторные попадания в голову дополнительно накапливают снижение этого сопротивления.",
+      "en": "Helps focus spirit damage on one target: bullets lower their spirit resistance and grant you and allies spirit lifesteal against them. Repeated headshots stack additional spirit resistance reduction."
+    }
+  ],
+  "Crippling Headshot": [
+    {
+      "ru": "Против цели с сильным лечением попадание в голову снижает входящее лечение и сопротивление пулям и спиритическому урону. Помогает команде добить врага совместной атакой оружием и способностями.",
+      "en": "Against a target receiving heavy healing, a headshot reduces incoming healing and both bullet and spirit resistance. This helps your team finish them with combined gunfire and abilities."
+    }
+  ],
+  "Mystic Shot": [
+    {
+      "ru": "Добавляет спиритический урон к отдельному выстрелу, усиливая короткие обмены, когда эффект готов. Подходит и для сборки со спиритической мощью, от которой растёт этот урон.",
+      "en": "Adds spirit damage to an individual shot, strengthening short trades when the proc is ready. It also fits spirit power builds, which increase that damage."
+    }
+  ],
+  "Lucky Shot": [
+    {
+      "ru": "При большом числе попаданий даёт дополнительные срабатывания урона оружия, а увеличенный магазин продлевает огонь. Дополнительный урон Lucky Shot не может быть критическим.",
+      "en": "Landing many hits gives you more chances to proc bonus weapon damage, while the larger magazine extends your fire. Lucky Shot's bonus damage cannot crit."
+    }
+  ],
+  "Point Blank": [
+    {
+      "ru": "На дистанции до 15 м помогает удержать врага рядом: даёт урон оружия и замедление от пуль. Дополнительное здоровье и сопротивление ближнему бою помогают выдержать ответную атаку.",
+      "en": "Within 15 m, it helps keep the enemy close through bonus weapon damage and slowing bullets. Extra health and melee resistance help you withstand retaliation."
+    }
+  ],
+  "Toxic Bullets": [
+    {
+      "ru": "Против большого запаса здоровья или сильного лечения помогает кровотечение, которое наносит урон от максимального здоровья и снижает входящее лечение. Для его наложения нужно накопить эффект попаданиями пуль.",
+      "en": "Against high health pools or strong healing, the bleed deals maximum-health damage and reduces incoming healing. You must first build up the effect with bullet hits."
+    }
+  ],
+  "Ricochet": [
+    {
+      "ru": "Распространяет стрельбу на соседние цели, если враги стоят рядом. Особенно полезен с уже купленными эффектами попадания пулями: рикошеты накладывают их на дополнительные цели.",
+      "en": "Spreads your fire to nearby targets when enemies stand together. It is especially useful with bullet procs you already own, since ricochets apply them to additional targets."
+    }
+  ],
+  "Rapid Rounds": [
+    {
+      "ru": "Простое усиление стрельбы, когда можешь держать цель в прицеле: дополнительная скорострельность позволяет выпустить больше пуль за то же время.",
+      "en": "A straightforward shooting upgrade when you can keep your aim on target: extra fire rate lets you fire more bullets in the same time."
+    }
+  ],
+  "Hunter's Aura": [
+    {
+      "ru": "В дуэли на дистанции до 15 м особенно ценна: снижение сопротивления пулям и скорострельности удваивается, если рядом только один вражеский герой. При нескольких врагах аура продолжает ослаблять всех в радиусе, но без удвоения.",
+      "en": "Especially useful in a duel within 15 m: its bullet resistance and fire rate reductions double when only one enemy hero is nearby. With several enemies, the aura still weakens those in range, without the doubled effect."
+    }
+  ],
+  "Spiritual Overflow": [
+    {
+      "ru": "Связывает стрельбу со спиритическим уроном: попадания по героям заряжают усиление скорострельности, спиритической мощи и спиритического вампиризма. Набери заряд выстрелами перед применением способностей.",
+      "en": "Connects shooting with spirit damage: hits on heroes charge a buff to fire rate, spirit power and spirit lifesteal. Build the charge with shots before casting abilities."
+    }
+  ],
+  "Shadow Weave": [
+    {
+      "ru": "Даёт скрытно подойти и открыть бой с усилением скорострельности, спиритической мощи и ближнего боя, когда заканчиваешь невидимость атакой или способностью. При сближении учитывай обнаружение вблизи и краткое раскрытие от входящего урона.",
+      "en": "Lets you approach concealed and open with bonus fire rate, spirit power and melee damage when you end stealth with an attack or ability. Account for close-range detection and brief reveals from incoming damage as you approach."
+    }
+  ],
+  "Alchemical Fire": [
+    {
+      "ru": "Удержание врагов в горящей области позволяет нарастить спиритический урон и воспользоваться снижением сопротивления пулям для последующей стрельбы. Против существ, не являющихся героями, эффект слабее.",
+      "en": "Keeping enemies in the burning area lets the spirit damage ramp up and allows follow-up gunfire to benefit from reduced bullet resistance. It is less effective against non-heroes."
+    }
+  ],
+  "Blood Tribute": [
+    {
+      "ru": "Обменивает здоровье на скорострельность, скорость передвижения и сопротивление дебаффам для продолжения атаки. Выключай, когда бонусы не используются: расход здоровья идёт всё время работы.",
+      "en": "Trades health for fire rate, movement speed and debuff resistance to sustain your attack. Toggle it off when you are not using the bonuses, since it continuously drains health."
+    }
+  ],
+  "Fleetfoot": [
+    {
+      "ru": "Убирает штраф передвижения при стрельбе, если именно он мешает удерживать нужную дистанцию. Для погони или отхода активация дополнительно даёт скорость и сопротивление замедлению.",
+      "en": "Removes the movement penalty while firing when that penalty stops you from maintaining distance. Activation adds movement speed and slow resistance for chasing or retreating."
+    }
+  ],
+  "Kinetic Dash": [
+    {
+      "ru": "Используй рывок-прыжок перед стрельбой, чтобы получить скорострельность и временные патроны до следующей перезарядки. Дополнительная выносливость и её восстановление помогают чаще менять позицию.",
+      "en": "Dash-jump before shooting to gain fire rate and temporary ammo until your next reload. Extra stamina and stamina recovery help you reposition more often."
+    }
+  ],
+  "Glass Cannon": [
+    {
+      "ru": "Даёт большой прирост урона оружия ценой части максимального здоровья — подходит, если можешь компенсировать уязвимость позицией. Убийства героев накапливают скорострельность, а каждая смерть снимает один накопленный заряд.",
+      "en": "Provides a large weapon damage increase at the cost of maximum health, suitable when positioning can compensate for the vulnerability. Hero kills build fire rate stacks, while each death removes one stack."
+    }
+  ],
+  "Melee Charge": [
+    {
+      "ru": "Для атаки через тяжёлые удары увеличивает дальность сближения и усиливает следующий удар, когда эффект готов.",
+      "en": "For attacks built around heavy melee, it extends your reach and strengthens the next hit when the proc is ready."
+    }
+  ],
+  "Crushing Fists": [
+    {
+      "ru": "Связывает ближний бой со стрельбой: удары возвращают патроны и накапливают снижение сопротивления пулям, а при максимуме зарядов оглушают цель. Тяжёлый удар даёт сразу два заряда и получает отдельное усиление урона.",
+      "en": "Connects melee with shooting: melee hits restore ammo and stack bullet resistance reduction, stunning the target at maximum stacks. Heavy melee applies two stacks and benefits from a separate damage boost."
+    }
+  ],
+  "Burst Fire": [
+    {
+      "ru": "Позволяет развить первое попадание по герою в короткую усиленную атаку: бонусы скорострельности и передвижения помогают продолжать огонь и двигаться вместе с целью.",
+      "en": "Turns your first bullet hit on a hero into a short window of stronger fire: bonus fire rate and movement speed help you keep attacking and keep pace with the target."
+    }
+  ],
+  "Intensifying Magazine": [
+    {
+      "ru": "Непрерывная стрельба наращивает урон оружия, поэтому предмет полезнее, когда можешь долго держать огонь по цели. Дополнительный боезапас продлевает время использования усиления.",
+      "en": "Continuous fire ramps up weapon damage, making the item more useful when you can keep shooting a target. Extra ammo extends the time you can use the buff."
+    }
+  ],
+  "Escalating Resilience": [
+    {
+      "ru": "В продолжительных перестрелках попадания по героям постепенно повышают сопротивление пулям. Увеличенный магазин помогает продолжать огонь и набирать защиту.",
+      "en": "In extended gunfights, hits on heroes progressively build bullet resistance. The larger magazine helps you keep firing and stacking protection."
+    }
+  ],
+  "Swift Striker": [
+    {
+      "ru": "Сочетает скорострельность для перестрелок со скоростью спринта для переходов между линиями. Оба бонуса действуют без отдельного срабатывания.",
+      "en": "Combines fire rate for gunfights with sprint speed for moving between lanes. Both bonuses work without a separate trigger."
+    }
+  ],
+  "Restorative Shot": [
+    {
+      "ru": "Помогает восстанавливать здоровье после обменов на линии, если продолжаешь попадать выстрелами: готовая пуля лечит при попадании. Герой даёт больше лечения, чем существо или сфера.",
+      "en": "Helps recover health lost in lane trades as long as you keep landing shots: a ready bullet heals on hit. A hero provides more healing than an NPC or orb."
+    }
+  ],
+  "Titanic Magazine": [
+    {
+      "ru": "Когда частые перезарядки прерывают урон по цели или объекту, большой прирост боезапаса продлевает огонь. Дополнительный урон оружия усиливает эту стрельбу.",
+      "en": "When frequent reloads interrupt damage against a target or objective, the large ammo increase extends your fire. Extra weapon damage strengthens that shooting."
+    }
+  ],
+  "Split Shot": [
+    {
+      "ru": "Против сгруппированных героев включённый мультивыстрел позволяет за одну атаку задеть нескольких и накопить урон оружия. Одна цель получает только одно попадание от каждого мультивыстрела.",
+      "en": "Against grouped heroes, activated multishot lets one attack hit several of them and build weapon damage stacks. Each target can only be hit once per multishot."
+    }
+  ],
+  "Active Reload": [
+    {
+      "ru": "Сокращает паузу между магазинами, если нажимаешь перезарядку в отмеченное окно: успешное нажатие сразу завершает её. Бонусы скорострельности, вампиризма пулями и передвижения помогают продолжить бой.",
+      "en": "Shortens the gap between magazines when you press reload in the highlighted window: a successful input finishes it immediately. Fire rate, bullet lifesteal and movement speed bonuses help you keep fighting."
+    }
+  ],
+  "Armor Piercer": [
+    {
+      "ru": "Против высокого сопротивления пулям даёт шанс игнорировать его отдельными выстрелами. Такие пули также проходят сквозь врагов, помогая поражать цели, стоящие друг за другом.",
+      "en": "Against high bullet resistance, it gives individual shots a chance to ignore that resistance. Those bullets also pierce enemies, helping hit targets lined up behind each other."
+    }
+  ],
+  "Spellslinger": [
+    {
+      "ru": "Частые применения способностей и предметов в бою усиливают стрельбу между ними: накапливаются скорострельность и ускорение перезарядки. Каждое новое применение обновляет длительность усиления.",
+      "en": "Frequent ability and item casts in combat strengthen the shooting between them by stacking fire rate and reload speed. Each new cast refreshes the buff duration."
+    }
+  ],
+  "Stalker": [
+    {
+      "ru": "Облегчает преследование: урон оружием в пределах 8 м открывает рану, снижает сопротивление пулям и раскрывает цель за стенами. Полученная скорость помогает не отпускать раненого врага.",
+      "en": "Helps pursuit: weapon damage within 8 m opens a wound, lowers bullet resistance and reveals the target through walls. The movement speed you gain helps you keep up with the wounded enemy."
+    }
+  ],
+  "Express Shot": [
+    {
+      "ru": "Усиливает отдельную атаку при выходе на цель: готовый эффект выпускает два выстрела подряд с повышенными уроном и скоростью пуль. Перед атакой оставляй патроны на дополнительный расход.",
+      "en": "Strengthens an opening attack: the ready proc fires twice in quick succession with increased damage and bullet velocity. Keep enough ammo for the extra cost before attacking."
+    }
+  ],
+  "Ballistic Enchantment": [
+    {
+      "ru": "Усиль способность, которой можешь задеть нескольких героев перед стрельбой: увеличенная дальность помогает попасть, а каждый уникальный герой даёт урон оружия. Так попадания способностью подготавливают последующую атаку оружием.",
+      "en": "Imbue an ability that can hit several heroes before you shoot: extra range helps it connect, and each unique hero grants weapon damage. Ability hits then set up your follow-up gunfire."
+    }
+  ],
+  "Recharging Rush": [
+    {
+      "ru": "Продлевает комбинацию героя со способностями на зарядах: достаточный урон оружием за короткое время возвращает по заряду каждой такой способности. Полезен, если можешь быстро набрать нужный порог попаданиями.",
+      "en": "Extends a combo for a hero with charged abilities: enough weapon damage within a short window restores a charge to each of those abilities. It helps when you can quickly reach the required damage threshold."
+    }
+  ]
+}

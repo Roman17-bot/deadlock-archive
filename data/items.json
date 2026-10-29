@@ -4,8 +4,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Extra ammo keeps you firing when the magazine would otherwise run dry before you finish a target or clear a wave.",
+          "ru": "Когда патроны заканчиваются раньше, чем удаётся добить цель или зачистить волну, дополнительный боезапас продлевает стрельбу без перезарядки."
         }
       ],
       "attributes": [
@@ -56,8 +56,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful for clearing troopers and neutral camps or attacking objectives. Non-hero bonuses are not the same as bonuses against heroes.",
-          "ru": "Полезен, если часто зачищаешь бойцов и нейтральные лагеря или атакуешь объекты. Бонусы против таких целей не равны бонусам против героев."
+          "en": "Extra damage against NPCs speeds up clearing troopers and neutral camps. Resistance to their bullets reduces the health you lose while farming.",
+          "ru": "Ускоряет зачистку бойцов и нейтральных лагерей за счёт дополнительного урона по существам. Сопротивление их пулям уменьшает потерю здоровья во время фарма."
         }
       ],
       "attributes": [
@@ -115,12 +115,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Useful for clearing troopers and neutral camps or attacking objectives. Non-hero bonuses are not the same as bonuses against heroes.",
-          "ru": "Полезен, если часто зачищаешь бойцов и нейтральные лагеря или атакуешь объекты. Бонусы против таких целей не равны бонусам против героев."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Consuming enemy NPCs provides extra souls and a long-lasting buff, provided you can regularly find targets. The purchase is especially useful when you use both the extra ability charge and increased range.",
+          "ru": "Позволяет получать дополнительные души и длительное усиление, если регулярно находишь вражеских существ для поглощения. Покупка особенно полезна, когда используешь и дополнительный заряд способности, и увеличенную дальность."
         }
       ],
       "attributes": [
@@ -273,8 +269,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "When you shoot into a group, shocks jump to nearby enemies. This helps clear clustered targets while you keep firing at one of them.",
+          "ru": "При стрельбе по скоплению врагов электрические разряды перескакивают на соседние цели. Помогает зачищать группы, продолжая атаковать одну цель."
         }
       ],
       "attributes": [],
@@ -360,12 +356,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Against enemies who escape through dashes or movement abilities, the active projectile slows them and blocks stamina use and movement tools. Chain shocks also strengthen your fire against grouped enemies.",
+          "ru": "Против врага, который уходит рывками или умениями передвижения, активный снаряд даёт замедление и блокирует расход выносливости и средства передвижения. Цепные разряды также усиливают стрельбу по сгруппированным врагам."
         }
       ],
       "attributes": [
@@ -512,8 +504,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Works best in gunfights where you can stay above 65% health, enabling bonus weapon damage and bullet resistance reduction. Out-of-combat regeneration helps restore that health before the next attack.",
+          "ru": "Раскрывается в перестрелках, где удаётся удерживать здоровье выше 65%: тогда получаешь дополнительный урон оружия и снижаешь сопротивление пулям у цели. Восстановление вне боя помогает вернуть нужный запас здоровья перед следующей атакой."
         }
       ],
       "attributes": [
@@ -597,8 +589,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Strengthens opening shots against healthy targets: the extra weapon damage works while the enemy is above half health. Faster bullets help you hit moving targets.",
+          "ru": "Усиливает первые попадания по здоровой цели: дополнительный урон оружия действует, пока у врага больше половины здоровья. Ускоренные пули помогают попадать по движущимся целям."
         }
       ],
       "attributes": [
@@ -675,8 +667,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "When bullet travel time makes moving enemies hard to hit, higher velocity reduces the lead you need. The item also adds weapon damage.",
+          "ru": "Если по движущемуся врагу трудно попасть из-за времени полёта пуль, увеличение их скорости уменьшит необходимое упреждение. Предмет также добавляет урон оружия."
         }
       ],
       "attributes": [
@@ -729,8 +721,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits close-range play. Time your melee attacks around enemy parries and crowd control.",
-          "ru": "Подходит для игры вблизи. Выбирай момент для удара с учётом вражеского парирования и контроля."
+          "en": "Helps you recover health in trades when you can land melee attacks. Healing is much stronger against heroes, and heavy melee lets the effect recover sooner than light melee.",
+          "ru": "Помогает восстанавливать здоровье в разменах, если удаётся попадать ударами ближнего боя. По героям лечение заметно сильнее, а тяжёлые удары позволяют чаще пользоваться готовым эффектом, чем лёгкие."
         }
       ],
       "attributes": [
@@ -798,8 +790,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits close-range play. Time your melee attacks around enemy parries and crowd control.",
-          "ru": "Подходит для игры вблизи. Выбирай момент для удара с учётом вражеского парирования и контроля."
+          "en": "Against a hero who relies on melee, a successful parry both heals you and returns damage to them. Use the resulting damage buff to counterattack.",
+          "ru": "Против героя, который часто бьёт в ближнем бою, успешное парирование одновременно лечит тебя и возвращает ему урон. Используй полученное усиление для ответной атаки."
         }
       ],
       "attributes": [
@@ -890,8 +882,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Useful against dangerous abilities and active items when you can time a parry against them. A successful spell parry provides healing, movement speed and Spirit Power for a counterattack.",
+          "ru": "Полезен против опасных способностей и активных предметов, если можешь встретить их парированием. Успешная защита даёт лечение, скорость и спиритическую мощь для ответной атаки."
         }
       ],
       "attributes": [
@@ -1000,8 +992,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Helps keep a target under fire: repeated hits build up a slow and reduce their dash distance. The extra damage and debuff resistance come at the cost of your movement speed and stamina recovery.",
+          "ru": "Для удержания цели под огнём: повторные попадания накапливают замедление и сокращают дистанцию её рывка. Дополнительные урон и сопротивление дебаффам оплачиваются снижением твоей скорости и восстановления выносливости."
         }
       ],
       "attributes": [
@@ -1111,8 +1103,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Adds weapon damage to gunfights within 15 m. Melee resistance helps you withstand retaliatory punches at that distance.",
+          "ru": "Усиливает перестрелки в пределах 15 м дополнительным уроном оружия. Сопротивление ближнему бою помогает выдержать ответные удары на этой дистанции."
         }
       ],
       "attributes": [
@@ -1180,8 +1172,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Supports distant shooting when you keep enemies beyond 15 m, where the bonus weapon damage activates. Extended damage falloff range helps preserve damage at distance.",
+          "ru": "Поддерживает стрельбу издалека, если удерживаешь врага дальше 15 м: там включается дополнительный урон оружия. Увеличенная дальность падения урона помогает сохранять урон на расстоянии."
         }
       ],
       "attributes": [
@@ -1258,8 +1250,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "Repeated bullet hits build up a slow, making it harder for an enemy to leave your firing line. The effect also reduces their dash distance.",
+          "ru": "Чтобы врагу было труднее выйти из-под огня, накапливай замедление повторными попаданиями. Эффект также сокращает дистанцию его рывка."
         }
       ],
       "attributes": [],
@@ -1334,8 +1326,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful against a dangerous carry: your hits weaken both their damage output and healing.",
-          "ru": "Полезен против опасного стрелка или другого героя с большим уроном: попадания ослабляют его урон и лечение."
+          "en": "Useful against a major damage threat who also heals heavily: bullet hits build up damage suppression and healing reduction. Focus your shots on that threat to apply both effects.",
+          "ru": "Против сильного источника урона, который ещё и много лечится: попадания пулями накапливают ослабление его урона и лечения. Сосредоточь огонь на опасной цели, чтобы наложить оба эффекта."
         }
       ],
       "attributes": [
@@ -1427,8 +1419,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "Tag a target with a bullet before attacking with spirit damage: this lowers their spirit resistance and grants you and allies spirit lifesteal against them. It is especially useful when several allies focus that target with spirit damage.",
+          "ru": "Перед атакой спиритическим уроном пометь цель пулей: это снизит её спиритическое сопротивление и даст тебе и союзникам спиритический вампиризм против неё. Особенно полезен, когда несколько союзников наносят такой урон по одной цели."
         }
       ],
       "attributes": [],
@@ -1496,12 +1488,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Supports a coordinated push: the aura protects nearby friendly units from bullets, while activation boosts allied movement and fire rate. Use it near allied minions to strengthen a wave, since they receive double the active bonus.",
+          "ru": "Помогает совместному наступлению: аура защищает ближайших союзных существ от пуль, а активация ускоряет передвижение и стрельбу союзников. Для усиления волны используй рядом с союзными бойцами: они получают удвоенный активный бонус."
         }
       ],
       "attributes": [
@@ -1619,12 +1607,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy when enemies answer your initiation with a defensive ability or an escape: the silence wave creates an attack window, especially against several nearby targets. Land it before the dangerous cast; silence will not interrupt an ability already being channeled.",
+          "ru": "Бери, если враги успевают ответить защитным умением или уйти после твоего нападения: волна безмолвия даёт окно для атаки, особенно по нескольким стоящим рядом целям. Попадай до применения опасного умения — уже начавшееся поддерживаемое умение безмолвие не прервёт."
         }
       ],
       "attributes": [
@@ -1719,8 +1703,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Disrupts an enemy who relies on abilities for damage or escape: bullet hits reduce their outgoing spirit damage and build up silence. After silence ends, the target is temporarily immune to further buildup.",
+          "ru": "Мешает врагу, которому нужны способности для урона или спасения: попадания уменьшают его исходящий спиритический урон и накапливают безмолвие. После окончания безмолвия цель временно невосприимчива к повторному накоплению."
         }
       ],
       "attributes": [
@@ -1812,8 +1796,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Turns damage taken into bonus weapon damage during an extended gunfight. It suits fights where you can withstand incoming damage and keep firing.",
+          "ru": "В затяжной перестрелке превращает полученный урон в усиление оружия. Подходит, если выдерживаешь входящий урон и продолжаешь стрелять."
         }
       ],
       "attributes": [
@@ -1895,8 +1879,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "Helps you keep fighting after dropping below half health: the trigger grants fire rate and movement speed and reduces existing debuffs. You get the most from it when you can still shoot at that point.",
+          "ru": "Помогает продолжить бой после падения ниже половины здоровья: срабатывание даёт скорострельность, скорость передвижения и сокращает уже действующие дебаффы. Наибольшую пользу получаешь, если в этот момент ещё можешь стрелять."
         }
       ],
       "attributes": [
@@ -2005,8 +1989,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "For extended gunfights against a durable target: bullets temporarily steal their maximum health for you. Keep landing shots to maintain the advantage; the stolen health returns when the debuff expires.",
+          "ru": "Для затяжной перестрелки с живучей целью: пули временно отнимают у неё максимальное здоровье и передают его тебе. Продолжай попадать, чтобы поддерживать преимущество; после окончания дебаффа украденное здоровье возвращается врагу."
         }
       ],
       "attributes": [
@@ -2090,8 +2074,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Value depends on landing headshots. Compare with more consistent weapon upgrades if the target is hard to track.",
-          "ru": "Ценность зависит от попаданий в голову. Сравни с более стабильным усилением оружия, если цель трудно удерживать в прицеле."
+          "en": "Strengthens a short trade when you regularly headshot heroes: the ready proc adds damage to a well-placed shot.",
+          "ru": "Усиливает короткий обмен выстрелами, если регулярно попадаешь героям в голову: готовый эффект добавляет урон к точному попаданию."
         }
       ],
       "attributes": [
@@ -2160,8 +2144,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Value depends on landing headshots. Compare with more consistent weapon upgrades if the target is hard to track.",
-          "ru": "Ценность зависит от попаданий в голову. Сравни с более стабильным усилением оружия, если цель трудно удерживать в прицеле."
+          "en": "Open with a headshot to lower bullet resistance and strengthen follow-up fire against the target.",
+          "ru": "Начинай атаку попаданием в голову, чтобы снизить сопротивление пулям и усилить последующую стрельбу по цели."
         }
       ],
       "attributes": [
@@ -2230,8 +2214,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "For attacks beyond 15 m, it provides bonus damage, stronger zoom and faster bullets. Your normal movement speed falls, so establish your position before trading shots.",
+          "ru": "Для атак дальше 15 м даёт дополнительный урон, увеличение прицела и скорость пуль. Обычная скорость передвижения снижается, поэтому позицию лучше занять до перестрелки."
         }
       ],
       "attributes": [
@@ -2341,8 +2325,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Value depends on landing headshots. Compare with more consistent weapon upgrades if the target is hard to track.",
-          "ru": "Ценность зависит от попаданий в голову. Сравни с более стабильным усилением оружия, если цель трудно удерживать в прицеле."
+          "en": "Rewards accurate headshots on heroes during short trades: the empowered shot adds damage and heals you. The movement speed it grants helps you continue attacking or reposition.",
+          "ru": "Вознаграждает точные попадания героям в голову во время коротких обменов: усиленный выстрел наносит дополнительный урон и лечит. Полученная скорость помогает продолжить атаку или сменить позицию."
         }
       ],
       "attributes": [
@@ -2449,8 +2433,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "Helps focus spirit damage on one target: bullets lower their spirit resistance and grant you and allies spirit lifesteal against them. Repeated headshots stack additional spirit resistance reduction.",
+          "ru": "Помогает сосредоточить спиритический урон на одной цели: пули снижают её спиритическое сопротивление и дают тебе и союзникам спиритический вампиризм против неё. Повторные попадания в голову дополнительно накапливают снижение этого сопротивления."
         }
       ],
       "attributes": [
@@ -2561,8 +2545,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Requires headshots. Choose it when you can reliably maintain the effect on a priority target.",
-          "ru": "Нужны попадания в голову. Выбирай, если можешь стабильно поддерживать эффект на приоритетной цели."
+          "en": "Against a target receiving heavy healing, a headshot reduces incoming healing and both bullet and spirit resistance. This helps your team finish them with combined gunfire and abilities.",
+          "ru": "Против цели с сильным лечением попадание в голову снижает входящее лечение и сопротивление пулям и спиритическому урону. Помогает команде добить врага совместной атакой оружием и способностями."
         }
       ],
       "attributes": [
@@ -2649,8 +2633,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "Adds spirit damage to an individual shot, strengthening short trades when the proc is ready. It also fits spirit power builds, which increase that damage.",
+          "ru": "Добавляет спиритический урон к отдельному выстрелу, усиливая короткие обмены, когда эффект готов. Подходит и для сборки со спиритической мощью, от которой растёт этот урон."
         }
       ],
       "attributes": [
@@ -2720,8 +2704,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Landing many hits gives you more chances to proc bonus weapon damage, while the larger magazine extends your fire. Lucky Shot's bonus damage cannot crit.",
+          "ru": "При большом числе попаданий даёт дополнительные срабатывания урона оружия, а увеличенный магазин продлевает огонь. Дополнительный урон Lucky Shot не может быть критическим."
         }
       ],
       "attributes": [
@@ -2787,8 +2771,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Within 15 m, it helps keep the enemy close through bonus weapon damage and slowing bullets. Extra health and melee resistance help you withstand retaliation.",
+          "ru": "На дистанции до 15 м помогает удержать врага рядом: даёт урон оружия и замедление от пуль. Дополнительное здоровье и сопротивление ближнему бою помогают выдержать ответную атаку."
         }
       ],
       "attributes": [
@@ -2882,8 +2866,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it for sustained fire on a target: bullets must first build up the effect. One isolated shot is not a substitute for applying the bleed.",
-          "ru": "Выбирай для продолжительной стрельбы по одной цели: сначала нужно накопить эффект пулями. Короткий одиночный выстрел не заменяет наложение кровотечения."
+          "en": "Against high health pools or strong healing, the bleed deals maximum-health damage and reduces incoming healing. You must first build up the effect with bullet hits.",
+          "ru": "Против большого запаса здоровья или сильного лечения помогает кровотечение, которое наносит урон от максимального здоровья и снижает входящее лечение. Для его наложения нужно накопить эффект попаданиями пуль."
         }
       ],
       "attributes": [],
@@ -2960,8 +2944,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Spreads your fire to nearby targets when enemies stand together. It is especially useful with bullet procs you already own, since ricochets apply them to additional targets.",
+          "ru": "Распространяет стрельбу на соседние цели, если враги стоят рядом. Особенно полезен с уже купленными эффектами попадания пулями: рикошеты накладывают их на дополнительные цели."
         }
       ],
       "attributes": [
@@ -3034,8 +3018,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "An early purchase when you need more health to survive a trade or an enemy combo. The extra health helps regardless of the damage type you are facing.",
+          "ru": "Ранняя покупка, когда не хватает запаса здоровья, чтобы пережить размен или комбинацию врага. Полезна независимо от того, каким типом урона тебя атакуют."
         }
       ],
       "attributes": [
@@ -3077,8 +3061,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "For a hero who can recover during gunfights by landing bullet damage. Most useful in extended trades where you can keep shooting your target.",
+          "ru": "Для героя, который восстанавливается прямо во время перестрелки за счёт попаданий пулями. Особенно полезен в долгих разменах, где есть возможность продолжать стрелять по цели."
         }
       ],
       "attributes": [
@@ -3139,8 +3123,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Shortens debuffs but does not remove them immediately. Useful against frequent negative effects when you do not need an active cleanse.",
-          "ru": "Сокращает длительность дебаффов, но не снимает их мгновенно. Подходит против частых отрицательных эффектов, когда не требуется активное очищение."
+          "en": "Against long debuffs that stop you moving, casting or continuing an attack. It passively shortens their duration without requiring an active use.",
+          "ru": "Против длительных отрицательных эффектов, из-за которых не удаётся двигаться, применять способности или продолжать атаку. Постоянно сокращает их длительность и не требует отдельного нажатия."
         }
       ],
       "attributes": [
@@ -3201,8 +3185,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Removes non-ultimate negative effects from you. It cannot be activated while stunned or asleep, so plan its use before engaging.",
-          "ru": "Снимает неультимативные отрицательные эффекты с тебя. Нельзя активировать во время оглушения или сна; учитывай это до начала атаки."
+          "en": "When removable non-ultimate debuffs prevent you from continuing a fight: a successful cleanse also heals and speeds you up. You cannot activate it while stunned or asleep.",
+          "ru": "Когда бой мешают продолжать снимаемые неультимативные дебаффы: очищение также лечит и ускоряет, если удалось что-то снять. Во время оглушения или сна активировать предмет нельзя."
         }
       ],
       "attributes": [
@@ -3286,8 +3270,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "When abilities and other spirit effects deal most of the damage you take. Its resistance increases further at low health, helping you survive the follow-up.",
+          "ru": "Если основной урон приходит от способностей и других спиритических эффектов. Защита дополнительно усиливается при низком здоровье, помогая пережить продолжение атаки."
         }
       ],
       "attributes": [
@@ -3353,8 +3337,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Against gun builds that quickly wear you down with bullet hits. Its permanent bullet resistance increases further at low health.",
+          "ru": "Против стрелков, которые быстро снимают здоровье обычными попаданиями. Постоянное сопротивление пулям становится ещё выше при низком здоровье."
         }
       ],
       "attributes": [
@@ -3420,12 +3404,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Buy it against bullet damage. Spirit damage and melee attacks remain dangerous during the active effect.",
-          "ru": "Покупай против угрозы от пуль. Во время действия спиритический урон и удары ближнего боя всё ещё опасны."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Activate under heavy gunfire to outlast an enemy's shooting buff or retreat while their bullets cannot hurt you. Your movement is slower and your dashes are shorter during the effect.",
+          "ru": "Включай под сильный обстрел, чтобы переждать усиленную стрельбу врага или отступить, пока его пули не наносят урона. Во время действия предмета скорость передвижения и дальность рывков снижаются."
         }
       ],
       "attributes": [
@@ -3508,8 +3488,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "For builds that regularly heal yourself or allies with abilities and items. Healing amplification makes each of those uses more effective.",
+          "ru": "Для сборки, в которой регулярно лечишь себя или союзников способностями и предметами. Усиление лечения делает каждое такое применение полезнее."
         }
       ],
       "attributes": [
@@ -3579,8 +3559,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Lets you recover a large health pool between skirmishes without returning to base. You need a break from incoming damage; at high health it also increases movement speed.",
+          "ru": "Позволяет восстанавливать большой запас здоровья между стычками без возвращения на базу. Нужна пауза без полученного урона; при высоком здоровье предмет также ускоряет передвижение."
         }
       ],
       "attributes": [
@@ -3666,8 +3646,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained bullet and ability damage. It resists enemy healing reduction but does not reduce enemy healing itself.",
-          "ru": "Подходит для устойчивого урона пулями и способностями. Ослабляет вражеский антихил, но сам не снижает лечение противников."
+          "en": "For extended fights against a team with healing reduction: it provides bullet and spirit lifesteal and reduces the impact of enemy anti-heal. Useful when you can keep dealing damage and sustain through it.",
+          "ru": "Для затяжных боёв против команды с антихилом: даёт вампиризм от пуль и спиритического урона и ослабляет вражеское снижение лечения. Полезен, если можешь продолжать наносить урон и за счёт него восстанавливаться."
         }
       ],
       "attributes": [
@@ -3746,8 +3726,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Useful for frequent rotations between lanes and camps: sprint speed reduces travel time, while out-of-combat regeneration helps you enter the next trade with more health.",
+          "ru": "Удобны для частых переходов между линиями и лагерями: скорость бега сокращает время в пути, а восстановление вне боя помогает вернуться к следующему размену с большим запасом здоровья."
         }
       ],
       "attributes": [
@@ -3799,8 +3779,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "For active play with frequent kills and assists: participating in them gradually improves sprint speed, ability range and passive soul income. The item also reduces your weapon damage against NPCs.",
+          "ru": "Для активной игры с частыми убийствами и ассистами: участие в них постепенно усиливает бег, дальность способностей и доход душ. При этом предмет уменьшает урон оружия по неигровым целям."
         }
       ],
       "attributes": [
@@ -3902,8 +3882,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Against slows that keep you from catching an enemy or escaping gunfire. It gives permanent movement speed and reduces the impact of enemy movement slows.",
+          "ru": "Против замедлений, которые мешают догнать врага или выйти из-под огня. Даёт постоянную скорость передвижения и ослабляет влияние вражеских замедлений."
         }
       ],
       "attributes": [
@@ -3974,8 +3954,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "For chasing, escaping and navigating vertical terrain when your normal stamina is not enough. An extra aerial action and longer air jumps and dashes open up more routes.",
+          "ru": "Для погони, отхода и перемещения по высоте, когда обычного запаса выносливости мало. Дополнительное действие в воздухе и увеличенная дальность воздушных прыжков и рывков дают больше вариантов маршрута."
         }
       ],
       "attributes": [
@@ -4041,8 +4021,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "A straightforward shooting upgrade when you can keep your aim on target: extra fire rate lets you fire more bullets in the same time.",
+          "ru": "Простое усиление стрельбы, когда можешь держать цель в прицеле: дополнительная скорострельность позволяет выпустить больше пуль за то же время."
         }
       ],
       "attributes": [
@@ -4084,8 +4064,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "When one more dash would let you avoid an attack or finish a chase in lane. Extra stamina and faster recovery let you dodge and reposition more often.",
+          "ru": "Если на линии не хватает ещё одного рывка, чтобы уйти от атаки или закончить погоню. Дополнительная выносливость и более быстрое восстановление позволяют чаще уклоняться и менять позицию."
         }
       ],
       "attributes": [
@@ -4136,8 +4116,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Especially useful in a duel within 15 m: its bullet resistance and fire rate reductions double when only one enemy hero is nearby. With several enemies, the aura still weakens those in range, without the doubled effect.",
+          "ru": "В дуэли на дистанции до 15 м особенно ценна: снижение сопротивления пулям и скорострельности удваивается, если рядом только один вражеский герой. При нескольких врагах аура продолжает ослаблять всех в радиусе, но без удвоения."
         }
       ],
       "attributes": [
@@ -4221,12 +4201,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "An early defensive option for a dangerous short trade. Activate the barrier before an expected hit or combo to preserve health for your counterattack.",
+          "ru": "Ранний защитный предмет для короткого опасного размена. Включай барьер перед ожидаемым попаданием или комбинацией, чтобы сохранить здоровье для ответной атаки."
         }
       ],
       "attributes": [
@@ -4305,8 +4281,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Against bursts of weapon damage: after enough damage arrives in a short period, it automatically grants a barrier and bullet resistance. This helps you survive continued gunfire after it triggers.",
+          "ru": "Против быстрого урона оружием: после серии сильных попаданий автоматически даёт барьер и сопротивление пулям. Помогает выдержать продолжение обстрела после срабатывания защиты."
         }
       ],
       "attributes": [
@@ -4411,8 +4387,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Against bursts of spirit damage followed quickly by more hits. Taking enough damage in a short period triggers a barrier and additional spirit resistance.",
+          "ru": "Против серий спиритического урона, когда за первым попаданием сразу следуют другие. Полученный за короткое время урон запускает барьер и дополнительное спиритическое сопротивление."
         }
       ],
       "attributes": [
@@ -4517,8 +4493,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "For gunfights where you can keep your health above the threshold: alongside bullet resistance, you gain weapon damage and fire rate. Recover before re-engaging to restore the offensive bonuses.",
+          "ru": "Для перестрелок, в которых можешь удерживать здоровье выше порога: вместе с защитой от пуль получаешь урон оружия и скорострельность. Восстановись перед новой атакой, чтобы наступательные бонусы снова работали."
         }
       ],
       "attributes": [
@@ -4594,8 +4570,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "When you need spirit resistance as well as stronger abilities. Its Spirit Power and cooldown bonuses require high health, so entering a fight fully recovered makes better use of them.",
+          "ru": "Когда нужна защита от спиритического урона и усиление собственных способностей. Спиритическая мощь и сокращение перезарядок действуют при высоком здоровье, поэтому выгодно начинать бой восстановленным."
         }
       ],
       "attributes": [
@@ -4671,8 +4647,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "Fits abilities whose damage, healing or another useful effect scales with Spirit Power. It strengthens several such abilities at once when their output is the problem, rather than their reach or cooldown.",
+          "ru": "Подходит для умений, у которых урон, лечение или другой нужный эффект растёт от спиритической мощи. Помогает усилить сразу несколько таких умений, если проблема в их силе, а не в дальности или перезарядке."
         }
       ],
       "attributes": [
@@ -4714,8 +4690,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Helps sustain lane trades when you regularly deal spirit damage to heroes and want health back between attacks. Hitting different heroes stacks the regeneration; damaging troopers alone does not grant it.",
+          "ru": "Помогает восстанавливаться между разменами на линии, если ты регулярно задеваешь героев спиритическим уроном. Попадания по разным героям накапливают восстановление; урон по бойцам сам по себе его не даёт."
         }
       ],
       "attributes": [
@@ -4783,8 +4759,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Upgrade Extra Spirit when several important abilities scale with Spirit Power and need more damage or effect strength. Out-of-combat regeneration also helps you return to farming and trading after losing health.",
+          "ru": "Улучшай Extra Spirit, если несколько важных умений зависят от спиритической мощи и им не хватает урона или силы эффекта. Восстановление вне боя дополнительно помогает возвращаться к зачистке и разменам после потери здоровья."
         }
       ],
       "attributes": [
@@ -4838,8 +4814,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "Connects shooting with spirit damage: hits on heroes charge a buff to fire rate, spirit power and spirit lifesteal. Build the charge with shots before casting abilities.",
+          "ru": "Связывает стрельбу со спиритическим уроном: попадания по героям заряжают усиление скорострельности, спиритической мощи и спиритического вампиризма. Набери заряд выстрелами перед применением способностей."
         }
       ],
       "attributes": [
@@ -4958,12 +4934,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Useful when enemies keep damaging you during an open fight. Activate before you are focused: retaliatory bullets punish attackers who hit you with weapons or abilities.",
+          "ru": "Полезен, когда враги продолжают наносить тебе урон в открытой перестрелке. Включай под ожидаемый фокус: ответные пули наказывают тех, кто атакует тебя оружием или способностями."
         }
       ],
       "attributes": [],
@@ -5035,8 +5007,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Useful when several abilities and items need more reach or radius: you can start attacks from farther away and cover more targets. This develops Mystic Expansion for a kit with several important area effects.",
+          "ru": "Расширяет возможности атаки, когда дальности или радиуса не хватает сразу нескольким умениям и предметам: с ним можно начинать атаку дальше от врага и накрывать больше целей. Это развитие Mystic Expansion для набора с несколькими важными эффектами по области."
         }
       ],
       "attributes": [
@@ -5096,12 +5068,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Helps when one key ability repeatedly falls short of its target or narrowly misses nearby enemies with its area. Imbue that ability to start trades from safer range or catch a group.",
+          "ru": "Помогает, когда одно ключевое умение регулярно не достаёт до цели или краем области не задевает соседних врагов. Усиль именно его, чтобы безопаснее начинать размен или попадать по группе."
         }
       ],
       "attributes": [],
@@ -5153,8 +5121,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Useful when an ability uses charges and one cast is not enough to finish a target, clear a wave or try again after a miss. The extra charge adds a reserve cast, while its Spirit Power bonus applies specifically to charged abilities.",
+          "ru": "Полезен, если у твоего умения есть заряды и одного применения не хватает для добивания, зачистки или повторной попытки попадания. Дополнительный заряд даёт запас применений, а спиритическая мощь усиливает именно умения с зарядами."
         }
       ],
       "attributes": [
@@ -5204,8 +5172,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "For sustain during a fight when you regularly deal spirit damage. Useful in prolonged engagements where your abilities and other spirit effects keep hitting the enemy.",
+          "ru": "Для восстановления во время боя, если регулярно наносишь спиритический урон. Хорошо работает в затяжной атаке, где способности и другие спиритические эффекты продолжают попадать по врагу."
         }
       ],
       "attributes": [
@@ -5266,8 +5234,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Fits a spirit-damage opener followed by gunfire: the hit reduces the target's bullet resistance, helping you and allies shoot them down faster. Especially useful when you can reliably tag the intended target with an ability before the team attacks.",
+          "ru": "Подходит для связки «спиритический урон, затем стрельба»: попадание снижает сопротивление цели пулям и помогает тебе и союзникам быстрее её расстрелять. Особенно полезен, если ты легко задеваешь нужного врага умением перед общей атакой."
         }
       ],
       "attributes": [
@@ -5342,12 +5310,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Buy when one imbued ability deals heavy damage and often hits an enemy near their allies: the delayed damage echo punishes that grouping. Its slow helps you follow up, while the imbued ability's lifesteal sustains the trade.",
+          "ru": "Бери, если одно выбранное умение наносит большой урон и ты часто попадаешь по врагу рядом с его союзниками: отложенный повтор урона накажет их за тесную позицию. Замедление помогает продолжить атаку, а вампиризм выбранного умения поддерживает тебя в размене."
         }
       ],
       "attributes": [
@@ -5447,8 +5411,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "Buy for individual ability hits dealing more than 80 damage: the charged effect adds damage to that trade. It fits attacks spaced far enough apart to recharge, especially when you need to finish a target with a short combo.",
+          "ru": "Подходит для отдельных сильных попаданий умением, наносящих больше 80 урона: заряженный эффект добавит урон к такому размену. Удобен, когда между атаками есть время на зарядку, а цель нужно добить за короткую связку."
         }
       ],
       "attributes": [],
@@ -5514,8 +5478,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Upgrade Mystic Burst against enemies with large health pools when your ability hits exceed its 165-damage threshold. The charged proc adds damage based on the target's current health, making it especially useful when opening on a healthy enemy.",
+          "ru": "Улучшай Mystic Burst против врагов с большим запасом здоровья, если твои попадания умением превышают порог 165 урона. Заряженное срабатывание добавляет урон от текущего здоровья цели, поэтому особенно полезно в начале атаки по ещё здоровому врагу."
         }
       ],
       "attributes": [
@@ -5600,8 +5564,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Fits attacks where you or allies keep dealing spirit damage after the opening hit. The spirit resistance reduction strengthens the follow-up, especially against a target the team plans to focus together.",
+          "ru": "Подходит для атаки, в которой после первого спиритического попадания ты или союзники продолжаете наносить цели спиритический урон. Снижение спиритического сопротивления усиливает продолжение размена, особенно против врага, которого команда собирается атаковать вместе."
         }
       ],
       "attributes": [
@@ -5669,8 +5633,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when you deal spirit damage regularly: that damage applies healing reduction. Keep the effect active while the enemy is healing.",
-          "ru": "Подходит, если ты регулярно наносишь спиритический урон: он накладывает снижение лечения. Следи, чтобы эффект действовал во время лечения врага."
+          "en": "Against enemies who survive through healing and lifesteal: apply healing reduction with spirit damage before they recover and refresh it with further hits. A hero dying under the effect also heals you.",
+          "ru": "Против врагов, которые выживают за счёт лечения и вампиризма: накладывай антихил спиритическим уроном перед их восстановлением и поддерживай его повторными попаданиями. Смерть героя под эффектом дополнительно лечит тебя."
         }
       ],
       "attributes": [
@@ -5745,8 +5709,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Buy when enemies leave your ability areas or pull away after a hit: your spirit damage slows them and weakens ground dashes. Repeated hits are especially useful for keeping the target close enough to continue attacking.",
+          "ru": "Бери, если враги выходят из зоны твоих умений или отрываются после попадания: спиритический урон будет замедлять их и ослаблять наземные рывки. Особенно полезен при повторных попаданиях, которые помогают удерживать цель рядом для продолжения атаки."
         }
       ],
       "attributes": [
@@ -5832,8 +5796,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Fits sustained spirit damage against one enemy: repeated hits build up an amplification of your spirit damage to that target. Buy when you can maintain pressure rather than relying on a single hit to finish the fight.",
+          "ru": "Подходит для длительного спиритического урона по одному врагу: повторные попадания накапливают усиление твоего урона по нему. Бери, если можешь поддерживать давление, а не рассчитываешь закончить весь бой одним попаданием."
         }
       ],
       "attributes": [
@@ -5925,8 +5889,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Upgrade Extra Charge when your main charged ability keeps running dry in extended fights. More charges, faster recharge and a shorter delay between casts let you chain attacks and prepare the next ones sooner.",
+          "ru": "Улучшай Extra Charge, если в затяжной драке постоянно заканчиваются заряды основного умения. Дополнительные заряды, более быстрое восстановление и меньшая пауза между применениями помогают провести несколько атак подряд и раньше подготовить следующие."
         }
       ],
       "attributes": [
@@ -5993,12 +5957,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Helps when one key ability is still on cooldown at the next trade or the second part of a fight. Imbue it to gain more frequent access to the damage, protection or control you need most.",
+          "ru": "Помогает, когда одно ключевое умение не успевает восстановиться к следующему размену или второй части драки. Усиль его, чтобы чаще получать именно нужный урон, защиту или контроль."
         }
       ],
       "attributes": [],
@@ -6049,8 +6009,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Upgrade Compress Cooldown when you need several abilities more often, such as alternating damage, control and defense in extended fights. Reducing the cooldowns across your kit shortens the wait between those sequences.",
+          "ru": "Улучшай Compress Cooldown, когда тебе нужно чаще применять несколько умений, например чередовать атаку, контроль и защиту в затяжной драке. Сокращение перезарядки всего набора уменьшает ожидание между такими связками."
         }
       ],
       "attributes": [
@@ -6112,8 +6072,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Fits builds whose fights depend on both abilities and active items: both sets of effects become ready sooner for another engagement. Upgrade Superior Cooldown when waiting for them prevents you from maintaining pressure or defending again.",
+          "ru": "Подходит для сборки, где бой зависит и от умений, и от активных предметов: оба набора эффектов будут раньше готовы к повторной атаке. Улучшай Superior Cooldown, если именно ожидание их восстановления мешает продолжить давление или снова защититься."
         }
       ],
       "attributes": [
@@ -6181,12 +6141,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy against enemies who escape with movement abilities or items: the hex temporarily blocks those escape tools and slows the target. Apply it before committing to the attack; it does not prevent normal stamina use.",
+          "ru": "Бери против врага, который спасается умением или предметом передвижения: проклятие временно блокирует такие способы ухода и замедляет цель. Накладывай перед атакой; обычное использование выносливости оно не запрещает."
         }
       ],
       "attributes": [
@@ -6288,12 +6244,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Useful against an enemy whose abilities scale with Spirit Power: reducing that power weakens their output, while lowering their resistance strengthens your spirit damage. Apply it before trading with a target about to answer with abilities.",
+          "ru": "Полезен против врага, чьи умения зависят от спиритической мощи: снижение мощи ослабляет их, а снижение сопротивления делает твою спиритическую атаку опаснее. Применяй перед разменом по цели, которая собирается ответить умениями."
         }
       ],
       "attributes": [
@@ -6393,12 +6345,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Helps focus an enemy who must not answer with abilities: silence creates a window, and a portion of damage dealt during it is applied again when it ends. Especially useful when you and allies are ready to concentrate damage on that target immediately.",
+          "ru": "Подходит для общей атаки по одному врагу, которому нельзя дать ответить умениями: безмолвие создаёт окно, а часть нанесённого за это время урона повторится после его окончания. Особенно полезен, когда ты и союзники готовы сразу вложить урон в выбранную цель."
         }
       ],
       "attributes": [
@@ -6515,12 +6463,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Helps trade with an enemy who relies on gunfire: reducing their fire rate eases the pressure, while reducing their bullet resistance strengthens return fire. Apply it at the start of the shootout to the enemy you and allies intend to shoot.",
+          "ru": "Помогает в размене с врагом, который много стреляет: снижение скорострельности уменьшит давление, а снижение сопротивления пулям усилит ответный огонь. Применяй в начале перестрелки по той цели, по которой будете стрелять ты и союзники."
         }
       ],
       "attributes": [
@@ -6630,12 +6574,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Upgrade Rusted Barrel when you need to temporarily stop a dangerous enemy's gunfire and survive their attack. The bullet resistance reduction also helps you and allies finish them during the disarm.",
+          "ru": "Улучшай Rusted Barrel, если нужно временно выключить стрельбу опасного врага и пережить его атаку. Снижение сопротивления пулям одновременно помогает тебе и союзникам добить его за время обезоруживания."
         }
       ],
       "attributes": [
@@ -6737,12 +6677,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Plan to use it near allies: healing and protection are most useful around incoming damage.",
-          "ru": "Планируй применение рядом с союзниками: лечение и защита ценнее перед ожидаемым уроном или сразу после него."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For saving an ally who is being focused or cut off from the team: you can pull them to you while healing. Position yourself so that the pull actually takes them away from danger.",
+          "ru": "Для спасения союзника, которого фокусят или отрезали от команды: во время лечения можно подтянуть его к себе. Занимай позицию, из которой притягивание действительно выводит его из опасности."
         }
       ],
       "attributes": [
@@ -6844,12 +6780,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Applies healing reduction to a chosen target without landing bullets. Use it before the target heals or your team engages.",
-          "ru": "Позволяет наложить антихил выбранной цели без попаданий пулями. Используй перед её лечением или началом атаки команды."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy against a healthy target with strong healing: the damage over time softens them up, while healing reduction limits their recovery. Bring another damage source to finish them; Decay is non-lethal and does not trigger item procs.",
+          "ru": "Бери против цели с большим текущим здоровьем и сильным лечением: постепенный урон ослабляет её перед основной атакой, а снижение лечения мешает восстановиться. Нужен другой источник урона для добивания: Decay не убивает и не вызывает срабатывания предметов."
         }
       ],
       "attributes": [
@@ -6966,12 +6898,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Use it on an ally who will stay near enemies: the aura deals damage based on their maximum health while the buff provides spirit and debuff resistance. You can also target yourself.",
-          "ru": "Используй на союзнике, который останется рядом с врагами: аура наносит урон от их максимального здоровья, а усиление даёт защиту от спиритического урона и дебаффов. Можно применить на себя."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Useful when you or an ally stay close to enemies with large health pools: the aura deals damage based on their maximum health. Cast it on whoever will remain in the fight to also grant spirit and debuff resistance and shorten existing debuffs.",
+          "ru": "Полезен, если ты или союзник долго сражаетесь вплотную к врагам с большим запасом здоровья: аура наносит урон от их максимального здоровья. Наложи на того, кто останется в центре драки, чтобы одновременно дать ему спиритическое сопротивление и сопротивление дебаффам и сократить уже действующие дебаффы."
         }
       ],
       "attributes": [
@@ -7093,12 +7021,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy to stop a distant or airborne target and give your team time to attack; airborne targets suffer a longer stun. Cast ahead of time because the effect takes 2 seconds to arrive.",
+          "ru": "Бери, если нужно остановить удалённую или летящую цель и дать команде время на атаку; против цели в воздухе оглушение длится дольше. Применяй заранее: эффект сработает только через 2 секунды."
         }
       ],
       "attributes": [
@@ -7181,12 +7105,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Lets you reach a gunner or airborne hero, pull them to the ground and disarm them. Useful for starting a close-range attack; the teleport puts you next to the chosen enemy.",
+          "ru": "Позволяет сразу добраться до стрелка или героя в воздухе, опустить его на землю и обезоружить. Подходит для начала атаки вблизи; после прыжка ты оказываешься рядом с выбранным врагом."
         }
       ],
       "attributes": [
@@ -7301,8 +7221,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Provides quick repositioning and temporary bullet resistance. Save the active for escape if you would otherwise be easy to focus.",
-          "ru": "Даёт быстрое перемещение и временную защиту от пуль. Сохраняй активацию для смены позиции, если без неё легко оказаться под фокусом."
+          "en": "For immediate repositioning: reach cover, cross a dangerous gap or close on a target. Temporary bullet resistance helps you survive gunfire after the teleport.",
+          "ru": "Для мгновенной смены позиции: уйти за укрытие, пересечь опасный участок или сократить дистанцию до цели. Временное сопротивление пулям помогает пережить обстрел после перемещения."
         }
       ],
       "attributes": [],
@@ -7375,12 +7295,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Sets up allied area damage: the grenade pulls enemies together and applies Slowing Hex, hindering escapes through movement abilities and items. Buy when the team can immediately attack the gathered group.",
+          "ru": "Готовит врагов под общий урон по области: граната стягивает врагов вместе и накладывает Slowing Hex, мешая уйти с помощью умений и предметов передвижения. Бери, если команда может сразу атаковать собранную группу."
         }
       ],
       "attributes": [
@@ -7508,8 +7424,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Most useful when recasting several abilities changes a fight. Plan your positioning and resources for the second set of casts.",
-          "ru": "Особенно полезен, если повторное применение нескольких способностей меняет исход боя. Планируй манёвры и ресурсы под второй набор способностей."
+          "en": "Buy when casting decisive abilities, including your ultimate, again can win an important fight. Use it after spending the abilities and charges you need to gain a second set of casts; the item's long cooldown makes the timing matter.",
+          "ru": "Бери, когда повторное применение решающих умений, включая ульт, может выиграть одну важную драку. Используй после расходования нужных умений и зарядов, чтобы получить второй набор применений; долгая перезарядка предмета требует выбирать момент."
         }
       ],
       "attributes": [],
@@ -7568,12 +7484,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Select a non-ultimate ability to imbue when buying. After casting it, reset its cooldown with the item; the item’s own cooldown depends on the chosen ability.",
-          "ru": "Выбери неультимативную способность для усиления при покупке. Применив её, можно сбросить её перезарядку предметом; перезарядка самого предмета зависит от выбранной способности."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Useful when repeating one non-ultimate ability decides the attack, such as landing another damaging hit or a second control effect. Imbue it for the reset; ultimates cannot be repeated, and the item's own cooldown increases with the chosen ability's cooldown.",
+          "ru": "Полезен, если исход атаки решает повтор одного обычного умения — например, ещё одно попадание или вторая порция контроля. Выбери его для сброса перезарядки: ульт повторить нельзя, а перезарядка самого предмета растёт с перезарядкой выбранного умения."
         }
       ],
       "attributes": [
@@ -7657,8 +7569,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Adds damage when you spend extended time close to enemies: automatic pulses add spirit damage while you fight at close range. Each pulse hits only the two nearest enemies, so a crowd can divert damage away from your intended hero.",
+          "ru": "Добавляет урон в затяжной ближней драке: автоматические импульсы добавляют спиритический урон, пока ты дерёшься вблизи. За раз они поражают только двух ближайших врагов, поэтому в толпе урон может уйти не в нужного героя."
         }
       ],
       "attributes": [
@@ -7745,8 +7657,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "When a fast combo kills you before you can escape. A lethal hit triggers temporary death immunity, giving you an escape window, but your damage and incoming healing are reduced during it.",
+          "ru": "Когда тебя убивают одной быстрой комбинацией и нужно время, чтобы отойти. После смертельного попадания временная защита от смерти даёт окно для спасения, но твои урон и получаемое лечение в это время снижены."
         }
       ],
       "attributes": [
@@ -7838,12 +7750,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Suits close-range play. Time your melee attacks around enemy parries and crowd control.",
-          "ru": "Подходит для игры вблизи. Выбирай момент для удара с учётом вражеского парирования и контроля."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Lets you approach concealed and open with bonus fire rate, spirit power and melee damage when you end stealth with an attack or ability. Account for close-range detection and brief reveals from incoming damage as you approach.",
+          "ru": "Даёт скрытно подойти и открыть бой с усилением скорострельности, спиритической мощи и ближнего боя, когда заканчиваешь невидимость атакой или способностью. При сближении учитывай обнаружение вблизи и краткое раскрытие от входящего урона."
         }
       ],
       "attributes": [
@@ -7972,12 +7880,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For reaching high ground, approaching from another angle or starting an attack from above. Use it before taking hero damage, which temporarily prevents activation.",
+          "ru": "Для выхода на высоту, обхода позиции врага или начала атаки сверху. Используй до получения урона от героя: после вражеского попадания предмет некоторое время недоступен."
         }
       ],
       "attributes": [],
@@ -8063,12 +7967,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Plan to use it near allies: healing and protection are most useful around incoming damage.",
-          "ru": "Планируй применение рядом с союзниками: лечение и защита ценнее перед ожидаемым уроном или сразу после него."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Useful when several allies lose health during the same fight or siege. Bring them close before activating so a single use heals the group.",
+          "ru": "Полезна, когда несколько союзников потеряли здоровье в одном бою или при осаде. Собери их рядом с собой перед активацией, чтобы одно применение восстановило здоровье всей группе."
         }
       ],
       "attributes": [
@@ -8171,12 +8071,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Fights with frequent nearby enemy casts build healing stacks quickly. Spend them when you need both health and stamina to continue fighting or retreat.",
+          "ru": "В боях с частым применением вражеских способностей быстро набирает заряды для лечения. Потрать их, когда одновременно нужны здоровье и выносливость для продолжения боя или отхода."
         }
       ],
       "attributes": [
@@ -8275,12 +8171,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Plan to use it near allies: healing and protection are most useful around incoming damage.",
-          "ru": "Планируй применение рядом с союзниками: лечение и защита ценнее перед ожидаемым уроном или сразу после него."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For recovering in lane without returning to base, either on yourself or an ally. Get out of danger first: damage from enemy heroes and objectives removes the healing effect.",
+          "ru": "Для восстановления на линии без возвращения на базу — себе или союзнику. Сначала выйди из-под огня: урон от вражеских героев и объектов снимает лечение."
         }
       ],
       "attributes": [],
@@ -8378,12 +8270,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For a short burst of spirit damage when you need to attack and sustain at the same time. Activate before your combo to use the extra Spirit Power and lifesteal from the first hits.",
+          "ru": "Для короткого периода сильного спиритического урона, когда нужно одновременно атаковать и лечиться. Включай перед своей комбинацией, чтобы использовать усиленную спиритическую мощь и вампиризм с первых попаданий."
         }
       ],
       "attributes": [
@@ -8493,12 +8381,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Plan to use it near allies: healing and protection are most useful around incoming damage.",
-          "ru": "Планируй применение рядом с союзниками: лечение и защита ценнее перед ожидаемым уроном или сразу после него."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Protects an ally who is being focused or helps them escape danger with a barrier and movement speed. Casting on an ally has a shorter cooldown than self-casting.",
+          "ru": "Защищает союзника, которого начинают фокусить, или помогает ему выйти из опасной зоны за счёт барьера и скорости. Применение на союзника сокращает перезарядку по сравнению с применением на себя."
         }
       ],
       "attributes": [
@@ -8611,8 +8495,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Removes non-stun debuffs and grants a barrier to an ally or yourself. Casting on an ally halves the cooldown.",
-          "ru": "Снимает дебаффы, кроме оглушения, и даёт барьер выбранному союзнику или тебе. При использовании на союзнике перезарядка вдвое короче."
+          "en": "For saving an ally whose escape is hindered by debuffs: it removes non-stun debuffs and grants a barrier plus movement speed. You can self-cast, but casting on an ally gives a shorter cooldown.",
+          "ru": "Для спасения союзника, которому мешают уйти дебаффы: снимает эффекты, кроме оглушения, и даёт барьер со скоростью. Можно использовать на себя; на союзнике предмет перезаряжается быстрее."
         }
       ],
       "attributes": [
@@ -8724,12 +8608,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Keeping enemies in the burning area lets the spirit damage ramp up and allows follow-up gunfire to benefit from reduced bullet resistance. It is less effective against non-heroes.",
+          "ru": "Удержание врагов в горящей области позволяет нарастить спиритический урон и воспользоваться снижением сопротивления пулям для последующей стрельбы. Против существ, не являющихся героями, эффект слабее."
         }
       ],
       "attributes": [
@@ -8848,12 +8728,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Trades health for fire rate, movement speed and debuff resistance to sustain your attack. Toggle it off when you are not using the bonuses, since it continuously drains health.",
+          "ru": "Обменивает здоровье на скорострельность, скорость передвижения и сопротивление дебаффам для продолжения атаки. Выключай, когда бонусы не используются: расход здоровья идёт всё время работы."
         }
       ],
       "attributes": [
@@ -8954,12 +8830,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Removes the movement penalty while firing when that penalty stops you from maintaining distance. Activation adds movement speed and slow resistance for chasing or retreating.",
+          "ru": "Убирает штраф передвижения при стрельбе, если именно он мешает удерживать нужную дистанцию. Для погони или отхода активация дополнительно даёт скорость и сопротивление замедлению."
         }
       ],
       "attributes": [
@@ -9067,8 +8939,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Dash-jump before shooting to gain fire rate and temporary ammo until your next reload. Extra stamina and stamina recovery help you reposition more often.",
+          "ru": "Используй рывок-прыжок перед стрельбой, чтобы получить скорострельность и временные патроны до следующей перезарядки. Дополнительная выносливость и её восстановление помогают чаще менять позицию."
         }
       ],
       "attributes": [
@@ -9153,8 +9025,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Useful when you can dash-jump before a key ability: the next cast gains range, duration and Spirit Power. It helps open an attack with stronger control or damage; cast the ability within 7 seconds.",
+          "ru": "Полезен, если перед ключевым умением ты можешь сделать рывок с прыжком: следующее применение получит больше дальности, длительности и спиритической мощи. Подходит для начала атаки с усиленным контролем или уроном; применить умение нужно в течение 7 секунд."
         }
       ],
       "attributes": [
@@ -9248,8 +9120,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Activate before expected crowd control: you cannot use it while stunned or asleep. It temporarily suppresses debuffs and prevents the listed control effects.",
-          "ru": "Включай перед ожидаемым контролем: предмет нельзя нажать во время оглушения или сна. На время действия подавляет дебаффы и защищает от перечисленных видов контроля."
+          "en": "For entering a fight or using an important ability that enemies could interrupt with crowd control. Activate beforehand: you cannot use the item once stunned or asleep.",
+          "ru": "Для входа в бой или применения важной способности, которую враги могут сорвать контролем. Включай заранее: во время оглушения или сна предмет уже нельзя нажать."
         }
       ],
       "attributes": [
@@ -9326,12 +9198,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For close-range fights against several enemies: it temporarily improves bullet and spirit resistance as well as melee damage. Nearby enemies are slowed and have weaker dashes, helping you keep them close.",
+          "ru": "Для драки вблизи с несколькими противниками: временно усиливает защиту от пуль и спирита, а также ближний бой. Замедление и ослабление рывков врагов рядом помогают удерживать их возле себя."
         }
       ],
       "attributes": [
@@ -9460,12 +9328,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Helps when an enemy pulls out of your close-range attacks or chases you: the ice blast damages and heavily slows targets it hits. Its area around you can also catch several enemies or finish a group of troopers.",
+          "ru": "Помогает, когда в ближней драке враг уходит из-под твоей атаки или преследует тебя: ледяная волна наносит урон и сильно замедляет попавшие под неё цели. Радиус вокруг тебя позволяет заодно задеть нескольких врагов или добить группу бойцов."
         }
       ],
       "attributes": [
@@ -9562,12 +9426,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Upgrade Cold Front for fights near several enemies: the larger ice blast freezes targets, then slows them and stops their stamina regeneration while slowed. This gives your team an attack window and makes the enemies' follow-up retreat harder.",
+          "ru": "Улучшай Cold Front для драки рядом с несколькими врагами: большая ледяная волна сначала замораживает цели, затем замедляет их и останавливает восстановление выносливости на время замедления. Это даёт команде окно для атаки и затрудняет последующий отход врагов."
         }
       ],
       "attributes": [
@@ -9657,12 +9517,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Helps wait out a dangerous moment. Plan for the end of invulnerability and decide where to retreat afterward.",
-          "ru": "Помогает переждать опасный момент. Учитывай окончание неуязвимости и заранее выбирай, куда отступать после неё."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Helps you survive a short enemy combo: instant invulnerability lets you wait out its dangerous part. Temporary movement speed, Spirit Power and spirit resistance afterward help you escape or rejoin the fight.",
+          "ru": "Помогает пережить короткую вражескую связку: мгновенная неуязвимость позволяет переждать её опасную часть. После выхода временные бонусы скорости, спиритической мощи и спиритического сопротивления помогают уйти или вернуться в драку."
         }
       ],
       "attributes": [],
@@ -9753,12 +9609,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy to interrupt a decisive enemy action and briefly deny their abilities, gunfire and items; removing non-ultimate buffs further weakens the target. Use it with allies ready to follow up, since your own damage is reduced for the effect's duration.",
+          "ru": "Бери, чтобы прервать решающее действие врага и на короткое время лишить его умений, стрельбы и предметов; снятие бонусов, не относящихся к ульту, дополнительно ослабляет цель. Лучше использовать при готовой поддержке союзников: твой собственный урон на время эффекта снижается."
         }
       ],
       "attributes": [],
@@ -9840,12 +9692,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Buy when one imbued ability needs to hold an enemy, protect an ally or deal damage over time for longer. The extra duration pays off when the target remains affected and you can use the additional time.",
+          "ru": "Бери, если одно выбранное умение должно дольше удерживать врага, защищать союзника или наносить постепенный урон. Дополнительная длительность полезна, когда цель остаётся под эффектом и ты успеваешь использовать добавленное время."
         }
       ],
       "attributes": [],
@@ -9896,8 +9744,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Upgrade Duration Extender when duration matters for several abilities and items, such as defensive buffs and control in the same fight. Longer effects help sustain your advantage through an extended trade.",
+          "ru": "Улучшай Duration Extender, если длительность важна сразу для нескольких умений и предметов — например, для защитных бонусов и контроля в одной драке. Более долгие эффекты помогают сохранить преимущество на протяжении затяжного размена."
         }
       ],
       "attributes": [
@@ -9957,8 +9805,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Provides a large weapon damage increase at the cost of maximum health, suitable when positioning can compensate for the vulnerability. Hero kills build fire rate stacks, while each death removes one stack.",
+          "ru": "Даёт большой прирост урона оружия ценой части максимального здоровья — подходит, если можешь компенсировать уязвимость позицией. Убийства героев накапливают скорострельность, а каждая смерть снимает один накопленный заряд."
         }
       ],
       "attributes": [
@@ -10025,12 +9873,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "For a window of uninterrupted shooting: it gives fire rate and lets you move faster while firing. Cast the abilities you need and position first: during the effect you are silenced, and stamina use and regeneration are disabled.",
+          "ru": "Для боя с упором на непрерывную стрельбу: повышает скорострельность и позволяет быстрее двигаться при стрельбе. Сначала примени нужные способности и выбери позицию — во время действия предмета способности недоступны, а выносливость нельзя тратить и восстанавливать."
         }
       ],
       "attributes": [
@@ -10142,12 +9986,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "When you need to finish a target in one sustained burst and heal through shooting. Activate once you can land hits: the temporary fire rate, lifesteal and added ammo give you a short damage window.",
+          "ru": "Когда нужно добить цель за одну длинную очередь и восстановиться за счёт стрельбы. Включай, когда уже можешь попадать: временные скорострельность, вампиризм и добавленные патроны работают только в короткое окно усиления."
         }
       ],
       "attributes": [
@@ -10267,8 +10107,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits close-range play. Time your melee attacks around enemy parries and crowd control.",
-          "ru": "Подходит для игры вблизи. Выбирай момент для удара с учётом вражеского парирования и контроля."
+          "en": "For extended close-range fighting: melee hits periodically heal you and slow the enemy to help you keep chasing. Healing is stronger against heroes, and light melee starts a longer effect cooldown.",
+          "ru": "Для затяжной драки вблизи: удары периодически лечат и замедляют врага, помогая продолжать преследование. По героям лечение сильнее, а лёгкие удары запускают более долгую перезарядку эффекта."
         }
       ],
       "attributes": [
@@ -10370,8 +10210,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when its described effect addresses a specific need for your hero. Account for range, trigger conditions and available item slots.",
-          "ru": "Выбирай, когда описанный эффект решает конкретную задачу твоего героя. Учитывай дальность, условия срабатывания и оставшиеся свободные слоты."
+          "en": "Fits trades that start with a melee hit on a hero and continue with spirit damage: the hit adds damage and lowers their resistance for the follow-up. Light melee also triggers it, but the cooldown is twice as long.",
+          "ru": "Подходит для размена, который ты начинаешь ударом по герою и продолжаешь спиритическим уроном: удар добавит урон и снизит сопротивление цели перед продолжением атаки. Лёгкий удар тоже запускает эффект, но его перезарядка будет вдвое дольше."
         }
       ],
       "attributes": [],
@@ -10450,8 +10290,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits close-range heavy melee attacks: the effect weakens enemy spirit resistance and buffs you. Account for enemy parries before starting a combo.",
-          "ru": "Подходит для сближения и тяжёлых ударов: эффект ослабляет спиритическую защиту врага и усиливает тебя. Учитывай вражеское парирование, прежде чем начинать комбинацию."
+          "en": "Upgrade Spirit Strike for close-range trades against a hero who relies on Spirit Power: the melee hit steals their power and spirit resistance while strengthening you. Heavy melee gives the full effect; light melee effects are 30% weaker.",
+          "ru": "Улучшай Spirit Strike для ближних разменов с героем, который зависит от спиритической мощи: удар крадёт его мощь и спиритическое сопротивление, одновременно усиливая тебя. Тяжёлый удар даёт полный эффект, а у лёгкого он слабее на 30%."
         }
       ],
       "attributes": [
@@ -10559,8 +10399,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "For attacks built around heavy melee, it extends your reach and strengthens the next hit when the proc is ready.",
+          "ru": "Для атаки через тяжёлые удары увеличивает дальность сближения и усиливает следующий удар, когда эффект готов."
         }
       ],
       "attributes": [
@@ -10644,8 +10484,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Connects melee with shooting: melee hits restore ammo and stack bullet resistance reduction, stunning the target at maximum stacks. Heavy melee applies two stacks and benefits from a separate damage boost.",
+          "ru": "Связывает ближний бой со стрельбой: удары возвращают патроны и накапливают снижение сопротивления пулям, а при максимуме зарядов оглушают цель. Тяжёлый удар даёт сразу два заряда и получает отдельное усиление урона."
         }
       ],
       "attributes": [
@@ -10781,8 +10621,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "When you need to survive retaliation after using your ultimate and keep fighting with abilities. The barrier and temporary Spirit Power trigger on casting your ultimate, so time your engagement around its availability.",
+          "ru": "Если после применения ультимейта нужно выдержать ответный урон и продолжить бой способностями. Барьер и временная спиритическая мощь появляются именно при использовании ультимейта, поэтому связывай вход в бой с его готовностью."
         }
       ],
       "attributes": [
@@ -10874,8 +10714,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits heroes who cast frequently and deal spirit damage. Healing on cast and building up regeneration are separate effects of this item.",
-          "ru": "Подходит для героя, который часто применяет способности и наносит спиритический урон. Лечение при применении и накопление регенерации — разные эффекты этого предмета."
+          "en": "Helps you stay in extended fights when you cast abilities regularly: healing and movement-speed procs help you survive trades and reposition. Spirit hits on heroes also grant regeneration that stacks across different targets.",
+          "ru": "Поддерживает тебя в затяжной драке с частым применением умений: срабатывания лечения и скорости помогают пережить размен и сменить позицию. Спиритические попадания по героям дополнительно дают восстановление, которое накапливается от разных целей."
         }
       ],
       "attributes": [
@@ -10990,8 +10830,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Upgrade Improved Spirit when several important abilities scale well with Spirit Power and you are already building it from other sources. The item supplies both flat power and a percentage bonus, strengthening that whole set of abilities.",
+          "ru": "Развивает Improved Spirit для сборки, где несколько важных умений хорошо растут от спиритической мощи и ты уже набираешь её другими источниками. Предмет даёт и плоскую мощь, и процентный бонус, поэтому усиливает весь такой набор умений."
         }
       ],
       "attributes": [
@@ -11058,8 +10898,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Turns your first bullet hit on a hero into a short window of stronger fire: bonus fire rate and movement speed help you keep attacking and keep pace with the target.",
+          "ru": "Позволяет развить первое попадание по герою в короткую усиленную атаку: бонусы скорострельности и передвижения помогают продолжать огонь и двигаться вместе с целью."
         }
       ],
       "attributes": [
@@ -11151,8 +10991,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "In lane against repeated chip damage that gradually forces you back. Passive regeneration helps between trades, with an additional regeneration bonus while out of combat.",
+          "ru": "На линии против частых небольших потерь здоровья, которые постепенно вынуждают отступать. Постоянное восстановление помогает между разменами, а дополнительная часть регенерации работает вне боя."
         }
       ],
       "attributes": [
@@ -11201,12 +11041,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Buy to strengthen one frequently used ability and follow it by chasing with gunfire. Casting it grants movement speed and lets you move at full speed while attacking, helping you keep the enemy within reach.",
+          "ru": "Подходит для преследования со стрельбой после одного часто используемого умения, которое ты хочешь усилить. Его применение даёт скорость передвижения и позволяет двигаться с полной скоростью во время атаки, помогая сохранять дистанцию до врага."
         }
       ],
       "attributes": [],
@@ -11291,8 +11127,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "Useful against enemies who deal most of their damage through gunfire: your spirit hits reduce their fire rate. Buy when you can regularly tag a dangerous shooter and ease their pressure on you or an ally.",
+          "ru": "Полезен против врагов, которые наносят основной урон стрельбой: твои спиритические попадания будут снижать их скорострельность. Бери, если можешь регулярно задевать опасного стрелка и уменьшать его давление на себя или союзника."
         }
       ],
       "attributes": [
@@ -11367,12 +11203,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Fits alternating gunfire with one convenient ability: when the item effect is ready, casting the imbued ability reloads your weapon so you can keep shooting without a normal reload break. It is especially useful after spending your magazine, adding damage and fire rate as well.",
+          "ru": "Подходит для чередования стрельбы с одним удобным умением: когда эффект предмета готов, применение выбранного умения перезарядит оружие и позволит продолжить огонь без обычной паузы. Особенно полезно применять его после расходования магазина, получая заодно дополнительный урон и скорострельность."
         }
       ],
       "attributes": [],
@@ -11462,12 +11294,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Upgrade Quicksilver Reload when you keep firing after the imbued ability and also build Spirit Power. When the item effect is ready, casting that ability reloads your weapon, then your bullets gain bonus spirit damage scaling with that power until your next reload.",
+          "ru": "Улучшай Quicksilver Reload, если после выбранного умения ты продолжаешь много стрелять и при этом набираешь спиритическую мощь. Когда эффект предмета готов, применение этого умения перезаряжает оружие, а до следующей перезарядки пули получают дополнительный спиритический урон, растущий от этой мощи."
         }
       ],
       "attributes": [
@@ -11587,8 +11415,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Continuous fire ramps up weapon damage, making the item more useful when you can keep shooting a target. Extra ammo extends the time you can use the buff.",
+          "ru": "Непрерывная стрельба наращивает урон оружия, поэтому предмет полезнее, когда можешь долго держать огонь по цели. Дополнительный боезапас продлевает время использования усиления."
         }
       ],
       "attributes": [
@@ -11654,8 +11482,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Useful when ordinary shots are the main threat. Compare incoming bullet damage with other damage sources before buying.",
-          "ru": "Полезен, когда опаснее всего обычные выстрелы. Сравни получаемый урон от пуль с другими источниками перед покупкой."
+          "en": "In extended gunfights, hits on heroes progressively build bullet resistance. The larger magazine helps you keep firing and stacking protection.",
+          "ru": "В продолжительных перестрелках попадания по героям постепенно повышают сопротивление пулям. Увеличенный магазин помогает продолжать огонь и набирать защиту."
         }
       ],
       "attributes": [
@@ -11749,8 +11577,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Combines fire rate for gunfights with sprint speed for moving between lanes. Both bonuses work without a separate trigger.",
+          "ru": "Сочетает скорострельность для перестрелок со скоростью спринта для переходов между линиями. Оба бонуса действуют без отдельного срабатывания."
         }
       ],
       "attributes": [
@@ -11800,8 +11628,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "For rotations and surprise flanks: passing through a cosmic veil grants stealth, healing and movement speed. Route your movement through veils to make regular use of these effects.",
+          "ru": "Для обходов и внезапного появления с фланга: проход через космическую завесу даёт невидимость, лечение и скорость. Прокладывай перемещения через завесы, чтобы регулярно получать эти эффекты."
         }
       ],
       "attributes": [
@@ -11894,8 +11722,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "The barrier triggers after qualifying crowd control. It helps absorb follow-up damage but does not cleanse the control effect.",
-          "ru": "Барьер появляется после подходящего контроля. Он помогает пережить продолжение атаки, но сам контроль не снимает."
+          "en": "Against combos that follow crowd control with their main damage. A stun, chain, immobilize, sleep or silence automatically triggers a barrier to help you survive the follow-up.",
+          "ru": "Против комбинаций, где за контролем сразу идёт основной урон. После оглушения, связывания, обездвиживания, сна или безмолвия автоматически появляется барьер, который помогает пережить продолжение атаки."
         }
       ],
       "attributes": [
@@ -11977,8 +11805,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Automatically cleanses the next qualifying control effect. Useful when activating a defensive item in time is difficult; check which effects trigger it.",
-          "ru": "Автоматически очищает следующий подходящий эффект контроля. Полезен, когда трудно успеть нажать активный защитный предмет; проверь, какие эффекты запускают его."
+          "en": "When the first control effect is dangerous and reacting with an active defense is difficult. It automatically cleanses the next stun, chain, immobilize, sleep, silence or fear, then grants a barrier and reduces ability cooldowns.",
+          "ru": "Когда опасен первый же контроль и трудно успеть нажать защитный предмет. Автоматически снимает следующее оглушение, связывание, обездвиживание, сон, безмолвие или страх, затем даёт барьер и сокращает перезарядки способностей."
         }
       ],
       "attributes": [
@@ -12078,8 +11906,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
+          "en": "Helps recover health lost in lane trades as long as you keep landing shots: a ready bullet heals on hit. A hero provides more healing than an NPC or orb.",
+          "ru": "Помогает восстанавливать здоровье после обменов на линии, если продолжаешь попадать выстрелами: готовая пуля лечит при попадании. Герой даёт больше лечения, чем существо или сфера."
         }
       ],
       "attributes": [
@@ -12153,8 +11981,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "When frequent reloads interrupt damage against a target or objective, the large ammo increase extends your fire. Extra weapon damage strengthens that shooting.",
+          "ru": "Когда частые перезарядки прерывают урон по цели или объекту, большой прирост боезапаса продлевает огонь. Дополнительный урон оружия усиливает эту стрельбу."
         }
       ],
       "attributes": [
@@ -12204,12 +12032,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Against grouped heroes, activated multishot lets one attack hit several of them and build weapon damage stacks. Each target can only be hit once per multishot.",
+          "ru": "Против сгруппированных героев включённый мультивыстрел позволяет за одну атаку задеть нескольких и накопить урон оружия. Одна цель получает только одно попадание от каждого мультивыстрела."
         }
       ],
       "attributes": [],
@@ -12297,8 +12121,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it when you can keep dealing the relevant damage type during a fight. Lifesteal is less useful while controlled or forced to retreat.",
-          "ru": "Выбирай, если можешь продолжать наносить подходящий тип урона во время боя. Под контролем или при вынужденном отступлении вампиризм приносит меньше пользы."
+          "en": "Shortens the gap between magazines when you press reload in the highlighted window: a successful input finishes it immediately. Fire rate, bullet lifesteal and movement speed bonuses help you keep fighting.",
+          "ru": "Сокращает паузу между магазинами, если нажимаешь перезарядку в отмеченное окно: успешное нажатие сразу завершает её. Бонусы скорострельности, вампиризма пулями и передвижения помогают продолжить бой."
         }
       ],
       "attributes": [
@@ -12391,12 +12215,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Helps with retreating or fast travel when slows keep you from opening distance: they do not affect you in flight. Start summoning before you run out of escape time; the summon takes time, and taking any action during flight dismisses the carpet.",
+          "ru": "Помогает отступить или быстро перелететь в другое место, когда замедления мешают разорвать дистанцию: в полёте они не действуют. Начинай призыв до того, как останешься без времени на спасение: он занимает время, а любое действие во время полёта убирает ковёр."
         }
       ],
       "attributes": [
@@ -12521,8 +12341,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Triggering the burn and healing reduction requires reaching the spirit-damage threshold within its time window. Each target has its own trigger cooldown, so you cannot immediately reapply the burn.",
-          "ru": "Для ожога и антихила нужно набрать указанный порог спиритического урона за отведённое время. У каждой цели своя перезарядка эффекта: повторный ожог доступен не сразу."
+          "en": "Buy against strong healing when you can deal 500 spirit damage to one target within 5 seconds: the burn adds damage over time and sharply reduces incoming healing. Area damage helps trigger burns on several enemies because each target has a separate cooldown.",
+          "ru": "Бери против сильного лечения, если можешь нанести одной цели 500 спиритического урона за 5 секунд: горение добавит постепенный урон и резко снизит получаемое лечение. Урон по области полезен для запуска горения на нескольких врагах, поскольку перезарядка отдельная для каждой цели."
         }
       ],
       "attributes": [
@@ -12625,8 +12445,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Save the effect for a dangerous target or to follow allied control. Account for the delay, range and conditions in its description.",
-          "ru": "Сохраняй эффект для опасной цели или продолжения контроля союзника. Учитывай задержку, дальность и условия применения из описания."
+          "en": "Adds delayed control to your attack when your ultimate reliably damages the intended heroes. The stun and bonus damage arrive after 3 seconds and trigger only once per target per ultimate.",
+          "ru": "Дополняет атаку отложенным контролем, если твой ульт надёжно наносит урон нужным героям. Оглушение с дополнительным уроном приходит через 3 секунды и срабатывает на каждой цели только один раз за ульт."
         }
       ],
       "attributes": [
@@ -12722,8 +12542,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "Against heavy spirit hits when you also rely on frequent ability use. Those hits reduce a random ability cooldown, letting you respond to enemy attacks more often.",
+          "ru": "Против крупных попаданий спиритическим уроном, если сам часто используешь способности. Такие попадания сокращают перезарядку случайной способности, позволяя чаще отвечать на вражеские атаки."
         }
       ],
       "attributes": [
@@ -12806,8 +12626,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Consider it against teams whose main threat is spirit damage. Conditional bonuses apply only when their trigger is met.",
-          "ru": "Рассматривай против команды, в которой основную угрозу представляет спиритический урон. Условные бонусы действуют только при указанном срабатывании."
+          "en": "For a hero who frequently heals yourself or allies: healing also buffs the recipient's fire rate and movement speed. Innate regeneration and passive lifesteal do not trigger this bonus.",
+          "ru": "Для героя, который часто лечит себя или союзников: лечение дополнительно усиливает скорострельность и передвижение получателя. Обычная регенерация и пассивный вампиризм этот бонус не запускают."
         }
       ],
       "attributes": [
@@ -12919,8 +12739,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Against high bullet resistance, it gives individual shots a chance to ignore that resistance. Those bullets also pierce enemies, helping hit targets lined up behind each other.",
+          "ru": "Против высокого сопротивления пулям даёт шанс игнорировать его отдельными выстрелами. Такие пули также проходят сквозь врагов, помогая поражать цели, стоящие друг за другом."
         }
       ],
       "attributes": [
@@ -12988,8 +12808,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Extra durability helps against burst damage. Account for the barrier’s duration and trigger when present.",
-          "ru": "Дополнительный запас защиты полезен против быстрого урона. Учитывай длительность барьера и условие его появления."
+          "en": "Against gun builds, especially those with dangerous bullet on-hit effects. The item gives a chance to prevent an incoming bullet's damage or its on-hit effects, helping you withstand sustained fire.",
+          "ru": "Против стрелков, особенно если их пули накладывают опасные эффекты. Предмет даёт шанс предотвратить урон входящей пули либо её эффекты попадания, помогая выдерживать продолжительный обстрел."
         }
       ],
       "attributes": [
@@ -13063,8 +12883,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps survive large individual spirit hits. Watch the trigger threshold and the defensive effect’s cooldown.",
-          "ru": "Помогает переживать крупные отдельные попадания спиритическим уроном. Следи за порогом срабатывания и перезарядкой защитного эффекта."
+          "en": "Against large individual spirit hits that take a substantial chunk of health at once. The ready defensive effect reduces the next qualifying hit, on top of its permanent spirit resistance.",
+          "ru": "Против сильных отдельных попаданий спиритическим уроном, которые снимают большую часть здоровья за раз. Готовый защитный эффект уменьшает следующее такое попадание, дополняя постоянное спиритическое сопротивление."
         }
       ],
       "attributes": [
@@ -13158,8 +12978,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "For chasing or escaping when slows and close-range attacks hold you back. It improves movement and resistance to those threats, while enemies who shoot you suffer reduced fire rate.",
+          "ru": "Для преследования и выхода из-под огня, когда мешают замедления и атаки вблизи. Повышает скорость и устойчивость к этим угрозам, а у стреляющих по тебе врагов снижает скорострельность."
         }
       ],
       "attributes": [
@@ -13254,8 +13074,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
+          "en": "Frequent ability and item casts in combat strengthen the shooting between them by stacking fire rate and reload speed. Each new cast refreshes the buff duration.",
+          "ru": "Частые применения способностей и предметов в бою усиливают стрельбу между ними: накапливаются скорострельность и ускорение перезарядки. Каждое новое применение обновляет длительность усиления."
         }
       ],
       "attributes": [
@@ -13338,8 +13158,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Helps control distance and positioning. Use the mobility to leave dangerous areas or join allies in time.",
-          "ru": "Помогает выбирать дистанцию и менять позицию. Используй мобильность, чтобы выйти из опасной зоны или вовремя присоединиться к союзникам."
+          "en": "Helps pursuit: weapon damage within 8 m opens a wound, lowers bullet resistance and reveals the target through walls. The movement speed you gain helps you keep up with the wounded enemy.",
+          "ru": "Облегчает преследование: урон оружием в пределах 8 м открывает рану, снижает сопротивление пулям и раскрывает цель за стенами. Полученная скорость помогает не отпускать раненого врага."
         }
       ],
       "attributes": [
@@ -13448,8 +13268,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Suits sustained shooting. Compare damage, time until reloading and whether you can stay at the required range.",
-          "ru": "Подходит для регулярной стрельбы. Сравни урон, время стрельбы до перезарядки и возможность оставаться на нужной дистанции."
+          "en": "Strengthens an opening attack: the ready proc fires twice in quick succession with increased damage and bullet velocity. Keep enough ammo for the extra cost before attacking.",
+          "ru": "Усиливает отдельную атаку при выходе на цель: готовый эффект выпускает два выстрела подряд с повышенными уроном и скоростью пуль. Перед атакой оставляй патроны на дополнительный расход."
         }
       ],
       "attributes": [
@@ -13557,12 +13377,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Compare the bonus with your hero’s key ability: cast it more often, extend its effect or reach a target from a safer distance.",
-          "ru": "Сравни бонус с ключевой способностью своего героя: чаще применять её, дольше держать эффект или доставать цель с безопасной дистанции."
-        },
-        {
-          "en": "An imbued bonus requires selecting an ability. Do not count that bonus as applying to every ability.",
-          "ru": "Усиление выбранной способности требует правильно выбрать её при покупке. Не считай этот бонус усилением всех способностей сразу."
+          "en": "Imbue an ability that can hit several heroes before you shoot: extra range helps it connect, and each unique hero grants weapon damage. Ability hits then set up your follow-up gunfire.",
+          "ru": "Усиль способность, которой можешь задеть нескольких героев перед стрельбой: увеличенная дальность помогает попасть, а каждый уникальный герой даёт урон оружия. Так попадания способностью подготавливают последующую атаку оружием."
         }
       ],
       "attributes": [],
@@ -13646,8 +13462,8 @@
       "activation": "passive",
       "advice": [
         {
-          "en": "Choose it for a hero with charged abilities. Dealing significant weapon damage restores a charge to each such ability; the item does not restore stamina.",
-          "ru": "Выбирай под героя с зарядами способностей. Значительный урон оружием возвращает по заряду каждой такой способности; выносливость предмет не восстанавливает."
+          "en": "Extends a combo for a hero with charged abilities: enough weapon damage within a short window restores a charge to each of those abilities. It helps when you can quickly reach the required damage threshold.",
+          "ru": "Продлевает комбинацию героя со способностями на зарядах: достаточный урон оружием за короткое время возвращает по заряду каждой такой способности. Полезен, если можешь быстро набрать нужный порог попаданиями."
         }
       ],
       "attributes": [
@@ -13731,12 +13547,8 @@
       "activation": "active",
       "advice": [
         {
-          "en": "Helps you stay in lane and recover between engagements. Check the healing conditions: some effects stop on damage or work out of combat.",
-          "ru": "Помогает дольше оставаться на линии и восстанавливаться между атаками. Соблюдай условия лечения: часть эффектов прерывается уроном или работает вне боя."
-        },
-        {
-          "en": "This is an active item: use a comfortable key binding and plan the next fight around its cooldown.",
-          "ru": "Это активный предмет: назначь удобную клавишу и учитывай его перезарядку при следующем бою."
+          "en": "Buy when you can spend time building your economy with reduced damage: the egg gains value, then hatching grants souls and permanent buffs. The damage penalty makes it less useful when you need immediate fighting strength.",
+          "ru": "Бери, если можешь некоторое время развивать экономику с пониженным уроном: ценность яйца растёт, а при вылуплении ты получаешь души и постоянные бонусы. При необходимости немедленно драться штраф к урону делает такую покупку менее полезной."
         }
       ],
       "attributes": [
