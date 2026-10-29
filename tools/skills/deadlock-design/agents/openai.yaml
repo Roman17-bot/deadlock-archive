@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Deadlock Design'
+  short_description: 'Стиль, графика, иконки и анимации Deadlock Archive'
+  default_prompt: 'Используй $deadlock-design, чтобы улучшить оформление, графику или анимации Deadlock Archive, сохранив расположение элементов и привычные сценарии.'

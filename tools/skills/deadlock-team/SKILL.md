@@ -7,17 +7,21 @@ description: Use when coordinating specialized or repeated Deadlock project task
 
 Use named roles with file-backed memory. A process/agent handle is temporary; the role, its workflow and accepted context survive it. Read only the relevant role, not the whole team.
 
-| Role      | Task                                                   | Default      |
-| --------- | ------------------------------------------------------ | ------------ |
-| heroes    | abilities, stats, builds, matchups, replays            | Sol / medium |
-| items     | purchase choices and interactions                      | Sol / medium |
-| mechanics | equations, stacking and calculations                   | Sol / high   |
-| website   | UI/API implementation and verification                 | Sol / medium |
-| data      | PostgreSQL, ingestion, patch provenance, Pages sync    | Sol / medium |
-| critic    | independent evidence, correctness and direction review | Sol / medium |
-| scout     | short lookup, file ownership, one small check          | Luna / low   |
+| Role         | Task                                                   | Default      |
+| ------------ | ------------------------------------------------------ | ------------ |
+| heroes       | abilities, stats, builds, matchups, replays            | Sol / medium |
+| items        | purchase choices and interactions                      | Sol / medium |
+| mechanics    | equations, stacking and calculations                   | Sol / high   |
+| website      | UI/API implementation and verification                 | Sol / medium |
+| designer     | visual direction, graphics, icons and custom animation | Sol / medium |
+| designcritic | independent visual/UX and design-specificity review    | Sol / medium |
+| data         | PostgreSQL, ingestion, patch provenance, Pages sync    | Sol / medium |
+| critic       | independent evidence, correctness and direction review | Sol / medium |
+| scout        | short lookup, file ownership, one small check          | Luna / low   |
 
 Exact available model IDs and efforts are in `tools/agents/roles.json` in the active checkout. For a narrow lookup, work directly; don't start a team just because roles exist. Usually delegate one or two independent tasks, at most the runtime limit (project default three children). Only the coordinator delegates.
+
+For visual redesign/assets, dispatch `designer` with `deadlock-design`; for independent aesthetic and layout review, dispatch `designcritic` with `deadlock-design-review`. Read `docs/design-brief.md`: preserve the user's existing layout and workflows. Designer outputs concepts/assets inside its private run, website implements accepted production changes, and designcritic checks actual rendered results. A small visual task needs only the relevant roles; do not launch both critics and the full team automatically.
 
 ## Dispatch and recovery
 

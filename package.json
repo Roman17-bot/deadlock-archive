@@ -35,7 +35,8 @@
     "skill:install": "node scripts/install-skill.mjs",
     "team": "node scripts/agents/cli.mjs",
     "team:init": "node scripts/agents/cli.mjs init",
-    "team:install": "node scripts/agents/cli.mjs install"
+    "team:install": "node scripts/agents/cli.mjs install",
+    "design:install": "node scripts/install-design-skills.mjs"
   },
   "dependencies": {
     "i18next": "26.5.10",

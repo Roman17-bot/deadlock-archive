@@ -29,3 +29,11 @@ config_file = "agents/deadlock-critic.toml"
 [agents.deadlock_scout]
 description = "Small read-only Deadlock lookups, file ownership checks and bounded verification tasks."
 config_file = "agents/deadlock-scout.toml"
+
+[agents.deadlock_designer]
+description = "Deadlock Archive visual design, original graphics, icons and custom animation prototypes for implementation handoff."
+config_file = "agents/deadlock-designer.toml"
+
+[agents.deadlock_designcritic]
+description = "Independent Deadlock Archive design and motion review for visual hierarchy, usability, accessibility and task fit."
+config_file = "agents/deadlock-designcritic.toml"

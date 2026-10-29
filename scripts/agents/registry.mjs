@@ -1,22 +1,51 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-export const skillFiles = [
-  'SKILL.md',
-  'agents/openai.yaml',
-  'references/protocol.md',
-  ...['heroes', 'items', 'mechanics', 'website', 'data', 'critic', 'scout'].map(
-    (role) => `references/roles/${role}.md`,
-  ),
-];
+export function skillFiles(root) {
+  return [
+    'SKILL.md',
+    'agents/openai.yaml',
+    'references/protocol.md',
+    ...loadRegistry(root).roles.map((role) => `references/roles/${role.id}.md`),
+  ];
+}
 
 export function loadRegistry(root) {
   const registry = JSON.parse(readFileSync(resolve(root, 'tools/agents/roles.json'), 'utf8'));
-  if (registry.schemaVersion !== 1 || registry.roles.length !== 7)
+  if (
+    !registry ||
+    registry.schemaVersion !== 1 ||
+    !Array.isArray(registry.roles) ||
+    !registry.roles.length ||
+    !Number.isSafeInteger(registry.maxConcurrentChildren) ||
+    registry.maxConcurrentChildren < 1 ||
+    !registry.profiles ||
+    typeof registry.profiles !== 'object' ||
+    Array.isArray(registry.profiles)
+  )
     throw new Error('Unsupported team registry');
+  const nonempty = (value) => typeof value === 'string' && value.trim().length > 0;
+  const depths = ['quick', 'standard', 'deep', 'audit'];
+  const efforts = ['none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max', 'ultra'];
+  for (const depth of depths) {
+    const profile = registry.profiles[depth];
+    if (!profile || !nonempty(profile.model) || !efforts.includes(profile.effort))
+      throw new Error('Invalid team profile');
+  }
   const ids = new Set();
   for (const role of registry.roles) {
-    if (!/^[a-z]+$/.test(role.id) || ids.has(role.id) || !registry.profiles[role.depth])
+    if (
+      !role ||
+      typeof role.id !== 'string' ||
+      !/^[a-z]+$/.test(role.id) ||
+      ids.has(role.id) ||
+      !depths.includes(role.depth) ||
+      !nonempty(role.label) ||
+      !nonempty(role.description) ||
+      !Number.isSafeInteger(role.outputWords) ||
+      role.outputWords < 1 ||
+      typeof role.canEditCode !== 'boolean'
+    )
       throw new Error('Invalid team role');
     ids.add(role.id);
   }

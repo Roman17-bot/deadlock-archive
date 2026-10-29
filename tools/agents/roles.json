@@ -63,6 +63,22 @@
       "depth": "quick",
       "outputWords": 180,
       "canEditCode": false
+    },
+    {
+      "id": "designer",
+      "label": "Дизайнер",
+      "description": "Deadlock Archive visual design, original graphics, icons and custom animation prototypes for implementation handoff.",
+      "depth": "standard",
+      "outputWords": 450,
+      "canEditCode": false
+    },
+    {
+      "id": "designcritic",
+      "label": "Критик дизайна",
+      "description": "Independent Deadlock Archive design and motion review for visual hierarchy, usability, accessibility and task fit.",
+      "depth": "standard",
+      "outputWords": 450,
+      "canEditCode": false
     }
   ]
 }

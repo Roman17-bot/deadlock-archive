@@ -133,6 +133,9 @@ export function createBrief(options) {
     `Knowledge commands: run with workdir ${archiveRoot}; start with npm run knowledge -- status, then bounded queries there. Implementation searches and tests use workdir ${root}.`,
     `Read scope: ${(options.readFiles ?? []).join(', ') || 'the smallest relevant source files and bounded knowledge/DB queries'}.`,
     `Code write ownership: ${writeFiles.join(', ') || 'none'}. You may create only your assigned private report directory: ${reportDirectory}. Do not update shared CONTEXT.md or the evidence index; the coordinator merges accepted results.`,
+    role.id === 'designer'
+      ? 'You may draw assets and build design prototypes inside that assigned private run directory. The coordinator or website role integrates production changes.'
+      : '',
     `Return at most ${role.outputWords} words: result; exact evidence paths/URLs and version/date; what was actually verified; uncertainty/conflicts; report path and next useful action. Put necessary detail in the assigned report. Do not copy the whole chat or spawn further agents.`,
     options.escalationReason ? `Escalation reason: ${options.escalationReason}` : '',
   ]
@@ -173,7 +176,7 @@ export function installTeam(options = {}) {
     throw new Error('Skill target overlaps source');
   if (existsSync(target) && lstatSync(target).isSymbolicLink())
     throw new Error('Symlink skill target is not allowed');
-  const files = skillFiles.map((file) => ({
+  const files = skillFiles(root).map((file) => ({
     input: safePath(root, `tools/skills/deadlock-team/${file}`),
     file,
   }));

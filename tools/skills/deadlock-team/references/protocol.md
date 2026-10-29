@@ -4,7 +4,7 @@ The original repository holds private evidence and `knowledge/agents/<role>/CONT
 
 Run `npm run knowledge -- status` and subsequent knowledge queries with the tool's **workdir set to the original archive root supplied in the brief**. Implementation searches/tests run in the active checkout. If the checkout reports a missing index, rerun the read in the supplied archive workdir; that is a location error, not absence of evidence.
 
-The parent supplies a bounded task, read scope, explicit write ownership and unique `runs/<id>/` directory. Workers write their report there; only website/data may edit assigned implementation files. Read-only roles may still write their own report. These are workflow boundaries, not separate OS sandboxes. Don't change another worker's files, shared context, index, credentials, Git refs or deployments. Don't spawn children. An implementation task's tests and relevant skills still apply.
+The parent supplies a bounded task, read scope, explicit write ownership and unique `runs/<id>/` directory. Workers write their report there; only website/data may edit assigned implementation files. Read-only roles may still write their own report. The designer may create assets and prototypes inside its assigned private run directory; the coordinator or website role integrates production changes. The designcritic independently reviews the exact design artifact and returns actionable findings, without editing production. These are workflow boundaries, not separate OS sandboxes. Don't change another worker's files, shared context, index, credentials, Git refs or deployments. Don't spawn children. An implementation task's tests and relevant skills still apply.
 
 Return a short handoff with these fields:
 

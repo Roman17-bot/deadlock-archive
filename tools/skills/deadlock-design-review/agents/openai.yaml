@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Deadlock Design Review'
+  short_description: 'Независимая проверка дизайна и удобства Deadlock'
+  default_prompt: 'Используй $deadlock-design-review, чтобы проверить оформление Deadlock Archive, его читабельность и сохранение привычного интерфейса.'

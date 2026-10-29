@@ -65,9 +65,19 @@ describe('durable specialist context', () => {
     );
   });
 
-  it('initializes seven role folders once and preserves existing memory on another run', () => {
+  it('initializes all registered role folders once and preserves existing memory on another run', () => {
     const first = initTeam(options());
-    expect(first.created).toHaveLength(7);
+    expect(first.created).toEqual([
+      'heroes',
+      'items',
+      'mechanics',
+      'website',
+      'data',
+      'critic',
+      'scout',
+      'designer',
+      'designcritic',
+    ]);
     const context = join(archive, 'knowledge/agents/heroes/CONTEXT.md');
     writeFileSync(context, 'Accepted research pointer: knowledge/research/heroes-example.md');
     expect(initTeam(options()).created).toHaveLength(0);
@@ -77,6 +87,108 @@ describe('durable specialist context', () => {
     expect(
       teamStatus(options()).roles.every((role: { initialized: boolean }) => role.initialized),
     ).toBe(true);
+  });
+
+  it.each(['designer', 'designcritic'])('recovers and preserves %s private context', (role) => {
+    expect(readContext({ ...options(), role }).initialized).toBe(false);
+    initTeam(options());
+    const context = readContext({ ...options(), role });
+    expect(context.initialized).toBe(true);
+    expect(context.path).toBe(join(archive, `knowledge/agents/${role}/CONTEXT.md`));
+    writeFileSync(context.path, 'Accepted design decision: keep the bilingual catalogue.');
+    initTeam(options());
+    expect(readContext({ ...options(), role }).content).toBe(
+      'Accepted design decision: keep the bilingual catalogue.',
+    );
+    expect(existsSync(join(root, 'knowledge'))).toBe(false);
+  });
+
+  it('supports additional registered roles rather than requiring an exact role count', () => {
+    const path = join(root, 'tools/agents/roles.json');
+    const registry = JSON.parse(readFileSync(path, 'utf8'));
+    registry.roles.push({
+      id: 'example',
+      label: 'Example',
+      description: 'A bounded example role.',
+      depth: 'standard',
+      outputWords: 200,
+      canEditCode: false,
+    });
+    writeFileSync(path, JSON.stringify(registry));
+    expect(initTeam(options()).created).toContain('example');
+    expect(teamStatus(options()).maxConcurrentChildren).toBe(3);
+    const instructions = '# Example\nA custom registered instruction.';
+    writeFileSync(
+      join(root, 'tools/skills/deadlock-team/references/roles/example.md'),
+      instructions,
+    );
+    const target = join(sandbox, 'skills/deadlock-team');
+    installTeam({ ...options(), target });
+    expect(readFileSync(join(target, 'references/roles/example.md'), 'utf8')).toBe(instructions);
+  });
+
+  it.each([
+    [
+      'empty roles',
+      (registry: any) => {
+        registry.roles = [];
+      },
+    ],
+    [
+      'duplicate role',
+      (registry: any) => {
+        registry.roles.push(registry.roles[0]);
+      },
+    ],
+    [
+      'unsafe role id',
+      (registry: any) => {
+        registry.roles[0].id = '../escape';
+      },
+    ],
+    [
+      'unknown profile',
+      (registry: any) => {
+        registry.roles[0].depth = 'unknown';
+      },
+    ],
+    [
+      'invalid profile',
+      (registry: any) => {
+        registry.profiles.standard.model = '';
+      },
+    ],
+    [
+      'invalid effort',
+      (registry: any) => {
+        registry.profiles.standard.effort = 'invalid';
+      },
+    ],
+    [
+      'invalid output bound',
+      (registry: any) => {
+        registry.roles[0].outputWords = 0;
+      },
+    ],
+    [
+      'invalid ownership',
+      (registry: any) => {
+        registry.roles[0].canEditCode = 'false';
+      },
+    ],
+    [
+      'invalid concurrency',
+      (registry: any) => {
+        registry.maxConcurrentChildren = 0;
+      },
+    ],
+  ])('rejects %s before initializing any private files', (_name, mutate) => {
+    const path = join(root, 'tools/agents/roles.json');
+    const registry = JSON.parse(readFileSync(path, 'utf8'));
+    mutate(registry);
+    writeFileSync(path, JSON.stringify(registry));
+    expect(() => initTeam(options())).toThrow(/registry|role|profile/i);
+    expect(existsSync(join(archive, 'knowledge/agents'))).toBe(false);
   });
 
   it('bounds large context reads and rejects unknown roles rather than using an arbitrary path', () => {
@@ -98,6 +210,37 @@ describe('durable specialist context', () => {
 });
 
 describe('economical task briefs', () => {
+  it.each(['designer', 'designcritic'])(
+    'dispatches %s at Sol/medium with isolated artifacts',
+    (role) => {
+      const brief = createBrief({
+        ...options(),
+        role,
+        task: 'Review the catalogue visual hierarchy.',
+      });
+      expect([brief.spawn.model, brief.spawn.reasoning_effort, brief.spawn.fork_turns]).toEqual([
+        'gpt-6.1-sol',
+        'medium',
+        'none',
+      ]);
+      expect(brief.outputWords).toBe(450);
+      expect(brief.writeFiles).toEqual([]);
+      expect(brief.reportDirectory).toContain(join(archive, `knowledge/agents/${role}/runs`));
+      expect(brief.spawn.message).toContain(
+        join(root, `tools/skills/deadlock-team/references/roles/${role}.md`),
+      );
+      expect(brief.spawn.message).toContain(brief.reportDirectory);
+      expect(() =>
+        createBrief({
+          ...options(),
+          role,
+          task: 'Review it.',
+          writeFiles: ['src/App.tsx'],
+        }),
+      ).toThrow(/read.only/i);
+      expect(existsSync(brief.reportDirectory)).toBe(false);
+    },
+  );
   it('uses Luna/low for a quick check with a fresh bounded prompt and no filesystem writes', () => {
     const before = readdirSync(join(archive, 'knowledge'));
     const brief = createBrief({
@@ -222,16 +365,34 @@ describe('installation boundaries', () => {
     expect(profile.repoRoot).toBe(archive);
     expect(readFileSync(join(target, 'personal-note.txt'), 'utf8')).toBe('Keep me');
     expect(readFileSync(join(sandbox, 'skills/other/SKILL.md'), 'utf8')).toBe('User skill');
-    expect(existsSync(join(target, 'references/roles/critic.md'))).toBe(true);
+    for (const role of ['critic', 'designer', 'designcritic']) {
+      expect(readFileSync(join(target, `references/roles/${role}.md`), 'utf8')).toBe(
+        readFileSync(join(root, `tools/skills/deadlock-team/references/roles/${role}.md`), 'utf8'),
+      );
+    }
     expect(() => installTeam({ ...options(), target: root })).toThrow(/source|target/i);
   });
 
   it('creates native project roles without changing an existing project config', () => {
     const result = writeNativeConfig({ root });
-    expect(result.files).toHaveLength(8);
+    expect(result.files).toHaveLength(10);
     const config = join(root, '.codex/config.toml');
     writeFileSync(config, '[custom]\nvalue = "user"\n');
     expect(() => writeNativeConfig({ root })).toThrow(/existing|owned/i);
     expect(readFileSync(config, 'utf8')).toBe('[custom]\nvalue = "user"\n');
   });
+
+  it.each(['designer', 'designcritic'])(
+    'generates a project native %s role at the standard profile',
+    (role) => {
+      writeNativeConfig({ root });
+      const config = readFileSync(join(root, '.codex/config.toml'), 'utf8');
+      expect(config).toContain('max_threads = 3');
+      expect(config).toContain(`[agents.deadlock_${role}]`);
+      const native = readFileSync(join(root, `.codex/agents/deadlock-${role}.toml`), 'utf8');
+      expect(native).toContain('model = "gpt-6.1-sol"');
+      expect(native).toContain('model_reasoning_effort = "medium"');
+      expect(native).toContain(`references/roles/${role}.md`);
+    },
+  );
 });
