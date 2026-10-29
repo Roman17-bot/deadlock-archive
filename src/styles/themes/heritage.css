@@ -1,0 +1,452 @@
+/* Load after existing production styles. Set data-theme="heritage" on <html>.
+   Preserve existing typography, DOM geometry, focus and all motion lifecycle. */
+:root[data-theme='heritage'] {
+  --ink: #17231f;
+  --ink-deep: #101b17;
+  --paper: #eee8d8;
+  --paper-muted: #ded8c8;
+  --sage: #a4b39b;
+  --brass: #b5a479;
+  --muted: #a8afa4;
+  --line: #344038;
+  --surface: #1e2d25;
+  --surface-raised: #2b3b30;
+  --raised: #2b3b30;
+  --focus: #d7c593;
+  --on-paper: #17231f;
+  --on-paper-muted: #465347;
+  --on-paper-line: #8d937f;
+  --on-paper-focus: #3e593e;
+  --heritage-edge: #746b50;
+  --heritage-olive: #3c4930;
+  --range-fill: #f4d78a;
+  --range-rail: #a3b194;
+  --range-edge: #dbe0bd;
+  --range-thumb: #ffe9ad;
+}
+[data-theme='heritage'] .button {
+  border: 1px solid var(--heritage-edge);
+  border-radius: 2px;
+  color: var(--paper);
+  background: #24362b;
+  box-shadow:
+    inset 0 1px 0 #52604a,
+    0 2px 0 #0b150f;
+}
+[data-theme='heritage'] .button:hover {
+  background: #304431;
+  border-color: var(--brass);
+}
+[data-theme='heritage'] :is(.button-paper, .button-primary) {
+  color: var(--ink-deep);
+  background: var(--paper);
+  border-color: #c5b997;
+  box-shadow:
+    inset 0 1px 0 #fbf7e9,
+    0 2px 0 #827857;
+}
+[data-theme='heritage'] :is(.button-paper, .button-primary):hover {
+  background: #f7f0df;
+}
+[data-theme='heritage'] :is(.button-paper, .button-primary)::after {
+  border-color: #867854;
+}
+[data-theme='heritage'] .button-outline {
+  background: #e2dccb;
+  color: var(--ink-deep);
+  border-color: #8e907a;
+  box-shadow:
+    inset 0 1px 0 #f7f0df,
+    0 2px 0 #8d876e;
+}
+[data-theme='heritage'] .button-outline:hover {
+  background: #eee8d8;
+}
+[data-theme='heritage'] .button:active {
+  box-shadow:
+    inset 0 1px 0 #52604a,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .button:disabled {
+  background: #233027;
+  color: var(--muted);
+  border-color: var(--line);
+  box-shadow: 0 1px 0 var(--ink-deep);
+}
+[data-theme='heritage'] .item-category-button {
+  --plate-face: #24362b;
+  --plate-text: var(--paper);
+  color: var(--paper);
+  background: var(--plate-face);
+  border-color: var(--heritage-edge);
+  border-radius: 2px 7px 2px 2px;
+  box-shadow:
+    inset 4px 0 0 var(--category),
+    inset 0 1px 0 #52604a,
+    0 2px 0 #0b150f;
+}
+[data-theme='heritage'] .item-category-button.weapon {
+  --plate-face: #352f23;
+}
+[data-theme='heritage'] .item-category-button.vitality {
+  --plate-face: #263b29;
+}
+[data-theme='heritage'] .item-category-button.spirit {
+  --plate-face: #302b3d;
+}
+[data-theme='heritage'] .item-category-button::before {
+  content: none;
+}
+[data-theme='heritage'] .item-category-button:hover {
+  background: #344032;
+  border-color: var(--category);
+}
+[data-theme='heritage'] .item-category-button[aria-pressed='true'] {
+  background: var(--plate-face);
+  color: var(--paper);
+  border-color: var(--category);
+  box-shadow:
+    inset 4px 0 0 var(--category),
+    inset 0 -3px 0 var(--category),
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-category-button:active {
+  box-shadow:
+    inset 4px 0 0 var(--category),
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-category-button .item-category-check {
+  color: var(--category);
+}
+[data-theme='heritage'] .item-tier-tile {
+  background: #1b2b21;
+  color: var(--paper);
+  border-color: #627159;
+  border-radius: 1px 1px 4px 4px;
+  box-shadow:
+    inset 0 2px 0 #344b35,
+    inset 0 -1px 0 #4b583e,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-tier-tile strong {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+[data-theme='heritage'] .item-tier-tile span {
+  color: var(--brass);
+}
+[data-theme='heritage'] .item-tier-tile[aria-pressed='true'] {
+  background: var(--paper);
+  color: var(--ink-deep);
+  border-color: var(--brass);
+  box-shadow:
+    inset 0 -3px 0 #9b895c,
+    inset 0 2px 0 #fbf7e9,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-tier-tile[aria-pressed='true'] span {
+  color: #4c513c;
+}
+[data-theme='heritage'] .item-activation-segments {
+  background: #101b17;
+  border-color: var(--heritage-edge);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 #070f0a;
+}
+[data-theme='heritage'] .item-activation-segments button {
+  background: #203124;
+  color: var(--paper-muted);
+  border-radius: 1px;
+  box-shadow: none;
+}
+[data-theme='heritage'] .item-activation-segments button:hover {
+  background: #33452e;
+  color: var(--paper);
+}
+[data-theme='heritage'] .item-activation-segments button[aria-pressed='true'] {
+  background: #dbd5bf;
+  color: var(--ink-deep);
+  border-color: #c8bd9b;
+  box-shadow:
+    inset 0 1px 0 #f7f0df,
+    0 1px 0 #867a54;
+}
+[data-theme='heritage'] .language-switch {
+  background: #101b17;
+  border-color: var(--heritage-edge);
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 #070f0a,
+    0 1px 0 #070f0a;
+}
+[data-theme='heritage'] .language-switch::before {
+  box-sizing: border-box;
+  background: var(--heritage-olive);
+  border: 1px solid var(--brass);
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 #6b7150,
+    0 1px 0 #070f0a;
+}
+[data-theme='heritage'] .language-switch button {
+  color: var(--paper);
+  background: none;
+  border-radius: 1px;
+}
+[data-theme='heritage'] .language-switch button > span {
+  background: none;
+  color: var(--paper);
+  border-radius: 1px;
+  box-shadow: none;
+}
+[data-theme='heritage'] .language-switch button[aria-pressed='true'] {
+  color: var(--paper);
+}
+[data-theme='heritage'] .language-switch button:hover {
+  color: #fff8e5;
+}
+[data-theme='heritage'] .item-property-tile {
+  background: #263b2c;
+  border-color: #65755a;
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 #4d6348,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-property-tile:hover:not([aria-pressed='true']) {
+  background: #334b35;
+  border-color: var(--sage);
+}
+[data-theme='heritage'] .item-property-tile[aria-pressed='true'] {
+  background: #dbd5bf;
+  color: var(--ink-deep);
+  border-color: var(--brass);
+  box-shadow:
+    inset 3px 0 0 #8a7b51,
+    inset 0 -2px 0 #a29269;
+}
+
+/* Folio details and the remaining shared surfaces. All geometry stays in page CSS. */
+[data-theme='heritage'] .weapon {
+  --category: #d1ae7c;
+  --category-dark: #342d20;
+}
+[data-theme='heritage'] .vitality {
+  --category: #b5c28e;
+  --category-dark: #293322;
+}
+[data-theme='heritage'] .spirit {
+  --category: #baa8c8;
+  --category-dark: #302937;
+}
+[data-theme='heritage'] .button {
+  box-shadow:
+    inset 0 0 0 3px #24362b,
+    inset 0 0 0 4px #66714f,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage'] :is(.button-paper, .button-primary) {
+  box-shadow:
+    inset 0 0 0 3px var(--paper),
+    inset 0 0 0 4px #a6976e,
+    0 1px 0 #6c6449;
+}
+[data-theme='heritage'] :is(.button-paper, .button-primary)::after {
+  content: none;
+}
+[data-theme='heritage'] .button-outline {
+  box-shadow:
+    inset 0 1px 0 #f7f0df,
+    0 1px 0 #8d876e;
+}
+[data-theme='heritage'] .item-category-button {
+  border-radius: 1px;
+  box-shadow:
+    inset 3px 0 0 var(--category),
+    inset 0 -1px 0 #52604a;
+}
+[data-theme='heritage'] .item-category-button[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--plate-face) 85%, #eee8d8);
+  box-shadow:
+    inset 3px 0 0 var(--category),
+    inset 0 -3px 0 var(--category);
+}
+@media (min-width: 701px) {
+  [data-theme='heritage'] .item-category-icon {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border: 1px solid var(--category);
+    border-radius: 50%;
+  }
+}
+[data-theme='heritage']
+  :is(.search-field, .items-search, .formula-search, .item-property-search > span:last-child) {
+  background: var(--ink-deep);
+  border-color: #64715c;
+  border-radius: 1px;
+}
+[data-theme='heritage'] .item-property-groups > details {
+  background: #15241b;
+  border-color: #4e5f48;
+  border-radius: 1px;
+}
+[data-theme='heritage'] .item-situations {
+  border-color: #64715c;
+  border-top-color: var(--brass);
+  border-radius: 1px;
+}
+[data-theme='heritage'] .item-property-tile[aria-pressed='true'] > :is(svg, small) {
+  color: var(--ink-deep);
+}
+[data-theme='heritage']
+  :is(.quick-filters button, .level-step, .export-button, .formula-categories button, .item-reset) {
+  background: #283c2d;
+  color: var(--paper);
+  border: 1px solid #788365;
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 #54664b,
+    0 1px 0 #0b150f;
+}
+[data-theme='heritage']
+  :is(
+    .quick-filters button,
+    .level-step,
+    .export-button,
+    .formula-categories button,
+    .item-reset
+  ):hover:not(:disabled) {
+  background: #364c35;
+  border-color: var(--brass);
+}
+[data-theme='heritage']
+  :is(
+    .quick-filters .selected,
+    .formula-categories button[aria-pressed='true'],
+    .item-reset.has-filters
+  ) {
+  background: var(--paper);
+  color: var(--ink-deep);
+  border-color: var(--brass);
+  box-shadow: inset 0 -2px 0 #a6976e;
+}
+[data-theme='heritage'] .level-step:disabled {
+  background: #1d2d22;
+  color: var(--muted);
+  border-color: #46513e;
+  box-shadow: none;
+}
+[data-theme='heritage'] :is(.calculator-fields input, .styled-select-trigger) {
+  background: #f5f0e0;
+  border-color: #8d937f;
+  border-radius: 1px;
+  box-shadow: inset 0 2px 0 #dddcc7;
+}
+[data-theme='heritage'] .calculator-fields input:focus,
+[data-theme='heritage'] .styled-select-trigger[aria-expanded='true'] {
+  border-color: #746b50;
+  box-shadow: inset 3px 0 0 #9b895c;
+}
+[data-theme='heritage'] .styled-select-trigger > svg {
+  color: #746b50;
+}
+[data-theme='heritage'] .styled-select-menu {
+  border-color: var(--brass);
+  border-radius: 1px;
+  box-shadow: 0 12px 24px #07140c66;
+}
+[data-theme='heritage'] .styled-select-option.is-active:hover {
+  background: #d4c6a1;
+}
+[data-theme='heritage'] :is(.calc-reset, .updates-secondary, .close-dialog) {
+  background: #e1ddcc;
+  color: var(--ink-deep);
+  border-color: #8d937f;
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 #faf6e8,
+    0 1px 0 #92917a;
+}
+[data-theme='heritage'] .updates-button {
+  background: var(--brass);
+  color: var(--ink-deep);
+  border: 1px solid #d0c49e;
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 #e4d6b0,
+    0 1px 0 #7c7355;
+}
+[data-theme='heritage'] .updates-button:hover:not(:disabled) {
+  background: #c9ba91;
+}
+[data-theme='heritage'] .updates-option input {
+  accent-color: var(--on-paper-focus);
+}
+[data-theme='heritage'] .updates-secondary:hover:not(:disabled) {
+  background: #ece6d3;
+}
+[data-theme='heritage'] :is(.updates-button, .updates-secondary):disabled {
+  background: #d2d4c1;
+  color: #545c4d;
+  border-color: #b0b59d;
+  box-shadow: none;
+}
+[data-theme='heritage']
+  :is(.calculator-form, .formula-card, .updates-control, .method-dialog)
+  :focus-visible,
+[data-theme='heritage'] .table-scroll:focus-visible,
+[data-theme='heritage'] .table-scroll :focus-visible {
+  outline-color: var(--on-paper-focus);
+}
+[data-theme='heritage'] .table-scroll thead button:hover {
+  background: #d5dcc3;
+}
+[data-theme='heritage'] .table-scroll tbody tr:hover > :is(td, .hero-column),
+[data-theme='heritage'] .table-scroll tbody .details-row > td {
+  background: #dce1cc;
+}
+[data-theme='heritage'] .table-scroll thead th.sorted-column {
+  background: #d5dcc3;
+  box-shadow: inset 0 3px #7d8056;
+}
+[data-theme='heritage'] .table-scroll td.sorted-column {
+  background: #d5dcc3;
+}
+[data-theme='heritage'] .table-scroll-controls input::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    var(--brass) var(--table-scroll-progress),
+    #687b5f var(--table-scroll-progress)
+  );
+}
+[data-theme='heritage'] .table-scroll-controls input::-moz-range-track {
+  background: #687b5f;
+}
+[data-theme='heritage'] .table-scroll {
+  scrollbar-color: var(--on-paper-focus) var(--paper-muted);
+}
+[data-theme='heritage'] .roster-art {
+  background: #1c2a22;
+  border-color: #766e52;
+  box-shadow:
+    inset 0 0 0 6px #17231f,
+    inset 0 0 0 7px #49523b;
+}
+[data-theme='heritage'] .roster-portraits > div > span {
+  background: #101b17;
+}
+[data-theme='heritage'] .method-dialog::backdrop {
+  background: #08150de6;
+}
+[data-theme='heritage'] .method-callout {
+  background: #dce1cc;
+}
+[data-theme='heritage'] .formula-expression {
+  background: #e1dfca;
+  border-left-color: #9b895c;
+}
+[data-theme='heritage'] .formula-example {
+  background: #e7e4d2;
+  border-color: #a5ad92;
+}

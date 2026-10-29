@@ -9,6 +9,7 @@
 @import '../pages/ItemsPage/ItemsPage.css';
 @import '../pages/ItemDetailPage/ItemDetailPage.css';
 @import './motion.css';
+@import './themes/heritage.css';
 
 :root {
   color-scheme: dark;
