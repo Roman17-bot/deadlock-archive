@@ -1,11 +1,16 @@
 import type { SVGProps } from 'react';
 
-/** Original DA mark: cast lettering with an architectural stepped edge. */
+/** The original framed D, refined as an engraved archive emblem. */
 export function ArchiveLogo(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 56 64" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
-      <path fillRule="evenodd" d="M8 4h23l17 13v30L31 60H8V4Zm8 8v40h12l12-9V21l-12-9H16Z" />
-      <path d="m24 47 9-30h6l10 30h-7l-2-7h-9l-2 7h-5Zm9-13h5l-2.5-9-2.5 9Z" />
+    <svg viewBox="0 0 48 56" fill="none" aria-hidden="true" focusable="false" {...props}>
+      <path d="M5 1H43L47 5V51L43 55H5L1 51V5Z" pathLength="1" stroke="currentColor" />
+      <path d="M6 6H42V50H6Z" stroke="currentColor" />
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M12 12H25C36 12 40 19 40 28S35 44 25 44H12V42H16V14H12V12ZM22 15V41H25C31 41 34 36 34 28S31 15 25 15H22Z"
+      />
     </svg>
   );
 }

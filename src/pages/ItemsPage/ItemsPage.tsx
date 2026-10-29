@@ -29,6 +29,7 @@ import { ItemContent } from '../../features/items/ItemContent';
 import { ItemSkeleton } from '../../features/items/ItemSkeleton';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
+import { useResultMotion } from '../../hooks/useResultMotion';
 
 import { ShopControls } from './components/ShopControls';
 import { SituationFilters } from './components/SituationFilters';
@@ -119,6 +120,13 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
   const [propertyQuery, setPropertyQuery] = useState('');
   const { catalog, error, retry } = useItems(initialCatalog);
   const [filters, setFilters] = useState<ItemFilters>(readFilters);
+  const selectionKey = JSON.stringify([
+    filters.categories,
+    filters.tiers,
+    filters.tags,
+    filters.activation,
+  ]);
+  const resultsRef = useResultMotion(selectionKey);
   useEffect(() => {
     const changed = () => {
       if (!/^#\/items(?:\?|$)/.test(window.location.hash)) return;
@@ -229,7 +237,7 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
           query={propertyQuery}
           setQuery={setPropertyQuery}
         />
-        <div className="item-catalog-results">
+        <div className="item-catalog-results" ref={resultsRef}>
           {(chipLabels.length > 0 || filters.query) && (
             <div className="item-selected">
               {chipLabels.map((chip) => (
@@ -267,6 +275,11 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
                     .map((category) => (
                       <section className={`shop-category ${category}`} key={category}>
                         <header>
+                          <span
+                            className="catalog-selection-line"
+                            key={selectionKey}
+                            aria-hidden="true"
+                          />
                           {(() => {
                             const Icon = categoryIcons[category];
                             return <Icon size={23} />;

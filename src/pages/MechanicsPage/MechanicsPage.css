@@ -173,7 +173,11 @@
   padding: 9px 18px;
   min-height: 44px;
   border: 1px solid var(--line);
-  background: transparent;
+  background: #2c4254;
+  border-radius: 4px 4px 9px 4px;
+  box-shadow:
+    0 3px 0 #080f17,
+    inset 0 1px 0 #526b7e;
   font-size: 0.875rem;
   color: var(--paper-muted);
 }

@@ -3,9 +3,10 @@ import type { PageRoute } from '../../app/useHashRoute';
 import { useI18n } from '../../i18n';
 import { formatDate } from '../../lib/format';
 import { ArchiveLogo } from '../ui/ArchiveLogo/ArchiveLogo';
+import { LanguageSwitch } from './LanguageSwitch';
 
 export function Header({ data, route }: { data: HeroSnapshot | null; route: PageRoute }) {
-  const { t, language, setLanguage } = useI18n();
+  const { t } = useI18n();
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -61,27 +62,7 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
             {data ? formatDate(data.meta.snapshotDate, true) : t('Загрузка данных')}
           </span>
         </div>
-        <div className="language-switch" role="group" aria-label={t('Язык сайта')}>
-          <button
-            type="button"
-            lang="ru"
-            aria-label="Русский"
-            aria-pressed={language === 'ru'}
-            onClick={() => void setLanguage('ru')}
-          >
-            RU
-          </button>
-          <span aria-hidden="true">/</span>
-          <button
-            type="button"
-            lang="en"
-            aria-label="English"
-            aria-pressed={language === 'en'}
-            onClick={() => void setLanguage('en')}
-          >
-            EN
-          </button>
-        </div>
+        <LanguageSwitch />
       </div>
     </header>
   );

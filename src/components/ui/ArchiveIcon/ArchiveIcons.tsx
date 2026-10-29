@@ -3,7 +3,7 @@ export type ArchiveIconProps = SVGProps<SVGSVGElement> & {
   size?: number | string;
   absoluteStrokeWidth?: boolean;
 };
-function createIcon(name: string, paths: ReactNode) {
+function createIcon(name: string, paths: ReactNode, rounded = false) {
   const Icon = forwardRef<SVGSVGElement, ArchiveIconProps>(
     ({ size = 24, strokeWidth = 1.75, absoluteStrokeWidth = false, children, ...props }, ref) => {
       const labelled = Boolean(
@@ -22,8 +22,8 @@ function createIcon(name: string, paths: ReactNode) {
               ? (Number(strokeWidth) * 24) / Number(size)
               : strokeWidth
           }
-          strokeLinecap="square"
-          strokeLinejoin="miter"
+          strokeLinecap={rounded ? 'round' : 'square'}
+          strokeLinejoin={rounded ? 'round' : 'miter'}
           aria-hidden={labelled ? undefined : true}
           role={labelled ? 'img' : undefined}
           focusable="false"
@@ -131,10 +131,8 @@ export const Minus = /* @__PURE__ */ createIcon(
 );
 export const Search = /* @__PURE__ */ createIcon(
   'Search',
-  <>
-    <circle cx="10" cy="10" r="6" />
-    <path d="m15 15 6 6" />
-  </>,
+  <path d="M16 10a6 6 0 1 1-12 0 6 6 0 0 1 12 0ZM14.5 14.5 21 21M7 10a3 3 0 0 1 3-3" />,
+  true,
 );
 export const Info = /* @__PURE__ */ createIcon(
   'Info',
@@ -178,9 +176,8 @@ export const RotateCw = /* @__PURE__ */ createIcon(
 );
 export const RefreshCw = /* @__PURE__ */ createIcon(
   'RefreshCw',
-  <>
-    <path d="M4 9a8 8 0 0 1 14-3l2 3M20 3v6h-6M20 15A8 8 0 0 1 6 18l-2-3M4 21v-6h6" />
-  </>,
+  <path d="M5 8a8 8 0 0 1 13-2l2 2M20 3v5h-5M19 16A8 8 0 0 1 6 18l-2-2M4 21v-5h5" />,
+  true,
 );
 export const Download = /* @__PURE__ */ createIcon(
   'Download',
@@ -202,9 +199,8 @@ export const BookOpen = /* @__PURE__ */ createIcon(
 );
 export const Calculator = /* @__PURE__ */ createIcon(
   'Calculator',
-  <>
-    <path d="M5 2h14v20H5ZM8 6h8M8 11h1m6 0h1M8 16h1m6 0h1" />
-  </>,
+  <path d="M5 3h14v18H5ZM8 7h8M8 11h1M8 15h1M8 18h1M12 11h1M12 15h1M12 18h1M16 11v7" />,
+  true,
 );
 export const Database = /* @__PURE__ */ createIcon(
   'Database',
@@ -214,9 +210,8 @@ export const Database = /* @__PURE__ */ createIcon(
 );
 export const Layers = /* @__PURE__ */ createIcon(
   'Layers',
-  <>
-    <path d="m3 7 9-5 9 5-9 5ZM3 12l9 5 9-5M3 17l9 5 9-5" />
-  </>,
+  <path d="M4 5h16v6H4ZM6 8h2M10 8h7M4 14h16M4 18h16M7 21h10" />,
+  true,
 );
 export const Layers3 = /* @__PURE__ */ createIcon(
   'Layers3',
@@ -232,22 +227,22 @@ export const Package = /* @__PURE__ */ createIcon(
 );
 export const SlidersHorizontal = /* @__PURE__ */ createIcon(
   'SlidersHorizontal',
-  <>
-    <path d="M2 6h5m4 0h11M2 12h11m4 0h5M2 18h3m4 0h13M7 3v6M13 9v6M5 15v6" />
-  </>,
+  <path d="M3 6h3M10 6h11M3 12h11M18 12h3M3 18h5M12 18h9M6 4h4v4H6ZM14 10h4v4h-4ZM8 16h4v4H8Z" />,
+  true,
 );
 export const Shield = /* @__PURE__ */ createIcon(
   'Shield',
-  <>
-    <path d="m12 2 9 4v7c0 5-9 9-9 9S3 18 3 13V6Z" />
-  </>,
+  <path d="M12 3 20 6V12C20 16 16 19 12 21 8 19 4 16 4 12V6ZM8 8l4-1 4 1M12 7v9" />,
+  true,
 );
 export const Crosshair = /* @__PURE__ */ createIcon(
   'Crosshair',
   <>
-    <circle cx="12" cy="12" r="7" />
-    <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
+    <circle cx="12" cy="12" r="6" />
+    <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+    <circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none" />
   </>,
+  true,
 );
 export const Target = /* @__PURE__ */ createIcon(
   'Target',
@@ -259,9 +254,8 @@ export const Target = /* @__PURE__ */ createIcon(
 );
 export const Sparkles = /* @__PURE__ */ createIcon(
   'Sparkles',
-  <>
-    <path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3ZM20 2v4m-2-2h4" />
-  </>,
+  <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5ZM19 3v3M17.5 4.5h3" />,
+  true,
 );
 export const Zap = /* @__PURE__ */ createIcon(
   'Zap',

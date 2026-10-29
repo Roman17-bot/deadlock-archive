@@ -93,14 +93,27 @@
   padding: 10px 20px;
   font-weight: 700;
   font-size: 1rem;
-  border-radius: 3px;
+  border-radius: 3px 9px 3px 3px;
+  border: 1px solid #bc824f;
+  box-shadow:
+    0 3px 0 #a0a18e,
+    inset 0 1px 0 #faf5e9;
+  transition:
+    transform 120ms,
+    box-shadow 120ms,
+    background-color 180ms;
+}
+.updates-button:active:not(:disabled),
+.updates-secondary:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #a0a18e;
 }
 .updates-button {
   background: var(--brass);
   color: var(--ink-deep);
 }
 .updates-secondary {
-  background: transparent;
+  background: #ddd8c6;
   border: 1px solid var(--on-paper-line);
   color: var(--on-paper);
   margin-top: 14px;
@@ -117,6 +130,8 @@
   opacity: 1;
   background: #d7d6cc;
   color: #555e63;
+  box-shadow: none;
+  border-color: #b9bbae;
 }
 .updates-state {
   padding: 20px;

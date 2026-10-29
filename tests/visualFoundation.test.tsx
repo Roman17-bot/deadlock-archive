@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { Search, RotateCcw } from '../src/components/ui/ArchiveIcon/ArchiveIcons';
 import { useActionMotion } from '../src/hooks/useActionMotion';
+import { useResultMotion } from '../src/hooks/useResultMotion';
 
 let reduced: boolean;
 let listeners: Set<() => void>;
@@ -46,6 +47,59 @@ function Example() {
     </main>
   );
 }
+
+function ResultExample() {
+  const [selection, setSelection] = useState(0);
+  const resultRef = useResultMotion(String(selection));
+  return (
+    <>
+      <button onClick={() => setSelection((value) => value + 1)}>Choose</button>
+      <div ref={resultRef} aria-label="Selected result">
+        {selection}
+      </div>
+    </>
+  );
+}
+
+it('does not replay a result entrance on initial mount, and changes content immediately', () => {
+  render(<ResultExample />);
+  expect(animate).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('button'));
+  expect(screen.getByLabelText('Selected result').textContent).toBe('1');
+  expect(animate).toHaveBeenCalledTimes(1);
+});
+it('replaces unfinished result motion when the selection changes rapidly', () => {
+  render(<ResultExample />);
+  fireEvent.click(screen.getByRole('button'));
+  fireEvent.click(screen.getByRole('button'));
+  expect(animations[0].cancel).toHaveBeenCalledTimes(1);
+  expect(animate).toHaveBeenCalledTimes(2);
+  expect(screen.getByLabelText('Selected result').textContent).toBe('2');
+});
+it('keeps changing results without travel under reduced motion', () => {
+  reduced = true;
+  render(<ResultExample />);
+  fireEvent.click(screen.getByRole('button'));
+  expect(animate).not.toHaveBeenCalled();
+  expect(screen.getByLabelText('Selected result').textContent).toBe('1');
+});
+it('cancels result travel on a live preference change and cleans up its listener', () => {
+  const { unmount } = render(<ResultExample />);
+  fireEvent.click(screen.getByRole('button'));
+  reduced = true;
+  listeners.forEach((listener) => listener());
+  expect(animations[0].cancel).toHaveBeenCalledTimes(1);
+  unmount();
+  expect(listeners.size).toBe(0);
+});
+it('keeps the selected result when the optional motion API fails', () => {
+  animate.mockImplementationOnce(() => {
+    throw new Error('Unavailable');
+  });
+  render(<ResultExample />);
+  fireEvent.click(screen.getByRole('button'));
+  expect(screen.getByLabelText('Selected result').textContent).toBe('1');
+});
 
 it('keeps ordinary glyphs decorative while exposing an explicitly labelled icon', () => {
   const { container } = render(

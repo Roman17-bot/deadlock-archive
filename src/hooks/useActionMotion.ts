@@ -41,16 +41,17 @@ export function useActionMotion() {
     if (name === 'RotateCcw' || name === 'RefreshCw') {
       frames = [
         { transform: 'rotate(0deg)' },
-        { transform: 'rotate(-40deg)', offset: 0.4 },
-        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(-290deg)', offset: 0.75 },
+        { transform: 'rotate(-360deg)' },
       ];
-      duration = 180;
+      duration = 420;
     } else if (name === 'Download' || name === 'Upload') {
       frames = [
         { transform: 'translateY(0)' },
-        { transform: `translateY(${name === 'Download' ? 3 : -3}px)` },
+        { transform: `translateY(${name === 'Download' ? 7 : -7}px)` },
         { transform: 'translateY(0)' },
       ];
+      duration = 300;
     } else if (
       ['Crosshair', 'Shield', 'Sparkles', 'Layers', 'Layers3', 'Plus', 'Minus'].includes(name ?? '')
     ) {

@@ -3,6 +3,7 @@ import { format } from '../../../lib/format';
 import { useI18n } from '../../../i18n';
 import { tasks, type Task } from '../model/tasks';
 import type { Result } from '../model/evaluate';
+import { useResultMotion } from '../../../hooks/useResultMotion';
 
 type CalculatorResultProps = {
   task: Task;
@@ -13,8 +14,9 @@ type CalculatorResultProps = {
 
 export function CalculatorResult({ task, result, error, onRule }: CalculatorResultProps) {
   const { t } = useI18n();
+  const resultRef = useResultMotion(task.id);
   return (
-    <div className="calculator-result" aria-live="polite" aria-atomic="true">
+    <div ref={resultRef} className="calculator-result" aria-live="polite" aria-atomic="true">
       <span className="result-kicker">
         {t('РАСЧЁТНОЕ ДЕЛО / {{number}}', {
           number: String(tasks.indexOf(task) + 1).padStart(2, '0'),
