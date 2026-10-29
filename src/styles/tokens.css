@@ -1,0 +1,45 @@
+:root {
+  --ink: #121a23;
+  --ink-deep: #0c121a;
+  --surface: #1b2733;
+  --surface-raised: #23313e;
+  --paper: #f0e6ce;
+  --paper-muted: #d4cfbf;
+  --muted: #aab8c5;
+  --brass: #d99a64;
+  --sage: #adc5ba;
+  --line: #435365;
+  --focus: #a9d6ec;
+  --danger: #f0a49a;
+  --success: #b0cf95;
+  --serif: 'Prata', Georgia, serif;
+  --sans: 'Golos Text', 'Segoe UI', sans-serif;
+  --on-paper: #17232e;
+  --on-paper-muted: #465461;
+  --on-paper-line: #89959a;
+  --raised: #23313e;
+  --state-success: #b0cf95;
+  --state-error: #f0a49a;
+  --state-warning: #edc07c;
+  --state-info: #a9d6ec;
+  --radius: 3px;
+  --motion-fast: 160ms;
+  --motion-panel: 220ms;
+  --on-paper-focus: #28546c;
+  --range-fill: #edac72;
+  --range-rail: #71869a;
+  --range-edge: #b8c7d4;
+  --range-thumb: #f1c798;
+} /* Category meaning is unchanged. */
+.weapon {
+  --category: #edac72;
+  --category-dark: #403024;
+}
+.vitality {
+  --category: #b4ce87;
+  --category-dark: #29382c;
+}
+.spirit {
+  --category: #c4ade7;
+  --category-dark: #342e46;
+}

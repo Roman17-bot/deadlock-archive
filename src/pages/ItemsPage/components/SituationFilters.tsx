@@ -48,7 +48,7 @@ import {
   Wind,
   Zap,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import {
   ITEM_FILTER_GROUPS,
   filterItems,

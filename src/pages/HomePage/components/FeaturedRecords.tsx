@@ -1,4 +1,8 @@
-import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Sparkles,
+} from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { asset, format } from '../../../lib/format';
 import type { Hero, HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';

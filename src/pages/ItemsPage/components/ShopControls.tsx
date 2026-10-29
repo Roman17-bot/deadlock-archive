@@ -1,4 +1,4 @@
-import { Layers, RotateCcw, Shield, Zap } from 'lucide-react';
+import { Layers, RotateCcw, Shield, Zap } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { ItemCatalog, ItemTier } from '../../../../shared/item-types';
 import type { ItemFilters } from '../../../../shared/item-filters';
 import { useI18n } from '../../../i18n';

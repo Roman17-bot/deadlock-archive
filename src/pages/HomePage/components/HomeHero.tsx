@@ -1,7 +1,8 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { asset } from '../../../lib/format';
 import type { HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
+import { ArchiveLogo } from '../../../components/ui/ArchiveLogo/ArchiveLogo';
 
 export function HomeHero({ data }: { data: HeroSnapshot }) {
   const { t } = useI18n();
@@ -53,7 +54,9 @@ export function HomeHero({ data }: { data: HeroSnapshot }) {
               <span>{String(index + 1).padStart(2, '0')}</span>
             </div>
           ))}
-          <span className="roster-endmark">✦</span>
+          <span className="roster-endmark">
+            <ArchiveLogo className="roster-monogram" />
+          </span>
         </div>
         <div className="roster-art-footer">
           <strong>{data.heroes.length}</strong>

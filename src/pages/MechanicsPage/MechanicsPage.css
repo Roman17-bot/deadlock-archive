@@ -6,7 +6,7 @@
     display: block;
     font-size: 0.875rem;
     margin-top: 20px;
-    color: #b9c6a9;
+    color: var(--muted);
   }
 }
 .mechanics-page {
@@ -23,18 +23,19 @@
   border-bottom: 1px solid var(--line);
 }
 .mechanics-intro h1 {
-  font: 500 clamp(4rem, 7vw, 7.25rem)/0.95 var(--serif);
+  font: 400 clamp(4rem, 7vw, 7.25rem)/0.95 var(--serif);
   letter-spacing: -2px;
   margin: 30px 0;
 }
 .mechanics-intro h1 em {
   font-weight: 400;
-  color: var(--sage);
+  font-style: normal;
+  color: var(--brass);
 }
 .mechanics-intro > div > p {
   max-width: 660px;
   font-size: 1.125rem;
-  color: #bdc6b8;
+  color: var(--muted);
   line-height: 1.85;
 }
 .mechanics-intro-actions {
@@ -46,14 +47,11 @@
 }
 .research-stamp {
   padding: 28px;
-  border: 1px solid #66725e;
+  border: 1px solid var(--line);
   text-align: center;
   position: relative;
-  background: #1d2b24;
-  box-shadow:
-    inset 0 0 0 7px var(--ink),
-    inset 0 0 0 8px #344438;
-  transform: rotate(1deg);
+  background: var(--surface);
+  box-shadow: inset 0 3px var(--brass);
 }
 .stamp-symbol {
   display: block;
@@ -68,14 +66,12 @@
 }
 .research-stamp strong {
   display: block;
-  font: 5.5rem/1 var(--serif);
+  font: 500 5.5rem/1 var(--sans);
   margin: 18px 0;
 }
 .research-stamp strong small {
   display: block;
-  font:
-    400 1rem Manrope,
-    sans-serif;
+  font: 400 1rem var(--sans);
   margin-top: 10px;
   color: var(--sage);
 }
@@ -87,13 +83,13 @@
 .mechanics-stale {
   padding: 20px 24px;
   border: 1px solid var(--brass);
-  background: #32301f;
-  color: #eee1b7;
+  background: #343028;
+  color: var(--state-warning);
   margin-top: 30px;
   line-height: 1.8;
 }
 .library-heading h2 {
-  font: 500 clamp(2.5rem, 4vw, 3.75rem)/1.1 var(--serif);
+  font: 400 clamp(2.5rem, 4vw, 3.75rem)/1.1 var(--serif);
   margin-top: 14px;
 }
 .formula-library {
@@ -109,7 +105,7 @@
 .library-heading > p {
   font-size: 1rem;
   line-height: 1.9;
-  color: #bdc8b5;
+  color: var(--muted);
 }
 .library-tools {
   display: flex;
@@ -129,8 +125,8 @@
   align-items: center;
   padding: 0 18px;
   min-height: 54px;
-  border: 1px solid #65715e;
-  background: #1e2c23;
+  border: 1px solid var(--line);
+  background: var(--ink-deep);
   width: min(100%, 660px);
   color: var(--sage);
 }
@@ -144,12 +140,13 @@
   border: 0;
 }
 .formula-search input::placeholder {
-  color: #a1ad98;
+  color: var(--muted);
   opacity: 1;
 }
 .formula-search:focus-within {
-  border-color: var(--brass);
-  box-shadow: 0 0 0 1px var(--brass);
+  border-color: var(--focus);
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
 }
 .formula-search input:focus-visible {
   outline: none;
@@ -175,15 +172,19 @@
 .formula-categories button {
   padding: 9px 18px;
   min-height: 44px;
-  border: 1px solid #4a5b44;
+  border: 1px solid var(--line);
   background: transparent;
   font-size: 0.875rem;
-  color: #c4ceba;
+  color: var(--paper-muted);
+}
+.formula-categories button:hover {
+  border-color: var(--brass);
+  background: var(--surface-raised);
 }
 .formula-categories button[aria-pressed='true'] {
-  background: #bdc6ab;
-  color: #18251b;
-  border-color: #bdc6ab;
+  background: var(--brass);
+  color: var(--ink-deep);
+  border-color: var(--brass);
 }
 .formula-grid {
   display: grid;
@@ -195,28 +196,28 @@
   min-width: 0;
   padding: 28px 30px;
   background: var(--paper);
-  color: var(--ink);
-  border: 1px solid #b7b79f;
+  color: var(--on-paper);
+  border: 1px solid var(--on-paper-line);
   color-scheme: only light;
 }
 .formula-card-top {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  color: #627055;
+  color: var(--on-paper-muted);
   letter-spacing: 1px;
   font-size: 0.75rem;
   text-transform: uppercase;
   margin-bottom: 18px;
 }
 .formula-card h3 {
-  font: 600 2rem/1.15 var(--serif);
+  font: 600 2rem/1.15 var(--sans);
   margin-bottom: 20px;
 }
 .formula-expression {
-  background: #dfe3d0;
+  background: #e0dfd5;
   padding: 16px 18px;
-  border-left: 2px solid #6b7b58;
+  border-left: 2px solid #896043;
   font:
     500 1rem/1.9 ui-monospace,
     Consolas,
@@ -227,17 +228,21 @@
 .formula-details {
   font-size: 1rem;
   line-height: 1.9;
-  color: #3e4c37;
+  color: var(--on-paper-muted);
 }
 .formula-card summary {
   cursor: pointer;
   padding: 16px 0;
   min-height: 48px;
   margin-top: 18px;
-  border-top: 1px solid #b7bba5;
+  border-top: 1px solid var(--on-paper-line);
   font-size: 0.875rem;
   font-weight: 650;
-  color: #334f2e;
+  color: var(--on-paper);
+}
+.formula-card :focus-visible {
+  outline: 2px solid #28546c;
+  outline-offset: 4px;
 }
 .formula-details {
   padding-top: 5px;
@@ -245,7 +250,7 @@
 .formula-details h4 {
   margin: 22px 0 9px;
   font-size: 1rem;
-  color: #283d24;
+  color: var(--on-paper);
 }
 .formula-details p + p {
   margin-top: 14px;
@@ -261,18 +266,18 @@
 .formula-example {
   margin: 22px 0;
   padding: 18px 20px;
-  background: #dadfcd;
-  border: 1px solid #c1c9ac;
+  background: #e5e1d5;
+  border: 1px solid #b6b9b3;
 }
 .formula-example > span {
   font-size: 0.7rem;
   letter-spacing: 2px;
   font-weight: 700;
-  color: #526441;
+  color: var(--on-paper-muted);
 }
 .formula-example p {
   margin-top: 8px;
-  color: #2e4029;
+  color: var(--on-paper);
 }
 .formula-empty {
   padding: 45px 0;
@@ -288,7 +293,7 @@
   border-top: 1px solid var(--line);
   padding-top: 30px;
   margin-top: 45px;
-  color: #acb9a2;
+  color: var(--muted);
   font-size: 0.875rem;
   line-height: 1.9;
 }
@@ -318,7 +323,7 @@
     padding-bottom: 40px;
   }
   .mechanics-intro h1 {
-    font-size: 4.5rem;
+    font-size: clamp(2.75rem, 15vw, 3.75rem);
     letter-spacing: -1px;
   }
   .mechanics-intro > div > p {
@@ -357,7 +362,8 @@
     gap: 20px;
   }
   .formula-card h3 {
-    font-size: 2rem;
+    font-size: clamp(1.375rem, 6.5vw, 1.75rem);
+    overflow-wrap: anywhere;
   }
   .formula-card {
     padding: 24px;
@@ -384,8 +390,5 @@
   }
   .mechanics-intro-actions {
     gap: 20px;
-  }
-  .mechanics-intro h1 {
-    font-size: 3.75rem;
   }
 }

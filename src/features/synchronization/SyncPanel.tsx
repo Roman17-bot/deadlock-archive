@@ -1,4 +1,11 @@
-import { ArrowRight, ArrowUpRight, Check, Database, RefreshCw, Upload } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Database,
+  RefreshCw,
+  Upload,
+} from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../i18n';
 import { messageFor } from './model';
 import { useSynchronization, type SyncPanelProps } from './useSynchronization';

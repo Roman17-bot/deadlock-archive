@@ -25,7 +25,7 @@
   font-size: 64px;
   line-height: 1.05;
   margin: 12px 0 10px;
-  font-weight: 500;
+  font-weight: 400;
 }
 .items-heading > p:not(.items-eyebrow) {
   color: var(--muted);
@@ -38,7 +38,7 @@
   margin-top: 25px;
   padding: 16px 18px;
   background: var(--ink-deep);
-  border: 1px solid #4a5547;
+  border: 1px solid var(--line);
   color: var(--brass);
 }
 .items-search input {
@@ -85,8 +85,8 @@
 .item-category-button[aria-pressed='true'] {
   background: var(--category);
   border-color: var(--category);
-  color: #17211c;
-  box-shadow: 0 3px 14px #0003;
+  color: var(--ink-deep);
+  box-shadow: inset 0 -2px #0002;
 }
 .item-category-button:focus-visible,
 .shop-card:focus-visible {
@@ -114,8 +114,8 @@
   align-items: center;
   gap: 7px;
   padding: 6px 10px;
-  background: #303b2e;
-  border: 1px solid #59604b;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
   border-radius: 2px;
   font-size: 15px;
   min-height: 42px;
@@ -132,17 +132,8 @@
   gap: 24px;
   align-items: start;
 }
-.weapon {
-  --category: #dda365;
-  --category-dark: #463424;
-}
-.vitality {
-  --category: #a5be75;
-  --category-dark: #333f29;
-}
-.spirit {
-  --category: #b39bd3;
-  --category-dark: #3d324c;
+.shop-category {
+  min-width: 0;
 }
 .shop-category > header {
   display: flex;
@@ -154,9 +145,9 @@
   color: var(--category);
 }
 .shop-category > header h2 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 27px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .shop-category > header > span:last-child {
   margin-left: auto;
@@ -200,7 +191,7 @@
   padding: 0;
   background: color-mix(in srgb, var(--category-dark) 60%, var(--ink-deep));
   border: 1px solid color-mix(in srgb, var(--category) 50%, transparent);
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
   height: 100%;
   transition:
@@ -213,8 +204,7 @@
 .shop-card:focus-visible {
   background: var(--category-dark);
   border-color: var(--category);
-  box-shadow: 0 5px 18px #0005;
-  transform: translateY(-2px);
+  box-shadow: inset 0 -2px var(--category);
 }
 .shop-card > img {
   display: block;
@@ -254,7 +244,7 @@
 }
 .item-price {
   font-size: 13px;
-  color: #d5bb7c;
+  color: var(--brass);
   font-variant-numeric: tabular-nums;
 }
 .item-active {
@@ -268,7 +258,7 @@
   border: 1px solid var(--category-dark);
   border-radius: 3px;
   background: var(--category);
-  color: #17211c;
+  color: var(--ink-deep);
   box-shadow: 0 2px 6px #0004;
 }
 .item-preview {
@@ -278,7 +268,7 @@
   left: 0;
   width: 360px;
   max-width: calc(100vw - 48px);
-  background: #111b17;
+  background: var(--surface);
   border: 1px solid var(--category);
   box-shadow: 0 12px 38px #0008;
   padding: 20px;
@@ -398,7 +388,7 @@
     font-size: 49px;
   }
   .shop-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
   .shop-tier-grid {
@@ -426,6 +416,7 @@
   }
   .item-preview {
     display: none;
+    background: var(--surface);
   }
   .shop-category > header {
     padding: 12px 15px;
@@ -491,13 +482,13 @@
   min-width: 82px;
   min-height: 68px;
   padding: 8px 12px;
-  border: 1px solid #716341;
+  border: 1px solid var(--line);
   border-radius: 4px;
-  background: #292d25;
+  background: var(--surface);
   color: var(--paper);
 }
 .item-tier-tile strong {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 25px;
   font-weight: 500;
   line-height: 1;
@@ -536,8 +527,8 @@
   font-size: 14px;
 }
 .item-activation-segments button[aria-pressed='true'] {
-  border-color: #75836b;
-  background: #344338;
+  border-color: var(--line);
+  background: var(--surface-raised);
   color: var(--paper);
 }
 .item-reset {
@@ -548,9 +539,9 @@
   min-height: 58px;
   padding: 12px 18px;
   margin-left: auto;
-  border: 1px solid #84744c;
+  border: 1px solid var(--brass);
   border-radius: 4px;
-  background: #292d25;
+  background: var(--surface);
   color: var(--brass);
   font-weight: 600;
   font-size: 15px;
@@ -585,8 +576,8 @@
   grid-area: situations;
   min-width: 0;
   padding: 20px;
-  background: #1b2720;
-  border: 1px solid #788666;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-top: 3px solid var(--brass);
   border-radius: 4px;
 }
@@ -601,10 +592,10 @@
 }
 .item-situations-heading h2 {
   color: var(--paper);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 25px;
   line-height: 1.15;
-  font-weight: 500;
+  font-weight: 600;
 }
 .item-situations-hint {
   color: var(--muted);
@@ -626,7 +617,7 @@
   align-items: center;
   gap: 8px;
   background: var(--ink-deep);
-  border: 1px solid #59674e;
+  border: 1px solid var(--line);
   padding: 0 10px;
   color: var(--sage);
 }
@@ -670,7 +661,7 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
     scrollbar-width: auto;
-    scrollbar-color: var(--sage) #17221c;
+    scrollbar-color: var(--sage) var(--ink-deep);
     padding: 18px 14px;
   }
   .item-catalog-results .shop-columns {
@@ -753,7 +744,7 @@
 }
 .item-category-all {
   --category: var(--brass);
-  --category-dark: #333326;
+  --category-dark: var(--surface-raised);
 }
 .item-category-button {
   position: relative;
@@ -778,7 +769,7 @@
   margin-top: 16px;
 }
 .item-property-groups > details {
-  background: #17231c;
+  background: var(--ink-deep);
   border: 1px solid var(--line);
   border-radius: 3px;
   padding: 0 9px 9px;
@@ -832,9 +823,9 @@
   min-width: 0;
   min-height: 82px;
   padding: 10px;
-  border: 1px solid #58664e;
+  border: 1px solid var(--line);
   border-radius: 3px;
-  background: #28352a;
+  background: var(--surface-raised);
   color: var(--paper);
   font-size: 14px;
   line-height: 1.4;
@@ -855,12 +846,14 @@
   font-variant-numeric: tabular-nums;
 }
 .item-property-tile[aria-pressed='true'] {
-  background: #4b6041;
-  border-color: var(--sage);
-  box-shadow: inset 0 0 0 1px var(--sage);
+  background: var(--brass);
+  color: var(--ink-deep);
+  border-color: var(--brass);
+  box-shadow: inset 0 0 0 1px var(--brass);
 }
-.item-property-tile[aria-pressed='true'] > svg {
-  color: var(--paper);
+.item-property-tile[aria-pressed='true'] > svg,
+.item-property-tile[aria-pressed='true'] > small {
+  color: var(--ink-deep);
 }
 .item-property-all {
   grid-template-areas: 'icon label count';
@@ -916,4 +909,13 @@
     width: 17px;
     height: 17px;
   }
+}
+.items-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 52px;
+  height: 3px;
+  background: var(--brass);
 }

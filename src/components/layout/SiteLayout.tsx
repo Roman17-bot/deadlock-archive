@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { HeroSnapshot } from '../../../shared/types';
 import type { PageRoute } from '../../app/useHashRoute';
 import { useI18n } from '../../i18n';
+import { useActionMotion } from '../../hooks/useActionMotion';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
@@ -17,6 +18,7 @@ export function SiteLayout({
   children: ReactNode;
 }) {
   const { t } = useI18n();
+  const onClickCapture = useActionMotion();
   return (
     <>
       <a
@@ -30,7 +32,7 @@ export function SiteLayout({
         {t('К содержимому')}
       </a>
       <Header data={data} route={route} />
-      <main id="main" tabIndex={-1}>
+      <main id="main" tabIndex={-1} onClickCapture={onClickCapture}>
         {children}
       </main>
       <Footer data={data} onMethod={onMethod} />

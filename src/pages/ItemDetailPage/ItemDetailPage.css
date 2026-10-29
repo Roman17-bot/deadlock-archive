@@ -31,7 +31,7 @@
 }
 .item-local-name {
   color: var(--muted);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 24px;
 }
 .item-detail-meta {
@@ -70,9 +70,9 @@
 }
 .item-properties h2,
 .item-statistics h2 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 29px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
 }
 .item-advice {
@@ -127,7 +127,7 @@
 }
 .item-statistics {
   padding: 25px;
-  background: var(--ink-deep);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-top: 2px solid var(--brass);
   min-width: 0;
@@ -155,7 +155,7 @@
 .item-stat-grid dd {
   margin: 3px 0 0;
   font-size: 27px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   color: var(--paper);
   font-variant-numeric: tabular-nums;
 }
@@ -220,6 +220,7 @@
   }
   .item-statistics {
     padding: 20px;
+    background: var(--surface);
   }
 }
 @media (max-width: 700px) {
@@ -246,6 +247,7 @@
   }
   .item-local-name {
     font-size: 19px;
+    font-family: var(--sans);
   }
   .item-detail-columns {
     grid-template-columns: 1fr;
@@ -260,6 +262,7 @@
   }
   .item-statistics {
     padding: 22px;
+    background: var(--surface);
   }
   .item-back {
     margin-bottom: 20px;

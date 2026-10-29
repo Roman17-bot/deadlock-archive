@@ -1,4 +1,4 @@
-import { ArrowDown, CircleAlert } from 'lucide-react';
+import { ArrowDown, CircleAlert } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { format } from '../../../lib/format';
 import { useI18n } from '../../../i18n';
 import { tasks, type Task } from '../model/tasks';

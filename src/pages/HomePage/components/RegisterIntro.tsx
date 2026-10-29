@@ -1,4 +1,4 @@
-import { Heart, Layers3, Calculator } from 'lucide-react';
+import { Heart, Layers3, Calculator } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../../i18n';
 
 export function RegisterIntro() {

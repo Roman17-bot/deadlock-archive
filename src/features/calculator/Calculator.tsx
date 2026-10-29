@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { Calculator as CalculatorIcon } from 'lucide-react';
+import { Calculator as CalculatorIcon } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n, translateError } from '../../i18n';
 import { tasks } from './model/tasks';
 import { evaluate, type Result } from './model/evaluate';

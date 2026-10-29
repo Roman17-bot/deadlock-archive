@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Check, Crosshair, Search, Shield, Sparkles, X, Zap, Layers } from 'lucide-react';
+import {
+  Check,
+  Crosshair,
+  Search,
+  Shield,
+  Sparkles,
+  X,
+  Zap,
+  Layers,
+} from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { ItemCatalog, ItemTier, ShopItem } from '../../../shared/item-types';
 import {
   EMPTY_ITEM_FILTERS,

@@ -1,5 +1,12 @@
 import { useId } from 'react';
-import { ArrowDown, ArrowUp, ArrowUpDown, ChevronRight, Info, Search } from 'lucide-react';
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  ChevronRight,
+  Info,
+  Search,
+} from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot, SortKey } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
 import type { HeroRegisterState } from '../hooks/useHeroRegister';

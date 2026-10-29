@@ -2,6 +2,7 @@ import type { HeroSnapshot } from '../../../shared/types';
 import type { PageRoute } from '../../app/useHashRoute';
 import { useI18n } from '../../i18n';
 import { formatDate } from '../../lib/format';
+import { ArchiveLogo } from '../ui/ArchiveLogo/ArchiveLogo';
 
 export function Header({ data, route }: { data: HeroSnapshot | null; route: PageRoute }) {
   const { t, language, setLanguage } = useI18n();
@@ -10,7 +11,7 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
       <div className="header-inner">
         <a className="brand" href="#/" aria-label={t('Deadlock Archive — главная')}>
           <span className="brand-sigil" aria-hidden="true">
-            D
+            <ArchiveLogo />
           </span>
           <span className="brand-wordmark">
             DEADLOCK<span>ARCHIVE</span>

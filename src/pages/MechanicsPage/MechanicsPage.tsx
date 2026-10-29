@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ArrowDown, BookOpen, Download } from 'lucide-react';
+import { ArrowDown, BookOpen, Download } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useMechanicsData } from './hooks/useMechanicsData';
 import { useFormulaLibrary } from './hooks/useFormulaLibrary';
 import { FormulaLibrary } from './components/FormulaLibrary';

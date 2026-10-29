@@ -1,4 +1,4 @@
-import { Minus, Plus, RotateCcw } from 'lucide-react';
+import { Minus, Plus, RotateCcw } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../../i18n';
 import type { HeroRegisterState } from '../hooks/useHeroRegister';
 

@@ -1,5 +1,9 @@
 import type { CSSProperties } from 'react';
-import { ArrowLeft, ArrowRight, MoveHorizontal } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  MoveHorizontal,
+} from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../../i18n';
 import type { TableScrollState } from '../hooks/useTableScroll';
 

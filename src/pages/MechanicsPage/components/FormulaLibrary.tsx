@@ -1,5 +1,5 @@
 import type { RefObject } from 'react';
-import { Search } from 'lucide-react';
+import { Search } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../../i18n';
 import type { useFormulaLibrary } from '../hooks/useFormulaLibrary';
 

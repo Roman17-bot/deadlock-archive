@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CircleAlert, RefreshCw } from 'lucide-react';
+import { CircleAlert, RefreshCw } from '../components/ui/ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot } from '../../shared/types';
 import { SiteLayout } from '../components/layout/SiteLayout';
 import { ArchiveLoading } from '../components/ui/ArchiveLoading/ArchiveLoading';

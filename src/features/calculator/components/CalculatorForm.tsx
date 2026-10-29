@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { StyledSelect } from '../../../components/ui/StyledSelect/StyledSelect';
 import { useI18n } from '../../../i18n';
 import { tasks, type Task } from '../model/tasks';

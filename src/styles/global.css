@@ -1,3 +1,4 @@
+@import './tokens.css';
 @import '../pages/HomePage/HomePage.css';
 @import '../pages/HeroesPage/HeroesPage.css';
 @import '../pages/MechanicsPage/MechanicsPage.css';
@@ -7,30 +8,18 @@
 @import '../features/synchronization/Synchronization.css';
 @import '../pages/ItemsPage/ItemsPage.css';
 @import '../pages/ItemDetailPage/ItemDetailPage.css';
+@import './motion.css';
 
 :root {
   color-scheme: dark;
   color-scheme: only dark;
   font-size: 100%;
-  font-family: 'Manrope', sans-serif;
-  color: #e8e2d1;
-  background: #17231f;
+  font-family: var(--sans);
+  color: var(--paper);
+  background: var(--ink);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --ink: #17231f;
-  --ink-deep: #101b17;
-  --paper: #eee8d8;
-  --paper-muted: #ded8c8;
-  --sage: #a4b39b;
-  --brass: #b5a479;
-  --muted: #a8afa4;
-  --line: #344038;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --range-fill: #f4d78a;
-  --range-rail: #a3b194;
-  --range-edge: #dbe0bd;
-  --range-thumb: #ffe9ad;
 }
 * {
   box-sizing: border-box;
@@ -53,7 +42,10 @@ button {
 }
 button:disabled {
   cursor: default;
-  opacity: 0.4;
+  opacity: 1;
+  color: var(--muted);
+  background: var(--surface-raised);
+  border-color: var(--line);
 }
 a {
   color: inherit;
@@ -72,10 +64,10 @@ input {
   outline-offset: 5px;
 }
 :focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--focus);
 }
 ::selection {
-  background: #b5a479;
+  background: var(--brass);
   color: var(--ink);
 }
 h1,
@@ -132,26 +124,22 @@ button {
   place-items: center;
   font: 600 2.75rem/1 var(--serif);
   color: var(--brass);
-  border: 1px solid #837957;
-  box-shadow:
-    inset 0 0 0 4px var(--ink),
-    inset 0 0 0 5px #837957;
+  border: 0;
+  box-shadow: none;
 }
 .brand-wordmark {
-  font-family: Georgia, serif;
+  font-family: var(--serif);
   font-size: 1.625rem;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 1;
-  letter-spacing: 1.5px;
+  letter-spacing: 0;
 }
 .brand-wordmark span {
   display: block;
   margin-top: 7px;
   color: var(--brass);
   letter-spacing: 6.2px;
-  font:
-    0.875rem/1 'Manrope',
-    sans-serif;
+  font: 0.875rem/1 var(--sans);
 }
 .site-header nav {
   display: flex;
@@ -166,7 +154,7 @@ button {
   gap: 9px;
   font-size: 1rem;
   font-weight: 600;
-  color: #aeb6aa;
+  color: var(--muted);
   min-height: 48px;
 }
 .site-header nav a:hover,
@@ -184,8 +172,8 @@ button {
 }
 .nav-count {
   font-size: 0.875rem;
-  color: #bfb58c;
-  border: 1px solid #59604a;
+  color: var(--brass);
+  border: 1px solid var(--line);
   padding: 1px 5px;
   border-radius: 3px;
 }
@@ -193,14 +181,14 @@ button {
   margin-left: auto;
   font-size: 0.875rem;
   letter-spacing: 1px;
-  color: #d2d4bf;
+  color: var(--paper-muted);
   text-align: right;
   white-space: nowrap;
 }
 .edition-date {
   display: block;
   margin-top: 7px;
-  color: #899688;
+  color: var(--muted);
   font-size: 0.875rem;
   letter-spacing: 0;
 }
@@ -211,13 +199,13 @@ button {
   border-radius: 100%;
   background: var(--sage);
   margin-right: 7px;
-  box-shadow: 0 0 0 3px #a4b39b0a;
+  box-shadow: none;
 }
 .section-kicker {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #68765e;
+  color: var(--brass);
   line-height: 1.6;
 }
 .section-kicker.light {
@@ -246,26 +234,26 @@ button {
     transform 0.18s;
 }
 .button:hover {
-  transform: translateY(-2px);
+  border-color: var(--brass);
 }
 .button-paper {
-  color: var(--ink);
-  background: var(--paper);
+  color: var(--ink-deep);
+  background: var(--brass);
 }
 .button-paper:hover {
-  background: #fff8e5;
+  background: #efb985;
 }
 .button-primary {
-  color: var(--paper);
-  background: #344b3c;
+  color: var(--ink-deep);
+  background: var(--brass);
 }
 .button-outline {
-  border-color: #b6baa9;
-  color: var(--ink);
+  border-color: var(--on-paper-line);
+  color: var(--on-paper);
   background: transparent;
 }
 .button-outline:hover {
-  background: #dcd8c7;
+  background: #e6dac0;
 }
 .text-link {
   display: inline-flex;
@@ -305,17 +293,15 @@ a svg {
   flex-wrap: wrap;
 }
 .footer-wordmark {
-  font:
-    1rem Georgia,
-    serif;
+  font: 1rem var(--serif);
   letter-spacing: 1.5px;
-  color: #ddd7c4;
+  color: var(--paper);
 }
 .site-footer p {
   font-size: 0.875rem;
   line-height: 1.6;
   margin-top: 9px;
-  color: #829181;
+  color: var(--muted);
 }
 .footer-actions {
   margin-left: auto;
@@ -328,7 +314,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #acb7a7;
+  color: var(--muted);
   padding: 8px 0;
   min-height: 44px;
   font-size: 0.875rem;
@@ -338,7 +324,7 @@ a svg {
   color: var(--paper);
 }
 .footer-stamp {
-  color: #6f7f6e;
+  color: var(--muted);
   font-size: 0.75rem;
   letter-spacing: 1px;
   writing-mode: vertical-rl;
@@ -354,7 +340,7 @@ a svg {
   text-align: center;
 }
 .load-state h1 {
-  font: 600 3rem/1.1 var(--serif);
+  font: 400 3rem/1.1 var(--serif);
 }
 .load-state p {
   max-width: 480px;
@@ -388,7 +374,7 @@ a svg {
   box-shadow: 0 30px 100px #0008;
 }
 .method-dialog::backdrop {
-  background: #0b1611d9;
+  background: #080d14e0;
   backdrop-filter: blur(5px);
 }
 .dialog-inner {
@@ -401,7 +387,7 @@ a svg {
   top: 15px;
 }
 .dialog-inner h2 {
-  font: 600 3.125rem/1.1 var(--serif);
+  font: 400 3.125rem/1.1 var(--serif);
   margin: 13px 0 18px;
   padding-right: 28px;
 }
@@ -409,7 +395,7 @@ a svg {
 .dialog-inner li {
   font-size: 1rem;
   line-height: 1.9;
-  color: #536051;
+  color: var(--on-paper-muted);
 }
 .dialog-inner ol {
   padding-left: 20px;
@@ -420,9 +406,9 @@ a svg {
   margin-bottom: 12px;
 }
 .method-callout {
-  background: #dce0d0;
+  background: #d9deda;
   padding: 18px 22px;
-  border-left: 2px solid #697b5b;
+  border-left: 2px solid var(--on-paper-focus);
 }
 .method-callout strong {
   font-size: 1rem;
@@ -431,7 +417,7 @@ a svg {
   font-size: 1rem;
   line-height: 1.8;
   margin-top: 6px;
-  color: #52614b;
+  color: var(--on-paper-muted);
 }
 .dialog-inner h3 {
   font-size: 1rem;
@@ -440,7 +426,7 @@ a svg {
 .dialog-inner .fine-print {
   margin-top: 25px;
   font-size: 0.875rem;
-  color: #6d7665;
+  color: var(--on-paper-muted);
 }
 @media (max-width: 1000px) {
   .header-inner {
@@ -471,13 +457,19 @@ a svg {
   }
   .brand-sigil {
     display: none;
+    border: 0;
+    box-shadow: none;
   }
   .brand-wordmark {
     font-size: 1.375rem;
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: 0;
   }
   .brand-wordmark span {
     font-size: 0.75rem;
     letter-spacing: 4.8px;
+    font: 0.875rem/1 var(--sans);
   }
   .site-header nav {
     gap: 28px;
@@ -579,23 +571,23 @@ a svg {
   gap: 2px;
   flex-shrink: 0;
   padding: 3px;
-  border: 1px solid #6a7055;
+  border: 1px solid var(--line);
   color: var(--brass);
-  background: #1c2b23;
+  background: var(--surface);
   font-size: 0.8125rem;
 }
 .language-switch button {
   min-width: 38px;
   min-height: 38px;
   padding: 6px;
-  color: #b8c3ac;
+  color: var(--muted);
   background: transparent;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 .language-switch button[aria-pressed='true'] {
   color: var(--ink);
-  background: var(--paper);
+  background: var(--brass);
 }
 .language-switch button:hover {
   box-shadow: inset 0 0 0 1px var(--brass);
@@ -652,4 +644,24 @@ a svg {
     min-height: 48px;
     padding: 9px 0;
   }
+}
+
+.brand-sigil > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.method-dialog :focus-visible {
+  outline-color: var(--on-paper-focus);
+}
+.method-dialog .section-kicker {
+  color: var(--on-paper-muted);
+}
+
+.button-primary:hover {
+  background: #efb985;
+}
+
+.site-header {
+  background: var(--ink-deep);
 }

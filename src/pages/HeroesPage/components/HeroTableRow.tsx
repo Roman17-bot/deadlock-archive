@@ -1,4 +1,4 @@
-import { Info } from 'lucide-react';
+import { Info } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { Hero } from '../../../../shared/types';
 import { statsAtLevel } from '../../../../shared/heroes';
 import { asset, format } from '../../../lib/format';

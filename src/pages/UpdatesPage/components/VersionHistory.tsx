@@ -1,4 +1,4 @@
-import { ArrowUpRight, RefreshCw } from 'lucide-react';
+import { ArrowUpRight, RefreshCw } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot } from '../../../../shared/types';
 import type { VersionHistory as HistoryData } from '../../../../shared/version-history';
 import { formatDate } from '../../../lib/format';

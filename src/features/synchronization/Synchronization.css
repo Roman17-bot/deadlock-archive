@@ -1,6 +1,6 @@
 .sync-panel {
-  background: #ebe9d8;
-  border-top: 4px solid #aa8b49;
+  background: var(--paper);
+  border-top: 4px solid var(--brass);
   margin: 28px 0 42px;
 }
 .sync-heading {
@@ -9,8 +9,11 @@
   gap: 18px;
   align-items: center;
 }
+.sync-heading > div {
+  min-width: 0;
+}
 .sync-emblem {
-  color: #6b754f;
+  color: #805433;
   flex: none;
 }
 .sync-route {
@@ -18,7 +21,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  color: #4b5c43;
+  color: var(--on-paper-muted);
   font-weight: 700;
   margin: 22px 0 18px;
 }
@@ -33,9 +36,9 @@
 .sync-feedback {
   margin-top: 24px;
   padding: 18px 20px;
-  background: #dedfcb;
-  border-left: 3px solid #a38b4c;
-  color: #43523c;
+  background: #e1dfd4;
+  border-left: 3px solid #896043;
+  color: var(--on-paper-muted);
   line-height: 1.65;
   overflow-wrap: anywhere;
 }
@@ -48,14 +51,14 @@
   margin-top: 8px;
 }
 .sync-feedback.is-verified {
-  background: #d6e2cf;
-  border-color: #57734b;
-  color: #29442f;
+  background: #dce5d8;
+  border-color: #547248;
+  color: #334b2c;
 }
 .sync-feedback.is-failed {
-  background: #f0dcd0;
-  border-color: #a54030;
-  color: #6e2a20;
+  background: #f2ddd6;
+  border-color: #9e4a3b;
+  color: #71372e;
 }
 .sync-feedback a {
   display: inline-flex;
@@ -66,6 +69,10 @@
   margin-top: 8px;
 }
 @media (max-width: 760px) {
+  .sync-heading h2 {
+    font-size: clamp(1.5rem, 7vw, 2.25rem);
+    overflow-wrap: anywhere;
+  }
   .sync-actions > button {
     width: 100%;
   }

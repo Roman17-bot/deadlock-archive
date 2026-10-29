@@ -17,11 +17,11 @@
   font-weight: 700;
 }
 .updates-hero h1 {
-  font: 500 clamp(3.5rem, 7vw, 6.5rem)/0.98 var(--serif);
+  font: 400 clamp(3.5rem, 7vw, 6.5rem)/0.98 var(--serif);
   margin: 20px 0 24px;
 }
 .updates-hero p {
-  color: #bfccb9;
+  color: var(--muted);
   line-height: 1.8;
   font-size: 1.125rem;
 }
@@ -32,37 +32,41 @@
   margin: 36px 0 28px;
 }
 .updates-panel {
-  background: #203027;
-  border: 1px solid #52634d;
+  background: var(--surface);
+  border: 1px solid var(--line);
   padding: 32px;
   min-width: 0;
 }
 .updates-panel > p {
   line-height: 1.75;
-  color: #c1ccb9;
+  color: var(--muted);
   margin-top: 10px;
 }
 .updates-panel .updates-version {
-  font: 500 5.5rem/1 var(--serif);
+  font: 500 5.5rem/1 var(--sans);
   color: var(--paper);
   margin: 24px 0 28px;
   font-variant-numeric: lining-nums tabular-nums;
 }
 .updates-control {
   background: var(--paper);
-  color: var(--ink);
+  color: var(--on-paper);
   color-scheme: only light;
-  border-color: #b7bba5;
+  border-color: var(--on-paper-line);
+}
+.updates-control :focus-visible {
+  outline: 2px solid #28546c;
+  outline-offset: 4px;
 }
 .updates-control .updates-label {
-  color: #756333;
+  color: #805433;
 }
 .updates-control h2 {
-  font: 600 2.25rem/1.12 var(--serif);
+  font: 400 2.25rem/1.12 var(--serif);
   margin: 18px 0;
 }
 .updates-control > p {
-  color: #435344;
+  color: var(--on-paper-muted);
   margin: 0 0 22px;
 }
 .updates-option {
@@ -76,7 +80,7 @@
 .updates-option input {
   width: 22px;
   height: 22px;
-  accent-color: #345342;
+  accent-color: #28546c;
   flex: none;
 }
 .updates-button,
@@ -89,22 +93,37 @@
   padding: 10px 20px;
   font-weight: 700;
   font-size: 1rem;
+  border-radius: 3px;
 }
 .updates-button {
-  background: #263e2d;
-  color: #f5eedb;
+  background: var(--brass);
+  color: var(--ink-deep);
 }
 .updates-secondary {
   background: transparent;
-  border: 1px solid #6c7c67;
-  color: #263e2d;
+  border: 1px solid var(--on-paper-line);
+  color: var(--on-paper);
   margin-top: 14px;
+}
+.updates-button:hover:not(:disabled) {
+  background: #efb985;
+}
+.updates-secondary:hover:not(:disabled) {
+  background: #e1dfd4;
+  border-color: var(--on-paper);
+}
+.updates-button:disabled,
+.updates-secondary:disabled {
+  opacity: 1;
+  background: #d7d6cc;
+  color: #555e63;
 }
 .updates-state {
   padding: 20px;
   margin-top: 24px;
-  background: #dce5d4;
-  border-left: 3px solid #57734b;
+  background: #dce5d8;
+  border-left: 3px solid #547248;
+  color: var(--on-paper);
   line-height: 1.65;
 }
 .updates-state strong {
@@ -129,19 +148,19 @@
   line-height: 1.65;
 }
 .updates-error {
-  background: #f6dfd3;
-  color: #6e2a20 !important;
-  border-left: 3px solid #a54030;
+  background: #f2ddd6;
+  color: #71372e !important;
+  border-left: 3px solid #9e4a3b;
 }
 .updates-notice {
-  background: #dce5d4;
-  color: #29442f !important;
-  border-left: 3px solid #57734b;
+  background: #dce5d8;
+  color: #334b2c !important;
+  border-left: 3px solid #547248;
 }
 .updates-pending {
-  background: #f2e8ca;
-  color: #584822 !important;
-  border-left: 3px solid #ad8f43;
+  background: #eee1c6;
+  color: #634d24 !important;
+  border-left: 3px solid #936a30;
 }
 .updates-links {
   display: flex;
@@ -153,7 +172,7 @@
   align-items: center;
   gap: 7px;
   min-height: 44px;
-  color: #ead9ab;
+  color: var(--brass);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -165,7 +184,7 @@
     padding-bottom: 32px;
   }
   .updates-hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2.125rem, 12vw, 3rem);
   }
   .updates-hero p {
     font-size: 1rem;
@@ -186,9 +205,6 @@
     padding-left: 16px;
     padding-right: 16px;
   }
-  .updates-hero h1 {
-    font-size: 3.5rem;
-  }
   .updates-panel {
     padding: 20px;
   }
@@ -203,12 +219,12 @@
   border-top: 1px solid var(--line);
 }
 .version-history-heading h2 {
-  font: 500 clamp(2.25rem, 3vw, 3rem)/1.1 var(--serif);
+  font: 400 clamp(2.25rem, 3vw, 3rem)/1.1 var(--serif);
   margin: 12px 0 18px;
 }
 .version-history-heading p,
 .history-note {
-  color: #b8c4ad;
+  color: var(--muted);
   font-size: 0.9375rem;
   line-height: 1.8;
   max-width: 850px;
@@ -217,8 +233,8 @@
   list-style: none;
   padding: 0;
   margin: 28px 0 20px;
-  border: 1px solid #4a5944;
-  background: #1d2b23;
+  border: 1px solid var(--line);
+  background: var(--surface);
 }
 .version-history-list > li {
   display: flex;
@@ -235,14 +251,14 @@
   gap: 8px;
   min-height: 44px;
   text-decoration: underline;
-  text-decoration-color: #9d976c;
+  text-decoration-color: var(--brass);
   text-underline-offset: 7px;
 }
 .history-version-link:hover {
-  color: #f1db9a;
+  color: #efb985;
 }
 .history-version-link:focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--focus);
   outline-offset: 5px;
 }
 .history-patch {
@@ -251,7 +267,7 @@
   max-width: 100%;
   margin: 0;
   padding-top: 18px;
-  border-top: 1px solid #42503d;
+  border-top: 1px solid var(--line);
   overflow-wrap: anywhere;
 }
 .history-patch-meta {
@@ -259,17 +275,17 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 16px;
-  color: #c8c19d;
+  color: var(--muted);
   font-size: 0.8125rem;
 }
 .history-patch-badge {
-  border: 1px solid #738365;
+  border: 1px solid var(--line);
   padding: 3px 8px;
 }
 .history-patch p {
   max-width: 850px;
   margin: 10px 0 0;
-  color: #c1cbb7;
+  color: var(--muted);
   font-size: 0.9375rem;
   line-height: 1.8;
 }
@@ -287,25 +303,25 @@
   flex-wrap: wrap;
 }
 .version-history-list strong {
-  font: 500 2.25rem/1 var(--serif);
+  font: 500 2.25rem/1 var(--sans);
   color: var(--paper);
   font-variant-numeric: lining-nums tabular-nums;
 }
 .version-history-dot {
   width: 8px;
   height: 8px;
-  background: #6a775d;
-  transform: rotate(45deg);
+  background: var(--muted);
+  border-radius: 50%;
 }
 .is-current .version-history-dot {
-  background: #d2bd83;
-  box-shadow: 0 0 0 4px #343d2c;
+  background: var(--brass);
+  box-shadow: none;
 }
 .version-current {
   font-size: 0.75rem;
   padding: 3px 9px;
-  border: 1px solid #7c7a56;
-  color: #d6ca9e;
+  border: 1px solid #896043;
+  color: var(--brass);
 }
 .version-history-list dl {
   display: flex;
@@ -313,14 +329,14 @@
   margin: 0;
 }
 .version-history-list dt {
-  color: #a3b193;
+  color: var(--muted);
   font-size: 0.75rem;
   margin-bottom: 5px;
 }
 .version-history-list dd {
   margin: 0;
   font-size: 0.9375rem;
-  color: #dddcc8;
+  color: var(--paper-muted);
 }
 @media (max-width: 760px) {
   .version-history-list > li {

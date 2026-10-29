@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import { X } from '../ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
 

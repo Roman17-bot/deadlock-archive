@@ -1,4 +1,4 @@
-import { Download, Search, X } from 'lucide-react';
+import { Download, Search, X } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n } from '../../../i18n';
 import type { HeroRegisterState } from '../hooks/useHeroRegister';
 

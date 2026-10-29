@@ -1,4 +1,4 @@
-import { ArrowUpRight, RefreshCw } from 'lucide-react';
+import { ArrowUpRight, RefreshCw } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { formatDate } from '../../lib/format';
 import { useI18n, translateError } from '../../i18n';
 import { siteMode } from '../../services/environment';

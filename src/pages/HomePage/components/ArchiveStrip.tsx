@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot } from '../../../../shared/types';
 import { useI18n } from '../../../i18n';
 

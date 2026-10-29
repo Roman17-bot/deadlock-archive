@@ -1,4 +1,4 @@
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight } from '../../../components/ui/ArchiveIcon/ArchiveIcons';
 import type { HeroSnapshot } from '../../../../shared/types';
 import { formatDate } from '../../../lib/format';
 import { useI18n } from '../../../i18n';
