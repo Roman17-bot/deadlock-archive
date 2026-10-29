@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Check, Crosshair, Search, Shield, Sparkles, X, Zap } from 'lucide-react';
+import { Check, Crosshair, Search, Shield, Sparkles, X, Zap, Layers } from 'lucide-react';
 import type { ItemCatalog, ItemTier, ShopItem } from '../../../shared/item-types';
 import {
   EMPTY_ITEM_FILTERS,
@@ -14,11 +14,11 @@ import {
   filtersHash,
   itemHref,
   readFilters,
+  normalizeItemFilters,
 } from '../../features/items/model';
 import { ItemContent } from '../../features/items/ItemContent';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 import { ShopControls } from './components/ShopControls';
 import { SituationFilters } from './components/SituationFilters';
@@ -106,18 +106,25 @@ function ItemCard({ item, returnTo }: { item: ShopItem; returnTo: string }) {
 
 export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) {
   const { t, language } = useI18n();
-  const wide = useMediaQuery('(min-width: 1200px)');
   const [propertyQuery, setPropertyQuery] = useState('');
   const { catalog, error, retry } = useItems(initialCatalog);
   const [filters, setFilters] = useState<ItemFilters>(readFilters);
   useEffect(() => {
-    const changed = () => setFilters(readFilters());
+    const changed = () => {
+      if (!/^#\/items(?:\?|$)/.test(window.location.hash)) return;
+      const recovered = readFilters();
+      setFilters(recovered);
+      const canonical = filtersHash(recovered);
+      if (window.location.hash !== canonical) window.history.replaceState(null, '', canonical);
+    };
+    changed();
     window.addEventListener('hashchange', changed);
     return () => window.removeEventListener('hashchange', changed);
   }, []);
   const update = (next: ItemFilters) => {
-    setFilters(next);
-    window.history.replaceState(null, '', filtersHash(next));
+    const normalized = normalizeItemFilters(next);
+    setFilters(normalized);
+    window.history.replaceState(null, '', filtersHash(normalized));
   };
   const toggle = <T,>(values: T[], value: T) =>
     values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
@@ -169,6 +176,15 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
             />
           </div>
           <div className="item-category-filters" role="group" aria-label={t('Категории')}>
+            <button
+              className="item-category-button item-category-all"
+              aria-pressed={filters.categories.length === 0}
+              onClick={() => update({ ...filters, categories: [] })}
+            >
+              <Layers className="item-category-icon" size={23} />
+              <span>{t('Все категории')}</span>
+              <Check className="item-category-check" size={17} />
+            </button>
             {categories.map((category) => {
               const Icon = categoryIcons[category];
               return (
@@ -176,9 +192,7 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
                   key={category}
                   className={`item-category-button ${category}`}
                   aria-pressed={filters.categories.includes(category)}
-                  onClick={() =>
-                    update({ ...filters, categories: toggle(filters.categories, category) })
-                  }
+                  onClick={() => update({ ...filters, categories: [category] })}
                 >
                   <Icon className="item-category-icon" size={23} />
                   <span>{t(categoryNames[category])}</span>
@@ -191,12 +205,7 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
             catalog={catalog}
             filters={filters}
             update={update}
-            active={
-              chipLabels.length > 0 ||
-              !!filters.query ||
-              !!propertyQuery ||
-              filters.tagMode !== 'all'
-            }
+            active={chipLabels.length > 0 || !!filters.query || !!propertyQuery}
             reset={() => {
               update({ ...EMPTY_ITEM_FILTERS });
               setPropertyQuery('');
@@ -209,7 +218,6 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
           update={update}
           query={propertyQuery}
           setQuery={setPropertyQuery}
-          wide={wide}
         />
         <div className="item-catalog-results">
           {(chipLabels.length > 0 || filters.query) && (

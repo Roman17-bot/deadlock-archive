@@ -1,5 +1,7 @@
 export const enItems: Record<string, string> = {
   Предметы: 'Items',
+  'Все категории': 'All categories',
+  'Выбери одно свойство для предметов.': 'Choose one item effect.',
   Активация: 'Activation',
   Антихил: 'Anti-heal',
   'Против пуль': 'Against bullets',
