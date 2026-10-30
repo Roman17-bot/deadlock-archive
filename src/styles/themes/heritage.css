@@ -105,9 +105,11 @@
   content: none;
 }
 [data-theme='heritage'] .item-category-button {
-  --plate-face: #24362b;
-  --plate-text: var(--paper);
-  color: var(--paper);
+  --plate-face: #364d39;
+  --plate-face-hover: #425d44;
+  --plate-face-selected: #d1ad66;
+  --plate-text: #fff2dd;
+  color: var(--plate-text);
   background: var(--plate-face);
   border-color: #637052;
   border-radius: 1px 7px 1px 1px;
@@ -117,30 +119,42 @@
     0 1px 0 #0b150f;
 }
 [data-theme='heritage'] .item-category-button.weapon {
-  --plate-face: #352f23;
+  --plate-face: #955525;
+  --plate-face-hover: #9d5d2b;
+  --plate-face-selected: #9d5d2b;
 }
 [data-theme='heritage'] .item-category-button.vitality {
-  --plate-face: #263b29;
+  --plate-face: #476b30;
+  --plate-face-hover: #527838;
+  --plate-face-selected: #527838;
 }
 [data-theme='heritage'] .item-category-button.spirit {
-  --plate-face: #302b3d;
+  --plate-face: #705084;
+  --plate-face-hover: #7e5e96;
+  --plate-face-selected: #7e5e96;
 }
 [data-theme='heritage'] .item-category-button::before {
   content: none;
 }
 [data-theme='heritage'] .item-category-button:hover {
-  background: #344032;
+  background: var(--plate-face-hover);
   border-color: var(--category);
 }
 [data-theme='heritage'] .item-category-button[aria-pressed='true'] {
-  background: color-mix(in srgb, var(--plate-face) 85%, #eee8d8);
-  color: var(--paper);
+  background: var(--plate-face-selected);
+  color: var(--plate-text);
   border-color: var(--category);
   box-shadow:
     inset 3px 0 0 var(--category),
     inset 6px 0 0 #111e17,
     inset 0 -2px 0 var(--category),
     0 1px 0 #0b150f;
+}
+[data-theme='heritage'] .item-category-all[aria-pressed='true'] {
+  --plate-text: var(--ink-deep);
+}
+[data-theme='heritage'] .item-category-all[aria-pressed='true'] .item-category-icon {
+  border-color: currentColor;
 }
 [data-theme='heritage'] .item-category-button:active {
   box-shadow:

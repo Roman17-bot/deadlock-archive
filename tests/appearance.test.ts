@@ -1,17 +1,13 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { applyAppearance, appearanceFromSearch } from '../src/app/appearance';
 
-it('selects only the explicit supported preview and ignores arbitrary attribute values', () => {
+it('uses heritage by default and accepts only an explicit noir alternative', () => {
   expect(appearanceFromSearch('?theme=heritage')).toBe('heritage');
-  for (const query of [
-    '',
-    '?theme=noir',
-    '?theme=other',
-    '?theme=%22%3E%3Cscript%3E',
-    '?theme=HERITAGE',
-  ]) {
-    expect(appearanceFromSearch(query)).toBe('noir');
+  expect(appearanceFromSearch('?theme=noir')).toBe('noir');
+  for (const query of ['', '?theme=other', '?theme=%22%3E%3Cscript%3E', '?theme=HERITAGE']) {
+    expect(appearanceFromSearch(query)).toBe('heritage');
   }
 });
 
@@ -27,15 +23,28 @@ it('applies the palette before rendering while preserving a Pages asset prefix',
   );
 });
 
-it('restores the normal appearance and favicon without persisting a preview choice', () => {
+it('restores heritage after an explicit noir link without persisting that choice', () => {
   const page = document.implementation.createHTMLDocument();
   page.head.innerHTML =
     '<meta name="theme-color"><link rel="icon" href="/assets/brand/archive-emblem.svg">';
-  applyAppearance('?theme=heritage', page);
-  applyAppearance('', page);
+  applyAppearance('?theme=noir', page);
   expect(page.documentElement.dataset.theme).toBe('noir');
-  expect(page.querySelector('meta')?.getAttribute('content')).toBe('#121a23');
-  expect(page.querySelector('link')?.getAttribute('href')).toBe('/assets/brand/archive-emblem.svg');
+  applyAppearance('', page);
+  expect(page.documentElement.dataset.theme).toBe('heritage');
+  expect(page.querySelector('meta')?.getAttribute('content')).toBe('#17231f');
+  expect(page.querySelector('link')?.getAttribute('href')).toBe(
+    '/assets/brand/archive-emblem-heritage.svg',
+  );
+});
+
+it('ships a heritage HTML shell so the first paint matches the default appearance', () => {
+  const html = readFileSync('index.html', 'utf8');
+  const page = new DOMParser().parseFromString(html, 'text/html');
+  expect(page.documentElement.dataset.theme).toBe('heritage');
+  expect(page.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe('#17231f');
+  expect(page.querySelector('link[rel="icon"]')?.getAttribute('href')).toBe(
+    '/assets/brand/archive-emblem-heritage.svg',
+  );
 });
 
 it('works when optional browser metadata is absent', () => {

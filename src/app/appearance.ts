@@ -1,10 +1,10 @@
 export type Appearance = 'noir' | 'heritage';
 
 export function appearanceFromSearch(search: string): Appearance {
-  return new URLSearchParams(search).get('theme') === 'heritage' ? 'heritage' : 'noir';
+  return new URLSearchParams(search).get('theme') === 'noir' ? 'noir' : 'heritage';
 }
 
-/** A link-scoped preview; hash navigation keeps it, other tabs retain their own choice. */
+/** Heritage is the default; an explicit alternative stays scoped to its link. */
 export function applyAppearance(search: string, page: Document = document) {
   const appearance = appearanceFromSearch(search);
   page.documentElement.dataset.theme = appearance;
