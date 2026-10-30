@@ -12,3 +12,7 @@ outputs/
 *.log
 *.tsbuildinfo
 .DS_Store
+.agents/skills/*/references/local-profile.json
+tools/design-runtime/python/
+__pycache__/
+.playwright-mcp/

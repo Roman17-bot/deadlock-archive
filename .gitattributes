@@ -2,3 +2,6 @@
 *.webp binary
 *.woff2 binary
 *.png binary
+.agents/skills/** -text
+.agents/skills/deadlock-design/** text eol=lf
+.agents/skills/deadlock-design-review/** text eol=lf

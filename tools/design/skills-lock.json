@@ -1,0 +1,1424 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-30",
+  "skills": [
+    {
+      "name": "frontend-design",
+      "repository": "anthropics/skills",
+      "ref": "ca45fc496a3436251f191354091d557da31c15b5",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "upstream": "skills/frontend-design/LICENSE.txt",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "sourceSha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "SKILL.md",
+          "upstream": "skills/frontend-design/SKILL.md",
+          "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+          "sourceSha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+        }
+      ]
+    },
+    {
+      "name": "web-design-guidelines",
+      "repository": "vercel-labs/agent-skills",
+      "ref": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "license": "MIT (upstream README declaration)",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "upstream": "skills/web-design-guidelines/SKILL.md",
+          "sha256": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f",
+          "sourceSha256": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f"
+        },
+        {
+          "path": "UPSTREAM.md",
+          "upstream": "README.md",
+          "sha256": "9429e781e3fb2f005e619b96fe18cdc59f8db38b619a4c98f0c46c86357e56a0",
+          "sourceSha256": "9429e781e3fb2f005e619b96fe18cdc59f8db38b619a4c98f0c46c86357e56a0"
+        }
+      ]
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "repository": "vercel-labs/agent-skills",
+      "ref": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "license": "MIT (upstream declaration)",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "upstream": "skills/react-best-practices/AGENTS.md",
+          "sha256": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6",
+          "sourceSha256": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6"
+        },
+        {
+          "path": "README.md",
+          "upstream": "skills/react-best-practices/README.md",
+          "sha256": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a",
+          "sourceSha256": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a"
+        },
+        {
+          "path": "SKILL.md",
+          "upstream": "skills/react-best-practices/SKILL.md",
+          "sha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355",
+          "sourceSha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355"
+        },
+        {
+          "path": "metadata.json",
+          "upstream": "skills/react-best-practices/metadata.json",
+          "sha256": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354",
+          "sourceSha256": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354"
+        },
+        {
+          "path": "rules/_sections.md",
+          "upstream": "skills/react-best-practices/rules/_sections.md",
+          "sha256": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115",
+          "sourceSha256": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115"
+        },
+        {
+          "path": "rules/_template.md",
+          "upstream": "skills/react-best-practices/rules/_template.md",
+          "sha256": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442",
+          "sourceSha256": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442"
+        },
+        {
+          "path": "rules/advanced-effect-event-deps.md",
+          "upstream": "skills/react-best-practices/rules/advanced-effect-event-deps.md",
+          "sha256": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723",
+          "sourceSha256": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723"
+        },
+        {
+          "path": "rules/advanced-event-handler-refs.md",
+          "upstream": "skills/react-best-practices/rules/advanced-event-handler-refs.md",
+          "sha256": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc",
+          "sourceSha256": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc"
+        },
+        {
+          "path": "rules/advanced-init-once.md",
+          "upstream": "skills/react-best-practices/rules/advanced-init-once.md",
+          "sha256": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c",
+          "sourceSha256": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c"
+        },
+        {
+          "path": "rules/advanced-use-latest.md",
+          "upstream": "skills/react-best-practices/rules/advanced-use-latest.md",
+          "sha256": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a",
+          "sourceSha256": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a"
+        },
+        {
+          "path": "rules/async-api-routes.md",
+          "upstream": "skills/react-best-practices/rules/async-api-routes.md",
+          "sha256": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42",
+          "sourceSha256": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42"
+        },
+        {
+          "path": "rules/async-cheap-condition-before-await.md",
+          "upstream": "skills/react-best-practices/rules/async-cheap-condition-before-await.md",
+          "sha256": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c",
+          "sourceSha256": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c"
+        },
+        {
+          "path": "rules/async-defer-await.md",
+          "upstream": "skills/react-best-practices/rules/async-defer-await.md",
+          "sha256": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb",
+          "sourceSha256": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb"
+        },
+        {
+          "path": "rules/async-dependencies.md",
+          "upstream": "skills/react-best-practices/rules/async-dependencies.md",
+          "sha256": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a",
+          "sourceSha256": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a"
+        },
+        {
+          "path": "rules/async-parallel.md",
+          "upstream": "skills/react-best-practices/rules/async-parallel.md",
+          "sha256": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961",
+          "sourceSha256": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961"
+        },
+        {
+          "path": "rules/async-suspense-boundaries.md",
+          "upstream": "skills/react-best-practices/rules/async-suspense-boundaries.md",
+          "sha256": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc",
+          "sourceSha256": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc"
+        },
+        {
+          "path": "rules/bundle-analyzable-paths.md",
+          "upstream": "skills/react-best-practices/rules/bundle-analyzable-paths.md",
+          "sha256": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a",
+          "sourceSha256": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a"
+        },
+        {
+          "path": "rules/bundle-barrel-imports.md",
+          "upstream": "skills/react-best-practices/rules/bundle-barrel-imports.md",
+          "sha256": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b",
+          "sourceSha256": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b"
+        },
+        {
+          "path": "rules/bundle-conditional.md",
+          "upstream": "skills/react-best-practices/rules/bundle-conditional.md",
+          "sha256": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4",
+          "sourceSha256": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4"
+        },
+        {
+          "path": "rules/bundle-defer-third-party.md",
+          "upstream": "skills/react-best-practices/rules/bundle-defer-third-party.md",
+          "sha256": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37",
+          "sourceSha256": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37"
+        },
+        {
+          "path": "rules/bundle-dynamic-imports.md",
+          "upstream": "skills/react-best-practices/rules/bundle-dynamic-imports.md",
+          "sha256": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986",
+          "sourceSha256": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986"
+        },
+        {
+          "path": "rules/bundle-preload.md",
+          "upstream": "skills/react-best-practices/rules/bundle-preload.md",
+          "sha256": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2",
+          "sourceSha256": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2"
+        },
+        {
+          "path": "rules/client-event-listeners.md",
+          "upstream": "skills/react-best-practices/rules/client-event-listeners.md",
+          "sha256": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93",
+          "sourceSha256": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93"
+        },
+        {
+          "path": "rules/client-localstorage-schema.md",
+          "upstream": "skills/react-best-practices/rules/client-localstorage-schema.md",
+          "sha256": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88",
+          "sourceSha256": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88"
+        },
+        {
+          "path": "rules/client-passive-event-listeners.md",
+          "upstream": "skills/react-best-practices/rules/client-passive-event-listeners.md",
+          "sha256": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b",
+          "sourceSha256": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b"
+        },
+        {
+          "path": "rules/client-swr-dedup.md",
+          "upstream": "skills/react-best-practices/rules/client-swr-dedup.md",
+          "sha256": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3",
+          "sourceSha256": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3"
+        },
+        {
+          "path": "rules/js-batch-dom-css.md",
+          "upstream": "skills/react-best-practices/rules/js-batch-dom-css.md",
+          "sha256": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959",
+          "sourceSha256": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959"
+        },
+        {
+          "path": "rules/js-cache-function-results.md",
+          "upstream": "skills/react-best-practices/rules/js-cache-function-results.md",
+          "sha256": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7",
+          "sourceSha256": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7"
+        },
+        {
+          "path": "rules/js-cache-property-access.md",
+          "upstream": "skills/react-best-practices/rules/js-cache-property-access.md",
+          "sha256": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311",
+          "sourceSha256": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311"
+        },
+        {
+          "path": "rules/js-cache-storage.md",
+          "upstream": "skills/react-best-practices/rules/js-cache-storage.md",
+          "sha256": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc",
+          "sourceSha256": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc"
+        },
+        {
+          "path": "rules/js-combine-iterations.md",
+          "upstream": "skills/react-best-practices/rules/js-combine-iterations.md",
+          "sha256": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746",
+          "sourceSha256": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746"
+        },
+        {
+          "path": "rules/js-early-exit.md",
+          "upstream": "skills/react-best-practices/rules/js-early-exit.md",
+          "sha256": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0",
+          "sourceSha256": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0"
+        },
+        {
+          "path": "rules/js-flatmap-filter.md",
+          "upstream": "skills/react-best-practices/rules/js-flatmap-filter.md",
+          "sha256": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0",
+          "sourceSha256": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0"
+        },
+        {
+          "path": "rules/js-hoist-regexp.md",
+          "upstream": "skills/react-best-practices/rules/js-hoist-regexp.md",
+          "sha256": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4",
+          "sourceSha256": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4"
+        },
+        {
+          "path": "rules/js-index-maps.md",
+          "upstream": "skills/react-best-practices/rules/js-index-maps.md",
+          "sha256": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391",
+          "sourceSha256": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391"
+        },
+        {
+          "path": "rules/js-length-check-first.md",
+          "upstream": "skills/react-best-practices/rules/js-length-check-first.md",
+          "sha256": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624",
+          "sourceSha256": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624"
+        },
+        {
+          "path": "rules/js-min-max-loop.md",
+          "upstream": "skills/react-best-practices/rules/js-min-max-loop.md",
+          "sha256": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421",
+          "sourceSha256": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421"
+        },
+        {
+          "path": "rules/js-request-idle-callback.md",
+          "upstream": "skills/react-best-practices/rules/js-request-idle-callback.md",
+          "sha256": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32",
+          "sourceSha256": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32"
+        },
+        {
+          "path": "rules/js-set-map-lookups.md",
+          "upstream": "skills/react-best-practices/rules/js-set-map-lookups.md",
+          "sha256": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b",
+          "sourceSha256": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b"
+        },
+        {
+          "path": "rules/js-tosorted-immutable.md",
+          "upstream": "skills/react-best-practices/rules/js-tosorted-immutable.md",
+          "sha256": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8",
+          "sourceSha256": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8"
+        },
+        {
+          "path": "rules/rendering-activity.md",
+          "upstream": "skills/react-best-practices/rules/rendering-activity.md",
+          "sha256": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a",
+          "sourceSha256": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a"
+        },
+        {
+          "path": "rules/rendering-animate-svg-wrapper.md",
+          "upstream": "skills/react-best-practices/rules/rendering-animate-svg-wrapper.md",
+          "sha256": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77",
+          "sourceSha256": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77"
+        },
+        {
+          "path": "rules/rendering-conditional-render.md",
+          "upstream": "skills/react-best-practices/rules/rendering-conditional-render.md",
+          "sha256": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc",
+          "sourceSha256": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc"
+        },
+        {
+          "path": "rules/rendering-content-visibility.md",
+          "upstream": "skills/react-best-practices/rules/rendering-content-visibility.md",
+          "sha256": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4",
+          "sourceSha256": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4"
+        },
+        {
+          "path": "rules/rendering-hoist-jsx.md",
+          "upstream": "skills/react-best-practices/rules/rendering-hoist-jsx.md",
+          "sha256": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e",
+          "sourceSha256": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e"
+        },
+        {
+          "path": "rules/rendering-hydration-no-flicker.md",
+          "upstream": "skills/react-best-practices/rules/rendering-hydration-no-flicker.md",
+          "sha256": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3",
+          "sourceSha256": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3"
+        },
+        {
+          "path": "rules/rendering-hydration-suppress-warning.md",
+          "upstream": "skills/react-best-practices/rules/rendering-hydration-suppress-warning.md",
+          "sha256": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2",
+          "sourceSha256": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2"
+        },
+        {
+          "path": "rules/rendering-resource-hints.md",
+          "upstream": "skills/react-best-practices/rules/rendering-resource-hints.md",
+          "sha256": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864",
+          "sourceSha256": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864"
+        },
+        {
+          "path": "rules/rendering-script-defer-async.md",
+          "upstream": "skills/react-best-practices/rules/rendering-script-defer-async.md",
+          "sha256": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab",
+          "sourceSha256": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab"
+        },
+        {
+          "path": "rules/rendering-svg-precision.md",
+          "upstream": "skills/react-best-practices/rules/rendering-svg-precision.md",
+          "sha256": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb",
+          "sourceSha256": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb"
+        },
+        {
+          "path": "rules/rendering-usetransition-loading.md",
+          "upstream": "skills/react-best-practices/rules/rendering-usetransition-loading.md",
+          "sha256": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1",
+          "sourceSha256": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1"
+        },
+        {
+          "path": "rules/rerender-defer-reads.md",
+          "upstream": "skills/react-best-practices/rules/rerender-defer-reads.md",
+          "sha256": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9",
+          "sourceSha256": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9"
+        },
+        {
+          "path": "rules/rerender-dependencies.md",
+          "upstream": "skills/react-best-practices/rules/rerender-dependencies.md",
+          "sha256": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5",
+          "sourceSha256": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5"
+        },
+        {
+          "path": "rules/rerender-derived-state-no-effect.md",
+          "upstream": "skills/react-best-practices/rules/rerender-derived-state-no-effect.md",
+          "sha256": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a",
+          "sourceSha256": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a"
+        },
+        {
+          "path": "rules/rerender-derived-state.md",
+          "upstream": "skills/react-best-practices/rules/rerender-derived-state.md",
+          "sha256": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d",
+          "sourceSha256": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d"
+        },
+        {
+          "path": "rules/rerender-functional-setstate.md",
+          "upstream": "skills/react-best-practices/rules/rerender-functional-setstate.md",
+          "sha256": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58",
+          "sourceSha256": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58"
+        },
+        {
+          "path": "rules/rerender-lazy-state-init.md",
+          "upstream": "skills/react-best-practices/rules/rerender-lazy-state-init.md",
+          "sha256": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573",
+          "sourceSha256": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573"
+        },
+        {
+          "path": "rules/rerender-memo-with-default-value.md",
+          "upstream": "skills/react-best-practices/rules/rerender-memo-with-default-value.md",
+          "sha256": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd",
+          "sourceSha256": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd"
+        },
+        {
+          "path": "rules/rerender-memo.md",
+          "upstream": "skills/react-best-practices/rules/rerender-memo.md",
+          "sha256": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1",
+          "sourceSha256": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1"
+        },
+        {
+          "path": "rules/rerender-move-effect-to-event.md",
+          "upstream": "skills/react-best-practices/rules/rerender-move-effect-to-event.md",
+          "sha256": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029",
+          "sourceSha256": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029"
+        },
+        {
+          "path": "rules/rerender-no-inline-components.md",
+          "upstream": "skills/react-best-practices/rules/rerender-no-inline-components.md",
+          "sha256": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3",
+          "sourceSha256": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3"
+        },
+        {
+          "path": "rules/rerender-simple-expression-in-memo.md",
+          "upstream": "skills/react-best-practices/rules/rerender-simple-expression-in-memo.md",
+          "sha256": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800",
+          "sourceSha256": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800"
+        },
+        {
+          "path": "rules/rerender-split-combined-hooks.md",
+          "upstream": "skills/react-best-practices/rules/rerender-split-combined-hooks.md",
+          "sha256": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c",
+          "sourceSha256": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c"
+        },
+        {
+          "path": "rules/rerender-transitions.md",
+          "upstream": "skills/react-best-practices/rules/rerender-transitions.md",
+          "sha256": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c",
+          "sourceSha256": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c"
+        },
+        {
+          "path": "rules/rerender-use-deferred-value.md",
+          "upstream": "skills/react-best-practices/rules/rerender-use-deferred-value.md",
+          "sha256": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909",
+          "sourceSha256": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909"
+        },
+        {
+          "path": "rules/rerender-use-ref-transient-values.md",
+          "upstream": "skills/react-best-practices/rules/rerender-use-ref-transient-values.md",
+          "sha256": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54",
+          "sourceSha256": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54"
+        },
+        {
+          "path": "rules/server-after-nonblocking.md",
+          "upstream": "skills/react-best-practices/rules/server-after-nonblocking.md",
+          "sha256": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2",
+          "sourceSha256": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2"
+        },
+        {
+          "path": "rules/server-auth-actions.md",
+          "upstream": "skills/react-best-practices/rules/server-auth-actions.md",
+          "sha256": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23",
+          "sourceSha256": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23"
+        },
+        {
+          "path": "rules/server-cache-lru.md",
+          "upstream": "skills/react-best-practices/rules/server-cache-lru.md",
+          "sha256": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f",
+          "sourceSha256": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f"
+        },
+        {
+          "path": "rules/server-cache-react.md",
+          "upstream": "skills/react-best-practices/rules/server-cache-react.md",
+          "sha256": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c",
+          "sourceSha256": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c"
+        },
+        {
+          "path": "rules/server-dedup-props.md",
+          "upstream": "skills/react-best-practices/rules/server-dedup-props.md",
+          "sha256": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37",
+          "sourceSha256": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37"
+        },
+        {
+          "path": "rules/server-hoist-static-io.md",
+          "upstream": "skills/react-best-practices/rules/server-hoist-static-io.md",
+          "sha256": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f",
+          "sourceSha256": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f"
+        },
+        {
+          "path": "rules/server-no-shared-module-state.md",
+          "upstream": "skills/react-best-practices/rules/server-no-shared-module-state.md",
+          "sha256": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7",
+          "sourceSha256": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7"
+        },
+        {
+          "path": "rules/server-parallel-fetching.md",
+          "upstream": "skills/react-best-practices/rules/server-parallel-fetching.md",
+          "sha256": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472",
+          "sourceSha256": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472"
+        },
+        {
+          "path": "rules/server-parallel-nested-fetching.md",
+          "upstream": "skills/react-best-practices/rules/server-parallel-nested-fetching.md",
+          "sha256": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3",
+          "sourceSha256": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3"
+        },
+        {
+          "path": "rules/server-serialization.md",
+          "upstream": "skills/react-best-practices/rules/server-serialization.md",
+          "sha256": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f",
+          "sourceSha256": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f"
+        },
+        {
+          "path": "UPSTREAM.md",
+          "upstream": "README.md",
+          "sha256": "9429e781e3fb2f005e619b96fe18cdc59f8db38b619a4c98f0c46c86357e56a0",
+          "sourceSha256": "9429e781e3fb2f005e619b96fe18cdc59f8db38b619a4c98f0c46c86357e56a0"
+        }
+      ]
+    },
+    {
+      "name": "shader-dev",
+      "repository": "MiniMax-AI/skills",
+      "ref": "60aaae52bb2af8162732751a4332f62a5fef518b",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "upstream": "skills/shader-dev/SKILL.md",
+          "sha256": "7d3cc9d69da2b598e423da5ec927ff61371edab669e2b9a2f4bcf3ec0f29db4d",
+          "sourceSha256": "7d3cc9d69da2b598e423da5ec927ff61371edab669e2b9a2f4bcf3ec0f29db4d"
+        },
+        {
+          "path": "reference/ambient-occlusion.md",
+          "upstream": "skills/shader-dev/reference/ambient-occlusion.md",
+          "sha256": "026d1a8cf85799e525964101b523378f3d10dfeaa78c4554c0bcf39f80346d2e",
+          "sourceSha256": "026d1a8cf85799e525964101b523378f3d10dfeaa78c4554c0bcf39f80346d2e"
+        },
+        {
+          "path": "reference/analytic-ray-tracing.md",
+          "upstream": "skills/shader-dev/reference/analytic-ray-tracing.md",
+          "sha256": "7b5be6a7949055cbe8a627b246d26176fa0645db2e732b31740489936c4e6fd3",
+          "sourceSha256": "7b5be6a7949055cbe8a627b246d26176fa0645db2e732b31740489936c4e6fd3"
+        },
+        {
+          "path": "reference/anti-aliasing.md",
+          "upstream": "skills/shader-dev/reference/anti-aliasing.md",
+          "sha256": "7ae0fd4969f036bc52f713ee23af325f9a1f6eaa4ebc1ffc1b301ce528748876",
+          "sourceSha256": "7ae0fd4969f036bc52f713ee23af325f9a1f6eaa4ebc1ffc1b301ce528748876"
+        },
+        {
+          "path": "reference/atmospheric-scattering.md",
+          "upstream": "skills/shader-dev/reference/atmospheric-scattering.md",
+          "sha256": "699c461a18c3426aeb4137a408378257b3429a49143dabcc4351e6859102d212",
+          "sourceSha256": "699c461a18c3426aeb4137a408378257b3429a49143dabcc4351e6859102d212"
+        },
+        {
+          "path": "reference/camera-effects.md",
+          "upstream": "skills/shader-dev/reference/camera-effects.md",
+          "sha256": "b9a066ce73f8f08e29f39c6863d22eff75644fd44db1db979b094ec26d32d659",
+          "sourceSha256": "b9a066ce73f8f08e29f39c6863d22eff75644fd44db1db979b094ec26d32d659"
+        },
+        {
+          "path": "reference/cellular-automata.md",
+          "upstream": "skills/shader-dev/reference/cellular-automata.md",
+          "sha256": "a5741e109dd489af193bfb44560eb1973270495a09ba2e927127766c4a037de9",
+          "sourceSha256": "a5741e109dd489af193bfb44560eb1973270495a09ba2e927127766c4a037de9"
+        },
+        {
+          "path": "reference/color-palette.md",
+          "upstream": "skills/shader-dev/reference/color-palette.md",
+          "sha256": "19529d6b10f1ad09e29f5453e69377da1f5152e5bd31f1f02f2c55c5c7b570c7",
+          "sourceSha256": "19529d6b10f1ad09e29f5453e69377da1f5152e5bd31f1f02f2c55c5c7b570c7"
+        },
+        {
+          "path": "reference/csg-boolean-operations.md",
+          "upstream": "skills/shader-dev/reference/csg-boolean-operations.md",
+          "sha256": "5465eb980c80d8f4869e883cdb7b75f603c44cbd578f926a105eb77e83194ca4",
+          "sourceSha256": "5465eb980c80d8f4869e883cdb7b75f603c44cbd578f926a105eb77e83194ca4"
+        },
+        {
+          "path": "reference/domain-repetition.md",
+          "upstream": "skills/shader-dev/reference/domain-repetition.md",
+          "sha256": "5ca346f470492a1168d0128f1b9f966eee5177218eaba9cfe8136cefacc8acda",
+          "sourceSha256": "5ca346f470492a1168d0128f1b9f966eee5177218eaba9cfe8136cefacc8acda"
+        },
+        {
+          "path": "reference/domain-warping.md",
+          "upstream": "skills/shader-dev/reference/domain-warping.md",
+          "sha256": "2cb44b9d46883f2fa26928f878be19fb7fa31cf345212e621454ec462f287dc1",
+          "sourceSha256": "2cb44b9d46883f2fa26928f878be19fb7fa31cf345212e621454ec462f287dc1"
+        },
+        {
+          "path": "reference/fluid-simulation.md",
+          "upstream": "skills/shader-dev/reference/fluid-simulation.md",
+          "sha256": "601da19ad79b438ed09e510cd906b770b1564571482872b4f9eabac4be913048",
+          "sourceSha256": "601da19ad79b438ed09e510cd906b770b1564571482872b4f9eabac4be913048"
+        },
+        {
+          "path": "reference/fractal-rendering.md",
+          "upstream": "skills/shader-dev/reference/fractal-rendering.md",
+          "sha256": "381b0379f018ab428a9ed5a7330511da91bf9091b257d6c1c5d6c10b3b2173bd",
+          "sourceSha256": "381b0379f018ab428a9ed5a7330511da91bf9091b257d6c1c5d6c10b3b2173bd"
+        },
+        {
+          "path": "reference/lighting-model.md",
+          "upstream": "skills/shader-dev/reference/lighting-model.md",
+          "sha256": "071e8f42c4b79f468b17685c536f72a892f25867492368e37365c4b84eb9c8b1",
+          "sourceSha256": "071e8f42c4b79f468b17685c536f72a892f25867492368e37365c4b84eb9c8b1"
+        },
+        {
+          "path": "reference/matrix-transform.md",
+          "upstream": "skills/shader-dev/reference/matrix-transform.md",
+          "sha256": "d69d0ac03abfc2f94cd467d78ffef57f072ee7bf571106ad3745b77409bdc824",
+          "sourceSha256": "d69d0ac03abfc2f94cd467d78ffef57f072ee7bf571106ad3745b77409bdc824"
+        },
+        {
+          "path": "reference/multipass-buffer.md",
+          "upstream": "skills/shader-dev/reference/multipass-buffer.md",
+          "sha256": "4ec6f91059e6289aa68e1c8bbebd7f323a9ef4d6423e10609922a8b0ed2cca8c",
+          "sourceSha256": "4ec6f91059e6289aa68e1c8bbebd7f323a9ef4d6423e10609922a8b0ed2cca8c"
+        },
+        {
+          "path": "reference/normal-estimation.md",
+          "upstream": "skills/shader-dev/reference/normal-estimation.md",
+          "sha256": "c3ff7482db60f67cf31faa260848722ea44752d07919826b8c8a0e28b0c40aa2",
+          "sourceSha256": "c3ff7482db60f67cf31faa260848722ea44752d07919826b8c8a0e28b0c40aa2"
+        },
+        {
+          "path": "reference/particle-system.md",
+          "upstream": "skills/shader-dev/reference/particle-system.md",
+          "sha256": "fc10bbe781ccfcf6df8dffa5e87955b6d10afc7735d86d9c1b0a8269132a7c2b",
+          "sourceSha256": "fc10bbe781ccfcf6df8dffa5e87955b6d10afc7735d86d9c1b0a8269132a7c2b"
+        },
+        {
+          "path": "reference/path-tracing-gi.md",
+          "upstream": "skills/shader-dev/reference/path-tracing-gi.md",
+          "sha256": "639e9da7586b2c374fcbb5db8aaa6e561feb6ee50db70b8fc733ba36fed2f8d6",
+          "sourceSha256": "639e9da7586b2c374fcbb5db8aaa6e561feb6ee50db70b8fc733ba36fed2f8d6"
+        },
+        {
+          "path": "reference/polar-uv-manipulation.md",
+          "upstream": "skills/shader-dev/reference/polar-uv-manipulation.md",
+          "sha256": "f88ed9571429ecad18e611a5ae891a59301f07e5a03603ae1827833667788a04",
+          "sourceSha256": "f88ed9571429ecad18e611a5ae891a59301f07e5a03603ae1827833667788a04"
+        },
+        {
+          "path": "reference/post-processing.md",
+          "upstream": "skills/shader-dev/reference/post-processing.md",
+          "sha256": "c91a3c254aaf4a2c6b9a4eeace8f7ce7736d63f47ebbaad973056f235abe59ec",
+          "sourceSha256": "c91a3c254aaf4a2c6b9a4eeace8f7ce7736d63f47ebbaad973056f235abe59ec"
+        },
+        {
+          "path": "reference/procedural-2d-pattern.md",
+          "upstream": "skills/shader-dev/reference/procedural-2d-pattern.md",
+          "sha256": "c3b59cc31d98251ae2154e3ef3bfc8f6f9661576f46d4fd8bf63910873016287",
+          "sourceSha256": "c3b59cc31d98251ae2154e3ef3bfc8f6f9661576f46d4fd8bf63910873016287"
+        },
+        {
+          "path": "reference/procedural-noise.md",
+          "upstream": "skills/shader-dev/reference/procedural-noise.md",
+          "sha256": "b3c1a23cf0c68d7c9341958a87a0fc24ed6886ec7ca54283ea67547ac7cf8523",
+          "sourceSha256": "b3c1a23cf0c68d7c9341958a87a0fc24ed6886ec7ca54283ea67547ac7cf8523"
+        },
+        {
+          "path": "reference/ray-marching.md",
+          "upstream": "skills/shader-dev/reference/ray-marching.md",
+          "sha256": "d904a84f3c4acdcc6a9674fe77dc9db0f5139176bb500ac9b0a88a4cb695279e",
+          "sourceSha256": "d904a84f3c4acdcc6a9674fe77dc9db0f5139176bb500ac9b0a88a4cb695279e"
+        },
+        {
+          "path": "reference/sdf-2d.md",
+          "upstream": "skills/shader-dev/reference/sdf-2d.md",
+          "sha256": "6609e4b6a58ac085ce316336feb462510a04ae97cc3485fa3264e6edfb04ab06",
+          "sourceSha256": "6609e4b6a58ac085ce316336feb462510a04ae97cc3485fa3264e6edfb04ab06"
+        },
+        {
+          "path": "reference/sdf-3d.md",
+          "upstream": "skills/shader-dev/reference/sdf-3d.md",
+          "sha256": "76fe2536f068b10aa911f5b8f36da53978622595ffdd6077770cb6ae33d4c7c8",
+          "sourceSha256": "76fe2536f068b10aa911f5b8f36da53978622595ffdd6077770cb6ae33d4c7c8"
+        },
+        {
+          "path": "reference/sdf-tricks.md",
+          "upstream": "skills/shader-dev/reference/sdf-tricks.md",
+          "sha256": "d318fe207f076a70bc3fc6dfef752139ae75e6140dcca74fdc063b1ae500103f",
+          "sourceSha256": "d318fe207f076a70bc3fc6dfef752139ae75e6140dcca74fdc063b1ae500103f"
+        },
+        {
+          "path": "reference/shadow-techniques.md",
+          "upstream": "skills/shader-dev/reference/shadow-techniques.md",
+          "sha256": "0a11fa7a1716044b7fb9d450001b6c67299aa1d56b4e9b2ffdf8838621cdfde1",
+          "sourceSha256": "0a11fa7a1716044b7fb9d450001b6c67299aa1d56b4e9b2ffdf8838621cdfde1"
+        },
+        {
+          "path": "reference/simulation-physics.md",
+          "upstream": "skills/shader-dev/reference/simulation-physics.md",
+          "sha256": "05bd388f759a90d28467c5db6bf298a4ccef208d11fdecedace874dcb1e5ba6e",
+          "sourceSha256": "05bd388f759a90d28467c5db6bf298a4ccef208d11fdecedace874dcb1e5ba6e"
+        },
+        {
+          "path": "reference/sound-synthesis.md",
+          "upstream": "skills/shader-dev/reference/sound-synthesis.md",
+          "sha256": "994245b4232568b0567cac03fc0154a8a62abf545fee7ea3246e8edfb2957a44",
+          "sourceSha256": "994245b4232568b0567cac03fc0154a8a62abf545fee7ea3246e8edfb2957a44"
+        },
+        {
+          "path": "reference/terrain-rendering.md",
+          "upstream": "skills/shader-dev/reference/terrain-rendering.md",
+          "sha256": "7a017d1fd230c23682840ec41cd5fb44aeecca905840c06afd76fc75e7b22c43",
+          "sourceSha256": "7a017d1fd230c23682840ec41cd5fb44aeecca905840c06afd76fc75e7b22c43"
+        },
+        {
+          "path": "reference/texture-mapping-advanced.md",
+          "upstream": "skills/shader-dev/reference/texture-mapping-advanced.md",
+          "sha256": "6e95500d391ac4df2e55c1dc9792e0ff4857730800b1d72835eace5f1f851050",
+          "sourceSha256": "6e95500d391ac4df2e55c1dc9792e0ff4857730800b1d72835eace5f1f851050"
+        },
+        {
+          "path": "reference/texture-sampling.md",
+          "upstream": "skills/shader-dev/reference/texture-sampling.md",
+          "sha256": "13eae848d63271419b738611bb0fc63f1f8c4d09153e6bbc16109584c4fb4783",
+          "sourceSha256": "13eae848d63271419b738611bb0fc63f1f8c4d09153e6bbc16109584c4fb4783"
+        },
+        {
+          "path": "reference/volumetric-rendering.md",
+          "upstream": "skills/shader-dev/reference/volumetric-rendering.md",
+          "sha256": "b34181665c3e356aac2168eea0a096bc4d6b93341f95eb7ac7edb3cf7cb48243",
+          "sourceSha256": "b34181665c3e356aac2168eea0a096bc4d6b93341f95eb7ac7edb3cf7cb48243"
+        },
+        {
+          "path": "reference/voronoi-cellular-noise.md",
+          "upstream": "skills/shader-dev/reference/voronoi-cellular-noise.md",
+          "sha256": "e0ff61e059d56b9d0219ca001ff02e560f34533df3749f0ebc9cba8aea549b7c",
+          "sourceSha256": "e0ff61e059d56b9d0219ca001ff02e560f34533df3749f0ebc9cba8aea549b7c"
+        },
+        {
+          "path": "reference/voxel-rendering.md",
+          "upstream": "skills/shader-dev/reference/voxel-rendering.md",
+          "sha256": "41137bb01b5fa8635dd64b910680f0f818a198a2fff567e0b01854211e2e1c55",
+          "sourceSha256": "41137bb01b5fa8635dd64b910680f0f818a198a2fff567e0b01854211e2e1c55"
+        },
+        {
+          "path": "reference/water-ocean.md",
+          "upstream": "skills/shader-dev/reference/water-ocean.md",
+          "sha256": "11a43fa7b9d81dbd1242a9c684dbacfd8c45fd2077e2e13a65b44f881781aaff",
+          "sourceSha256": "11a43fa7b9d81dbd1242a9c684dbacfd8c45fd2077e2e13a65b44f881781aaff"
+        },
+        {
+          "path": "reference/webgl-pitfalls.md",
+          "upstream": "skills/shader-dev/reference/webgl-pitfalls.md",
+          "sha256": "a5be3d362ec43d63cc1db2dfc4858b963e2ba2d4d0f118f90b94fb06de6e3184",
+          "sourceSha256": "a5be3d362ec43d63cc1db2dfc4858b963e2ba2d4d0f118f90b94fb06de6e3184"
+        },
+        {
+          "path": "techniques/ambient-occlusion.md",
+          "upstream": "skills/shader-dev/techniques/ambient-occlusion.md",
+          "sha256": "ece48ac8bf9d3705ec75b221f6137e383194c6dee542d1ca5391bbb918406f1d",
+          "sourceSha256": "ece48ac8bf9d3705ec75b221f6137e383194c6dee542d1ca5391bbb918406f1d"
+        },
+        {
+          "path": "techniques/analytic-ray-tracing.md",
+          "upstream": "skills/shader-dev/techniques/analytic-ray-tracing.md",
+          "sha256": "d8abf6653cdd0a49dc7d3fbaf4c4c0c1fa098d060bdd452c3a4a0f9ebc773b46",
+          "sourceSha256": "d8abf6653cdd0a49dc7d3fbaf4c4c0c1fa098d060bdd452c3a4a0f9ebc773b46"
+        },
+        {
+          "path": "techniques/anti-aliasing.md",
+          "upstream": "skills/shader-dev/techniques/anti-aliasing.md",
+          "sha256": "a86b6645cae7d0e41d6d13d4332cfbb0d0bf198cae37bd1831dce58469c285e7",
+          "sourceSha256": "a86b6645cae7d0e41d6d13d4332cfbb0d0bf198cae37bd1831dce58469c285e7"
+        },
+        {
+          "path": "techniques/atmospheric-scattering.md",
+          "upstream": "skills/shader-dev/techniques/atmospheric-scattering.md",
+          "sha256": "535dcecb25de1ef3bd3087588b82cba09edf20346f6806b812b56abc4df534a8",
+          "sourceSha256": "535dcecb25de1ef3bd3087588b82cba09edf20346f6806b812b56abc4df534a8"
+        },
+        {
+          "path": "techniques/camera-effects.md",
+          "upstream": "skills/shader-dev/techniques/camera-effects.md",
+          "sha256": "9c9c2aeee72e11ce8df0bd5bd7940277051d2d58527ad4ae04741b2d604131d6",
+          "sourceSha256": "9c9c2aeee72e11ce8df0bd5bd7940277051d2d58527ad4ae04741b2d604131d6"
+        },
+        {
+          "path": "techniques/cellular-automata.md",
+          "upstream": "skills/shader-dev/techniques/cellular-automata.md",
+          "sha256": "7ac24ef6da0e1801ef70dc9400602e3019937ea8942329b2e0c7544c7b23f886",
+          "sourceSha256": "7ac24ef6da0e1801ef70dc9400602e3019937ea8942329b2e0c7544c7b23f886"
+        },
+        {
+          "path": "techniques/color-palette.md",
+          "upstream": "skills/shader-dev/techniques/color-palette.md",
+          "sha256": "96b0b417da68ca96f1aa8a84cb5c2af850c48d0870bf652d6a5cfde40c1f14b4",
+          "sourceSha256": "96b0b417da68ca96f1aa8a84cb5c2af850c48d0870bf652d6a5cfde40c1f14b4"
+        },
+        {
+          "path": "techniques/csg-boolean-operations.md",
+          "upstream": "skills/shader-dev/techniques/csg-boolean-operations.md",
+          "sha256": "2fc7f36823ff5fa75bd60e72a33962b91639416479e4f82a84c11211a42cc549",
+          "sourceSha256": "2fc7f36823ff5fa75bd60e72a33962b91639416479e4f82a84c11211a42cc549"
+        },
+        {
+          "path": "techniques/domain-repetition.md",
+          "upstream": "skills/shader-dev/techniques/domain-repetition.md",
+          "sha256": "8f40caa37e71b6bcd75603cb54fe4883f8d8551d47a39e255008ffffcd82b676",
+          "sourceSha256": "8f40caa37e71b6bcd75603cb54fe4883f8d8551d47a39e255008ffffcd82b676"
+        },
+        {
+          "path": "techniques/domain-warping.md",
+          "upstream": "skills/shader-dev/techniques/domain-warping.md",
+          "sha256": "cd0838d6fc8d770f087ae33e56588db0e8ece205a16ee0f6170498ca0666ab17",
+          "sourceSha256": "cd0838d6fc8d770f087ae33e56588db0e8ece205a16ee0f6170498ca0666ab17"
+        },
+        {
+          "path": "techniques/fluid-simulation.md",
+          "upstream": "skills/shader-dev/techniques/fluid-simulation.md",
+          "sha256": "85c6314b4b71ce13d01a713de6f2ff5c8a3870f9eacc4c45b7465a82424426b1",
+          "sourceSha256": "85c6314b4b71ce13d01a713de6f2ff5c8a3870f9eacc4c45b7465a82424426b1"
+        },
+        {
+          "path": "techniques/fractal-rendering.md",
+          "upstream": "skills/shader-dev/techniques/fractal-rendering.md",
+          "sha256": "694a3e87cd47670e21ef1af294fb18cdf23b9b76a4e6946ff011bfe75428e694",
+          "sourceSha256": "694a3e87cd47670e21ef1af294fb18cdf23b9b76a4e6946ff011bfe75428e694"
+        },
+        {
+          "path": "techniques/lighting-model.md",
+          "upstream": "skills/shader-dev/techniques/lighting-model.md",
+          "sha256": "1c85240cf8650d320bbc8996e36333623e4d916b05f4baa2a54a06b1c22f1bcd",
+          "sourceSha256": "1c85240cf8650d320bbc8996e36333623e4d916b05f4baa2a54a06b1c22f1bcd"
+        },
+        {
+          "path": "techniques/matrix-transform.md",
+          "upstream": "skills/shader-dev/techniques/matrix-transform.md",
+          "sha256": "46b5ef46f93c143537627e1d29799657e32bc9f8ca973dc6501b75431d2fc9d3",
+          "sourceSha256": "46b5ef46f93c143537627e1d29799657e32bc9f8ca973dc6501b75431d2fc9d3"
+        },
+        {
+          "path": "techniques/multipass-buffer.md",
+          "upstream": "skills/shader-dev/techniques/multipass-buffer.md",
+          "sha256": "50d54c06a55ae5b75b36eedcd074ad40c6c2b233b675da6cba7738d5f9f50147",
+          "sourceSha256": "50d54c06a55ae5b75b36eedcd074ad40c6c2b233b675da6cba7738d5f9f50147"
+        },
+        {
+          "path": "techniques/normal-estimation.md",
+          "upstream": "skills/shader-dev/techniques/normal-estimation.md",
+          "sha256": "1f07cadacc05ed9cd9acc150796549519efd1419df714714314e40222f5a0891",
+          "sourceSha256": "1f07cadacc05ed9cd9acc150796549519efd1419df714714314e40222f5a0891"
+        },
+        {
+          "path": "techniques/particle-system.md",
+          "upstream": "skills/shader-dev/techniques/particle-system.md",
+          "sha256": "a5d49ac5d828d37fcc8e053e63f00c93c87ca43ff01707af83c140016dcc6b92",
+          "sourceSha256": "a5d49ac5d828d37fcc8e053e63f00c93c87ca43ff01707af83c140016dcc6b92"
+        },
+        {
+          "path": "techniques/path-tracing-gi.md",
+          "upstream": "skills/shader-dev/techniques/path-tracing-gi.md",
+          "sha256": "8dc0d709e1b6c51aaab79c08d034881764a54873c2a19bc5f4c1ebc2cacaf03f",
+          "sourceSha256": "8dc0d709e1b6c51aaab79c08d034881764a54873c2a19bc5f4c1ebc2cacaf03f"
+        },
+        {
+          "path": "techniques/polar-uv-manipulation.md",
+          "upstream": "skills/shader-dev/techniques/polar-uv-manipulation.md",
+          "sha256": "a2f3e7838271d021f7072353f2542c9e41c6b4779823ff03bd9efa3393c6252f",
+          "sourceSha256": "a2f3e7838271d021f7072353f2542c9e41c6b4779823ff03bd9efa3393c6252f"
+        },
+        {
+          "path": "techniques/post-processing.md",
+          "upstream": "skills/shader-dev/techniques/post-processing.md",
+          "sha256": "617e8608e76af3491d2e79fd7a9f56b9bccc821608d3c61ef1bc05c62e2cbf99",
+          "sourceSha256": "617e8608e76af3491d2e79fd7a9f56b9bccc821608d3c61ef1bc05c62e2cbf99"
+        },
+        {
+          "path": "techniques/procedural-2d-pattern.md",
+          "upstream": "skills/shader-dev/techniques/procedural-2d-pattern.md",
+          "sha256": "3ad1d15fed160066d9b78f46a284a4e444a9965fbf2e7ec8fa4d8d7dbbbeb8e2",
+          "sourceSha256": "3ad1d15fed160066d9b78f46a284a4e444a9965fbf2e7ec8fa4d8d7dbbbeb8e2"
+        },
+        {
+          "path": "techniques/procedural-noise.md",
+          "upstream": "skills/shader-dev/techniques/procedural-noise.md",
+          "sha256": "3f3ace3f7f346fb4eb6a7d77e7cb8d8339c3db089f1eeacfaf9a101ff6b3dc25",
+          "sourceSha256": "3f3ace3f7f346fb4eb6a7d77e7cb8d8339c3db089f1eeacfaf9a101ff6b3dc25"
+        },
+        {
+          "path": "techniques/ray-marching.md",
+          "upstream": "skills/shader-dev/techniques/ray-marching.md",
+          "sha256": "bc9519c1f8d36d611f48d80decb0155da5d2aa6de25eac2d22713510f05e7819",
+          "sourceSha256": "bc9519c1f8d36d611f48d80decb0155da5d2aa6de25eac2d22713510f05e7819"
+        },
+        {
+          "path": "techniques/sdf-2d.md",
+          "upstream": "skills/shader-dev/techniques/sdf-2d.md",
+          "sha256": "e65e1fc945d16531a7f505b68db920cfab9d518226fb0a327b267475743ffd43",
+          "sourceSha256": "e65e1fc945d16531a7f505b68db920cfab9d518226fb0a327b267475743ffd43"
+        },
+        {
+          "path": "techniques/sdf-3d.md",
+          "upstream": "skills/shader-dev/techniques/sdf-3d.md",
+          "sha256": "61255ef5f36afec009ee041eab88904730fb57b9d13db0d5435795a7f6fc34e5",
+          "sourceSha256": "61255ef5f36afec009ee041eab88904730fb57b9d13db0d5435795a7f6fc34e5"
+        },
+        {
+          "path": "techniques/sdf-tricks.md",
+          "upstream": "skills/shader-dev/techniques/sdf-tricks.md",
+          "sha256": "d6b40ee14035b0da219c68a563da85114a4243b2d32ed8a7dfe2bae8f4247af9",
+          "sourceSha256": "d6b40ee14035b0da219c68a563da85114a4243b2d32ed8a7dfe2bae8f4247af9"
+        },
+        {
+          "path": "techniques/shadow-techniques.md",
+          "upstream": "skills/shader-dev/techniques/shadow-techniques.md",
+          "sha256": "d9aa1eb66df922760380fc22079f6b373be854f699702862f7abf079242f4c3f",
+          "sourceSha256": "d9aa1eb66df922760380fc22079f6b373be854f699702862f7abf079242f4c3f"
+        },
+        {
+          "path": "techniques/simulation-physics.md",
+          "upstream": "skills/shader-dev/techniques/simulation-physics.md",
+          "sha256": "29fa7d8535ec39684d30d29b8f7bc561119aec8a576bc75a51acbbc1aea1eab7",
+          "sourceSha256": "29fa7d8535ec39684d30d29b8f7bc561119aec8a576bc75a51acbbc1aea1eab7"
+        },
+        {
+          "path": "techniques/sound-synthesis.md",
+          "upstream": "skills/shader-dev/techniques/sound-synthesis.md",
+          "sha256": "098b075a08cb816885ddab78da6a39b5dd5ce3839c2ab49edac9204d30c897ed",
+          "sourceSha256": "098b075a08cb816885ddab78da6a39b5dd5ce3839c2ab49edac9204d30c897ed"
+        },
+        {
+          "path": "techniques/terrain-rendering.md",
+          "upstream": "skills/shader-dev/techniques/terrain-rendering.md",
+          "sha256": "d7525e73245c5f3ed8e0326bcd4024b510fd3197578898a34159041467cd6c78",
+          "sourceSha256": "d7525e73245c5f3ed8e0326bcd4024b510fd3197578898a34159041467cd6c78"
+        },
+        {
+          "path": "techniques/texture-mapping-advanced.md",
+          "upstream": "skills/shader-dev/techniques/texture-mapping-advanced.md",
+          "sha256": "d54da86c06a4fba5843bc100d61e464d0ce5d4e7b42babe4783a349ee9794e0a",
+          "sourceSha256": "d54da86c06a4fba5843bc100d61e464d0ce5d4e7b42babe4783a349ee9794e0a"
+        },
+        {
+          "path": "techniques/texture-sampling.md",
+          "upstream": "skills/shader-dev/techniques/texture-sampling.md",
+          "sha256": "17f890578f622f3417e3a9d3060a6ae28a1147181a8f72bdc48be662a7b165ef",
+          "sourceSha256": "17f890578f622f3417e3a9d3060a6ae28a1147181a8f72bdc48be662a7b165ef"
+        },
+        {
+          "path": "techniques/volumetric-rendering.md",
+          "upstream": "skills/shader-dev/techniques/volumetric-rendering.md",
+          "sha256": "5b35c76ed78930227c38017d34e6af03a91994be125b3fb0b300c3813b711567",
+          "sourceSha256": "5b35c76ed78930227c38017d34e6af03a91994be125b3fb0b300c3813b711567"
+        },
+        {
+          "path": "techniques/voronoi-cellular-noise.md",
+          "upstream": "skills/shader-dev/techniques/voronoi-cellular-noise.md",
+          "sha256": "3751fe0cd87ad7dc049fe59a247971bed73861eb951acae71a24c89195871a14",
+          "sourceSha256": "3751fe0cd87ad7dc049fe59a247971bed73861eb951acae71a24c89195871a14"
+        },
+        {
+          "path": "techniques/voxel-rendering.md",
+          "upstream": "skills/shader-dev/techniques/voxel-rendering.md",
+          "sha256": "4ebebd4380c4243c4e704349d5696ea42a17e69ffb98b2a29bb77a7d02313350",
+          "sourceSha256": "4ebebd4380c4243c4e704349d5696ea42a17e69ffb98b2a29bb77a7d02313350"
+        },
+        {
+          "path": "techniques/water-ocean.md",
+          "upstream": "skills/shader-dev/techniques/water-ocean.md",
+          "sha256": "52d0a5638561e4a935dbce6d8ac5612aef07ba7e03602f7080a1e39c9c08eda8",
+          "sourceSha256": "52d0a5638561e4a935dbce6d8ac5612aef07ba7e03602f7080a1e39c9c08eda8"
+        },
+        {
+          "path": "techniques/webgl-pitfalls.md",
+          "upstream": "skills/shader-dev/techniques/webgl-pitfalls.md",
+          "sha256": "a4639b1286662ee0be49e1acd324591d8a65da97c26f11160ed53744e3da76d7",
+          "sourceSha256": "a4639b1286662ee0be49e1acd324591d8a65da97c26f11160ed53744e3da76d7"
+        },
+        {
+          "path": "LICENSE.txt",
+          "upstream": "LICENSE",
+          "sha256": "eed4ccce37c2d24822da3bd9d5bee7bc12d494741de56ada513d0b97f537fcd0",
+          "sourceSha256": "eed4ccce37c2d24822da3bd9d5bee7bc12d494741de56ada513d0b97f537fcd0"
+        }
+      ]
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "ref": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "upstream": ".claude/skills/ui-ux-pro-max/SKILL.md",
+          "sha256": "4994354e0bd1358667a6fbfa50ff5dd7b784c9f5b83b9a12ce3324bf7924e254",
+          "sourceSha256": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9"
+        },
+        {
+          "path": "data/app-interface.csv",
+          "upstream": "src/ui-ux-pro-max/data/app-interface.csv",
+          "sha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08",
+          "sourceSha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08"
+        },
+        {
+          "path": "data/catalog-summary.json",
+          "upstream": "src/ui-ux-pro-max/data/catalog-summary.json",
+          "sha256": "6638da97231c07fb5cef3cd9d3ce483ca7b2f9748980f8c27490eb03968d8894",
+          "sourceSha256": "6638da97231c07fb5cef3cd9d3ce483ca7b2f9748980f8c27490eb03968d8894"
+        },
+        {
+          "path": "data/charts.csv",
+          "upstream": "src/ui-ux-pro-max/data/charts.csv",
+          "sha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a",
+          "sourceSha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a"
+        },
+        {
+          "path": "data/colors.csv",
+          "upstream": "src/ui-ux-pro-max/data/colors.csv",
+          "sha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c",
+          "sourceSha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c"
+        },
+        {
+          "path": "data/data-provenance.json",
+          "upstream": "src/ui-ux-pro-max/data/data-provenance.json",
+          "sha256": "e82fb33ed49375a300e93d9c11ccd1c1493c999e84ee7ee295e527634786e2e0",
+          "sourceSha256": "e82fb33ed49375a300e93d9c11ccd1c1493c999e84ee7ee295e527634786e2e0"
+        },
+        {
+          "path": "data/google-font-licenses.json",
+          "upstream": "src/ui-ux-pro-max/data/google-font-licenses.json",
+          "sha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a",
+          "sourceSha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a"
+        },
+        {
+          "path": "data/google-fonts.csv",
+          "upstream": "src/ui-ux-pro-max/data/google-fonts.csv",
+          "sha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03",
+          "sourceSha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03"
+        },
+        {
+          "path": "data/icons.csv",
+          "upstream": "src/ui-ux-pro-max/data/icons.csv",
+          "sha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc",
+          "sourceSha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc"
+        },
+        {
+          "path": "data/landing.csv",
+          "upstream": "src/ui-ux-pro-max/data/landing.csv",
+          "sha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0",
+          "sourceSha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0"
+        },
+        {
+          "path": "data/motion.csv",
+          "upstream": "src/ui-ux-pro-max/data/motion.csv",
+          "sha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb",
+          "sourceSha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb"
+        },
+        {
+          "path": "data/phosphor-icons-upstream.json",
+          "upstream": "src/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+          "sha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236",
+          "sourceSha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236"
+        },
+        {
+          "path": "data/products.csv",
+          "upstream": "src/ui-ux-pro-max/data/products.csv",
+          "sha256": "42473f75e8dde5987bdf89ce55d8c168091b80a356cae691dd60247d80720b70",
+          "sourceSha256": "42473f75e8dde5987bdf89ce55d8c168091b80a356cae691dd60247d80720b70"
+        },
+        {
+          "path": "data/react-performance.csv",
+          "upstream": "src/ui-ux-pro-max/data/react-performance.csv",
+          "sha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734",
+          "sourceSha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734"
+        },
+        {
+          "path": "data/stacks/angular.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/angular.csv",
+          "sha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553",
+          "sourceSha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553"
+        },
+        {
+          "path": "data/stacks/astro.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/astro.csv",
+          "sha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6",
+          "sourceSha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6"
+        },
+        {
+          "path": "data/stacks/avalonia.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/avalonia.csv",
+          "sha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258",
+          "sourceSha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258"
+        },
+        {
+          "path": "data/stacks/flutter.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/flutter.csv",
+          "sha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0",
+          "sourceSha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0"
+        },
+        {
+          "path": "data/stacks/html-tailwind.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+          "sha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee",
+          "sourceSha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee"
+        },
+        {
+          "path": "data/stacks/javafx.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/javafx.csv",
+          "sha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869",
+          "sourceSha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869"
+        },
+        {
+          "path": "data/stacks/jetpack-compose.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+          "sha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a",
+          "sourceSha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a"
+        },
+        {
+          "path": "data/stacks/laravel.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/laravel.csv",
+          "sha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9",
+          "sourceSha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9"
+        },
+        {
+          "path": "data/stacks/nextjs.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/nextjs.csv",
+          "sha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4",
+          "sourceSha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4"
+        },
+        {
+          "path": "data/stacks/nuxt-ui.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+          "sha256": "fce682a338cfcdbf35d318d20e5befbe7b5d81b05abc37f87677a6d9cde84dc6",
+          "sourceSha256": "fce682a338cfcdbf35d318d20e5befbe7b5d81b05abc37f87677a6d9cde84dc6"
+        },
+        {
+          "path": "data/stacks/nuxtjs.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+          "sha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176",
+          "sourceSha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176"
+        },
+        {
+          "path": "data/stacks/react-native.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/react-native.csv",
+          "sha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5",
+          "sourceSha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5"
+        },
+        {
+          "path": "data/stacks/react.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/react.csv",
+          "sha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1",
+          "sourceSha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1"
+        },
+        {
+          "path": "data/stacks/shadcn.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/shadcn.csv",
+          "sha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51",
+          "sourceSha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51"
+        },
+        {
+          "path": "data/stacks/svelte.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/svelte.csv",
+          "sha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db",
+          "sourceSha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db"
+        },
+        {
+          "path": "data/stacks/swiftui.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/swiftui.csv",
+          "sha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623",
+          "sourceSha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623"
+        },
+        {
+          "path": "data/stacks/threejs.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/threejs.csv",
+          "sha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b",
+          "sourceSha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b"
+        },
+        {
+          "path": "data/stacks/uno.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/uno.csv",
+          "sha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48",
+          "sourceSha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48"
+        },
+        {
+          "path": "data/stacks/uwp.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/uwp.csv",
+          "sha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c",
+          "sourceSha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c"
+        },
+        {
+          "path": "data/stacks/vue.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/vue.csv",
+          "sha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95",
+          "sourceSha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95"
+        },
+        {
+          "path": "data/stacks/winui.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/winui.csv",
+          "sha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85",
+          "sourceSha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85"
+        },
+        {
+          "path": "data/stacks/wpf.csv",
+          "upstream": "src/ui-ux-pro-max/data/stacks/wpf.csv",
+          "sha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7",
+          "sourceSha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7"
+        },
+        {
+          "path": "data/styles.csv",
+          "upstream": "src/ui-ux-pro-max/data/styles.csv",
+          "sha256": "a93a4d9d7025856575d7b7583bda020be9043013432c5af7c58af9dbdfb206b7",
+          "sourceSha256": "a93a4d9d7025856575d7b7583bda020be9043013432c5af7c58af9dbdfb206b7"
+        },
+        {
+          "path": "data/typography.csv",
+          "upstream": "src/ui-ux-pro-max/data/typography.csv",
+          "sha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8",
+          "sourceSha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8"
+        },
+        {
+          "path": "data/ui-reasoning.csv",
+          "upstream": "src/ui-ux-pro-max/data/ui-reasoning.csv",
+          "sha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a",
+          "sourceSha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a"
+        },
+        {
+          "path": "data/ux-guidelines.csv",
+          "upstream": "src/ui-ux-pro-max/data/ux-guidelines.csv",
+          "sha256": "ff81ec613f70ba9fc3fcce52dbe4ae35d44b2079dbe6dc066d2d6e38c28facd5",
+          "sourceSha256": "ff81ec613f70ba9fc3fcce52dbe4ae35d44b2079dbe6dc066d2d6e38c28facd5"
+        },
+        {
+          "path": "scripts/core.py",
+          "upstream": "src/ui-ux-pro-max/scripts/core.py",
+          "sha256": "dfb34cbca66a704a5bfae48c1ab5f82d2a6573b9509c5accceb3d248715a18f6",
+          "sourceSha256": "dfb34cbca66a704a5bfae48c1ab5f82d2a6573b9509c5accceb3d248715a18f6"
+        },
+        {
+          "path": "scripts/design_system.py",
+          "upstream": "src/ui-ux-pro-max/scripts/design_system.py",
+          "sha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103",
+          "sourceSha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103"
+        },
+        {
+          "path": "scripts/reasoning_contract.py",
+          "upstream": "src/ui-ux-pro-max/scripts/reasoning_contract.py",
+          "sha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913",
+          "sourceSha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913"
+        },
+        {
+          "path": "scripts/search.py",
+          "upstream": "src/ui-ux-pro-max/scripts/search.py",
+          "sha256": "d54e648fe0ec2932cac66684220cc17be4bd4b4eba1d23d3195d509d398db374",
+          "sourceSha256": "d54e648fe0ec2932cac66684220cc17be4bd4b4eba1d23d3195d509d398db374"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-api.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-api.json",
+          "sha256": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176",
+          "sourceSha256": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-catalog.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-catalog.json",
+          "sha256": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f",
+          "sourceSha256": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-existing.csv",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-existing.csv",
+          "sha256": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b",
+          "sourceSha256": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-metadata.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-metadata.json",
+          "sha256": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba",
+          "sourceSha256": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/google-overrides.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-overrides.json",
+          "sha256": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b",
+          "sourceSha256": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/icons-curated.csv",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/icons-curated.csv",
+          "sha256": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d",
+          "sourceSha256": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-core.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-core.json",
+          "sha256": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb",
+          "sourceSha256": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-package.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-package.json",
+          "sha256": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475",
+          "sourceSha256": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-react-exports.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-exports.json",
+          "sha256": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded",
+          "sourceSha256": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded"
+        },
+        {
+          "path": "scripts/tests/fixtures/catalogs/phosphor-react-package.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-package.json",
+          "sha256": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec",
+          "sourceSha256": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec"
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-baseline.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-baseline.json",
+          "sha256": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe",
+          "sourceSha256": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe"
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-cases.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-cases.json",
+          "sha256": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646",
+          "sourceSha256": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646"
+        },
+        {
+          "path": "scripts/tests/fixtures/relevance-thresholds.json",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-thresholds.json",
+          "sha256": "1fbe8623fe3e49c8d828139bca9df69043746e488e8bf09d93dfb9cbc31f5cef",
+          "sourceSha256": "1fbe8623fe3e49c8d828139bca9df69043746e488e8bf09d93dfb9cbc31f5cef"
+        },
+        {
+          "path": "scripts/tests/test_catalog_refresh.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_catalog_refresh.py",
+          "sha256": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb",
+          "sourceSha256": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb"
+        },
+        {
+          "path": "scripts/tests/test_catalog_summary_line_endings.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_catalog_summary_line_endings.py",
+          "sha256": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989",
+          "sourceSha256": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989"
+        },
+        {
+          "path": "scripts/tests/test_core.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_core.py",
+          "sha256": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118",
+          "sourceSha256": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118"
+        },
+        {
+          "path": "scripts/tests/test_core_data_quality.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_core_data_quality.py",
+          "sha256": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5",
+          "sourceSha256": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5"
+        },
+        {
+          "path": "scripts/tests/test_data_contracts.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_data_contracts.py",
+          "sha256": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a",
+          "sourceSha256": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a"
+        },
+        {
+          "path": "scripts/tests/test_design_system_mode.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_design_system_mode.py",
+          "sha256": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef",
+          "sourceSha256": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef"
+        },
+        {
+          "path": "scripts/tests/test_design_system_stack.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_design_system_stack.py",
+          "sha256": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38",
+          "sourceSha256": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38"
+        },
+        {
+          "path": "scripts/tests/test_native_desktop_stack_freshness.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_native_desktop_stack_freshness.py",
+          "sha256": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb",
+          "sourceSha256": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb"
+        },
+        {
+          "path": "scripts/tests/test_relevance_evaluator.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_relevance_evaluator.py",
+          "sha256": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f",
+          "sourceSha256": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f"
+        },
+        {
+          "path": "scripts/tests/test_skill_script_paths.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_skill_script_paths.py",
+          "sha256": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44",
+          "sourceSha256": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44"
+        },
+        {
+          "path": "scripts/tests/test_style_taxonomy.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_style_taxonomy.py",
+          "sha256": "cd14d0092e8a454d213aa104b53e4e70ba698491fa00fde9fdec5ca8a3d70011",
+          "sourceSha256": "cd14d0092e8a454d213aa104b53e4e70ba698491fa00fde9fdec5ca8a3d70011"
+        },
+        {
+          "path": "scripts/tests/test_text_layout_resilience.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_text_layout_resilience.py",
+          "sha256": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4",
+          "sourceSha256": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4"
+        },
+        {
+          "path": "scripts/tests/test_web_stack_freshness.py",
+          "upstream": "src/ui-ux-pro-max/scripts/tests/test_web_stack_freshness.py",
+          "sha256": "cba3dd79b3bd7ed9479e8cd0e7efb0594d998160bc712f9865fb0ab6e29dda5a",
+          "sourceSha256": "cba3dd79b3bd7ed9479e8cd0e7efb0594d998160bc712f9865fb0ab6e29dda5a"
+        },
+        {
+          "path": "scripts/validate_data.py",
+          "upstream": "src/ui-ux-pro-max/scripts/validate_data.py",
+          "sha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
+          "sourceSha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8"
+        },
+        {
+          "path": "LICENSE.txt",
+          "upstream": "LICENSE",
+          "sha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014",
+          "sourceSha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014"
+        }
+      ]
+    }
+  ],
+  "skipped": {
+    "impeccable": "Current skill requires native engine and catalog network; no useful documented engine-free installation.",
+    "frontend-design-review": "Duplicates dedicated reviewer and assumes Figma/Storybook plus conflicting copy/style conventions."
+  }
+}

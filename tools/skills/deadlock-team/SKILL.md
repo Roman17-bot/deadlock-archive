@@ -37,3 +37,5 @@ Use `scout`/quick for mechanical checks. Escalate only when the task needs diagn
 Request a fresh [critic](references/roles/critic.md) at a major milestone, before adopting contested game formulas/build claims, after substantial changes across subsystems, or when the user requests a direction check. Give it requirements, an exact artifact/diff and independent evidence access. It may disagree with the coordinator. One scoped review is normally enough; verified fixes do not need repeated identical reviews. No background schedule is implied.
 
 For memory ownership, report fields and evidence promotion see [protocol.md](references/protocol.md).
+
+Project design tooling is documented in `docs/design/TOOLS_AND_SKILLS.md`. The designcritic registry entry is read-only with a return-only report: the coordinator persists it, including private evidence. A role instruction does not override inherited OS permissions. Other roles retain their existing assigned report/prototype ownership.

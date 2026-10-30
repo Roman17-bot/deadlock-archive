@@ -9,11 +9,16 @@ import {
 import { dirname, isAbsolute, relative, resolve, sep } from 'node:path';
 import { homedir } from 'node:os';
 import { fileURLToPath } from 'node:url';
+import { parseArgs } from 'node:util';
 import { resolveArchiveRoot, safePath } from './agents/paths.mjs';
 
 const packages = {
-  'deadlock-design': ['references/assets.md', 'references/motion.md'],
-  'deadlock-design-review': ['references/rubric.md'],
+  'deadlock-design': [
+    'references/assets.md',
+    'references/motion.md',
+    'references/creative-graphics.md',
+  ],
+  'deadlock-design-review': ['references/rubric.md', 'references/rendered-evidence.md'],
 };
 const inside = (parent, child) => {
   const part = relative(parent, child);
@@ -24,11 +29,16 @@ export function installDesignSkills({
   root = resolve(dirname(fileURLToPath(import.meta.url)), '..'),
   archiveRoot,
   target,
+  scope = 'project',
 } = {}) {
   root = resolve(root);
+  if (!['project', 'global'].includes(scope)) throw new Error('Unknown skill installation scope');
   archiveRoot = resolveArchiveRoot({ root, archiveRoot });
   target = resolve(
-    target ?? resolve(process.env.CODEX_HOME ?? resolve(homedir(), '.codex'), 'skills'),
+    target ??
+      (scope === 'project'
+        ? resolve(root, '.agents/skills')
+        : resolve(process.env.CODEX_HOME ?? resolve(homedir(), '.codex'), 'skills')),
   );
   if (existsSync(target) && lstatSync(target).isSymbolicLink())
     throw new Error('Symlink skill target');
@@ -73,8 +83,11 @@ export function installDesignSkills({
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
-    if (process.argv.length > 2) throw new Error('Use npm run design:install without arguments');
-    console.log(JSON.stringify(installDesignSkills()));
+    const { values } = parseArgs({
+      options: { scope: { type: 'string', default: 'project' } },
+      strict: true,
+    });
+    console.log(JSON.stringify(installDesignSkills({ scope: values.scope })));
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

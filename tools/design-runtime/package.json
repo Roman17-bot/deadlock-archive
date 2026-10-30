@@ -1,0 +1,13 @@
+{
+  "name": "deadlock-design-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated development-only browser MCP servers; not part of the website bundle.",
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "dependencies": {
+    "@playwright/mcp": "0.0.83",
+    "chrome-devtools-mcp": "1.12.0"
+  }
+}

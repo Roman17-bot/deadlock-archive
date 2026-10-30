@@ -57,6 +57,13 @@ afterEach(() => rmSync(sandbox, { recursive: true, force: true }));
 const options = () => ({ root, locator });
 
 describe('durable specialist context', () => {
+  it('gives the design critic a return-only read-only brief without creating report files', () => {
+    const brief = createBrief({ ...options(), role: 'designcritic', task: 'Review supplied UI.' });
+    expect(brief.readOnly).toBe(true);
+    expect(brief.reportMode).toBe('return');
+    expect(brief.writeFiles).toEqual([]);
+    expect(existsSync(brief.reportDirectory)).toBe(false);
+  });
   it('resolves the original archive from a worktree without creating another evidence index', () => {
     expect(resolveArchiveRoot(options())).toBe(archive);
     expect(existsSync(join(root, 'knowledge'))).toBe(false);
@@ -380,6 +387,29 @@ describe('installation boundaries', () => {
     writeFileSync(config, '[custom]\nvalue = "user"\n');
     expect(() => writeNativeConfig({ root })).toThrow(/existing|owned/i);
     expect(readFileSync(config, 'utf8')).toBe('[custom]\nvalue = "user"\n');
+  });
+
+  it('keeps unrelated MCP, agent options and project settings on regeneration', () => {
+    writeNativeConfig({ root });
+    const config = join(root, '.codex/config.toml');
+    const extra =
+      '\n[mcp_servers.custom_browser]\ncommand = "keep-me"\n\n[custom]\nvalue = "user"\n';
+    writeFileSync(
+      config,
+      readFileSync(config, 'utf8').replace(
+        '[agents]\n',
+        '[agents] # project controls\ninterrupt_message = false\n',
+      ) + extra,
+    );
+    const native = join(root, '.codex/agents/deadlock-designer.toml');
+    writeFileSync(native, readFileSync(native, 'utf8') + '\n[features]\nmemories = false\n');
+    writeNativeConfig({ root });
+    writeNativeConfig({ root });
+    expect(readFileSync(config, 'utf8')).toContain(extra);
+    expect(readFileSync(config, 'utf8')).toContain('interrupt_message = false');
+    expect(readFileSync(native, 'utf8')).toContain('[features]\nmemories = false');
+    expect(readFileSync(config, 'utf8').match(/\[mcp_servers.custom_browser\]/g)).toHaveLength(1);
+    expect(readFileSync(config, 'utf8').match(/\[agents\]/g)).toHaveLength(1);
   });
 
   it.each(['designer', 'designcritic'])(

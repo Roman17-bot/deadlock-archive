@@ -6,6 +6,8 @@ Prefer scoped CSS transitions/keyframes and SVG for small effects. Use the Web A
 
 For each effect provide runnable source and a concise specification: target selector/component, trigger, duration/easing, initial/final state, replay rules, interruption/cancellation, reduced-motion alternative and integration files. Short control responses around 120–220 ms and contained reveals around 180–320 ms are starting points, not requirements. No artificial delay before filtering, navigation or displaying loaded data.
 
+Include fallback behavior and a proportional performance plan: what will be measured on the representative surface, and which browser/device checks remain open. For a Canvas/WebGL/3D effect also read [creative-graphics.md](creative-graphics.md); ordinary button feedback does not need a renderer.
+
 Animate transform/opacity when suitable. Avoid animating document geometry for decoration, broad `transition: all`, permanent `will-change`, flashing, continuous background loops or mass stagger on the item grid. Clip only decoration, not focus outlines or content. Check actual animation/paint cost when it is material; don't claim a frame-rate target from source inspection alone.
 
 Honor `prefers-reduced-motion` in CSS and JavaScript. The reduced version keeps the final state and task feedback without spatial movement. React examples clean up event listeners and cancel owned animations on interruption/unmount; repeated clicks and Strict Mode must not duplicate effects. Touch/keyboard users can perform every action without hover, and a change to the OS motion preference is handled when JavaScript retains that preference.

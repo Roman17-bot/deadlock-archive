@@ -44,7 +44,9 @@ export function loadRegistry(root) {
       !nonempty(role.description) ||
       !Number.isSafeInteger(role.outputWords) ||
       role.outputWords < 1 ||
-      typeof role.canEditCode !== 'boolean'
+      typeof role.canEditCode !== 'boolean' ||
+      (role.readOnly !== undefined && typeof role.readOnly !== 'boolean') ||
+      (role.readOnly && role.canEditCode)
     )
       throw new Error('Invalid team role');
     ids.add(role.id);
@@ -78,7 +80,10 @@ export function nativeFiles(root) {
   ]);
   for (const role of registry.roles) {
     const profile = registry.profiles[role.depth];
-    const instructions = `Work only on this parent's assigned Deadlock task. Read tools/skills/deadlock-team/SKILL.md and references/roles/${role.id}.md relative to that skill. Run npm run team -- context ${role.id} to recover private role memory, then use bounded project retrieval. Follow references/protocol.md. Save results in your assigned report directory; the coordinator merges durable context. Do not spawn children or publish. Instructions limit intended scope; they do not create a separate filesystem sandbox.`;
+    const reporting = role.readOnly
+      ? 'Read-only review: do not create, edit or delete files, including private reports. Return findings in your response; the coordinator saves the report and merges context.'
+      : 'Save results in your assigned report directory; the coordinator merges durable context.';
+    const instructions = `Work only on this parent's assigned Deadlock task. Read tools/skills/deadlock-team/SKILL.md and references/roles/${role.id}.md relative to that skill. Run npm run team -- context ${role.id} to recover private role memory, then use bounded project retrieval. Follow references/protocol.md. ${reporting} Do not spawn children or publish. Instructions limit intended scope; they do not create a separate filesystem sandbox.`;
     files.set(
       `.codex/agents/deadlock-${role.id}.toml`,
       `${header}name = "deadlock_${role.id}"\ndescription = ${JSON.stringify(role.description)}\nmodel = ${JSON.stringify(profile.model)}\nmodel_reasoning_effort = ${JSON.stringify(profile.effort)}\ndeveloper_instructions = ${JSON.stringify(instructions)}\n`,

@@ -67,7 +67,7 @@
     {
       "id": "designer",
       "label": "Дизайнер",
-      "description": "Deadlock Archive visual design, original graphics, icons and custom animation prototypes for implementation handoff.",
+      "description": "Deadlock Archive art direction, original SVG/Canvas/WebGL/3D and custom motion prototypes with rendered implementation handoff.",
       "depth": "standard",
       "outputWords": 450,
       "canEditCode": false
@@ -75,7 +75,8 @@
     {
       "id": "designcritic",
       "label": "Критик дизайна",
-      "description": "Independent Deadlock Archive design and motion review for visual hierarchy, usability, accessibility and task fit.",
+      "description": "Read-only independent art direction, UX, accessibility, graphics, motion and performance review grounded in rendered evidence.",
+      "readOnly": true,
       "depth": "standard",
       "outputWords": 450,
       "canEditCode": false

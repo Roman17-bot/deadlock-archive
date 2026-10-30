@@ -47,6 +47,7 @@ jobs:
           EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit }}
           EXPECTED_SNAPSHOT_HASH: ${{ inputs.expected_hash }}
       - run: npm test
+      - run: npm run design:check
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/

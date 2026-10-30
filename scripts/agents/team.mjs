@@ -91,6 +91,7 @@ export function teamStatus(options = {}) {
         ...registry.profiles[role.depth],
         initialized: existsSync(entry.contextPath),
         contextPath: entry.contextPath,
+        readOnly: role.readOnly === true,
       };
     }),
     runtimeHandles:
@@ -132,11 +133,13 @@ export function createBrief(options) {
     `Read ${skill}, then ${workflow} and the skill's references/protocol.md. Recover role memory at ${contextPath} (if absent, use the existing archive; do not create a replacement index).`,
     `Knowledge commands: run with workdir ${archiveRoot}; start with npm run knowledge -- status, then bounded queries there. Implementation searches and tests use workdir ${root}.`,
     `Read scope: ${(options.readFiles ?? []).join(', ') || 'the smallest relevant source files and bounded knowledge/DB queries'}.`,
-    `Code write ownership: ${writeFiles.join(', ') || 'none'}. You may create only your assigned private report directory: ${reportDirectory}. Do not update shared CONTEXT.md or the evidence index; the coordinator merges accepted results.`,
+    role.readOnly
+      ? `File access: read-only. Do not create, edit or delete any files, including private reports. Return findings to the coordinator, who alone may save them at ${reportDirectory}. Do not update CONTEXT.md or the evidence index.`
+      : `Code write ownership: ${writeFiles.join(', ') || 'none'}. You may create only your assigned private report directory: ${reportDirectory}. Do not update shared CONTEXT.md or the evidence index; the coordinator merges accepted results.`,
     role.id === 'designer'
       ? 'You may draw assets and build design prototypes inside that assigned private run directory. The coordinator or website role integrates production changes.'
       : '',
-    `Return at most ${role.outputWords} words: result; exact evidence paths/URLs and version/date; what was actually verified; uncertainty/conflicts; report path and next useful action. Put necessary detail in the assigned report. Do not copy the whole chat or spawn further agents.`,
+    `Return at most ${role.outputWords} words: result; exact evidence paths/URLs and version/date; what was actually verified; uncertainty/conflicts; next useful action. ${role.readOnly ? 'Return the report as text; do not write a report file.' : 'Put necessary detail in the assigned report.'} Do not copy the whole chat or spawn further agents.`,
     options.escalationReason ? `Escalation reason: ${options.escalationReason}` : '',
   ]
     .filter(Boolean)
@@ -149,6 +152,8 @@ export function createBrief(options) {
     reportDirectory,
     knowledgeCommand: { cwd: archiveRoot, argv: ['npm', 'run', 'knowledge', '--', 'status'] },
     writeFiles,
+    readOnly: role.readOnly === true,
+    reportMode: role.readOnly ? 'return' : 'file',
     outputWords: role.outputWords,
     spawn: {
       task_name: `deadlock_${role.id}_${runId.slice(0, 8)}`,
@@ -211,10 +216,50 @@ export function writeNativeConfig({ root = defaultRoot() } = {}) {
     if (existsSync(path) && !readFileSync(path, 'utf8').startsWith(header))
       throw new Error(`Existing config is not team-owned: ${slash(file)}`);
   }
-  for (const [file, content] of files) {
+  const outputs = [...files].map(([file, content]) => {
     const path = safePath(root, file);
+    return {
+      path,
+      content: existsSync(path) ? mergeManagedConfig(readFileSync(path, 'utf8'), content) : content,
+    };
+  });
+  for (const { path, content } of outputs) {
     mkdirSync(dirname(path), { recursive: true });
     writeFileSync(path, content);
   }
   return { files: [...files.keys()] };
+}
+
+// Update only generated single-line keys; retain unrelated tables and user options.
+function mergeManagedConfig(existing, generated) {
+  const lines = existing.split('\n');
+  let table = '';
+  for (const line of generated.split('\n')) {
+    const heading = line.match(/^\[([^\]]+)\]$/);
+    if (heading) {
+      table = heading[1];
+      continue;
+    }
+    const key = line.match(/^([A-Za-z_][A-Za-z_0-9]*)\s*=/)?.[1];
+    if (!key) continue;
+    let start = table
+      ? lines.findIndex((item) => item.match(/^\s*\[([^\]]+)\]\s*(?:#.*)?$/)?.[1] === table)
+      : -1;
+    if (table && start === -1) {
+      lines.push('', `[${table}]`);
+      start = lines.length - 1;
+    }
+    let end = lines.findIndex((item, index) => index > start && /^\s*\[/.test(item));
+    if (end === -1) end = lines.length;
+    const index = lines.findIndex(
+      (item, index) => index > start && index < end && new RegExp(`^\\s*${key}\\s*=`).test(item),
+    );
+    if (index === -1) lines.splice(end, 0, line);
+    else {
+      if (/=\s*(?:"""|''')/.test(lines[index]))
+        throw new Error('Managed multiline config value requires manual reconciliation');
+      lines[index] = line;
+    }
+  }
+  return lines.join('\n');
 }

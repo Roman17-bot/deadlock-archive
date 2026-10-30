@@ -7,3 +7,6 @@ public/assets/fonts
 data
 public/data
 package-lock.json
+.agents/skills
+tools/design-runtime/package-lock.json
+tools/design/skills-lock.json

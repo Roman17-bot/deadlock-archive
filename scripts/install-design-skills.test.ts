@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, expect, it } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import {
   cpSync,
   existsSync,
@@ -16,6 +16,7 @@ import { installDesignSkills } from './install-design-skills.mjs';
 let sandbox: string, root: string, archiveRoot: string, target: string;
 beforeEach(() => {
   sandbox = mkdtempSync(join(tmpdir(), 'deadlock-design-'));
+  vi.stubEnv('CODEX_HOME', join(sandbox, 'user-codex'));
   root = join(sandbox, 'checkout');
   archiveRoot = join(sandbox, 'original');
   target = join(sandbox, 'skills');
@@ -31,6 +32,7 @@ beforeEach(() => {
   writeFileSync(join(archiveRoot, 'package.json'), JSON.stringify({ name: 'deadlock-archive' }));
 });
 afterEach(() => {
+  vi.unstubAllEnvs();
   if (dirname(resolve(sandbox)) !== resolve(tmpdir())) throw new Error('Unsafe test cleanup');
   rmSync(sandbox, { recursive: true, force: true });
 });
@@ -67,4 +69,11 @@ it('rejects installation over tracked sources', () => {
   expect(() =>
     installDesignSkills({ root, archiveRoot, target: join(root, 'tools/skills') }),
   ).toThrow(/overlap/);
+});
+it('defaults to project skills without writing the user skill directory', () => {
+  const result = installDesignSkills({ root, archiveRoot });
+  expect(result.skills.map((skill: { path: string }) => skill.path)).toEqual([
+    join(root, '.agents/skills/deadlock-design'),
+    join(root, '.agents/skills/deadlock-design-review'),
+  ]);
 });

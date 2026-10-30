@@ -36,7 +36,11 @@
     "team": "node scripts/agents/cli.mjs",
     "team:init": "node scripts/agents/cli.mjs init",
     "team:install": "node scripts/agents/cli.mjs install",
-    "design:install": "node scripts/install-design-skills.mjs"
+    "design:install": "node scripts/install-design-skills.mjs",
+    "design:check": "node scripts/design/check-skills.mjs",
+    "design:discovery": "python -B scripts/design/check-discovery.py",
+    "design:test": "python -B -m unittest discover -s scripts/design -p \"*_test.py\"",
+    "design:mcp:check": "python -B scripts/design/mcp_probe.py"
   },
   "dependencies": {
     "i18next": "26.5.10",
