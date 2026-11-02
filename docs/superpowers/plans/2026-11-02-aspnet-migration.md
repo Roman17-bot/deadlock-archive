@@ -9,6 +9,8 @@ Architecture: one modular ASP.NET Core application, EF Core/Npgsql existing-sche
 - [x] Backfill official described patch notes with stable identities, safe expandable display and no bare-build public entries.
 - [x] Implement API/CLI/host and one-command startup, background refresh, local security and persistent recoverable outcomes.
 - [x] Replace legacy Node runtime entrypoints and CI; run contract/security/update/DB/export/UI checks before publishing.
-- [ ] Review independently, exercise real PostgreSQL backup/update and compare deployed bytes; record evidence privately.
+- [x] Review independently, exercise real PostgreSQL backup/update and compare deployed bytes; record evidence privately.
 
 Ownership: data worker Data/Sync; ingestion worker Ingestion; website worker Patches/UpdatesPage/schema; coordinator host, Updates, CLI, launch scripts, integration tests and release. New shared interfaces are in backend/Deadlock.Api/Contracts.cs.
+
+Verified release: implementation commit97038d7; PostgreSQL CI41510033356 and Pages41510033347 succeeded. Native51 tests (including isolated PostgreSQL), frontend275 tests, typecheck, data/manifest checks and production build passed. Working PostgreSQL, repository and all208 public files on Pages matched SHA256 `46223c098d4cde514fd88d7d2f3fb15f2ab3d02cd6d371b789ccd4b6380457b1` after deployment. Data client6839 is the latest available extraction checked during the release; GameTracking6841 is newer, so source resolution pins the exact matching historical revision rather than mixing versions. Private evidence and limitations remain in the owner's knowledge archive.
