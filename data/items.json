@@ -678,7 +678,7 @@
             "en": "Bullet Velocity",
             "ru": "Скорость пуль"
           },
-          "value": "+60%"
+          "value": "+45%"
         },
         {
           "key": "BaseAttackDamagePercent",
@@ -801,7 +801,7 @@
             "en": "Parry Cooldown",
             "ru": "Время перезарядки парирования"
           },
-          "value": "-1.75 s"
+          "value": "-1.25 s"
         },
         {
           "key": "MeleeResistPercent",
@@ -1618,7 +1618,7 @@
             "en": "Bonus Health",
             "ru": "Бонус к здоровью"
           },
-          "value": "+50"
+          "value": "+90"
         }
       ],
       "category": "spirit",
@@ -2601,7 +2601,7 @@
                 "en": "Incoming Healing",
                 "ru": "Получаемое лечение"
               },
-              "value": "-35%"
+              "value": "-40%"
             }
           ],
           "description": {
@@ -2811,7 +2811,7 @@
                 "en": "Slow Duration",
                 "ru": "Длительность замедления"
               },
-              "value": "2 s"
+              "value": "2.5 s"
             },
             {
               "key": "CloseRangeBonusDamageRange",
@@ -2915,7 +2915,7 @@
                 "en": "Incoming Healing",
                 "ru": "Получаемое лечение"
               },
-              "value": "-35%"
+              "value": "-40%"
             }
           ],
           "description": {
@@ -3072,7 +3072,7 @@
             "en": "Bullet Lifesteal",
             "ru": "Кража здоровья пулями"
           },
-          "value": "+13%"
+          "value": "+15%"
         },
         {
           "key": "BonusHealth",
@@ -3088,7 +3088,7 @@
             "en": "Weapon Damage",
             "ru": "Урон от оружия"
           },
-          "value": "+6%"
+          "value": "+10%"
         }
       ],
       "category": "vitality",
@@ -3236,8 +3236,8 @@
             {
               "key": "HealOnActivate",
               "label": {
-                "en": "HP Healed On Activate",
-                "ru": "Восст. здоровья при активации"
+                "en": "Heal Amount",
+                "ru": "Лечение"
               },
               "value": "250"
             }
@@ -3348,7 +3348,7 @@
             "en": "Bullet Resist",
             "ru": "Сопр. пулям"
           },
-          "value": "+30%"
+          "value": "+35%"
         },
         {
           "key": "OutOfCombatHealthRegen",
@@ -3356,7 +3356,7 @@
             "en": "Out of Combat Regen",
             "ru": "Восстановление вне боя"
           },
-          "value": "+3"
+          "value": "+5"
         }
       ],
       "category": "vitality",
@@ -3437,6 +3437,14 @@
               "value": "-1.5 m"
             },
             {
+              "key": "GravityScale",
+              "label": {
+                "en": "Gravity Scale",
+                "ru": "Сила гравитации"
+              },
+              "value": "+20%"
+            },
+            {
               "key": "GroundDashReductionPercent",
               "label": {
                 "en": "Dash Distance",
@@ -3494,26 +3502,16 @@
       ],
       "attributes": [
         {
-          "key": "BonusHealthRegen",
-          "label": {
-            "en": "Health Regen",
-            "ru": "Восстановление здоровья"
-          },
-          "value": "+3"
-        },
-        {
           "key": "OutOfCombatHealthRegen",
           "label": {
             "en": "Out of Combat Regen",
             "ru": "Восстановление вне боя"
           },
-          "value": "+1"
+          "value": "+2"
         }
       ],
       "category": "vitality",
-      "components": [
-        2829638276
-      ],
+      "components": [],
       "cost": 1600,
       "description": {
         "en": "Increases the effectiveness of your healing.",
@@ -3657,7 +3655,7 @@
             "en": "Spirit Lifesteal",
             "ru": "Кража здоровья спиритизмом"
           },
-          "value": "+28%"
+          "value": "+30%"
         },
         {
           "key": "BulletLifestealPercent",
@@ -3665,7 +3663,7 @@
             "en": "Bullet Lifesteal",
             "ru": "Кража здоровья пулями"
           },
-          "value": "+28%"
+          "value": "+30%"
         },
         {
           "key": "BonusHealth",
@@ -4302,7 +4300,7 @@
       "cost": 1600,
       "description": {
         "en": "Gain a Barrier whenever you take significant weapon damage from enemy Heroes in a small time frame.",
-        "ru": "Даёт вам барьер каждый раз, когда вражеские герои наносят вам значительный урон от оружия за короткий интервал времени."
+        "ru": "Даёт вам барьер, когда вражеские герои наносят вам значительный урон от оружия за короткий интервал времени."
       },
       "effects": [
         {
@@ -4362,7 +4360,7 @@
           ],
           "description": {
             "en": "Gain a Barrier whenever you take significant weapon damage from enemy Heroes in a small time frame.",
-            "ru": "Даёт вам барьер каждый раз, когда вражеские герои наносят вам значительный урон от оружия за короткий интервал времени."
+            "ru": "Даёт вам барьер, когда вражеские герои наносят вам значительный урон от оружия за короткий интервал времени."
           },
           "kind": "passive"
         }
@@ -4408,7 +4406,7 @@
       "cost": 1600,
       "description": {
         "en": "Gain a Barrier whenever you take significant spirit damage from enemy Heroes in a small time frame.",
-        "ru": "Даёт вам барьер каждый раз, когда вражеские герои наносят вам значительный спиритический урон за короткий интервал времени."
+        "ru": "Даёт вам барьер, когда вражеские герои наносят вам значительный спиритический урон за короткий интервал времени."
       },
       "effects": [
         {
@@ -4463,12 +4461,12 @@
                 "en": "Spirit Resist",
                 "ru": "Сопр. спиритизму"
               },
-              "value": "+18%"
+              "value": "+15%"
             }
           ],
           "description": {
             "en": "Gain a Barrier whenever you take significant spirit damage from enemy Heroes in a small time frame.",
-            "ru": "Даёт вам барьер каждый раз, когда вражеские герои наносят вам значительный спиритический урон за короткий интервал времени."
+            "ru": "Даёт вам барьер, когда вражеские герои наносят вам значительный спиритический урон за короткий интервал времени."
           },
           "kind": "passive"
         }
@@ -4531,7 +4529,7 @@
                 "en": "Weapon Damage",
                 "ru": "Урон от оружия"
               },
-              "value": "+18%"
+              "value": "+22%"
             },
             {
               "key": "BonusFireRate",
@@ -4833,7 +4831,7 @@
             "en": "Spirit Lifesteal",
             "ru": "Кража здоровья спиритизмом"
           },
-          "value": "+13%"
+          "value": "+15%"
         },
         {
           "key": "BonusHealth",
@@ -4849,7 +4847,7 @@
             "en": "Spirit Power",
             "ru": "Спиритическая мощь"
           },
-          "value": "+6"
+          "value": "+8"
         }
       ],
       "category": "weapon",
@@ -4938,7 +4936,16 @@
           "ru": "Полезен, когда враги продолжают наносить тебе урон в открытой перестрелке. Включай под ожидаемый фокус: ответные пули наказывают тех, кто атакует тебя оружием или способностями."
         }
       ],
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "BulletResist",
+          "label": {
+            "en": "Bullet Resist",
+            "ru": "Сопр. пулям"
+          },
+          "value": "+10%"
+        }
+      ],
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -5183,7 +5190,7 @@
             "en": "Spirit Lifesteal",
             "ru": "Кража здоровья спиритизмом"
           },
-          "value": "+13%"
+          "value": "+15%"
         },
         {
           "key": "BonusHealth",
@@ -5199,7 +5206,7 @@
             "en": "Spirit Power",
             "ru": "Спиритическая мощь"
           },
-          "value": "+6"
+          "value": "+8"
         }
       ],
       "category": "vitality",
@@ -5679,7 +5686,7 @@
                 "en": "Heal On Hero Kill",
                 "ru": "Лечение за убийство героя"
               },
-              "value": "275"
+              "value": "170"
             }
           ],
           "description": {
@@ -5763,7 +5770,7 @@
                 "en": "Dash Distance",
                 "ru": "Дальность рывка"
               },
-              "value": "-10%"
+              "value": "-12%"
             }
           ],
           "description": {
@@ -6274,7 +6281,7 @@
                 "en": "Cast Range",
                 "ru": "Дальность применения"
               },
-              "value": "40 m"
+              "value": "35 m"
             },
             {
               "key": "AbilityCooldown",
@@ -6282,7 +6289,7 @@
                 "en": "Cooldown",
                 "ru": "Перезарядка"
               },
-              "value": "18 s"
+              "value": "22 s"
             },
             {
               "key": "MagicResistReduction",
@@ -6409,7 +6416,7 @@
                 "en": "Cooldown",
                 "ru": "Перезарядка"
               },
-              "value": "45 s"
+              "value": "40 s"
             },
             {
               "key": "PercentDamage",
@@ -6858,7 +6865,7 @@
                 "en": "Incoming Healing",
                 "ru": "Получаемое лечение"
               },
-              "value": "-50%"
+              "value": "-55%"
             },
             {
               "key": "AbilityCastDelay",
@@ -7588,7 +7595,7 @@
             "en": "Melee Resist",
             "ru": "Сопротивляемость в ближнем бою"
           },
-          "value": "+18%"
+          "value": "+22%"
         }
       ],
       "category": "spirit",
@@ -7778,8 +7785,8 @@
       ],
       "cost": 3200,
       "description": {
-        "en": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.\n\nAttacking or using an ability will end your stealth and start an ambush, temporarily granting you bonus Fire Rate, Spirit Power and Melee Damage.",
-        "ru": "Даёт скрытность. Получение урона ненадолго раскроет вас.\n\nЕсли вы атакуете или используете умение, ваша скрытность прекращается и начинается засада, которая временно увеличивает вашу скорострельность, спиритическую мощь и урон в ближнем бою."
+        "en": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.\n\nAttacking or using an ability will end your stealth and start an ambush, temporarily granting you bonus Weapon Damage and Spirit Power.",
+        "ru": "Даёт скрытность. Получение урона ненадолго раскроет вас.\n\nЕсли вы атакуете или используете умение, ваша скрытность прекращается и начинается засада, которая временно увеличивает ваш урон от оружия и спиритическую мощь."
       },
       "effects": [
         {
@@ -7817,12 +7824,20 @@
               "value": "5 s"
             },
             {
-              "key": "AmbushBonusFireRate",
+              "key": "AmbushBuildUpDuration",
               "label": {
-                "en": "Ambush Fire Rate",
-                "ru": "Скорострельность в засаде"
+                "en": "Time to Full Ambush",
+                "ru": "Время до макс. бонуса засады"
               },
-              "value": "+25%"
+              "value": "6 s"
+            },
+            {
+              "key": "AmbushBonusWeaponDamage",
+              "label": {
+                "en": "Ambush Weapon Damage",
+                "ru": "Урон от оружия в засаде"
+              },
+              "value": "+50%"
             },
             {
               "key": "AmbushBonusTechPower",
@@ -7831,14 +7846,6 @@
                 "ru": "Спиритическая мощь в засаде"
               },
               "value": "+25"
-            },
-            {
-              "key": "AmbushBonusMeleeDamage",
-              "label": {
-                "en": "Ambush Melee Damage",
-                "ru": "Урон в ближнем бою от засады"
-              },
-              "value": "25%"
             },
             {
               "key": "AbilityCooldown",
@@ -7850,8 +7857,8 @@
             }
           ],
           "description": {
-            "en": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.\n\nAttacking or using an ability will end your stealth and start an ambush, temporarily granting you bonus Fire Rate, Spirit Power and Melee Damage.",
-            "ru": "Даёт скрытность. Получение урона ненадолго раскроет вас.\n\nЕсли вы атакуете или используете умение, ваша скрытность прекращается и начинается засада, которая временно увеличивает вашу скорострельность, спиритическую мощь и урон в ближнем бою."
+            "en": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.\n\nAttacking or using an ability will end your stealth and start an ambush, temporarily granting you bonus Weapon Damage and Spirit Power.",
+            "ru": "Даёт скрытность. Получение урона ненадолго раскроет вас.\n\nЕсли вы атакуете или используете умение, ваша скрытность прекращается и начинается засада, которая временно увеличивает ваш урон от оружия и спиритическую мощь."
           },
           "kind": "active"
         }
@@ -7865,8 +7872,6 @@
       "name": "Shadow Weave",
       "slug": "shadow-weave",
       "tags": [
-        "fire-rate",
-        "melee-damage",
         "move-speed",
         "regen",
         "spirit-power",
@@ -8030,6 +8035,10 @@
               "label": {
                 "en": "Total HP Regen",
                 "ru": "Общее восст. здоровья"
+              },
+              "scaling": {
+                "en": "+1.1 per 1 Spirit",
+                "ru": "+1.1 за 1 Spirit"
               },
               "value": "325"
             },
@@ -8281,7 +8290,7 @@
             "en": "Spirit Lifesteal",
             "ru": "Кража здоровья спиритизмом"
           },
-          "value": "+13%"
+          "value": "+15%"
         },
         {
           "key": "TechResist",
@@ -8305,7 +8314,7 @@
             "en": "Spirit Power",
             "ru": "Спиритическая мощь"
           },
-          "value": "+6"
+          "value": "+8"
         }
       ],
       "category": "vitality",
@@ -8342,7 +8351,7 @@
                 "en": "Spirit Lifesteal",
                 "ru": "Кража здоровья спиритизмом"
               },
-              "value": "+70%"
+              "value": "+75%"
             },
             {
               "key": "BonusSpirit",
@@ -8535,7 +8544,7 @@
                 "en": "Cooldown",
                 "ru": "Перезарядка"
               },
-              "value": "45 s"
+              "value": "55 s"
             },
             {
               "key": "BuffDuration",
@@ -9816,7 +9825,7 @@
             "en": "Weapon Damage",
             "ru": "Урон от оружия"
           },
-          "value": "+80%"
+          "value": "+85%"
         },
         {
           "key": "MaxHealthLossPercent",
@@ -9884,7 +9893,7 @@
             "en": "Bullet Lifesteal",
             "ru": "Кража здоровья пулями"
           },
-          "value": "+14%"
+          "value": "+15%"
         },
         {
           "key": "BonusHealth",
@@ -9900,7 +9909,7 @@
             "en": "Weapon Damage",
             "ru": "Урон от оружия"
           },
-          "value": "+6%"
+          "value": "+10%"
         }
       ],
       "category": "vitality",
@@ -9945,7 +9954,7 @@
                 "en": "Move Speed",
                 "ru": "Скорость передвижения"
               },
-              "value": "+1 m/s"
+              "value": "+1.5 m/s"
             },
             {
               "key": "TechResist",
@@ -9997,7 +10006,7 @@
             "en": "Bullet Lifesteal",
             "ru": "Кража здоровья пулями"
           },
-          "value": "+13%"
+          "value": "+15%"
         },
         {
           "key": "BulletResist",
@@ -10021,7 +10030,7 @@
             "en": "Weapon Damage",
             "ru": "Урон от оружия"
           },
-          "value": "+6%"
+          "value": "+10%"
         }
       ],
       "category": "vitality",
@@ -10066,7 +10075,7 @@
                 "en": "Bullet Lifesteal",
                 "ru": "Кража здоровья пулями"
               },
-              "value": "70%"
+              "value": "75%"
             },
             {
               "key": "ActiveBonusFireRate",
@@ -10734,8 +10743,8 @@
       ],
       "cost": 3200,
       "description": {
-        "en": "Dealing spirit damage to enemy Heroes grants you Bonus regeneration. Stacks when dealing damage to different heroes.\n\nHeal and gain bonus Movement Speed for a short duration when you cast an ability.",
-        "ru": "Нанесение спиритического урона вражеским героям даёт вам бонусное восстановление. Накапливается при нанесении урона разным героям.\n\nВы получаете лечение и кратковременный бонус к скорости передвижения при применении умения."
+        "en": "Dealing spirit damage to enemy Heroes grants you Bonus regeneration. Stacks when dealing damage to different heroes.\n\nWhile in-combat, Heal and gain bonus Movement Speed for a short duration when you cast an ability.",
+        "ru": "Нанесение спиритического урона вражеским героям даёт вам бонусное восстановление. Накапливается при нанесении урона разным героям.\n\nВ бою вы при применении умения вы получаете лечение и кратковременный бонус к скорости передвижения."
       },
       "effects": [
         {
@@ -10755,8 +10764,8 @@
                 "ru": "Восстановление"
               },
               "scaling": {
-                "en": "+0.035 per 1 Spirit",
-                "ru": "+0.035 за 1 Spirit"
+                "en": "+0.025 per 1 Spirit",
+                "ru": "+0.025 за 1 Spirit"
               },
               "value": "4 HP/s"
             }
@@ -10791,7 +10800,7 @@
                 "en": "Healing on Ability Cast",
                 "ru": "Лечение при использовании умения"
               },
-              "value": "65"
+              "value": "40"
             },
             {
               "key": "BonusMoveSpeed",
@@ -10803,8 +10812,8 @@
             }
           ],
           "description": {
-            "en": "Heal and gain bonus Movement Speed for a short duration when you cast an ability.",
-            "ru": "Вы получаете лечение и кратковременный бонус к скорости передвижения при применении умения."
+            "en": "While in-combat, Heal and gain bonus Movement Speed for a short duration when you cast an ability.",
+            "ru": "В бою вы при применении умения вы получаете лечение и кратковременный бонус к скорости передвижения."
           },
           "kind": "passive"
         }
@@ -11033,9 +11042,7 @@
         "regen"
       ],
       "tier": 1,
-      "upgrades": [
-        2566692615
-      ]
+      "upgrades": []
     },
     {
       "activation": "passive",
@@ -12501,6 +12508,10 @@
                 "en": "Damage",
                 "ru": "Урон"
               },
+              "scaling": {
+                "en": "+0.35 per 1 Spirit",
+                "ru": "+0.35 за 1 Spirit"
+              },
               "value": "150"
             }
           ],
@@ -12779,7 +12790,7 @@
                 "en": "Proc Chance",
                 "ru": "Шанс срабатывания"
               },
-              "value": "55%"
+              "value": "60%"
             }
           ],
           "description": {
@@ -12827,7 +12838,7 @@
       "cost": 6400,
       "description": {
         "en": "Gain a chance to either deflect incoming bullets, preventing all weapon damage or prevent all on-hit effects from bullets.",
-        "ru": "Даёт шанс либо отразить летящие в вас пули, нейтрализовав весь урон от оружия, либо предотвратить все эффекты, накладываемые на вас пулями при попадании."
+        "ru": "Даёт шанс нейтрализовать либо наносимый пулями урон от оружия, либо эффекты, накладываемые на вас пулями при попадании."
       },
       "effects": [
         {
@@ -12836,7 +12847,7 @@
               "key": "DeflectionPercent",
               "label": {
                 "en": "Deflection Percent",
-                "ru": "Вероятность отражения"
+                "ru": "Шанс нейтрализации урона"
               },
               "value": "30%"
             },
@@ -12844,7 +12855,7 @@
               "key": "BulletProcDeflectionPercent",
               "label": {
                 "en": "On-Hit Prevention Percent",
-                "ru": "Вероятность предотвращения при попадании"
+                "ru": "Шанс нейтрализации эффектов"
               },
               "value": "50%"
             },
@@ -12859,7 +12870,7 @@
           ],
           "description": {
             "en": "Gain a chance to either deflect incoming bullets, preventing all weapon damage or prevent all on-hit effects from bullets.",
-            "ru": "Даёт шанс либо отразить летящие в вас пули, нейтрализовав весь урон от оружия, либо предотвратить все эффекты, накладываемые на вас пулями при попадании."
+            "ru": "Даёт шанс нейтрализовать либо наносимый пулями урон от оружия, либо эффекты, накладываемые на вас пулями при попадании."
           },
           "kind": "passive"
         }
@@ -13013,7 +13024,7 @@
             "en": "Health Regen",
             "ru": "Восстановление здоровья"
           },
-          "value": "+8"
+          "value": "+15"
         }
       ],
       "category": "vitality",
@@ -13345,10 +13356,10 @@
                 "ru": "Урон от альтернативного огня"
               },
               "scaling": {
-                "en": "+1.3 per level after the first",
-                "ru": "+1.3 за уровень после первого"
+                "en": "+1.24 per level after the first",
+                "ru": "+1.24 за уровень после первого"
               },
-              "value": "+40%"
+              "value": "+38%"
             }
           ],
           "description": {
@@ -13489,7 +13500,7 @@
       "cost": 1600,
       "description": {
         "en": "Dealing significant weapon damage replenishes a charge for each of your charged abilities.",
-        "ru": "При нанесении значительного урона от оружия у вас восстанавливается заряд у всех умений с зарядами."
+        "ru": "Нанеся значительный урон от оружия, вы восстанавливаете заряд у каждого умения с зарядами."
       },
       "effects": [
         {
@@ -13521,7 +13532,7 @@
           ],
           "description": {
             "en": "Dealing significant weapon damage replenishes a charge for each of your charged abilities.",
-            "ru": "При нанесении значительного урона от оружия у вас восстанавливается заряд у всех умений с зарядами."
+            "ru": "Нанеся значительный урон от оружия, вы восстанавливаете заряд у каждого умения с зарядами."
           },
           "kind": "passive"
         }
@@ -13530,7 +13541,7 @@
       "id": 1763073141,
       "localizedName": {
         "en": "Recharging Rush",
-        "ru": "Прилив перезарядки"
+        "ru": "Прилив зарядов"
       },
       "name": "Recharging Rush",
       "slug": "recharging-rush",
@@ -13558,7 +13569,7 @@
             "en": "Damage Penalty",
             "ru": "Снижение урона"
           },
-          "value": "-15%"
+          "value": "-12%"
         },
         {
           "key": "BonusSprintSpeed",
@@ -13629,10 +13640,10 @@
     }
   ],
   "meta": {
-    "clientVersion": 6821,
+    "clientVersion": 6839,
     "itemCount": 156,
     "schemaVersion": 1,
-    "sourceRevision": 11170534,
-    "updatedAt": "2026-10-28T16:56:49.000Z"
+    "sourceRevision": 11193905,
+    "updatedAt": "2026-11-02T19:10:45.000Z"
   }
 }

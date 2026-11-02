@@ -21,6 +21,40 @@ export interface VersionHistoryEntry {
 export interface VersionHistory {
   schemaVersion: 1;
   versions: VersionHistoryEntry[];
+  /** Official news identity is independent of a game client/build number. */
+  patches?: OfficialPatch[];
+}
+
+export interface OfficialPatch {
+  id: string;
+  source: 'steam';
+  url: string;
+  publishedAt: string;
+  title: { en: string; ru?: string };
+  /** Plain text, never HTML. Missing translations retain the original language. */
+  body: { en: string; ru?: string };
+  clientVersion?: number;
+}
+
+export function validateOfficialPatch(input: unknown): input is OfficialPatch {
+  if (!input || typeof input !== 'object') return false;
+  const patch = input as OfficialPatch;
+  return (
+    typeof patch.id === 'string' &&
+    /^\d{1,24}$/.test(patch.id) &&
+    patch.source === 'steam' &&
+    patch.url ===
+      `https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/${patch.id}` &&
+    validTimestamp(patch.publishedAt) &&
+    !!patch.title &&
+    shortText(patch.title.en, 240) &&
+    (patch.title.ru === undefined || shortText(patch.title.ru, 240)) &&
+    !!patch.body &&
+    shortText(patch.body.en, 200_000) &&
+    (patch.body.ru === undefined || shortText(patch.body.ru, 200_000)) &&
+    (patch.clientVersion === undefined ||
+      (Number.isSafeInteger(patch.clientVersion) && patch.clientVersion > 0))
+  );
 }
 
 function validDate(value: unknown): value is string {
@@ -77,6 +111,14 @@ export function validateVersionHistory(input: unknown): input is VersionHistory 
   if (!input || typeof input !== 'object') return false;
   const history = input as VersionHistory;
   if (history.schemaVersion !== 1 || !Array.isArray(history.versions)) return false;
+  if (history.patches !== undefined) {
+    if (!Array.isArray(history.patches)) return false;
+    const ids = new Set<string>();
+    for (const patch of history.patches) {
+      if (!validateOfficialPatch(patch) || ids.has(patch.id)) return false;
+      ids.add(patch.id);
+    }
+  }
   const seen = new Set<number>();
   for (const entry of history.versions) {
     if (

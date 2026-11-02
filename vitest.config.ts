@@ -8,7 +8,6 @@ export default defineConfig({
     environment: 'node',
     include: [
       'shared/**/*.test.ts',
-      'server/**/*.test.ts',
       'tests/**/*.test.tsx',
       'tests/**/*.test.ts',
       'scripts/**/*.test.ts',

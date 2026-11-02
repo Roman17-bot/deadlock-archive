@@ -16,3 +16,6 @@ outputs/
 tools/design-runtime/python/
 __pycache__/
 .playwright-mcp/
+**/bin/
+**/obj/
+**/TestResults/

@@ -5,7 +5,7 @@ export const workflow =
   'https://github.com/Roman17-bot/deadlock-archive/actions/workflows/refresh-data.yml';
 export const localCenter = 'http://127.0.0.1:5173/#/updates';
 export const activePhases = new Set(['checking', 'saving', 'publishing']);
-export const maxPolls = 150;
+export const maxPolls = 400;
 
 export function isState(value: unknown): value is UpdateState {
   if (!value || typeof value !== 'object') return false;

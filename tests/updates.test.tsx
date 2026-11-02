@@ -256,7 +256,7 @@ describe('owner updates', () => {
     available = true;
     fireEvent.click(screen.getByRole('button', { name: 'Повторить загрузку истории' }));
     expect(
-      await screen.findByText('6819', { selector: '.version-history-list strong' }),
+      await screen.findByText('Описания обновлений появятся здесь после следующей проверки.'),
     ).toBeVisible();
   });
   it('shows a translated up-to-date result without reloading a snapshot or a publication link', async () => {
@@ -461,7 +461,7 @@ describe('owner updates', () => {
 });
 
 describe('public updates', () => {
-  it('loads persisted history and distinguishes the client build date from the archive date', async () => {
+  it('shows described updates and keeps bare build metadata out of the public history', async () => {
     const history = {
       schemaVersion: 1,
       versions: [
@@ -473,15 +473,23 @@ describe('public updates', () => {
           provenance: { kind: 'snapshot-save', reference: '2026-10-23T12:00:00Z' },
         },
       ],
+      patches: [
+        {
+          id: '123456',
+          source: 'steam',
+          url: 'https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/123456',
+          publishedAt: '2026-10-30T20:51:49.000Z',
+          title: { en: 'Gameplay Update' },
+          body: { en: 'Nurse Harrow: Healing Needles reduced from 25 to 22.' },
+        },
+      ],
     };
     fetchRoutes((url) => (url.endsWith('data/version-history.json') ? json(history) : json(data)));
     render(<UpdatePage mode="public" data={data} onSnapshot={vi.fn()} />);
-    expect(
-      await screen.findByText('6818', { selector: '.version-history-list strong' }),
-    ).toBeVisible();
-    expect(document.querySelectorAll('.version-history-list li')).toHaveLength(2);
-    expect(screen.getAllByText('Дата выхода')).toHaveLength(2);
-    expect(document.querySelector('time[datetime="2026-10-23T12:00:00Z"]')).toBeVisible();
+    expect(await screen.findByText('Gameplay Update')).toBeVisible();
+    expect(document.querySelectorAll('.version-history-list > li')).toHaveLength(1);
+    expect(screen.queryByText('6818')).not.toBeInTheDocument();
+    expect(document.querySelector('time[datetime="2026-10-30T20:51:49.000Z"]')).toBeVisible();
   });
   it('applies a verified same-version snapshot when its commit or content changes', async () => {
     const updated = structuredClone(data);

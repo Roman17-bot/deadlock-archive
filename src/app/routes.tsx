@@ -3,7 +3,6 @@ import type { HeroSnapshot } from '../../shared/types';
 import { ArchiveLoading } from '../components/ui/ArchiveLoading/ArchiveLoading';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { HeroesPage } from '../pages/HeroesPage/HeroesPage';
-import { UpdatesPage } from '../pages/UpdatesPage/UpdatesPage';
 import type { PageRoute } from './useHashRoute';
 
 const MechanicsPage = lazy(() =>
@@ -17,6 +16,11 @@ const ItemsPage = lazy(() =>
 const ItemDetailPage = lazy(() =>
   import('../pages/ItemDetailPage/ItemDetailPage').then((module) => ({
     default: module.ItemDetailPage,
+  })),
+);
+const UpdatesPage = lazy(() =>
+  import('../pages/UpdatesPage/UpdatesPage').then((module) => ({
+    default: module.UpdatesPage,
   })),
 );
 
@@ -49,7 +53,12 @@ export function AppRoutes({
       </Suspense>
     );
   }
-  if (route === 'updates') return <UpdatesPage data={data} onSnapshot={onSnapshot} />;
+  if (route === 'updates')
+    return (
+      <Suspense fallback={<ArchiveLoading />}>
+        <UpdatesPage data={data} onSnapshot={onSnapshot} />
+      </Suspense>
+    );
   if (route === 'heroes') return <HeroesPage key={routeHash} data={data} onMethod={onMethod} />;
   return <HomePage data={data} onMethod={onMethod} />;
 }

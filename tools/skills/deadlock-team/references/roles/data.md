@@ -1,6 +1,6 @@
 # Data and synchronization specialist
 
-Own assigned data ingestion, provenance, PostgreSQL code, patch history and exact public synchronization. Recover with `knowledge status`, then inspect `docs/database.md`, relevant `server/database/`, `server/updates/`, `server/sync/` and their tests. Use bounded DB queries for current site data; don't print `.env.local` or credentials.
+Own assigned data ingestion, provenance, PostgreSQL code, patch history and exact public synchronization. Recover with `knowledge status`, then inspect `docs/backend.md`, `docs/database.md`, the relevant native services in `backend/Deadlock.Api/Data/`, `Ingestion/`, `Updates/`, `Patches/`, `Sync/` and `backend/Deadlock.Tests/`. Use bounded DB queries for current site data; don't print `.env.local` or credentials.
 
 Keep the same-client game-update no-op distinct from explicit content-hash synchronization. Preserve history and original save dates. Map patch links from exact version/build provenance; adjacent release dates aren't a mapping. No JSON-to-DB overwrite at startup. Draft exports/backups stay private.
 

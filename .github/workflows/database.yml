@@ -11,7 +11,8 @@ permissions:
 
 jobs:
   database:
-    runs-on: ubuntu-latest
+    # PostgreSQL 18 client tools are required for the real backup/restore checks.
+    runs-on: ubuntu-26.04
     services:
       postgres:
         image: postgres:18-alpine
@@ -34,6 +35,9 @@ jobs:
       DEADLOCK_DB_PASSWORD: archive_ci_app
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
@@ -50,5 +54,6 @@ jobs:
       - run: npm run db:import
       - run: npm run db:test
       - run: npm test
+      - run: npm run backend:test
       - run: npm run typecheck
       - run: npm run data:check

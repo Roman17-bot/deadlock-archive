@@ -214,9 +214,13 @@ it('home links to the real register and spotlights both new releases', () => {
 
 it('shows a data error and can retry successfully', async () => {
   const user = userEvent.setup();
-  vi.spyOn(globalThis, 'fetch')
-    .mockRejectedValueOnce(new Error('offline'))
-    .mockResolvedValueOnce(new Response(JSON.stringify(data), { status: 200 }));
+  let heroRequests = 0;
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (url) => {
+    if (String(url).includes('/api/update/status'))
+      return new Response(JSON.stringify({ phase: 'idle' }), { status: 200 });
+    if (++heroRequests === 1) throw new Error('offline');
+    return new Response(JSON.stringify(data), { status: 200 });
+  });
   render(<App />);
   expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить данные');
   await user.click(screen.getByRole('button', { name: 'Повторить загрузку' }));

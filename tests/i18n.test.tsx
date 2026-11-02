@@ -55,9 +55,11 @@ it('translates the updates page, its persisted history and server no-op status',
   await setLanguage('en');
   window.location.hash = '#/updates';
   render(<App initialSnapshot={data as HeroSnapshot} />);
-  expect(screen.getByRole('heading', { name: 'Update center' })).toBeVisible();
-  expect(screen.getByRole('heading', { name: 'Version history' })).toBeVisible();
-  expect(screen.getByText('6819', { selector: 'strong' })).toBeVisible();
+  expect(await screen.findByRole('heading', { name: 'Update center' })).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'Update history' })).toBeVisible();
+  expect(
+    screen.getByText('Hero, item and gameplay changes. Open an update to read the details.'),
+  ).toBeVisible();
   expect(document.body.textContent).not.toMatch(/[А-Яа-яЁё]/);
 });
 
@@ -72,6 +74,18 @@ it('uses safe defaults and translates validation details without changing number
   expect(translateError('Доли Bullet, Spirit и Pure должны давать ровно 100%.')).not.toMatch(
     /[А-Яа-яЁё]/,
   );
+});
+
+it.each([
+  ['Проверяем обновления игры и историю патчей…', 'Checking game updates and patch history…'],
+  ['Данные и история патчей обновлены.', 'Data and patch history updated.'],
+  [
+    'Данные обновлены. История патчей сохранена частично; следующая проверка продолжит загрузку.',
+    'Data updated. Patch history is partially saved; the next check will continue loading it.',
+  ],
+])('preserves the actual native backend outcome in English: %s', async (message, expected) => {
+  await setLanguage('en');
+  expect(translateError(message)).toBe(expected);
 });
 
 it.each([

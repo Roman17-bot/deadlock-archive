@@ -31,13 +31,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.expected_commit || github.sha }}
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           cache: npm
       - run: npm ci
       - name: Reject an outdated build before starting publication
-        run: node server/sync/deployment.ts
+        run: node scripts/backend.mjs deployment-guard
         env:
           GITHUB_TOKEN: ${{ github.token }}
           EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit || github.sha }}
@@ -47,6 +50,7 @@ jobs:
           EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit }}
           EXPECTED_SNAPSHOT_HASH: ${{ inputs.expected_hash }}
       - run: npm test
+      - run: npm run backend:test
       - run: npm run design:check
       - run: npm run build
         env:
@@ -69,11 +73,14 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.expected_commit || github.sha }}
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
       - name: Reject a stale snapshot immediately before deployment
-        run: node server/sync/deployment.ts
+        run: node scripts/backend.mjs deployment-guard
         env:
           GITHUB_TOKEN: ${{ github.token }}
           EXPECTED_SYNC_COMMIT: ${{ inputs.expected_commit || github.sha }}

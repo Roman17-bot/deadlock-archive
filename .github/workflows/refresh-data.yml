@@ -26,21 +26,26 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           cache: npm
       - run: npm ci
       - name: Reject an outdated stored snapshot
-        run: node server/sync/deployment.ts
+        run: node scripts/backend.mjs deployment-guard
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          EXPECTED_SYNC_COMMIT: ${{ github.sha }}
       - name: Verify the committed snapshot without fetching other game data
         env:
           EXPECTED_VERSION: ${{ inputs.expected_version }}
         run: npm run data:verify-publication
       - run: npm run data:check
       - run: npm test
+      - run: npm run backend:test
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
@@ -62,13 +67,17 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
       - name: Recheck current main before deployment
-        run: node server/sync/deployment.ts
+        run: node scripts/backend.mjs deployment-guard
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          EXPECTED_SYNC_COMMIT: ${{ github.sha }}
       - name: Publish verified static site
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
