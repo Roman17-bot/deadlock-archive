@@ -10,7 +10,7 @@ Heritage green/ivory/gold is the selected default; use the canonical design syst
 
 Ask what makes the result belong to Deadlock Archive. Specific illustration, material, lettering or icon decisions should support the noir/1930–40s city direction and data-reference purpose. Look for repeated card shells, gratuitous labels/badges, arbitrary icon metaphors, unmotivated gradients/glows, decorative numbering, empty marketing copy and competing animations.
 
-Assess the chosen art direction through concrete subject-specific craft: typographic hierarchy, original drawing, material treatment or behavior that helps recognition and use. Spatial graphics are optional; judge their contribution against legibility, input behavior, fallback and cost, rather than treating technical complexity as artistic quality.
+Assess the chosen art direction through concrete subject-specific craft: composition center, section rhythm, interaction between text and images, whitespace, typographic hierarchy, original drawing, material treatment or behavior that helps recognition and use. Compare a new page with relevant existing pages: it should belong to the same product without repeating the same composition mechanically. Judge identity consistency and artistic quality separately; passing code checks is not artistic approval. Spatial graphics are optional; judge their contribution against legibility, input behavior, fallback and cost, rather than treating technical complexity as artistic quality.
 
 These are prompts for judgment, not automatic failures. Existing dark colors, serif headings, fine rules and category colors may be appropriate to this brief. Don't replace them merely because a general anti-template guide lists similar patterns. Identify the concrete repetition, its effect and a smaller improvement.
 
@@ -30,4 +30,4 @@ Review animation at normal speed with actual triggers, repeated activation and r
 
 Block on lost functionality, unreadable text or serious layout drift. Rank lesser consistency/usability issues by actual impact. Pure style preferences are suggestions, not defects. A finding includes location, observation, consequence, smallest fix and evidence/limits. Zero confirmed findings is valid; unresolved checks are not silently treated as passed.
 
-Do not use a single invented beauty/AI score as acceptance. Review the design proposal first and implemented screens again after integration; they are different artifacts.
+For full-page review use the expert scorecard in [report.md](report.md); it is a subjective editorial guide, never an authorship detector or a replacement for acceptance criteria. Do not invent unknown ratings or approve a critical defect because the average is high. Review the design proposal first and implemented screens again after integration; they are different artifacts.

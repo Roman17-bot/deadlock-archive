@@ -230,7 +230,7 @@ describe('economical task briefs', () => {
         'medium',
         'none',
       ]);
-      expect(brief.outputWords).toBe(450);
+      expect(brief.outputWords).toBe(role === 'designcritic' ? 750 : 450);
       expect(brief.writeFiles).toEqual([]);
       expect(brief.reportDirectory).toContain(join(archive, `knowledge/agents/${role}/runs`));
       expect(brief.spawn.message).toContain(

@@ -50,6 +50,13 @@ it('installs both skills with the original archive locator and can refresh them'
     expect(readFileSync(join(target, 'deadlock-design', file), 'utf8')).toBe(
       readFileSync(join(root, 'tools/skills/deadlock-design', file), 'utf8'),
     );
+  for (const [name, file] of [
+    ['deadlock-design', 'references/page-workflow.md'],
+    ['deadlock-design-review', 'references/report.md'],
+  ])
+    expect(readFileSync(join(target, name, file), 'utf8')).toBe(
+      readFileSync(join(root, 'tools/skills', name, file), 'utf8'),
+    );
 });
 it('preserves unrelated skills and rejects an unmanaged name collision before copying', () => {
   mkdirSync(join(target, 'other'), { recursive: true });

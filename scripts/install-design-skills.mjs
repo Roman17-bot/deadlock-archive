@@ -17,8 +17,13 @@ const packages = {
     'references/assets.md',
     'references/motion.md',
     'references/creative-graphics.md',
+    'references/page-workflow.md',
   ],
-  'deadlock-design-review': ['references/rubric.md', 'references/rendered-evidence.md'],
+  'deadlock-design-review': [
+    'references/rubric.md',
+    'references/rendered-evidence.md',
+    'references/report.md',
+  ],
 };
 const inside = (parent, child) => {
   const part = relative(parent, child);
