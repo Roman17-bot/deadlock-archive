@@ -41,8 +41,8 @@
     "design:discovery": "python -B scripts/design/check-discovery.py",
     "design:test": "python -B -m unittest discover -s scripts/design -p \"*_test.py\"",
     "design:mcp:check": "python -B scripts/design/mcp_probe.py",
-    "backend:build": "dotnet build backend/Deadlock.Api --nologo",
-    "backend:test": "dotnet test backend/Deadlock.Tests --nologo"
+    "backend:build": "dotnet build backend/Deadlock.Api --artifacts-path work/dotnet-build --nologo",
+    "backend:test": "dotnet test backend/Deadlock.Tests --artifacts-path work/dotnet-tests --nologo"
   },
   "dependencies": {
     "i18next": "26.5.10",

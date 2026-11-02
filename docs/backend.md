@@ -37,6 +37,8 @@ Owner-запросы `/api/update` и `/api/sync` доступны только 
 
 Существующие `npm run data:update`, `items:refresh`, `db:*`, `data:check` и `data:verify-publication` остаются входными командами. Их Node-файлы вызывают .NET CLI через `scripts/backend.mjs`; бизнес-логика в них не дублируется. Dry-run обновления не меняет публичные файлы, БД или публикацию, но может сохранить приватный кандидат/кеш в `work/`.
 
+CLI собирается отдельно в `work/dotnet-owner/`, тесты — в `work/dotnet-tests/`, проверочная сборка — в `work/dotnet-build/`. Это позволяет запускать команды проверки и синхронизации одновременно с `dotnet watch`, не перезаписывая занятый Windows исполняемый файл API.
+
 ```sh
 npm run backend:build
 npm run backend:test

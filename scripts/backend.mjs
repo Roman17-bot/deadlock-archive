@@ -1,12 +1,23 @@
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 // Node starts the native owner CLI; no data/API logic lives in this launcher.
 export async function runBackend(command, args = []) {
   const root = fileURLToPath(new URL('../', import.meta.url));
   const child = spawn(
     'dotnet',
-    ['run', '--project', 'backend/Deadlock.Api', '--no-launch-profile', '--', command, ...args],
+    [
+      'run',
+      '--project',
+      'backend/Deadlock.Api',
+      '--artifacts-path',
+      join(root, 'work', 'dotnet-owner'),
+      '--no-launch-profile',
+      '--',
+      command,
+      ...args,
+    ],
     {
       cwd: root,
       stdio: 'inherit',

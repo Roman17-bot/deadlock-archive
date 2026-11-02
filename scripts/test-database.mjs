@@ -23,7 +23,15 @@ try {
   }
   const child = spawn(
     'dotnet',
-    ['test', 'backend/Deadlock.Tests', '--nologo', '--filter', 'FullyQualifiedName~DataSyncTests'],
+    [
+      'test',
+      'backend/Deadlock.Tests',
+      '--artifacts-path',
+      'work/dotnet-tests',
+      '--nologo',
+      '--filter',
+      'FullyQualifiedName~DataSyncTests',
+    ],
     {
       cwd: root,
       stdio: 'inherit',
