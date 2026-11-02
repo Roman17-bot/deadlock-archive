@@ -3,6 +3,7 @@ import type { HeroSnapshot } from '../../../../shared/types';
 import type { VersionHistory as HistoryData } from '../../../../shared/version-history';
 import { useI18n } from '../../../i18n';
 import { PatchDetails } from './PatchDetails';
+import { usePatchEntities } from '../hooks/usePatchEntities';
 
 interface Props {
   data: HeroSnapshot;
@@ -22,6 +23,7 @@ export function VersionHistory({
   retryHistory,
 }: Props) {
   const { t } = useI18n();
+  const { lookup, requestItems } = usePatchEntities(data.heroes);
   const patches = [...(history.patches ?? [])]
     .filter((patch) => patch.body.en.trim())
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || b.id.localeCompare(a.id));
@@ -57,6 +59,8 @@ export function VersionHistory({
               <PatchDetails
                 patch={patch}
                 current={patch.clientVersion === data.meta.clientVersion}
+                lookup={lookup}
+                requestItems={requestItems}
               />
             </li>
           ))}

@@ -1,12 +1,13 @@
 // @vitest-environment jsdom
 import '@testing-library/jest-dom/vitest';
-import { afterEach, beforeEach, expect, it } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import history from './fixtures/6819/version-history.json';
 import snapshot from './fixtures/6819/heroes.json';
 import { validateVersionHistory, type OfficialPatch } from '../shared/version-history';
 import { VersionHistory } from '../src/pages/UpdatesPage/components/VersionHistory';
-import { setLanguage } from '../src/i18n';
+import { i18n, setLanguage } from '../src/i18n';
+import { I18nextProvider } from 'react-i18next';
 
 export const officialPatch: OfficialPatch = {
   id: '1847920302240420',
@@ -22,9 +23,13 @@ export const officialPatch: OfficialPatch = {
 const withPatches = (patches: unknown[] = [officialPatch]) => ({ ...history, patches });
 
 beforeEach(async () => {
+  vi.resetModules();
   await setLanguage('ru');
 });
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+});
 
 it('accepts legacy audit history and rejects unsafe or empty official descriptions', () => {
   expect(validateVersionHistory(history)).toBe(true);
@@ -48,14 +53,16 @@ it('accepts legacy audit history and rejects unsafe or empty official descriptio
 function show(value: unknown = withPatches()) {
   if (!validateVersionHistory(value)) throw new Error('Invalid test history');
   return render(
-    <VersionHistory
-      data={snapshot}
-      mode="public"
-      history={value}
-      historyStatus="ready"
-      historyVisible
-      retryHistory={() => {}}
-    />,
+    <I18nextProvider i18n={i18n}>
+      <VersionHistory
+        data={snapshot}
+        mode="public"
+        history={value}
+        historyStatus="ready"
+        historyVisible
+        retryHistory={() => {}}
+      />
+    </I18nextProvider>,
   );
 }
 async function expand() {
@@ -80,11 +87,109 @@ it('expands actual readable notes and opens the exact official news URL', async 
   expect(screen.queryByText(/Лечение за выстрел/)).not.toBeInTheDocument();
   await expand();
   expect(screen.getByRole('heading', { name: 'Герои' })).toBeVisible();
-  expect(screen.getByText(/Лечение за выстрел снижено с 25 до 22/)).toBeVisible();
+  expect(screen.getByText('Nurse Harrow').closest('li')).toHaveTextContent(
+    'Nurse Harrow: Лечение за выстрел снижено с 25 до 22.',
+  );
   const link = screen.getByRole('link', { name: 'Открыть в Steam' });
   expect(link).toHaveAttribute('href', officialPatch.url);
   expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
   expect(screen.queryByText('6819')).not.toBeInTheDocument();
+});
+
+it('adds the matching portrait to official Nurse shorthand and highlights values, not tier labels', async () => {
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('No request expected'));
+  show(
+    withPatches([
+      {
+        ...officialPatch,
+        body: {
+          en: '## Heroes\n- Nurse: Healing Needles - T3 changed from 25 to 22; scaling 0.24.',
+        },
+      },
+    ]),
+  );
+  await expand();
+  const line = screen.getByText('Nurse').closest('li')!;
+  expect(line.querySelector('img')).toHaveAttribute('src', '/assets/heroes/nurse-harrow.webp');
+  expect(line.querySelector('img')).toHaveAttribute('alt', '');
+  expect(line).toHaveTextContent(
+    'Nurse: Healing Needles - T3 changed from 25 to 22; scaling 0.24.',
+  );
+  expect([...line.querySelectorAll('.patch-note-number')].map((n) => n.textContent)).toEqual([
+    '25',
+    '22',
+    '0.24',
+  ]);
+  expect(fetcher).not.toHaveBeenCalled();
+});
+
+it('keeps text readable while item icons load and reuses one catalogue for multiple notes', async () => {
+  const catalog = (await import('../data/items.json')).default;
+  let finish!: (value: Response) => void;
+  const request = new Promise<Response>((resolve) => {
+    finish = resolve;
+  });
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockReturnValue(request);
+  show(
+    withPatches([
+      {
+        ...officialPatch,
+        body: { en: '## Items\n- Divine Barrier: Cooldown increased from 45s to 55s.' },
+      },
+      {
+        ...officialPatch,
+        id: '124',
+        url: officialPatch.url.replace(officialPatch.id, '124'),
+        body: { en: '## Items\n- Radiant Regeneration: Healing reduced from 65 to 40.' },
+      },
+    ]),
+  );
+  expect(fetcher).not.toHaveBeenCalled();
+  await expand();
+  const line = screen.getByText('Divine Barrier').closest('li')!;
+  expect(line).toHaveTextContent('Divine Barrier: Cooldown increased from 45s to 55s.');
+  expect(line.querySelector('img')).toBeNull();
+  await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1));
+  finish(Response.json(catalog));
+  await waitFor(() =>
+    expect(line.querySelector('img')).toHaveAttribute('src', '/assets/items/divine-barrier.webp'),
+  );
+  expect(line.querySelector('img')).toHaveAttribute('loading', 'lazy');
+  expect(line).toHaveAttribute('data-category', 'vitality');
+  const second = document.querySelectorAll('details')[1];
+  second.open = true;
+  fireEvent(second, new Event('toggle'));
+  await waitFor(() =>
+    expect(
+      screen.getByText('Radiant Regeneration').closest('li')?.querySelector('img'),
+    ).toBeInTheDocument(),
+  );
+  expect(fetcher).toHaveBeenCalledTimes(1);
+});
+
+it('retries missing icon metadata when a note is reopened after a network failure', async () => {
+  const catalog = (await import('../data/items.json')).default;
+  const fetcher = vi
+    .spyOn(globalThis, 'fetch')
+    .mockRejectedValueOnce(new Error('offline'))
+    .mockResolvedValueOnce(Response.json(catalog));
+  show(
+    withPatches([
+      { ...officialPatch, body: { en: '- Divine Barrier: Cooldown increased from 45s to 55s.' } },
+    ]),
+  );
+  await expand();
+  await waitFor(() => expect(fetcher).toHaveBeenCalledTimes(1));
+  const details = document.querySelector('details')!;
+  details.open = false;
+  fireEvent(details, new Event('toggle'));
+  await expand();
+  await waitFor(() =>
+    expect(
+      screen.getByText('Divine Barrier').closest('li')?.querySelector('img'),
+    ).toBeInTheDocument(),
+  );
+  expect(fetcher).toHaveBeenCalledTimes(2);
 });
 
 it('renders source markup as text, with explicit English fallback and translated controls', async () => {
