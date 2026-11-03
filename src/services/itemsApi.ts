@@ -48,7 +48,8 @@ const statisticsResource = resource<ItemStatistics>(
   import.meta.env.DEV ? '/api/item-statistics' : asset('data/item-statistics.json'),
   validateItemStatistics,
 );
-export function loadItems(signal: AbortSignal): Promise<ItemCatalog> {
+export function loadItems(signal: AbortSignal, force = false): Promise<ItemCatalog> {
+  if (force) catalogResource.clear();
   return catalogResource.read(signal);
 }
 export async function loadItemStatistics(

@@ -1,3 +1,5 @@
+import { validateItemCalculation } from './build-validation.ts';
+
 import type {
   ItemCatalog,
   ItemStatistics,
@@ -47,6 +49,8 @@ export function validateItemCatalog(value: unknown): value is ItemCatalog {
         (a.scaling === undefined || localized(a.scaling)),
     );
   for (const i of items) {
+    if (!record(i)) return false;
+    if (i.calculation !== undefined && !validateItemCalculation(i.calculation)) return false;
     if (
       !record(i) ||
       !positive(i.id) ||

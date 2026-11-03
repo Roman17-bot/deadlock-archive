@@ -1,0 +1,17 @@
+# Hero build calculator
+
+Add an independent Hero build mode at the existing Mechanics calculator area. Keep the current Formulas mode and its values, the formula library and all navigation. The user delegated routine architecture and design choices; no new approval pause is needed.
+
+Select any current hero with a searchable portrait dialog, level1–36, and items through individual slots. Items use the existing cached catalogue and local optimized art, without purchase-statistics requests. A native item dialog supports search/category/tier and replacing the targeted slot; cancellation changes nothing. Preserve both calculator drafts when switching modes. Match the existing Heritage identity and provide RU/EN, keyboard focus/escape and responsive layouts.
+
+Inventory operations enforce the accepted current limits, no duplicate copies, transitive component/upgrade exclusivity in both directions and multi-component recipes. Selecting an upgrade removes its owned ancestors; selecting its base removes owned descendants. Sharing a component alone does not imply that two sibling upgrades exclude one another. The selected slot is the replacement target, and a concise message names automatically removed items.
+
+Compute investment from the accepted current ownership/cost rule, never double counting components. Apply the reached threshold bonus once, not the sum of earlier thresholds. Show each category's investment, current bonus and next threshold, plus an expandable complete threshold memo. Exact values and slot limits come from current primary configuration research, retained privately and encoded as validated versioned data.
+
+Normalize calculation metadata from active modifier registration and current properties; do not sum tooltip fields blindly or revive unused legacy values. Attach optional typed calculation metadata to existing heroes/items JSON and validate it; legacy archive fixtures remain readable. Native ASP.NET ingestion regenerates this metadata on future refreshes. Public/private boundaries, DB persistence and Pages synchronization remain intact. Do not bypass same-client game-update no-op: use the existing explicit item refresh for the initial metadata enrichment, with dry run first.
+
+Compute final HP, weapon/shot damage and DPS, Spirit, regeneration, innate/item resistances, movement, stamina and supported secondary bonuses. Reuse shared/mechanics.ts and existing hero level math. Hero-specific Spirit scaling, negative innate resists, adverse HP modifiers and diminishing pools need tests. Keep temporary activations, enemy debuffs and stack-dependent effects out of resting stats; state useful calculation conditions once. Include practical formula examples using the selected build (EHP by damage type, shots against a chosen resistance, Spirit-scaled damage and cooldown).
+
+Use one pure inventory/stat model under shared/, feature-local components under src/features/hero-calculator and lazy-load the new UI/catalogue only when selected. No new runtime library, GPU effects, game launch, authentication work or Node backend.
+
+Acceptance: real hero level examples and investment boundaries match independent evidence; ancestors/descendants and multi-input recipes cannot coexist; all capacity limits are enforced; dialogs work by keyboard/touch; old calculator remains functional; local and Pages use identical enriched data. Check1440/768/390px and RU/EN, source/DB/publication outcomes separately, and obtain independent mechanics/code and rendered design review.

@@ -64,7 +64,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         var i = 0;
         foreach (var (key, value) in fields)
         {
-            var p = new NpgsqlParameter("p" + i++, value is JsonNode || key is "patch" or "meta" or "statistics_meta" or "data" ? NpgsqlDbType.Jsonb : key == "weapon_full_spin_cycle" ? NpgsqlDbType.Double : value switch { long => NpgsqlDbType.Bigint, int => NpgsqlDbType.Integer, double => NpgsqlDbType.Double, bool => NpgsqlDbType.Boolean, _ => NpgsqlDbType.Text });
+            var p = new NpgsqlParameter("p" + i++, value is JsonNode || key is "patch" or "meta" or "statistics_meta" or "data" or "calculation" ? NpgsqlDbType.Jsonb : key == "weapon_full_spin_cycle" ? NpgsqlDbType.Double : value switch { long => NpgsqlDbType.Bigint, int => NpgsqlDbType.Integer, double => NpgsqlDbType.Double, bool => NpgsqlDbType.Boolean, _ => NpgsqlDbType.Text });
             p.Value = value is JsonNode n ? n.ToJsonString() : value ?? (object)DBNull.Value; cmd.Parameters.Add(p);
         }
         await cmd.ExecuteNonQueryAsync(ct);
@@ -111,6 +111,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
     private static readonly Dictionary<string, string> HeroMap = new()
     {
         ["hero_id"] = "id",
+        ["calculation"] = "calculation",
         ["slug"] = "slug",
         ["name"] = "name",
         ["aliases"] = "aliases",
@@ -176,8 +177,9 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         var saved = schema[0]["payload_table"] == null ? new List<JsonObject>() : await Query(c, tx, "SELECT data::text FROM archive_bundle_payloads WHERE snapshot_id=@p0", ct, id);
         var bundle = saved.Count == 0 ? new JsonObject() : JsonNode.Parse(ArchiveJson.Text(saved[0]["data"]))!.AsObject();
         var heroes = new JsonArray();
-        foreach (var row in await Rows(c, tx, "heroes", id, ct, "ORDER BY ordinal")) { var hero = bundle["heroes"]?["heroes"]?.AsArray().FirstOrDefault(h => ArchiveJson.Number(h?["id"]) == ArchiveJson.Number(row["hero_id"]))?.DeepClone().AsObject() ?? new JsonObject(); foreach (var (column, path) in HeroMap) Set(hero, path, row[column]); heroes.Add(hero); }
+        foreach (var row in await Rows(c, tx, "heroes", id, ct, "ORDER BY ordinal")) { var hero = bundle["heroes"]?["heroes"]?.AsArray().FirstOrDefault(h => ArchiveJson.Number(h?["id"]) == ArchiveJson.Number(row["hero_id"]))?.DeepClone().AsObject() ?? new JsonObject(); foreach (var (column, path) in HeroMap) { if (column == "calculation" && row[column] is null) hero.Remove(path); else Set(hero, path, row[column]); } heroes.Add(hero); }
         bundle["heroes"] ??= new JsonObject(); bundle["heroes"]!["meta"] = JsonNode.Parse(current.Snapshot.HeroMeta); bundle["heroes"]!["heroes"] = heroes;
+        if (current.Snapshot.CalculatorRules is null) bundle["heroes"]!.AsObject().Remove("calculatorRules"); else bundle["heroes"]!["calculatorRules"] = JsonNode.Parse(current.Snapshot.CalculatorRules);
         bundle["provenance"] = JsonNode.Parse(current.Snapshot.Provenance);
         var mechanics = bundle["mechanics"]?.DeepClone().AsObject() ?? new JsonObject();
         foreach (var lang in new[] { "ru", "en" })
@@ -242,7 +244,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         if (found.Count > 0) { id = ArchiveJson.Number(found[0]["id"]); outcome = current.Count > 0 && ArchiveJson.Number(current[0]["snapshot_id"]) == id ? "unchanged" : "repointed"; }
         else
         {
-            var created = await Query(c, tx, "INSERT INTO archive_snapshots(content_hash,client_version,hero_meta,provenance,import_reason) VALUES(@p0,@p1,@p2::jsonb,@p3::jsonb,@p4) RETURNING id", ct, hash, version, b["heroes"]!["meta"]!.ToJsonString(), b["provenance"]!.ToJsonString(), reason); id = ArchiveJson.Number(created[0]["id"]); outcome = "imported";
+            var created = await Query(c, tx, "INSERT INTO archive_snapshots(content_hash,client_version,hero_meta,provenance,import_reason,calculator_rules) VALUES(@p0,@p1,@p2::jsonb,@p3::jsonb,@p4,@p5::jsonb) RETURNING id", ct, hash, version, b["heroes"]!["meta"]!.ToJsonString(), b["provenance"]!.ToJsonString(), reason, b["heroes"]!["calculatorRules"]?.ToJsonString()); id = ArchiveJson.Number(created[0]["id"]); outcome = "imported";
             var ordinal = 0; foreach (var h in b["heroes"]!["heroes"]!.AsArray()) { var fields = new Dictionary<string, object?> { ["snapshot_id"] = id, ["ordinal"] = ordinal++ }; foreach (var (column, path) in HeroMap) { var n = ArchiveJson.At(h!, path.Split('.')); fields[column] = column is "hero_id" or "weapon_projectiles" or "weapon_burst" or "source_hero_line" or "source_weapon_line" ? (int)ArchiveJson.Number(n) : Value(n); } await Insert(c, tx, "heroes", fields, ct); }
             foreach (var lang in new[] { "ru", "en" })
             {

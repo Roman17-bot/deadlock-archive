@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { lazy, Suspense, useId, useState } from 'react';
 import { Calculator as CalculatorIcon } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { useI18n, translateError } from '../../i18n';
 import { tasks } from './model/tasks';
@@ -6,9 +6,20 @@ import { evaluate, type Result } from './model/evaluate';
 import { CalculatorForm } from './components/CalculatorForm';
 import { CalculatorResult } from './components/CalculatorResult';
 
-export function Calculator({ onRule }: { onRule: (id: string) => void }) {
+import type { HeroSnapshot } from '../../../shared/types';
+const HeroCalculator = lazy(() => import('../hero-calculator/HeroCalculator'));
+
+export function Calculator({
+  onRule,
+  data,
+}: {
+  onRule: (id: string) => void;
+  data?: HeroSnapshot;
+}) {
   const { t } = useI18n();
   const id = useId();
+  const [view, setView] = useState('formulas');
+  const [buildOpened, setBuildOpened] = useState(false);
   const [mode, setMode] = useState('defense');
   const [values, setValues] = useState<Record<string, Record<string, string>>>(() =>
     Object.fromEntries(
@@ -34,17 +45,47 @@ export function Calculator({ onRule }: { onRule: (id: string) => void }) {
         </div>
         <CalculatorIcon size={34} aria-hidden="true" />
       </div>
-      <div className="calculator-layout">
-        <CalculatorForm
-          id={id}
-          mode={mode}
-          task={task}
-          values={values}
-          setMode={setMode}
-          setValues={setValues}
-        />
-        <CalculatorResult task={task} result={result} error={error} onRule={onRule} />
+      {data && (
+        <div className="calculator-modes" aria-label={t('Режим калькулятора')}>
+          <button
+            type="button"
+            aria-pressed={view === 'formulas'}
+            onClick={() => setView('formulas')}
+          >
+            {t('Формулы')}
+          </button>
+          <button
+            type="button"
+            aria-pressed={view === 'build'}
+            onClick={() => {
+              setBuildOpened(true);
+              setView('build');
+            }}
+          >
+            {t('Билд героя')}
+          </button>
+        </div>
+      )}
+      <div hidden={view !== 'formulas'}>
+        <div className="calculator-layout">
+          <CalculatorForm
+            id={id}
+            mode={mode}
+            task={task}
+            values={values}
+            setMode={setMode}
+            setValues={setValues}
+          />
+          <CalculatorResult task={task} result={result} error={error} onRule={onRule} />
+        </div>
       </div>
+      {buildOpened && data && (
+        <div hidden={view !== 'build'}>
+          <Suspense fallback={<p aria-busy="true">{t('Загружаем предметы…')}</p>}>
+            <HeroCalculator data={data} onRule={onRule} />
+          </Suspense>
+        </div>
+      )}
     </section>
   );
 }

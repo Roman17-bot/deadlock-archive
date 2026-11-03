@@ -95,7 +95,7 @@ export function MechanicsPage({ data, localApi }: { data: HeroSnapshot; localApi
           </p>
         </aside>
       </section>
-      <Calculator onRule={onRule} />
+      <Calculator data={data} onRule={onRule} />
       <FormulaLibrary library={library} state={libraryState} />
       <aside className="mechanics-footnote">
         <BookOpen size={24} />

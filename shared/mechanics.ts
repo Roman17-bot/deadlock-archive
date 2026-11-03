@@ -194,6 +194,7 @@ export function calculateMaxHealth(input: {
   growth: number;
   baseBonus: number;
   flat: number;
+  finalBonus?: number;
 }): number {
   const boons = bounded(input.boons, 'Boons', 0, 35);
   if (!Number.isInteger(boons)) throw new RangeError('Число Boons должно быть целым.');
@@ -202,7 +203,9 @@ export function calculateMaxHealth(input: {
       boons * bounded(input.growth, 'Прирост HP')) *
       (1 + bounded(input.baseBonus, 'Бонус базового HP', 0, 1000) / 100) +
     bounded(input.flat, 'Плоское HP');
-  return Math.ceil(result);
+  return Math.ceil(
+    result * (1 + bounded(input.finalBonus ?? 0, 'Бонус максимального HP', -100, 10000) / 100),
+  );
 }
 
 export function calculateSlow(speed: number, slows: number[], resistance: number[]) {
@@ -240,7 +243,10 @@ export function calculateFalloff(
 
 export function calculateFireRate(base: number, bonuses: number[], slows: number[]) {
   bounded(base, 'Начальная частота', Number.MIN_VALUE, 10000);
-  const bonus = bonuses.reduce((sum, value) => sum + bounded(value, 'Бонус частоты', 0, 1000), 0);
+  const bonus = bonuses.reduce(
+    (sum, value) => sum + bounded(value, 'Бонус частоты', -1000, 1000),
+    0,
+  );
   const slow = diminishing(slows);
   const net = Math.max(-50, bonus - slow);
   return { bonus, slow, net, rate: net >= 0 ? base * (1 + net / 100) : base / (1 - net / 100) };

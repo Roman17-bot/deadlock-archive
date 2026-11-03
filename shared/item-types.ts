@@ -1,3 +1,5 @@
+import type { ItemCalculation } from './build-types';
+
 export interface LocalizedText {
   ru: string;
   en: string;
@@ -37,6 +39,7 @@ export interface ShopItem {
   components: number[];
   upgrades: number[];
   advice: LocalizedText[];
+  calculation?: ItemCalculation;
 }
 
 export interface ItemCatalog {

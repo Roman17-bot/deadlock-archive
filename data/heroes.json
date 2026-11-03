@@ -1,4 +1,150 @@
 {
+  "calculatorRules": {
+    "baseSlots": 9,
+    "investment": {
+      "spirit": [
+        {
+          "bonus": 7,
+          "souls": 800
+        },
+        {
+          "bonus": 11,
+          "souls": 1600
+        },
+        {
+          "bonus": 15,
+          "souls": 2400
+        },
+        {
+          "bonus": 19,
+          "souls": 3200
+        },
+        {
+          "bonus": 38,
+          "souls": 4800
+        },
+        {
+          "bonus": 45,
+          "souls": 6400
+        },
+        {
+          "bonus": 52,
+          "souls": 8000
+        },
+        {
+          "bonus": 59,
+          "souls": 11200
+        },
+        {
+          "bonus": 66,
+          "souls": 16000
+        },
+        {
+          "bonus": 75,
+          "souls": 22400
+        },
+        {
+          "bonus": 100,
+          "souls": 28800
+        }
+      ],
+      "vitality": [
+        {
+          "bonus": 9,
+          "souls": 800
+        },
+        {
+          "bonus": 12,
+          "souls": 1600
+        },
+        {
+          "bonus": 15,
+          "souls": 2400
+        },
+        {
+          "bonus": 20,
+          "souls": 3200
+        },
+        {
+          "bonus": 38,
+          "souls": 4800
+        },
+        {
+          "bonus": 42,
+          "souls": 6400
+        },
+        {
+          "bonus": 46,
+          "souls": 8000
+        },
+        {
+          "bonus": 50,
+          "souls": 11200
+        },
+        {
+          "bonus": 54,
+          "souls": 16000
+        },
+        {
+          "bonus": 60,
+          "souls": 22400
+        },
+        {
+          "bonus": 66,
+          "souls": 28800
+        }
+      ],
+      "weapon": [
+        {
+          "bonus": 9,
+          "souls": 800
+        },
+        {
+          "bonus": 12,
+          "souls": 1600
+        },
+        {
+          "bonus": 15,
+          "souls": 2400
+        },
+        {
+          "bonus": 18,
+          "souls": 3200
+        },
+        {
+          "bonus": 46,
+          "souls": 4800
+        },
+        {
+          "bonus": 54,
+          "souls": 6400
+        },
+        {
+          "bonus": 62,
+          "souls": 8000
+        },
+        {
+          "bonus": 74,
+          "souls": 11200
+        },
+        {
+          "bonus": 86,
+          "souls": 16000
+        },
+        {
+          "bonus": 100,
+          "souls": 22400
+        },
+        {
+          "bonus": 115,
+          "souls": 28800
+        }
+      ]
+    },
+    "maxActiveItems": 4,
+    "maxSlots": 12,
+    "schemaVersion": 1
+  },
   "heroes": [
     {
       "aliases": "Абрамс",
@@ -9,6 +155,21 @@
         "regen": 1.5,
         "spirit": 0,
         "stamina": 3
+      },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
       },
       "growth": {
         "bulletDamage": 0.1,
@@ -27,10 +188,10 @@
       },
       "slug": "abrams",
       "source": {
-        "heroLine": 10229,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 10224,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 30186,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tank",
@@ -62,6 +223,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.825,
         "health": 45,
@@ -79,10 +255,10 @@
       },
       "slug": "apollo",
       "source": {
-        "heroLine": 110554,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 110498,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 269121,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Finesse",
@@ -117,6 +293,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": -7,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 8,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0.07,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.41,
         "health": 45,
@@ -134,10 +325,10 @@
       },
       "slug": "baba",
       "source": {
-        "heroLine": 133340,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 133273,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 295474,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Cackling",
@@ -172,6 +363,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0.3,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 4,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.181818
+      },
       "growth": {
         "bulletDamage": 0.115,
         "health": 52,
@@ -189,10 +395,10 @@
       },
       "slug": "bebop",
       "source": {
-        "heroLine": 27380,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 27367,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 33190,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Hook",
@@ -226,6 +432,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.127,
         "health": 53,
@@ -243,10 +464,10 @@
       },
       "slug": "billy",
       "source": {
-        "heroLine": 101034,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 100983,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 169887,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Punk",
@@ -280,6 +501,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.043,
         "health": 37,
@@ -297,10 +533,10 @@
       },
       "slug": "calico",
       "source": {
-        "heroLine": 29555,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 29541,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 81167,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tricksy",
@@ -332,6 +568,21 @@
         "spirit": 0,
         "stamina": 4
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.18867
+      },
       "growth": {
         "bulletDamage": 0.82,
         "health": 33,
@@ -349,10 +600,10 @@
       },
       "slug": "celeste",
       "source": {
-        "heroLine": 119096,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 119036,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 286444,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Performer",
@@ -386,6 +637,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.2
+      },
       "growth": {
         "bulletDamage": 0.42,
         "health": 39,
@@ -403,10 +669,10 @@
       },
       "slug": "deadman-danny",
       "source": {
-        "heroLine": 112674,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 112617,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 306075,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Reckless",
@@ -441,6 +707,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.49,
         "health": 41,
@@ -458,10 +739,10 @@
       },
       "slug": "drifter",
       "source": {
-        "heroLine": 85068,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 85025,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 173811,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Stalker",
@@ -496,6 +777,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0.625,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.5,
         "health": 61,
@@ -513,10 +809,10 @@
       },
       "slug": "dynamo",
       "source": {
-        "heroLine": 18814,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 18805,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 44710,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Teamplay",
@@ -548,6 +844,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 8,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.2,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.052,
         "health": 35,
@@ -565,10 +876,10 @@
       },
       "slug": "graves",
       "source": {
-        "heroLine": 108416,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 108361,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 273135,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Morbid",
@@ -602,6 +913,21 @@
         "spirit": 0,
         "stamina": 4
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0.0084,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.85,
         "health": 38,
@@ -619,10 +945,10 @@
       },
       "slug": "grey-talon",
       "source": {
-        "heroLine": 31606,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 31591,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 87268,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Precision",
@@ -657,6 +983,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0.5,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.143,
         "health": 33,
@@ -674,10 +1015,10 @@
       },
       "slug": "haze",
       "source": {
-        "heroLine": 23076,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 23065,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 60568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Assassin",
@@ -709,6 +1050,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 1.144,
         "health": 43,
@@ -726,10 +1082,10 @@
       },
       "slug": "holliday",
       "source": {
-        "heroLine": 25210,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 25198,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 27291,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Crackshot",
@@ -761,6 +1117,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.088,
         "health": 39,
@@ -778,10 +1149,10 @@
       },
       "slug": "infernus",
       "source": {
-        "heroLine": 1718,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 1717,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 66097,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Arsonist",
@@ -813,6 +1184,21 @@
         "spirit": 0,
         "stamina": 4
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.08,
         "health": 45,
@@ -830,10 +1216,10 @@
       },
       "slug": "ivy",
       "source": {
-        "heroLine": 37921,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 37903,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 99705,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Team-up",
@@ -865,6 +1251,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0.625,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.1,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.18181
+      },
       "growth": {
         "bulletDamage": 0.418,
         "health": 60,
@@ -882,10 +1283,10 @@
       },
       "slug": "kelvin",
       "source": {
-        "heroLine": 20945,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 20935,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 69027,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Protector",
@@ -917,6 +1318,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.4,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 1,
         "health": 51,
@@ -934,10 +1350,10 @@
       },
       "slug": "lady-geist",
       "source": {
-        "heroLine": 8099,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 8095,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 54392,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Lifesteal",
@@ -969,6 +1385,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 10,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.1,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.31,
         "health": 50,
@@ -986,10 +1417,10 @@
       },
       "slug": "lash",
       "source": {
-        "heroLine": 46113,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 46091,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 72134,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Initiator",
@@ -1023,6 +1454,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0.35,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.171,
         "health": 52,
@@ -1040,10 +1486,10 @@
       },
       "slug": "mcginnis",
       "source": {
-        "heroLine": 14487,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 14480,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 47845,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Inventor",
@@ -1078,6 +1524,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": -8,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.238095
+      },
       "growth": {
         "bulletDamage": 0.275,
         "health": 27,
@@ -1095,10 +1556,10 @@
       },
       "slug": "mina",
       "source": {
-        "heroLine": 83030,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 82988,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 138288,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Harasser",
@@ -1130,6 +1591,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.3,
         "health": 45,
@@ -1147,10 +1623,10 @@
       },
       "slug": "mirage",
       "source": {
-        "heroLine": 62859,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 62828,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 74978,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Bodyguard",
@@ -1182,6 +1658,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.0881,
         "health": 65,
@@ -1199,10 +1690,10 @@
       },
       "slug": "mo-krill",
       "source": {
-        "heroLine": 33697,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 33681,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 77848,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tag-Team",
@@ -1234,6 +1725,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.5,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.37436,
         "health": 32,
@@ -1251,10 +1757,10 @@
       },
       "slug": "nurse-harrow",
       "source": {
-        "heroLine": 131126,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 131060,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 309940,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Strict",
@@ -1288,6 +1794,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 3.5,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.61,
         "health": 31,
@@ -1305,10 +1826,10 @@
       },
       "slug": "paige",
       "source": {
-        "heroLine": 91536,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 91490,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 165606,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Helpful",
@@ -1342,6 +1863,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.26,
         "health": 46,
@@ -1359,10 +1895,10 @@
       },
       "slug": "paradox",
       "source": {
-        "heroLine": 16659,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 16651,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 41907,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Calculated",
@@ -1396,6 +1932,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": -15,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.14,
         "health": 36,
@@ -1413,10 +1964,10 @@
       },
       "slug": "pocket",
       "source": {
-        "heroLine": 59035,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 59006,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 97568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Trickster",
@@ -1448,6 +1999,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.263
+      },
       "growth": {
         "bulletDamage": 0.144,
         "health": 50,
@@ -1465,10 +2031,10 @@
       },
       "slug": "rat-king",
       "source": {
-        "heroLine": 124706,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 124643,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 313611,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Scrappy",
@@ -1502,6 +2068,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 4,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.34,
         "health": 28,
@@ -1519,10 +2100,10 @@
       },
       "slug": "rem",
       "source": {
-        "heroLine": 114764,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 114706,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 265376,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Helpful",
@@ -1556,6 +2137,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.8,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.24,
         "health": 41,
@@ -1573,10 +2169,10 @@
       },
       "slug": "seven",
       "source": {
-        "heroLine": 3802,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 3800,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 57328,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "High Voltage",
@@ -1610,6 +2206,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.166667
+      },
       "growth": {
         "bulletDamage": 0.165,
         "health": 46,
@@ -1627,10 +2238,10 @@
       },
       "slug": "shiv",
       "source": {
-        "heroLine": 35804,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 35787,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 90278,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Rage",
@@ -1662,6 +2273,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.5,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.117,
         "health": 31,
@@ -1679,10 +2305,10 @@
       },
       "slug": "silver",
       "source": {
-        "heroLine": 116948,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 116889,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 279990,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Feral",
@@ -1716,6 +2342,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0.0138,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.55,
         "health": 38,
@@ -1733,10 +2374,10 @@
       },
       "slug": "sinclair",
       "source": {
-        "heroLine": 77427,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 77388,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 125414,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Trickster",
@@ -1770,6 +2411,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 3.25,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.4,
         "health": 40,
@@ -1787,10 +2443,10 @@
       },
       "slug": "solomon",
       "source": {
-        "heroLine": 126856,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 126792,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 299442,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Strategist",
@@ -1827,6 +2483,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 1.25,
         "health": 42,
@@ -1844,10 +2515,10 @@
       },
       "slug": "the-doorman",
       "source": {
-        "heroLine": 95437,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 95389,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 166003,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Disorienting",
@@ -1881,6 +2552,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0.12178,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0.12178,
+        "sprintSpeed": 1,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.27,
         "health": 43,
@@ -1898,10 +2584,10 @@
       },
       "slug": "venator",
       "source": {
-        "heroLine": 87268,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 87224,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 259696,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Devout",
@@ -1933,6 +2619,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.1,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.26,
         "health": 34,
@@ -1950,10 +2651,10 @@
       },
       "slug": "victor",
       "source": {
-        "heroLine": 89404,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 89359,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 159349,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "You",
@@ -1989,6 +2690,21 @@
         "spirit": 0,
         "stamina": 2
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.495,
         "health": 28,
@@ -2006,10 +2722,10 @@
       },
       "slug": "vindicta",
       "source": {
-        "heroLine": 5978,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 5975,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 63390,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Sniper",
@@ -2043,6 +2759,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 2.5,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.55,
         "health": 34,
@@ -2060,10 +2791,10 @@
       },
       "slug": "violet",
       "source": {
-        "heroLine": 129012,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 128947,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 289568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Ambitious",
@@ -2099,6 +2830,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.36,
         "health": 45,
@@ -2116,10 +2862,10 @@
       },
       "slug": "viscous",
       "source": {
-        "heroLine": 48194,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 48171,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 102908,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Evasive",
@@ -2151,6 +2897,21 @@
         "spirit": 0,
         "stamina": 4
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0.0138,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.178,
         "health": 35,
@@ -2168,10 +2929,10 @@
       },
       "slug": "vyper",
       "source": {
-        "heroLine": 73544,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 73507,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 118850,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Gunner",
@@ -2203,6 +2964,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.25,
         "health": 60,
@@ -2220,10 +2996,10 @@
       },
       "slug": "warden",
       "source": {
-        "heroLine": 41831,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 41811,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 106275,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Initiator",
@@ -2258,6 +3034,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0.05,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.14,
         "health": 35,
@@ -2275,10 +3066,10 @@
       },
       "slug": "wraith",
       "source": {
-        "heroLine": 12382,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 12376,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 108960,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Duelist",
@@ -2310,6 +3101,21 @@
         "spirit": 0,
         "stamina": 3
       },
+      "calculation": {
+        "bulletLifesteal": 0,
+        "bulletResist": 0,
+        "bulletResistGrowth": 0,
+        "bulletResistPerSpirit": 0,
+        "clipSizePerSpirit": 0.15,
+        "debuffResist": 0,
+        "moveSpeedPerSpirit": 0,
+        "spiritResist": 0,
+        "spiritResistGrowth": 0,
+        "spiritResistPerSpirit": 0,
+        "sprintSpeed": 1.6,
+        "sprintSpeedPerSpirit": 0,
+        "staminaRegen": 0.222222
+      },
       "growth": {
         "bulletDamage": 0.154,
         "health": 45,
@@ -2327,10 +3133,10 @@
       },
       "slug": "yamato",
       "source": {
-        "heroLine": 43961,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroLine": 43940,
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 115480,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Relentless",
@@ -2354,10 +3160,10 @@
     }
   ],
   "meta": {
-    "buildDate": "2026-10-31",
-    "checkedAt": "2026-11-02T19:10:37.001Z",
-    "clientVersion": 6839,
-    "gameCommit": "1406578696351e07044176c98ffcf2ddce1c795d",
+    "buildDate": "2026-11-02",
+    "checkedAt": "2026-11-03T01:16:48.405Z",
+    "clientVersion": 6842,
+    "gameCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b",
     "heroCount": 44,
     "levelRange": [
       1,
@@ -2372,20 +3178,20 @@
       "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
     ],
     "schemaVersion": 1,
-    "snapshotDate": "2026-11-02",
-    "sourceRevision": 11193905,
+    "snapshotDate": "2026-11-03",
+    "sourceRevision": 11196939,
     "sources": [
       {
-        "label": "Параметры героев · клиент 6839",
-        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6839"
+        "label": "Параметры героев · клиент 6842",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6842"
       },
       {
-        "label": "Оружие · клиент 6839",
-        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6839"
+        "label": "Оружие · клиент 6842",
+        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6842"
       },
       {
         "label": "Исходные файлы игры · фиксированная ревизия",
-        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts"
+        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts"
       }
     ]
   }

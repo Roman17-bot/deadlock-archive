@@ -1,10 +1,10 @@
 {
   "allRawStatsVerified": true,
   "meta": {
-    "buildDate": "2026-10-31",
-    "checkedAt": "2026-11-02T19:10:37.001Z",
-    "clientVersion": 6839,
-    "gameCommit": "1406578696351e07044176c98ffcf2ddce1c795d",
+    "buildDate": "2026-11-02",
+    "checkedAt": "2026-11-03T01:16:48.405Z",
+    "clientVersion": 6842,
+    "gameCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b",
     "heroCount": 44,
     "levelRange": [
       1,
@@ -19,30 +19,30 @@
       "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
     ],
     "schemaVersion": 1,
-    "snapshotDate": "2026-11-02",
-    "sourceRevision": 11193905,
+    "snapshotDate": "2026-11-03",
+    "sourceRevision": 11196939,
     "sources": [
       {
-        "label": "Параметры героев · клиент 6839",
-        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6839"
+        "label": "Параметры героев · клиент 6842",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6842"
       },
       {
-        "label": "Оружие · клиент 6839",
-        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6839"
+        "label": "Оружие · клиент 6842",
+        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6842"
       },
       {
         "label": "Исходные файлы игры · фиксированная ревизия",
-        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/1406578696351e07044176c98ffcf2ddce1c795d/game/citadel/pak01_dir/scripts"
+        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts"
       }
     ]
   },
   "runtimeMeasured": false,
   "verification": {
     "adapter": "materialized-kv3-v1",
-    "checkedAt": "2026-11-02T19:10:37.001Z",
-    "clientVersion": 6839,
+    "checkedAt": "2026-11-03T01:16:48.405Z",
+    "clientVersion": 6842,
     "heroCount": 44,
     "scope": "Snapshot base/growth/scaling/raw primary weapon parameters cross-checked against version-pinned API and GameTracking; special flags read from raw; DPS is an explicit model.",
-    "sourceCommit": "1406578696351e07044176c98ffcf2ddce1c795d"
+    "sourceCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b"
   }
 }

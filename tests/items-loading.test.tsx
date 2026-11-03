@@ -63,6 +63,23 @@ it('does not cache invalid responses or failures', async () => {
   expect(fetcher).toHaveBeenCalledTimes(3);
 });
 
+it('reloads a changed catalogue immediately when explicitly retried within its cache lifetime', async () => {
+  const { loadItems } = await import('../src/services/itemsApi');
+  const next = {
+    ...catalog,
+    meta: { ...catalog.meta, clientVersion: catalog.meta.clientVersion + 1 },
+  };
+  const fetcher = vi
+    .fn()
+    .mockResolvedValueOnce(response(catalog))
+    .mockResolvedValueOnce(response(next));
+  vi.stubGlobal('fetch', fetcher);
+  const signal = new AbortController().signal;
+  await loadItems(signal);
+  expect((await loadItems(signal, true)).meta.clientVersion).toBe(next.meta.clientVersion);
+  expect(fetcher).toHaveBeenCalledTimes(2);
+});
+
 it('invalidates both caches when statistics and catalog versions disagree', async () => {
   const { loadItems, loadItemStatistics } = await import('../src/services/itemsApi');
   const nextCatalog = {

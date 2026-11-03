@@ -67,6 +67,7 @@ public static class HeroAdapter
             var spins = Wb("m_bSpinsUp", "spins_up"); double? full = w["m_flMaxSpinCycleTime"] is null ? null : Wn("m_flMaxSpinCycleTime", "max_spin_cycle_time"); if (spins && !(full > 0)) throw new InvalidDataException("Missing full-spin timing");
             var hero = new JsonObject
             {
+                ["calculation"] = CalculatorMetadata.Hero(h),
                 ["id"] = id,
                 ["slug"] = slug,
                 ["name"] = name,
@@ -87,7 +88,10 @@ public static class HeroAdapter
         if (result.Count == 0 || result.Count != active.Count || result.Select(h => J.Str(h["slug"])).Distinct().Count() != result.Count) throw new InvalidDataException("Incomplete or duplicate roster");
         var meta = (JsonObject)J.Obj(current["meta"], "meta").DeepClone(); meta["checkedAt"] = checkedAt; meta["snapshotDate"] = checkedAt[..10]; meta["clientVersion"] = version.Version; meta["sourceRevision"] = version.Revision; meta["gameCommit"] = commit; meta["buildDate"] = version.BuildDate; meta["heroCount"] = result.Count;
         meta["sources"] = new JsonArray(new JsonObject { ["label"] = $"Параметры героев · клиент {version.Version}", ["url"] = $"https://api.deadlock-api.com/v1/assets/heroes?client_version={version.Version}" }, new JsonObject { ["label"] = $"Оружие · клиент {version.Version}", ["url"] = $"https://api.deadlock-api.com/v1/assets/items?client_version={version.Version}" }, new JsonObject { ["label"] = "Исходные файлы игры · фиксированная ревизия", ["url"] = $"https://github.com/SteamTracking/GameTracking-Deadlock/tree/{commit}/game/citadel/pak01_dir/scripts" });
-        return new JsonObject { ["meta"] = meta, ["heroes"] = J.List(result.OrderBy(h => J.Str(h["name"]), StringComparer.InvariantCultureIgnoreCase)) };
+        var snapshot = new JsonObject { ["meta"] = meta, ["heroes"] = J.List(result.OrderBy(h => J.Str(h["name"]), StringComparer.InvariantCultureIgnoreCase)) };
+        var selectedRaw = raw.Values.Where(h => active.ContainsKey(J.Id(h.Hero["m_HeroID"], "hero ID"))).Select(h => h.Hero).ToList();
+        if (version.Version >= 6839 || selectedRaw.Any(h => h.ContainsKey("m_MapModCostBonuses"))) snapshot["calculatorRules"] = CalculatorMetadata.Rules(selectedRaw);
+        return snapshot;
     }
     static int Line(string source, string key) { var match = Regex.Match(source, "^\\s*\"?" + Regex.Escape(key) + "\"?\\s*=", RegexOptions.Multiline); if (!match.Success) throw new InvalidDataException($"Missing source line {key}"); return source[..match.Index].Count(c => c == '\n') + 1; }
 }

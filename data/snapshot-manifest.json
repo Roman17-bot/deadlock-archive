@@ -1,13 +1,13 @@
 {
-  "clientVersion": 6839,
+  "clientVersion": 6842,
   "files": {
-    "data/heroes.json": "9ab0e1e06cb5652799a60967aba86329891f5298b2dd598baf7a617b4cf75175",
-    "data/item-statistics.json": "e30b18d35211777c298e39c09f6ebc030350a61cdb4650c70a2fc5c473c5356a",
-    "data/items.json": "451f246b3af568ea284fee348dc7682f26cebc65e558d9f437cb89456da4da99",
+    "data/heroes.json": "b5513345752487c252841568946f96ce7724d31a7a01d6417068923e9bbf6133",
+    "data/item-statistics.json": "a0cd31478917586474c1173a07d588428725685d30dc301ede9f6e6451980764",
+    "data/items.json": "63d29f837ff83c43f94f8ece027c8651170e29fd3149203aafa1e19e430af895",
     "data/mechanics.en.json": "e7ad716010e2defdd5106e2cbd62b0df8f6f58ea67d45ca34787620bd8f9ddbe",
     "data/mechanics.json": "a1de878110425dec8f78a484647639f29964175cae7cda7fb18bff57cd760c83",
-    "data/provenance.json": "e1d383c9c98e9f91b13c98fafc11305cef57a05ca914598e0777b026b129d928",
-    "data/version-history.json": "c075194a7f0cf80879876c263247c45ee9150b4fbe68953ca798c916fd340a5f",
+    "data/provenance.json": "5f15279ab530dce56ada229e59e48f6ce660cd2c56d6e010333b7110cacec969",
+    "data/version-history.json": "5b83e3cc52c5e00b29c188ef4f2f04378dc92bf75e6ab699af736c3d9f807d5c",
     "public/assets/heroes/abrams.webp": "9805f81c31a1e0bf2bde1c6c7447dbb6203df384aee1497f9a9f7ea1fa74e5a7",
     "public/assets/heroes/apollo.webp": "36f73552ce0b10e6276d9c6dd6b6203a54af8885a382c51ada8d3698af8756c3",
     "public/assets/heroes/baba.webp": "f244fcb7c72f86d66c2c5a247761aea2d2263e427dc5c49db8865ac71639f239",
@@ -209,7 +209,7 @@
     "public/assets/items/weighted-shots.webp": "d991c6079d88d70b8a8c9a8a3113ea2ced6a7862d41591e3a6c269dba7437456",
     "public/assets/items/witchmail.webp": "588ea7711427d9ceda3c0d386b7b83179138a397ccfd2afe106d3830c917c204"
   },
-  "hash": "46223c098d4cde514fd88d7d2f3fb15f2ab3d02cd6d371b789ccd4b6380457b1",
+  "hash": "8b539c4f555177d7190fc25002da3c5c7104568c4d8874bb79a1c2f8fc4c4976",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }

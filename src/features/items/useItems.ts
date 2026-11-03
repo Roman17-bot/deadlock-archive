@@ -19,7 +19,7 @@ export function useItems(
     setError(false);
     const catalogRequest = initialCatalog
       ? Promise.resolve(initialCatalog)
-      : loadItems(controller.signal);
+      : loadItems(controller.signal, attempt > 0);
     void catalogRequest
       .then((value) => {
         if (!controller.signal.aborted) setCatalog(value);

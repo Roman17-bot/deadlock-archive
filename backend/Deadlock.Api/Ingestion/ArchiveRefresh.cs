@@ -101,11 +101,12 @@ public sealed class ArchiveRefresh : IArchiveRefresh
         var heroesText = Utf8.GetString(await heroesTextTask); var abilitiesText = Utf8.GetString(await abilitiesTextTask); var en = J.Arr(await enTask, "English items"); var ru = J.Arr(await ruTask, "Russian items"); var apiHeroes = J.Arr(await heroTask, "heroes");
         var checkedAt = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture);
         var policy = J.Obj(JsonNode.Parse(await File.ReadAllTextAsync(Path.Combine(paths.Data, "updater-policy.json"), ct)), "updater policy");
-        var heroes = HeroAdapter.Build(currentHeroes, Kv3.Parse(heroesText), Kv3.Parse(abilitiesText), apiHeroes, J.Arr(await activeTask, "active heroes"), en, policy, expected, commit, heroesText, abilitiesText, checkedAt);
+        var rawAbilities = Kv3.Parse(abilitiesText);
+        var heroes = HeroAdapter.Build(currentHeroes, Kv3.Parse(heroesText), rawAbilities, apiHeroes, J.Arr(await activeTask, "active heroes"), en, policy, expected, commit, heroesText, abilitiesText, checkedAt);
         ArchiveValidation.Heroes(heroes);
         var end = DateTimeOffset.FromUnixTimeSeconds(DateTimeOffset.UtcNow.ToUnixTimeSeconds()); var from = resolved.BuildTime > end.AddDays(-14) ? resolved.BuildTime : end.AddDays(-14); if (from >= end) throw new InvalidDataException("Invalid item statistics period");
         static string Iso(DateTimeOffset value) => value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture);
-        var catalog = ItemAdapter.Catalog(en, ru, expected, Iso(end), EditorialAdvice.Read());
+        var catalog = ItemAdapter.Catalog(en, ru, expected, Iso(end), EditorialAdvice.Read(), rawAbilities);
         ArchiveValidation.Catalog(catalog);
         var cohort = $"game_mode=normal&match_mode=ranked%2Cunranked&min_unix_timestamp={from.ToUnixTimeSeconds()}&max_unix_timestamp={end.ToUnixTimeSeconds()}&min_matches=1&corrupted_items=exclude";
         var overall = await JsonAsync(Api + "/analytics/item-stats?bucket=no_bucket&" + cohort, ct); var byHero = await JsonAsync(Api + "/analytics/item-stats?bucket=hero&" + cohort, ct);

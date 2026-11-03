@@ -32,7 +32,7 @@ public static class ItemAdapter
         if (n != 0 && double.IsFinite(n)) { var coefficient = (n > 0 ? "+" : "") + J.Format(n); if (J.Str(scale?["specific_stat_scale_type"]) == "ETechPower" || J.Str(scale?["class_name"]) == "scale_function_healing_spirit_scale") a["scaling"] = J.Local($"{coefficient} за 1 Spirit", $"{coefficient} per 1 Spirit"); else if (J.Str(scale?["specific_stat_scale_type"]) == "ELevelUpBoons") a["scaling"] = J.Local($"{coefficient} за уровень после первого", $"{coefficient} per level after the first"); }
         return a;
     }
-    public static JsonObject Catalog(JsonArray english, JsonArray russian, GameVersion version, string updatedAt, JsonObject advice)
+    public static JsonObject Catalog(JsonArray english, JsonArray russian, GameVersion version, string updatedAt, JsonObject advice, JsonObject? rawAbilities = null)
     {
         var rows = J.Rows(english, "English items").Where(i => J.Str(i["type"]) == "upgrade" && J.Bool(i["shopable"], "shopable", false) && !J.Bool(i["disabled"], "disabled", false) && new[] { 1d, 2d, 3d, 4d }.Contains(J.Num(i["item_tier"], "tier", 0)) && new[] { "weapon", "vitality", "spirit" }.Contains(J.Str(i["item_slot_type"]))).ToList();
         var translations = new Dictionary<long, JsonObject>(); foreach (var i in J.Rows(russian, "Russian items")) if (!translations.TryAdd(J.Id(i["id"], "item ID"), i)) throw new InvalidDataException("Duplicate translated item ID");
@@ -64,6 +64,16 @@ public static class ItemAdapter
             items.Add(new JsonObject { ["id"] = id, ["slug"] = slug, ["name"] = PlainText(name), ["localizedName"] = J.Local(PlainText(J.Str(ru["name"])), PlainText(name)), ["category"] = J.Str(en["item_slot_type"]), ["tier"] = tier, ["cost"] = cost, ["icon"] = $"assets/items/{slug}.webp", ["activation"] = active ? "active" : "passive", ["description"] = J.Local(string.Join("\n\n", (descRu.Count > 0 ? descRu : Fallback(ru, rp)).Distinct()), string.Join("\n\n", (descEn.Count > 0 ? descEn : Fallback(en, ep)).Distinct())), ["attributes"] = innate, ["effects"] = effects, ["tags"] = ItemTraits.Tags(en), ["components"] = J.List((en["component_items"] as JsonArray ?? new JsonArray()).Select(c => (JsonNode?)JsonValue.Create(classes.TryGetValue(J.Str(c), out var component) ? component : throw new InvalidDataException($"Missing component {c}")))), ["upgrades"] = new JsonArray(), ["advice"] = advice[name]?.DeepClone() ?? new JsonArray() });
         }
         if (items.Count is < 1 or > 300) throw new InvalidDataException("Invalid catalog size");
+        if (rawAbilities is not null)
+        {
+            var sources = rows.ToDictionary(i => J.Id(i["id"], "item ID"));
+            foreach (var item in items.OfType<JsonObject>())
+            {
+                var className = J.Str(sources[J.Id(item["id"], "item ID")]["class_name"]);
+                if (rawAbilities[className] is JsonObject raw) item["calculation"] = CalculatorMetadata.Item(className, raw);
+                else if (version.Version >= 6839) throw new InvalidDataException($"Missing raw calculator item {className}");
+            }
+        }
         foreach (var item in items.OfType<JsonObject>()) foreach (var id in J.Arr(item["components"], "components")) { var component = items.OfType<JsonObject>().Single(i => J.Id(i["id"], "ID") == J.Id(id, "component")); if (ReferenceEquals(component, item)) throw new InvalidDataException("Self item component"); J.Arr(component["upgrades"], "upgrades").Add(item["id"]!.DeepClone()); }
         return new JsonObject { ["meta"] = new JsonObject { ["schemaVersion"] = 1, ["clientVersion"] = version.Version, ["sourceRevision"] = version.Revision, ["updatedAt"] = updatedAt, ["itemCount"] = items.Count }, ["items"] = items };
     }

@@ -26,6 +26,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 30
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -86,6 +102,28 @@
           "value": "+1"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "NonPlayerBonusWeaponPower",
+            "scope": "versusNPC",
+            "stat": "npcWeaponDamagePercent",
+            "value": 25
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1
+          },
+          {
+            "key": "NonPlayerBulletResist",
+            "scope": "versusNPC",
+            "stat": "npcBulletResist",
+            "value": 25
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -145,6 +183,28 @@
           "value": "+30%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "NonPlayerBonusWeaponPower",
+            "scope": "versusNPC",
+            "stat": "npcWeaponDamagePercent",
+            "value": 30
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          },
+          {
+            "key": "NonPlayerBulletResist",
+            "scope": "versusNPC",
+            "stat": "npcBulletResist",
+            "value": 30
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1009965641
@@ -274,6 +334,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -370,6 +433,16 @@
           "value": "+5%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 5
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         811521119
@@ -526,6 +599,22 @@
           "value": "+125"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4.5
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -619,6 +708,28 @@
           "value": "+7"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 7
+          },
+          {
+            "key": "BonusBulletSpeedPercent",
+            "scope": "self",
+            "stat": "bulletSpeedPercent",
+            "value": 60
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         3077079169
@@ -689,6 +800,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusBulletSpeedPercent",
+            "scope": "self",
+            "stat": "bulletSpeedPercent",
+            "value": 45
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -735,6 +862,16 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusMeleeDamagePercent",
+            "scope": "self",
+            "stat": "meleeDamagePercent",
+            "value": 12
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -820,6 +957,28 @@
           "value": "+75"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          },
+          {
+            "key": "ParryCooldownReduction",
+            "scope": "self",
+            "stat": "parryCooldownReduction",
+            "value": 1.25
+          },
+          {
+            "key": "MeleeResistPercent",
+            "scope": "self",
+            "stat": "meleeResist",
+            "value": 18
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -904,6 +1063,22 @@
           "value": "+5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          },
+          {
+            "key": "SpiritPowerInnate",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -1030,6 +1205,34 @@
           "value": "-0.5 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 30
+          },
+          {
+            "key": "StatusResistancePercent",
+            "scope": "self",
+            "stat": "debuffResist",
+            "value": 22
+          },
+          {
+            "key": "StaminaCooldownReduction",
+            "scope": "self",
+            "stat": "staminaRegenPercent",
+            "value": -14
+          },
+          {
+            "key": "BonusMoveSpeed",
+            "scope": "self",
+            "stat": "moveSpeed",
+            "value": -0.5
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         393974127
@@ -1117,6 +1320,28 @@
           "value": "+20%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CloseRangeBonusWeaponPower",
+            "scope": "closeRange",
+            "stat": "closeRangeWeaponDamagePercent",
+            "value": 20
+          },
+          {
+            "key": "CloseRangeBonusDamageRange",
+            "scope": "closeRange",
+            "stat": "closeRangeThreshold",
+            "value": 15
+          },
+          {
+            "key": "MeleeResistPercent",
+            "scope": "self",
+            "stat": "meleeResist",
+            "value": 20
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -1194,6 +1419,34 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "LongRangeBonusWeaponPower",
+            "scope": "longRange",
+            "stat": "longRangeWeaponDamagePercent",
+            "value": 40
+          },
+          {
+            "key": "LongRangeBonusWeaponPowerMinRange",
+            "scope": "longRange",
+            "stat": "longRangeThreshold",
+            "value": 15
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          },
+          {
+            "key": "BonusAttackRangePercent",
+            "scope": "self",
+            "stat": "weaponRangePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -1255,6 +1508,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -1348,6 +1604,22 @@
           "value": "+150"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 150
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -1424,6 +1696,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -1502,6 +1777,16 @@
           "value": "+1.5 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 1.5
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -1621,6 +1906,16 @@
           "value": "+90"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 3200,
@@ -1717,6 +2012,16 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 12
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -1810,6 +2115,16 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -1909,6 +2224,28 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 160
+          },
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 15
+          },
+          {
+            "key": "BulletLifestealPercent",
+            "scope": "self",
+            "stat": "bulletLifesteal",
+            "value": 10
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -2011,6 +2348,22 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 15
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -2088,6 +2441,16 @@
           "value": "+30"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 30
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -2158,6 +2521,16 @@
           "value": "+60"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 60
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -2268,6 +2641,52 @@
           "value": "-0.7 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          },
+          {
+            "key": "LongRangeBonusWeaponPower",
+            "scope": "longRange",
+            "stat": "longRangeWeaponDamagePercent",
+            "value": 60
+          },
+          {
+            "key": "LongRangeBonusWeaponPowerMinRange",
+            "scope": "longRange",
+            "stat": "longRangeThreshold",
+            "value": 15
+          },
+          {
+            "key": "BonusAttackRangePercent",
+            "scope": "self",
+            "stat": "weaponRangePercent",
+            "value": 20
+          },
+          {
+            "key": "BonusMoveSpeed",
+            "scope": "self",
+            "stat": "moveSpeed",
+            "value": -0.7
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 1
+          },
+          {
+            "key": "BonusBulletSpeedPercent",
+            "scope": "self",
+            "stat": "bulletSpeedPercent",
+            "value": 60
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         3331811235,
@@ -2347,6 +2766,22 @@
           "value": "+50"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 5
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         2010028405
@@ -2447,6 +2882,16 @@
           "value": "+75"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1144549437
@@ -2559,6 +3004,16 @@
           "value": "+125"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1770441818
@@ -2647,6 +3102,16 @@
           "value": "+7"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "SpiritPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 7
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -2718,6 +3183,16 @@
           "value": "+30%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 30
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -2793,6 +3268,34 @@
           "value": "+30%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CloseRangeBonusWeaponPower",
+            "scope": "closeRange",
+            "stat": "closeRangeWeaponDamagePercent",
+            "value": 50
+          },
+          {
+            "key": "CloseRangeBonusDamageRange",
+            "scope": "closeRange",
+            "stat": "closeRangeThreshold",
+            "value": 15
+          },
+          {
+            "key": "MeleeResistPercent",
+            "scope": "self",
+            "stat": "meleeResist",
+            "value": 30
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1342610602
@@ -2871,6 +3374,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -2958,6 +3464,16 @@
           "value": "+18%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 18
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -3032,6 +3548,16 @@
           "value": "+210"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 210
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -3091,6 +3617,28 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletLifestealPercent",
+            "scope": "self",
+            "stat": "bulletLifesteal",
+            "value": 15
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -3137,6 +3685,22 @@
           "value": "+90"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "StatusResistancePercent",
+            "scope": "self",
+            "stat": "debuffResist",
+            "value": 25
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -3199,6 +3763,16 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -3292,6 +3866,22 @@
           "value": "+3"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 30
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 3
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -3359,6 +3949,22 @@
           "value": "+5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 35
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -3418,6 +4024,16 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 12
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -3510,6 +4126,28 @@
           "value": "+2"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "HealAmpCastPercent",
+            "scope": "self",
+            "stat": "healingAmp",
+            "value": 20
+          },
+          {
+            "key": "HealAmpRegenPercent",
+            "scope": "self",
+            "stat": "regenAmp",
+            "value": 20
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -3571,6 +4209,16 @@
           "value": "+375"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 375
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         3633614685
@@ -3690,6 +4338,40 @@
           "value": "+12"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 12
+          },
+          {
+            "key": "AbilityLifestealPercentHero",
+            "scope": "self",
+            "stat": "spiritLifesteal",
+            "value": 30
+          },
+          {
+            "key": "BulletLifestealPercent",
+            "scope": "self",
+            "stat": "bulletLifesteal",
+            "value": 30
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 12
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 180
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         499683006,
@@ -3746,6 +4428,22 @@
           "value": "+2"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 2
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -3807,6 +4505,28 @@
           "value": "+2"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 2
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          },
+          {
+            "key": "NonPlayerBonusWeaponPower",
+            "scope": "versusNPC",
+            "stat": "npcWeaponDamagePercent",
+            "value": -15
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         3399065363
@@ -3902,6 +4622,28 @@
           "value": "+2"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusMoveSpeed",
+            "scope": "self",
+            "stat": "moveSpeed",
+            "value": 2
+          },
+          {
+            "key": "SlowResistancePercent",
+            "scope": "self",
+            "stat": "slowResist",
+            "value": 25
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         3399065363
@@ -3982,6 +4724,22 @@
           "value": "+23%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "Stamina",
+            "scope": "self",
+            "stat": "stamina",
+            "value": 2
+          },
+          {
+            "key": "StaminaCooldownReduction",
+            "scope": "self",
+            "stat": "staminaRegenPercent",
+            "value": 18
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         4139877411
@@ -4033,6 +4791,16 @@
           "value": "+9%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 9
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -4084,6 +4852,22 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "Stamina",
+            "scope": "self",
+            "stat": "stamina",
+            "value": 1
+          },
+          {
+            "key": "StaminaCooldownReduction",
+            "scope": "self",
+            "stat": "staminaRegenPercent",
+            "value": 12
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -4136,6 +4920,22 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -4213,6 +5013,16 @@
           "value": "+1.0"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -4293,6 +5103,16 @@
           "value": "+2.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2.5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1672893796
@@ -4399,6 +5219,16 @@
           "value": "+2.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2.5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1672893796
@@ -4513,6 +5343,22 @@
           "value": "+3"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 18
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 3
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -4590,6 +5436,22 @@
           "value": "+2"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 18
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -4659,6 +5521,16 @@
           "value": "+10"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 10
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -4702,6 +5574,16 @@
           "value": "+50"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -4779,6 +5661,22 @@
           "value": "+1.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 18
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1.5
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         968099481
@@ -4850,6 +5748,34 @@
           "value": "+8"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "AbilityLifestealPercentHero",
+            "scope": "self",
+            "stat": "spiritLifesteal",
+            "value": 15
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          },
+          {
+            "key": "BonusAbilityDurationPercent",
+            "scope": "self",
+            "stat": "durationPercent",
+            "value": 13
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         876563814
@@ -4946,6 +5872,16 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -5028,6 +5964,28 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 30
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 30
+          },
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         754480263
@@ -5080,6 +6038,22 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "imbuedAbility",
+            "stat": "rangePercent",
+            "value": 20
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "imbuedAbility",
+            "stat": "radiusPercent",
+            "value": 20
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -5150,6 +6124,22 @@
           "value": "+7"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusAbilityCharges",
+            "scope": "chargeEligibleAbilities",
+            "stat": "charges",
+            "value": 1
+          },
+          {
+            "key": "BonusSpiritForChargedAbilities",
+            "scope": "chargedAbilities",
+            "stat": "spirit",
+            "value": 7
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -5209,6 +6199,28 @@
           "value": "+8"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "AbilityLifestealPercentHero",
+            "scope": "self",
+            "stat": "spiritLifesteal",
+            "value": 15
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -5263,6 +6275,22 @@
           "value": "+9%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 9
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 9
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -5331,6 +6359,16 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "AbilityLifestealPercentHero",
+            "scope": "self",
+            "stat": "spiritLifesteal",
+            "value": 8
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -5423,6 +6461,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -5499,6 +6540,16 @@
           "value": "+50"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1998374645
@@ -5585,6 +6636,16 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 8
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -5654,6 +6715,16 @@
           "value": "+7"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 7
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -5738,6 +6809,22 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -5825,6 +6912,16 @@
           "value": "+17%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 17
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         2081037738
@@ -5934,6 +7031,34 @@
           "value": "+14"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CooldownBetweenChargeReduction",
+            "scope": "chargedAbilities",
+            "stat": "chargeCooldownReduction",
+            "value": 30
+          },
+          {
+            "key": "BonusAbilityCharges",
+            "scope": "chargeEligibleAbilities",
+            "stat": "charges",
+            "value": 2
+          },
+          {
+            "key": "CooldownReductionOnChargedAbilities",
+            "scope": "chargedAbilities",
+            "stat": "cooldownReduction",
+            "value": 14
+          },
+          {
+            "key": "BonusSpiritForChargedAbilities",
+            "scope": "chargedAbilities",
+            "stat": "spirit",
+            "value": 14
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         3776945997
@@ -5969,6 +7094,16 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CooldownReduction",
+            "scope": "imbuedAbility",
+            "stat": "cooldownReduction",
+            "value": 18
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -6030,6 +7165,22 @@
           "value": "+4"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CooldownReduction",
+            "scope": "self",
+            "stat": "cooldownReduction",
+            "value": 20
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         380806748
@@ -6093,6 +7244,28 @@
           "value": "+4"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CooldownReduction",
+            "scope": "self",
+            "stat": "cooldownReduction",
+            "value": 25
+          },
+          {
+            "key": "ItemCooldownReduction",
+            "scope": "self",
+            "stat": "itemCooldownReduction",
+            "value": 25
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         3261353684
@@ -6162,6 +7335,16 @@
           "value": "+0.5 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.5
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -6265,6 +7448,16 @@
           "value": "+50"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -6366,6 +7559,16 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1219329868
@@ -6492,6 +7695,22 @@
           "value": "+0.5 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 60
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.5
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -6603,6 +7822,22 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         2922054143
@@ -6706,6 +7941,28 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          },
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 6
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 6
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1710079648
@@ -6809,6 +8066,22 @@
           "value": "+65"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 65
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 3200,
@@ -6919,6 +8192,16 @@
           "value": "+100"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -7050,6 +8333,28 @@
           "value": "+5%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          },
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 5
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 5
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 3200,
@@ -7134,6 +8439,22 @@
           "value": "+8"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 15
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -7233,6 +8554,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -7324,6 +8648,28 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 8
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 8
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1813726886
@@ -7436,6 +8782,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -7521,6 +8870,22 @@
           "value": "+5%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 5
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 5
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -7598,6 +8963,22 @@
           "value": "+22%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          },
+          {
+            "key": "MeleeResistPercent",
+            "scope": "self",
+            "stat": "meleeResist",
+            "value": 22
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 3200,
@@ -7686,6 +9067,22 @@
           "value": "+15%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 200
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 15
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -7779,6 +9176,22 @@
           "value": "+2 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 5
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 2
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         3399065363
@@ -7890,6 +9303,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -7994,6 +9410,28 @@
           "value": "+8"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "SpiritPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 5
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1710079648
@@ -8094,6 +9532,16 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 8
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 1600,
@@ -8185,6 +9633,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -8317,6 +9768,34 @@
           "value": "+8"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 8
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          },
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          },
+          {
+            "key": "AbilityLifestealPercentHeroPassive",
+            "scope": "self",
+            "stat": "spiritLifesteal",
+            "value": 15
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         876563814
@@ -8412,6 +9891,28 @@
           "value": "+1.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1.5
+          },
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 8
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1672893796
@@ -8526,6 +10027,28 @@
           "value": "+1.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1.5
+          },
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 10
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         857669956
@@ -8631,6 +10154,16 @@
           "value": "+10"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "SpiritPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 10
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -8767,6 +10300,28 @@
           "value": "+4"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 8
+          },
+          {
+            "key": "InnateStatusResistancePercent",
+            "scope": "self",
+            "stat": "debuffResist",
+            "value": 8
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 3200,
@@ -8869,6 +10424,22 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 6
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 6
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -8970,6 +10541,22 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "Stamina",
+            "scope": "self",
+            "stat": "stamina",
+            "value": 1
+          },
+          {
+            "key": "StaminaCooldownReduction",
+            "scope": "self",
+            "stat": "staminaRegenPercent",
+            "value": 12
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         4139877411
@@ -9056,6 +10643,22 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "Stamina",
+            "scope": "self",
+            "stat": "stamina",
+            "value": 1
+          },
+          {
+            "key": "StaminaCooldownReduction",
+            "scope": "self",
+            "stat": "staminaRegenPercent",
+            "value": 12
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         4139877411
@@ -9151,6 +10754,22 @@
           "value": "+125"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          },
+          {
+            "key": "StatusResistancePercent",
+            "scope": "self",
+            "stat": "debuffResist",
+            "value": 25
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1047818222
@@ -9229,6 +10848,22 @@
           "value": "+15%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusBaseHealth",
+            "scope": "self",
+            "stat": "baseHealthPercent",
+            "value": 25
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 15
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         3633614685
@@ -9351,6 +10986,16 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 6
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -9449,6 +11094,16 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1976391348
@@ -9531,6 +11186,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -9623,6 +11281,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -9706,6 +11367,16 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusAbilityDurationPercent",
+            "scope": "imbuedAbility",
+            "stat": "durationPercent",
+            "value": 22
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -9767,6 +11438,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusAbilityDurationPercent",
+            "scope": "self",
+            "stat": "durationPercent",
+            "value": 28
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 8
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         2951612397
@@ -9836,6 +11523,22 @@
           "value": "-13%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 85
+          },
+          {
+            "key": "MaxHealthLossPercent",
+            "scope": "self",
+            "stat": "maxHealthPercent",
+            "value": -13
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -9912,6 +11615,28 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletLifestealPercent",
+            "scope": "self",
+            "stat": "bulletLifesteal",
+            "value": 15
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         499683006
@@ -10033,6 +11758,34 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 100
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 10
+          },
+          {
+            "key": "BulletLifestealPercent",
+            "scope": "self",
+            "stat": "bulletLifesteal",
+            "value": 15
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         499683006
@@ -10138,6 +11891,22 @@
           "value": "+125"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusMeleeDamagePercent",
+            "scope": "self",
+            "stat": "meleeDamagePercent",
+            "value": 16
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1437614329
@@ -10224,6 +11993,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -10321,6 +12093,22 @@
           "value": "+75"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusMeleeDamagePercent",
+            "scope": "self",
+            "stat": "meleeDamagePercent",
+            "value": 7
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         465043967
@@ -10438,6 +12226,22 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 6
+          },
+          {
+            "key": "BonusMeleeDamagePercent",
+            "scope": "self",
+            "stat": "meleeDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -10523,6 +12327,22 @@
           "value": "+12%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 12
+          },
+          {
+            "key": "BonusMeleeDamagePercent",
+            "scope": "self",
+            "stat": "meleeDamagePercent",
+            "value": 22
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         26002154
@@ -10652,6 +12472,22 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusAbilityDurationPercent",
+            "scope": "self",
+            "stat": "durationPercent",
+            "value": 15
+          },
+          {
+            "key": "UltimateCooldownReduction",
+            "scope": "ultimate",
+            "stat": "ultimateCooldownReduction",
+            "value": 10
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -10737,6 +12573,16 @@
           "value": "+90"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1439347412
@@ -10877,6 +12723,34 @@
           "value": "+4"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 30
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4
+          },
+          {
+            "key": "TechPowerPercent",
+            "scope": "self",
+            "stat": "spiritPercent",
+            "value": 15
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         7409189
@@ -10929,6 +12803,16 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         668299740
@@ -11022,6 +12906,22 @@
           "value": "+1.5"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealthRegen",
+            "scope": "self",
+            "stat": "healthRegen",
+            "value": 2.5
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1.5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 800,
@@ -11053,6 +12953,16 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "ImbuedTechPower",
+            "scope": "imbuedAbility",
+            "stat": "spirit",
+            "value": 28
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         968099481
@@ -11156,6 +13066,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 6
+          },
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 8
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -11215,6 +13141,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "spirit",
       "components": [],
       "cost": 1600,
@@ -11323,6 +13252,22 @@
           "value": "+7"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 7
+          },
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 20
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         84321454
@@ -11436,6 +13381,16 @@
           "value": "+20%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 20
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -11519,6 +13474,28 @@
           "value": "+18%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 18
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 75
+          },
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 35
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1548066885
@@ -11606,6 +13583,22 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusFireRate",
+            "scope": "self",
+            "stat": "fireRatePercent",
+            "value": 20
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         668299740
@@ -11657,6 +13650,34 @@
           "value": "+6"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 0
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          },
+          {
+            "key": "SpiritPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 6
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 3200,
@@ -11743,6 +13764,16 @@
           "value": "+1.0"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1672893796
@@ -11842,6 +13873,28 @@
           "value": "+2.0"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BulletResist",
+            "scope": "self",
+            "stat": "bulletResist",
+            "value": 10
+          },
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 2
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1644605047
@@ -11927,6 +13980,16 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 6
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 800,
@@ -12010,6 +14073,22 @@
           "value": "+14%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 100
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 14
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         1548066885
@@ -12044,6 +14123,9 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": []
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -12142,6 +14224,16 @@
           "value": "+20%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 20
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -12268,6 +14360,28 @@
           "value": "+25%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 14
+          },
+          {
+            "key": "BonusAbilityDurationPercent",
+            "scope": "self",
+            "stat": "durationPercent",
+            "value": 15
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 125
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -12362,6 +14476,22 @@
           "value": "+6%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "self",
+            "stat": "rangePercent",
+            "value": 6
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "self",
+            "stat": "radiusPercent",
+            "value": 6
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 6400,
@@ -12482,6 +14612,22 @@
           "value": "+0.75 m/s"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 0.75
+          }
+        ]
+      },
       "category": "spirit",
       "components": [
         1102081447
@@ -12575,6 +14721,22 @@
           "value": "+14"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechPower",
+            "scope": "self",
+            "stat": "spirit",
+            "value": 14
+          },
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 22
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -12675,6 +14837,40 @@
           "value": "+4"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 10
+          },
+          {
+            "key": "BonusHealthRegen",
+            "scope": "self",
+            "stat": "healthRegen",
+            "value": 6
+          },
+          {
+            "key": "HealAmpCastPercent",
+            "scope": "self",
+            "stat": "healingAmp",
+            "value": 25
+          },
+          {
+            "key": "HealAmpRegenPercent",
+            "scope": "self",
+            "stat": "regenAmp",
+            "value": 25
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 4
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         2566692615
@@ -12772,6 +14968,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusBulletSpeedPercent",
+            "scope": "self",
+            "stat": "bulletSpeedPercent",
+            "value": 60
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         3077079169
@@ -12833,6 +15045,16 @@
           "value": "+130"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 130
+          }
+        ]
+      },
       "category": "vitality",
       "components": [],
       "cost": 6400,
@@ -12924,6 +15146,28 @@
           "value": "+90"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechResist",
+            "scope": "self",
+            "stat": "spiritResist",
+            "value": 18
+          },
+          {
+            "key": "StatusResistancePercent",
+            "scope": "self",
+            "stat": "debuffResist",
+            "value": 25
+          },
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 90
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         1047818222
@@ -13027,6 +15271,34 @@
           "value": "+15"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "MeleeResistPercent",
+            "scope": "self",
+            "stat": "meleeResist",
+            "value": 25
+          },
+          {
+            "key": "SlowResistancePercent",
+            "scope": "self",
+            "stat": "slowResist",
+            "value": 50
+          },
+          {
+            "key": "BonusHealthRegen",
+            "scope": "self",
+            "stat": "healthRegen",
+            "value": 15
+          },
+          {
+            "key": "BonusMoveSpeed",
+            "scope": "self",
+            "stat": "moveSpeed",
+            "value": 2.5
+          }
+        ]
+      },
       "category": "vitality",
       "components": [
         2447176615
@@ -13099,6 +15371,16 @@
           "value": "+5%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "CooldownReduction",
+            "scope": "self",
+            "stat": "cooldownReduction",
+            "value": 5
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 6400,
@@ -13191,6 +15473,16 @@
           "value": "+50"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusHealth",
+            "scope": "self",
+            "stat": "health",
+            "value": 50
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -13301,6 +15593,22 @@
           "value": "+8%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusBulletSpeedPercent",
+            "scope": "self",
+            "stat": "bulletSpeedPercent",
+            "value": 60
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 8
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         3077079169
@@ -13393,6 +15701,22 @@
         }
       ],
       "attributes": [],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "TechRangeMultiplier",
+            "scope": "imbuedAbility",
+            "stat": "rangePercent",
+            "value": 22
+          },
+          {
+            "key": "TechRadiusMultiplier",
+            "scope": "imbuedAbility",
+            "stat": "radiusPercent",
+            "value": 22
+          }
+        ]
+      },
       "category": "weapon",
       "components": [
         754480263
@@ -13495,6 +15819,22 @@
           "value": "+10%"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "BonusClipSizePercent",
+            "scope": "self",
+            "stat": "clipSizePercent",
+            "value": 20
+          },
+          {
+            "key": "BaseAttackDamagePercent",
+            "scope": "self",
+            "stat": "weaponDamagePercent",
+            "value": 10
+          }
+        ]
+      },
       "category": "weapon",
       "components": [],
       "cost": 1600,
@@ -13588,6 +15928,28 @@
           "value": "+1"
         }
       ],
+      "calculation": {
+        "modifiers": [
+          {
+            "key": "OutgoingDamagePenaltyPercent",
+            "scope": "self",
+            "stat": "damagePercent",
+            "value": -12
+          },
+          {
+            "key": "BonusSprintSpeed",
+            "scope": "self",
+            "stat": "sprintSpeed",
+            "value": 1
+          },
+          {
+            "key": "OutOfCombatHealthRegen",
+            "scope": "outOfCombat",
+            "stat": "outOfCombatRegen",
+            "value": 1
+          }
+        ]
+      },
       "category": "spirit",
       "components": [],
       "cost": 800,
@@ -13640,10 +16002,10 @@
     }
   ],
   "meta": {
-    "clientVersion": 6839,
+    "clientVersion": 6842,
     "itemCount": 156,
     "schemaVersion": 1,
-    "sourceRevision": 11193905,
-    "updatedAt": "2026-11-02T19:10:45.000Z"
+    "sourceRevision": 11196939,
+    "updatedAt": "2026-11-03T01:16:56.000Z"
   }
 }

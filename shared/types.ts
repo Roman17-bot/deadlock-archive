@@ -1,3 +1,5 @@
+import type { BuildRules, HeroCalculation } from './build-types';
+
 export interface Hero {
   id: number;
   slug: string;
@@ -6,6 +8,7 @@ export interface Hero {
   tags: string[];
   isNew: boolean;
   portrait: string;
+  calculation?: HeroCalculation;
   base: {
     health: number;
     spirit: number;
@@ -38,6 +41,7 @@ export interface Hero {
 }
 
 export interface HeroSnapshot {
+  calculatorRules?: BuildRules;
   meta: {
     schemaVersion: number;
     snapshotDate: string;

@@ -280,3 +280,20 @@
     font-size: 3.5rem;
   }
 }
+.calculator-modes {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.calculator-modes button {
+  padding: 13px 24px;
+  border: 1px solid var(--brass);
+  color: var(--paper);
+  background: var(--ink);
+  font-weight: 700;
+}
+.calculator-modes button[aria-pressed='true'] {
+  background: var(--brass);
+  color: var(--ink);
+}

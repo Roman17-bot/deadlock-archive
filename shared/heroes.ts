@@ -1,4 +1,5 @@
 import type { Hero, HeroSnapshot, HeroStats, SortDirection, SortKey } from './types';
+import { validateBuildRules, validateHeroCalculation } from './build-validation.ts';
 
 export function statsAtLevel(hero: Hero, level: number): HeroStats {
   if (!Number.isInteger(level) || level < 1 || level > 36)
@@ -55,6 +56,7 @@ export function selectHeroes(
 export function validateSnapshot(value: unknown): value is HeroSnapshot {
   if (!value || typeof value !== 'object') return false;
   const data = value as HeroSnapshot;
+  if (data.calculatorRules !== undefined && !validateBuildRules(data.calculatorRules)) return false;
   const text = (input: unknown): input is string => typeof input === 'string' && input.length > 0;
   const strings = (input: unknown): input is string[] => Array.isArray(input) && input.every(text);
   const https = (input: unknown) => {
@@ -93,6 +95,8 @@ export function validateSnapshot(value: unknown): value is HeroSnapshot {
   const ids = new Set<number>();
   try {
     for (const hero of data.heroes) {
+      if (hero.calculation !== undefined && !validateHeroCalculation(hero.calculation))
+        return false;
       if (
         !Number.isInteger(hero.id) ||
         ids.has(hero.id) ||

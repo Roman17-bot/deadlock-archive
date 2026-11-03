@@ -30,11 +30,18 @@ public static class ArchiveValidation
     }
     public static void Heroes(JsonObject snapshot)
     {
+        if (snapshot.ContainsKey("calculatorRules")) CalculatorRules(J.Obj(snapshot["calculatorRules"], "calculator rules"));
         var meta = J.Obj(snapshot["meta"], "hero metadata"); var heroes = J.Arr(snapshot["heroes"], "heroes");
         Need(J.Num(meta["schemaVersion"], "hero schema") == 1 && Integer(meta["clientVersion"], 1) && Integer(meta["sourceRevision"], 1) && Date(meta["snapshotDate"]) && Timestamp(meta["checkedAt"]) && Date(meta["buildDate"]) && Commit(meta["gameCommit"]) && Strings(meta["methodology"]) && meta["sources"] is JsonArray sources && sources.All(s => s is JsonObject && Text(s["label"], 20000, true) && Https(s["url"])) && meta["levelRange"] is JsonArray range && range.Count == 2 && J.Num(range[0], "level min") == 1 && J.Num(range[1], "level max") == 36 && J.Num(meta["heroCount"], "hero count") == heroes.Count && heroes.Count > 0, "Invalid hero metadata");
         var ids = new HashSet<double>(); var slugs = new HashSet<string>();
         foreach (var hero in J.Rows(heroes, "hero"))
         {
+            if (hero.ContainsKey("calculation"))
+            {
+                var calculation = J.Obj(hero["calculation"], "hero calculation");
+                Need(CalculatorMetadata.HeroFields.All(key => Finite(calculation[key])), "Invalid hero calculation");
+                Need(J.Num(calculation["staminaRegen"], "stamina regen") >= 0 && J.Num(calculation["sprintSpeed"], "sprint") >= 0, "Invalid hero movement calculation");
+            }
             Need(Integer(hero["id"], 1) && ids.Add(J.Num(hero["id"], "ID")) && Pattern(hero["slug"], "^[a-z0-9]+(?:-[a-z0-9]+)*$") && slugs.Add(J.Str(hero["slug"])) && Text(hero["name"], 20000, true) && Text(hero["aliases"]) && Strings(hero["tags"]) && Bool(hero["isNew"]) && Pattern(hero["portrait"], "^assets/heroes/[a-z0-9-]+\\.webp$") && hero["source"] is JsonObject s && Https(s["heroUrl"]) && Https(s["weaponUrl"]) && Integer(s["heroLine"], 1) && Integer(s["weaponLine"], 1), "Invalid hero identity/source");
             var b = J.Obj(hero["base"], "hero base"); var g = J.Obj(hero["growth"], "hero growth"); var scale = J.Obj(hero["scaling"], "hero scaling"); var w = J.Obj(hero["weapon"], "hero weapon");
             foreach (var key in new[] { "health", "spirit", "regen", "bulletDamage", "moveSpeed", "stamina" }) Need(Finite(b[key]), "Missing hero base " + key);
@@ -56,9 +63,32 @@ public static class ArchiveValidation
         var ids = new HashSet<double>(); var slugs = new HashSet<string>();
         foreach (var i in J.Rows(items, "item"))
         {
+            if (i.ContainsKey("calculation")) ItemCalculation(J.Obj(i["calculation"], "item calculation"));
             Need(Integer(i["id"], 1) && ids.Add(J.Num(i["id"], "item ID")) && Pattern(i["slug"], "^[a-z0-9]+(?:-[a-z0-9]+)*$") && slugs.Add(J.Str(i["slug"])) && Text(i["name"], 20000, true) && Local(i["localizedName"], true) && new[] { "weapon", "vitality", "spirit" }.Contains(J.Str(i["category"])) && Integer(i["tier"], 1, 4) && Integer(i["cost"], 1) && J.Num(i["cost"], "cost") == new[] { 0, 800, 1600, 3200, 6400 }[(int)J.Num(i["tier"], "tier")] && Pattern(i["icon"], "^assets/items/[a-z0-9]+(?:-[a-z0-9]+)*\\.webp$") && new[] { "active", "passive" }.Contains(J.Str(i["activation"])) && Local(i["description"]) && Attributes(i["attributes"]) && i["effects"] is JsonArray effects && effects.Count <= 12 && effects.All(e => e is JsonObject && new[] { "active", "passive" }.Contains(J.Str(e["kind"])) && Local(e["description"]) && Attributes(e["attributes"])) && i["tags"] is JsonArray tags && tags.Count <= 80 && tags.All(t => Pattern(t, "^[a-z][a-z0-9-]{0,39}$")) && tags.Select(t => J.Str(t)).Distinct().Count() == tags.Count && Ids(i["components"]) && Ids(i["upgrades"]) && i["advice"] is JsonArray advice && advice.Count <= 12 && advice.All(a => Local(a)), "Invalid item " + J.Str(i["name"]));
         }
         foreach (var i in J.Rows(items, "items")) Need(new[] { "components", "upgrades" }.SelectMany(k => J.Arr(i[k], k)).All(id => ids.Contains(J.Num(id, "reference")) && J.Num(id, "reference") != J.Num(i["id"], "ID")), "Invalid item relationship");
+    }
+    public static void ItemCalculation(JsonObject calculation)
+    {
+        var modifiers = J.Arr(calculation["modifiers"], "build modifiers");
+        Need(modifiers.Count <= 100 && modifiers.All(m => m is JsonObject && Text(m["key"], 200, true) && CalculatorMetadata.SupportedStats.Contains(J.Str(m["stat"])) && CalculatorMetadata.Scopes.Contains(J.Str(m["scope"])) && Finite(m["value"]) && (!m.AsObject().ContainsKey("spiritScale") || Finite(m["spiritScale"])) && (!m.AsObject().ContainsKey("boonScale") || Finite(m["boonScale"]))), "Invalid build modifier");
+        Need(modifiers.Select(m => J.Str(m?["key"]) + ":" + J.Str(m?["scope"])).Distinct().Count() == modifiers.Count, "Duplicate build modifier");
+    }
+    public static void CalculatorRules(JsonObject rules)
+    {
+        Need(J.Num(rules["schemaVersion"], "calculator schema") == 1 && Integer(rules["baseSlots"], 1, 12) && Integer(rules["maxSlots"], 1, 12) && Integer(rules["maxActiveItems"], 1, 12) && J.Num(rules["baseSlots"], "base slots") <= J.Num(rules["maxSlots"], "max slots") && J.Num(rules["maxActiveItems"], "active slots") <= J.Num(rules["maxSlots"], "max slots"), "Invalid calculator capacity");
+        var investment = J.Obj(rules["investment"], "investment");
+        foreach (var category in new[] { "weapon", "vitality", "spirit" })
+        {
+            var thresholds = J.Arr(investment[category], category); double previousSouls = 0, previousBonus = 0;
+            Need(thresholds.Count is > 0 and <= 100, "Invalid investment table");
+            foreach (var t in thresholds)
+            {
+                Need(t is JsonObject && Integer(t["souls"], 1) && Finite(t["bonus"]), "Invalid investment threshold");
+                var souls = J.Num(t!["souls"], "souls"); var bonus = J.Num(t["bonus"], "bonus");
+                Need(souls > previousSouls && bonus >= previousBonus, "Non-monotone investment table"); previousSouls = souls; previousBonus = bonus;
+            }
+        }
     }
     static bool Purchase(JsonObject p) => Integer(p["matches"]) && Integer(p["wins"]) && Integer(p["losses"]) && J.Num(p["wins"], "wins") + J.Num(p["losses"], "losses") == J.Num(p["matches"], "matches") && p.ContainsKey("averageBuyTimeSeconds") && (p["averageBuyTimeSeconds"] is null || Finite(p["averageBuyTimeSeconds"]) && J.Num(p["averageBuyTimeSeconds"], "buy time") is >= 0 and <= 7000);
     public static void Statistics(JsonObject statistics, JsonObject catalog)
