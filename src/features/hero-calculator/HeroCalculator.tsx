@@ -5,15 +5,14 @@ import { chooseBuildItem } from '../../../shared/build-inventory';
 import { calculateBuild } from '../../../shared/build-stats';
 import { useItems } from '../items/useItems';
 import { useI18n } from '../../i18n';
-import { asset, format } from '../../lib/format';
+import { asset } from '../../lib/format';
 import { PickerDialog } from './PickerDialog';
+import { BuildItemPicker } from './BuildItemPicker';
 import { BuildResults } from './BuildResults';
 import { BuildHeroControls } from './BuildHeroControls';
 import { BuildInventory } from './BuildInventory';
 import { HeroAbilities } from './HeroAbilities';
 import './HeroCalculator.css';
-const categories = ['weapon', 'vitality', 'spirit'] as const;
-const categoryNames = { weapon: 'Оружие', vitality: 'Выживаемость', spirit: 'Спирит' };
 
 export default function HeroCalculator({
   data,
@@ -31,8 +30,6 @@ export default function HeroCalculator({
   );
   const [picker, setPicker] = useState<'hero' | number | null>(null);
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('all');
-  const [tier, setTier] = useState('all');
   const [notice, setNotice] = useState<{ key: string; removed?: number[] }>();
   const [context, setContext] = useState<BuildContext>({ distance: 15 });
   const hero = data.heroes.find((h) => h.id === heroId) ?? data.heroes[0];
@@ -67,8 +64,6 @@ export default function HeroCalculator({
   const result = calculation.value;
   const open = (value: 'hero' | number) => {
     setQuery('');
-    setCategory('all');
-    setTier('all');
     setPicker(value);
   };
   const name = (item: (typeof items)[number]) => item.localizedName[language] || item.name;
@@ -219,136 +214,48 @@ export default function HeroCalculator({
           </div>
         )}
       </div>
-      {picker !== null && (
-        <PickerDialog
-          title={
-            picker === 'hero'
-              ? t('Выбрать героя')
-              : t('Предмет для слота {{slot}}', { slot: picker + 1 })
-          }
-          onClose={() => setPicker(null)}
-        >
+      {picker === 'hero' && (
+        <PickerDialog title={t('Выбрать героя')} onClose={() => setPicker(null)}>
           <div className="build-picker-tools">
             <label>
-              {picker === 'hero' ? t('Найти героя') : t('Найти предмет')}
+              {t('Найти героя')}
               <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} />
             </label>
-            {picker !== 'hero' && (
-              <div className="build-picker-filters">
-                <label>
-                  {t('Категория')}
-                  <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option value="all">{t('Все категории')}</option>
-                    {categories.map((c) => (
-                      <option key={c} value={c}>
-                        {t(categoryNames[c])}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  {t('Тир')}
-                  <select value={tier} onChange={(e) => setTier(e.target.value)}>
-                    <option value="all">{t('Все тиры')}</option>
-                    {[1, 2, 3, 4].map((n) => (
-                      <option key={n} value={n}>
-                        {n}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+          </div>
+          <div className="build-picker-results heroes">
+            {data.heroes
+              .filter((h) =>
+                `${h.name} ${h.aliases}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+              )
+              .map((h) => (
                 <button
+                  key={h.id}
                   type="button"
-                  className="text-link"
+                  aria-pressed={h.id === heroId}
                   onClick={() => {
-                    setQuery('');
-                    setCategory('all');
-                    setTier('all');
+                    setHeroId(h.id);
+                    setPicker(null);
                   }}
                 >
-                  {t('Сбросить фильтры')}
+                  <img src={asset(h.portrait)} alt="" />
+                  <span>{h.name}</span>
                 </button>
-              </div>
-            )}
-          </div>
-          <div className={`build-picker-results ${picker === 'hero' ? 'heroes' : ''}`}>
-            {picker === 'hero'
-              ? data.heroes
-                  .filter((h) =>
-                    `${h.name} ${h.aliases}`
-                      .toLocaleLowerCase()
-                      .includes(query.toLocaleLowerCase()),
-                  )
-                  .map((h) => (
-                    <button
-                      key={h.id}
-                      type="button"
-                      aria-pressed={h.id === heroId}
-                      onClick={() => {
-                        setHeroId(h.id);
-                        setPicker(null);
-                      }}
-                    >
-                      <img src={asset(h.portrait)} alt="" />
-                      <span>{h.name}</span>
-                    </button>
-                  ))
-              : items
-                  .filter(
-                    (i) =>
-                      (category === 'all' || i.category === category) &&
-                      (tier === 'all' || i.tier === Number(tier)) &&
-                      `${name(i)} ${i.name}`
-                        .toLocaleLowerCase()
-                        .includes(query.toLocaleLowerCase()),
-                  )
-                  .map((item) => {
-                    let reason = '';
-                    try {
-                      if (rules)
-                        chooseBuildItem(
-                          Array.from(
-                            { length: rules.maxSlots },
-                            (_, index) => slots[index] ?? null,
-                          ),
-                          picker,
-                          item.id,
-                          items,
-                          rules,
-                        );
-                    } catch (error) {
-                      reason =
-                        error instanceof Error
-                          ? t(error.message)
-                          : t('Повтор или превышен лимит активных предметов');
-                    }
-                    return (
-                      <button
-                        type="button"
-                        key={item.id}
-                        aria-pressed={slots[picker] === item.id}
-                        className={item.category}
-                        disabled={!!reason}
-                        title={reason}
-                        onClick={() => choose(item.id)}
-                      >
-                        <img src={asset(item.icon)} alt="" />
-                        <span>
-                          <strong>{name(item)}</strong>
-                          <small>
-                            {t(categoryNames[item.category])} · {t('Тир')} {item.tier}
-                            {reason && ` · ${reason}`}
-                          </small>
-                        </span>
-                        <b>{format(item.cost)}</b>
-                      </button>
-                    );
-                  })}
+              ))}
           </div>
           <p className="build-picker-empty">
             {t('Не нашёл предмет или героя? Измени запрос или фильтры.')}
           </p>
         </PickerDialog>
+      )}
+      {typeof picker === 'number' && rules && (
+        <BuildItemPicker
+          items={items}
+          slots={slots}
+          slot={picker}
+          rules={rules}
+          onChoose={choose}
+          onClose={() => setPicker(null)}
+        />
       )}
     </div>
   );

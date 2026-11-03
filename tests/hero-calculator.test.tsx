@@ -267,7 +267,11 @@ it('filters item choices and never commits a pending search', async () => {
   expect(
     within(screen.getByRole('dialog')).queryByRole('button', { name: /Basic/ }),
   ).not.toBeInTheDocument();
-  await user.selectOptions(screen.getByRole('combobox', { name: 'Категория' }), 'spirit');
+  await user.click(
+    within(screen.getByRole('group', { name: 'Категория' })).getByRole('button', {
+      name: 'Спирит',
+    }),
+  );
   expect(
     within(screen.getByRole('dialog')).queryByRole('button', { name: /Upgrade/ }),
   ).not.toBeInTheDocument();

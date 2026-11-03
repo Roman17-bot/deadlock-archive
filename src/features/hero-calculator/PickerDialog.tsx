@@ -5,10 +5,12 @@ export function PickerDialog({
   title,
   children,
   onClose,
+  className = '',
 }: {
   title: string;
   children: ReactNode;
   onClose: () => void;
+  className?: string;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const id = useId();
@@ -22,7 +24,7 @@ export function PickerDialog({
   return (
     <dialog
       ref={dialog}
-      className="build-picker"
+      className={`build-picker ${className}`}
       aria-labelledby={id}
       onKeyDownCapture={(event) => {
         // A search input otherwise consumes the first Escape to clear its text.
