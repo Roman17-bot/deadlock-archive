@@ -29,9 +29,19 @@ public sealed class IngestionTests(ITestOutputHelper output)
             if (u.AbsolutePath.EndsWith("/steam-info")) { var info = Steam(); if (u.Query == "" && ++checks > 1 && drift) { info["client_version"] = 6820; info["server_version"] = 6820; } return Json(info); }
             if (u.AbsolutePath.EndsWith("/commits/master")) return Json(new JsonObject { ["sha"] = Commit });
             if (u.AbsolutePath.EndsWith("/steam.inf")) return Text(RawSteam());
-            if (u.AbsolutePath.EndsWith("/heroes.vdata")) return Text(Fixture("heroes.vdata")); if (u.AbsolutePath.EndsWith("/abilities.vdata")) return Text(Fixture("abilities.vdata"));
+            if (u.AbsolutePath.EndsWith("/heroes.vdata")) return Text(Fixture("heroes.vdata")); if (u.AbsolutePath.EndsWith("/abilities.vdata"))
+            {
+                var raw = Fixture("abilities.vdata");
+                var names = JsonNode.Parse(Fixture("heroes.json"))!.AsArray().SelectMany(h => Enumerable.Range(1,4).Select(slot => h!["items"]![$"signature{slot}"]!.GetValue<string>())).Distinct();
+                var definitions = string.Join("\n", names.Select(name => $"{name} = {{ m_mapAbilityProperties = {{}} }}"));
+                return Text(raw.Insert(raw.LastIndexOf('}'), definitions));
+            }
             if (u.AbsolutePath.EndsWith("/heroes")) return Text(Fixture("heroes.json"));
-            if (u.AbsolutePath.EndsWith("/items")) { if (failRu && u.Query.Contains("russian")) return new(HttpStatusCode.BadRequest); var rows = JsonNode.Parse(Fixture("items.json"))!.AsArray(); for (var i = 0; i < rows.Count; i++) rows[i]!["id"] = 100000 + i; rows.Add(Shop()); return Json(rows); }
+            if (u.AbsolutePath.EndsWith("/items")) { if (failRu && u.Query.Contains("russian")) return new(HttpStatusCode.BadRequest); var rows = JsonNode.Parse(Fixture("items.json"))!.AsArray(); for (var i = 0; i < rows.Count; i++) rows[i]!["id"] = 100000 + i; rows.Add(Shop());
+                var nextId = 200000;
+                foreach (var name in JsonNode.Parse(Fixture("heroes.json"))!.AsArray().SelectMany(h => Enumerable.Range(1,4).Select(slot => h!["items"]![$"signature{slot}"]!.GetValue<string>())).Distinct())
+                    rows.Add(new JsonObject { ["id"] = nextId++, ["class_name"] = name, ["name"] = "Fixture ability", ["properties"] = new JsonObject(), ["description"] = new JsonObject(), ["upgrades"] = new JsonArray(Enumerable.Range(0,3).Select(_ => (JsonNode)new JsonObject { ["property_upgrades"] = new JsonArray() }).ToArray()), ["image_webp"] = "https://assets-bucket.deadlock-api.com/fixture.webp" });
+                return Json(rows); }
             if (u.AbsolutePath.EndsWith("/item-stats")) return Json(JsonNode.Parse(u.Query.Contains("bucket=hero") ? """[{"item_id":1,"bucket":4,"wins":6,"losses":4,"matches":10,"avg_buy_time_s":360}]""" : """[{"item_id":1,"bucket":0,"wins":6,"losses":4,"matches":10,"avg_buy_time_s":360}]""")!);
             if (u.Host == "assets-bucket.deadlock-api.com") return new(HttpStatusCode.OK) { Content = new ByteArrayContent("RIFF0000WEBPfixture"u8.ToArray()) };
             throw new InvalidOperationException("Unexpected request " + u);

@@ -106,6 +106,7 @@ try
             switch (path)
             {
                 case "/api/heroes": await Reply(200, bundle["heroes"]); break;
+                case "/api/abilities": await Reply(bundle["abilities"] is null ? 404 : 200, bundle["abilities"] ?? (object)new { error = "Ability data unavailable" }); break;
                 case "/api/items":
                 case "/api/item-statistics":
                     var data = bundle[path == "/api/items" ? "items" : "itemStatistics"];

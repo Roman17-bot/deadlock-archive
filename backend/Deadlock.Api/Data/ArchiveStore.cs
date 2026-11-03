@@ -173,7 +173,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         var current = await db.Current.AsNoTracking().Include(x => x.Snapshot).SingleOrDefaultAsync(x => x.Singleton, ct);
         if (current == null) throw new InvalidDataException("Archive is empty");
         var id = current.SnapshotId;
-        var schema = await Query(c, tx, "SELECT to_regclass('archive_bundle_payloads')::text AS payload_table,to_regclass('item_catalogues')::text AS items_table", ct);
+        var schema = await Query(c, tx, "SELECT to_regclass('archive_bundle_payloads')::text AS payload_table,to_regclass('item_catalogues')::text AS items_table,to_regclass('ability_catalogues')::text AS abilities_table", ct);
         var saved = schema[0]["payload_table"] == null ? new List<JsonObject>() : await Query(c, tx, "SELECT data::text FROM archive_bundle_payloads WHERE snapshot_id=@p0", ct, id);
         var bundle = saved.Count == 0 ? new JsonObject() : JsonNode.Parse(ArchiveJson.Text(saved[0]["data"]))!.AsObject();
         var heroes = new JsonArray();
@@ -196,6 +196,16 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         bundle["history"] ??= new JsonObject(); bundle["history"]!["schemaVersion"] = 1; bundle["history"]!["versions"] = versions;
         var itemMeta = schema[0]["items_table"] == null ? new List<JsonObject>() : await Rows(c, tx, "item_catalogues", id, ct);
         if (itemMeta.Count > 0) { bundle["items"] ??= new JsonObject(); bundle["items"]!["meta"] = itemMeta[0]["meta"]!.DeepClone(); bundle["items"]!["items"] = new JsonArray((await Rows(c, tx, "shop_items", id, ct, "ORDER BY ordinal")).Select(x => x["data"]!.DeepClone()).ToArray()); bundle["itemStatistics"] ??= new JsonObject(); bundle["itemStatistics"]!["meta"] = itemMeta[0]["statistics_meta"]!.DeepClone(); bundle["itemStatistics"]!["items"] = new JsonArray((await Rows(c, tx, "item_purchase_statistics", id, ct, "ORDER BY ordinal")).Select(x => x["data"]!.DeepClone()).ToArray()); } else { bundle.Remove("items"); bundle.Remove("itemStatistics"); }
+        var abilityMeta = schema[0]["abilities_table"] == null ? new List<JsonObject>() : await Rows(c, tx, "ability_catalogues", id, ct);
+        if (abilityMeta.Count > 0)
+        {
+            var abilityRows = await Rows(c, tx, "hero_abilities", id, ct, "ORDER BY hero_ordinal,slot");
+            var abilityHeroes = new JsonArray();
+            foreach (var group in abilityRows.GroupBy(a => ArchiveJson.Number(a["hero_id"])))
+                abilityHeroes.Add(new JsonObject { ["heroId"] = group.Key, ["abilities"] = new JsonArray(group.Select(a => a["data"]!.DeepClone()).ToArray()) });
+            bundle["abilities"] = new JsonObject { ["meta"] = abilityMeta[0]["meta"]!.DeepClone(), ["heroes"] = abilityHeroes };
+        }
+        else bundle.Remove("abilities");
         ArchiveJson.Validate(bundle); return bundle;
     }
     public Task ImportAsync(JsonObject bundle, string reason, CancellationToken ct = default) => ImportCoreAsync(bundle, reason, null, ct);
@@ -254,6 +264,17 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
             }
             ordinal = 0; foreach (var v in b["history"]!["versions"]!.AsArray()) await Insert(c, tx, "history_entries", new() { ["snapshot_id"] = id, ["ordinal"] = ordinal++, ["client_version"] = (int)ArchiveJson.Number(v!["clientVersion"]), ["build_date"] = Value(v["buildDate"]), ["first_published_at"] = Value(v["firstPublishedAt"]), ["provenance_kind"] = Value(v["provenance"]!["kind"]), ["provenance_reference"] = Value(v["provenance"]!["reference"]), ["patch"] = v["patch"] }, ct);
             if (b["items"] != null) { await Insert(c, tx, "item_catalogues", new() { ["snapshot_id"] = id, ["meta"] = b["items"]!["meta"], ["statistics_meta"] = b["itemStatistics"]!["meta"] }, ct); ordinal = 0; foreach (var item in b["items"]!["items"]!.AsArray()) await Insert(c, tx, "shop_items", new() { ["snapshot_id"] = id, ["ordinal"] = ordinal++, ["item_id"] = ArchiveJson.Number(item!["id"]), ["slug"] = Value(item["slug"]), ["category"] = Value(item["category"]), ["tier"] = (int)ArchiveJson.Number(item["tier"]), ["data"] = item }, ct); ordinal = 0; foreach (var item in b["itemStatistics"]!["items"]!.AsArray()) await Insert(c, tx, "item_purchase_statistics", new() { ["snapshot_id"] = id, ["ordinal"] = ordinal++, ["item_id"] = ArchiveJson.Number(item!["itemId"]), ["data"] = item }, ct); }
+            if (b["abilities"] is JsonObject abilities)
+            {
+                await Insert(c, tx, "ability_catalogues", new() { ["snapshot_id"] = id, ["meta"] = abilities["meta"] }, ct);
+                var heroOrdinal = 0;
+                foreach (var hero in abilities["heroes"]!.AsArray())
+                {
+                    foreach (var ability in hero!["abilities"]!.AsArray())
+                        await Insert(c, tx, "hero_abilities", new() { ["snapshot_id"] = id, ["hero_ordinal"] = heroOrdinal, ["hero_id"] = ArchiveJson.Number(hero["heroId"]), ["slot"] = (int)ArchiveJson.Number(ability!["slot"]), ["ability_id"] = ArchiveJson.Number(ability["id"]), ["data"] = ability }, ct);
+                    heroOrdinal++;
+                }
+            }
             await Insert(c, tx, "archive_bundle_payloads", new() { ["snapshot_id"] = id, ["data"] = b }, ct);
         }
         if (outcome != "unchanged") await Execute(c, tx, "INSERT INTO archive_current(singleton,snapshot_id) VALUES(true,@p0) ON CONFLICT(singleton) DO UPDATE SET snapshot_id=EXCLUDED.snapshot_id", ct, id);
@@ -265,6 +286,8 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
         await using var db = Context(); var pointer = await db.Current.AsNoTracking().Include(x => x.Snapshot).SingleOrDefaultAsync(x => x.Singleton, ct); var result = new JsonObject { ["configured"] = true, ["storage"] = "postgresql", ["source"] = "postgresql", ["snapshots"] = await db.Snapshots.LongCountAsync(ct), ["currentSnapshotId"] = pointer?.SnapshotId, ["currentClientVersion"] = pointer?.Snapshot.ClientVersion, ["clientVersion"] = pointer?.Snapshot.ClientVersion };
         await db.Database.OpenConnectionAsync(ct); var c = (NpgsqlConnection)db.Database.GetDbConnection(); var migrations = await Query(c, null, "SELECT count(*) AS n FROM archive_migrations", ct); result["schemaVersion"] = ArchiveJson.Number(migrations[0]["n"]);
         foreach (var (key, table, extra) in new[] { ("heroes", "heroes", ""), ("formulas", "mechanics_formulas", " AND language='ru'"), ("sources", "mechanics_sources", " AND language='ru'"), ("historyVersions", "history_entries", "") }) result[key] = pointer == null ? 0 : ArchiveJson.Number((await Query(c, null, $"SELECT count(*) AS n FROM {table} WHERE snapshot_id=@p0{extra}", ct, pointer.SnapshotId))[0]["n"]);
+        var abilityTables = await Query(c, null, "SELECT to_regclass('hero_abilities')::text AS name", ct);
+        result["abilities"] = pointer == null || abilityTables[0]["name"] == null ? 0 : ArchiveJson.Number((await Query(c, null, "SELECT count(*) AS n FROM hero_abilities WHERE snapshot_id=@p0", ct, pointer.SnapshotId))[0]["n"]);
         var itemsAvailable = await Query(c, null, "SELECT to_regclass('shop_items')::text AS name", ct); result["items"] = pointer == null || itemsAvailable[0]["name"] == null ? 0 : ArchiveJson.Number((await Query(c, null, "SELECT count(*) AS n FROM shop_items WHERE snapshot_id=@p0", ct, pointer.SnapshotId))[0]["n"]); return result;
     }
 }

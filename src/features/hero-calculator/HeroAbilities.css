@@ -1,0 +1,236 @@
+.build-abilities {
+  margin-top: 24px;
+  border-top: 2px solid #827044;
+  padding-top: 20px;
+  color: #263b30;
+  min-width: 0;
+}
+.build-input-sheet .build-ability-card p {
+  color: var(--on-paper-muted);
+}
+.build-abilities > h3 {
+  margin: 0 0 16px;
+}
+.build-ability-card {
+  margin: 12px 0;
+  border: 1px solid #9c8b63;
+  background: #eee8d8;
+  min-width: 0;
+}
+.build-ability-card .ability-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  cursor: pointer;
+  list-style: none;
+  border-bottom: 1px solid transparent;
+  min-height: 72px;
+}
+.ability-header::-webkit-details-marker {
+  display: none;
+}
+.build-ability-card[open] > .ability-header {
+  border-bottom-color: #b7a780;
+}
+.ability-header > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.ability-header strong {
+  display: block;
+  font-family: var(--font-display, 'Prata', serif);
+  font-size: 18px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.ability-key {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #465347;
+}
+.ability-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #263b30;
+  border: 1px solid #d1ad66;
+  padding: 5px;
+  color: #eee8d8;
+}
+.ability-disclosure {
+  font-size: 24px;
+}
+.build-ability-card[open] .ability-disclosure {
+  transform: rotate(180deg);
+}
+.ability-body {
+  padding: 14px;
+}
+.ability-description {
+  white-space: pre-line;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.ability-parameters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+  margin: 8px 0 16px;
+}
+.ability-parameters > div {
+  padding: 9px 0;
+  border-bottom: 1px solid #c6b998;
+  min-width: 0;
+}
+.ability-parameters dt {
+  color: #465347;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.ability-parameters dd {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.ability-parameters dd small {
+  font-size: 12px;
+  font-weight: 400;
+}
+.ability-dependency {
+  font-size: 13px;
+  font-weight: 500;
+}
+.ability-section h5,
+.ability-variant h5 {
+  font-size: 14px;
+  margin: 14px 0 6px;
+  overflow-wrap: anywhere;
+}
+.ability-upgrades {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  border: 0;
+  padding: 0;
+  margin: 16px 0 4px;
+  min-width: 0;
+}
+.ability-upgrades legend {
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+.build-abilities button,
+.ability-imbuements select {
+  min-height: 44px;
+}
+.ability-upgrades button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid #827044;
+  border-bottom-width: 3px;
+  background: #ded5bd;
+  color: #263b30;
+  font-weight: 700;
+  padding: 8px;
+  cursor: pointer;
+}
+.ability-upgrades button[aria-pressed='true'] {
+  background: #263b30;
+  color: #eee8d8;
+  border-bottom-color: #d1ad66;
+}
+.ability-upgrades button:hover {
+  box-shadow: inset 0 0 0 1px #827044;
+}
+.ability-upgrades button:active {
+  transform: translateY(1px);
+}
+.build-abilities :is(button, select, summary):focus-visible {
+  outline: 3px solid #80601e;
+  outline-offset: 3px;
+}
+.ability-rank {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.ability-rank button {
+  background: transparent;
+  color: #263b30;
+  text-decoration: underline;
+  border: 0;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.ability-rank button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.ability-upgrade-descriptions {
+  padding-left: 18px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.ability-upgrade-descriptions li {
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.ability-upgrade-descriptions .selected {
+  color: #264d35;
+}
+.ability-variant {
+  border-top: 1px solid #9c8b63;
+  margin-top: 16px;
+  padding-top: 4px;
+}
+.ability-imbuements {
+  border: 1px solid #9c8b63;
+  padding: 12px;
+  margin: 12px 0 20px;
+  min-width: 0;
+}
+.ability-imbuements label {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.ability-imbuements select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+  color: #263b30;
+  background: #f5eedf;
+  border: 1px solid #827044;
+  font: inherit;
+}
+@media (max-width: 450px) {
+  .ability-body {
+    padding: 12px;
+  }
+  .ability-parameters {
+    gap: 0 12px;
+  }
+  .ability-header strong {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ability-upgrades button:active {
+    transform: none;
+  }
+}

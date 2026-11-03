@@ -40,6 +40,7 @@ public static class ArchiveValidation
             {
                 var calculation = J.Obj(hero["calculation"], "hero calculation");
                 Need(CalculatorMetadata.HeroFields.All(key => Finite(calculation[key])), "Invalid hero calculation");
+                Need(new[] { "lightMeleeDamage", "heavyMeleeDamage", "meleeGrowth", "heavyMeleePerSpirit" }.All(key => !calculation.ContainsKey(key) || Finite(calculation[key])), "Invalid optional hero melee calculation");
                 Need(J.Num(calculation["staminaRegen"], "stamina regen") >= 0 && J.Num(calculation["sprintSpeed"], "sprint") >= 0, "Invalid hero movement calculation");
             }
             Need(Integer(hero["id"], 1) && ids.Add(J.Num(hero["id"], "ID")) && Pattern(hero["slug"], "^[a-z0-9]+(?:-[a-z0-9]+)*$") && slugs.Add(J.Str(hero["slug"])) && Text(hero["name"], 20000, true) && Text(hero["aliases"]) && Strings(hero["tags"]) && Bool(hero["isNew"]) && Pattern(hero["portrait"], "^assets/heroes/[a-z0-9-]+\\.webp$") && hero["source"] is JsonObject s && Https(s["heroUrl"]) && Https(s["weaponUrl"]) && Integer(s["heroLine"], 1) && Integer(s["weaponLine"], 1), "Invalid hero identity/source");

@@ -19,7 +19,7 @@ public sealed class DataSyncTests
     {
         public AppPaths Paths { get; } = new(Path.Combine(Path.GetTempPath(), "deadlock-csharp-test-" + Guid.NewGuid().ToString("N")));
         public Workspace() { Directory.CreateDirectory(Paths.Data); Directory.CreateDirectory(Path.Combine(Paths.Root, "db", "migrations")); foreach (var file in ArchiveJson.Files.Keys) if (File.Exists(Path.Combine(Root, "data", file))) File.Copy(Path.Combine(Root, "data", file), Path.Combine(Paths.Data, file)); foreach (var file in Directory.GetFiles(Path.Combine(Root, "db", "migrations"), "*.sql")) File.Copy(file, Path.Combine(Paths.Root, "db", "migrations", Path.GetFileName(file))); }
-        public async Task<JsonObject> Bundle() { var b = await ArchiveJson.ReadFilesAsync(Paths, default); var assets = b["heroes"]!["heroes"]!.AsArray().Select(h => ArchiveJson.Text(h!["portrait"])).Concat(b["items"]?["items"]?.AsArray().Select(i => ArchiveJson.Text(i!["icon"])) ?? []); foreach (var p in assets.Distinct()) { var filename = ArchiveJson.SafePath(Paths.Root, "public/" + p); Directory.CreateDirectory(Path.GetDirectoryName(filename)!); await File.WriteAllBytesAsync(filename, [1, 2, 3, 4]); } return b; }
+        public async Task<JsonObject> Bundle() { var b = await ArchiveJson.ReadFilesAsync(Paths, default); var assets = b["heroes"]!["heroes"]!.AsArray().Select(h => ArchiveJson.Text(h!["portrait"])).Concat(b["items"]?["items"]?.AsArray().Select(i => ArchiveJson.Text(i!["icon"])) ?? []).Concat(b["abilities"] is JsonObject abilities ? AbilityAdapter.All(abilities).Select(a => ArchiveJson.Text(a["icon"])) : []); foreach (var p in assets.Distinct()) { var filename = ArchiveJson.SafePath(Paths.Root, "public/" + p); Directory.CreateDirectory(Path.GetDirectoryName(filename)!); await File.WriteAllBytesAsync(filename, [1, 2, 3, 4]); } return b; }
         public void Dispose() { var p = Path.GetFullPath(Paths.Root); if (!p.StartsWith(Path.GetFullPath(Path.GetTempPath()), StringComparison.OrdinalIgnoreCase) || !Path.GetFileName(p).StartsWith("deadlock-csharp-test-")) throw new InvalidOperationException("Unsafe test cleanup"); Directory.Delete(p, true); }
     }
     [Fact]
@@ -45,6 +45,25 @@ public sealed class DataSyncTests
         Assert.True(snapshot.Files.ContainsKey("data/items.json")); Assert.True(snapshot.Files.ContainsKey("data/item-statistics.json")); Assert.DoesNotContain(snapshot.Files.Keys, k => k.StartsWith("knowledge/") || k.StartsWith("work/")); Assert.Equal(snapshot.Hash, ArchiveJson.Hash(ArchiveJson.Bytes(snapshot.Manifest["files"])));
         var bad = snapshot.Manifest.DeepClone(); bad["files"]!["data/heroes.json"] = new string('0', 64); Assert.Throws<InvalidDataException>(() => PublicSnapshot.ParseManifest(bad));
         b["heroes"]!["heroes"]![0]!["portrait"] = "../.env.local"; await Assert.ThrowsAsync<InvalidDataException>(() => PublicSnapshot.CaptureAsync(w.Paths, b)); Assert.Throws<InvalidDataException>(() => ArchiveJson.SafePath(w.Paths.Root, "../secret"));
+    }
+    [Fact]
+    public async Task OptionalAbilitiesPublishOnlyTheirBoundedApprovedIcons()
+    {
+        using var w = new Workspace(); var b = await w.Bundle();
+        b["abilities"] = AbilityTests.CatalogFixture(b["heroes"]!.AsObject());
+        foreach (var a in AbilityAdapter.All(b["abilities"]!.AsObject()))
+        {
+            var file = ArchiveJson.SafePath(w.Paths.Root, "public/" + ArchiveJson.Text(a["icon"]));
+            Directory.CreateDirectory(Path.GetDirectoryName(file)!); await File.WriteAllBytesAsync(file, "RIFF0000WEBP"u8.ToArray());
+        }
+        var snapshot = await PublicSnapshot.CaptureAsync(w.Paths, b);
+        Assert.Contains("data/abilities.json", snapshot.Files.Keys);
+        Assert.Equal(b["heroes"]!["heroes"]!.AsArray().Count * 4, snapshot.Files.Keys.Count(p => p.StartsWith("public/assets/abilities/")));
+        Assert.False(PublicSnapshot.Approved("public/assets/abilities/raw.svg"));
+        Assert.False(PublicSnapshot.Approved("knowledge/abilities.json"));
+        Assert.False(PublicSnapshot.Approved("public/assets/abilities/../../private.webp"));
+        var broken = b.DeepClone().AsObject(); broken["abilities"]!["meta"]!["clientVersion"] = 1;
+        Assert.Throws<InvalidDataException>(() => ArchiveJson.Validate(broken));
     }
     [Fact]
     public async Task NativeSnapshotMatchesExistingCommittedManifestExactly()
@@ -159,6 +178,8 @@ public sealed class DataSyncTests
         var test = Environment.GetEnvironmentVariable("DEADLOCK_DB_TEST_NAME") ?? env.GetValueOrDefault("DEADLOCK_DB_TEST_NAME"); var live = env.GetValueOrDefault("DEADLOCK_DB_NAME"); if (test == live || test == null || !System.Text.RegularExpressions.Regex.IsMatch(test, "^deadlock_archive_test(?:_[a-z0-9]+)?$")) throw new InvalidOperationException("Refusing working database"); env["DEADLOCK_DB_NAME"] = test;
         var cs = new NpgsqlConnectionStringBuilder { Host = env["DEADLOCK_DB_HOST"], Port = int.Parse(env["DEADLOCK_DB_PORT"]), Database = test, Username = env["DEADLOCK_DB_USER"], Password = env["DEADLOCK_DB_PASSWORD"] }; await using var control = new NpgsqlConnection(cs.ConnectionString); await control.OpenAsync(); var schema = "archive_test_" + Guid.NewGuid().ToString("N"); await using (var cmd = new NpgsqlCommand($"CREATE SCHEMA {schema}", control)) await cmd.ExecuteNonQueryAsync();
         using var w = new Workspace(); var bundle = await w.Bundle();
+        bundle["abilities"] = AbilityTests.CatalogFixture(bundle["heroes"]!.AsObject());
+        await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "abilities.json"), ArchiveJson.Bytes(bundle["abilities"]));
         bundle["heroes"]!["calculatorRules"] = JsonNode.Parse("""{"schemaVersion":1,"baseSlots":9,"maxSlots":12,"maxActiveItems":4,"investment":{"weapon":[{"souls":800,"bonus":9}],"vitality":[{"souls":800,"bonus":9}],"spirit":[{"souls":800,"bonus":7}]}}""");
         var calculation = new JsonObject(); foreach (var field in CalculatorMetadata.HeroFields) calculation[field] = 0;
         calculation["debuffResist"] = -8; calculation["bulletLifesteal"] = 8;
@@ -178,11 +199,12 @@ public sealed class DataSyncTests
             await store.InitializeAsync(); Assert.Equal(ArchiveJson.Canonical(bundle), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             // Reconstruct schema3 with enriched supplemental payloads, then apply the real
             // migration and verify it backfills before the disposable table is removed.
-            await using (var oldSchema = new NpgsqlCommand($"ALTER TABLE {schema}.archive_snapshots DROP COLUMN calculator_rules; ALTER TABLE {schema}.heroes DROP COLUMN calculation; DELETE FROM {schema}.archive_migrations WHERE version='004_calculator_metadata.sql'", control)) await oldSchema.ExecuteNonQueryAsync();
-            await store.MigrateAsync(); Assert.Equal(4, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
+            await using (var oldSchema = new NpgsqlCommand($"ALTER TABLE {schema}.archive_snapshots DROP COLUMN calculator_rules; ALTER TABLE {schema}.heroes DROP COLUMN calculation; DROP TABLE {schema}.hero_abilities; DROP TABLE {schema}.ability_catalogues; DELETE FROM {schema}.archive_migrations WHERE version IN ('004_calculator_metadata.sql','005_hero_abilities.sql')", control)) await oldSchema.ExecuteNonQueryAsync();
+            await store.MigrateAsync(); Assert.Equal(5, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
             Assert.Equal(ArchiveJson.Canonical(bundle), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             await using (var drop = new NpgsqlCommand($"DROP TABLE {schema}.archive_bundle_payloads", control)) await drop.ExecuteNonQueryAsync();
             var rebuilt = await new ArchiveStore(w.Paths, k => env.GetValueOrDefault(k), schema).ReadBundleAsync();
+            Assert.True(JsonNode.DeepEquals(bundle["abilities"], rebuilt["abilities"]));
             Assert.True(JsonNode.DeepEquals(bundle["heroes"]!["calculatorRules"], rebuilt["heroes"]!["calculatorRules"]));
             Assert.Equal(-8, ArchiveJson.Real(rebuilt["heroes"]!["heroes"]![0]!["calculation"]?["debuffResist"]));
             Assert.Equal(8, ArchiveJson.Real(rebuilt["heroes"]!["heroes"]![0]!["calculation"]?["bulletLifesteal"]));
@@ -191,6 +213,7 @@ public sealed class DataSyncTests
                 Assert.Equal(0, await ArchiveCommands.RunAsync("db:export", ["db:export", "work/database-review/calculator"], services));
             var exportedHeroes = JsonNode.Parse(await File.ReadAllTextAsync(Path.Combine(w.Paths.Work, "database-review", "calculator", "heroes.json")));
             Assert.True(JsonNode.DeepEquals(rebuilt["heroes"], exportedHeroes));
+            Assert.True(JsonNode.DeepEquals(rebuilt["abilities"], JsonNode.Parse(await File.ReadAllTextAsync(Path.Combine(w.Paths.Work, "database-review", "calculator", "abilities.json")))));
             Assert.Equal(ArchiveJson.Canonical(bundle), ArchiveJson.Canonical(rebuilt)); await using (var absent = new NpgsqlCommand($"SELECT to_regclass('{schema}.archive_bundle_payloads') IS NULL", control)) Assert.True((bool)(await absent.ExecuteScalarAsync())!); await store.InitializeAsync();
             var edited = bundle.DeepClone().AsObject(); edited["heroes"]!["heroes"]![0]!["base"]!["health"] = 1234; edited["heroes"]!["heroes"]![0]!["extra"] = new JsonObject { ["kept"] = true }; edited["history"]!["futureField"] = new JsonObject { ["kept"] = true };
             edited["history"]!["patches"] = new JsonArray(new JsonObject { ["id"] = "123", ["source"] = "steam", ["url"] = "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/123", ["publishedAt"] = "2026-11-01T00:00:00.000Z", ["title"] = new JsonObject { ["en"] = "Patch" }, ["body"] = new JsonObject { ["en"] = "Saved official patch description." } });
@@ -199,6 +222,8 @@ public sealed class DataSyncTests
             await using (var cmd = new NpgsqlCommand($"UPDATE {schema}.heroes SET base_health=2345,calculation=jsonb_set(calculation,'{{debuffResist}}','-10') WHERE ordinal=0 AND snapshot_id=(SELECT snapshot_id FROM {schema}.archive_current); UPDATE {schema}.archive_snapshots SET calculator_rules=jsonb_set(calculator_rules,'{{maxActiveItems}}','3') WHERE id=(SELECT snapshot_id FROM {schema}.archive_current)", control)) await cmd.ExecuteNonQueryAsync(); var relational = await store.ReadBundleAsync(); Assert.Equal(2345, relational["heroes"]!["heroes"]![0]!["base"]!["health"]!.GetValue<double>());
             Assert.Equal(-10, ArchiveJson.Real(relational["heroes"]!["heroes"]![0]!["calculation"]?["debuffResist"]));
             Assert.Equal(3, ArchiveJson.Number(relational["heroes"]!["calculatorRules"]?["maxActiveItems"]));
+            var invalidAbilities = relational.DeepClone().AsObject(); invalidAbilities["abilities"]!["heroes"]![0]!["abilities"]![0]!["upgrades"]![0]!["operations"]![0]!["type"] = "guess";
+            await Assert.ThrowsAsync<InvalidDataException>(() => store.ImportAsync(invalidAbilities, "invalid-abilities")); Assert.Equal(ArchiveJson.Canonical(relational), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             var invalid = edited.DeepClone().AsObject(); invalid["mechanics"]!["ru"]!["formulas"]![0]!["sourceIds"] = new JsonArray("missing"); await Assert.ThrowsAsync<InvalidDataException>(() => store.ImportAsync(invalid, "invalid")); Assert.Equal(ArchiveJson.Canonical(relational), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             await using var count = new NpgsqlCommand($"SELECT count(*) FROM {schema}.archive_snapshots", control); Assert.Equal(2L, (long)(await count.ExecuteScalarAsync())!);
             var baseVersion = await store.ReadBundleAsync(); var owner = baseVersion.DeepClone().AsObject(); owner["mechanics"]!["ru"]!["formulas"]![0]!["title"] = "Owner mechanics edit"; owner["history"]!["futureField"] = "Owner history edit"; await store.ImportAsync(owner, "same-client-owner"); var stale = baseVersion.DeepClone().AsObject(); stale["heroes"]!["heroes"]![0]!["base"]!["health"] = 3456;
@@ -215,12 +240,13 @@ public sealed class DataSyncTests
             }
             var afterRace = await store.ReadBundleAsync(); Assert.Equal("Owner SQL edit during refresh", ArchiveJson.Text(afterRace["mechanics"]!["ru"]!["formulas"]![0]!["title"])); Assert.Equal(2345, ArchiveJson.Real(afterRace["heroes"]!["heroes"]![0]!["base"]!["health"]));
             await store.ImportIfUnchangedAsync(candidate, "current-after-race", afterRace); Assert.Equal(ArchiveJson.Canonical(candidate), ArchiveJson.Canonical(await store.ReadBundleAsync()));
-            var legacy = candidate.DeepClone().AsObject(); legacy["heroes"]!.AsObject().Remove("calculatorRules");
+            var legacy = candidate.DeepClone().AsObject(); legacy.Remove("abilities"); legacy["heroes"]!.AsObject().Remove("calculatorRules");
             foreach (var hero in legacy["heroes"]!["heroes"]!.AsArray()) hero!.AsObject().Remove("calculation");
             await store.ImportAsync(legacy, "legacy-without-calculator");
             var legacyRead = await new ArchiveStore(w.Paths, k => env.GetValueOrDefault(k), schema).ReadBundleAsync();
             Assert.Equal(ArchiveJson.Canonical(legacy), ArchiveJson.Canonical(legacyRead));
             Assert.False(legacyRead["heroes"]!.AsObject().ContainsKey("calculatorRules"));
+            Assert.False(legacyRead.ContainsKey("abilities"));
             Assert.All(legacyRead["heroes"]!["heroes"]!.AsArray(), hero => Assert.False(hero!.AsObject().ContainsKey("calculation")));
         }
         finally { NpgsqlConnection.ClearAllPools(); if (!System.Text.RegularExpressions.Regex.IsMatch(schema, "^archive_test_[a-f0-9]{32}$")) throw new InvalidOperationException("Unsafe cleanup"); await using var cmd = new NpgsqlCommand($"DROP SCHEMA {schema} CASCADE", control); await cmd.ExecuteNonQueryAsync(); }

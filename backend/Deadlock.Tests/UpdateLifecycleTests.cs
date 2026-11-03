@@ -32,6 +32,7 @@ public sealed class UpdateLifecycleTests
             next["heroes"]!["meta"]!["clientVersion"] = version;
             next["items"]!["meta"]!["clientVersion"] = version;
             next["itemStatistics"]!["meta"]!["clientVersion"] = version;
+            if (next["abilities"] != null) next["abilities"]!["meta"]!["clientVersion"] = version;
             BeforeReturn?.Invoke();
             return Task.FromResult(new RefreshCandidate(next, [], new(), next["heroes"]!["meta"]!["gameCommit"]!.GetValue<string>()));
         }
@@ -81,6 +82,21 @@ public sealed class UpdateLifecycleTests
             if (Path.GetDirectoryName(Paths.Root) != Path.GetFullPath(Path.GetTempPath()).TrimEnd(Path.DirectorySeparatorChar) || !Path.GetFileName(Paths.Root).StartsWith("deadlock-lifecycle-")) throw new InvalidOperationException("Unexpected test path");
             Directory.Delete(Paths.Root, true); return ValueTask.CompletedTask;
         }
+    }
+    [Fact]
+    public async Task FailedCatalogueEnrichmentRemovesOnlyNewCandidateFiles()
+    {
+        await using var w = await Workspace.Create();
+        w.Store.Bundle.Remove("abilities");
+        var abilitiesFile = Path.Combine(w.Paths.Data, "abilities.json");
+        if (File.Exists(abilitiesFile)) File.Delete(abilitiesFile);
+        var before = await PublicSnapshot.CaptureAsync(w.Paths, w.Store.Bundle);
+        var candidate = w.Store.Bundle.DeepClone().AsObject(); candidate["abilities"] = AbilityTests.CatalogFixture(candidate["heroes"]!.AsObject());
+        var assets = Deadlock.Api.Ingestion.AbilityAdapter.All(candidate["abilities"]!.AsObject()).ToDictionary(a => "public/" + ArchiveJson.Text(a["icon"]), _ => "RIFF0000WEBP"u8.ToArray());
+        w.Store.FailImport = true;
+        await Assert.ThrowsAsync<IOException>(() => new BundlePersistence(w.Paths,w.Store).SaveAsync(candidate,assets,"failed-enrichment",default));
+        Assert.False(File.Exists(abilitiesFile));
+        Assert.Equal(before.Hash,(await PublicSnapshot.CaptureAsync(w.Paths,w.Store.Bundle)).Hash);
     }
     [Fact]
     public async Task VersionAdvanceMaterializesCompanionsAndReportsActualPublicationHash()

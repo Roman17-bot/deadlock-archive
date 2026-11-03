@@ -113,6 +113,17 @@ public class ApiContractsTests
     { await using var app = new ApiFactory(); using var http = app.CreateClient(); Assert.Equal(expected, (int)(await http.GetAsync(path)).StatusCode); }
 
     [Fact]
+    public async Task AbilitiesAreOptionalAndUseASeparateReadEndpoint()
+    {
+        await using var legacy = new ApiFactory(); legacy.Bundle.Remove("abilities"); using var legacyHttp = legacy.CreateClient();
+        Assert.Equal(HttpStatusCode.NotFound, (await legacyHttp.GetAsync("/api/abilities")).StatusCode);
+        await using var enriched = new ApiFactory(); enriched.Bundle["abilities"] = AbilityTests.CatalogFixture(enriched.Bundle["heroes"]!.AsObject()); using var http = enriched.CreateClient();
+        var actual = await http.GetFromJsonAsync<JsonObject>("/api/abilities");
+        Assert.True(JsonNode.DeepEquals(enriched.Bundle["abilities"], actual));
+        Assert.False((await http.GetFromJsonAsync<JsonObject>("/api/heroes"))!.ContainsKey("abilities"));
+    }
+
+    [Fact]
     public async Task MutationsRequireLocalOriginNonceAndStrictBodyAndSameVersionSkipsAssetsAndPublication()
     {
         await using var app = new ApiFactory(); using var http = app.CreateClient();

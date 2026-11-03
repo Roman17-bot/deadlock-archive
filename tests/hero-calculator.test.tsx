@@ -9,6 +9,15 @@ import type { BuildRules } from '../shared/build-types';
 import type { ShopItem } from '../shared/item-types';
 import { Calculator } from '../src/features/calculator/Calculator';
 import { setLanguage } from '../src/i18n';
+import { abilityCatalogFixture } from './fixtures/hero-abilities';
+vi.mock('../src/features/hero-calculator/useAbilities', () => ({
+  useAbilities: () => ({
+    catalog: abilityCatalogFixture(snapshot),
+    error: false,
+    mismatch: false,
+    retry: vi.fn(),
+  }),
+}));
 const rules: BuildRules = {
   schemaVersion: 1,
   baseSlots: 9,
@@ -357,45 +366,31 @@ it('shows the reached investment once, final HP and a body-shot example using th
   );
   expect(onRule).toHaveBeenCalledWith('damage-amps');
 });
-it('keeps invalid example input editable without crashing or showing nonfinite results', async () => {
+it('keeps invalid shot input editable without nonfinite output', async () => {
   const user = userEvent.setup();
   render(<Calculator data={snapshot} onRule={() => {}} />);
   await user.click(screen.getByRole('button', { name: 'Билд героя' }));
-  await user.click(await screen.findByText('Спирит и перезарядка способности'));
-  const cooldown = screen.getByRole('spinbutton', { name: 'Базовая перезарядка, с' });
-  await user.clear(cooldown);
-  expect(cooldown).toHaveValue(null);
-  expect(cooldown).toHaveAttribute('aria-invalid', 'true');
+  await user.click(await screen.findByText('Выстрел против сопротивления'));
+  const resistance = screen.getByRole('spinbutton', { name: 'Сопротивление цели, %' });
+  await user.clear(resistance);
+  expect(resistance).toHaveValue(null);
+  expect(resistance).toHaveAttribute('aria-invalid', 'true');
   expect(screen.getByRole('alert')).toHaveTextContent('Введи число от');
-  await user.type(cooldown, '0');
-  expect(cooldown).toHaveValue(0);
-  expect(cooldown).toHaveAttribute('aria-invalid', 'true');
-  await user.clear(cooldown);
-  await user.type(cooldown, '45');
-  expect(cooldown).toHaveAttribute('aria-invalid', 'false');
-  const base = screen.getByRole('spinbutton', { name: 'Базовый урон способности' });
-  fireEvent.change(base, { target: { value: '10000000' } });
-  expect(base).toHaveValue(10000000);
-  expect(base).toHaveAttribute('aria-invalid', 'true');
-  const scale = screen.getByRole('spinbutton', { name: 'Коэффициент спирита' });
-  fireEvent.change(scale, { target: { value: '1e999' } });
-  expect(scale).toHaveAttribute('aria-invalid', 'true');
-  expect(screen.getByRole('heading', { name: 'Характеристики билда' })).toBeVisible();
-  expect(screen.getByText('Проверь билд в формулах').closest('section')).not.toHaveTextContent(
-    /NaN|Infinity|∞/,
-  );
-  fireEvent.change(base, { target: { value: '100' } });
-  fireEvent.change(scale, { target: { value: '2' } });
+  await user.type(resistance, '30');
+  expect(resistance).toHaveAttribute('aria-invalid', 'false');
   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-  await user.click(screen.getByText('Передвижение и эффекты'));
-  await user.click(screen.getByText('Спирит и способности'));
-  expect(
-    screen.getByRole('rowheader', { name: /Восстановление выносливости.*заряд/ }),
-  ).toBeVisible();
-  expect(screen.getByRole('rowheader', { name: /Сокращение перезарядки предметов/ })).toBeVisible();
 });
-
-it('applies an all-damage penalty to the ability example and preserves input validation', async () => {
+it('shows all four real abilities on the input sheet in place of the manual example', async () => {
+  const user = userEvent.setup();
+  render(<Calculator data={snapshot} onRule={() => {}} />);
+  await user.click(screen.getByRole('button', { name: 'Билд героя' }));
+  const heading = await screen.findByRole('heading', { name: 'Способности героя' });
+  expect(heading.closest('.build-input-sheet')).not.toBeNull();
+  for (const slot of [1, 2, 3, 4]) expect(screen.getByText(`Ability ${slot}`)).toBeVisible();
+  expect(screen.queryByText('Спирит и перезарядка способности')).not.toBeInTheDocument();
+  expect(screen.queryByRole('spinbutton', { name: 'Коэффициент спирита' })).not.toBeInTheDocument();
+});
+it('applies an outgoing damage penalty to actual ability output', async () => {
   const user = userEvent.setup();
   render(<Calculator data={snapshot} onRule={() => {}} />);
   await user.click(screen.getByRole('button', { name: 'Билд героя' }));
@@ -403,14 +398,6 @@ it('applies an all-damage penalty to the ability example and preserves input val
   await user.click(
     within(screen.getByRole('dialog')).getByRole('button', { name: /Damage penalty/ }),
   );
-  await user.click(screen.getByText('Спирит и перезарядка способности'));
-  const example = screen.getByText('Спирит и перезарядка способности').closest('details')!;
-  expect(within(example).getByText('88')).toBeVisible();
-  expect(example).toHaveTextContent('× (1 − 12 / 100)');
-  const base = screen.getByRole('spinbutton', { name: 'Базовый урон способности' });
-  fireEvent.change(base, { target: { value: '10000000' } });
-  expect(base).toHaveAttribute('aria-invalid', 'true');
-  expect(within(example).queryByText('88')).not.toBeInTheDocument();
-  fireEvent.change(base, { target: { value: '200' } });
-  expect(within(example).getByText('176')).toBeVisible();
+  const ability = screen.getByText('Ability 1').closest('details')!;
+  expect(within(ability).getByText('88')).toBeVisible();
 });

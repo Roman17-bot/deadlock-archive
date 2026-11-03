@@ -2,7 +2,7 @@
   "allRawStatsVerified": true,
   "meta": {
     "buildDate": "2026-11-02",
-    "checkedAt": "2026-11-03T01:16:48.405Z",
+    "checkedAt": "2026-11-03T12:59:25.923Z",
     "clientVersion": 6842,
     "gameCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b",
     "heroCount": 44,
@@ -39,7 +39,7 @@
   "runtimeMeasured": false,
   "verification": {
     "adapter": "materialized-kv3-v1",
-    "checkedAt": "2026-11-03T01:16:48.405Z",
+    "checkedAt": "2026-11-03T12:59:25.923Z",
     "clientVersion": 6842,
     "heroCount": 44,
     "scope": "Snapshot base/growth/scaling/raw primary weapon parameters cross-checked against version-pinned API and GameTracking; special flags read from raw; DPS is an explicit model.",

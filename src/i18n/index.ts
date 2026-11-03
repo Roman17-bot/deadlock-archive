@@ -9,6 +9,7 @@ import { enHeroes } from './en-heroes';
 import { enPublic } from './en-public';
 import { enItems } from './en-items';
 import { enHeroCalculator } from './en-hero-calculator';
+import { enHeroAbilities } from './en-hero-abilities';
 import { publicMessage } from './publicMessages';
 
 const englishTranslations = {
@@ -20,6 +21,7 @@ const englishTranslations = {
   ...enPublic,
   ...enItems,
   ...enHeroCalculator,
+  ...enHeroAbilities,
 };
 
 export type Language = 'ru' | 'en';

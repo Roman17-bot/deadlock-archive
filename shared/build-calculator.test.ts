@@ -5,6 +5,24 @@ import { buildHero, buildItem, buildRules, bonus } from '../tests/fixtures/hero-
 
 const slots = (...ids: number[]) => [...ids, ...Array<number | null>(12 - ids.length).fill(null)];
 
+it('targets imbued bonuses by owning item and returns separate recharge reduction', () => {
+  const spirit = buildItem(1, 'spirit', 800, [bonus('spirit', 20, 'imbuedAbility')]);
+  const cooldown = buildItem(2, 'spirit', 800, [bonus('cooldownReduction', 25, 'imbuedAbility')]);
+  const charges = buildItem(3, 'spirit', 800, [
+    bonus('chargeCooldownReduction', 15, 'chargedAbilities'),
+  ]);
+  const result = calculateBuild(buildHero(), 1, [spirit, cooldown, charges], buildRules, {
+    imbuedItemIds: [1],
+    charged: true,
+  });
+  expect(result.ability.spirit).toBe(result.stats.spirit + 20);
+  expect(result.ability.cooldownReduction).toBe(0);
+  expect(result.ability.chargeCooldownReduction).toBeCloseTo(15);
+  expect(result.stats.spirit).toBe(
+    buildRules.investment.spirit.find((x) => x.souls === 2400)?.bonus,
+  );
+});
+
 describe('legal build inventories', () => {
   const base = buildItem(1, 'spirit');
   const improved = buildItem(2, 'spirit', 1600, [], [1]);

@@ -245,7 +245,10 @@ export function calculateBuild(
   const abilityModifiers = modifiers.filter(
     (m) =>
       m.scope === 'self' ||
-      (m.scope === 'imbuedAbility' && context.imbued) ||
+      (m.scope === 'imbuedAbility' &&
+        (context.imbuedItemIds
+          ? context.imbuedItemIds.includes(owners.get(m)!.id)
+          : context.imbued)) ||
       ((m.scope === 'chargedAbilities' || m.scope === 'chargeEligibleAbilities') &&
         context.charged) ||
       (m.scope === 'ultimate' && context.ultimate),
@@ -264,6 +267,9 @@ export function calculateBuild(
     rangePercent: positivePool(values(abilityModifiers, 'rangePercent', abilitySpirit)),
     radiusPercent: positivePool(values(abilityModifiers, 'radiusPercent', abilitySpirit)),
     charges: sum(abilityModifiers, 'charges', abilitySpirit),
+    chargeCooldownReduction: positivePool(
+      values(abilityModifiers, 'chargeCooldownReduction', abilitySpirit),
+    ),
   };
   if (
     Object.values(stats).some((n) => !Number.isFinite(n)) ||

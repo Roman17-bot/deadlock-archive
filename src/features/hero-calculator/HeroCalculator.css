@@ -44,17 +44,7 @@
 .build-toolbar > .button {
   margin-left: auto;
 }
-.build-hero {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 20px 0 0;
-  background: var(--paper);
-  color: var(--on-paper);
-  border: 1px solid var(--brass);
-  text-align: left;
-  min-width: 250px;
-}
+
 .build-hero img {
   height: 80px;
   width: 74px;
@@ -83,13 +73,7 @@
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
 }
-.build-slot {
-  position: relative;
-  min-width: 0;
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--brass);
-  background: var(--ink);
-}
+
 .build-slot.weapon,
 .investment-row.weapon {
   border-color: #bd8650;
@@ -102,49 +86,7 @@
 .investment-row.spirit {
   border-color: #bca0d2;
 }
-.build-slot > button:first-child {
-  width: 100%;
-  min-height: 142px;
-  padding: 9px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  background: transparent;
-  color: var(--paper);
-  border: 0;
-}
-.build-slot small {
-  align-self: flex-start;
-  color: var(--brass);
-  font-variant-numeric: tabular-nums;
-}
-.build-slot img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-.build-slot b {
-  font-size: 2rem;
-  color: var(--brass);
-}
-.build-slot span {
-  font-size: 0.8rem;
-  overflow-wrap: anywhere;
-  line-height: 1.4;
-}
-.build-remove {
-  position: absolute;
-  right: 4px;
-  top: 3px;
-  width: 34px;
-  height: 34px;
-  background: var(--paper);
-  color: var(--on-paper);
-  border: 1px solid var(--line);
-  font-size: 1.5rem;
-}
+
 .build-notice {
   min-height: 24px;
   font-size: 0.875rem;
@@ -462,27 +404,7 @@
   color-scheme: light;
   align-self: start;
 }
-.build-input-sheet .build-slot {
-  background: #ded9c8;
-  border-color: #9b967f;
-}
-.build-input-sheet .build-slot button:first-child {
-  color: var(--on-paper);
-}
-.build-input-sheet .build-slot small,
-.build-input-sheet .build-slot b,
-.build-input-sheet .build-notice {
-  color: #77521c;
-}
-.build-input-sheet .build-slot.weapon {
-  border-top-color: #a86529;
-}
-.build-input-sheet .build-slot.vitality {
-  border-top-color: #3f7743;
-}
-.build-input-sheet .build-slot.spirit {
-  border-top-color: #7e579c;
-}
+
 .build-input-sheet .build-conditions details p,
 .build-input-sheet .build-conditions p {
   color: var(--on-paper-muted);
@@ -495,19 +417,15 @@
 .build-input-sheet .build-slots {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.build-input-sheet .build-toolbar {
-  align-items: flex-end;
-}
+
 .build-input-sheet .build-hero {
+  display: flex;
+  align-items: center;
+  text-align: left;
   width: 100%;
   min-width: 0;
 }
-.build-input-sheet .build-toolbar > .button {
-  margin-left: 0;
-  background: #ded9c8;
-  color: var(--on-paper);
-  border: 1px solid var(--on-paper-line);
-}
+
 .build-output {
   padding: 32px;
   min-width: 0;
@@ -613,16 +531,7 @@
 .build-output .build-example-inputs {
   grid-template-columns: 1fr;
 }
-.build-slot span {
-  font-size: 0.875rem;
-}
-.build-remove {
-  width: 44px;
-  height: 44px;
-}
-.build-slot small {
-  min-height: 28px;
-}
+
 .build-picker-results button[aria-pressed='true'] {
   outline: 2px solid var(--brass);
   outline-offset: 1px;
@@ -690,5 +599,270 @@
   .build-hero img {
     width: 56px;
     height: 64px;
+  }
+}
+
+.build-input-sheet .build-hero {
+  border: 1px solid #827044;
+  border-bottom-width: 3px;
+  background: #f6f0e3;
+  gap: 16px;
+  padding-right: 12px;
+}
+.build-hero img {
+  background: #263b30;
+  border-right: 2px solid #d1ad66;
+}
+.build-hero small {
+  color: #465347;
+}
+.build-hero .hero-chevron {
+  margin-left: auto;
+  flex: 0 0 36px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  color: #17231f;
+  background: #d1ad66;
+  border: 1px solid #827044;
+}
+.build-input-sheet .build-toolbar > label input {
+  border: 1px solid #827044;
+  border-bottom-width: 3px;
+  font-size: 1.25rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.build-input-sheet .build-toolbar > .build-clear {
+  min-height: 48px;
+  background: #eee8d8;
+  border: 1px solid #63704c;
+  box-shadow: inset 0 -2px #a7ad94;
+  gap: 9px;
+  display: inline-flex;
+  align-items: center;
+  color: #263b30;
+}
+.build-input-sheet .build-slot {
+  --slot-accent: #827044;
+  position: relative;
+  background: #f6f0e3;
+  border: 1px solid #a5a18c;
+  border-top-width: 1px;
+  border-bottom: 3px solid #8d937f;
+}
+.build-input-sheet .build-slot.weapon {
+  --slot-accent: #a86529;
+}
+.build-input-sheet .build-slot.vitality {
+  --slot-accent: #3f7743;
+}
+.build-input-sheet .build-slot.spirit {
+  --slot-accent: #7e579c;
+}
+.build-input-sheet .build-slot > .build-slot-action {
+  min-height: 164px;
+  width: 100%;
+  padding: 42px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  justify-content: flex-start;
+  background: transparent;
+  color: #17231f;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.build-slot .slot-number {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  min-height: 0;
+  color: #465347;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.build-slot .slot-socket {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 58px;
+  height: 58px;
+  background: #263b30;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+  box-shadow: inset 0 0 0 2px var(--slot-accent);
+  color: #d1ad66;
+}
+.build-slot .slot-socket::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #71806b;
+  pointer-events: none;
+  clip-path: inherit;
+}
+.build-slot .slot-socket img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  z-index: 1;
+}
+.build-slot .slot-socket svg {
+  width: 24px;
+  height: 24px;
+}
+.build-slot .slot-title {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-align: center;
+  font-weight: 550;
+  min-width: 0;
+}
+.build-slot .slot-meta {
+  align-self: center;
+  color: #465347;
+  font-size: 0.75rem;
+  min-height: 0;
+  margin-top: auto;
+  text-align: center;
+}
+.build-slot[data-filled='true'] {
+  border-top: 3px solid var(--slot-accent);
+}
+.build-slot[data-filled='true'] .slot-socket {
+  width: 64px;
+  height: 64px;
+}
+.build-slot[data-filled='true'] .slot-socket::after {
+  border-color: var(--slot-accent);
+}
+.build-input-sheet .build-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: #f6f0e3;
+  border: 0;
+  border-left: 1px solid #b6b29b;
+  border-bottom: 1px solid #b6b29b;
+  color: #465347;
+  display: grid;
+  place-items: center;
+}
+.build-slot-action:hover .slot-socket {
+  background: #3e503c;
+}
+.build-slot-action:active .slot-socket {
+  transform: translateY(1px);
+}
+.build-input-sheet .build-remove:hover {
+  color: #702c24;
+  background: #efddd0;
+}
+.build-input-sheet :is(button, input, summary):focus-visible {
+  outline: 3px solid #3e593e;
+  outline-offset: 3px;
+}
+/* The focus ring lives on buttons, never on the clipped decorative socket. */
+
+.build-hero .build-hero-name {
+  min-width: 0;
+}
+.build-input-sheet .build-hero strong {
+  overflow-wrap: anywhere;
+}
+.build-toolbar .build-level {
+  flex: 0 0 128px;
+}
+.build-input-sheet .build-toolbar {
+  align-items: flex-end;
+}
+.build-input-sheet .build-clear {
+  margin-left: auto;
+}
+.build-slot .slot-socket {
+  font-size: inherit;
+  line-height: 1;
+}
+.build-slot .slot-socket img {
+  width: 54px;
+  height: 54px;
+}
+.build-slot .slot-title {
+  min-height: 2.8em;
+}
+.build-slot[data-filled='true'] .slot-socket {
+  background: var(--slot-accent);
+  animation: build-socket-seat 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.build-slot-action:hover .slot-socket {
+  transform: translateY(-2px);
+}
+.build-slot-action .slot-socket {
+  transition:
+    transform 150ms,
+    background-color 150ms;
+}
+.build-slot-action:active .slot-socket {
+  transform: translateY(1px);
+}
+.build-input-sheet .build-clear:hover {
+  background: #d8ddc7;
+}
+@keyframes build-socket-seat {
+  from {
+    transform: translateY(-3px);
+    opacity: 0.72;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) {
+  .build-toolbar {
+    gap: 14px;
+  }
+  .build-toolbar .build-level {
+    flex: 0 0 104px;
+  }
+  .build-input-sheet .build-clear {
+    margin-left: 0;
+    min-height: 48px;
+    padding: 12px;
+    font-size: 0.875rem;
+  }
+  .build-slot .slot-title {
+    font-size: 0.875rem;
+  }
+  .build-slot .slot-meta {
+    font-size: 0.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .build-slot[data-filled='true'] .slot-socket {
+    animation: none;
+  }
+  .build-slot-action .slot-socket {
+    transition: none;
+  }
+  .build-slot-action:hover .slot-socket,
+  .build-slot-action:active .slot-socket {
+    transform: none;
   }
 }

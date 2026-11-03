@@ -1,4 +1,6 @@
 export const enHeroCalculator: Record<string, string> = {
+  'Без предметов → с предметами, на выбранном уровне. Прокачка способностей настраивается слева.':
+    'Without items → with items at the selected level. Configure ability upgrades on the left.',
   'Сборка обновлена по новому списку предметов.':
     'The build has been updated to match the current item catalogue.',
   'Некорректные правила сборки.': 'Invalid build rules.',

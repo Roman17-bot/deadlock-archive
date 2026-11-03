@@ -32,6 +32,9 @@ export function validateHeroCalculation(value: unknown): value is HeroCalculatio
   return (
     record(value) &&
     heroFields.every((key) => finite(value[key])) &&
+    ['lightMeleeDamage', 'heavyMeleeDamage', 'meleeGrowth', 'heavyMeleePerSpirit'].every(
+      (key) => value[key] === undefined || finite(value[key]),
+    ) &&
     Number(value.staminaRegen) >= 0
   );
 }

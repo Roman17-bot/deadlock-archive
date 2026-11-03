@@ -104,6 +104,7 @@ public sealed class ArchiveRefresh : IArchiveRefresh
         var rawAbilities = Kv3.Parse(abilitiesText);
         var heroes = HeroAdapter.Build(currentHeroes, Kv3.Parse(heroesText), rawAbilities, apiHeroes, J.Arr(await activeTask, "active heroes"), en, policy, expected, commit, heroesText, abilitiesText, checkedAt);
         ArchiveValidation.Heroes(heroes);
+        var abilityCatalog = AbilityAdapter.Build(heroes, Kv3.Parse(heroesText), rawAbilities, apiHeroes, en, ru, expected, commit, checkedAt);
         var end = DateTimeOffset.FromUnixTimeSeconds(DateTimeOffset.UtcNow.ToUnixTimeSeconds()); var from = resolved.BuildTime > end.AddDays(-14) ? resolved.BuildTime : end.AddDays(-14); if (from >= end) throw new InvalidDataException("Invalid item statistics period");
         static string Iso(DateTimeOffset value) => value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture);
         var catalog = ItemAdapter.Catalog(en, ru, expected, Iso(end), EditorialAdvice.Read(), rawAbilities);
@@ -120,9 +121,14 @@ public sealed class ArchiveRefresh : IArchiveRefresh
             var source = J.Rows(apiHeroes, "API heroes").Single(a => J.Id(a["id"], "ID") == J.Id(h["id"], "ID")); downloads.Add(("public/" + relative, J.Str(source["images"]?["icon_image_small_webp"])));
         }
         var upstream = J.Rows(en, "API items").ToDictionary(i => J.Id(i["id"], "ID")); foreach (var item in J.Rows(catalog["items"], "catalog items")) { var source = upstream[J.Id(item["id"], "ID")]; var relative = J.Str(item["icon"]); if (!Regex.IsMatch(relative, "^assets/items/[a-z0-9-]+\\.webp$")) throw new InvalidDataException("Unsafe item icon path"); downloads.Add(("public/" + relative, J.Str(source["shop_image_webp"], J.Str(source["image_webp"])))); }
+        foreach (var ability in AbilityAdapter.All(abilityCatalog))
+        {
+            var source = upstream[J.Id(ability["id"], "ability ID")];
+            downloads.Add(("public/" + J.Str(ability["icon"]), J.Str(source["image_webp"])));
+        }
         await Parallel.ForEachAsync(downloads, new ParallelOptions { MaxDegreeOfParallelism = 4, CancellationToken = ct }, async (download, token) => { var uri = ValidateSource(download.Url); if (uri.Host != "assets-bucket.deadlock-api.com") throw new InvalidDataException("Missing trusted WebP icon"); var bytes = await RequestAsync(download.Url, download.Path.StartsWith("public/assets/heroes/") ? 2_000_000 : 1_000_000, token); if (bytes.Length < 12 || !bytes.AsSpan(0, 4).SequenceEqual("RIFF"u8) || !bytes.AsSpan(8, 4).SequenceEqual("WEBP"u8)) throw new InvalidDataException("Invalid WebP icon"); if (!assets.TryAdd(download.Path, bytes)) throw new InvalidDataException("Duplicate asset path"); });
         if (await LatestAsync(ct) != expected) throw new InvalidDataException("Client version changed during refresh");
-        var candidate = (JsonObject)current.DeepClone(); candidate["heroes"] = heroes; candidate["items"] = catalog; candidate["itemStatistics"] = statistics;
+        var candidate = (JsonObject)current.DeepClone(); candidate["heroes"] = heroes; candidate["items"] = catalog; candidate["itemStatistics"] = statistics; candidate["abilities"] = abilityCatalog;
         var old = J.Rows(currentHeroes["heroes"], "previous heroes").ToDictionary(h => J.Id(h["id"], "ID")); var next = J.Rows(heroes["heroes"], "heroes").ToList(); var nextIds = next.Select(h => J.Id(h["id"], "ID")).ToHashSet();
         bool SameHero(JsonObject a, JsonObject b) { var x = (JsonObject)a.DeepClone(); var y = (JsonObject)b.DeepClone(); x.Remove("source"); y.Remove("source"); return JsonNode.DeepEquals(x, y); }
         var added = next.Count(h => !old.ContainsKey(J.Id(h["id"], "ID"))); var removed = old.Keys.Count(id => !nextIds.Contains(id)); var updated = next.Count(h => old.TryGetValue(J.Id(h["id"], "ID"), out var previous) && !SameHero(h, previous));

@@ -8,6 +8,9 @@ import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
 import { PickerDialog } from './PickerDialog';
 import { BuildResults } from './BuildResults';
+import { BuildHeroControls } from './BuildHeroControls';
+import { BuildInventory } from './BuildInventory';
+import { HeroAbilities } from './HeroAbilities';
 import './HeroCalculator.css';
 const categories = ['weapon', 'vitality', 'spirit'] as const;
 const categoryNames = { weapon: 'Оружие', vitality: 'Выживаемость', spirit: 'Спирит' };
@@ -23,7 +26,6 @@ export default function HeroCalculator({
   const { catalog, error, retry } = useItems();
   const [heroId, setHeroId] = useState(data.heroes[0]?.id);
   const [level, setLevel] = useState(1);
-  const [levelDraft, setLevelDraft] = useState('1');
   const [slots, setSlots] = useState<(number | null)[]>(() =>
     Array(data.calculatorRules?.maxSlots ?? 0).fill(null),
   );
@@ -70,17 +72,6 @@ export default function HeroCalculator({
     setPicker(value);
   };
   const name = (item: (typeof items)[number]) => item.localizedName[language] || item.name;
-  const validLevel = (raw: string) =>
-    raw.trim() !== '' && Number.isInteger(Number(raw)) && Number(raw) >= 1 && Number(raw) <= 36;
-  const commitLevel = () => {
-    const value = Number(levelDraft);
-    const next =
-      levelDraft.trim() && Number.isFinite(value)
-        ? Math.max(1, Math.min(36, Math.round(value)))
-        : level;
-    setLevel(next);
-    setLevelDraft(String(next));
-  };
   const choose = (itemId: number) => {
     if (typeof picker !== 'number' || !rules) return;
     try {
@@ -109,53 +100,16 @@ export default function HeroCalculator({
     <div className="hero-build">
       <div className="build-workspace">
         <div className="build-input-sheet">
-          <div className="build-toolbar">
-            <button
-              type="button"
-              className="build-hero"
-              aria-label={t('Выбрать героя: {{hero}}', { hero: hero?.name ?? '' })}
-              onClick={() => open('hero')}
-            >
-              {hero?.portrait && <img src={asset(hero.portrait)} alt="" />}
-              <span>
-                <small>{t('Герой')}</small>
-                <strong>{hero?.name}</strong>
-              </span>
-              <span aria-hidden="true">⌄</span>
-            </button>
-            <label>
-              {t('Уровень героя')}
-              <input
-                type="number"
-                min={1}
-                max={36}
-                value={levelDraft}
-                aria-invalid={!validLevel(levelDraft)}
-                onChange={(e) => {
-                  const raw = e.target.value;
-                  setLevelDraft(raw);
-                  if (validLevel(raw)) setLevel(Number(raw));
-                }}
-                onBlur={commitLevel}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter') {
-                    event.preventDefault();
-                    commitLevel();
-                  }
-                }}
-              />
-            </label>
-            <button
-              type="button"
-              className="button"
-              onClick={() => {
-                setSlots(Array(rules?.maxSlots ?? 0).fill(null));
-                setNotice({ key: 'Предметы убраны' });
-              }}
-            >
-              {t('Очистить предметы')}
-            </button>
-          </div>
+          <BuildHeroControls
+            hero={hero}
+            level={level}
+            onLevel={setLevel}
+            onHero={() => open('hero')}
+            onClear={() => {
+              setSlots(Array(rules?.maxSlots ?? 0).fill(null));
+              setNotice({ key: 'Предметы убраны' });
+            }}
+          />{' '}
           {calculation.error && (
             <p role="alert">{t('Не удалось рассчитать билд. Проверь предметы и обнови данные.')}</p>
           )}
@@ -184,60 +138,17 @@ export default function HeroCalculator({
                   <button onClick={retry}>{t('Повторить загрузку')}</button>
                 </p>
               ) : (
-                <div className="build-slots">
-                  {Array.from({ length: rules.maxSlots }, (_, index) => {
-                    const item = items.find((i) => i.id === slots[index]);
-                    return (
-                      <div className={`build-slot ${item?.category ?? ''}`} key={index}>
-                        <button
-                          type="button"
-                          aria-label={
-                            item
-                              ? t('Слот {{slot}}: {{item}}. Заменить предмет', {
-                                  slot: index + 1,
-                                  item: name(item),
-                                })
-                              : t('Предмет для слота {{slot}}', { slot: index + 1 })
-                          }
-                          onClick={() => open(index)}
-                        >
-                          <small>
-                            {String(index + 1).padStart(2, '0')}
-                            {index >= rules.baseSlots ? ' +' : ''}
-                          </small>
-                          {item ? (
-                            <>
-                              <img src={asset(item.icon)} alt="" />
-                              <span>{name(item)}</span>
-                              <small>
-                                {t('Тир')} {item.tier} · {format(item.cost)}
-                              </small>
-                            </>
-                          ) : (
-                            <>
-                              <b aria-hidden="true">+</b>
-                              <span>{t('Выбрать предмет')}</span>
-                            </>
-                          )}
-                        </button>
-                        {item && (
-                          <button
-                            type="button"
-                            className="build-remove"
-                            aria-label={t('Убрать {{item}}', { item: name(item) })}
-                            onClick={() => {
-                              setSlots(slots.map((id, i) => (i === index ? null : id)));
-                              setNotice({ key: 'Предмет убран' });
-                            }}
-                          >
-                            ×
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+                <BuildInventory
+                  slots={slots}
+                  items={items}
+                  rules={rules}
+                  onChoose={open}
+                  onRemove={(index) => {
+                    setSlots((current) => current.map((id, i) => (i === index ? null : id)));
+                    setNotice({ key: 'Предмет убран' });
+                  }}
+                />
+              )}{' '}
               <p className="build-notice" role="status">
                 {notice &&
                   t(notice.key, {
@@ -283,27 +194,6 @@ export default function HeroCalculator({
                     />
                   </label>
                 </div>
-                <fieldset>
-                  <legend>{t('Выбранная способность')}</legend>
-                  <div className="build-context">
-                    {(
-                      [
-                        ['imbued', 'Усилена предметом'],
-                        ['charged', 'Имеет заряды'],
-                        ['ultimate', 'Ультимейт'],
-                      ] as const
-                    ).map(([key, label]) => (
-                      <label key={key}>
-                        <input
-                          type="checkbox"
-                          checked={!!context[key]}
-                          onChange={(e) => setContext({ ...context, [key]: e.target.checked })}
-                        />
-                        {t(label)}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
               </details>
               {catalog && compatible && !metadataReady && (
                 <p role="alert">
@@ -311,6 +201,16 @@ export default function HeroCalculator({
                 </p>
               )}
             </>
+          )}
+          {hero && (
+            <HeroAbilities
+              data={data}
+              hero={hero}
+              level={level}
+              items={result ? selected : undefined}
+              rules={rules}
+              context={context}
+            />
           )}
         </div>
         {result && rules && (

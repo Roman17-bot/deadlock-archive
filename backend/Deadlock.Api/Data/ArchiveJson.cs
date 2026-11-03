@@ -54,6 +54,8 @@ public static class ArchiveJson
         if (version < 1 || h["heroes"] is not JsonArray { Count: > 0 }) throw new InvalidDataException("Invalid heroes");
         var meta = h["meta"]!;
         Require(Number(meta["schemaVersion"]) == 1 && Positive(meta["sourceRevision"]) && Commit(meta["gameCommit"]) && Nonempty(meta["snapshotDate"]) && Timestamp(meta["checkedAt"]) && Nonempty(meta["buildDate"]) && Strings(meta["methodology"]) && meta["sources"] is JsonArray hs && hs.All(s => Nonempty(s?["label"]) && Https(s?["url"])) && meta["levelRange"] is JsonArray lr && lr.Count == 2 && Number(lr[0]) == 1 && Number(lr[1]) == 36 && Number(meta["heroCount"]) == h["heroes"]!.AsArray().Count, "Invalid hero metadata");
+        if (b["abilities"] is JsonObject abilities) Ingestion.AbilityAdapter.Validate(abilities, h);
+        else if (b.ContainsKey("abilities")) throw new InvalidDataException("Invalid ability catalogue");
         var heroIds = new HashSet<long>(); var slugs = new HashSet<string>();
         foreach (var hero in h["heroes"]!.AsArray())
         {
@@ -120,6 +122,7 @@ public static class ArchiveJson
     public static readonly Dictionary<string, string[]> Files = new()
     {
         ["heroes.json"] = ["heroes"],
+        ["abilities.json"] = ["abilities"],
         ["mechanics.json"] = ["mechanics", "ru"],
         ["mechanics.en.json"] = ["mechanics", "en"],
         ["provenance.json"] = ["provenance"],
@@ -134,7 +137,7 @@ public static class ArchiveJson
         foreach (var (name, keys) in Files)
         {
             var file = Path.Combine(paths.Data, name);
-            if (!File.Exists(file) && name is "items.json" or "item-statistics.json") continue;
+            if (!File.Exists(file) && name is "items.json" or "item-statistics.json" or "abilities.json") continue;
             var value = JsonNode.Parse(await File.ReadAllTextAsync(file, ct));
             if (keys.Length == 1) b[keys[0]] = value; else b[keys[0]]![keys[1]] = value;
         }

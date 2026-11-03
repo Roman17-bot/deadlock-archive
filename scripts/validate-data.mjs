@@ -2,6 +2,7 @@ import { readFile, access } from 'node:fs/promises';
 import { validateSnapshot, statsAtLevel } from '../shared/heroes.ts';
 import { validateVersionHistory } from '../shared/version-history.ts';
 import { isDeepStrictEqual } from 'node:util';
+import { validateAbilityCatalog } from '../shared/abilities.ts';
 import { validateItemCatalog, validateItemStatistics } from '../shared/items.ts';
 
 const snapshot = JSON.parse(
@@ -111,6 +112,25 @@ for (const hero of snapshot.heroes)
   for (const level of [1, 2, 36])
     if (!Object.values(statsAtLevel(hero, level)).every(Number.isFinite))
       throw new Error(`Non-finite stats: ${hero.name}`);
+
+const abilities = await optionalItems('abilities.json');
+if (abilities !== undefined) {
+  if (
+    !validateAbilityCatalog(abilities, {
+      clientVersion: snapshot.meta.clientVersion,
+      sourceRevision: snapshot.meta.sourceRevision,
+      gameCommit: snapshot.meta.gameCommit,
+      heroIds: snapshot.heroes.map((h) => h.id),
+    })
+  )
+    throw new Error('Invalid ability catalogue');
+  await Promise.all(
+    abilities.heroes
+      .flatMap((h) => h.abilities.flatMap((a) => [a, ...a.variants]))
+      .map((a) => access(new URL('../public/' + a.icon, import.meta.url))),
+  );
+}
+
 console.log(
   `Valid: ${snapshot.heroes.length} unique heroes, client ${snapshot.meta.clientVersion}, all portraits and level1/2/36 values.`,
 );

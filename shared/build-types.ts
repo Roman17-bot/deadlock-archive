@@ -89,6 +89,10 @@ export interface BuildRules {
 
 /** Base weapon/HP/Spirit fields remain in Hero; these extend its calculator inputs. */
 export interface HeroCalculation {
+  lightMeleeDamage?: number;
+  heavyMeleeDamage?: number;
+  meleeGrowth?: number;
+  heavyMeleePerSpirit?: number;
   debuffResist: number;
   bulletLifesteal: number;
   bulletResist: number;
@@ -109,6 +113,7 @@ export interface BuildContext {
   versusNPC?: boolean;
   distance?: number;
   imbued?: boolean;
+  imbuedItemIds?: readonly number[];
   charged?: boolean;
   ultimate?: boolean;
 }
@@ -165,6 +170,7 @@ export interface BuildResult {
     rangePercent: number;
     radiusPercent: number;
     charges: number;
+    chargeCooldownReduction: number;
   };
   investments: Record<ItemCategory, InvestmentState>;
   totalCost: number;

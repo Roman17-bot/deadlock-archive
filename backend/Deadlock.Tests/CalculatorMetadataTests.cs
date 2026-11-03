@@ -6,6 +6,29 @@ namespace Deadlock.Tests;
 public sealed class CalculatorMetadataTests
 {
     [Fact]
+    public void MeleeSourceInputsIncludeHeavySpiritScalingAndGrowth()
+    {
+        var raw = Kv3.Parse("""{m_mapStartingStats={ELightMeleeDamage=42 EHeavyMeleeDamage=120} m_mapStandardLevelUpUpgrades={MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL=1.2} m_mapScalingStats={EHeavyMeleeDamage={eScalingStat="ETechPower" flScale=0.45}}}""");
+        var result = CalculatorMetadata.Hero(raw);
+        Assert.Equal(42,result["lightMeleeDamage"]!.GetValue<double>());
+        Assert.Equal(120,result["heavyMeleeDamage"]!.GetValue<double>());
+        Assert.Equal(1.2,result["meleeGrowth"]!.GetValue<double>());
+        Assert.Equal(0.45,result["heavyMeleePerSpirit"]!.GetValue<double>());
+    }
+    [Fact]
+    public void LegacyCalculatorRowsMayOmitMeleeButPresentFieldsMustBeNumeric()
+    {
+        var snapshot = JsonNode.Parse(File.ReadAllText(Path.Combine(Deadlock.Api.AppEnvironment.ResolveRoot([]),"data/heroes.json")))!.AsObject();
+        foreach (var h in snapshot["heroes"]!.AsArray())
+            if (h!["calculation"] is JsonObject calculation)
+                foreach (var key in new[] { "lightMeleeDamage", "heavyMeleeDamage", "meleeGrowth", "heavyMeleePerSpirit" }) calculation.Remove(key);
+        ArchiveValidation.Heroes(snapshot);
+        var first = snapshot["heroes"]![0]!;
+        if (first["calculation"] is not JsonObject c) { c = new JsonObject(); foreach (var key in CalculatorMetadata.HeroFields) c[key] = 0; first["calculation"] = c; }
+        c["heavyMeleePerSpirit"] = "invalid";
+        Assert.Throws<InvalidDataException>(()=>ArchiveValidation.Heroes(snapshot));
+    }
+    [Fact]
     public void MinaAndGravesInnateSecondaryStatsRetainTheirSignedValues()
     {
         var mina = Kv3.Parse("""{m_mapStartingStats={EDebuffResist=-8} m_mapStandardLevelUpUpgrades={}}""");

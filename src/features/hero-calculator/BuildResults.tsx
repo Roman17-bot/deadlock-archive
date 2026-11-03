@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 import type { BuildResult, BuildRules, BuildStats } from '../../../shared/build-types';
-import { calculateCooldown, calculateDamage } from '../../../shared/mechanics';
+import { calculateDamage } from '../../../shared/mechanics';
 import { useI18n } from '../../i18n';
 import { format } from '../../lib/format';
 import { ChevronDown } from '../../components/ui/ArchiveIcon/ArchiveIcons';
@@ -122,22 +122,7 @@ export function BuildResults({
 }) {
   const { t } = useI18n();
   const [resist, setResist] = useState('30');
-  const [base, setBase] = useState('100');
-  const [scale, setScale] = useState('1');
-  const [cooldown, setCooldown] = useState('30');
   const resistance = validNumber(resist, -1000, 100);
-  const damageBase = validNumber(base, 0, 1000000);
-  const coefficient = validNumber(scale, 0, 10000);
-  const cooldownBase = validNumber(cooldown, 0.01, 86400);
-  const spiritDamage =
-    damageBase !== undefined && coefficient !== undefined
-      ? (damageBase + coefficient * result.ability.spirit) *
-        (1 + result.ability.damagePercent / 100)
-      : undefined;
-  const cooldownSeconds =
-    cooldownBase !== undefined
-      ? calculateCooldown(cooldownBase, [result.ability.cooldownReduction]).seconds
-      : undefined;
   const shot =
     resistance === undefined
       ? undefined
@@ -260,7 +245,7 @@ export function BuildResults({
         <h3>{t('Характеристики билда')}</h3>
         <p>
           {t(
-            'Без предметов → с предметами, на выбранном уровне. Общие бонусы способностей показаны отдельно от выбранной способности.',
+            'Без предметов → с предметами, на выбранном уровне. Прокачка способностей настраивается слева.',
           )}
         </p>
         <div className="build-stat-groups">
@@ -300,29 +285,6 @@ export function BuildResults({
             </details>
           ))}
         </div>
-        <details>
-          <summary>{t('Бонусы выбранной способности')}</summary>
-          <dl className="build-ability">
-            {(
-              [
-                ['spirit', 'Спирит'],
-                ['cooldownReduction', 'Сокращение перезарядки'],
-                ['durationPercent', 'Длительность'],
-                ['rangePercent', 'Дальность'],
-                ['radiusPercent', 'Радиус'],
-                ['charges', 'Дополнительные заряды'],
-              ] as const
-            ).map(([key, label]) => (
-              <div key={key}>
-                <dt>{t(label)}</dt>
-                <dd>
-                  {format(result.ability[key])}
-                  {!['spirit', 'charges'].includes(key) && '%'}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </details>
       </section>
       <section className="build-examples">
         <h3>{t('Проверь билд в формулах')}</h3>
@@ -358,62 +320,6 @@ export function BuildResults({
             </p>
           )}
           <button className="text-link" onClick={() => onRule('damage-amps')}>
-            {t('Как это считается')}
-          </button>
-        </details>
-        <details>
-          <summary>{t('Спирит и перезарядка способности')}</summary>
-          <p>{t('Введи параметры нужной способности. Коэффициент не выбирается автоматически.')}</p>
-          <div className="build-example-inputs">
-            <ExampleInput
-              label="Базовый урон способности"
-              value={base}
-              onChange={setBase}
-              min={0}
-              max={1000000}
-            />
-            <ExampleInput
-              label="Коэффициент спирита"
-              value={scale}
-              onChange={setScale}
-              min={0}
-              max={10000}
-            />
-            <ExampleInput
-              label="Базовая перезарядка, с"
-              value={cooldown}
-              onChange={setCooldown}
-              min={0.01}
-              max={86400}
-            />
-          </div>
-          {spiritDamage !== undefined &&
-            Number.isFinite(spiritDamage) &&
-            damageBase !== undefined &&
-            coefficient !== undefined && (
-              <p>
-                {result.ability.damagePercent !== 0 && '('}
-                {format(damageBase)} + {format(coefficient)} × {format(result.ability.spirit)}
-                {result.ability.damagePercent !== 0 && (
-                  <>
-                    ){' × (1 '}
-                    {result.ability.damagePercent < 0 ? '−' : '+'}{' '}
-                    {format(Math.abs(result.ability.damagePercent))} / 100)
-                  </>
-                )}
-                {' = '}
-                <strong>{format(spiritDamage)}</strong> · {t('до сопротивлений')}
-              </p>
-            )}
-          {cooldownSeconds !== undefined && cooldownBase !== undefined && (
-            <p>
-              {format(cooldownBase)} × (1 − {format(result.ability.cooldownReduction)} / 100) ={' '}
-              <strong>
-                {format(cooldownSeconds)} {t('с')}
-              </strong>
-            </p>
-          )}
-          <button className="text-link" onClick={() => onRule('spirit-scaling')}>
             {t('Как это считается')}
           </button>
         </details>

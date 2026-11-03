@@ -1,0 +1,13 @@
+# Real hero abilities and build controls
+
+User requests a visual refinement of the existing hero selector, level/clear controls and12 item slots, then actual selected-hero abilities on the left instead of the manual Spirit/cooldown example on the right. Add complete versioned ability descriptions, parameters and upgrades for all44 heroes to PostgreSQL for later hero-detail pages. Routine implementation/design decisions were delegated earlier; continue autonomously.
+
+Retain Heritage, established areas, old Formulas mode, inventory rules and input drafts. Craft sockets/frames/indices and clear hover/focus/pressed states with existing CSS/SVG. No heavy art, dependencies, permanent animation or game launch.
+
+Use a separate optional versioned abilities catalogue, loaded only by relevant features, rather than bloating the hero list/home payload. Map exact signature slots1–4 from pinned hero configuration and independently cross-check API mapping. Preserve meaningful additional/variant abilities linked to signatures. Normalize localized names/descriptions, tooltip sections/display order, property units/scales and all3 upgrade tiers and property operations. Keep primary raw evidence private; do not show file identifiers or guessed formula outputs.
+
+Native ASP.NET ingestion, validation, normalized PostgreSQL tables and API/public export/sync carry the catalogue and optimized ability icons together. Old archives without abilities continue working; no startup overwrite or same-client updater bypass. Initial enrichment follows backup and explicit reviewed dry-run/refresh. Automatic future refresh regenerates abilities with heroes/items/statistics atomically.
+
+Below inventory, show all4 real abilities with icons, readable descriptions, actual values and selectable cumulative upgrade ranks0–3 (tier costs1/2/5AP). Resolve supported property scales, item Spirit, cooldown/duration/range/radius/charge effects using typed pure calculations. Imbued bonuses must target a concrete ability, not all4. Preserve custom/nonlinear property information without manufacturing linear math; provide useful base/upgrade information for complex cases. Remove the obsolete manual ability example; keep EHP/weapon examples and basic calculator.
+
+Acceptance: complete roster/mappings/descriptions/upgrades and variants retained; numeric rank operations and supported build effects tested; changing hero restores its own ability selection safely; loading/error/version mismatch/retry work; no raw tokens/HTML execution; RU/EN and keyboard/touch;1440/768/390 rendering; independent mechanics/data and visual review; PostgreSQL/export/Pages exact equality verified after publication.
