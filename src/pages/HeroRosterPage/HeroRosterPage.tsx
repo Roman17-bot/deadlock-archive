@@ -147,15 +147,21 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
               {en ? 'Selected' : 'Выбран'}: {hero.name}
             </p>
             <h2>{hero.name}</h2>
-            <img
-              className="hero-roster-art"
-              src={
-                profile
-                  ? referenceMedia(profile.art.background || profile.art.card)
-                  : asset(hero.portrait)
-              }
-              alt=""
-            />
+            <div className="hero-roster-art-stage">
+              {profile && (
+                <img
+                  className="hero-roster-art-backdrop"
+                  src={referenceMedia(profile.art.background)}
+                  alt=""
+                  aria-hidden="true"
+                />
+              )}
+              <img
+                className={`hero-roster-art${profile ? '' : ' hero-roster-art--portrait'}`}
+                src={profile ? referenceMedia(profile.art.card) : asset(hero.portrait)}
+                alt=""
+              />
+            </div>
             {profile && <p>{profile.summary[language]}</p>}
             <div className="roster-actions">
               <a href={`#/heroes/${hero.slug}`}>

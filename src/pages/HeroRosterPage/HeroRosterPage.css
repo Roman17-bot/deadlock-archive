@@ -133,15 +133,44 @@
   font-size: 13px;
   color: var(--brass);
 }
+.hero-roster-art-stage {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  height: clamp(320px, 34vw, 460px);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink-deep);
+}
+.hero-roster-art-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.38;
+  pointer-events: none;
+}
 .hero-roster-art {
+  position: relative;
   display: block;
+  min-height: 0;
+  min-width: 0;
+  max-height: 100%;
   margin: 0;
   padding: 0;
   max-width: 100%;
-  width: 100%;
-  max-height: 520px;
+  width: auto;
+  height: 100%;
   object-fit: contain;
-  background: var(--ink-deep);
+  filter: drop-shadow(0 8px 20px #0008);
+}
+.hero-roster-art--portrait {
+  width: min(100%, 180px);
+  height: auto;
+  max-height: 280px;
 }
 .roster-actions {
   display: flex;
