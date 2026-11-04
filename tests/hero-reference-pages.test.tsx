@@ -15,6 +15,9 @@ import {
   loadHeroHistory,
 } from '../src/services/heroReferenceApi';
 import { setLanguage } from '../src/i18n';
+import { loadAbilities } from '../src/services/abilitiesApi';
+import { abilityFixture } from './fixtures/hero-abilities';
+vi.mock('../src/services/abilitiesApi', () => ({ loadAbilities: vi.fn() }));
 vi.mock('../src/services/heroReferenceApi', () => ({
   loadHeroProfiles: vi.fn(),
   loadHeroStatistics: vi.fn(),
@@ -92,6 +95,13 @@ function statistics(): HeroStatistics {
 beforeEach(async () => {
   await setLanguage('en');
   vi.mocked(loadHeroStatistics).mockResolvedValue(statistics());
+  vi.mocked(loadAbilities).mockResolvedValue({
+    meta: { ...data.meta, schemaVersion: 1, updatedAt: data.meta.checkedAt },
+    heroes: data.heroes.map((hero) => ({
+      heroId: hero.id,
+      abilities: ([1, 2, 3, 4] as const).map((slot) => abilityFixture(hero.id * 10 + slot, slot)),
+    })),
+  });
   vi.mocked(loadHeroProfiles).mockResolvedValue({
     schemaVersion: 1,
     clientVersion: 6848,
@@ -108,18 +118,18 @@ afterEach(async () => {
 describe('hero roster', () => {
   it('uses the same 7 day normal-all cohort, previews by keyboard and keeps direct detail links', async () => {
     render(<HeroRosterPage data={data} />);
-    const first = screen.getByRole('button', { name: `Preview ${a.name}` });
+    const first = screen.getByRole('link', { name: `Open dossier for ${a.name}` });
     expect(await within(first).findByText('60%')).toHaveClass('is-positive');
-    const second = screen.getByRole('button', { name: `Preview ${b.name}` });
+    const second = screen.getByRole('link', { name: `Open dossier for ${b.name}` });
     expect(within(second).getByText('40%')).toHaveClass('is-negative');
     fireEvent.focus(second);
-    expect(second).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('heading', { name: b.name })).toBeVisible();
-    expect(screen.getByRole('link', { name: `Details ${b.name}` })).toHaveAttribute(
-      'href',
-      `#/heroes/${b.slug}`,
-    );
-    expect(screen.getByText(/Green: ≥50%/)).toBeVisible();
+    expect(second).toHaveAttribute('href', `#/heroes/${b.slug}`);
+    expect(screen.queryByText(/Green: ≥50%/)).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: `Details ${b.name}` })).not.toBeInTheDocument();
+    fireEvent.mouseEnter(first);
+    expect(screen.getByRole('heading', { name: a.name })).toBeVisible();
+    expect(await screen.findByText('Ability 4')).toBeVisible();
   });
   it('recovers from an empty search without losing the selected preview', async () => {
     const user = userEvent.setup();
@@ -127,7 +137,20 @@ describe('hero roster', () => {
     await user.type(screen.getByRole('searchbox'), 'impossiblehero');
     expect(screen.getByText('No heroes found.')).toBeVisible();
     await user.click(screen.getByRole('button', { name: 'Reset search' }));
-    expect(screen.getByRole('button', { name: `Preview ${a.name}` })).toBeVisible();
+    expect(screen.getByRole('link', { name: `Open dossier for ${a.name}` })).toBeVisible();
+  });
+  it('falls back from unavailable artwork and loads a fresh image when the preview changes', () => {
+    render(<HeroRosterPage data={data} />);
+    const preview = screen.getByRole('complementary', { name: 'Hero preview' });
+    const image = preview.querySelector('.roster-showcase-art')!;
+    expect(image).toHaveAttribute('src', expect.stringContaining(`/roster/heroes/${a.slug}.webp`));
+    fireEvent.error(image);
+    expect(image).toHaveAttribute('src', expect.stringContaining(a.portrait));
+    fireEvent.focus(screen.getByRole('link', { name: `Open dossier for ${b.name}` }));
+    expect(preview.querySelector('.roster-showcase-art')).toHaveAttribute(
+      'src',
+      expect.stringContaining(`/roster/heroes/${b.slug}.webp`),
+    );
   });
 });
 

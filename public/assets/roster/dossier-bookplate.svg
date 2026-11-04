@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="156" viewBox="0 0 500 156" preserveAspectRatio="none" fill="none">
+  <!-- Original blank bookplate: all meaningful text remains HTML above this asset. -->
+  <path d="M1 19H19V1H481V19H499V137H481V155H19V137H1Z" fill="#e7dfc9" stroke="#d1ad66" stroke-width="2"/>
+  <path d="M11 27H27V11H473V27H489V129H473V145H27V129H11Z" stroke="#65705b" stroke-width=".8"/>
+  <path d="M35 39H87M413 39H465M35 117H87M413 117H465M250 15L257 22L250 29L243 22ZM250 127L257 134L250 141L243 134Z" stroke="#8a794b"/>
+  <path d="M36 49V107M464 49V107" stroke="#65705b" stroke-opacity=".4"/>
+</svg>

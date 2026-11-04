@@ -1,0 +1,222 @@
+{
+  "6": {
+    "render": "assets/roster/heroes/abrams.webp",
+    "nameplate": "assets/roster/heroes/abrams-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "77": {
+    "render": "assets/roster/heroes/apollo.webp",
+    "nameplate": "assets/roster/heroes/apollo-name.svg",
+    "accent": "#c7917f"
+  },
+  "88": {
+    "render": "assets/roster/heroes/baba.webp",
+    "nameplate": "assets/roster/heroes/baba-name.svg",
+    "accent": "#c77f91"
+  },
+  "15": {
+    "render": "assets/roster/heroes/bebop.webp",
+    "nameplate": "assets/roster/heroes/bebop-name.svg",
+    "accent": "#c7917f"
+  },
+  "72": {
+    "render": "assets/roster/heroes/billy.webp",
+    "nameplate": "assets/roster/heroes/billy-name.svg",
+    "accent": "#c7b57f"
+  },
+  "16": {
+    "render": "assets/roster/heroes/calico.webp",
+    "nameplate": "assets/roster/heroes/calico-name.svg",
+    "accent": "#7f91c7"
+  },
+  "81": {
+    "render": "assets/roster/heroes/celeste.webp",
+    "nameplate": "assets/roster/heroes/celeste-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "78": {
+    "render": "assets/roster/heroes/deadman-danny.webp",
+    "nameplate": "assets/roster/heroes/deadman-danny-name.svg",
+    "accent": "#c7917f"
+  },
+  "64": {
+    "render": "assets/roster/heroes/drifter.webp",
+    "nameplate": "assets/roster/heroes/drifter-name.svg",
+    "accent": "#c7917f"
+  },
+  "11": {
+    "render": "assets/roster/heroes/dynamo.webp",
+    "nameplate": "assets/roster/heroes/dynamo-name.svg",
+    "accent": "#c7917f"
+  },
+  "76": {
+    "render": "assets/roster/heroes/graves.webp",
+    "nameplate": "assets/roster/heroes/graves-name.svg",
+    "accent": "#b5c77f"
+  },
+  "17": {
+    "render": "assets/roster/heroes/grey-talon.webp",
+    "nameplate": "assets/roster/heroes/grey-talon-name.svg",
+    "accent": "#7fc7b5"
+  },
+  "13": {
+    "render": "assets/roster/heroes/haze.webp",
+    "nameplate": "assets/roster/heroes/haze-name.svg",
+    "accent": "#c7b57f"
+  },
+  "14": {
+    "render": "assets/roster/heroes/holliday.webp",
+    "nameplate": "assets/roster/heroes/holliday-name.svg",
+    "accent": "#c7917f"
+  },
+  "1": {
+    "render": "assets/roster/heroes/infernus.webp",
+    "nameplate": "assets/roster/heroes/infernus-name.svg",
+    "accent": "#c7917f"
+  },
+  "20": {
+    "render": "assets/roster/heroes/ivy.webp",
+    "nameplate": "assets/roster/heroes/ivy-name.svg",
+    "accent": "#c7b57f"
+  },
+  "12": {
+    "render": "assets/roster/heroes/kelvin.webp",
+    "nameplate": "assets/roster/heroes/kelvin-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "4": {
+    "render": "assets/roster/heroes/lady-geist.webp",
+    "nameplate": "assets/roster/heroes/lady-geist-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "31": {
+    "render": "assets/roster/heroes/lash.webp",
+    "nameplate": "assets/roster/heroes/lash-name.svg",
+    "accent": "#c7917f"
+  },
+  "8": {
+    "render": "assets/roster/heroes/mcginnis.webp",
+    "nameplate": "assets/roster/heroes/mcginnis-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "63": {
+    "render": "assets/roster/heroes/mina.webp",
+    "nameplate": "assets/roster/heroes/mina-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "52": {
+    "render": "assets/roster/heroes/mirage.webp",
+    "nameplate": "assets/roster/heroes/mirage-name.svg",
+    "accent": "#917fc7"
+  },
+  "18": {
+    "render": "assets/roster/heroes/mo-krill.webp",
+    "nameplate": "assets/roster/heroes/mo-krill-name.svg",
+    "accent": "#c7b57f"
+  },
+  "87": {
+    "render": "assets/roster/heroes/nurse-harrow.webp",
+    "nameplate": "assets/roster/heroes/nurse-harrow-name.svg",
+    "accent": "#c7917f"
+  },
+  "67": {
+    "render": "assets/roster/heroes/paige.webp",
+    "nameplate": "assets/roster/heroes/paige-name.svg",
+    "accent": "#c7917f"
+  },
+  "10": {
+    "render": "assets/roster/heroes/paradox.webp",
+    "nameplate": "assets/roster/heroes/paradox-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "50": {
+    "render": "assets/roster/heroes/pocket.webp",
+    "nameplate": "assets/roster/heroes/pocket-name.svg",
+    "accent": "#c7b57f"
+  },
+  "84": {
+    "render": "assets/roster/heroes/rat-king.webp",
+    "nameplate": "assets/roster/heroes/rat-king-name.svg",
+    "accent": "#c7917f"
+  },
+  "79": {
+    "render": "assets/roster/heroes/rem.webp",
+    "nameplate": "assets/roster/heroes/rem-name.svg",
+    "accent": "#7f91c7"
+  },
+  "2": {
+    "render": "assets/roster/heroes/seven.webp",
+    "nameplate": "assets/roster/heroes/seven-name.svg",
+    "accent": "#c7b57f"
+  },
+  "19": {
+    "render": "assets/roster/heroes/shiv.webp",
+    "nameplate": "assets/roster/heroes/shiv-name.svg",
+    "accent": "#c77f91"
+  },
+  "80": {
+    "render": "assets/roster/heroes/silver.webp",
+    "nameplate": "assets/roster/heroes/silver-name.svg",
+    "accent": "#c7917f"
+  },
+  "60": {
+    "render": "assets/roster/heroes/sinclair.webp",
+    "nameplate": "assets/roster/heroes/sinclair-name.svg",
+    "accent": "#7f91c7"
+  },
+  "85": {
+    "render": "assets/roster/heroes/solomon.webp",
+    "nameplate": "assets/roster/heroes/solomon-name.svg",
+    "accent": "#7fc7b5"
+  },
+  "69": {
+    "render": "assets/roster/heroes/the-doorman.webp",
+    "nameplate": "assets/roster/heroes/the-doorman-name.svg",
+    "accent": "#c7b57f"
+  },
+  "65": {
+    "render": "assets/roster/heroes/venator.webp",
+    "nameplate": "assets/roster/heroes/venator-name.svg",
+    "accent": "#b57fc7"
+  },
+  "66": {
+    "render": "assets/roster/heroes/victor.webp",
+    "nameplate": "assets/roster/heroes/victor-name.svg",
+    "accent": "#c7917f"
+  },
+  "3": {
+    "render": "assets/roster/heroes/vindicta.webp",
+    "nameplate": "assets/roster/heroes/vindicta-name.svg",
+    "accent": "#7fb5c7"
+  },
+  "86": {
+    "render": "assets/roster/heroes/violet.webp",
+    "nameplate": "assets/roster/heroes/violet-name.svg",
+    "accent": "#c77fb5"
+  },
+  "35": {
+    "render": "assets/roster/heroes/viscous.webp",
+    "nameplate": "assets/roster/heroes/viscous-name.svg",
+    "accent": "#7fc791"
+  },
+  "58": {
+    "render": "assets/roster/heroes/vyper.webp",
+    "nameplate": "assets/roster/heroes/vyper-name.svg",
+    "accent": "#c7b57f"
+  },
+  "25": {
+    "render": "assets/roster/heroes/warden.webp",
+    "nameplate": "assets/roster/heroes/warden-name.svg",
+    "accent": "#7f91c7"
+  },
+  "7": {
+    "render": "assets/roster/heroes/wraith.webp",
+    "nameplate": "assets/roster/heroes/wraith-name.svg",
+    "accent": "#917fc7"
+  },
+  "27": {
+    "render": "assets/roster/heroes/yamato.webp",
+    "nameplate": "assets/roster/heroes/yamato-name.svg",
+    "accent": "#c7917f"
+  }
+}

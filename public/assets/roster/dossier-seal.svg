@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
+  <!-- Decorative registry seal, no invented institutional text or sequence numbers. -->
+  <circle cx="90" cy="90" r="80" stroke="#d1ad66" stroke-opacity=".22"/>
+  <circle cx="90" cy="90" r="74" stroke="#d1ad66" stroke-opacity=".15"/>
+  <path d="M90 19L108 56L148 50L124 83L145 119L105 114L90 155L75 114L35 119L56 83L32 50L72 56Z" stroke="#d1ad66" stroke-opacity=".2"/>
+  <path d="M63 75H117M63 105H117M74 63V117M106 63V117M82 83L90 75L98 83V97L90 105L82 97Z" stroke="#d1ad66" stroke-opacity=".24"/>
+</svg>

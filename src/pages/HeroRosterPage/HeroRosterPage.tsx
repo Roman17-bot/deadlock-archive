@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { HeroSnapshot } from '../../../shared/types';
 import { aggregateHeroStats, windowDays } from '../../../shared/hero-reference';
 import { useI18n } from '../../i18n';
-import { asset, format, formatDate } from '../../lib/format';
-import {
-  loadHeroProfiles,
-  loadHeroStatistics,
-  referenceMedia,
-} from '../../services/heroReferenceApi';
+import { asset, format } from '../../lib/format';
+import { loadHeroProfiles, loadHeroStatistics } from '../../services/heroReferenceApi';
 import { useReference } from '../../features/heroes/useReference';
+import { useAbilities } from '../../features/hero-calculator/useAbilities';
+import { Search, X, ChevronRight } from '../../components/ui/ArchiveIcon/ArchiveIcons';
+import { HeroShowcase } from './HeroShowcase';
 import './HeroRosterPage.css';
 
 export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
@@ -19,11 +18,16 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
   const [arriving, setArriving] = useState(false);
   const profiles = useReference(loadHeroProfiles);
   const statistics = useReference(loadHeroStatistics);
-  const scope = statistics.data?.scopes.find(
-    (s) => s.mode === 'all' && s.gameMode === 'normal' && s.rankMin === null && s.rankMax === null,
-  );
-  const days = scope ? windowDays(scope, 7) : [];
-  const stats = aggregateHeroStats(days);
+  const abilities = useAbilities(data);
+  const rates = useMemo(() => {
+    const scope = statistics.data?.scopes.find(
+      (s) =>
+        s.mode === 'all' && s.gameMode === 'normal' && s.rankMin === null && s.rankMax === null,
+    );
+    return new Map(
+      aggregateHeroStats(scope ? windowDays(scope, 7) : []).map((s) => [s.heroId, s.winRate]),
+    );
+  }, [statistics.data]);
   const heroes = data.heroes.filter((h) =>
     `${h.name} ${h.aliases}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()),
   );
@@ -32,10 +36,6 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
     profiles.data?.clientVersion === data.meta.clientVersion
       ? profiles.data.heroes.find((p) => p.heroId === hero?.id)
       : undefined;
-  const periodEnd = scope?.to.slice(0, 10);
-  const periodStart = periodEnd
-    ? new Date(Date.parse(`${periodEnd}T00:00:00Z`) - 6 * 86400000).toISOString().slice(0, 10)
-    : undefined;
   const pick = (id: number) => {
     if (selected !== id) {
       setSelected(id);
@@ -44,134 +44,142 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
   };
   return (
     <div className="hero-roster-page expansion-surface">
-      <h1>{en ? 'Choose a hero' : 'Выбери героя'}</h1>
-      <p className="roster-criterion">
-        {en
-          ? 'Win rate · last 7 days · normal matches · all ranks. Green: ≥50%; red: <50%. A dash means no matches.'
-          : 'Победы · последние 7 дней · обычные матчи · все ранги. Зелёный: ≥50%; красный: <50%. Прочерк — нет матчей.'}
-      </p>
-      {statistics.error && (
-        <p role="alert">
-          {en ? 'Match statistics could not load.' : 'Не удалось загрузить статистику матчей.'}{' '}
-          <button onClick={statistics.retry}>{en ? 'Retry' : 'Повторить'}</button>
-        </p>
-      )}
-      {periodStart && periodEnd && scope && (
-        <p className="roster-criterion">
-          {formatDate(periodStart)} — {formatDate(periodEnd)} · UTC · {en ? 'Updated' : 'Обновлено'}
-          : {formatDate(scope.updatedAt)}
-        </p>
-      )}
-      {profiles.error ? (
-        <p role="alert">
-          {en
-            ? 'Hero artwork and descriptions could not load.'
-            : 'Не удалось загрузить иллюстрации и описания героев.'}{' '}
-          <button onClick={profiles.retry}>{en ? 'Retry' : 'Повторить'}</button>
-        </p>
-      ) : profiles.data && profiles.data.clientVersion !== data.meta.clientVersion ? (
-        <p role="status">
-          {en
-            ? 'Hero artwork and descriptions are being updated for this version.'
-            : 'Иллюстрации и описания героев обновляются для этой версии.'}
-        </p>
-      ) : null}
-      <div className="expansion-roster">
-        <section aria-label={en ? 'Hero portraits' : 'Портреты героев'}>
+      <div className="breadcrumbs roster-breadcrumbs">
+        <a href="#/">{en ? 'Archive' : 'Архив'}</a>
+        <ChevronRight size={12} />
+        <a href="#/heroes">{en ? 'Hero register' : 'Реестр героев'}</a>
+        <ChevronRight size={12} />
+        <span>{en ? 'Heroes' : 'Герои'}</span>
+      </div>
+      <header className="roster-heading">
+        <div className="section-kicker">{en ? 'HERO REGISTER' : 'РЕЕСТР ГЕРОЕВ'}</div>
+        <h1>
+          {en ? 'Heroes' : 'Герои'}
+          <span className="title-star" aria-hidden="true">
+            ✦
+          </span>
+        </h1>
+      </header>
+      <div className="roster-folder">
+        <svg
+          className="roster-folder-back"
+          viewBox="0 0 1600 90"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <image
+            href={asset('assets/roster/dossier-folder.svg')}
+            width="1600"
+            height="1000"
+            preserveAspectRatio="none"
+          />
+        </svg>
+        <span className="roster-folder-tab" aria-hidden="true">
+          {en ? 'Heroes' : 'Герои'}
+        </span>
+        <section
+          className="roster-contact-sheet"
+          aria-label={en ? 'Hero portraits' : 'Портреты героев'}
+        >
+          <div className="roster-sheet-heading">
+            <h2>{en ? 'Personal files' : 'Личные дела'}</h2>
+            <span aria-live="polite">
+              {heroes.length} / {data.heroes.length}
+            </span>
+          </div>
           <div className="roster-search">
-            <label htmlFor="roster-search">{en ? 'Find a hero' : 'Найти героя'}</label>
+            <label className="sr-only" htmlFor="roster-search">
+              {en ? 'Find a hero' : 'Найти героя'}
+            </label>
+            <Search size={20} />
             <input
               id="roster-search"
               type="search"
+              autoComplete="off"
+              placeholder={en ? 'Find a hero…' : 'Найти героя…'}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             {query && (
-              <button onClick={() => setQuery('')}>{en ? 'Clear search' : 'Очистить поиск'}</button>
+              <button
+                type="button"
+                className="roster-clear"
+                onClick={() => setQuery('')}
+                aria-label={en ? 'Clear search' : 'Очистить поиск'}
+              >
+                <X size={18} />
+              </button>
             )}
           </div>
           <div className="expansion-portraits">
             {heroes.map((h) => {
-              const rate = stats.find((s) => s.heroId === h.id)?.winRate;
+              const rate = rates.get(h.id);
               return (
                 <div className="roster-plate" key={h.id}>
-                  <button
+                  <a
                     className="expansion-portrait"
-                    aria-pressed={hero?.id === h.id}
+                    href={`#/heroes/${h.slug}`}
+                    data-selected={hero?.id === h.id || undefined}
                     onMouseEnter={() => pick(h.id)}
                     onFocus={() => pick(h.id)}
-                    onClick={() => pick(h.id)}
-                    aria-label={`${en ? 'Preview' : 'Показать'} ${h.name}`}
+                    aria-label={`${en ? 'Open dossier for' : 'Открыть досье:'} ${h.name}`}
                   >
-                    <img src={asset(h.portrait)} alt="" loading="lazy" />
-                    <span>{h.name}</span>
+                    <img src={asset(h.portrait)} alt="" loading="lazy" width="96" height="96" />
+                    <span className="roster-name">{h.name}</span>
                     <strong
-                      className={
-                        rate == null
-                          ? 'roster-rate'
-                          : `roster-rate ${rate >= 50 ? 'is-positive' : 'is-negative'}`
-                      }
+                      className={`roster-rate${rate == null ? '' : rate >= 50 ? ' is-positive' : ' is-negative'}`}
+                      title={en ? 'Win rate · last 7 days' : 'Винрейт за неделю'}
                     >
                       {rate == null ? '—' : `${format(rate, 1)}%`}
                     </strong>
-                  </button>
-                  <a
-                    aria-label={`${en ? 'Details' : 'Подробнее'} ${h.name}`}
-                    className="roster-detail-link"
-                    href={`#/heroes/${h.slug}`}
-                  >
-                    {en ? 'Details' : 'Подробнее'}
-                    <span className="sr-only"> {h.name}</span>
                   </a>
                 </div>
               );
             })}
           </div>
           {!heroes.length && (
-            <p>
-              {en ? 'No heroes found.' : 'Герои не найдены.'}{' '}
-              <button onClick={() => setQuery('')}>{en ? 'Reset search' : 'Сбросить поиск'}</button>
+            <div className="roster-empty">
+              <p>{en ? 'No heroes found.' : 'Герои не найдены.'}</p>
+              <button type="button" onClick={() => setQuery('')}>
+                {en ? 'Reset search' : 'Сбросить поиск'}
+              </button>
+            </div>
+          )}
+          {statistics.error && (
+            <p className="roster-notice" role="alert">
+              {en ? 'Match statistics could not load.' : 'Не удалось загрузить статистику матчей.'}{' '}
+              <button onClick={statistics.retry}>{en ? 'Retry' : 'Повторить'}</button>
             </p>
           )}
         </section>
         {hero && (
-          <aside
-            className="expansion-dossier"
-            key={hero.id}
-            data-arriving={arriving || undefined}
-            aria-label={en ? 'Hero preview' : 'Обзор героя'}
-          >
-            <p className="roster-selected" role="status">
-              {en ? 'Selected' : 'Выбран'}: {hero.name}
-            </p>
-            <h2>{hero.name}</h2>
-            <div className="hero-roster-art-stage">
-              {profile && (
-                <img
-                  className="hero-roster-art-backdrop"
-                  src={referenceMedia(profile.art.background)}
-                  alt=""
-                  aria-hidden="true"
-                />
-              )}
-              <img
-                className={`hero-roster-art${profile ? '' : ' hero-roster-art--portrait'}`}
-                src={profile ? referenceMedia(profile.art.card) : asset(hero.portrait)}
-                alt=""
-              />
-            </div>
-            {profile && <p>{profile.summary[language]}</p>}
-            <div className="roster-actions">
-              <a href={`#/heroes/${hero.slug}`}>
-                {en ? 'Open hero dossier' : 'Открыть досье героя'}
-              </a>
-              <a href={`#/mechanics?hero=${hero.slug}`}>
-                {en ? 'Build calculator' : 'Калькулятор билда'}
-              </a>
-            </div>
-          </aside>
+          <HeroShowcase
+            hero={hero}
+            profile={profile}
+            language={language}
+            arriving={arriving}
+            abilities={
+              !abilities.mismatch
+                ? abilities.catalog?.heroes.find((h) => h.heroId === hero.id)?.abilities
+                : undefined
+            }
+          />
         )}
       </div>
+      {profiles.error && (
+        <p className="roster-notice" role="alert">
+          {en
+            ? 'Hero artwork and descriptions could not load.'
+            : 'Не удалось загрузить иллюстрации и описания героев.'}{' '}
+          <button onClick={profiles.retry}>{en ? 'Retry' : 'Повторить'}</button>
+        </p>
+      )}
+      {abilities.error && (
+        <p className="roster-notice" role="alert">
+          {en ? 'Abilities could not load.' : 'Не удалось загрузить способности.'}{' '}
+          <button onClick={abilities.retry}>{en ? 'Retry' : 'Повторить'}</button>
+        </p>
+      )}
     </div>
   );
 }
