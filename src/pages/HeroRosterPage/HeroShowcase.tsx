@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
-import type { Hero } from '../../../shared/types';
-import type { HeroAbility } from '../../../shared/ability-types';
+import type { Hero, HeroSnapshot } from '../../../shared/types';
 import type { HeroProfile } from '../../../shared/hero-reference';
 import { asset } from '../../lib/format';
-import { referenceMedia } from '../../services/heroReferenceApi';
+import { loadHeroProfiles, referenceMedia } from '../../services/heroReferenceApi';
+import { useReference } from '../../features/heroes/useReference';
+import { useAbilities } from '../../features/hero-calculator/useAbilities';
 import { ArrowUpRight } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import media from './roster-media.json';
 
@@ -54,18 +55,25 @@ function Nameplate({ hero }: { hero: Hero }) {
 
 export function HeroShowcase({
   hero,
-  profile,
+  data,
   language,
-  abilities,
   arriving,
 }: {
   hero: Hero;
-  profile?: HeroProfile;
+  data: HeroSnapshot;
   language: 'ru' | 'en';
-  abilities?: HeroAbility[];
   arriving: boolean;
 }) {
   const en = language === 'en';
+  const profiles = useReference(loadHeroProfiles);
+  const abilityResource = useAbilities(data);
+  const profile =
+    profiles.data?.clientVersion === data.meta.clientVersion
+      ? profiles.data.heroes.find((p) => p.heroId === hero.id)
+      : undefined;
+  const abilities = !abilityResource.mismatch
+    ? abilityResource.catalog?.heroes.find((h) => h.heroId === hero.id)?.abilities
+    : undefined;
   return (
     <aside
       className="roster-showcase"
@@ -134,6 +142,18 @@ export function HeroShowcase({
           </a>
         </div>
       </div>
+      {profiles.error && (
+        <p className="roster-notice" role="alert">
+          {en ? 'Hero descriptions could not load.' : 'Не удалось загрузить описания героев.'}{' '}
+          <button onClick={profiles.retry}>{en ? 'Retry' : 'Повторить'}</button>
+        </p>
+      )}
+      {abilityResource.error && (
+        <p className="roster-notice" role="alert">
+          {en ? 'Abilities could not load.' : 'Не удалось загрузить способности.'}{' '}
+          <button onClick={abilityResource.retry}>{en ? 'Retry' : 'Повторить'}</button>
+        </p>
+      )}
     </aside>
   );
 }

@@ -3,9 +3,9 @@ import type { HeroSnapshot } from '../../../shared/types';
 import { aggregateHeroStats, windowDays } from '../../../shared/hero-reference';
 import { useI18n } from '../../i18n';
 import { asset, format } from '../../lib/format';
-import { loadHeroProfiles, loadHeroStatistics } from '../../services/heroReferenceApi';
+import { loadHeroStatistics } from '../../services/heroReferenceApi';
 import { useReference } from '../../features/heroes/useReference';
-import { useAbilities } from '../../features/hero-calculator/useAbilities';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { Search, X, ChevronRight } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { HeroShowcase } from './HeroShowcase';
 import './HeroRosterPage.css';
@@ -16,9 +16,8 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState(data.heroes[0]?.id);
   const [arriving, setArriving] = useState(false);
-  const profiles = useReference(loadHeroProfiles);
+  const showPreview = useMediaQuery('(min-width: 1101px)');
   const statistics = useReference(loadHeroStatistics);
-  const abilities = useAbilities(data);
   const rates = useMemo(() => {
     const scope = statistics.data?.scopes.find(
       (s) =>
@@ -32,12 +31,8 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
     `${h.name} ${h.aliases}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()),
   );
   const hero = data.heroes.find((h) => h.id === selected) ?? data.heroes[0];
-  const profile =
-    profiles.data?.clientVersion === data.meta.clientVersion
-      ? profiles.data.heroes.find((p) => p.heroId === hero?.id)
-      : undefined;
   const pick = (id: number) => {
-    if (selected !== id) {
+    if (showPreview && selected !== id) {
       setSelected(id);
       setArriving(true);
     }
@@ -119,7 +114,7 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
                   <a
                     className="expansion-portrait"
                     href={`#/heroes/${h.slug}`}
-                    data-selected={hero?.id === h.id || undefined}
+                    data-selected={(showPreview && hero?.id === h.id) || undefined}
                     onMouseEnter={() => pick(h.id)}
                     onFocus={() => pick(h.id)}
                     aria-label={`${en ? 'Open dossier for' : 'Открыть досье:'} ${h.name}`}
@@ -152,34 +147,10 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
             </p>
           )}
         </section>
-        {hero && (
-          <HeroShowcase
-            hero={hero}
-            profile={profile}
-            language={language}
-            arriving={arriving}
-            abilities={
-              !abilities.mismatch
-                ? abilities.catalog?.heroes.find((h) => h.heroId === hero.id)?.abilities
-                : undefined
-            }
-          />
+        {hero && showPreview && (
+          <HeroShowcase hero={hero} data={data} language={language} arriving={arriving} />
         )}
       </div>
-      {profiles.error && (
-        <p className="roster-notice" role="alert">
-          {en
-            ? 'Hero artwork and descriptions could not load.'
-            : 'Не удалось загрузить иллюстрации и описания героев.'}{' '}
-          <button onClick={profiles.retry}>{en ? 'Retry' : 'Повторить'}</button>
-        </p>
-      )}
-      {abilities.error && (
-        <p className="roster-notice" role="alert">
-          {en ? 'Abilities could not load.' : 'Не удалось загрузить способности.'}{' '}
-          <button onClick={abilities.retry}>{en ? 'Retry' : 'Повторить'}</button>
-        </p>
-      )}
     </div>
   );
 }

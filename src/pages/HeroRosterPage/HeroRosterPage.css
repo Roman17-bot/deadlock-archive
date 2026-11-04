@@ -702,3 +702,11 @@
     hyphens: auto;
   }
 }
+@media (max-width: 1100px) {
+  .roster-folder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .roster-showcase {
+    display: none;
+  }
+}

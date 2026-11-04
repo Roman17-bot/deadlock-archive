@@ -18,7 +18,7 @@ Use a dossier folder and pinned ivory paper portraits in the left ~64% of the pa
 
 - Fast successive preview changes must not leave the previous hero's art under a new name.
 - Search/empty/reset and keyboard focus must remain useful with a direct-link contact sheet.
-- Mobile must show usable cards and preserve access to the preview without document overflow.
+- At up to1100px, omit the entire preview and its artwork/profile/ability requests; keep a full-width catalogue without document overflow.
 - Decorations must not intercept clicks, obscure names/rates or create a second input focus border.
 - Reduced motion must disable tilt/entrance movement; missing image/ability data must leave a usable page.
 

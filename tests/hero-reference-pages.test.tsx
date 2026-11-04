@@ -17,6 +17,8 @@ import {
 import { setLanguage } from '../src/i18n';
 import { loadAbilities } from '../src/services/abilitiesApi';
 import { abilityFixture } from './fixtures/hero-abilities';
+import { useMediaQuery } from '../src/hooks/useMediaQuery';
+vi.mock('../src/hooks/useMediaQuery', () => ({ useMediaQuery: vi.fn() }));
 vi.mock('../src/services/abilitiesApi', () => ({ loadAbilities: vi.fn() }));
 vi.mock('../src/services/heroReferenceApi', () => ({
   loadHeroProfiles: vi.fn(),
@@ -94,6 +96,7 @@ function statistics(): HeroStatistics {
 }
 beforeEach(async () => {
   await setLanguage('en');
+  vi.mocked(useMediaQuery).mockImplementation((query) => query === '(min-width: 1101px)');
   vi.mocked(loadHeroStatistics).mockResolvedValue(statistics());
   vi.mocked(loadAbilities).mockResolvedValue({
     meta: { ...data.meta, schemaVersion: 1, updatedAt: data.meta.checkedAt },
@@ -116,6 +119,14 @@ afterEach(async () => {
 });
 
 describe('hero roster', () => {
+  it('keeps only the direct-link catalogue on narrow screens without loading preview resources', async () => {
+    vi.mocked(useMediaQuery).mockReturnValue(false);
+    render(<HeroRosterPage data={data} />);
+    expect(await screen.findByRole('link', { name: `Open dossier for ${a.name}` })).toBeVisible();
+    expect(screen.queryByRole('complementary', { name: 'Hero preview' })).not.toBeInTheDocument();
+    expect(loadHeroProfiles).not.toHaveBeenCalled();
+    expect(loadAbilities).not.toHaveBeenCalled();
+  });
   it('uses the same 7 day normal-all cohort, previews by keyboard and keeps direct detail links', async () => {
     render(<HeroRosterPage data={data} />);
     const first = screen.getByRole('link', { name: `Open dossier for ${a.name}` });
