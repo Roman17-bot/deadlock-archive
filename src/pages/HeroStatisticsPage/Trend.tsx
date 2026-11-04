@@ -143,7 +143,7 @@ export function Trend({
               ref={active === i ? activeCircle : undefined}
               cx={chart.points[i].x}
               cy={chart.points[i].y}
-              r={active === i ? 4 : 2.5}
+              r={active === i ? 4.5 : 3.25}
               data-active={active === i || undefined}
             />
           ))}

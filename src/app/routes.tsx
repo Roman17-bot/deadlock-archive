@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, type ReactNode } from 'react';
 import type { HeroSnapshot } from '../../shared/types';
 import { ArchiveLoading } from '../components/ui/ArchiveLoading/ArchiveLoading';
 import { HomePage } from '../pages/HomePage/HomePage';
@@ -83,30 +83,34 @@ export function AppRoutes({
     );
   if (route === 'heroes') {
     const path = routeHash.split('?')[0];
+    let page: ReactNode;
     if (path === '#/heroes/roster')
-      return (
+      page = (
         <Suspense fallback={<ArchiveLoading />}>
           <HeroRosterPage data={data} />
         </Suspense>
       );
-    if (path === '#/heroes/statistics')
-      return (
+    else if (path === '#/heroes/statistics')
+      page = (
         <Suspense fallback={<ArchiveLoading />}>
           <HeroStatisticsPage data={data} />
         </Suspense>
       );
-    if (path.startsWith('#/heroes/'))
-      return (
+    else if (path.startsWith('#/heroes/'))
+      page = (
         <Suspense fallback={<ArchiveLoading />}>
           <HeroDetailPage key={path} data={data} slug={path.slice('#/heroes/'.length)} />
         </Suspense>
       );
+    else page = <HeroesPage key={routeHash} data={data} onMethod={onMethod} />;
+    const active =
+      path === '#/heroes/statistics' ? 'statistics' : path === '#/heroes' ? 'table' : 'roster';
     return (
       <>
-        <div className="hero-reference-page" style={{ paddingBottom: 0 }}>
-          <HeroNavigation active="table" />
+        <div className="hero-navigation-shell">
+          <HeroNavigation active={active} />
         </div>
-        <HeroesPage key={routeHash} data={data} onMethod={onMethod} />
+        {page}
       </>
     );
   }

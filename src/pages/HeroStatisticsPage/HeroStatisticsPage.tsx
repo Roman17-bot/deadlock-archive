@@ -7,7 +7,6 @@ import { useI18n } from '../../i18n';
 import { asset, format, formatDate } from '../../lib/format';
 import { loadHeroHistory, loadHeroStatistics } from '../../services/heroReferenceApi';
 import { useReference } from '../../features/heroes/useReference';
-import { HeroNavigation } from '../../features/heroes/HeroNavigation';
 import { StyledSelect } from '../../components/ui/StyledSelect/StyledSelect';
 import {
   Search,
@@ -128,7 +127,6 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
   });
   return (
     <div className="hero-statistics-page expansion-surface">
-      <HeroNavigation active="statistics" />
       <div className="breadcrumbs statistics-breadcrumbs">
         <a href="#/">{en ? 'Archive' : 'Архив'}</a>
         <ChevronRight size={12} aria-hidden="true" />

@@ -147,7 +147,7 @@
 }
 .hero-statistics-page .expansion-stats th,
 .hero-statistics-page .expansion-stats td {
-  padding: 10px 18px;
+  padding: 6px 18px;
   height: 82px;
   border-bottom: 1px solid #354338;
   text-align: right;
@@ -227,7 +227,7 @@
 .statistics-trend-button {
   position: relative;
   width: var(--statistics-chart-width);
-  height: calc(var(--statistics-chart-width) * 56 / 180 + 32px);
+  height: calc(var(--statistics-chart-width) * 56 / 180 + 24px);
   padding: 0;
   border: 0;
   color: inherit;
@@ -238,7 +238,7 @@
 }
 .statistics-trend-button svg {
   position: absolute;
-  top: 16px;
+  top: 12px;
   left: 0;
   width: 100%;
   height: auto;
@@ -336,7 +336,7 @@
   }
   .hero-statistics-page .expansion-stats th,
   .hero-statistics-page .expansion-stats td {
-    padding: 14px 22px;
+    padding: 6px 22px;
   }
   .hero-statistics-page .expansion-stats thead th {
     height: 68px;

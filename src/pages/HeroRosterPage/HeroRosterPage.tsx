@@ -9,7 +9,6 @@ import {
   referenceMedia,
 } from '../../services/heroReferenceApi';
 import { useReference } from '../../features/heroes/useReference';
-import { HeroNavigation } from '../../features/heroes/HeroNavigation';
 import './HeroRosterPage.css';
 
 export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
@@ -45,7 +44,6 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
   };
   return (
     <div className="hero-roster-page expansion-surface">
-      <HeroNavigation active="roster" />
       <h1>{en ? 'Choose a hero' : 'Выбери героя'}</h1>
       <p className="roster-criterion">
         {en

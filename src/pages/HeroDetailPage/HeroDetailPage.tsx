@@ -2,7 +2,6 @@ import { useState } from 'react';
 import type { HeroSnapshot } from '../../../shared/types';
 import { statsAtLevel } from '../../../shared/heroes';
 import { HeroAbilities } from '../../features/hero-calculator/HeroAbilities';
-import { HeroNavigation } from '../../features/heroes/HeroNavigation';
 import { DemoPlayer } from '../../features/heroes/DemoPlayer';
 import { useReference } from '../../features/heroes/useReference';
 import { useItems } from '../../features/items/useItems';
@@ -32,7 +31,6 @@ export function HeroDetailPage({ data, slug }: { data: HeroSnapshot; slug: strin
   if (!hero)
     return (
       <div className="hero-reference-page">
-        <HeroNavigation active="roster" />
         <h1>{en ? 'Hero not found' : 'Герой не найден'}</h1>
       </div>
     );
@@ -68,7 +66,6 @@ export function HeroDetailPage({ data, slug }: { data: HeroSnapshot; slug: strin
       : [];
   return (
     <div className="hero-reference-page">
-      <HeroNavigation active="roster" />
       <a className="item-back" href="#/heroes/roster">
         ← {en ? 'All heroes' : 'Все герои'}
       </a>
