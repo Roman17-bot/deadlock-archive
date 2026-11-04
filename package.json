@@ -42,7 +42,9 @@
     "design:test": "python -B -m unittest discover -s scripts/design -p \"*_test.py\"",
     "design:mcp:check": "python -B scripts/design/mcp_probe.py",
     "backend:build": "dotnet build backend/Deadlock.Api --artifacts-path work/dotnet-build --nologo",
-    "backend:test": "dotnet test backend/Deadlock.Tests --artifacts-path work/dotnet-tests --nologo"
+    "backend:test": "dotnet test backend/Deadlock.Tests --artifacts-path work/dotnet-tests --nologo",
+    "references:refresh": "node scripts/backend.mjs references:refresh",
+    "stats:refresh": "node scripts/backend.mjs stats:refresh"
   },
   "dependencies": {
     "i18next": "26.5.10",

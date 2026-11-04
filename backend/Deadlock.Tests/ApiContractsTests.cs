@@ -76,6 +76,20 @@ public class ApiContractsTests
             if (Directory.Exists(testRoot)) Directory.Delete(testRoot, true);
         }
     }
+    [Theory]
+    [InlineData("hero-profiles", "heroProfiles")]
+    [InlineData("hero-statistics", "heroStatistics")]
+    [InlineData("world-map", "worldMap")]
+    public async Task OptionalReferenceRoutesReturnWholeCatalogueAndLegacy404(string route, string key)
+    {
+        await using var app = new ApiFactory();
+        var version = (int)ArchiveJson.Number(app.Bundle["heroes"]!["meta"]!["clientVersion"]);
+        app.Bundle[key] = key == "heroProfiles" ? ReferenceCatalogueTests.ProfilesFixture(app.Bundle["heroes"]!.AsObject()) : key == "heroStatistics" ? ReferenceCatalogueTests.StatisticsFixture(version) : ReferenceCatalogueTests.MapFixture(version);
+        using var http = app.CreateClient(); var response = await http.GetFromJsonAsync<JsonObject>("/api/" + route);
+        Assert.True(JsonNode.DeepEquals(app.Bundle[key], response));
+        using var head = await http.SendAsync(new HttpRequestMessage(HttpMethod.Head, "/api/" + route)); Assert.Equal(HttpStatusCode.OK, head.StatusCode); Assert.Empty(await head.Content.ReadAsByteArrayAsync());
+        await using var legacy = new ApiFactory(); legacy.Bundle.Remove(key); using var oldHttp = legacy.CreateClient(); Assert.Equal(HttpStatusCode.NotFound, (await oldHttp.GetAsync("/api/" + route)).StatusCode);
+    }
     [Fact]
     public async Task ReadApiPreservesCompleteJsonPayloadsAndHead()
     {

@@ -49,6 +49,7 @@ public static class ArchiveJson
     public static void Validate(JsonObject b)
     {
         Ingestion.ArchiveValidation.ValidatePublicShapes(b);
+        ReferenceCatalogues.Validate(b);
         var h = b["heroes"]?.AsObject() ?? throw new InvalidDataException("Heroes missing");
         var version = Number(h["meta"]?["clientVersion"]);
         if (version < 1 || h["heroes"] is not JsonArray { Count: > 0 }) throw new InvalidDataException("Invalid heroes");
@@ -123,6 +124,9 @@ public static class ArchiveJson
     {
         ["heroes.json"] = ["heroes"],
         ["abilities.json"] = ["abilities"],
+        ["hero-profiles.json"] = ["heroProfiles"],
+        ["hero-statistics.json"] = ["heroStatistics"],
+        ["world-map.json"] = ["worldMap"],
         ["mechanics.json"] = ["mechanics", "ru"],
         ["mechanics.en.json"] = ["mechanics", "en"],
         ["provenance.json"] = ["provenance"],
@@ -137,7 +141,7 @@ public static class ArchiveJson
         foreach (var (name, keys) in Files)
         {
             var file = Path.Combine(paths.Data, name);
-            if (!File.Exists(file) && name is "items.json" or "item-statistics.json" or "abilities.json") continue;
+            if (!File.Exists(file) && name is "items.json" or "item-statistics.json" or "abilities.json" or "hero-profiles.json" or "hero-statistics.json" or "world-map.json") continue;
             var value = JsonNode.Parse(await File.ReadAllTextAsync(file, ct));
             if (keys.Length == 1) b[keys[0]] = value; else b[keys[0]]![keys[1]] = value;
         }

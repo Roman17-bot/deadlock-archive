@@ -58,3 +58,26 @@ npm run build
 `Data/` содержит EF-модель текущей версии и Npgsql-транзакции совместимой реляционной схемы; миграции остаются в `db/migrations/`. Полный JSON payload сохраняет дополнительные поля, реляционные строки остаются источником соответствующих значений. `Ingestion/` нормализует героев, предметы и статистику; `Updates/` координирует подготовку и сохранение; `Patches/` получает официальные описания; `Sync/` проверяет публичный пакет и публикацию.
 
 Локальный Vite читает живой API через proxy. Pages читает опубликованный JSON и не подключается к PostgreSQL. Публикуются только разрешённые JSON, портреты, иконки и манифест; исследования, конфигурация и резервные копии приватны. [Команды БД и точная синхронизация](database.md).
+
+## Profiles, statistics and map
+
+Three optional catalogues extend the saved archive: `hero-profiles.json`, `hero-statistics.json`, and `world-map.json`. Read routes are `/api/hero-profiles`, `/api/hero-statistics`, and `/api/world-map`; older archives return 404 for a missing catalogue. The ordinary public manifest, staged save, optimistic PostgreSQL import and export include them. Static builds only read saved files and never collect live statistics.
+
+```sh
+npm run references:refresh -- --dry-run --profiles knowledge/agents/heroes/runs/ID/hero-profiles.json --map knowledge/agents/mechanics/runs/ID/world-map.json
+npm run references:refresh -- --review work/reference-review/REVIEW_ID
+npm run stats:refresh -- --dry-run
+npm run stats:refresh
+```
+
+Reference dry-run downloads and verifies media into a private review directory without changing working data. Applying that review reuses its approved optimized bytes and preserves the current statistics and other archive data. A curated profile or map import must match the saved current client. Both commands save locally; explicit publication remains `npm run db:sync -- --dry-run`, followed by authorized synchronization.
+
+Statistics have an independent six-hour TTL and bounded private request cache under `work/statistics-cache/`. `stats:refresh --force` bypasses the catalogue TTL but still reuses a fresh identical request cache. One startup check runs after the normal game update; `DEADLOCK_AUTO_UPDATE=0` disables both checks, and `DEADLOCK_AUTO_STATISTICS=0` disables only statistics. Startup publishes changed statistics through the ordinary sync service when configured and `DEADLOCK_AUTO_PUBLISH` is not `0`; unchanged data does not cause a new publication. There is no recurring six-hour background timer. Failed collection preserves the preceding successful catalogue. Manual collection uses a five-minute overall budget and performs analytics requests sequentially, respecting bounded Retry-After delays.
+
+The 15 supported cohorts are normal all/ranked/unranked, 11 named ranked tiers, and Street Brawl without a rank filter. Each contains actual UTC daily observations over 30 calendar days including the partial current day through the last completed UTC hour; the interface derives seven- and thirty-day sums. «Доля выборов» is hero player-match records divided by all recorded hero selections in the same cohort. It is not an exact share of distinct games. Mirrors and repeated player appearances in different matches are separate records. Matchup observations retain directional wins and sample counts; synergies retain one canonical unordered pair. No reverse wins or hidden MMR is inferred. Rank filters describe the average badge of a match, not the individual player's rating.
+
+Deadlock API is a third-party community provider. Its analytics have no client-version filter, round time bounds outward to hours, and may be cached or incomplete. `sourceClientVersion` is explicitly null; requested/effective bounds and actual per-cohort fetch times are retained. Exact version-only statistics are unavailable; a new asset client never silently changes this fact or rechecks older mechanics.
+
+Full hero backgrounds are mechanically optimized with `ffmpeg`: input at most 4 MiB, maximum width 1280 without enlargement, WebP quality75, output at most256 KiB, bounded dimensions and 15-second processing attempts. If ffmpeg is unavailable, the native updater uses the same hero's official smaller card art. Three PNG map layers are saved locally with signature checks. Approved local media roots are `images/`, `portraits/`, and `media/`; snapshot limits remain512files,4MiB perfile,32MiB total. Full art optimization requires ffmpeg on the local machine, not in the static Pages build.
+
+When a game client changes, the native refresh updates profile source art and pinned map geometry, camp timers/rewards, powerup/snack timers and exposed generic configuration together with the candidate. Curated prose/advice retain their own `reviewedClientVersion`; unexposed/historical map rules retain `meta.rulesClientVersion`. Fetching source data does not claim that prose or movement routes were re-reviewed. Routes requiring a new placement review are cleared, and unknown floor, unit composition and per-instance breakable timers remain unknown.

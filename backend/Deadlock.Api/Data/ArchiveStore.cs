@@ -206,6 +206,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
             bundle["abilities"] = new JsonObject { ["meta"] = abilityMeta[0]["meta"]!.DeepClone(), ["heroes"] = abilityHeroes };
         }
         else bundle.Remove("abilities");
+        await ReferenceCatalogueStore.ReadAsync(c, tx, id, bundle, ct);
         ArchiveJson.Validate(bundle); return bundle;
     }
     public Task ImportAsync(JsonObject bundle, string reason, CancellationToken ct = default) => ImportCoreAsync(bundle, reason, null, ct);
@@ -275,6 +276,7 @@ public sealed class ArchiveStore : IOptimisticArchiveStore
                     heroOrdinal++;
                 }
             }
+            await ReferenceCatalogueStore.WriteAsync(c, tx, id, b, ct);
             await Insert(c, tx, "archive_bundle_payloads", new() { ["snapshot_id"] = id, ["data"] = b }, ct);
         }
         if (outcome != "unchanged") await Execute(c, tx, "INSERT INTO archive_current(singleton,snapshot_id) VALUES(true,@p0) ON CONFLICT(singleton) DO UPDATE SET snapshot_id=EXCLUDED.snapshot_id", ct, id);

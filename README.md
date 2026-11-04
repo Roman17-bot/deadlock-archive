@@ -125,3 +125,5 @@ GitHub Pages раздаёт статические JSON и ресурсы. Ло�
 ## Права на материалы
 
 Это неофициальный некоммерческий проект, не связанный с Valve. Deadlock, персонажи и изображения принадлежат Valve. Шрифты Cormorant Garamond и Manrope — SIL Open Font License. См. public/assets/README.md. Сторонние материалы сохраняют свои права и лицензии.
+
+Optional hero profiles, observational hero statistics and the versioned world map are stored with the PostgreSQL archive and exported to public JSON. Use `npm run references:refresh -- --dry-run --profiles FILE --map FILE` to review curated candidates, then apply the reported `work/reference-review/ID` with `--review`. `npm run stats:refresh -- --dry-run` checks independent statistical collection; the real command saves locally. Publication remains a separate explicit sync. See `docs/backend.md` for the six-hour TTL, meaningful mode/rank cohorts, hour-rounded source limits, and local image optimization/fallback; see `docs/database.md` for migration006 and isolated tests. Static builds never collect live statistics.

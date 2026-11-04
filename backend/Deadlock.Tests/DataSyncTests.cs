@@ -18,7 +18,7 @@ public sealed class DataSyncTests
     private sealed class Workspace : IDisposable
     {
         public AppPaths Paths { get; } = new(Path.Combine(Path.GetTempPath(), "deadlock-csharp-test-" + Guid.NewGuid().ToString("N")));
-        public Workspace() { Directory.CreateDirectory(Paths.Data); Directory.CreateDirectory(Path.Combine(Paths.Root, "db", "migrations")); foreach (var file in ArchiveJson.Files.Keys) if (File.Exists(Path.Combine(Root, "data", file))) File.Copy(Path.Combine(Root, "data", file), Path.Combine(Paths.Data, file)); foreach (var file in Directory.GetFiles(Path.Combine(Root, "db", "migrations"), "*.sql")) File.Copy(file, Path.Combine(Paths.Root, "db", "migrations", Path.GetFileName(file))); }
+        public Workspace() { Directory.CreateDirectory(Paths.Data); Directory.CreateDirectory(Path.Combine(Paths.Root, "db", "migrations")); foreach (var file in ArchiveJson.Files.Where(f => !ReferenceCatalogues.Collections.ContainsKey(f.Value[0])).Select(f => f.Key)) if (File.Exists(Path.Combine(Root, "data", file))) File.Copy(Path.Combine(Root, "data", file), Path.Combine(Paths.Data, file)); foreach (var file in Directory.GetFiles(Path.Combine(Root, "db", "migrations"), "*.sql")) File.Copy(file, Path.Combine(Paths.Root, "db", "migrations", Path.GetFileName(file))); }
         public async Task<JsonObject> Bundle() { var b = await ArchiveJson.ReadFilesAsync(Paths, default); var assets = b["heroes"]!["heroes"]!.AsArray().Select(h => ArchiveJson.Text(h!["portrait"])).Concat(b["items"]?["items"]?.AsArray().Select(i => ArchiveJson.Text(i!["icon"])) ?? []).Concat(b["abilities"] is JsonObject abilities ? AbilityAdapter.All(abilities).Select(a => ArchiveJson.Text(a["icon"])) : []); foreach (var p in assets.Distinct()) { var filename = ArchiveJson.SafePath(Paths.Root, "public/" + p); Directory.CreateDirectory(Path.GetDirectoryName(filename)!); await File.WriteAllBytesAsync(filename, [1, 2, 3, 4]); } return b; }
         public void Dispose() { var p = Path.GetFullPath(Paths.Root); if (!p.StartsWith(Path.GetFullPath(Path.GetTempPath()), StringComparison.OrdinalIgnoreCase) || !Path.GetFileName(p).StartsWith("deadlock-csharp-test-")) throw new InvalidOperationException("Unsafe test cleanup"); Directory.Delete(p, true); }
     }
@@ -178,6 +178,12 @@ public sealed class DataSyncTests
         var test = Environment.GetEnvironmentVariable("DEADLOCK_DB_TEST_NAME") ?? env.GetValueOrDefault("DEADLOCK_DB_TEST_NAME"); var live = env.GetValueOrDefault("DEADLOCK_DB_NAME"); if (test == live || test == null || !System.Text.RegularExpressions.Regex.IsMatch(test, "^deadlock_archive_test(?:_[a-z0-9]+)?$")) throw new InvalidOperationException("Refusing working database"); env["DEADLOCK_DB_NAME"] = test;
         var cs = new NpgsqlConnectionStringBuilder { Host = env["DEADLOCK_DB_HOST"], Port = int.Parse(env["DEADLOCK_DB_PORT"]), Database = test, Username = env["DEADLOCK_DB_USER"], Password = env["DEADLOCK_DB_PASSWORD"] }; await using var control = new NpgsqlConnection(cs.ConnectionString); await control.OpenAsync(); var schema = "archive_test_" + Guid.NewGuid().ToString("N"); await using (var cmd = new NpgsqlCommand($"CREATE SCHEMA {schema}", control)) await cmd.ExecuteNonQueryAsync();
         using var w = new Workspace(); var bundle = await w.Bundle();
+        bundle["heroProfiles"] = ReferenceCatalogueTests.ProfilesFixture(bundle["heroes"]!.AsObject());
+        bundle["worldMap"] = ReferenceCatalogueTests.MapFixture((int)ArchiveJson.Number(bundle["heroes"]!["meta"]!["clientVersion"]));
+        await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "world-map.json"), ArchiveJson.Bytes(bundle["worldMap"]));
+        bundle["heroStatistics"] = ReferenceCatalogueTests.StatisticsFixture((int)ArchiveJson.Number(bundle["heroes"]!["meta"]!["clientVersion"]));
+        await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "hero-profiles.json"), ArchiveJson.Bytes(bundle["heroProfiles"]));
+        await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "hero-statistics.json"), ArchiveJson.Bytes(bundle["heroStatistics"]));
         bundle["abilities"] = AbilityTests.CatalogFixture(bundle["heroes"]!.AsObject());
         await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "abilities.json"), ArchiveJson.Bytes(bundle["abilities"]));
         bundle["heroes"]!["calculatorRules"] = JsonNode.Parse("""{"schemaVersion":1,"baseSlots":9,"maxSlots":12,"maxActiveItems":4,"investment":{"weapon":[{"souls":800,"bonus":9}],"vitality":[{"souls":800,"bonus":9}],"spirit":[{"souls":800,"bonus":7}]}}""");
@@ -200,11 +206,14 @@ public sealed class DataSyncTests
             // Reconstruct schema3 with enriched supplemental payloads, then apply the real
             // migration and verify it backfills before the disposable table is removed.
             await using (var oldSchema = new NpgsqlCommand($"ALTER TABLE {schema}.archive_snapshots DROP COLUMN calculator_rules; ALTER TABLE {schema}.heroes DROP COLUMN calculation; DROP TABLE {schema}.hero_abilities; DROP TABLE {schema}.ability_catalogues; DELETE FROM {schema}.archive_migrations WHERE version IN ('004_calculator_metadata.sql','005_hero_abilities.sql')", control)) await oldSchema.ExecuteNonQueryAsync();
-            await store.MigrateAsync(); Assert.Equal(5, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
+            await store.MigrateAsync(); Assert.Equal(6, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
             Assert.Equal(ArchiveJson.Canonical(bundle), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             await using (var drop = new NpgsqlCommand($"DROP TABLE {schema}.archive_bundle_payloads", control)) await drop.ExecuteNonQueryAsync();
             var rebuilt = await new ArchiveStore(w.Paths, k => env.GetValueOrDefault(k), schema).ReadBundleAsync();
             Assert.True(JsonNode.DeepEquals(bundle["abilities"], rebuilt["abilities"]));
+            Assert.True(JsonNode.DeepEquals(bundle["heroProfiles"], rebuilt["heroProfiles"]));
+            Assert.True(JsonNode.DeepEquals(bundle["heroStatistics"], rebuilt["heroStatistics"]));
+            Assert.True(JsonNode.DeepEquals(bundle["worldMap"], rebuilt["worldMap"]));
             Assert.True(JsonNode.DeepEquals(bundle["heroes"]!["calculatorRules"], rebuilt["heroes"]!["calculatorRules"]));
             Assert.Equal(-8, ArchiveJson.Real(rebuilt["heroes"]!["heroes"]![0]!["calculation"]?["debuffResist"]));
             Assert.Equal(8, ArchiveJson.Real(rebuilt["heroes"]!["heroes"]![0]!["calculation"]?["bulletLifesteal"]));

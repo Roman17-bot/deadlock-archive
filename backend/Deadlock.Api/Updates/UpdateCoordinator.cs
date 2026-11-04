@@ -129,7 +129,7 @@ public sealed class UpdateCoordinator : IAsyncDisposable
 }
 public sealed class UpdateBusyException : Exception;
 
-public sealed class StartupRefresh(UpdateCoordinator updates, IArchiveStore store, IPublicSync sync, IHostApplicationLifetime lifetime, ILogger<StartupRefresh> logger) : BackgroundService
+public sealed class StartupRefresh(UpdateCoordinator updates, IArchiveStore store, IPublicSync sync, IHostApplicationLifetime lifetime, ILogger<StartupRefresh> logger, ReferenceUpdateService? references = null) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -148,6 +148,11 @@ public sealed class StartupRefresh(UpdateCoordinator updates, IArchiveStore stor
             }
             updates.Start(store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0");
             await updates.WaitAsync(stoppingToken);
+            if (references != null && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_STATISTICS") != "0")
+            {
+                var statistics = await references.StatisticsAsync(false, false, stoppingToken);
+                if (statistics["saved"]?.GetValue<bool>() == true && store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0") await sync.PublishAsync(stoppingToken);
+            }
         }
         catch (UpdateBusyException) { }
         catch (OperationCanceledException) { }
