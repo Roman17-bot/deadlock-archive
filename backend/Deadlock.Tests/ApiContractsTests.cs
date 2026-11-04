@@ -91,6 +91,19 @@ public class ApiContractsTests
         await using var legacy = new ApiFactory(); legacy.Bundle.Remove(key); using var oldHttp = legacy.CreateClient(); Assert.Equal(HttpStatusCode.NotFound, (await oldHttp.GetAsync("/api/" + route)).StatusCode);
     }
     [Fact]
+    public async Task YearHistoryRoutesReadOnlyTheRequestedCohortAndSupportLegacyArchives()
+    {
+        await using var app = new ApiFactory(); using var http = app.CreateClient();
+        Assert.Equal(HttpStatusCode.NotFound, (await http.GetAsync("/api/hero-history/normal-all-all")).StatusCode);
+        var version = (int)ArchiveJson.Number(app.Bundle["heroes"]!["meta"]!["clientVersion"]);
+        app.Bundle["heroHistory"] = StatisticsHistory.Merge(null, null, ReferenceCatalogueTests.StatisticsFixture(version));
+        var response = await http.GetFromJsonAsync<JsonObject>("/api/hero-history/normal-ranked-tier-11");
+        Assert.True(JsonNode.DeepEquals(app.Bundle["heroHistory"]!["normal-ranked-tier-11"], response));
+        using var head = await http.SendAsync(new HttpRequestMessage(HttpMethod.Head, "/api/hero-history/normal-ranked-tier-11"));
+        Assert.Equal(HttpStatusCode.OK, head.StatusCode); Assert.Empty(await head.Content.ReadAsByteArrayAsync());
+        Assert.Equal(HttpStatusCode.BadRequest, (await http.GetAsync("/api/hero-history/secrets")).StatusCode);
+    }
+    [Fact]
     public async Task ReadApiPreservesCompleteJsonPayloadsAndHead()
     {
         await using var app = new ApiFactory(); using var http = app.CreateClient();

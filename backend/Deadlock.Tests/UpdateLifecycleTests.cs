@@ -48,11 +48,27 @@ public sealed class UpdateLifecycleTests
     sealed class Sync : IPublicSync
     {
         public bool IsBusy { get; set; }
+        public bool QueuePublication;
+        public bool HoldReconciliation;
+        public TaskCompletionSource ReconciliationStarted = new(TaskCreationOptions.RunContinuationsAsynchronously);
         public int Publications, Reconciles;
         public JsonObject ReadState() => new() { ["phase"] = IsBusy ? "queued" : "succeeded" };
-        public Task<JsonObject> GetStateAsync(bool refresh = false, CancellationToken ct = default) { Reconciles++; IsBusy = false; return Task.FromResult(ReadState()); }
+        public async Task<JsonObject> GetStateAsync(bool refresh = false, CancellationToken ct = default) { Reconciles++; ReconciliationStarted.TrySetResult(); if (HoldReconciliation) await Task.Delay(Timeout.InfiniteTimeSpan, ct); IsBusy = false; return ReadState(); }
         public JsonObject Start() => throw new NotSupportedException();
-        public Task<JsonObject> PublishAsync(CancellationToken ct = default) { Publications++; return Task.FromResult(new JsonObject { ["status"] = "success", ["hash"] = new string('a', 64), ["url"] = "https://github.com/Roman17-bot/deadlock-archive/actions" }); }
+        public Task<JsonObject> PublishAsync(CancellationToken ct = default) { Publications++; IsBusy = QueuePublication; return Task.FromResult(new JsonObject { ["status"] = QueuePublication ? "queued" : "success", ["hash"] = new string('a', 64), ["url"] = "https://github.com/Roman17-bot/deadlock-archive/actions" }); }
+    }
+    sealed class StatisticsHandler : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct)
+        {
+            var rows = new JsonArray();
+            if (request.RequestUri!.AbsolutePath.EndsWith("hero-stats")) rows.Add(new JsonObject { ["hero_id"] = 1, ["bucket"] = new DateTimeOffset(DateTime.UtcNow.Date, TimeSpan.Zero).ToUnixTimeSeconds(), ["wins"] = 4, ["losses"] = 6, ["matches"] = 10 });
+            return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK) { RequestMessage = request, Content = new StringContent(rows.ToJsonString(), System.Text.Encoding.UTF8, "application/json") });
+        }
+    }
+    sealed class ClientFactory(HttpClient client) : IHttpClientFactory
+    {
+        public HttpClient CreateClient(string name) => client;
     }
     sealed class Lifetime : IHostApplicationLifetime
     {
@@ -167,5 +183,39 @@ public sealed class UpdateLifecycleTests
         await service.StartAsync(default); await service.ExecuteTask!.WaitAsync(TimeSpan.FromSeconds(10));
         Assert.Equal(1, sync.Reconciles); Assert.Equal(1, refresh.Checks); Assert.Equal(0, refresh.Builds); Assert.Equal(4, history.Calls);
         Assert.Equal("succeeded", coordinator.ReadState()["phase"]!.GetValue<string>());
+    }
+    [Fact]
+    public async Task StartupRefreshesDueStatisticsAfterGamePublicationIsQueued()
+    {
+        await using var w = await Workspace.Create();
+        w.Store.Bundle["heroStatistics"]!["updatedAt"] = "2020-01-01T00:00:00Z";
+        var refresh = new Refresh(w.Version + 1); var sync = new Sync { QueuePublication = true };
+        await using var coordinator = w.Coordinator(refresh, new(), sync); await coordinator.InitializeAsync(default);
+        using var client = new HttpClient(new StatisticsHandler());
+        var references = new ReferenceUpdateService(w.Paths, w.Store, new(w.Paths, w.Store), new(w.Paths, client), new ClientFactory(client), coordinator, sync);
+        using var service = new StartupRefresh(coordinator, w.Store, sync, new Lifetime(), NullLogger<StartupRefresh>.Instance, references);
+        await service.StartAsync(default); await service.ExecuteTask!.WaitAsync(TimeSpan.FromSeconds(20));
+        Assert.False(StatisticsCollector.Due(w.Store.Bundle["heroStatistics"]!.AsObject(), DateTimeOffset.UtcNow));
+        Assert.Equal(10, ArchiveJson.Number(w.Store.Bundle["heroStatistics"]!["scopes"]![0]!["days"]![0]!["totalSelections"]));
+        Assert.Equal(1, refresh.Checks);
+        Assert.Equal(2, sync.Publications);
+    }
+    [Fact]
+    public async Task StartupCancellationStopsWaitingForQueuedGamePublication()
+    {
+        await using var w = await Workspace.Create();
+        w.Store.Bundle["heroStatistics"]!["updatedAt"] = "2020-01-01T00:00:00Z";
+        var sync = new Sync { QueuePublication = true, HoldReconciliation = true };
+        await using var coordinator = w.Coordinator(new(w.Version + 1), new(), sync); await coordinator.InitializeAsync(default);
+        using var client = new HttpClient(new StatisticsHandler());
+        var references = new ReferenceUpdateService(w.Paths, w.Store, new(w.Paths, w.Store), new(w.Paths, client), new ClientFactory(client), coordinator, sync);
+        using var service = new StartupRefresh(coordinator, w.Store, sync, new Lifetime(), NullLogger<StartupRefresh>.Instance, references);
+        await service.StartAsync(default);
+        await sync.ReconciliationStarted.Task.WaitAsync(TimeSpan.FromSeconds(20));
+        using var stopDeadline = new CancellationTokenSource(TimeSpan.FromSeconds(3));
+        await service.StopAsync(stopDeadline.Token);
+        Assert.True(service.ExecuteTask!.IsCompletedSuccessfully);
+        Assert.Equal("2020-01-01T00:00:00Z", ArchiveJson.Text(w.Store.Bundle["heroStatistics"]!["updatedAt"]));
+        Assert.Equal(1, sync.Publications);
     }
 }

@@ -71,6 +71,7 @@ export interface HeroStatistics {
   timeResolutionSeconds: 3600;
   metric: 'selection-share';
   periods: number[];
+  historyScopes?: string[];
   scopes: HeroStatScope[];
   matchups: PairCohort & {
     rows: { heroId: number; enemyHeroId: number; wins: number; matches: number }[];
@@ -207,6 +208,16 @@ export function validateHeroStatistics(v: unknown): v is HeroStatistics {
     v.timeResolutionSeconds !== 3600 ||
     v.metric !== 'selection-share' ||
     !array(v.periods, positive) ||
+    (v.historyScopes !== undefined &&
+      (!Array.isArray(v.historyScopes) ||
+        !v.historyScopes.every(
+          (id) =>
+            typeof id === 'string' &&
+            /^normal-(?:all-all|ranked-all|unranked-all|ranked-tier-(?:[1-9]|10|11))$|^brawl-all$/.test(
+              id,
+            ),
+        ) ||
+        new Set(v.historyScopes).size !== v.historyScopes.length)) ||
     !array(v.scopes, scope) ||
     !unique(v.scopes, (s) => s.id) ||
     !cohort(v.matchups) ||

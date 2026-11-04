@@ -8,7 +8,7 @@ export function HeroNavigation({ active }: { active: 'table' | 'roster' | 'stati
     <nav className="hero-section-nav" aria-label={en ? 'Hero pages' : 'Разделы героев'}>
       {(
         [
-          ['roster', '#/heroes/roster', en ? 'Choose a hero' : 'Выбор героя'],
+          ['roster', '#/heroes/roster', en ? 'Heroes' : 'Герои'],
           ['table', '#/heroes', en ? 'Attributes' : 'Характеристики'],
           ['statistics', '#/heroes/statistics', en ? 'Match statistics' : 'Статистика матчей'],
         ] as const

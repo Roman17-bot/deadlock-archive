@@ -10,7 +10,7 @@ public static class ReferenceCatalogues
     public static readonly Dictionary<string, string[]> Collections = new()
     {
         ["heroProfiles"] = ["heroes"], ["heroStatistics"] = ["scopes", "matchups.rows", "synergies.rows"],
-        ["worldMap"] = ["objects", "routeExamples"]
+        ["worldMap"] = ["objects", "routeExamples"], ["heroHistory"] = []
     };
     static void Need(bool valid, string message) { if (!valid) throw new InvalidDataException(message); }
     static bool Text(JsonNode? value, int max = 20000) => value is JsonValue v && v.TryGetValue<string>(out var s) && !string.IsNullOrWhiteSpace(s) && s.Length <= max && !s.Any(c => char.IsControl(c) && c is not ('\n' or '\r' or '\t'));
@@ -25,9 +25,12 @@ public static class ReferenceCatalogues
     public static void Validate(JsonObject bundle)
     {
         foreach (var key in Collections.Keys)
-            if (bundle.ContainsKey(key)) { Need(bundle[key] is JsonObject, "Invalid reference catalogue " + key); Need(ArchiveJson.Bytes(bundle[key]).Length <= Sync.PublicSnapshot.MaxFileBytes, "Reference catalogue too large"); }
+            if (bundle.ContainsKey(key)) { Need(bundle[key] is JsonObject, "Invalid reference catalogue " + key); if (key != "heroHistory") Need(ArchiveJson.Bytes(bundle[key]).Length <= Sync.PublicSnapshot.MaxFileBytes, "Reference catalogue too large"); }
         if (bundle["heroProfiles"] is JsonObject profiles) Profiles(profiles, bundle["heroes"]!.AsObject());
         if (bundle["heroStatistics"] is JsonObject stats) { Statistics(stats); Need(N(stats["clientVersion"]) <= N(bundle["heroes"]?["meta"]?["clientVersion"]), "Statistics context is newer than the archive"); }
+        if (bundle["heroHistory"] is JsonObject history) StatisticsHistory.Validate(history, N(bundle["heroes"]?["meta"]?["clientVersion"]));
+        if (bundle["heroStatistics"]?["historyScopes"] is JsonArray advertised)
+            Need(bundle["heroHistory"] is JsonObject stored && advertised.Select(S).Order().SequenceEqual(stored.Select(p => p.Key).Order()), "History manifest mismatch");
         if (bundle["worldMap"] is JsonObject map) { WorldMap(map); Need(N(map["meta"]?["clientVersion"]) <= N(bundle["heroes"]?["meta"]?["clientVersion"]), "Map is newer than the archive"); }
     }
     public static void Profiles(JsonObject profiles, JsonObject heroes)
@@ -49,8 +52,10 @@ public static class ReferenceCatalogues
     public static void Statistics(JsonObject stats)
     {
         Need(N(stats["schemaVersion"]) == 1 && Integer(stats["clientVersion"], 1) && stats.ContainsKey("sourceClientVersion") && stats["sourceClientVersion"] == null && S(stats["source"]) == "deadlock-api" && S(stats["metric"]) == "selection-share" && N(stats["timeResolutionSeconds"]) == 3600 && Time(stats["updatedAt"]) && Time(stats["from"]) && Time(stats["to"]), "Invalid hero statistics metadata");
-        Need(stats["periods"] is JsonArray periods && periods.Select(N).SequenceEqual(new long[] { 7, 30 }), "Invalid statistics periods");
+        var hasHistory = stats["historyScopes"] != null;
+        Need(stats["periods"] is JsonArray periods && periods.Select(N).SequenceEqual(hasHistory ? new long[] { 7, 30, 365 } : new long[] { 7, 30 }), "Invalid statistics periods");
         var expected = StatisticsCollector.ScopeDefinitions().ToDictionary(s => S(s["id"]));
+        if (hasHistory) Need(stats["historyScopes"] is JsonArray available && available.Count > 0 && available.All(s => Text(s, 80) && expected.ContainsKey(S(s))) && available.Select(S).Distinct().Count() == available.Count, "Invalid history scope list");
         Need(stats["scopes"] is JsonArray scopes && scopes.Count == expected.Count, "Incomplete statistics scopes"); var seenScopes = new HashSet<string>();
         foreach (var scope in stats["scopes"]!.AsArray())
         {

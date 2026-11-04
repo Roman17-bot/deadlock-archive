@@ -2,8 +2,23 @@
   "clientVersion": 6848,
   "files": {
     "data/abilities.json": "4ae6a2f57680a76da279080402a89fb29daf5a7576f94028049dd9a6dfc1c5fb",
+    "data/hero-history-brawl-all.json": "0f46af3389e3ee7510b8c2d2d0a8c228fa5c681d23b5e218f6a039289e8aae6a",
+    "data/hero-history-normal-all-all.json": "dd76041e14c323ad4bd7f798448beb5e8e88d8bb88b5418a92276ba5d85ef8cf",
+    "data/hero-history-normal-ranked-all.json": "5c1417f057df55a75b791c6460b14bb1f050e3880d33d3fc2058e21f61a2abca",
+    "data/hero-history-normal-ranked-tier-1.json": "091d5222971d51d9cffa6d7c1f03de1add782d787f1052d082e0f11112873aa8",
+    "data/hero-history-normal-ranked-tier-10.json": "b682b0da2be593e7e3c59f443d1a70152db7f12efba909d9ad9a30df244ac5dd",
+    "data/hero-history-normal-ranked-tier-11.json": "0821e9e60ff411f5d56731fde4949aeeae1b6d85e8cdad22ff73741c913373e1",
+    "data/hero-history-normal-ranked-tier-2.json": "865a1f05efbb6b82b8d508a493f9b495667dc73a13cc6b26e5432c1b682a2367",
+    "data/hero-history-normal-ranked-tier-3.json": "3063b2eceadddff1a57a7b42064eeb7c9a0d2e8a5555c5acdf8252ae0c6a5fc9",
+    "data/hero-history-normal-ranked-tier-4.json": "67bf57c1db0418661f15a1ecc0eee89a74d355578c3befeb7ed322047e759fb0",
+    "data/hero-history-normal-ranked-tier-5.json": "ca3b3546e70caee825ca89d2dc2daa2c63c40f7b3d28924fd6c98fa3566a85ea",
+    "data/hero-history-normal-ranked-tier-6.json": "df59c4857b58a425b7cf6da98e427fc28f4611d6e0fcbb524f1b4500abb7245d",
+    "data/hero-history-normal-ranked-tier-7.json": "64720d97e5e710351d4f594cf03deb3f108910d96901e9a1bf198fea8e63246b",
+    "data/hero-history-normal-ranked-tier-8.json": "dcb565e1b8277333a91b61fb2751c95cb095e4cf7e0ec2e83be06bf5249589b1",
+    "data/hero-history-normal-ranked-tier-9.json": "80320304825c32a7de580ed150b0aa77a04a19412d6f03e60a73f028a11847cf",
+    "data/hero-history-normal-unranked-all.json": "a2c48ee56019ffde555e488f8a7fccb9bf90f02183d025bb962ecc46b30aa05f",
     "data/hero-profiles.json": "d08e1a76e9b816e4b90bd635178a1d29c00fdc5a9c4215fcddc9e3106f0d7806",
-    "data/hero-statistics.json": "2c8a5046b7264267a03e683579d47a2b2456c11354708530bebd545d62dbb2ec",
+    "data/hero-statistics.json": "20a60e3e835d6c760ce118504fc291e5d938062868fb2cb9c5e1ac58b13dc915",
     "data/heroes.json": "8d2e4a74c88572e3fbdbb169ff801836eb9e4781843d5d24a4d3786e3d106884",
     "data/item-statistics.json": "001e717edad30053234bc6161e56399269a4bc837b75acdaf00fc3b09f1a42e5",
     "data/items.json": "622d7c7fdd159eefc02065984627b7c5497b14e020f6be2f3ed3c0e4718f711a",
@@ -440,7 +455,7 @@
     "public/images/map/mid_tunnels.png": "20af3bc4dd36e1f2fb2462a5d25c898906ee05d82605b0dc87862d634827094b",
     "public/images/map/rat_tunnels.png": "5175463cf7511a3a77fa4d8b531e7ee27e03d0b17210560146e3fcee688235a5"
   },
-  "hash": "e092949e902d68f1d8b7b922b943e51454f6f1b373ab66c92feb9036bac43776",
+  "hash": "6fda298f2ffc4c6c227cdb74ba79a01278aeb06ab86410767a358fa89f5ae385",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }

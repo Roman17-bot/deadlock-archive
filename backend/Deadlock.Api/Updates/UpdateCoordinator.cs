@@ -141,21 +141,32 @@ public sealed class StartupRefresh(UpdateCoordinator updates, IArchiveStore stor
         {
             using var deadline = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
             deadline.CancelAfter(TimeSpan.FromMinutes(10));
-            while (sync.IsBusy)
+            async Task<T> WhenIdle<T>(Func<Task<T>> operation)
             {
-                await sync.GetStateAsync(true, deadline.Token);
-                if (sync.IsBusy) await Task.Delay(3000, deadline.Token);
+                while (true)
+                {
+                    deadline.Token.ThrowIfCancellationRequested();
+                    if (sync.IsBusy) await sync.GetStateAsync(true, deadline.Token);
+                    if (updates.IsBusy) await updates.WaitAsync(deadline.Token);
+                    if (!sync.IsBusy && !updates.IsBusy)
+                    {
+                        try { return await operation(); }
+                        // A manual update/publication may acquire the lease after the idle check.
+                        catch (UpdateBusyException) { }
+                    }
+                    await Task.Delay(3000, deadline.Token);
+                }
             }
-            updates.Start(store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0");
-            await updates.WaitAsync(stoppingToken);
+            await WhenIdle(() => Task.FromResult(updates.Start(store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0")));
+            await updates.WaitAsync(deadline.Token);
             if (references != null && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_STATISTICS") != "0")
             {
-                var statistics = await references.StatisticsAsync(false, false, stoppingToken);
-                if (statistics["saved"]?.GetValue<bool>() == true && store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0") await sync.PublishAsync(stoppingToken);
+                var statistics = await WhenIdle(() => references.StatisticsAsync(false, false, deadline.Token));
+                if (statistics["saved"]?.GetValue<bool>() == true && store.Configured && Environment.GetEnvironmentVariable("DEADLOCK_AUTO_PUBLISH") != "0") await WhenIdle(() => sync.PublishAsync(deadline.Token));
             }
         }
-        catch (UpdateBusyException) { }
-        catch (OperationCanceledException) { }
-        catch { logger.LogWarning("Automatic update check could not start; saved archive is available."); }
+        catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested) { }
+        catch (OperationCanceledException) { logger.LogWarning("Automatic update check exceeded its startup deadline; saved archive is available."); }
+        catch (Exception error) { logger.LogWarning(error, "Automatic update check failed; saved archive is available."); }
     }
 }

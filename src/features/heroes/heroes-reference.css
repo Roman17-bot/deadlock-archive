@@ -306,3 +306,39 @@
     grid-template-columns: 1fr;
   }
 }
+/* Compact subsection plates retain the existing navigation position. */
+.hero-section-nav {
+  gap: 5px;
+  padding: 5px;
+  background: #18271f;
+  border: 1px solid #45503e;
+}
+.hero-section-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+.hero-section-nav a:hover {
+  background: #24362b;
+  color: var(--paper);
+}
+.hero-section-nav a[aria-current] {
+  background: #d1ad66;
+  color: #18271f;
+  border-color: #d1ad66;
+}
+@media (max-width: 520px) {
+  .hero-section-nav {
+    gap: 3px;
+  }
+  .hero-section-nav a {
+    padding: 9px 8px;
+    font-size: 12px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+}

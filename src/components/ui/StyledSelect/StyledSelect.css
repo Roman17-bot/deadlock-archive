@@ -101,3 +101,19 @@
   outline: 2px solid #28546c;
   outline-offset: 4px;
 }
+.styled-select-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.styled-select-icon {
+  display: inline-flex;
+  flex: 0 0 26px;
+  align-items: center;
+  justify-content: center;
+}
+.styled-select-icon :is(img, svg) {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}

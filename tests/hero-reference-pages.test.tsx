@@ -8,11 +8,16 @@ import type { HeroSnapshot } from '../shared/types';
 import type { HeroProfiles, HeroStatistics, HeroStatScope } from '../shared/hero-reference';
 import { HeroRosterPage } from '../src/pages/HeroRosterPage/HeroRosterPage';
 import { HeroStatisticsPage } from '../src/pages/HeroStatisticsPage/HeroStatisticsPage';
-import { loadHeroProfiles, loadHeroStatistics } from '../src/services/heroReferenceApi';
+import {
+  loadHeroProfiles,
+  loadHeroStatistics,
+  loadHeroHistory,
+} from '../src/services/heroReferenceApi';
 import { setLanguage } from '../src/i18n';
 vi.mock('../src/services/heroReferenceApi', () => ({
   loadHeroProfiles: vi.fn(),
   loadHeroStatistics: vi.fn(),
+  loadHeroHistory: vi.fn(),
   referenceMedia: (s: string) => s,
 }));
 const data = { ...snapshot, heroes: snapshot.heroes.slice(0, 2) } as HeroSnapshot;
@@ -126,24 +131,52 @@ describe('hero roster', () => {
 });
 
 describe('match statistics', () => {
-  it('offers supported scopes and periods, sorts values and recomputes calendar windows', async () => {
+  it('separates mode and rank, orders metrics and offers real calendar periods', async () => {
     const user = userEvent.setup();
     render(<HeroStatisticsPage data={data} />);
     const table = await screen.findByRole('table');
+    expect(screen.getByRole('link', { name: 'Heroes' })).toBeVisible();
+    expect(screen.queryByRole('combobox', { name: 'Rank' })).not.toBeInTheDocument();
     expect(
-      within(screen.getByRole('combobox', { name: 'Matches and rank' })).getAllByRole('option'),
-    ).toHaveLength(15);
+      within(table)
+        .getAllByRole('columnheader')
+        .map((h) => h.textContent),
+    ).toEqual(['Hero', 'Matches', 'Win rate', 'Pick share']);
     expect(table.querySelector('tbody tr')).toHaveTextContent(a.name);
     await user.click(screen.getByRole('button', { name: /^Win rate/ }));
     expect(table.querySelector('tbody tr')).toHaveTextContent(b.name);
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Period' }), '30');
+    await user.click(screen.getByRole('button', { name: 'Month' }));
     expect(within(table).getAllByText('130', { exact: true })).toHaveLength(2);
-    expect(screen.getByText(/exact client version are unavailable/)).toBeVisible();
-    await user.selectOptions(
-      screen.getByRole('combobox', { name: 'Matches and rank' }),
-      'ranked-0',
-    );
+    expect(screen.queryByText(/exact client version are unavailable/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/current day is partial/)).not.toBeInTheDocument();
+    expect(screen.queryByRole('group', { name: /How matches/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole('combobox', { name: 'Mode' }));
+    await user.click(screen.getByRole('option', { name: 'Ranked' }));
+    expect(screen.getByRole('combobox', { name: 'Rank' })).toBeVisible();
     expect(within(table).getAllByText('No history')).toHaveLength(4);
+    expect(loadHeroHistory).not.toHaveBeenCalled();
+  });
+  it('loads only the selected saved history on Year, retries failure and keeps old catalogues working', async () => {
+    const stats = statistics();
+    stats.historyScopes = ['normal-all'];
+    vi.mocked(loadHeroStatistics).mockResolvedValue(stats);
+    vi.mocked(loadHeroHistory)
+      .mockRejectedValueOnce(new Error('offline'))
+      .mockResolvedValueOnce(stats.scopes[0]);
+    const user = userEvent.setup();
+    render(<HeroStatisticsPage data={data} />);
+    await screen.findByRole('table');
+    expect(loadHeroHistory).not.toHaveBeenCalled();
+    await user.click(screen.getByRole('button', { name: 'Year' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('Could not load history.');
+    expect(loadHeroHistory).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(loadHeroHistory).mock.calls[0][0]).toBe('normal-all');
+    await user.click(screen.getByRole('button', { name: 'Retry' }));
+    expect(await screen.findByText(/Hero selections/)).toBeVisible();
+    expect(vi.mocked(loadHeroHistory).mock.calls[1][2]).toBe(true);
+    await user.click(screen.getByRole('combobox', { name: 'Mode' }));
+    await user.click(screen.getByRole('option', { name: 'Ranked' }));
+    expect(loadHeroHistory).toHaveBeenCalledTimes(2);
   });
   it('keeps missing date gaps and exposes real daily counts with keyboard and numeric pp changes', async () => {
     render(<HeroStatisticsPage data={data} />);
@@ -152,12 +185,40 @@ describe('match statistics', () => {
     expect(trend.querySelector('path')?.getAttribute('d')?.match(/M/g)).toHaveLength(2);
     expect(trend.querySelector('path')?.getAttribute('d')?.match(/L/g)).toHaveLength(1);
     fireEvent.focus(trend);
+    expect(document.body.querySelector(':scope > [role=tooltip]')).toBe(
+      screen.getByRole('tooltip'),
+    );
     expect(screen.getByRole('tooltip')).toHaveTextContent('October 4, 2026 · 50% · matches: 10');
     fireEvent.keyDown(trend, { key: 'ArrowLeft' });
     expect(screen.getByRole('tooltip')).toHaveTextContent('October 3, 2026 · 40% · matches: 10');
     expect(screen.getAllByText('-40 pp')).toHaveLength(1);
     fireEvent.keyDown(trend, { key: 'Escape' });
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+  });
+  it('anchors its portal tooltip above the actual selected point and updates after scroll', async () => {
+    const geometry = vi
+      .spyOn(Element.prototype, 'getBoundingClientRect')
+      .mockImplementation(function (this: Element) {
+        const top = this.tagName.toLowerCase() === 'circle' ? 300 : 0;
+        return {
+          x: 400,
+          y: top,
+          left: 400,
+          top,
+          right: 408,
+          bottom: top + 8,
+          width: 8,
+          height: 8,
+          toJSON() {},
+        };
+      });
+    render(<HeroStatisticsPage data={data} />);
+    await screen.findByRole('table');
+    fireEvent.focus(screen.getByRole('button', { name: new RegExp(`${a.name} Win rate:`) }));
+    expect(screen.getByRole('tooltip')).toHaveStyle({ top: '290px', left: '404px' });
+    fireEvent.scroll(window);
+    expect(screen.getByRole('tooltip')).toHaveStyle({ top: '290px' });
+    geometry.mockRestore();
   });
   it('retries failed loading and presents Russian controls', async () => {
     await setLanguage('ru');
@@ -167,7 +228,7 @@ describe('match statistics', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось загрузить статистику');
     await user.click(screen.getByRole('button', { name: 'Повторить' }));
     expect(await screen.findByRole('table')).toBeVisible();
-    expect(screen.getByRole('combobox', { name: 'Матчи и ранг' })).toBeVisible();
+    expect(screen.getByRole('combobox', { name: 'Режим' })).toBeVisible();
     expect(vi.mocked(loadHeroStatistics).mock.calls[1][1]).toBe(true);
   });
 });

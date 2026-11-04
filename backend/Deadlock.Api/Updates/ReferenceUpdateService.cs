@@ -33,7 +33,11 @@ public sealed class ReferenceUpdateService(AppPaths paths, IArchiveStore store, 
     {
         using var lease = Lease(); var previous = await store.ReadBundleAsync(ct);
         if (!force && !StatisticsCollector.Due(previous["heroStatistics"] as JsonObject, DateTimeOffset.UtcNow)) return new JsonObject { ["upToDate"] = true, ["saved"] = false, ["updatedAt"] = previous["heroStatistics"]!["updatedAt"]!.DeepClone() };
-        var next = previous.DeepClone().AsObject(); using var deadline = CancellationTokenSource.CreateLinkedTokenSource(ct); deadline.CancelAfter(TimeSpan.FromMinutes(5)); next["heroStatistics"] = await statistics.BuildAsync((int)ArchiveJson.Number(previous["heroes"]!["meta"]!["clientVersion"]), deadline.Token);
+        var next = previous.DeepClone().AsObject(); using var deadline = CancellationTokenSource.CreateLinkedTokenSource(ct); deadline.CancelAfter(TimeSpan.FromMinutes(5));
+        var fresh = await statistics.BuildAsync((int)ArchiveJson.Number(previous["heroes"]!["meta"]!["clientVersion"]), deadline.Token);
+        next["heroHistory"] = StatisticsHistory.Merge(previous["heroHistory"] as JsonObject, previous["heroStatistics"] as JsonObject, fresh);
+        fresh["historyScopes"] = new JsonArray(next["heroHistory"]!.AsObject().Select(p => (JsonNode?)JsonValue.Create(p.Key)).ToArray()); fresh["periods"] = new JsonArray(7, 30, 365);
+        next["heroStatistics"] = fresh;
         return await ReviewOrSave(previous, next, [], "independent-statistics-refresh", dryRun, ct);
     }
     public async Task<JsonObject> ReferencesAsync(string? profilesPath, string? mapPath, bool dryRun, CancellationToken ct, string? reviewPath = null)

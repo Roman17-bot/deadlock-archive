@@ -182,6 +182,11 @@ public sealed class DataSyncTests
         bundle["worldMap"] = ReferenceCatalogueTests.MapFixture((int)ArchiveJson.Number(bundle["heroes"]!["meta"]!["clientVersion"]));
         await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "world-map.json"), ArchiveJson.Bytes(bundle["worldMap"]));
         bundle["heroStatistics"] = ReferenceCatalogueTests.StatisticsFixture((int)ArchiveJson.Number(bundle["heroes"]!["meta"]!["clientVersion"]));
+        bundle["heroHistory"] = StatisticsHistory.Merge(null, null, bundle["heroStatistics"]!.AsObject());
+        bundle["heroStatistics"]!["historyScopes"] = new JsonArray(bundle["heroHistory"]!.AsObject().Select(p => (JsonNode?)JsonValue.Create(p.Key)).ToArray());
+        bundle["heroStatistics"]!["periods"] = new JsonArray(7, 30, 365);
+        foreach (var (file, keys) in ArchiveJson.Files.Where(f => f.Value[0] == "heroHistory"))
+            await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, file), ArchiveJson.Bytes(ArchiveJson.At(bundle, keys)));
         await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "hero-profiles.json"), ArchiveJson.Bytes(bundle["heroProfiles"]));
         await File.WriteAllBytesAsync(Path.Combine(w.Paths.Data, "hero-statistics.json"), ArchiveJson.Bytes(bundle["heroStatistics"]));
         bundle["abilities"] = AbilityTests.CatalogFixture(bundle["heroes"]!.AsObject());
@@ -206,13 +211,14 @@ public sealed class DataSyncTests
             // Reconstruct schema3 with enriched supplemental payloads, then apply the real
             // migration and verify it backfills before the disposable table is removed.
             await using (var oldSchema = new NpgsqlCommand($"ALTER TABLE {schema}.archive_snapshots DROP COLUMN calculator_rules; ALTER TABLE {schema}.heroes DROP COLUMN calculation; DROP TABLE {schema}.hero_abilities; DROP TABLE {schema}.ability_catalogues; DELETE FROM {schema}.archive_migrations WHERE version IN ('004_calculator_metadata.sql','005_hero_abilities.sql')", control)) await oldSchema.ExecuteNonQueryAsync();
-            await store.MigrateAsync(); Assert.Equal(6, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
+            await store.MigrateAsync(); Assert.Equal(7, ArchiveJson.Number((await store.StatusAsync())["schemaVersion"]));
             Assert.Equal(ArchiveJson.Canonical(bundle), ArchiveJson.Canonical(await store.ReadBundleAsync()));
             await using (var drop = new NpgsqlCommand($"DROP TABLE {schema}.archive_bundle_payloads", control)) await drop.ExecuteNonQueryAsync();
             var rebuilt = await new ArchiveStore(w.Paths, k => env.GetValueOrDefault(k), schema).ReadBundleAsync();
             Assert.True(JsonNode.DeepEquals(bundle["abilities"], rebuilt["abilities"]));
             Assert.True(JsonNode.DeepEquals(bundle["heroProfiles"], rebuilt["heroProfiles"]));
             Assert.True(JsonNode.DeepEquals(bundle["heroStatistics"], rebuilt["heroStatistics"]));
+            Assert.True(JsonNode.DeepEquals(bundle["heroHistory"], rebuilt["heroHistory"]));
             Assert.True(JsonNode.DeepEquals(bundle["worldMap"], rebuilt["worldMap"]));
             Assert.True(JsonNode.DeepEquals(bundle["heroes"]!["calculatorRules"], rebuilt["heroes"]!["calculatorRules"]));
             Assert.Equal(-8, ArchiveJson.Real(rebuilt["heroes"]!["heroes"]![0]!["calculation"]?["debuffResist"]));

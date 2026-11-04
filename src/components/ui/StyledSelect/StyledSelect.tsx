@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { Check, ChevronDown } from '../ArchiveIcon/ArchiveIcons';
 
-type Option = { value: string; label: string };
+type Option = { value: string; label: string; icon?: ReactNode };
 
 /** A select-only combobox: focus stays on its trigger while arrows explore the list. */
 export function StyledSelect({
@@ -124,7 +124,14 @@ export function StyledSelect({
           setOpen(!open);
         }}
       >
-        <span>{options[selected]?.label}</span>
+        <span className="styled-select-label">
+          {options[selected]?.icon && (
+            <span className="styled-select-icon" aria-hidden="true">
+              {options[selected].icon}
+            </span>
+          )}
+          {options[selected]?.label}
+        </span>
         <ChevronDown size={20} aria-hidden="true" />
       </button>
       {open && (
@@ -140,7 +147,14 @@ export function StyledSelect({
               onPointerDown={(event) => event.preventDefault()}
               onClick={() => choose(index)}
             >
-              <span>{option.label}</span>
+              <span className="styled-select-label">
+                {option.icon && (
+                  <span className="styled-select-icon" aria-hidden="true">
+                    {option.icon}
+                  </span>
+                )}
+                {option.label}
+              </span>
               <Check size={18} aria-hidden="true" />
             </div>
           ))}

@@ -134,6 +134,14 @@ public static class ArchiveJson
         ["items.json"] = ["items"],
         ["item-statistics.json"] = ["itemStatistics"]
     };
+    static ArchiveJson()
+    {
+        foreach (var scope in StatisticsCollector.ScopeDefinitions())
+        {
+            var id = scope["id"]!.GetValue<string>();
+            Files.Add("hero-history-" + id + ".json", ["heroHistory", id]);
+        }
+    }
     public static JsonNode? At(JsonNode n, IEnumerable<string> path) => path.Aggregate<string, JsonNode?>(n, (v, k) => v?[k]);
     public static async Task<JsonObject> ReadFilesAsync(AppPaths paths, CancellationToken ct)
     {
@@ -141,9 +149,9 @@ public static class ArchiveJson
         foreach (var (name, keys) in Files)
         {
             var file = Path.Combine(paths.Data, name);
-            if (!File.Exists(file) && name is "items.json" or "item-statistics.json" or "abilities.json" or "hero-profiles.json" or "hero-statistics.json" or "world-map.json") continue;
+            if (!File.Exists(file) && (ReferenceCatalogues.Collections.ContainsKey(keys[0]) || name is "items.json" or "item-statistics.json" or "abilities.json")) continue;
             var value = JsonNode.Parse(await File.ReadAllTextAsync(file, ct));
-            if (keys.Length == 1) b[keys[0]] = value; else b[keys[0]]![keys[1]] = value;
+            if (keys.Length == 1) b[keys[0]] = value; else { b[keys[0]] ??= new JsonObject(); b[keys[0]]![keys[1]] = value; }
         }
         Validate(b); return b;
     }

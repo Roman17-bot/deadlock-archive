@@ -131,6 +131,13 @@ try
                     var limit = rawLimit == "" ? 20 : int.Parse(rawLimit);
                     await Reply(200, new JsonArray(bundle["heroes"]!["heroes"]!.AsArray().Where(h => $"{h!["name"]} {h["slug"]} {h["aliases"]}".Contains(query, StringComparison.OrdinalIgnoreCase)).Take(limit).Select(h => h!.DeepClone()).ToArray())); break;
                 default:
+                    if (path.StartsWith("/api/hero-history/", StringComparison.Ordinal))
+                    {
+                        var scopeId = path["/api/hero-history/".Length..];
+                        if (!StatisticsCollector.ScopeDefinitions().Any(s => ArchiveJson.Text(s["id"]) == scopeId)) { await Reply(400, new { error = "Invalid statistics scope" }); break; }
+                        var history = bundle["heroHistory"]?[scopeId];
+                        await Reply(history is null ? 404 : 200, history ?? (object)new { error = "Statistics history unavailable" }); break;
+                    }
                     if (path == "/api/mechanics" || path.StartsWith("/api/formulas/"))
                     {
                         var language = request.Query["language"].ToString(); if (language == "" && !request.Query.ContainsKey("language")) language = "ru";

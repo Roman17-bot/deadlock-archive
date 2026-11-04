@@ -4,6 +4,8 @@ import { validateVersionHistory } from '../shared/version-history.ts';
 import { isDeepStrictEqual } from 'node:util';
 import { validateAbilityCatalog } from '../shared/abilities.ts';
 import { validateItemCatalog, validateItemStatistics } from '../shared/items.ts';
+import { validateHeroStatistics } from '../shared/hero-reference.ts';
+import { validateHeroHistory } from '../shared/hero-statistics-history.ts';
 
 const snapshot = JSON.parse(
   await readFile(new URL('../data/heroes.json', import.meta.url), 'utf8'),
@@ -21,6 +23,23 @@ const [items, itemStatistics] = await Promise.all([
   optionalItems('items.json'),
   optionalItems('item-statistics.json'),
 ]);
+const heroStatistics = await optionalItems('hero-statistics.json');
+if (heroStatistics !== undefined) {
+  if (
+    !validateHeroStatistics(heroStatistics) ||
+    heroStatistics.clientVersion > snapshot.meta.clientVersion
+  )
+    throw new Error('Invalid hero statistics');
+  for (const scopeId of heroStatistics.historyScopes ?? []) {
+    const history = await optionalItems(`hero-history-${scopeId}.json`);
+    if (
+      !validateHeroHistory(history) ||
+      history.id !== scopeId ||
+      history.clientVersion > snapshot.meta.clientVersion
+    )
+      throw new Error(`Invalid or missing history for ${scopeId}`);
+  }
+}
 if ((items === undefined) !== (itemStatistics === undefined))
   throw new Error('Items and statistics must be supplied together');
 if (items !== undefined) {
