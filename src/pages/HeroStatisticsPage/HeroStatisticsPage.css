@@ -1,0 +1,198 @@
+.hero-statistics-page {
+  max-width: 1440px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 28px 32px;
+  color: var(--paper);
+}
+.hero-statistics-page h1 {
+  font: 400 clamp(30px, 4vw, 48px)/1.3 var(--serif);
+  margin: 24px 0 16px;
+}
+.hero-statistics-page > p {
+  max-width: 1050px;
+}
+.statistics-version-note,
+.statistics-dates,
+.statistics-scroll-hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+.hero-statistics-page .expansion-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin: 24px 0 16px;
+}
+.expansion-filters label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.expansion-filters :is(input, select, button) {
+  min-height: 44px;
+}
+.expansion-filters select {
+  max-width: 100%;
+  background: var(--surface);
+  color: var(--paper);
+  padding: 8px;
+  border: 1px solid var(--line);
+}
+.hero-statistics-page .expansion-table-scroll {
+  overflow-x: auto;
+  scrollbar-color: var(--brass) var(--ink-deep);
+  padding-bottom: 10px;
+}
+.hero-statistics-page .expansion-stats {
+  width: 100%;
+  min-width: 840px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  background: var(--ink-deep);
+}
+.expansion-stats th,
+.expansion-stats td {
+  height: 64px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+.expansion-stats thead th {
+  color: var(--muted);
+  font-size: 14px;
+}
+.expansion-stats thead button {
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 8px 0;
+}
+.expansion-stats tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  text-align: left;
+  background: var(--ink-deep);
+  min-width: 190px;
+  border-right: 1px solid var(--line);
+}
+.expansion-stats tbody th a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-weight: 400;
+}
+.expansion-stats tbody img {
+  width: 40px;
+  height: 44px;
+  object-fit: cover;
+}
+.expansion-stat-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.expansion-stat-value strong {
+  min-width: 60px;
+  font-weight: 500;
+}
+.statistics-trend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.statistics-trend-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--sage);
+  padding: 0;
+  width: 96px;
+  height: 44px;
+  flex: none;
+}
+.statistics-trend-button svg {
+  overflow: visible;
+  width: 96px;
+  height: 28px;
+}
+.statistics-trend[data-change='up'] :is(.statistics-trend-button, .statistics-change) {
+  color: var(--success);
+}
+.statistics-trend[data-change='down'] :is(.statistics-trend-button, .statistics-change) {
+  color: var(--danger);
+}
+.statistics-trend-button path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.statistics-trend-button circle {
+  fill: currentColor;
+}
+.statistics-change {
+  width: 72px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+}
+.statistics-trend-tooltip {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--surface);
+  color: var(--paper);
+  border: 1px solid var(--brass);
+  max-width: calc(100vw - 24px);
+  font-size: 14px;
+  white-space: normal;
+  text-align: center;
+  box-shadow: 0 6px 24px #0008;
+}
+.statistics-no-history {
+  width: 176px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+.hero-statistics-page :is(button, a, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .hero-statistics-page {
+    padding: 24px 14px;
+  }
+  .expansion-stats th,
+  .expansion-stats td {
+    height: 60px;
+    padding: 8px 12px;
+  }
+  .expansion-stats tr > :first-child {
+    min-width: 148px;
+  }
+  .expansion-stats tbody img {
+    width: 32px;
+    height: 36px;
+  }
+  .expansion-stats tbody th a {
+    gap: 8px;
+  }
+  .expansion-filters label {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .expansion-filters input {
+    max-width: 100%;
+  }
+}

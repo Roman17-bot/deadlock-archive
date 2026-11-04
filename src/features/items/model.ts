@@ -62,6 +62,7 @@ export function itemHref(slug: string, returnTo = window.location.hash) {
   return `#/items/${encodeURIComponent(slug)}?returnTo=${encodeURIComponent(safeReturn(returnTo))}`;
 }
 export function safeReturn(value: string | null) {
+  if (value && /^#\/heroes\/[a-z0-9-]+$/.test(value)) return value;
   return value && /^#\/items(?:\?|$)/.test(value) ? filtersHash(readFilters(value)) : '#/items';
 }
 export function buyTime(seconds: number | null) {

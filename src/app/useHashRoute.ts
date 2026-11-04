@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export type PageRoute = 'home' | 'heroes' | 'mechanics' | 'updates' | 'items';
+export type PageRoute = 'home' | 'heroes' | 'mechanics' | 'updates' | 'items' | 'map';
 
 function resolveRoute(hash: string): PageRoute {
   return /^#\/items(?:\/|\?|$)/.test(hash)
@@ -11,7 +11,9 @@ function resolveRoute(hash: string): PageRoute {
         ? 'mechanics'
         : hash.startsWith('#/updates')
           ? 'updates'
-          : 'home';
+          : hash.startsWith('#/map')
+            ? 'map'
+            : 'home';
 }
 
 export function useHashRoute() {

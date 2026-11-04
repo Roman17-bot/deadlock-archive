@@ -14,6 +14,7 @@ export function HeroAbilities({
   items,
   rules,
   context,
+  onDemo,
 }: {
   data: HeroSnapshot;
   hero: Hero;
@@ -21,6 +22,7 @@ export function HeroAbilities({
   items?: readonly ShopItem[];
   rules?: BuildRules;
   context: BuildContext;
+  onDemo?: (abilityId: number, title: string) => void;
 }) {
   const { t, language } = useI18n();
   const { catalog, error, mismatch, retry } = useAbilities(data);
@@ -98,6 +100,11 @@ export function HeroAbilities({
               context={context}
               imbuedItemIds={itemTargets(ability.id)}
               initiallyOpen={index === 0}
+              onDemo={
+                onDemo
+                  ? () => onDemo(ability.id, ability.name[language] || ability.name.en)
+                  : undefined
+              }
             />
           ))}
         </>

@@ -20,6 +20,7 @@ type Props = {
   context: BuildContext;
   imbuedItemIds: readonly number[];
   initiallyOpen: boolean;
+  onDemo?: () => void;
 };
 
 export function AbilityCard({
@@ -33,6 +34,7 @@ export function AbilityCard({
   context,
   imbuedItemIds,
   initiallyOpen,
+  onDemo,
 }: Props) {
   const { t, language } = useI18n();
   const localized = (text: { ru: string; en: string }) => text[language] || text.en || text.ru;
@@ -260,6 +262,18 @@ export function AbilityCard({
         <ChevronDown className="ability-disclosure" size={22} />
       </summary>
       <div className="ability-body">
+        {onDemo && (
+          <button
+            className="hero-demo-button"
+            type="button"
+            onClick={(event) => {
+              event.currentTarget.focus();
+              onDemo();
+            }}
+          >
+            ▷ {language === 'en' ? 'Watch ability' : 'Посмотреть способность'}
+          </button>
+        )}
         <fieldset className="ability-upgrades">
           <legend>{t('Улучшения')}</legend>
           {ability.upgrades.map((upgrade) => (

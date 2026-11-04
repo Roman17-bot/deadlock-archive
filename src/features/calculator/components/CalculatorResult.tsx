@@ -52,6 +52,11 @@ export function CalculatorResult({ task, result, error, onRule }: CalculatorResu
         )
       )}
       <p className="calculator-assumption">{t(task.note)}</p>
+      {task.limitation && (
+        <p className="calculator-assumption" role="note">
+          {t(task.limitation)}
+        </p>
+      )}
       <button className="text-link" onClick={() => onRule(task.rule)}>
         {t('Как это считается')}
         <ArrowDown size={17} />

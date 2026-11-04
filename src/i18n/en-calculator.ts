@@ -1,4 +1,6 @@
 export const enCalculator: Record<string, string> = {
+  'Защита от снижения сопротивлений здесь не учитывается. Для таких целей, например Мидбосса, используй расчёт смеси урона с уже итоговыми сопротивлениями.':
+    'Resistance to resistance reduction is not included here. For targets with it, such as the Mid Boss, use the mixed damage calculation with the target’s final resistances.',
   Процент: 'Percentage',
   'Доля урона': 'Damage share',
   'Базовый crit': 'Base critical multiplier',
