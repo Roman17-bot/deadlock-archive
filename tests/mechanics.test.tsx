@@ -14,6 +14,31 @@ beforeEach(async () => {
 });
 afterEach(cleanup);
 
+it('explains the defense model limitation in both languages and offers a final-resistance calculation', async () => {
+  const user = userEvent.setup();
+  render(<MechanicsPage data={data as HeroSnapshot} />);
+  expect(screen.getByRole('note')).toHaveTextContent(
+    'Защита от снижения сопротивлений здесь не учитывается',
+  );
+  expect(screen.getByRole('note')).toHaveTextContent('Мидбосса');
+  await act(async () => {
+    await setLanguage('en');
+  });
+  expect(screen.getByRole('note')).toHaveTextContent(
+    'Resistance to resistance reduction is not included here',
+  );
+  expect(screen.getByRole('note')).toHaveTextContent('target’s final resistances');
+  const before = screen.getByTestId('calc-primary').textContent;
+  await user.click(screen.getByRole('combobox', { name: 'Calculation task' }));
+  await user.click(screen.getByRole('option', { name: 'Effective HP against mixed damage' }));
+  expect(screen.queryByRole('note')).not.toBeInTheDocument();
+  expect(screen.getByRole('textbox', { name: 'Final Bullet Resist, %' })).toBeVisible();
+  await user.click(screen.getByRole('combobox', { name: 'Calculation task' }));
+  await user.click(screen.getByRole('option', { name: 'Resistance and effective HP' }));
+  expect(screen.getByRole('note')).toBeVisible();
+  expect(screen.getByTestId('calc-primary').textContent).toBe(before);
+});
+
 it('recalculates effective HP without changing actual HP, including a decimal comma', () => {
   render(<MechanicsPage data={data as HeroSnapshot} />);
   expect(screen.getByTestId('calc-primary').textContent?.replace(/\s/g, '')).toContain('1785,714');

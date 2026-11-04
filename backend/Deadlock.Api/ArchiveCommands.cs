@@ -53,9 +53,14 @@ public static class ArchiveCommands
         }
         if (expectedVersion is not null && (await services.GetRequiredService<IArchiveRefresh>().LatestAsync(ct)).Version != expectedVersion)
             throw new InvalidDataException("Latest client does not match --expected-version; no update applied");
-        if (!args.Contains("--dry-run") && command is "db:import" or "update" or "items:refresh") await store.InitializeAsync(ct);
+        if (!args.Contains("--dry-run") && command is "db:import" or "update" or "items:refresh" or "references:refresh" or "stats:refresh") await store.InitializeAsync(ct);
         switch (command)
         {
+            case "stats:refresh":
+                Print(await services.GetRequiredService<ReferenceUpdateService>().StatisticsAsync(args.Contains("--force"), args.Contains("--dry-run"), ct)); return 0;
+            case "references:refresh":
+                string? Option(string name) { var position = Array.IndexOf(args, name); return position >= 0 ? args[position + 1] : null; }
+                Print(await services.GetRequiredService<ReferenceUpdateService>().ReferencesAsync(Option("--profiles"), Option("--map"), args.Contains("--dry-run"), ct, Option("--review"))); return 0;
             case "db:status": Print(await store.StatusAsync(ct)); return 0;
             case "db:import": await store.ImportAsync(await ArchiveJson.ReadFilesAsync(paths, ct), "explicit-import", ct); Print(await store.StatusAsync(ct)); return 0;
             case "db:setup":
@@ -152,6 +157,17 @@ public static class ArchiveCommands
                 if (++index >= args.Count || !Regex.IsMatch(args[index], "^[0-9]+$") || !int.TryParse(args[index], out var version) || version < 1) throw new InvalidDataException("--expected-version requires a positive integer");
                 expected = version;
             }
+        }
+        else if (command == "stats:refresh")
+        {
+            if (args.Any(a => a is not ("--dry-run" or "--force")) || args.Count != args.Distinct().Count()) throw new InvalidDataException("Usage: stats:refresh [--dry-run] [--force]");
+        }
+        else if (command == "references:refresh")
+        {
+            var seen = new HashSet<string>();
+            for (var i = 0; i < args.Count; i++) { var option = args[i]; if (!seen.Add(option)) throw new InvalidDataException("Duplicate reference option"); if (option == "--dry-run") continue; if (option is not ("--profiles" or "--map" or "--review") || ++i >= args.Count || args[i].StartsWith('-')) throw new InvalidDataException("Usage: references:refresh [--dry-run] --profiles FILE --map FILE"); }
+            if (seen.Contains("--review") && (seen.Contains("--profiles") || seen.Contains("--map"))) throw new InvalidDataException("Use one reference review or curated input files");
+            if (!seen.Contains("--profiles") && !seen.Contains("--map") && !seen.Contains("--review")) throw new InvalidDataException("Reference candidate required");
         }
         else if (command == "sync")
         {

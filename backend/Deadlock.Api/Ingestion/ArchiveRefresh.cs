@@ -29,7 +29,7 @@ public sealed class ArchiveRefresh : IArchiveRefresh
             ct.ThrowIfCancellationRequested(); using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct); timeout.CancelAfter(TimeSpan.FromSeconds(45));
             try
             {
-                using var request = new HttpRequestMessage(HttpMethod.Get, uri); request.Headers.UserAgent.ParseAdd("DeadlockArchive-Updater/2.0"); request.Headers.Accept.ParseAdd("application/json,text/plain,image/webp,*/*");
+                using var request = new HttpRequestMessage(HttpMethod.Get, uri); request.Headers.UserAgent.ParseAdd("DeadlockArchive-Updater/2.0"); request.Headers.Accept.ParseAdd(uri.AbsolutePath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ? "image/png" : "application/json,text/plain,image/webp,*/*");
                 using var response = await http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, timeout.Token);
                 if (response.RequestMessage?.RequestUri != uri) throw new InvalidDataException("Upstream redirect is forbidden");
                 if ((response.StatusCode == HttpStatusCode.TooManyRequests || (int)response.StatusCode >= 500) && attempt < 2) { var delay = response.Headers.RetryAfter?.Delta ?? TimeSpan.FromMilliseconds(500 * (attempt + 1)); await Task.Delay(delay > TimeSpan.FromSeconds(5) ? TimeSpan.FromSeconds(5) : delay, ct); continue; }
@@ -43,6 +43,7 @@ public sealed class ArchiveRefresh : IArchiveRefresh
             catch (OperationCanceledException) when (!ct.IsCancellationRequested && attempt < 2) { await Task.Delay(500 * (attempt + 1), ct); }
         }
     }
+    public Task<byte[]> FetchMediaAsync(string url, int limit, CancellationToken ct) => RequestAsync(url, limit, ct);
     async Task<JsonNode> JsonAsync(string url, CancellationToken ct, int limit = 16_000_000) => JsonNode.Parse(Utf8.GetString(await RequestAsync(url, limit, ct)), documentOptions: new() { MaxDepth = 128 }) ?? throw new InvalidDataException("Empty upstream JSON");
     public static GameVersion ParseVersion(JsonNode node)
     {
@@ -129,6 +130,14 @@ public sealed class ArchiveRefresh : IArchiveRefresh
         await Parallel.ForEachAsync(downloads, new ParallelOptions { MaxDegreeOfParallelism = 4, CancellationToken = ct }, async (download, token) => { var uri = ValidateSource(download.Url); if (uri.Host != "assets-bucket.deadlock-api.com") throw new InvalidDataException("Missing trusted WebP icon"); var bytes = await RequestAsync(download.Url, download.Path.StartsWith("public/assets/heroes/") ? 2_000_000 : 1_000_000, token); if (bytes.Length < 12 || !bytes.AsSpan(0, 4).SequenceEqual("RIFF"u8) || !bytes.AsSpan(8, 4).SequenceEqual("WEBP"u8)) throw new InvalidDataException("Invalid WebP icon"); if (!assets.TryAdd(download.Path, bytes)) throw new InvalidDataException("Duplicate asset path"); });
         if (await LatestAsync(ct) != expected) throw new InvalidDataException("Client version changed during refresh");
         var candidate = (JsonObject)current.DeepClone(); candidate["heroes"] = heroes; candidate["items"] = catalog; candidate["itemStatistics"] = statistics; candidate["abilities"] = abilityCatalog;
+        if (current["heroProfiles"] is JsonObject profiles) candidate["heroProfiles"] = ReferenceSource.Profiles(profiles, heroes, apiHeroes, expected.Version, checkedAt);
+        if (current["worldMap"] is JsonObject map)
+        {
+            var mapTask = JsonAsync(Api + "/assets/map?" + query, ct); var miscTask = JsonAsync(Api + "/assets/misc-entities?" + query, ct); var npcTask = JsonAsync(Api + "/assets/npc-units?" + query, ct); var genericTask = JsonAsync(Api + "/assets/generic-data?" + query, ct);
+            await Task.WhenAll(mapTask, miscTask, npcTask, genericTask);
+            candidate["worldMap"] = ReferenceSource.Map(map, (await mapTask).AsObject(), (await miscTask).AsArray(), (await npcTask).AsArray(), (await genericTask).AsObject(), expected.Version, expected.Revision, commit, checkedAt);
+        }
+        foreach (var media in await ReferenceMedia.MaterializeAsync(candidate, RequestAsync, ct)) if (!assets.TryAdd(media.Key, media.Value)) throw new InvalidDataException("Duplicate candidate reference asset");
         var old = J.Rows(currentHeroes["heroes"], "previous heroes").ToDictionary(h => J.Id(h["id"], "ID")); var next = J.Rows(heroes["heroes"], "heroes").ToList(); var nextIds = next.Select(h => J.Id(h["id"], "ID")).ToHashSet();
         bool SameHero(JsonObject a, JsonObject b) { var x = (JsonObject)a.DeepClone(); var y = (JsonObject)b.DeepClone(); x.Remove("source"); y.Remove("source"); return JsonNode.DeepEquals(x, y); }
         var added = next.Count(h => !old.ContainsKey(J.Id(h["id"], "ID"))); var removed = old.Keys.Count(id => !nextIds.Contains(id)); var updated = next.Count(h => old.TryGetValue(J.Id(h["id"], "ID"), out var previous) && !SameHero(h, previous));

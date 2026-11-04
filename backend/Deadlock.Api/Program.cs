@@ -27,6 +27,9 @@ builder.Services.AddHttpClient("public-sync", c => c.Timeout = TimeSpan.FromSeco
 builder.Services.AddSingleton<IPublicSync, PublicSync>();
 builder.Services.AddSingleton<BundlePersistence>();
 builder.Services.AddSingleton<UpdateCoordinator>();
+builder.Services.AddHttpClient<StatisticsCollector>(client => client.Timeout = Timeout.InfiniteTimeSpan).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false, AutomaticDecompression = System.Net.DecompressionMethods.All });
+builder.Services.AddHttpClient("reference-assets", client => client.Timeout = Timeout.InfiniteTimeSpan).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
+builder.Services.AddTransient<ReferenceUpdateService>();
 if (command == "serve") builder.Services.AddHostedService<StartupRefresh>();
 var port = Environment.GetEnvironmentVariable("API_PORT") ?? "3001";
 if (!int.TryParse(port, out var portNumber) || portNumber is < 1 or > 65535) throw new InvalidDataException("Invalid API_PORT");
@@ -111,6 +114,12 @@ try
                 case "/api/item-statistics":
                     var data = bundle[path == "/api/items" ? "items" : "itemStatistics"];
                     await Reply(data is null ? 404 : 200, data ?? (object)new { error = "Item data unavailable" }); break;
+                case "/api/hero-profiles":
+                case "/api/hero-statistics":
+                case "/api/world-map":
+                    var referenceKey = path == "/api/hero-profiles" ? "heroProfiles" : path == "/api/hero-statistics" ? "heroStatistics" : "worldMap";
+                    var reference = bundle[referenceKey];
+                    await Reply(reference is null ? 404 : 200, reference ?? (object)new { error = "Reference data unavailable" }); break;
                 case "/api/version-history": await Reply(200, bundle["history"]); break;
                 case "/api/health":
                     var health = new JsonObject { ["status"] = "ok", ["storage"] = store.Configured ? "postgresql" : "json", ["clientVersion"] = bundle["heroes"]!["meta"]!["clientVersion"]!.DeepClone(), ["heroCount"] = bundle["heroes"]!["meta"]!["heroCount"]!.DeepClone() };

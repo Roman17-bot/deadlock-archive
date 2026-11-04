@@ -18,8 +18,9 @@ export function Calculator({
 }) {
   const { t } = useI18n();
   const id = useId();
-  const [view, setView] = useState('formulas');
-  const [buildOpened, setBuildOpened] = useState(false);
+  const requestedHero = new URLSearchParams(window.location.hash.split('?')[1] ?? '').get('hero');
+  const [view, setView] = useState(requestedHero ? 'build' : 'formulas');
+  const [buildOpened, setBuildOpened] = useState(!!requestedHero);
   const [mode, setMode] = useState('defense');
   const [values, setValues] = useState<Record<string, Record<string, string>>>(() =>
     Object.fromEntries(
@@ -82,7 +83,11 @@ export function Calculator({
       {buildOpened && data && (
         <div hidden={view !== 'build'}>
           <Suspense fallback={<p aria-busy="true">{t('Загружаем предметы…')}</p>}>
-            <HeroCalculator data={data} onRule={onRule} />
+            <HeroCalculator
+              data={data}
+              onRule={onRule}
+              initialHeroSlug={requestedHero ?? undefined}
+            />
           </Suspense>
         </div>
       )}

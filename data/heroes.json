@@ -193,9 +193,9 @@
       "slug": "abrams",
       "source": {
         "heroLine": 10224,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 30186,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tank",
@@ -264,9 +264,9 @@
       "slug": "apollo",
       "source": {
         "heroLine": 110498,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 269121,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Finesse",
@@ -338,9 +338,9 @@
       "slug": "baba",
       "source": {
         "heroLine": 133273,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 295474,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Cackling",
@@ -412,9 +412,9 @@
       "slug": "bebop",
       "source": {
         "heroLine": 27367,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 33190,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Hook",
@@ -485,9 +485,9 @@
       "slug": "billy",
       "source": {
         "heroLine": 100983,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 169887,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Punk",
@@ -558,9 +558,9 @@
       "slug": "calico",
       "source": {
         "heroLine": 29541,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 81167,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tricksy",
@@ -629,9 +629,9 @@
       "slug": "celeste",
       "source": {
         "heroLine": 119036,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 286444,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Performer",
@@ -702,9 +702,9 @@
       "slug": "deadman-danny",
       "source": {
         "heroLine": 112617,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 306075,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Reckless",
@@ -776,9 +776,9 @@
       "slug": "drifter",
       "source": {
         "heroLine": 85025,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 173811,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Stalker",
@@ -850,9 +850,9 @@
       "slug": "dynamo",
       "source": {
         "heroLine": 18805,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 44710,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Teamplay",
@@ -921,9 +921,9 @@
       "slug": "graves",
       "source": {
         "heroLine": 108361,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 273135,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Morbid",
@@ -994,9 +994,9 @@
       "slug": "grey-talon",
       "source": {
         "heroLine": 31591,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 87268,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Precision",
@@ -1068,9 +1068,9 @@
       "slug": "haze",
       "source": {
         "heroLine": 23065,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 60568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Assassin",
@@ -1139,9 +1139,9 @@
       "slug": "holliday",
       "source": {
         "heroLine": 25198,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 27291,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Crackshot",
@@ -1210,9 +1210,9 @@
       "slug": "infernus",
       "source": {
         "heroLine": 1717,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 66097,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Arsonist",
@@ -1281,9 +1281,9 @@
       "slug": "ivy",
       "source": {
         "heroLine": 37903,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 99705,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Team-up",
@@ -1352,9 +1352,9 @@
       "slug": "kelvin",
       "source": {
         "heroLine": 20935,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 69027,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Protector",
@@ -1423,9 +1423,9 @@
       "slug": "lady-geist",
       "source": {
         "heroLine": 8095,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 54392,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Lifesteal",
@@ -1494,9 +1494,9 @@
       "slug": "lash",
       "source": {
         "heroLine": 46091,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 72134,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Initiator",
@@ -1567,9 +1567,9 @@
       "slug": "mcginnis",
       "source": {
         "heroLine": 14480,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 47845,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Inventor",
@@ -1641,9 +1641,9 @@
       "slug": "mina",
       "source": {
         "heroLine": 82988,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 138288,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Harasser",
@@ -1712,9 +1712,9 @@
       "slug": "mirage",
       "source": {
         "heroLine": 62828,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 74978,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Bodyguard",
@@ -1783,9 +1783,9 @@
       "slug": "mo-krill",
       "source": {
         "heroLine": 33681,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 77848,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Tag-Team",
@@ -1854,9 +1854,9 @@
       "slug": "nurse-harrow",
       "source": {
         "heroLine": 131060,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 309940,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Strict",
@@ -1927,9 +1927,9 @@
       "slug": "paige",
       "source": {
         "heroLine": 91490,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 165606,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Helpful",
@@ -2000,9 +2000,9 @@
       "slug": "paradox",
       "source": {
         "heroLine": 16651,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 41907,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Calculated",
@@ -2073,9 +2073,9 @@
       "slug": "pocket",
       "source": {
         "heroLine": 59006,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 97568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Trickster",
@@ -2144,9 +2144,9 @@
       "slug": "rat-king",
       "source": {
         "heroLine": 124643,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 313611,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Scrappy",
@@ -2217,9 +2217,9 @@
       "slug": "rem",
       "source": {
         "heroLine": 114706,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 265376,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Helpful",
@@ -2290,9 +2290,9 @@
       "slug": "seven",
       "source": {
         "heroLine": 3800,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 57328,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "High Voltage",
@@ -2363,9 +2363,9 @@
       "slug": "shiv",
       "source": {
         "heroLine": 35787,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 90278,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Rage",
@@ -2434,9 +2434,9 @@
       "slug": "silver",
       "source": {
         "heroLine": 116889,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 279990,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Feral",
@@ -2507,9 +2507,9 @@
       "slug": "sinclair",
       "source": {
         "heroLine": 77388,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 125414,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Trickster",
@@ -2580,9 +2580,9 @@
       "slug": "solomon",
       "source": {
         "heroLine": 126792,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 299442,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Strategist",
@@ -2656,9 +2656,9 @@
       "slug": "the-doorman",
       "source": {
         "heroLine": 95389,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 166003,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Disorienting",
@@ -2729,9 +2729,9 @@
       "slug": "venator",
       "source": {
         "heroLine": 87224,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 259696,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Devout",
@@ -2800,9 +2800,9 @@
       "slug": "victor",
       "source": {
         "heroLine": 89359,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 159349,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "You",
@@ -2875,9 +2875,9 @@
       "slug": "vindicta",
       "source": {
         "heroLine": 5975,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 63390,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Sniper",
@@ -2948,9 +2948,9 @@
       "slug": "violet",
       "source": {
         "heroLine": 128947,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 289568,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Ambitious",
@@ -3023,9 +3023,9 @@
       "slug": "viscous",
       "source": {
         "heroLine": 48171,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 102908,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Evasive",
@@ -3094,9 +3094,9 @@
       "slug": "vyper",
       "source": {
         "heroLine": 73507,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 118850,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Gunner",
@@ -3165,9 +3165,9 @@
       "slug": "warden",
       "source": {
         "heroLine": 41811,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 106275,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Initiator",
@@ -3239,9 +3239,9 @@
       "slug": "wraith",
       "source": {
         "heroLine": 12376,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 108960,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Duelist",
@@ -3310,9 +3310,9 @@
       "slug": "yamato",
       "source": {
         "heroLine": 43940,
-        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/heroes.vdata",
+        "heroUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/heroes.vdata",
         "weaponLine": 115480,
-        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts/abilities.vdata"
+        "weaponUrl": "https://github.com/SteamTracking/GameTracking-Deadlock/blob/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts/abilities.vdata"
       },
       "tags": [
         "Relentless",
@@ -3336,10 +3336,10 @@
     }
   ],
   "meta": {
-    "buildDate": "2026-11-02",
-    "checkedAt": "2026-11-03T12:59:25.923Z",
-    "clientVersion": 6842,
-    "gameCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b",
+    "buildDate": "2026-11-03",
+    "checkedAt": "2026-11-04T08:39:04.398Z",
+    "clientVersion": 6848,
+    "gameCommit": "fed007c2f240713754bb4fe6c6f2e9b8fe56e93a",
     "heroCount": 44,
     "levelRange": [
       1,
@@ -3354,20 +3354,20 @@
       "Прирост урона и регенерации включает встроенные бонусы от естественного прироста Spirit. Округление применяется только при отображении."
     ],
     "schemaVersion": 1,
-    "snapshotDate": "2026-11-03",
-    "sourceRevision": 11196939,
+    "snapshotDate": "2026-11-04",
+    "sourceRevision": 11203487,
     "sources": [
       {
-        "label": "Параметры героев · клиент 6842",
-        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6842"
+        "label": "Параметры героев · клиент 6848",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?client_version=6848"
       },
       {
-        "label": "Оружие · клиент 6842",
-        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6842"
+        "label": "Оружие · клиент 6848",
+        "url": "https://api.deadlock-api.com/v1/assets/items?client_version=6848"
       },
       {
         "label": "Исходные файлы игры · фиксированная ревизия",
-        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/fc53d8b267db6949b03d3fdb975dff4c9028f77b/game/citadel/pak01_dir/scripts"
+        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/tree/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a/game/citadel/pak01_dir/scripts"
       }
     ]
   }

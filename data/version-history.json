@@ -52,6 +52,22 @@
   "schemaVersion": 1,
   "versions": [
     {
+      "buildDate": "2026-11-03",
+      "clientVersion": 6848,
+      "firstPublishedAt": "2026-11-04T08:39:58.751Z",
+      "patch": {
+        "checkedAt": "2026-11-04T08:39:58.751Z",
+        "gameCommit": "fed007c2f240713754bb4fe6c6f2e9b8fe56e93a",
+        "notes": "unknown",
+        "source": "game-tracking",
+        "url": "https://github.com/SteamTracking/GameTracking-Deadlock/commit/fed007c2f240713754bb4fe6c6f2e9b8fe56e93a"
+      },
+      "provenance": {
+        "kind": "snapshot-save",
+        "reference": "2026-11-04T08:39:58.751Z"
+      }
+    },
+    {
       "buildDate": "2026-11-02",
       "clientVersion": 6842,
       "firstPublishedAt": "2026-11-03T01:17:07.659Z",

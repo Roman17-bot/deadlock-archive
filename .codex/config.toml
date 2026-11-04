@@ -39,15 +39,15 @@ description = "Read-only independent art direction, UX, accessibility, graphics,
 config_file = "agents/deadlock-designcritic.toml"
 
 [mcp_servers.deadlock_playwright]
-command = "cmd"
-args = ["/d", "/c", "npx", "--yes", "--ignore-scripts", "@playwright/mcp@0.0.83", "--browser", "chrome", "--headless", "--isolated", "--allowed-origins", "http://localhost:*;http://127.0.0.1:*"]
+command = "node"
+args = ["scripts/design/mcp-launcher.mjs", "playwright", "--browser", "chrome", "--headless", "--isolated", "--allowed-origins", "http://localhost:*;http://127.0.0.1:*"]
 startup_timeout_sec = 45
 tool_timeout_sec = 60
 enabled_tools = ["browser_navigate", "browser_snapshot", "browser_take_screenshot", "browser_console_messages", "browser_resize", "browser_click", "browser_type", "browser_press_key", "browser_evaluate", "browser_wait_for", "browser_close"]
 
 [mcp_servers.deadlock_devtools]
-command = "cmd"
-args = ["/d", "/c", "npx", "--yes", "--ignore-scripts", "chrome-devtools-mcp@1.12.0", "--headless", "--isolated", "--no-usage-statistics", "--no-performance-crux", "--no-file-navigations", "--allowed-url-pattern=http://127.0.0.1:*/*", "--allowed-url-pattern=http://localhost:*/*", "--allowed-url-pattern=ws://127.0.0.1:*/*", "--allowed-url-pattern=ws://localhost:*/*"]
+command = "node"
+args = ["scripts/design/mcp-launcher.mjs", "devtools", "--headless", "--isolated", "--no-usage-statistics", "--no-performance-crux", "--no-file-navigations", "--allowed-url-pattern=http://127.0.0.1:*/*", "--allowed-url-pattern=http://localhost:*/*", "--allowed-url-pattern=ws://127.0.0.1:*/*", "--allowed-url-pattern=ws://localhost:*/*"]
 startup_timeout_sec = 45
 tool_timeout_sec = 60
 enabled_tools = ["list_pages", "new_page", "navigate_page", "resize_page", "take_snapshot", "take_screenshot", "list_console_messages", "list_network_requests", "evaluate_script", "emulate", "wait_for", "performance_start_trace", "performance_stop_trace", "performance_analyze_insight", "close_page"]

@@ -6,7 +6,7 @@ import { ArchiveLogo } from '../ui/ArchiveLogo/ArchiveLogo';
 import { LanguageSwitch } from './LanguageSwitch';
 
 export function Header({ data, route }: { data: HeroSnapshot | null; route: PageRoute }) {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -53,6 +53,9 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
             href="#/updates"
           >
             {t('Обновления')}
+          </a>
+          <a href="#/map" className={route === 'map' ? 'active' : ''} aria-current={route === 'map' ? 'page' : undefined}>
+            {language === 'en' ? 'Map' : 'Карта'}
           </a>
         </nav>
         <div className="header-edition">

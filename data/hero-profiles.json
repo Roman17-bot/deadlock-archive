@@ -1,0 +1,1239 @@
+{
+  "clientVersion": 6848,
+  "heroes": [
+    {
+      "art": {
+        "background": "images/hero-art/abrams.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_card.webp"
+      },
+      "heroId": 6,
+      "lore": {
+        "en": "A New York detective is trying to understand the mysterious tome left in his office and the attacks that followed its arrival.",
+        "ru": "Нью-йоркский сыщик пытается разгадать тайну книги, оставленной в его кабинете, и нападений, начавшихся после её появления."
+      },
+      "relationships": [],
+      "slug": "abrams",
+      "summary": {
+        "en": "Close-range pressure with life drain, charges and area stuns.",
+        "ru": "Ближний бой с вытягиванием здоровья, тараном и оглушениями по области."
+      },
+      "tips": [
+        {
+          "en": "Aim Shoulder Charge toward a wall to trigger its hero stun.",
+          "ru": "Направляйте Shoulder Charge к стене, чтобы оглушить задетого героя."
+        },
+        {
+          "en": "Keep enemies within Siphon Life's area while draining their health.",
+          "ru": "Во время Siphon Life удерживайте противников в области действия, чтобы продолжать отнимать здоровье."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/apollo.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_card.webp"
+      },
+      "heroId": 77,
+      "lore": {
+        "en": "Sent from troubled North Ixia to study in New York, Apollo captains Blackmore's fencing team while awaiting his family's call home.",
+        "ru": "Отправленный из неспокойной Северной Иксии учиться в Нью-Йорк, Apollo возглавляет фехтовальщиков Blackmore и ждёт возвращения к семье."
+      },
+      "relationships": [],
+      "slug": "apollo",
+      "summary": {
+        "en": "Timed sword lunges and a reactive deflection punish exposed opponents.",
+        "ru": "Ритмичные выпады и отражение атаки наказывают открывшегося противника."
+      },
+      "tips": [
+        {
+          "en": "Practice releasing Flawless Advance during its perfect timing window.",
+          "ru": "Тренируйтесь отпускать Flawless Advance в идеальное временное окно."
+        },
+        {
+          "en": "Use Riposte against hero attacks; troopers and neutrals cannot trigger its deflection.",
+          "ru": "Применяйте Riposte против атак героев: бойцы и нейтралы не запускают отражение."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/baba.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_card.webp"
+      },
+      "heroId": 88,
+      "lore": {
+        "en": "The familiar pigeon lady of Central Park is determined to protect Manhattan. Her supposed leadership of the Soho Coven remains a rumor.",
+        "ru": "Знакомая всем голубятница Центрального парка намерена защитить Манхэттен. Её предполагаемое руководство ковеном Сохо остаётся слухом."
+      },
+      "relationships": [],
+      "slug": "baba",
+      "summary": {
+        "en": "Steals Spirit, changes her brew's effect and controls enemies with pigeons.",
+        "ru": "Крадёт Spirit, выбирает эффект отвара и контролирует врагов голубями."
+      },
+      "tips": [
+        {
+          "en": "Watch Baba's Brew's current effect and pause brewing when the desired effect appears.",
+          "ru": "Следите за текущим эффектом Baba's Brew и приостанавливайте заваривание на нужном эффекте."
+        },
+        {
+          "en": "Keep targets in Feed The Birds' cone to add bread stacks before the flock arrives.",
+          "ru": "Удерживайте цели перед собой во время Feed The Birds, чтобы добавить стаки хлеба до налёта птиц."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/bebop.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_card.webp"
+      },
+      "heroId": 15,
+      "lore": {
+        "en": "A scrapyard golem secretly takes dangerous work to pay for the medicine of the woman who raised him as a son.",
+        "ru": "Голем со свалки тайно берётся за опасную работу, оплачивая лекарства женщине, вырастившей его как сына."
+      },
+      "relationships": [],
+      "slug": "bebop",
+      "summary": {
+        "en": "Pulls targets into range for bombs and a channeled energy beam.",
+        "ru": "Притягивает цели под бомбы и поддерживаемый энергетический луч."
+      },
+      "tips": [
+        {
+          "en": "Line up Grapple Arm carefully: it pulls the first character struck, including allies.",
+          "ru": "Тщательно наводите Grapple Arm: рука притягивает первого задетого персонажа, включая союзников."
+        },
+        {
+          "en": "Attach Sticky Bomb where its delayed blast can reach a hero to build its permanent damage bonus.",
+          "ru": "Размещайте Sticky Bomb так, чтобы отложенный взрыв задел героя и увеличил постоянный бонус урона."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/billy.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_card.webp"
+      },
+      "heroId": 72,
+      "lore": {
+        "en": "Billy's fury has plenty of possible targets, but his biography leaves both its cause and his goat head unexplained.",
+        "ru": "У ярости Billy много возможных мишеней, но биография не объясняет ни её причину, ни происхождение козлиной головы."
+      },
+      "relationships": [],
+      "slug": "billy",
+      "summary": {
+        "en": "Uses bat strikes, a rising charge and chains to keep fights close.",
+        "ru": "Удерживает ближний бой ударами биты, подбрасывающим тараном и цепями."
+      },
+      "tips": [
+        {
+          "en": "Land melee hits to restore ammunition through Blasted.",
+          "ru": "Попадайте в ближнем бою, чтобы восстанавливать патроны через Blasted."
+        },
+        {
+          "en": "Maintain line of sight during Chain Gang; losing sight can break the chain.",
+          "ru": "Сохраняйте видимость целей во время Chain Gang: потеря видимости может разорвать цепь."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/calico.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_card.webp"
+      },
+      "heroId": 16,
+      "lore": {
+        "en": "Calico left the Baxter Society's unpaid monster hunting for a lucrative career as a contract killer.",
+        "ru": "Calico сменила бесплатную охоту на чудовищ в Baxter Society на прибыльную работу наёмной убийцы."
+      },
+      "relationships": [],
+      "slug": "calico",
+      "summary": {
+        "en": "Combines explosive ambushes with shadow movement and a healing slash.",
+        "ru": "Совмещает взрывные засады, перемещение в тенях и лечащий удар."
+      },
+      "tips": [
+        {
+          "en": "Aim Leaping Slash to catch a hero if you need its healing effect.",
+          "ru": "Попадите Leaping Slash по герою, если рассчитываете на лечение."
+        },
+        {
+          "en": "Use Ava's movement with care around enemies: hero damage resets its speed bonus.",
+          "ru": "Осторожно используйте передвижение Ava рядом с врагами: урон героя сбрасывает бонус скорости."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/celeste.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_card.webp"
+      },
+      "heroId": 81,
+      "lore": {
+        "en": "A unicorn concealing herself in a Coney Island sideshow risks revealing her powers to help a member of her chosen family reclaim a sold piece of their soul.",
+        "ru": "Единорог, скрывающийся в шоу Кони-Айленда, рискует раскрыть свои силы, чтобы помочь близкому вернуть проданную часть души."
+      },
+      "relationships": [],
+      "slug": "celeste",
+      "summary": {
+        "en": "Marks enemies with light and uses a protective prism and bouncing orb.",
+        "ru": "Мечает врагов светом, защищается призмой и выпускает скачущую сферу."
+      },
+      "tips": [
+        {
+          "en": "After landing Light Eater, attack affected enemies to use its extra damage and lifesteal.",
+          "ru": "После попадания Light Eater атакуйте отмеченных врагов ради дополнительного урона и вампиризма."
+        },
+        {
+          "en": "Lead Radiant Daggers ahead of a moving target because its beam forms after a delay.",
+          "ru": "Направляйте Radiant Daggers с упреждением: луч формируется с задержкой."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/deadman-danny.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_card.webp"
+      },
+      "heroId": 78,
+      "lore": {
+        "en": "Danny demonstrates dangerous Fairfax Industries inventions by personally surviving their failures, including a public flight demonstration with the Chimera Mk1.",
+        "ru": "Danny лично переживает аварии опасных изобретений Fairfax Industries, в том числе демонстрирует полёт на Chimera Mk1."
+      },
+      "relationships": [],
+      "slug": "deadman-danny",
+      "summary": {
+        "en": "Fights from a heat-limited jetpack with marked missiles and charged shots.",
+        "ru": "Сражается с нагревающимся реактивным ранцем, ракетными метками и заряженными выстрелами."
+      },
+      "tips": [
+        {
+          "en": "Follow Strix Salvo marks with charged shots to consume them for extra damage and a slow.",
+          "ru": "После меток Strix Salvo попадайте заряженными выстрелами ради дополнительного урона и замедления."
+        },
+        {
+          "en": "Watch Chimera Mk1's heat and plan a hero hit on landing to avoid stunning yourself.",
+          "ru": "Следите за нагревом Chimera Mk1 и планируйте попадание по герою при приземлении, чтобы не оглушить себя."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/drifter.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_card.webp"
+      },
+      "heroId": 64,
+      "lore": {
+        "en": "An old vampire wanders America, ignoring the laws and customs of vampire society despite the powerful enemies this earns him.",
+        "ru": "Старый вампир бродит по Америке, пренебрегая законами и обычаями своего общества вопреки нажитым могущественным врагам."
+      },
+      "relationships": [],
+      "slug": "drifter",
+      "summary": {
+        "en": "Tracks isolated enemies and repositions behind bleeding targets.",
+        "ru": "Выслеживает изолированных врагов и перемещается за спину кровоточащих целей."
+      },
+      "tips": [
+        {
+          "en": "Recast Stalker's Mark while its victim is bleeding to appear behind them.",
+          "ru": "Повторно используйте Stalker's Mark, пока цель истекает кровью, чтобы появиться у неё за спиной."
+        },
+        {
+          "en": "Use Eternal Night's isolation effect to enable Bloodscent's amplified damage.",
+          "ru": "Учитывайте изоляцию от Eternal Night, которая позволяет усилить урон через Bloodscent."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/dynamo.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_card.webp"
+      },
+      "heroId": 11,
+      "lore": {
+        "en": "A Columbia scientist lost his human body while investigating a rift. Now a tiny star, he continues teaching and studying his transformation.",
+        "ru": "Учёный из Columbia лишился человеческого тела при исследовании разлома. Став маленькой звездой, он продолжает преподавать и изучать своё превращение."
+      },
+      "relationships": [],
+      "slug": "dynamo",
+      "summary": {
+        "en": "Heals nearby allies, teleports and gathers enemies into a singularity.",
+        "ru": "Лечит ближайших союзников, телепортируется и стягивает врагов в сингулярность."
+      },
+      "tips": [
+        {
+          "en": "Use Quantum Entanglement's ally option when nearby teammates also need the teleport.",
+          "ru": "Используйте вариант Quantum Entanglement для союзников, когда ближайшим товарищам тоже нужен телепорт."
+        },
+        {
+          "en": "You can dash or melee during Rejuvenating Aurora without ending its healing channel.",
+          "ru": "Во время Rejuvenating Aurora можно делать рывки и бить в ближнем бою, не прерывая лечение."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/graves.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_card.webp"
+      },
+      "heroId": 76,
+      "lore": {
+        "en": "Blackmore student Darcy Graves learned necromancy from an imprisoned lich's hand and now helps the dead with unfinished business alongside her schoolwork.",
+        "ru": "Школьница Darcy Graves изучила некромантию у заточённой руки лича и теперь совмещает учёбу с помощью мертвецам в незавершённых делах."
+      },
+      "relationships": [],
+      "slug": "graves",
+      "summary": {
+        "en": "Collects nearby deaths to summon Deadheads and blocks routes with a rift.",
+        "ru": "Собирает энергию смертей для призыва Deadheads и перекрывает пути разломом."
+      },
+      "tips": [
+        {
+          "en": "Fire at the enemy you want your Jar of Dead summons to prioritize.",
+          "ru": "Стреляйте по врагу, которого должны выбрать целью призванные Jar of Dead существа."
+        },
+        {
+          "en": "Rotate Grasping Hands with alt-cast to place its rift across an enemy route.",
+          "ru": "Поворачивайте Grasping Hands альтернативным применением, чтобы перекрыть разломом путь врага."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/grey-talon.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_card.webp"
+      },
+      "heroId": 17,
+      "lore": {
+        "en": "Retired monster hunter Wesley Grey Talon returned to his bow after the suspicious fire that killed his son's family.",
+        "ru": "Отставной охотник на чудовищ Wesley Grey Talon вновь взялся за лук после подозрительного пожара, погубившего семью сына."
+      },
+      "relationships": [],
+      "slug": "grey-talon",
+      "summary": {
+        "en": "Uses charged arrows, aerial shots, a trap and a guided spirit owl.",
+        "ru": "Использует заряженные стрелы, стрельбу с воздуха, ловушку и управляемую сову."
+      },
+      "tips": [
+        {
+          "en": "Shoot your Spirit Snare with Charged Shot to trigger it early with a larger radius.",
+          "ru": "Попадите Charged Shot по своей Spirit Snare, чтобы досрочно активировать её с большим радиусом."
+        },
+        {
+          "en": "Use jump to release control of Guided Owl when you need to return attention to your hero.",
+          "ru": "Нажмите прыжок, чтобы перестать управлять Guided Owl и снова заняться своим героем."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/haze.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_card.webp"
+      },
+      "heroId": 13,
+      "lore": {
+        "en": "Haze serves the secretive OSIC's Sandman Division, entering suspects' dreams to judge and neutralize supernatural threats.",
+        "ru": "Haze служит в подразделении Sandman секретной OSIC: проникает в сны подозреваемых, оценивая и устраняя сверхъестественные угрозы."
+      },
+      "relationships": [],
+      "slug": "haze",
+      "summary": {
+        "en": "Uses invisibility and sleep while building weapon damage on a focused target.",
+        "ru": "Использует невидимость и сон, наращивая урон оружия по выбранной цели."
+      },
+      "tips": [
+        {
+          "en": "Sleep Dagger can be thrown without breaking invisibility, but it does not interrupt channels.",
+          "ru": "Sleep Dagger можно бросить без выхода из невидимости, но он не прерывает поддерживаемые способности."
+        },
+        {
+          "en": "Keep shots on one target to build Fixation; headshots add more stacks.",
+          "ru": "Сосредоточьтесь на одной цели для накопления Fixation; попадания в голову дают больше стаков."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/holliday.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_card.webp"
+      },
+      "heroId": 14,
+      "lore": {
+        "en": "A small-town sheriff followed a murderous musician called the Troubadour toward New York after watching him escape as a flock of crows.",
+        "ru": "Шериф маленького городка преследует в Нью-Йорке убийцу-музыканта по прозвищу Troubadour, сумевшего бежать стаей ворон."
+      },
+      "relationships": [],
+      "slug": "holliday",
+      "summary": {
+        "en": "Mixes explosive barrels, bouncing movement and a disabling lasso.",
+        "ru": "Сочетает взрывные бочки, прыжковые площадки и контролирующее лассо."
+      },
+      "tips": [
+        {
+          "en": "Shoot or melee Powder Keg when you need its explosion before the timer ends.",
+          "ru": "Выстрелите в Powder Keg или ударьте его, если взрыв нужен до окончания таймера."
+        },
+        {
+          "en": "Use a Bounce Pad during Spirit Lasso to extend the lasso's duration.",
+          "ru": "Используйте Bounce Pad во время Spirit Lasso, чтобы продлить действие лассо."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/infernus.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card.webp"
+      },
+      "heroId": 1,
+      "lore": {
+        "en": "Once a violent young fire-wielder from another plane, Infernus now enjoys tending a bar, though he still uses his old skills when trouble arrives.",
+        "ru": "Когда-то жестокий юный повелитель огня из другого мира, Infernus теперь работает в баре, но вспоминает старые умения при неприятностях."
+      },
+      "relationships": [],
+      "slug": "infernus",
+      "summary": {
+        "en": "Builds lingering burns and leaves a damaging trail during fiery dashes.",
+        "ru": "Накапливает длительное горение и оставляет опасный след огненными рывками."
+      },
+      "tips": [
+        {
+          "en": "After starting Afterburn, land abilities to refresh its base duration and weapon hits to extend it.",
+          "ru": "После запуска Afterburn обновляйте его базовую длительность способностями и продлевайте попаданиями оружия."
+        },
+        {
+          "en": "Hold forward during Flame Dash when you need the longer dash.",
+          "ru": "Удерживайте движение вперёд во время Flame Dash, когда нужен более длинный рывок."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/ivy.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_card.webp"
+      },
+      "heroId": 20,
+      "lore": {
+        "en": "The Arroyo family welcomed Ivy after the newly awakened gargoyle protected them. Having fought the Mendoza Syndicate for years, she is ready to explore beyond Spanish Harlem.",
+        "ru": "Семья Arroyo приняла Ivy после того, как ожившая горгулья защитила их. После долгой борьбы с синдикатом Mendoza она готова узнать мир за пределами Испанского Гарлема."
+      },
+      "relationships": [],
+      "slug": "ivy",
+      "summary": {
+        "en": "Links with allies, controls ground with thorns and carries a teammate through the air.",
+        "ru": "Связывается с союзниками, контролирует землю колючками и переносит товарища по воздуху."
+      },
+      "tips": [
+        {
+          "en": "Keep line of sight to your Kudzu Connection ally so the link stays active.",
+          "ru": "Сохраняйте видимость союзника с Kudzu Connection, чтобы связь оставалась активной."
+        },
+        {
+          "en": "Time Stone Form to protect yourself while landing its nearby stun and healing.",
+          "ru": "Выбирайте момент Stone Form, чтобы защитить себя и одновременно оглушить ближайших врагов и восстановить здоровье."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/kelvin.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_card.webp"
+      },
+      "heroId": 12,
+      "lore": {
+        "en": "Kelvin returned from a vanished Arctic expedition without a pulse or memories of what happened. The scientist is seeking answers to his impossible survival.",
+        "ru": "Kelvin вернулся из исчезнувшей арктической экспедиции без пульса и воспоминаний о случившемся. Учёный ищет объяснение своему невозможному выживанию."
+      },
+      "relationships": [],
+      "slug": "kelvin",
+      "summary": {
+        "en": "Heals and slows with ice, creates elevated paths and shelters allies in a dome.",
+        "ru": "Лечит и замедляет льдом, создаёт воздушные дорожки и укрывает союзников куполом."
+      },
+      "tips": [
+        {
+          "en": "Place Frost Grenade so its blast can heal allies while slowing enemies.",
+          "ru": "Бросайте Frost Grenade так, чтобы взрыв лечил союзников и замедлял врагов."
+        },
+        {
+          "en": "Remember enemies can also use Ice Path when planning your route.",
+          "ru": "Планируя маршрут Ice Path, учитывайте, что враги тоже могут ходить по ледяной дорожке."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/lady-geist.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_card.webp"
+      },
+      "heroId": 4,
+      "lore": {
+        "en": "Jeanne Geist regained youth through a bargain with Oathkeeper, then bound the spirit to limit his influence. Her weakening wards now struggle to contain his hunger.",
+        "ru": "Jeanne Geist вернула молодость сделкой с Oathkeeper, а затем связала духа, ограничив его власть. Теперь ослабевающие печати всё хуже сдерживают его голод."
+      },
+      "relationships": [],
+      "slug": "lady-geist",
+      "summary": {
+        "en": "Spends her health on attacks, drains enemies and can exchange health with a target.",
+        "ru": "Тратит здоровье на атаки, вытягивает его из врагов и может обменяться здоровьем с целью."
+      },
+      "tips": [
+        {
+          "en": "Check your health before Essence Bomb or Malice: both cost some of your own health.",
+          "ru": "Проверяйте здоровье перед Essence Bomb и Malice: обе способности расходуют ваше здоровье."
+        },
+        {
+          "en": "Keep Life Drain's target visible and within range to maintain the tether.",
+          "ru": "Удерживайте цель Life Drain в поле зрения и радиусе действия, чтобы сохранить связь."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/lash.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_card.webp"
+      },
+      "heroId": 31,
+      "lore": {
+        "en": "Lash's official biography offers only a blunt insult, leaving his history unexplained.",
+        "ru": "Официальная биография Lash ограничивается резкой оскорбительной характеристикой и не раскрывает его прошлое."
+      },
+      "relationships": [],
+      "slug": "lash",
+      "summary": {
+        "en": "Uses aerial mobility to set up ground impacts and whip-based throws.",
+        "ru": "Использует воздушную подвижность для ударов о землю и бросков хлыстами."
+      },
+      "tips": [
+        {
+          "en": "Use Grapple to regain your air jumps and dashes while moving through the air.",
+          "ru": "Используйте Grapple для восстановления воздушных прыжков и рывков."
+        },
+        {
+          "en": "Keep Death Slam targets in sight and range during the latch or they will not be grabbed.",
+          "ru": "Удерживайте цели Death Slam в видимости и радиусе во время захвата, иначе они не будут схвачены."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/mcginnis.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_card.webp"
+      },
+      "heroId": 8,
+      "lore": {
+        "en": "A gifted builder since childhood, Maggie McGinnis now leads military research at Fairfax Industries and favors workshop invention over abstract theory.",
+        "ru": "Одарённая изобретательница с детства, Maggie McGinnis руководит военными разработками Fairfax Industries и предпочитает мастерскую отвлечённой теории."
+      },
+      "relationships": [],
+      "slug": "mcginnis",
+      "summary": {
+        "en": "Deploys turrets and healing while dividing terrain with a spectral wall.",
+        "ru": "Ставит турели и лечение, разделяя местность призрачной стеной."
+      },
+      "tips": [
+        {
+          "en": "Deploy Medicinal Specter where nearby teammates can stay in its healing area.",
+          "ru": "Размещайте Medicinal Specter там, где товарищи смогут оставаться в области лечения."
+        },
+        {
+          "en": "Recast Spectral Wall to raise it early when you need to divide the terrain immediately.",
+          "ru": "Повторно примените Spectral Wall для раннего подъёма, если нужно немедленно разделить местность."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/mina.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_card.webp"
+      },
+      "heroId": 63,
+      "lore": {
+        "en": "After losing a politically valuable marriage, Mina accepted vampirism as a path to lasting status. She now plans to rise through New York's vampire hierarchy.",
+        "ru": "Потеряв выгодный брак, Mina приняла вампиризм ради долговечного положения. Теперь она стремится подняться в вампирской иерархии Нью-Йорка."
+      },
+      "relationships": [],
+      "slug": "mina",
+      "summary": {
+        "en": "Repositions through brief untargetability and builds bites into a growing bat swarm.",
+        "ru": "Перемещается с краткой недоступностью для атак и усиливает укусами стаю летучих мышей."
+      },
+      "tips": [
+        {
+          "en": "Use Sanguine Retreat's brief recast window when a second movement is needed.",
+          "ru": "Используйте короткое окно повторного Sanguine Retreat, если требуется второе перемещение."
+        },
+        {
+          "en": "Trigger Love Bites on heroes to increase the number of bats in Nox Nostra permanently.",
+          "ru": "Запускайте Love Bites на героях, чтобы навсегда увеличивать число летучих мышей Nox Nostra."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/mirage.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_card.webp"
+      },
+      "heroId": 52,
+      "lore": {
+        "en": "Mirage protects Djinn ambassador Nashala Dion in New York as the Djinn seek territory in Wyoming for a sovereign homeland.",
+        "ru": "Mirage охраняет посла джиннов Nashala Dion в Нью-Йорке, пока джинны пытаются получить землю в Вайоминге для собственного государства."
+      },
+      "relationships": [],
+      "slug": "mirage",
+      "summary": {
+        "en": "Combines scarabs, a lifting whirlwind, mark damage and a map-targeted teleport.",
+        "ru": "Совмещает скарабеев, подбрасывающий вихрь, урон меток и телепорт по карте."
+      },
+      "tips": [
+        {
+          "en": "Activate Djinn's Mark when you want accumulated marks to deal their damage immediately.",
+          "ru": "Активируйте Djinn's Mark, когда хотите немедленно реализовать урон накопленных меток."
+        },
+        {
+          "en": "Start Traveler from safety: incoming damage and several control effects interrupt its wait.",
+          "ru": "Начинайте Traveler из безопасного места: урон и ряд эффектов контроля прерывают подготовку телепорта."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/mo-krill.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_card.webp"
+      },
+      "heroId": 18,
+      "lore": {
+        "en": "Mo and Krill enforce the hospitality of the Tunnel Rats, protecting the underground trade routes from gangs that abuse them.",
+        "ru": "Mo и Krill защищают правила гостеприимства Tunnel Rats и не дают бандам использовать подземные торговые пути для своих разборок."
+      },
+      "relationships": [],
+      "slug": "mo-krill",
+      "summary": {
+        "en": "Burrows into close range to disarm, drain health and hold one enemy in place.",
+        "ru": "Закапывается для сближения, обезоруживает, восстанавливает здоровье и удерживает одного врага."
+      },
+      "tips": [
+        {
+          "en": "Aim Sand Blast across armed enemies to apply its disarm.",
+          "ru": "Направляйте Sand Blast на стреляющих врагов, чтобы обезоружить их."
+        },
+        {
+          "en": "Use Scorn near enemy heroes when possible: its healing is stronger against them.",
+          "ru": "По возможности применяйте Scorn рядом с вражескими героями: лечение от них сильнее."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/nurse-harrow.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nurse_card.webp"
+      },
+      "heroId": 87,
+      "lore": {
+        "en": "At Marble Hill's possession ward, Harrow combines care with severe treatments, carrying her patients' pain in a mysterious medical bag.",
+        "ru": "В отделении одержимости Marble Hill Harrow сочетает заботу с суровым лечением и хранит боль пациентов в таинственном медицинском саквояже."
+      },
+      "relationships": [],
+      "slug": "nurse-harrow",
+      "summary": {
+        "en": "Heals allies with syringes and manages delayed damage, leeches and fear.",
+        "ru": "Лечит союзников шприцами и управляет отложенным уроном, пиявками и страхом."
+      },
+      "tips": [
+        {
+          "en": "Heal during Wretched Vapors to remove looming specters before their delayed damage arrives.",
+          "ru": "Лечите во время Wretched Vapors, чтобы убрать призраков до нанесения отложенного урона."
+        },
+        {
+          "en": "Put Healing Needles away when healing is no longer needed; unused syringes refund part of a charge.",
+          "ru": "Убирайте Healing Needles, когда лечение больше не нужно: неиспользованные шприцы возвращают часть заряда."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/paige.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_card.webp"
+      },
+      "heroId": 67,
+      "lore": {
+        "en": "A bibliomancer who earns her living telling stories, Paige is determined to discover what happened to her missing younger brother Bryce.",
+        "ru": "Библиомант Paige зарабатывает рассказыванием историй и решительно ищет правду об исчезновении младшего брата Bryce."
+      },
+      "relationships": [],
+      "slug": "paige",
+      "summary": {
+        "en": "Protects allies with barriers and healing while conjuring fire and delayed roots.",
+        "ru": "Защищает союзников барьерами и лечением, создаёт огонь и отложенное обездвиживание."
+      },
+      "tips": [
+        {
+          "en": "Grant Plot Armor before an ally attacks so its barrier can also provide weapon damage.",
+          "ru": "Дайте Plot Armor до атаки союзника, чтобы барьер одновременно усиливал урон оружия."
+        },
+        {
+          "en": "Lead Captivating Read ahead of movement because its immobilizing detonation is delayed.",
+          "ru": "Применяйте Captivating Read с упреждением: обездвиживающий взрыв происходит с задержкой."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/paradox.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_card.webp"
+      },
+      "heroId": 10,
+      "lore": {
+        "en": "Paradox is both a time artifact and a masked thieves' guild whose public exhibitions flaunt thefts from supposedly untouchable targets.",
+        "ru": "Paradox — и временной артефакт, и гильдия воров в масках, выставляющая напоказ добычу у якобы недосягаемых целей."
+      },
+      "relationships": [],
+      "slug": "paradox",
+      "summary": {
+        "en": "Controls projectile timing, charges a stopping shot and swaps places with an enemy.",
+        "ru": "Управляет временем снарядов, заряжает останавливающий выстрел и меняется местами с врагом."
+      },
+      "tips": [
+        {
+          "en": "Charge Kinetic Carbine before taking its shot; it also increases movement speed while charging.",
+          "ru": "Заряжайте Kinetic Carbine перед выстрелом и учитывайте ускорение во время зарядки."
+        },
+        {
+          "en": "Check both positions before Paradoxical Swap: you exchange places with the enemy you hit.",
+          "ru": "Проверьте обе позиции перед Paradoxical Swap: вы меняетесь местами с задетым врагом."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/pocket.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_card.webp"
+      },
+      "heroId": 50,
+      "lore": {
+        "en": "Arin Fairfax survived an attempt on their life and now hides as Pocket, seeking an identity beyond the family's powerful company.",
+        "ru": "Arin Fairfax пережили покушение и скрываются под именем Pocket, стремясь обрести собственную жизнь вне власти семейной компании."
+      },
+      "relationships": [],
+      "slug": "pocket",
+      "summary": {
+        "en": "Uses a traveling cloak and a protective suitcase around area damage.",
+        "ru": "Использует летящий плащ и защитный чемодан вместе с уроном по области."
+      },
+      "tips": [
+        {
+          "en": "Send Flying Cloak toward a useful destination before recasting to teleport to it.",
+          "ru": "Отправляйте Flying Cloak в нужную точку, прежде чем повторно применить телепорт."
+        },
+        {
+          "en": "Plan a finishing hit after Affliction: its damage over time cannot kill on its own.",
+          "ru": "Планируйте добивающую атаку после Affliction: её периодический урон сам по себе не убивает."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/rat-king.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card.webp"
+      },
+      "heroId": 84,
+      "lore": {
+        "en": "The ruler of New York's warrens wants to seize Long Island for a rat nation and seeks a Patron's help to secure his violent plan.",
+        "ru": "Правитель нью-йоркских нор хочет захватить Лонг-Айленд для крысиного государства и ищет помощи Покровителя для своего жестокого плана."
+      },
+      "relationships": [],
+      "slug": "rat-king",
+      "summary": {
+        "en": "Sends rats to weaken bullet resistance and protects allies around a banner.",
+        "ru": "Посылает крыс ослаблять сопротивление пулям и защищает союзников у знамени."
+      },
+      "tips": [
+        {
+          "en": "Keep allies near Rule, Ratannia!'s banner to receive its defensive and movement benefits.",
+          "ru": "Держитесь с союзниками возле знамени Rule, Ratannia!, чтобы получать защиту и бонусы передвижения."
+        },
+        {
+          "en": "Remember Royal Pestments' barrier does not benefit from resistances when judging its durability.",
+          "ru": "Оценивая прочность Royal Pestments, учитывайте, что его барьер не усиливается сопротивлениями."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/rem.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_card.webp"
+      },
+      "heroId": 79,
+      "lore": {
+        "en": "Stranded in New York after accidentally leaving the dream world, Rem and his helpers wander the city looking for a way home.",
+        "ru": "Случайно покинув мир снов, Rem застрял в Нью-Йорке и вместе с помощниками ищет дорогу домой."
+      },
+      "relationships": [],
+      "slug": "rem",
+      "summary": {
+        "en": "Moves between allies to heal, dispatches helpers and channels a sleep-inducing gaze.",
+        "ru": "Перемещается между союзниками для лечения, отправляет помощников и усыпляет взглядом."
+      },
+      "tips": [
+        {
+          "en": "Land Pillow Toss to reduce your other ability cooldowns.",
+          "ru": "Попадайте Pillow Toss, чтобы сокращать перезарядку остальных способностей."
+        },
+        {
+          "en": "Hop between allies with Tag Along to apply its heal once to each ally.",
+          "ru": "Перепрыгивайте между союзниками через Tag Along, чтобы дать лечение каждому по одному разу."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/seven.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_card.webp"
+      },
+      "heroId": 2,
+      "lore": {
+        "en": "An occult criminal survived an execution designed to destroy his soul, killed his captors and set out toward New York.",
+        "ru": "Оккультный преступник пережил казнь, призванную уничтожить его душу, расправился с тюремщиками и направился в Нью-Йорк."
+      },
+      "relationships": [],
+      "slug": "seven",
+      "summary": {
+        "en": "Spreads electrical damage with balls, delayed stuns and an expanding storm.",
+        "ru": "Распространяет электрический урон шарами, отложенными оглушениями и растущей бурей."
+      },
+      "tips": [
+        {
+          "en": "Place Static Charge on a hero near other enemies to threaten its area stun.",
+          "ru": "Накладывайте Static Charge на героя рядом с другими врагами, чтобы угрожать оглушением по области."
+        },
+        {
+          "en": "Keep enemies in line of sight during Storm Cloud; cover prevents its damage.",
+          "ru": "Сохраняйте видимость врагов во время Storm Cloud: укрытие блокирует её урон."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/shiv.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_card.webp"
+      },
+      "heroId": 19,
+      "lore": {
+        "en": "Shiv hunts predatory monsters across North America for the Baxter Society, whose traditionalists sometimes distrust his rough manner and criminal past.",
+        "ru": "Shiv охотится на чудовищ-хищников по Северной Америке для Baxter Society, чьи консерваторы порой не доверяют его грубости и преступному прошлому."
+      },
+      "relationships": [],
+      "slug": "shiv",
+      "summary": {
+        "en": "Stacks knife bleeding, dashes through enemies and clears part of deferred damage.",
+        "ru": "Накапливает кровотечение ножами, прорезает врагов рывком и снимает часть отложенного урона."
+      },
+      "tips": [
+        {
+          "en": "Hit the same enemy with more Serrated Knives to stack bleeding and refresh its duration.",
+          "ru": "Попадайте Serrated Knives по одной цели, чтобы накапливать кровотечение и обновлять его длительность."
+        },
+        {
+          "en": "Activate Bloodletting to clear part of the damage waiting to arrive over time.",
+          "ru": "Активируйте Bloodletting, чтобы убрать часть отложенного урона."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/silver.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_card.webp"
+      },
+      "heroId": 80,
+      "lore": {
+        "en": "Lilah Silver is a successful bounty hunter whose werewolf nature helps compensate for a troubled personal life.",
+        "ru": "Lilah Silver — успешная охотница за головами, которой природа оборотня помогает несмотря на беспорядочную личную жизнь."
+      },
+      "relationships": [],
+      "slug": "silver",
+      "summary": {
+        "en": "Combines a rapid reload and bola with a bloodlust-driven werewolf transformation.",
+        "ru": "Совмещает быструю перезарядку и болу с превращением в оборотня от жажды крови."
+      },
+      "tips": [
+        {
+          "en": "Use Slam Fire when its immediate reload is useful, while accounting for reduced accuracy.",
+          "ru": "Используйте Slam Fire, когда полезна мгновенная перезарядка, и учитывайте снижение точности."
+        },
+        {
+          "en": "Watch bloodlust: reaching its maximum automatically activates Lycan Curse.",
+          "ru": "Следите за жаждой крови: при максимуме Lycan Curse включается автоматически."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/sinclair.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_card.webp"
+      },
+      "heroId": 60,
+      "lore": {
+        "en": "Stage magicians Henry and Savannah bound their souls in marriage; after a fatal performance, the two quarreling ghosts must work together to undo that bond.",
+        "ru": "Иллюзионисты Henry и Savannah связали души в браке; после смертельного представления ссорящиеся призраки вынуждены вместе искать способ разорвать эту связь."
+      },
+      "relationships": [],
+      "slug": "sinclair",
+      "summary": {
+        "en": "Uses an assistant, redirectable bolts, rabbit hexes and copied enemy ultimates.",
+        "ru": "Использует помощника, перенаправляемые заряды, превращение в кроликов и чужие ультимативные способности."
+      },
+      "tips": [
+        {
+          "en": "Use Spectral Assistant's recast to swap positions with your summoned assistant.",
+          "ru": "Повторно применяйте Spectral Assistant, чтобы поменяться местами с помощником."
+        },
+        {
+          "en": "Check the copied ultimate and its cooldown before reactivating Audience Participation.",
+          "ru": "Проверяйте скопированную ультимативную способность и её перезарядку перед повторным Audience Participation."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/solomon.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_card.webp"
+      },
+      "heroId": 85,
+      "lore": {
+        "en": "Solomon uses chess to listen and offer counsel, meeting people from every walk of life across an equal board.",
+        "ru": "Solomon слушает людей и даёт советы за шахматами: за одной доской он на равных встречает людей самого разного положения."
+      },
+      "relationships": [],
+      "slug": "solomon",
+      "summary": {
+        "en": "Moves chess pieces to shape routes, shield allies and immobilize enemies.",
+        "ru": "Перемещает шахматные фигуры для контроля путей, защиты союзников и обездвиживания врагов."
+      },
+      "tips": [
+        {
+          "en": "Use Kingside Knight on an ally for stamina; self-casting gives more barrier but no stamina.",
+          "ru": "Применяйте Kingside Knight на союзника ради выносливости; на себе вы получаете больший барьер, но без выносливости."
+        },
+        {
+          "en": "Use Rook Battery's recast to split the rooks perpendicularly rather than letting them travel straight.",
+          "ru": "Повторно применяйте Rook Battery, чтобы разделить ладьи перпендикулярно вместо прямого движения."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/the-doorman.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_card.webp"
+      },
+      "heroId": 69,
+      "lore": {
+        "en": "A visitor from another plane stayed at the Baroness Hotel after discovering that service work offered a fascinating view of human desires.",
+        "ru": "Гость из другого мира задержался в отеле Baroness, обнаружив, что работа в обслуживании позволяет изучать удивительные человеческие желания."
+      },
+      "relationships": [],
+      "slug": "the-doorman",
+      "summary": {
+        "en": "Connects locations with doors and disrupts enemies with hotel-themed displacement.",
+        "ru": "Соединяет точки дверями и нарушает позиции врагов гостиничными перемещениями."
+      },
+      "tips": [
+        {
+          "en": "Shoot Call Bell to trigger its explosion before the delay ends.",
+          "ru": "Выстрелите в Call Bell, чтобы вызвать взрыв до окончания задержки."
+        },
+        {
+          "en": "Consider both exits before placing Doorway: players and most projectiles can pass through.",
+          "ru": "Продумывайте оба выхода Doorway: через двери проходят игроки и большинство снарядов."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/venator.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_card.webp"
+      },
+      "heroId": 65,
+      "lore": {
+        "en": "A hardened member of the Vatican-sanctioned Venators of St. Benedict has returned to New York to identify and eliminate supernatural predators.",
+        "ru": "Закалённый участник одобренного Ватиканом ордена Venators of St. Benedict вновь прибыл в Нью-Йорк для поиска и уничтожения сверхъестественных хищников."
+      },
+      "relationships": [],
+      "slug": "venator",
+      "summary": {
+        "en": "Uses fire, wall-pinning shotgun blasts, traps and empowered crossbow stakes.",
+        "ru": "Использует огонь, прижимающие к стене выстрелы дробовика, ловушки и усиленные арбалетные колья."
+      },
+      "tips": [
+        {
+          "en": "Use Gutshot with a wall behind your target to add its stun and bonus damage.",
+          "ru": "Применяйте Gutshot, когда за целью стена, чтобы добавить оглушение и бонусный урон."
+        },
+        {
+          "en": "Account for Hex-Lined Snap Trap's arming delay when placing it on an enemy route.",
+          "ru": "Учитывайте время взведения Hex-Lined Snap Trap, размещая ловушку на пути врага."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/victor.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_card.webp"
+      },
+      "heroId": 66,
+      "lore": {
+        "en": "Victor awoke on a mortuary table with no memory of his maker or the people whose parts formed him. He searches the city for someone who can identify him.",
+        "ru": "Victor очнулся на столе морга, не зная создателя и людей, из чьих частей он собран. Он ищет в городе тех, кто поможет его опознать."
+      },
+      "relationships": [],
+      "slug": "victor",
+      "summary": {
+        "en": "Turns incoming pain into charged attacks while risking health for sustained damage.",
+        "ru": "Превращает полученную боль в заряженные атаки и рискует здоровьем ради длительного урона."
+      },
+      "tips": [
+        {
+          "en": "Use Pain Battery after incoming damage has fully charged it.",
+          "ru": "Применяйте Pain Battery, когда полученный урон полностью её зарядит."
+        },
+        {
+          "en": "Watch your own health during Aura of Suffering: its growing damage also affects you.",
+          "ru": "Следите за своим здоровьем во время Aura of Suffering: нарастающий урон действует и на вас."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/vindicta.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_card.webp"
+      },
+      "heroId": 3,
+      "lore": {
+        "en": "Returned from death after the Salem trials, Vindicta fights the Friends of Humanity to defend supernatural beings from a new inquisition.",
+        "ru": "Вернувшись после гибели на салемских процессах, Vindicta сражается с Friends of Humanity, защищая сверхъестественных существ от новой инквизиции."
+      },
+      "relationships": [],
+      "slug": "vindicta",
+      "summary": {
+        "en": "Restricts movement, takes flight and lines up charged long-range shots.",
+        "ru": "Ограничивает движение, поднимается в воздух и готовит дальние заряженные выстрелы."
+      },
+      "tips": [
+        {
+          "en": "Allow Assassinate to charge while scoped to avoid its partial-damage shot.",
+          "ru": "Дайте Assassinate зарядиться в прицеле, чтобы избежать выстрела с неполным уроном."
+        },
+        {
+          "en": "Use Stake to restrict a target's movement around its landing point.",
+          "ru": "Используйте Stake для ограничения движения цели вокруг точки приземления кола."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/violet.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/artist_card.webp"
+      },
+      "heroId": 86,
+      "lore": {
+        "en": "A successful young immigrant artist still fears obscurity. Violet seeks the Ritual for a chance to show her work to the world.",
+        "ru": "Успешная молодая художница-иммигрантка всё ещё боится безвестности. Violet обращается к Ритуалу ради возможности показать миру своё искусство."
+      },
+      "relationships": [],
+      "slug": "violet",
+      "summary": {
+        "en": "Paints movement trails, completes sketches and creates a vision-blocking ink field.",
+        "ru": "Рисует дорожки для передвижения, завершает эскизы и создаёт закрывающее обзор поле чернил."
+      },
+      "tips": [
+        {
+          "en": "Keep looking at Still Life's subject until the sketch finishes, then collect the dropped sketch.",
+          "ru": "Удерживайте взгляд на цели Still Life до завершения рисунка, затем подбирайте выпавший эскиз."
+        },
+        {
+          "en": "Use other abilities to refresh Flow State through Living Ink's passive.",
+          "ru": "Применяйте другие способности для обновления Flow State через пассивный эффект Living Ink."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/viscous.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_card.webp"
+      },
+      "heroId": 35,
+      "lore": {
+        "en": "A psychic sea anemone projects a goo body onto land, hoping to summon the Patrons to protect the ocean from the Adversary.",
+        "ru": "Психическая морская анемона создаёт слизистое тело для суши, надеясь призвать Покровителей и защитить океан от Adversary."
+      },
+      "relationships": [],
+      "slug": "viscous",
+      "summary": {
+        "en": "Slows with goo, protects targets in a cube and rolls into enemies to stun them.",
+        "ru": "Замедляет слизью, защищает цели кубом и оглушает врагов столкновениями в форме шара."
+      },
+      "tips": [
+        {
+          "en": "Remember The Cube protects its target but also prevents new actions until they leave.",
+          "ru": "Учитывайте, что The Cube защищает цель, но не даёт совершать новые действия до выхода."
+        },
+        {
+          "en": "Aim Puddle Punch with care: enemies can parry its melee attack.",
+          "ru": "Тщательно выбирайте момент Puddle Punch: враги могут парировать эту атаку ближнего боя."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/vyper.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_card.webp"
+      },
+      "heroId": 58,
+      "lore": {
+        "en": "A frequent prisoner and practiced escape artist, Vyper has accumulated both favors and enemies throughout the region's underworld.",
+        "ru": "Частая заключённая и умелица побегов, Vyper обзавелась в преступном мире региона и должниками, и врагами."
+      },
+      "relationships": [],
+      "slug": "vyper",
+      "summary": {
+        "en": "Stacks dagger pressure, uses agile slides and petrifies targets for delayed venom.",
+        "ru": "Наращивает давление кинжалами, ловко скользит и окаменяет цели под отложенный яд."
+      },
+      "tips": [
+        {
+          "en": "Hit one target repeatedly with Screwjab Dagger to stack its damage and slow.",
+          "ru": "Повторно попадайте Screwjab Dagger по одной цели для накопления урона и замедления."
+        },
+        {
+          "en": "Direct-hit Petrifying Bola to petrify; most damage is blocked during petrification, but Lethal Venom bypasses it.",
+          "ru": "Попадите Petrifying Bola напрямую для окаменения: оно блокирует большую часть урона, но Lethal Venom его обходит."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/warden.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card.webp"
+      },
+      "heroId": 25,
+      "lore": {
+        "en": "Raised by a family of militant alchemists, Warden was trained to prevent the Patrons from entering the world.",
+        "ru": "Выросший в семье воинствующих алхимиков, Warden с детства обучался не допустить прихода Покровителей в мир."
+      },
+      "relationships": [],
+      "slug": "warden",
+      "summary": {
+        "en": "Weakens enemies with alchemy, threatens a delayed root and drains health in pulses.",
+        "ru": "Ослабляет врагов алхимией, угрожает отложенным обездвиживанием и вытягивает здоровье импульсами."
+      },
+      "tips": [
+        {
+          "en": "Slow a target with Alchemical Flask to make escaping Binding Word's area harder.",
+          "ru": "Замедляйте цель Alchemical Flask, чтобы ей было сложнее покинуть область Binding Word."
+        },
+        {
+          "en": "Allow for Last Stand's initial charge when choosing when to enter a fight.",
+          "ru": "Учитывайте начальную подготовку Last Stand, выбирая момент вступления в бой."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/wraith.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_card.webp"
+      },
+      "heroId": 7,
+      "lore": {
+        "en": "Wraith runs a notorious New York gambling organization, relying on bribery, intimidation and blackmail to stay beyond legal consequences.",
+        "ru": "Wraith управляет известной игорной организацией Нью-Йорка и избегает закона благодаря взяткам, запугиванию и шантажу."
+      },
+      "relationships": [],
+      "slug": "wraith",
+      "summary": {
+        "en": "Builds throwable cards through weapon damage and pairs teleportation with telekinesis.",
+        "ru": "Получает метательные карты уроном оружия и сочетает телепорт с телекинезом."
+      },
+      "tips": [
+        {
+          "en": "Deal weapon damage to generate Card Trick cards, then aim their flight with your crosshair.",
+          "ru": "Наносите урон оружием для получения карт Card Trick, затем направляйте их полёт прицелом."
+        },
+        {
+          "en": "Choose a destination for Project Mind before committing to the teleport.",
+          "ru": "Выберите точку Project Mind заранее, прежде чем начинать телепорт."
+        }
+      ],
+      "videos": []
+    },
+    {
+      "art": {
+        "background": "images/hero-art/yamato.webp",
+        "card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_card.webp"
+      },
+      "heroId": 27,
+      "lore": {
+        "en": "After her brother died protecting her during a criminal uprising in Japan, she fled to America and took his name, Yamato, to preserve his memory and ambitions.",
+        "ru": "После гибели брата, защитившего её во время преступного мятежа в Японии, она бежала в Америку и взяла его имя Yamato, сохраняя память и мечты брата."
+      },
+      "relationships": [],
+      "slug": "yamato",
+      "summary": {
+        "en": "Charges sword strikes, grapples toward targets and refreshes abilities through transformation.",
+        "ru": "Заряжает удары мечом, притягивается к целям и обновляет способности превращением."
+      },
+      "tips": [
+        {
+          "en": "Charge Power Slash for full damage or release it early when the target will escape.",
+          "ru": "Заряжайте Power Slash для полного урона или отпускайте раньше, если цель уходит."
+        },
+        {
+          "en": "Hit a hero with Crimson Slash when you need its healing effect.",
+          "ru": "Попадите Crimson Slash по герою, когда нужно лечение."
+        }
+      ],
+      "videos": []
+    }
+  ],
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-04T08:43:26.979046+00:00"
+}

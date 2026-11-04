@@ -29,7 +29,12 @@ export function ItemDetailPage({
   );
   const back = (
     <a className="item-back" href={returnTo}>
-      ← {t('Назад к предметам')}
+      ←{' '}
+      {returnTo.startsWith('#/heroes/')
+        ? language === 'en'
+          ? 'Back to hero'
+          : 'Назад к герою'
+        : t('Назад к предметам')}
     </a>
   );
   if (error)

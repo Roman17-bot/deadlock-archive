@@ -17,13 +17,17 @@ import './HeroCalculator.css';
 export default function HeroCalculator({
   data,
   onRule,
+  initialHeroSlug,
 }: {
   data: HeroSnapshot;
   onRule: (id: string) => void;
+  initialHeroSlug?: string;
 }) {
   const { t, language } = useI18n();
   const { catalog, error, retry } = useItems();
-  const [heroId, setHeroId] = useState(data.heroes[0]?.id);
+  const [heroId, setHeroId] = useState(
+    data.heroes.find((h) => h.slug === initialHeroSlug)?.id ?? data.heroes[0]?.id,
+  );
   const [level, setLevel] = useState(1);
   const [slots, setSlots] = useState<(number | null)[]>(() =>
     Array(data.calculatorRules?.maxSlots ?? 0).fill(null),

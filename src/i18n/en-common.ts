@@ -1,4 +1,5 @@
 export const enCommon: Record<string, string> = {
+  'Карта': 'Map',
   'Публикация не подтверждена': 'Publication has not been confirmed',
   'Локальные данные сохранены, но публикация не подтверждена. Повторите синхронизацию с GitHub Pages в локальном центре.':
     'Local data was saved, but publication has not been confirmed. Retry GitHub Pages synchronization in the local center.',

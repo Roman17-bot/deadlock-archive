@@ -1,5 +1,12 @@
 export type Field = { key: string; label: string; value: string; list?: boolean; hint?: string };
-export type Task = { id: string; label: string; rule: string; note: string; fields: Field[] };
+export type Task = {
+  id: string;
+  label: string;
+  rule: string;
+  note: string;
+  limitation?: string;
+  fields: Field[];
+};
 const f = (key: string, label: string, value: string, list = false, hint?: string): Field => ({
   key,
   label,
@@ -13,6 +20,8 @@ export const tasks: Task[] = [
     label: 'Сопротивления и эффективное HP',
     rule: 'ehp',
     note: 'Расчёт для одного типа урона при постоянной защите, без лечения и барьеров. Бонусы одного эффекта сначала объедини в одно значение.',
+    limitation:
+      'Защита от снижения сопротивлений здесь не учитывается. Для таких целей, например Мидбосса, используй расчёт смеси урона с уже итоговыми сопротивлениями.',
     fields: [
       f('health', 'Здоровье героя, HP', '1000'),
       f('resists', 'Положительные резисты, %', '30;20', true),

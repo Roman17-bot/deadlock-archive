@@ -10,7 +10,7 @@ public sealed record PublicSnapshot(JsonObject Manifest, Dictionary<string, byte
     public const int MaxFileBytes = 4 * 1024 * 1024, MaxTotalBytes = 32 * 1024 * 1024, MaxFiles = 512;
     public string Hash => ArchiveJson.Text(Manifest["hash"]);
     public int ClientVersion => (int)ArchiveJson.Number(Manifest["clientVersion"]);
-    public static bool Approved(string path) => ArchiveJson.Files.Keys.Any(k => path == "data/" + k) || Regex.IsMatch(path, @"^public/assets/heroes/[A-Za-z0-9][A-Za-z0-9._-]*\.(?:webp|png|jpe?g|avif)$") || Regex.IsMatch(path, @"^public/assets/(?:items|abilities)/[A-Za-z0-9][A-Za-z0-9._-]*\.webp$");
+    public static bool Approved(string path) => (path.StartsWith("public/", StringComparison.Ordinal) && Ingestion.ReferenceMedia.Local(path[7..])) || ArchiveJson.Files.Keys.Any(k => path == "data/" + k) || Regex.IsMatch(path, @"^public/assets/heroes/[A-Za-z0-9][A-Za-z0-9._-]*\.(?:webp|png|jpe?g|avif)$") || Regex.IsMatch(path, @"^public/assets/(?:items|abilities)/[A-Za-z0-9][A-Za-z0-9._-]*\.webp$");
     public static JsonObject ParseManifest(JsonNode? node)
     {
         var m = node?.AsObject() ?? throw new InvalidDataException("Invalid manifest"); var files = m["files"]?.AsObject() ?? throw new InvalidDataException("Invalid manifest files");
@@ -22,7 +22,7 @@ public sealed record PublicSnapshot(JsonObject Manifest, Dictionary<string, byte
     {
         ArchiveJson.Validate(bundle); var files = new Dictionary<string, byte[]>();
         foreach (var (name, keys) in ArchiveJson.Files) if (ArchiveJson.At(bundle, keys) is { } value) files.Add("data/" + name, ArchiveJson.Bytes(value));
-        var assets = bundle["heroes"]!["heroes"]!.AsArray().Select(h => "public/" + ArchiveJson.Text(h!["portrait"])).Concat(bundle["items"]?["items"]?.AsArray().Select(i => "public/" + ArchiveJson.Text(i!["icon"])) ?? []).Concat(bundle["abilities"] is JsonObject abilities ? Ingestion.AbilityAdapter.All(abilities).Select(a => "public/" + ArchiveJson.Text(a["icon"])) : []).Distinct().Order(StringComparer.Ordinal);
+        var assets = bundle["heroes"]!["heroes"]!.AsArray().Select(h => "public/" + ArchiveJson.Text(h!["portrait"])).Concat(bundle["items"]?["items"]?.AsArray().Select(i => "public/" + ArchiveJson.Text(i!["icon"])) ?? []).Concat(bundle["abilities"] is JsonObject abilities ? Ingestion.AbilityAdapter.All(abilities).Select(a => "public/" + ArchiveJson.Text(a["icon"])) : []).Concat(Ingestion.ReferenceMedia.Paths(bundle)).Distinct().Order(StringComparer.Ordinal);
         foreach (var p in assets) { if (!Approved(p)) throw new InvalidDataException("Unapproved asset"); var file = ArchiveJson.SafePath(paths.Root, p); if (new FileInfo(file).Length > MaxFileBytes) throw new InvalidDataException("Asset too large"); files.Add(p, await File.ReadAllBytesAsync(file, ct)); CheckLimits(files); }
         CheckLimits(files); var hashes = new JsonObject(); foreach (var (p, v) in files.OrderBy(x => x.Key, StringComparer.Ordinal)) hashes[p] = ArchiveJson.Hash(v);
         var manifest = new JsonObject { ["schemaVersion"] = 1, ["clientVersion"] = bundle["heroes"]!["meta"]!["clientVersion"]!.DeepClone(), ["reviewedClientVersion"] = bundle["mechanics"]!["ru"]!["meta"]!["reviewedClientVersion"]!.DeepClone(), ["hash"] = ArchiveJson.Hash(ArchiveJson.Bytes(hashes)), ["files"] = hashes };
