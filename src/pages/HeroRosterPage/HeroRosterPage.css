@@ -525,9 +525,27 @@
   transform: rotate(-15deg) translateY(-2px);
 }
 .roster-calculator-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #857b50;
+  background: #183025;
   font-size: 14px;
-  color: var(--paper-muted);
-  text-underline-offset: 5px;
+  color: var(--paper);
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.roster-calculator-link:is(:hover, :focus-visible) {
+  background: #d1ad66;
+  border-color: #ead39c;
+  color: #17271e;
+}
+@media (prefers-reduced-motion: reduce) {
+  .roster-calculator-link {
+    transition: none;
+  }
 }
 .hero-roster-page :is(a, button):focus-visible {
   outline: 2px solid var(--brass);

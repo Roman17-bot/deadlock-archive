@@ -69,9 +69,6 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
             preserveAspectRatio="none"
           />
         </svg>
-        <span className="roster-folder-tab" aria-hidden="true">
-          {en ? 'Heroes' : 'Герои'}
-        </span>
         <section
           className="roster-contact-sheet"
           aria-label={en ? 'Hero portraits' : 'Портреты героев'}
