@@ -26720,7 +26720,7 @@
               "cost": 5,
               "description": {
                 "en": "Improved damage scaling \nRicochets once off walls, floors, and ceilings",
-                "ru": "Увеличенный множитель урона \nОдин раз рикошетит от стены"
+                "ru": "Увеличенный множитель урона \nОдин раз рикошетит от стены, пола или потолка"
               },
               "operations": [
                 {
@@ -98940,7 +98940,7 @@
               "cost": 5,
               "description": {
                 "en": "Alt-Cast to Grapple allies\n+8m Cast Range\nGains 1 extra charge",
-                "ru": "Alt-Cast to Grapple allies\n+8m Cast Range\nGains 1 extra charge"
+                "ru": "Альт. применение позволяет цепляться за союзников\n+8 м к дальности применения\nДаёт 1 дополнительный заряд"
               },
               "operations": [
                 {
@@ -99964,10 +99964,10 @@
     }
   ],
   "meta": {
-    "clientVersion": 6842,
-    "gameCommit": "fc53d8b267db6949b03d3fdb975dff4c9028f77b",
+    "clientVersion": 6848,
+    "gameCommit": "fed007c2f240713754bb4fe6c6f2e9b8fe56e93a",
     "schemaVersion": 1,
-    "sourceRevision": 11196939,
-    "updatedAt": "2026-11-03T12:59:25.923Z"
+    "sourceRevision": 11203487,
+    "updatedAt": "2026-11-04T08:39:04.398Z"
   }
 }

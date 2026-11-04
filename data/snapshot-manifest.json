@@ -1,14 +1,14 @@
 {
-  "clientVersion": 6842,
+  "clientVersion": 6848,
   "files": {
-    "data/abilities.json": "e62d08937a70988f92eec04ff9614d32650fa8cc05f1c9d4128ea1a58bc031b4",
-    "data/heroes.json": "1ab2b26b5c518dcc968c5757e50aa7457471b31542528a5abd903e9c9a125dbb",
-    "data/item-statistics.json": "561a033c172de519baa152a1d70b7ab600540d7f52cdf965251a9345b581c6f0",
-    "data/items.json": "c9fdda95b4dd449d01e4e400f5bd0d13a80c5f74c2b12346499940194847af6c",
+    "data/abilities.json": "4ae6a2f57680a76da279080402a89fb29daf5a7576f94028049dd9a6dfc1c5fb",
+    "data/heroes.json": "8d2e4a74c88572e3fbdbb169ff801836eb9e4781843d5d24a4d3786e3d106884",
+    "data/item-statistics.json": "001e717edad30053234bc6161e56399269a4bc837b75acdaf00fc3b09f1a42e5",
+    "data/items.json": "622d7c7fdd159eefc02065984627b7c5497b14e020f6be2f3ed3c0e4718f711a",
     "data/mechanics.en.json": "e7ad716010e2defdd5106e2cbd62b0df8f6f58ea67d45ca34787620bd8f9ddbe",
     "data/mechanics.json": "a1de878110425dec8f78a484647639f29964175cae7cda7fb18bff57cd760c83",
-    "data/provenance.json": "fca7d945ca9df071b98585ea78e9fadbd6face27e1afc6c91d52248ed191aa08",
-    "data/version-history.json": "5b83e3cc52c5e00b29c188ef4f2f04378dc92bf75e6ab699af736c3d9f807d5c",
+    "data/provenance.json": "1b11e18e6a739d1692228920fb944ad6e39c46a0f20b3d5fba9a623bf30ca069",
+    "data/version-history.json": "202615465e7492f6752d92d901429a38c11f5341e3bab0827daaa2b0a53b1882",
     "public/assets/abilities/1009029159.webp": "c8159e32d7036d9a09750e3bbe4d5e5fb310bf3ef5b268b1b1035ff93ae38918",
     "public/assets/abilities/1011349580.webp": "fa2a92506e684f9aa330707b89c985a76c9b5c78839fcee52b82650f017c8a55",
     "public/assets/abilities/1020817390.webp": "72405897b93e3d02feed23e1536c7448dfce34a805d9024e6e364af8f89919c0",
@@ -390,7 +390,7 @@
     "public/assets/items/weighted-shots.webp": "d991c6079d88d70b8a8c9a8a3113ea2ced6a7862d41591e3a6c269dba7437456",
     "public/assets/items/witchmail.webp": "588ea7711427d9ceda3c0d386b7b83179138a397ccfd2afe106d3830c917c204"
   },
-  "hash": "32a5277776865a6282565ce0e7b410762a411064773d6b6d33dc339997f8a769",
+  "hash": "0a703cd002d90e7bc08b9842f6d3a01b959c484c5fcfd0919e6bc5f4bd725dfd",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }
