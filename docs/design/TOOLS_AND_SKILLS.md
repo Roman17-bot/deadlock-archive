@@ -36,7 +36,7 @@ Anthropic/Vercel/MiniMax установлены штатным `skill-installer`
 
 ## Браузерные инструменты
 
-В `.codex/config.toml` сохранены прежние роли и добавлены два проектных stdio MCP: Microsoft `@playwright/mcp@0.0.83` и Google `chrome-devtools-mcp@1.12.0` (оба Apache-2.0). Конфиг использует обычный поддерживаемый Windows `cmd /d /c npx --yes --ignore-scripts` с точными версиями; локальная проверка исполняет именно эти команды. Это не глобальная установка пакетов или изменение пользовательского конфига.
+В `.codex/config.toml` сохранены прежние роли и добавлены два проектных stdio MCP: Microsoft `@playwright/mcp@0.0.83` и Google `chrome-devtools-mcp@1.12.0` (оба Apache-2.0). С 4 ноября 2026 конфиг использует переносимый `node scripts/design/mcp-launcher.mjs <provider>` без shell и npx. Launcher читает точные версии из `tools/design-runtime/package.json`, проверяет установленную версию и запускает объявленный package bin из этого изолированного каталога: `@playwright/mcp` → `cli.js`, `chrome-devtools-mcp` → `build/src/bin/chrome-devtools-mcp.js`. Пути пакетов разрешаются относительно launcher; Codex запускается из корня проекта, где находятся относительные пути конфига. При отсутствии зависимостей launcher предлагает явную установку, ничего не скачивая автоматически. Это не глобальная установка пакетов или изменение пользовательского конфига.
 
 Отдельный `tools/design-runtime/package.json`/lock позволяет установить и проверить те же инструменты без изменения зависимостей сайта. Установка выполняется с `--ignore-scripts`; приложение их не импортирует. Playwright MCP стабильной версии содержит Playwright/core alpha1.64.0 — это ограничение явно сохраняется. DevTools runtime опубликован bundled; установка из Git с prepare-скриптами не использовалась. npm audit этого набора не обнаружил известных уязвимостей на дату проверки.
 
@@ -44,7 +44,7 @@ Anthropic/Vercel/MiniMax установлены штатным `skill-installer`
 
 Доступны навигация, snapshot, screenshot, console, выбор контролов и размеры экрана; DevTools дополнительно даёт trace, network и media/device emulation. Набор Codex ограничен нужными tool allowlists, arbitrary-code-unsafe/upload/install не включены. Схемы брать из `tools/list`, а не старых примеров: текущий Playwright использует `target`, screenshot требует `scale`; DevTools требует pageId.
 
-```powershell
+```sh
 npm run design:install
 npm run design:check
 npm run design:discovery
@@ -53,6 +53,8 @@ npm ci --prefix tools/design-runtime --ignore-scripts
 npm run design:mcp:check -- playwright
 npm run design:mcp:check -- devtools
 ```
+
+Проверка запуска 4 ноября 2026 на Linux: оба сервера прошли `initialize` и `tools/list` через команды конфига (Playwright — 25 tools, DevTools — 32); все имена существующих allowlists присутствуют. Это проверка stdio и схем, а не повторная проверка запуска Chrome или страниц. На системах с командой `python3` вместо `python` проверки можно вызвать напрямую: `python3 -B -m unittest discover -s scripts/design -p "*_test.py"` и `python3 -B scripts/design/mcp_probe.py <provider> --list-only`.
 
 Проверки MCP обращаются только к локальному HTTP-сайту; его запускает обычный `npm run dev`. Результаты по умолчанию в игнорируемом outputs/design-tools. `design:discovery` вызывает локальный Codex app-server без модельного хода, различает ошибки проекта и старые предупреждения других пользовательских навыков. Root фактически проверяет MCP stdio; это не утверждение, что текущий чат мгновенно получил новые tool namespaces. Настройки штатно перечитываются при переподключении/следующем сеансе.
 

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
@@ -25,17 +24,7 @@ public sealed class GitHubPublication(IHttpClientFactory factory, Func<Cancellat
     private async Task<string> Credential(CancellationToken ct)
     {
         if (credentialProvider != null) return await credentialProvider(ct);
-        var token = Environment.GetEnvironmentVariable("GH_TOKEN");
-        if (token == null)
-        {
-            var start = new ProcessStartInfo("git") { UseShellExecute = false, CreateNoWindow = true, RedirectStandardInput = true, RedirectStandardOutput = true, RedirectStandardError = true };
-            foreach (var a in new[] { "-c", "credential.trace=false", "-c", "credential.traceSecrets=false", "-c", "credential.interactive=never", "credential-manager", "get" }) start.ArgumentList.Add(a);
-            foreach (var k in new[] { "GCM_TRACE", "GCM_TRACE_SECRETS", "GIT_TRACE", "GIT_TRACE2", "GIT_TRACE_CURL", "GIT_CURL_VERBOSE", "GCM_GUI_PROMPT", "GIT_TERMINAL_PROMPT" }) start.Environment[k] = "0"; start.Environment["GCM_INTERACTIVE"] = "never";
-            using var process = Process.Start(start) ?? throw Failure(); using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct); timeout.CancelAfter(TimeSpan.FromSeconds(10));
-            try { await process.StandardInput.WriteAsync("protocol=https\nhost=github.com\nusername=Roman17-bot\n\n"); process.StandardInput.Close(); var output = new char[16385]; var count = 0; while (count < output.Length) { var n = await process.StandardOutput.ReadAsync(output.AsMemory(count), timeout.Token); if (n == 0) break; count += n; } if (count == output.Length) throw Failure(); await process.WaitForExitAsync(timeout.Token); if (process.ExitCode != 0) throw Failure(); token = Regex.Match(new string(output, 0, count), @"(?m)^password=([^\r\n]+)").Groups[1].Value; Array.Clear(output); }
-            finally { if (!process.HasExited) process.Kill(true); }
-        }
-        if (string.IsNullOrEmpty(token) || token.Length > 8192 || token.Any(char.IsWhiteSpace)) throw Failure(); return token;
+        return await new GitHubCredentials().GetAsync(ct);
     }
     private static async Task<byte[]> Bounded(HttpResponseMessage response, int limit, CancellationToken ct)
     {
