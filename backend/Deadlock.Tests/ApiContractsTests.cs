@@ -93,7 +93,10 @@ public class ApiContractsTests
     [Fact]
     public async Task YearHistoryRoutesReadOnlyTheRequestedCohortAndSupportLegacyArchives()
     {
-        await using var app = new ApiFactory(); using var http = app.CreateClient();
+        await using var app = new ApiFactory();
+        // A legacy archive is an explicit fixture, regardless of the current owner data.
+        app.Bundle.Remove("heroHistory");
+        using var http = app.CreateClient();
         Assert.Equal(HttpStatusCode.NotFound, (await http.GetAsync("/api/hero-history/normal-all-all")).StatusCode);
         var version = (int)ArchiveJson.Number(app.Bundle["heroes"]!["meta"]!["clientVersion"]);
         app.Bundle["heroHistory"] = StatisticsHistory.Merge(null, null, ReferenceCatalogueTests.StatisticsFixture(version));
