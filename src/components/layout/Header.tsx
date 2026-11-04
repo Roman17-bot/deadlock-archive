@@ -41,6 +41,13 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
             {t('Предметы')}
           </a>
           <a
+            href="#/map"
+            className={route === 'map' ? 'active' : ''}
+            aria-current={route === 'map' ? 'page' : undefined}
+          >
+            {language === 'en' ? 'Map' : 'Карта'}
+          </a>
+          <a
             className={route === 'mechanics' ? 'active' : ''}
             aria-current={route === 'mechanics' ? 'page' : undefined}
             href="#/mechanics"
@@ -53,9 +60,6 @@ export function Header({ data, route }: { data: HeroSnapshot | null; route: Page
             href="#/updates"
           >
             {t('Обновления')}
-          </a>
-          <a href="#/map" className={route === 'map' ? 'active' : ''} aria-current={route === 'map' ? 'page' : undefined}>
-            {language === 'en' ? 'Map' : 'Карта'}
           </a>
         </nav>
         <div className="header-edition">

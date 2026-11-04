@@ -7,6 +7,21 @@ export function deltaValue(change: number) {
   const value = Number(change.toFixed(precision)) || 0;
   return { value, precision };
 }
+/** Mark real observations only; the daily line and interaction domain remain untouched. */
+export function markerIndices(points: HistoryPoint[], period: 7 | 30 | 365, start: number) {
+  if (period === 7) return points.flatMap((point, index) => (point.value === null ? [] : [index]));
+  const buckets = new Map<string | number, number>();
+  points.forEach((point, index) => {
+    if (point.value === null) return;
+    const bucket =
+      period === 365
+        ? point.date.slice(0, 7)
+        : Math.floor((dayTime(point.date) - start) / (7 * 86400000));
+    const previous = buckets.get(bucket);
+    if (previous === undefined || point.date > points[previous].date) buckets.set(bucket, index);
+  });
+  return [...buckets.values()];
+}
 /** Local domains show movement without changing the real values or connecting absent days. */
 export function chartGeometry(history: HistoryPoint[], start: number, end: number) {
   const values = history.flatMap((p) => (p.value === null ? [] : [p.value]));

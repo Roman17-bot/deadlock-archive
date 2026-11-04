@@ -172,7 +172,8 @@ describe('match statistics', () => {
     expect(loadHeroHistory).toHaveBeenCalledTimes(1);
     expect(vi.mocked(loadHeroHistory).mock.calls[0][0]).toBe('normal-all');
     await user.click(screen.getByRole('button', { name: 'Retry' }));
-    expect(await screen.findByText(/Hero selections/)).toBeVisible();
+    expect(await screen.findByRole('table')).toBeVisible();
+    expect(screen.queryByText(/Hero selections/)).not.toBeInTheDocument();
     expect(vi.mocked(loadHeroHistory).mock.calls[1][2]).toBe(true);
     await user.click(screen.getByRole('combobox', { name: 'Mode' }));
     await user.click(screen.getByRole('option', { name: 'Ranked' }));
@@ -191,7 +192,7 @@ describe('match statistics', () => {
     expect(screen.getByRole('tooltip')).toHaveTextContent('October 4, 2026 · 50% · matches: 10');
     fireEvent.keyDown(trend, { key: 'ArrowLeft' });
     expect(screen.getByRole('tooltip')).toHaveTextContent('October 3, 2026 · 40% · matches: 10');
-    expect(screen.getAllByText('-40 pp')).toHaveLength(1);
+    expect(trend.closest('.statistics-trend')).toHaveTextContent('-40%');
     fireEvent.keyDown(trend, { key: 'Escape' });
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });

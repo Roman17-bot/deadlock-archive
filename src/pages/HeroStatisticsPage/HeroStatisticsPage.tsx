@@ -14,6 +14,7 @@ import {
   ArrowUp,
   ArrowDown,
   ArrowUpDown,
+  ChevronRight,
 } from '../../components/ui/ArchiveIcon/ArchiveIcons';
 import { Trend } from './Trend';
 import { StatisticsTable } from './StatisticsTable';
@@ -26,7 +27,7 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
   const en = language === 'en';
   const reference = useReference(loadHeroStatistics);
   const [scopeId, setScopeId] = useState('');
-  const [period, setPeriod] = useState(7);
+  const [period, setPeriod] = useState<7 | 30 | 365>(7);
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<Sort>('winRate');
   const [ascending, setAscending] = useState(false);
@@ -125,11 +126,30 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
       ),
     };
   });
-  const total = days.reduce((sum, day) => sum + day.totalSelections, 0);
   return (
     <div className="hero-statistics-page expansion-surface">
       <HeroNavigation active="statistics" />
-      <h1>{en ? 'Match statistics' : 'Статистика матчей'}</h1>
+      <div className="breadcrumbs statistics-breadcrumbs">
+        <a href="#/">{en ? 'Archive' : 'Архив'}</a>
+        <ChevronRight size={12} aria-hidden="true" />
+        <a href="#/heroes">{en ? 'Hero register' : 'Реестр героев'}</a>
+        <ChevronRight size={12} aria-hidden="true" />
+        <span>{en ? 'Statistics' : 'Статистика'}</span>
+      </div>
+      <section className="statistics-heading" aria-labelledby="statistics-heading">
+        <div className="section-kicker">
+          {en ? 'HERO REGISTER · MATCHES' : 'РЕЕСТР ГЕРОЕВ · МАТЧИ'}
+        </div>
+        <h1 id="statistics-heading">
+          {en ? 'Match ' : 'Статистика '}
+          <span className="statistics-title-ending">
+            {en ? 'statistics' : 'матчей'}
+            <span className="title-star" aria-hidden="true">
+              ✦
+            </span>
+          </span>
+        </h1>
+      </section>
       <div className="statistics-toolbar">
         <label className="statistics-search">
           <span className="sr-only">{en ? 'Find a hero' : 'Найти героя'}</span>
@@ -178,7 +198,7 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
           )}
           <fieldset className="statistics-period">
             <legend>{en ? 'Period' : 'Период'}</legend>
-            {[7, 30, 365].map((p, i) => (
+            {([7, 30, 365] as const).map((p, i) => (
               <button
                 key={p}
                 type="button"
@@ -209,9 +229,6 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
                 : en
                   ? 'No matches for this period.'
                   : 'Нет матчей за этот период.'}
-            </span>
-            <span>
-              {en ? 'Hero selections' : 'Выборов героев'} <strong>{format(total, 0)}</strong>
             </span>
           </div>
           {historyId &&
@@ -277,6 +294,7 @@ export function HeroStatisticsPage({ data }: { data: HeroSnapshot }) {
                             points={heroHistory(days, hero.id, metric)}
                             start={start}
                             end={end}
+                            period={period}
                             label={`${hero.name} ${titles[metric]}`}
                             en={en}
                           />

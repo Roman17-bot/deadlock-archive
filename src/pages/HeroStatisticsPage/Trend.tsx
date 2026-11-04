@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { format, formatDate } from '../../lib/format';
-import { chartGeometry, deltaValue, type HistoryPoint } from './chart-model';
+import { chartGeometry, deltaValue, markerIndices, type HistoryPoint } from './chart-model';
 
 export function Trend({
   points,
@@ -9,28 +9,32 @@ export function Trend({
   end,
   label,
   en,
+  period = 7,
 }: {
   points: HistoryPoint[];
   start: number;
   end: number;
   label: string;
   en: boolean;
+  period?: 7 | 30 | 365;
 }) {
   const id = useId();
   const [active, setActive] = useState<number | null>(null);
   const [anchor, setAnchor] = useState({ x: 0, y: 0, below: false });
   const tooltip = useRef<HTMLSpanElement>(null);
-  const circles = useRef<(SVGCircleElement | null)[]>([]);
+  const activeCircle = useRef<SVGCircleElement>(null);
+  const svg = useRef<SVGSVGElement>(null);
   const chart = chartGeometry(points, start, end);
   const selected = active === null ? undefined : chart.points[active];
+  const markers = markerIndices(chart.points, period, start);
   useEffect(() => {
-    if (active === null) return;
+    if (!selected) return;
     const position = () => {
-      const box = circles.current[active]?.getBoundingClientRect();
+      const box = activeCircle.current?.getBoundingClientRect();
       if (box) {
         const tip = tooltip.current?.getBoundingClientRect();
         const half = (tip?.width ?? 260) / 2;
-        const below = box.top < (tip?.height ?? 42) + 20;
+        const below = box.top - 10 - (tip?.height ?? 42) < 8;
         setAnchor({
           x: Math.max(half + 8, Math.min(window.innerWidth - half - 8, box.left + box.width / 2)),
           y: below ? box.bottom + 10 : box.top - 10,
@@ -41,16 +45,34 @@ export function Trend({
     position();
     window.addEventListener('scroll', position, true);
     window.addEventListener('resize', position);
+    const observer =
+      typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(position);
+    if (svg.current) observer?.observe(svg.current);
     return () => {
       window.removeEventListener('scroll', position, true);
       window.removeEventListener('resize', position);
+      observer?.disconnect();
     };
-  }, [active]);
+  }, [
+    selected?.date,
+    selected?.value,
+    selected?.matches,
+    selected?.x,
+    selected?.y,
+    period,
+    start,
+    end,
+  ]);
   if (!chart.points.length)
     return <span className="statistics-no-history">{en ? 'No history' : 'Нет истории'}</span>;
   const change = chart.points.at(-1)!.value! - chart.points[0].value!;
   const roundedChange = deltaValue(change);
-  const delta = `${roundedChange.value > 0 ? '+' : ''}${format(roundedChange.value, roundedChange.precision)} ${en ? 'pp' : 'п.п.'}`;
+  const deltaNumber = `${roundedChange.value > 0 ? '+' : ''}${format(roundedChange.value, roundedChange.precision)}%`;
+  const firstValue = format(chart.points[0].value!, roundedChange.precision);
+  const lastValue = format(chart.points.at(-1)!.value!, roundedChange.precision);
+  const deltaDescription = en
+    ? `Change: from ${firstValue}% to ${lastValue}%`
+    : `Изменение: с ${firstValue}% до ${lastValue}%`;
   const low = Math.min(...chart.points.map((p) => p.value!));
   const high = Math.max(...chart.points.map((p) => p.value!));
   let rangePrecision = 1;
@@ -77,7 +99,7 @@ export function Trend({
       <button
         type="button"
         className="statistics-trend-button"
-        aria-label={`${label}: ${formatDate(chart.points[0].date)} — ${formatDate(chart.points.at(-1)!.date)}, ${delta}`}
+        aria-label={`${label}: ${formatDate(chart.points[0].date)} — ${formatDate(chart.points.at(-1)!.date)}, ${deltaDescription}`}
         aria-describedby={selected ? id : undefined}
         onFocus={() => setActive(chart.points.length - 1)}
         onBlur={() => setActive(null)}
@@ -110,16 +132,17 @@ export function Trend({
           }
         }}
       >
-        <svg viewBox="0 0 180 56" width="180" height="56" aria-hidden="true">
+        <svg ref={svg} viewBox="0 0 180 56" width="180" height="56" aria-hidden="true">
           <path d={chart.path} />
-          {chart.points.map((p, i) => (
+          {[
+            ...markers,
+            ...(active !== null && selected && !markers.includes(active) ? [active] : []),
+          ].map((i) => (
             <circle
-              key={p.date}
-              ref={(node) => {
-                circles.current[i] = node;
-              }}
-              cx={p.x}
-              cy={p.y}
+              key={chart.points[i].date}
+              ref={active === i ? activeCircle : undefined}
+              cx={chart.points[i].x}
+              cy={chart.points[i].y}
               r={active === i ? 4 : 2.5}
               data-active={active === i || undefined}
             />
@@ -130,7 +153,13 @@ export function Trend({
           {format(low, rangePrecision)}%
         </span>
       </button>
-      <span className="statistics-change">{chart.points.length > 1 ? delta : '—'}</span>
+      <span className="statistics-change" aria-label={deltaDescription} title={deltaDescription}>
+        {chart.points.length > 1 ? (
+          <span className="statistics-change-value">{deltaNumber}</span>
+        ) : (
+          '—'
+        )}
+      </span>
       {selected &&
         createPortal(
           <span
