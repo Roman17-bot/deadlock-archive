@@ -11,18 +11,22 @@ import type { HeroSnapshot } from '../shared/types';
 
 beforeEach(async () => {
   window.scrollTo = vi.fn();
+  vi.spyOn(HTMLImageElement.prototype, 'complete', 'get').mockReturnValue(true);
   localStorage.clear();
   await i18n.changeLanguage('ru');
   window.location.hash = '#/';
 });
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+});
 
 it('switches the whole page, accessible labels and locale, and remembers the choice', async () => {
   const user = userEvent.setup();
   render(<App initialSnapshot={data as HeroSnapshot} />);
   await user.click(screen.getByRole('button', { name: 'English' }));
   expect(await screen.findByRole('link', { name: 'Home' })).toBeVisible();
-  expect(screen.getByRole('link', { name: 'Open the register' })).toBeVisible();
+  expect(await screen.findByRole('link', { name: 'Open the register' })).toBeVisible();
   expect(document.documentElement.lang).toBe('en');
   expect(document.title).toContain('reference');
   expect(savedLanguage()).toBe('en');
@@ -35,7 +39,7 @@ it('keeps register search, level and details while changing language', async () 
   const user = userEvent.setup();
   window.location.hash = '#/heroes';
   render(<App initialSnapshot={data as HeroSnapshot} />);
-  fireEvent.change(screen.getByRole('slider', { name: 'Уровень героя' }), {
+  fireEvent.change(await screen.findByRole('slider', { name: 'Уровень героя' }), {
     target: { value: '12' },
   });
   await user.type(screen.getByRole('searchbox', { name: 'Найти героя' }), 'Baba');

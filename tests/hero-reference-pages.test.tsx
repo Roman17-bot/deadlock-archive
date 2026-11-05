@@ -8,7 +8,7 @@ import type { HeroSnapshot } from '../shared/types';
 import type { HeroProfiles, HeroStatistics, HeroStatScope } from '../shared/hero-reference';
 import { HeroRosterPage } from '../src/pages/HeroRosterPage/HeroRosterPage';
 import { HeroStatisticsPage } from '../src/pages/HeroStatisticsPage/HeroStatisticsPage';
-import { AppRoutes } from '../src/app/routes';
+import { App } from '../src/app/App';
 import {
   loadHeroProfiles,
   loadHeroStatistics,
@@ -115,6 +115,7 @@ beforeEach(async () => {
 afterEach(async () => {
   cleanup();
   vi.resetAllMocks();
+  vi.restoreAllMocks();
   await setLanguage('ru');
 });
 
@@ -168,22 +169,17 @@ describe('hero roster', () => {
 describe('match statistics', () => {
   it('separates mode and rank, orders metrics and offers real calendar periods', async () => {
     const user = userEvent.setup();
-    render(
-      <AppRoutes
-        route="heroes"
-        routeHash="#/heroes/statistics"
-        data={data}
-        onMethod={() => {}}
-        onSnapshot={() => {}}
-      />,
-    );
-    const table = await screen.findByRole('table');
+    vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+    vi.spyOn(HTMLImageElement.prototype, 'complete', 'get').mockReturnValue(true);
+    window.location.hash = '#/heroes/statistics';
+    render(<App initialSnapshot={data} />);
     expect(screen.getByRole('link', { name: 'Heroes' })).toBeVisible();
     expect(
       within(screen.getByRole('navigation', { name: 'Hero pages' })).getByRole('link', {
         name: 'Match statistics',
       }),
     ).toHaveAttribute('aria-current', 'page');
+    const table = await screen.findByRole('table');
     expect(screen.queryByRole('combobox', { name: 'Rank' })).not.toBeInTheDocument();
     expect(
       within(table)

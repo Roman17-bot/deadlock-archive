@@ -5,12 +5,14 @@ import {
   type Catalogs,
 } from '../../../services/mechanicsApi';
 import { siteMode } from '../../../services/environment';
+import { usePageDataPending } from '../../../hooks/usePageDataPending';
 
 export function useMechanicsData(clientVersion: number, enabled = siteMode() === 'local') {
   const [catalogs, setCatalogs] = useState<Catalogs>(bundledMechanics);
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  usePageDataPending(loading);
   useEffect(() => {
     if (!enabled) return;
     const controller = new AbortController();

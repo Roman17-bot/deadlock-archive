@@ -24,6 +24,7 @@ it('opens the mechanics route through the main navigation and uses live metadata
 beforeEach(() => {
   window.location.hash = '#/heroes';
   vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+  vi.spyOn(HTMLImageElement.prototype, 'complete', 'get').mockReturnValue(true);
   HTMLDialogElement.prototype.showModal = function () {
     this.setAttribute('open', '');
   };
@@ -52,10 +53,10 @@ function useMobileViewport() {
 }
 
 describe('mobile register views', () => {
-  it('shows five core stats for every hero instead of nine numeric columns', () => {
+  it('shows five core stats for every hero instead of nine numeric columns', async () => {
     useMobileViewport();
     render(<App initialSnapshot={data} />);
-    const table = screen.getByRole('table');
+    const table = await screen.findByRole('table');
     expect(within(table).getAllByRole('columnheader')).toHaveLength(6);
     expect(within(table).getAllByRole('row')).toHaveLength(45);
     expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
@@ -66,7 +67,7 @@ describe('mobile register views', () => {
     useMobileViewport();
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    await user.type(screen.getByRole('searchbox'), 'харроу');
+    await user.type(await screen.findByRole('searchbox'), 'харроу');
     fireEvent.change(screen.getByRole('slider'), { target: { value: '11' } });
     await user.click(screen.getByRole('button', { name: 'Приросты за LVL' }));
     expect(within(screen.getByRole('table')).getAllByRole('columnheader')).toHaveLength(5);
@@ -83,7 +84,7 @@ describe('mobile register views', () => {
     useMobileViewport();
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    await user.click(screen.getByRole('button', { name: 'Здоровье: сортировать' }));
+    await user.click(await screen.findByRole('button', { name: 'Здоровье: сортировать' }));
     expect(screen.getByRole('table').querySelector('tbody tr')).toHaveAttribute(
       'data-hero',
       'mo-krill',
@@ -104,7 +105,7 @@ describe('mobile register views', () => {
     const changeViewport = useMobileViewport();
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    await user.click(screen.getByRole('button', { name: 'Приросты за LVL' }));
+    await user.click(await screen.findByRole('button', { name: 'Приросты за LVL' }));
     changeViewport(false);
     expect(within(screen.getByRole('table')).getAllByRole('columnheader')).toHaveLength(10);
     expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
@@ -113,13 +114,13 @@ describe('mobile register views', () => {
   });
 });
 
-it('keeps the home usable when a spotlight hero is absent from a valid snapshot', () => {
+it('keeps the home usable when a spotlight hero is absent from a valid snapshot', async () => {
   window.location.hash = '#/';
   const partial = structuredClone(data);
   partial.heroes = partial.heroes.filter((hero) => hero.name !== 'Nurse Harrow');
   partial.meta.heroCount = partial.heroes.length;
   render(<App initialSnapshot={partial} />);
-  expect(screen.getByRole('link', { name: /^Открыть реестр$/ })).toBeVisible();
+  expect(await screen.findByRole('link', { name: /^Открыть реестр$/ })).toBeVisible();
   expect(screen.getByRole('heading', { name: 'Violet' })).toBeVisible();
   expect(screen.queryByRole('heading', { name: 'Nurse Harrow' })).not.toBeInTheDocument();
 });
@@ -131,19 +132,19 @@ describe('hero register', () => {
     await user.click(screen.getByRole('link', { name: 'К содержимому' }));
     expect(window.location.hash).toBe('#/heroes');
     expect(screen.getByRole('main')).toHaveFocus();
-    expect(screen.getByRole('table')).toBeVisible();
+    expect(await screen.findByRole('table')).toBeVisible();
   });
-  it('updates a hero deep link when navigating between filters on the same page', () => {
+  it('updates a hero deep link when navigating between filters on the same page', async () => {
     window.location.hash = '#/heroes?hero=nurse-harrow';
     render(<App initialSnapshot={data} />);
-    expect(screen.getByRole('searchbox')).toHaveValue('Nurse Harrow');
+    expect(await screen.findByRole('searchbox')).toHaveValue('Nurse Harrow');
     window.location.hash = '#/heroes?hero=violet';
     fireEvent(window, new HashChangeEvent('hashchange'));
     expect(screen.getByRole('searchbox')).toHaveValue('Violet');
   });
-  it('renders all heroes with real stat values and sortable column buttons', () => {
+  it('renders all heroes with real stat values and sortable column buttons', async () => {
     render(<App initialSnapshot={data} />);
-    const table = screen.getByRole('table', { name: 'Характеристики героев' });
+    const table = await screen.findByRole('table', { name: 'Характеристики героев' });
     expect(within(table).getAllByRole('row')).toHaveLength(45);
     expect(screen.getByTestId('stat-nurse-harrow-regen')).toHaveTextContent('0');
     expect(screen.getByTestId('stat-nurse-harrow-health')).toHaveTextContent('730');
@@ -152,7 +153,7 @@ describe('hero register', () => {
   it('searches Russian aliases and recovers from an empty result', async () => {
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    const input = screen.getByRole('searchbox', { name: 'Найти героя' });
+    const input = await screen.findByRole('searchbox', { name: 'Найти героя' });
     await user.type(input, 'харроу');
     expect(within(screen.getByRole('table')).getAllByRole('row')).toHaveLength(2);
     await user.clear(input);
@@ -164,7 +165,7 @@ describe('hero register', () => {
   it('changes numeric sort in both directions', async () => {
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    const button = screen.getByRole('button', { name: 'Здоровье: сортировать' });
+    const button = await screen.findByRole('button', { name: 'Здоровье: сортировать' });
     await user.click(button);
     const expected = selectHeroes(data.heroes, '', 'health', 'desc', 1)[0];
     expect(screen.getByRole('table').querySelector('tbody tr')).toHaveAttribute(
@@ -181,7 +182,7 @@ describe('hero register', () => {
   it('recalculates a selected level and resets the controls', async () => {
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    fireEvent.change(screen.getByRole('slider', { name: 'Уровень героя' }), {
+    fireEvent.change(await screen.findByRole('slider', { name: 'Уровень героя' }), {
       target: { value: '11' },
     });
     expect(screen.getByTestId('stat-nurse-harrow-health').textContent?.replace(/\s/g, '')).toBe(
@@ -194,7 +195,7 @@ describe('hero register', () => {
   it('opens clear table explanations in a closeable dialog without source links', async () => {
     const user = userEvent.setup();
     render(<App initialSnapshot={data} />);
-    await user.click(screen.getByRole('button', { name: 'Как считаем характеристики' }));
+    await user.click(await screen.findByRole('button', { name: 'Как считаем характеристики' }));
     expect(screen.getByRole('dialog', { name: 'Как устроены цифры' })).toBeVisible();
     const dialog = screen.getByRole('dialog');
     expect(dialog).toHaveTextContent('DPS показывает урон за секунду стрельбы без перезарядки');
@@ -204,10 +205,13 @@ describe('hero register', () => {
   });
 });
 
-it('home links to the real register and spotlights both new releases', () => {
+it('home links to the real register and spotlights both new releases', async () => {
   window.location.hash = '#/';
   render(<App initialSnapshot={data} />);
-  expect(screen.getByRole('link', { name: 'Открыть реестр' })).toHaveAttribute('href', '#/heroes');
+  expect(await screen.findByRole('link', { name: 'Открыть реестр' })).toHaveAttribute(
+    'href',
+    '#/heroes',
+  );
   expect(screen.getByRole('heading', { name: 'Nurse Harrow' })).toBeVisible();
   expect(screen.getByRole('heading', { name: 'Violet' })).toBeVisible();
 });

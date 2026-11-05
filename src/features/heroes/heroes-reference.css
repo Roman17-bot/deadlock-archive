@@ -3,7 +3,8 @@
   margin: 0 auto;
   padding: 32px clamp(20px, 2.5vw, 48px) 0;
 }
-.hero-navigation-shell + :is(.hero-reference-page, .hero-roster-page, .hero-statistics-page) {
+.hero-navigation-shell + .page-load .page-load-content
+  > :is(.hero-reference-page, .hero-roster-page, .hero-statistics-page) {
   padding-top: 0;
 }
 @media (max-width: 760px) {

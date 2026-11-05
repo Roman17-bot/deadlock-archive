@@ -2,11 +2,13 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { HeroSnapshot } from '../../../shared/types';
 import type { AbilityCatalog } from '../../../shared/ability-types';
 import { loadAbilities } from '../../services/abilitiesApi';
+import { usePageDataPending } from '../../hooks/usePageDataPending';
 
 export function useAbilities(data: HeroSnapshot) {
   const [catalog, setCatalog] = useState<AbilityCatalog>();
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  usePageDataPending(!catalog && !error);
   const identity = `${data.meta.clientVersion}/${data.meta.sourceRevision}/${data.meta.gameCommit}`;
   const previousIdentity = useRef(identity);
   useEffect(() => {

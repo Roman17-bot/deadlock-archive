@@ -5,6 +5,7 @@ import { tasks } from './model/tasks';
 import { evaluate, type Result } from './model/evaluate';
 import { CalculatorForm } from './components/CalculatorForm';
 import { CalculatorResult } from './components/CalculatorResult';
+import { PendingPageSection } from '../../hooks/usePageDataPending';
 
 import type { HeroSnapshot } from '../../../shared/types';
 const HeroCalculator = lazy(() => import('../hero-calculator/HeroCalculator'));
@@ -82,7 +83,13 @@ export function Calculator({
       </div>
       {buildOpened && data && (
         <div hidden={view !== 'build'}>
-          <Suspense fallback={<p aria-busy="true">{t('Загружаем предметы…')}</p>}>
+          <Suspense
+            fallback={
+              <PendingPageSection>
+                <p aria-busy="true">{t('Загружаем предметы…')}</p>
+              </PendingPageSection>
+            }
+          >
             <HeroCalculator
               data={data}
               onRule={onRule}

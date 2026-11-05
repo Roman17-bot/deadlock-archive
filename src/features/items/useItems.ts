@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { ItemCatalog, ItemStatistics } from '../../../shared/item-types';
 import { loadItems, loadItemStatistics } from '../../services/itemsApi';
+import { usePageDataPending } from '../../hooks/usePageDataPending';
 
 export function useItems(
   initialCatalog?: ItemCatalog,
@@ -14,6 +15,7 @@ export function useItems(
     initialStatistics ? 'ready' : 'loading',
   );
   const [attempt, setAttempt] = useState(0);
+  usePageDataPending(!error && (!catalog || (withStatistics && statisticsState === 'loading')));
   useEffect(() => {
     const controller = new AbortController();
     setError(false);

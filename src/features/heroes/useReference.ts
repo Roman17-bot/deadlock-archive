@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { usePageDataPending } from '../../hooks/usePageDataPending';
 
 export function useReference<T>(loader: (signal: AbortSignal, force?: boolean) => Promise<T>) {
   const [data, setData] = useState<T>();
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  usePageDataPending(data === undefined && !error);
   useEffect(() => {
     const controller = new AbortController();
     setError(false);

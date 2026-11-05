@@ -3,23 +3,6 @@ svg[data-archive-icon] {
   transform-origin: center;
   transform-box: fill-box;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .brand-sigil svg > path:first-child {
-    stroke-dasharray: 1;
-  }
-  .brand:is(:hover, :focus-visible) .brand-sigil svg > path:first-child {
-    animation: archive-emblem-trace 650ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-@keyframes archive-emblem-trace {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 .site-header nav a::before {
   content: '';
   position: absolute;

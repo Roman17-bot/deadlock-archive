@@ -2,17 +2,25 @@ import type { HeroSnapshot } from '../../../shared/types';
 import type { PageRoute } from '../../app/useHashRoute';
 import { useI18n } from '../../i18n';
 import { formatDate } from '../../lib/format';
-import { ArchiveLogo } from '../ui/ArchiveLogo/ArchiveLogo';
+import { ArchiveBook } from '../ui/ArchiveBook/ArchiveBook';
 import { LanguageSwitch } from './LanguageSwitch';
 
-export function Header({ data, route }: { data: HeroSnapshot | null; route: PageRoute }) {
+export function Header({
+  data,
+  route,
+  loading,
+}: {
+  data: HeroSnapshot | null;
+  route: PageRoute;
+  loading: boolean;
+}) {
   const { t, language } = useI18n();
   return (
     <header className="site-header">
       <div className="header-inner">
         <a className="brand" href="#/" aria-label={t('Deadlock Archive — главная')}>
           <span className="brand-sigil" aria-hidden="true">
-            <ArchiveLogo />
+            <ArchiveBook loading={loading} />
           </span>
           <span className="brand-wordmark">
             DEADLOCK<span>ARCHIVE</span>

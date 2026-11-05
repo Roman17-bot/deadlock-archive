@@ -14,6 +14,7 @@ import {
   startUpdateRequest,
 } from '../../../services/updatesApi';
 import { activePhases, isNewerOrEqual, isState, maxPolls, safePublicationUrl } from '../model';
+import { usePageDataPending } from '../../../hooks/usePageDataPending';
 
 export interface UpdatesPageProps {
   data: HeroSnapshot;
@@ -27,14 +28,13 @@ export function useUpdatesPage({
   mode,
 }: UpdatesPageProps & { mode: 'local' | 'public' }) {
   const [history, setHistory] = useState<VersionHistory>(initialHistory as VersionHistory);
-  const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'failed'>(
-    mode === 'local' ? 'loading' : 'ready',
-  );
+  const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'failed'>('loading');
   const [historyEpoch, setHistoryEpoch] = useState(0);
   const [state, setState] = useState<UpdateState | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [connected, setConnected] = useState(false);
-  const [connecting, setConnecting] = useState(false);
+  const [connecting, setConnecting] = useState(mode === 'local');
+  const [syncSnapshots, setSyncSnapshots] = useState(0);
   const [publish, setPublish] = useState(true);
   const [requesting, setRequesting] = useState(false);
   const [checking, setChecking] = useState(false);
@@ -49,10 +49,11 @@ export function useUpdatesPage({
   const loadedSync = useRef(new Set<string>());
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const polls = useRef(0);
+  usePageDataPending(historyStatus === 'loading' || connecting || syncSnapshots > 0);
 
   useEffect(() => {
     const controller = new AbortController();
-    if (mode === 'local') setHistoryStatus('loading');
+    setHistoryStatus('loading');
     void fetchVersionHistory(
       mode,
       AbortSignal.any([controller.signal, AbortSignal.timeout(20_000)]),
@@ -65,8 +66,8 @@ export function useUpdatesPage({
         }
       })
       .catch(() => {
-        if (!controller.signal.aborted && mode === 'local') setHistoryStatus('failed');
         /* Public builds retain the validated history bundled with the release. */
+        if (!controller.signal.aborted) setHistoryStatus(mode === 'local' ? 'failed' : 'ready');
       });
     return () => controller.abort();
   }, [mode, data.meta.clientVersion, historyEpoch]);
@@ -111,6 +112,7 @@ export function useUpdatesPage({
     async (hash: string) => {
       if (loadedSync.current.has(hash)) return;
       loadedSync.current.add(hash);
+      setSyncSnapshots((count) => count + 1);
       try {
         const candidate = await fetchLocalSnapshot();
         if (!validateSnapshot(candidate) || !isNewerOrEqual(candidate, current.current))
@@ -124,6 +126,8 @@ export function useUpdatesPage({
         loadedSync.current.delete(hash);
         if (live.current)
           setError('Данные сохранены. Обновите страницу, чтобы загрузить изменения.');
+      } finally {
+        if (live.current) setSyncSnapshots((count) => count - 1);
       }
     },
     [onSnapshot],

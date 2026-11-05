@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { SyncState } from '../../../shared/sync-types';
 import { fetchSyncState } from '../../services/synchronizationApi';
 import { active, safeUrl, verified } from './model';
+import { usePageDataPending } from '../../hooks/usePageDataPending';
 
 export interface SyncPanelProps {
   token: string | null;
@@ -29,6 +30,7 @@ export function useSynchronization({
   callbacks.current = { onBusyChange, onLocalSnapshot };
   const running = !!state && active.has(state.phase) && !error;
   const busy = requesting || running;
+  usePageDataPending(!state && !error);
 
   const request = useCallback(async (url: string, init?: RequestInit) => {
     if (locked.current) return;

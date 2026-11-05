@@ -56,19 +56,11 @@ export function HeroRosterPage({ data }: { data: HeroSnapshot }) {
         </h1>
       </header>
       <div className="roster-folder">
-        <svg
+        <img
           className="roster-folder-back"
-          viewBox="0 0 1600 90"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <image
-            href={asset('assets/roster/dossier-folder.svg')}
-            width="1600"
-            height="1000"
-            preserveAspectRatio="none"
-          />
-        </svg>
+          src={asset('assets/roster/dossier-folder.svg')}
+          alt=""
+        />
         <section
           className="roster-contact-sheet"
           aria-label={en ? 'Hero portraits' : 'Портреты героев'}

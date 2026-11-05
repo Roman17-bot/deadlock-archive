@@ -1,10 +1,9 @@
-import { lazy, Suspense, type ReactNode } from 'react';
+import { lazy } from 'react';
 import type { HeroSnapshot } from '../../shared/types';
-import { ArchiveLoading } from '../components/ui/ArchiveLoading/ArchiveLoading';
+import type { ArchivePageSkeletonKind } from '../components/ui/ArchivePageSkeleton/ArchivePageSkeleton';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { HeroesPage } from '../pages/HeroesPage/HeroesPage';
 import type { PageRoute } from './useHashRoute';
-import { HeroNavigation } from '../features/heroes/HeroNavigation';
 
 const HeroRosterPage = lazy(() =>
   import('../pages/HeroRosterPage/HeroRosterPage').then((m) => ({ default: m.HeroRosterPage })),
@@ -40,79 +39,53 @@ const UpdatesPage = lazy(() =>
   })),
 );
 
+type ArchivePageKind = ArchivePageSkeletonKind | 'map';
+
+export function archivePageKind(route: PageRoute, path: string): ArchivePageKind {
+  if (route === 'items') return path.startsWith('#/items/') ? 'item-detail' : 'items';
+  if (route !== 'heroes') return route;
+  if (path === '#/heroes/roster') return 'hero-roster';
+  if (path === '#/heroes/statistics') return 'hero-statistics';
+  return path.startsWith('#/heroes/') ? 'hero-detail' : 'hero-table';
+}
+
 export function AppRoutes({
-  route,
+  kind,
   routeHash,
   data,
   onMethod,
   onSnapshot,
 }: {
-  route: PageRoute;
+  kind: ArchivePageKind;
   routeHash: string;
   data: HeroSnapshot;
   onMethod: () => void;
   onSnapshot: (snapshot: HeroSnapshot) => void;
 }) {
-  if (route === 'items') {
-    const slug = routeHash.split('?')[0].slice('#/items/'.length);
-    const detail = routeHash.split('?')[0].startsWith('#/items/');
-    return (
-      <Suspense fallback={<ArchiveLoading />}>
-        {detail ? <ItemDetailPage key={slug} slug={slug} heroes={data} /> : <ItemsPage />}
-      </Suspense>
-    );
+  switch (kind) {
+    case 'home':
+      return <HomePage data={data} onMethod={onMethod} />;
+    case 'hero-table':
+      return <HeroesPage key={routeHash} data={data} onMethod={onMethod} />;
+    case 'hero-roster':
+      return <HeroRosterPage data={data} />;
+    case 'hero-statistics':
+      return <HeroStatisticsPage data={data} />;
+    case 'hero-detail': {
+      const slug = routeHash.split('?')[0].slice('#/heroes/'.length);
+      return <HeroDetailPage key={slug} data={data} slug={slug} />;
+    }
+    case 'items':
+      return <ItemsPage />;
+    case 'item-detail': {
+      const slug = routeHash.split('?')[0].slice('#/items/'.length);
+      return <ItemDetailPage key={slug} slug={slug} heroes={data} />;
+    }
+    case 'mechanics':
+      return <MechanicsPage data={data} />;
+    case 'updates':
+      return <UpdatesPage data={data} onSnapshot={onSnapshot} />;
+    case 'map':
+      return <MapPage data={data} />;
   }
-  if (route === 'mechanics') {
-    return (
-      <Suspense fallback={<ArchiveLoading />}>
-        <MechanicsPage data={data} />
-      </Suspense>
-    );
-  }
-  if (route === 'updates')
-    return (
-      <Suspense fallback={<ArchiveLoading />}>
-        <UpdatesPage data={data} onSnapshot={onSnapshot} />
-      </Suspense>
-    );
-  if (route === 'map')
-    return (
-      <Suspense fallback={<ArchiveLoading />}>
-        <MapPage data={data} />
-      </Suspense>
-    );
-  if (route === 'heroes') {
-    const path = routeHash.split('?')[0];
-    let page: ReactNode;
-    if (path === '#/heroes/roster')
-      page = (
-        <Suspense fallback={<ArchiveLoading />}>
-          <HeroRosterPage data={data} />
-        </Suspense>
-      );
-    else if (path === '#/heroes/statistics')
-      page = (
-        <Suspense fallback={<ArchiveLoading />}>
-          <HeroStatisticsPage data={data} />
-        </Suspense>
-      );
-    else if (path.startsWith('#/heroes/'))
-      page = (
-        <Suspense fallback={<ArchiveLoading />}>
-          <HeroDetailPage key={path} data={data} slug={path.slice('#/heroes/'.length)} />
-        </Suspense>
-      );
-    else page = <HeroesPage key={routeHash} data={data} onMethod={onMethod} />;
-    const active =
-      path === '#/heroes/statistics' ? 'statistics' : path === '#/heroes' ? 'table' : 'roster';
-    return (
-      <>
-        <div className="hero-navigation-shell">
-          <HeroNavigation active={active} />
-        </div>
-        {page}
-      </>
-    );
-  }
-  return <HomePage data={data} onMethod={onMethod} />;
 }

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
-  <!-- Original code-native dossier geometry; decorative only. Stretch with preserveAspectRatio=none. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="90" viewBox="0 0 1600 90" preserveAspectRatio="none" fill="none">
+  <!-- Folder tab. The roster styles extend the body below this crop. -->
   <path d="M1 64H29V32H170L194 1H456L485 32H1571V64H1599V999H1Z" fill="#20382c" stroke="#857b50" stroke-width="2"/>
   <path d="M13 78H41V45H175L199 14H449L478 45H1558V78H1586V986H13Z" stroke="#bda66b" stroke-opacity=".28"/>
   <path d="M32 89V956M39 89V956" stroke="#0c1b14" stroke-opacity=".6"/>

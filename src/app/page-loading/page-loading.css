@@ -1,0 +1,12 @@
+.page-load {
+  position: relative;
+}
+
+.page-load-content[data-staged] {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0;
+  overflow: clip;
+  visibility: hidden;
+  pointer-events: none;
+}

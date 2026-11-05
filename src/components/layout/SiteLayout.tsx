@@ -9,11 +9,13 @@ import { Footer } from './Footer';
 export function SiteLayout({
   data,
   route,
+  loading,
   onMethod,
   children,
 }: {
   data: HeroSnapshot | null;
   route: PageRoute;
+  loading: boolean;
   onMethod: () => void;
   children: ReactNode;
 }) {
@@ -31,7 +33,7 @@ export function SiteLayout({
       >
         {t('К содержимому')}
       </a>
-      <Header data={data} route={route} />
+      <Header data={data} route={route} loading={loading} />
       <main id="main" tabIndex={-1} onClickCapture={onClickCapture}>
         {children}
       </main>
