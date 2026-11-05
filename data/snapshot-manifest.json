@@ -17,7 +17,7 @@
     "data/hero-history-normal-ranked-tier-8.json": "dcb565e1b8277333a91b61fb2751c95cb095e4cf7e0ec2e83be06bf5249589b1",
     "data/hero-history-normal-ranked-tier-9.json": "80320304825c32a7de580ed150b0aa77a04a19412d6f03e60a73f028a11847cf",
     "data/hero-history-normal-unranked-all.json": "a2c48ee56019ffde555e488f8a7fccb9bf90f02183d025bb962ecc46b30aa05f",
-    "data/hero-profiles.json": "52dc6e692e501e608a3e4b703089251622ad73a1d3f1db94eacbd5cc8ce555b6",
+    "data/hero-profiles.json": "23418a515a69a92e5d7f3fc9d864ef15f3fc0ec3dae8b6548011ef45464f8879",
     "data/hero-statistics.json": "20a60e3e835d6c760ce118504fc291e5d938062868fb2cb9c5e1ac58b13dc915",
     "data/heroes.json": "8d2e4a74c88572e3fbdbb169ff801836eb9e4781843d5d24a4d3786e3d106884",
     "data/item-statistics.json": "001e717edad30053234bc6161e56399269a4bc837b75acdaf00fc3b09f1a42e5",
@@ -455,7 +455,7 @@
     "public/images/map/mid_tunnels.png": "20af3bc4dd36e1f2fb2462a5d25c898906ee05d82605b0dc87862d634827094b",
     "public/images/map/rat_tunnels.png": "5175463cf7511a3a77fa4d8b531e7ee27e03d0b17210560146e3fcee688235a5"
   },
-  "hash": "1eb1a086094625396bfccbec351951ac895ae066350afd0177b9e8bce828c394",
+  "hash": "597c5299e6d4684923303dad4fe28224398420b98e4aaacabb0d1c977c2f0699",
   "reviewedClientVersion": 6819,
   "schemaVersion": 1
 }

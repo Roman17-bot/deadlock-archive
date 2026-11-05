@@ -287,7 +287,7 @@
       "tips": [
         {
           "en": "Billy’s light melee keeps the reload timer running. If an enemy is already in reach while you reload, you can throw in a quick hit and still keep the reload going.",
-          "ru": "Лёгкий удар Billy не останавливает перезарядку. Если противник уже рядом, можно ударить его и продолжить заряжать оружие.",
+          "ru": "У Billy лёгкий удар не сбивает перезарядку. Если враг подошёл вплотную, ударьте его, пока оружие заряжается.",
           "title": {
             "en": "Swing while you reload",
             "ru": "Бейте во время перезарядки"
@@ -330,8 +330,8 @@
         {
           "paragraphs": [
             {
-              "en": "Calico admits to Arin Fairfax that she was the one who shot them. Arin survived, and Calico hints that the shot missed their heart on purpose.",
-              "ru": "Калико признаётся Арин Фэрфакс, что именно она стреляла в них. Арин пережили покушение, а сама Калико намекает, что промахнулась мимо сердца намеренно."
+              "en": "Calico admits to [Arin Fairfax](hero:pocket) that she was the one who shot them. [Arin](hero:pocket) survived, and Calico hints that the shot missed their heart on purpose.",
+              "ru": "Калико признаётся [Арин Фэрфакс](hero:pocket), что именно она стреляла в них. [Арин](hero:pocket) пережили покушение, а сама Калико намекает, что промахнулась мимо сердца намеренно."
             }
           ],
           "title": {
@@ -358,7 +358,7 @@
       "tips": [
         {
           "en": "Use Ava to rotate behind cover so its speed can build while you stay off the minimap. Getting tagged by a hero resets the speed bonus, so avoid crossing a lane in full view.",
-          "ru": "Используйте «Ава» для обхода за укрытиями: вас не видно на мини-карте, а скорость постепенно растёт. Попадание вражеского героя сбрасывает этот разгон, поэтому избегайте открытых участков.",
+          "ru": "Превратитесь в Аву и обойдите врага за укрытиями. На мини-карте вас не видно, а скорость постепенно растёт. Попадание вражеского героя сбрасывает разгон.",
           "title": {
             "en": "Take the long way in with Ava",
             "ru": "Обойдите врагов с «Ава»"
@@ -543,7 +543,7 @@
       "tips": [
         {
           "en": "If the enemy you want to fight is grouped, open with Eternal Night. Heroes caught in it count as isolated for the duration, even while standing together.",
-          "ru": "Если нужная цель держится рядом с командой, начните с «Вечная ночь». Задетые герои считаются изолированными, даже когда стоят рядом друг с другом.",
+          "ru": "Если нужная цель держится рядом с командой, начните с «Вечной ночи». Задетые герои считаются изолированными, даже когда стоят рядом друг с другом.",
           "title": {
             "en": "Create isolation on demand",
             "ru": "Изолируйте цель в толпе"
@@ -716,7 +716,7 @@
       "tips": [
         {
           "en": "Put Spirit Snare in the enemy’s route, then shoot the trap with Charged Shot when they are close. This sets it off early and gives it a wider radius.",
-          "ru": "Положите ловушку на пути врага и выстрелите в неё из «Заряженный выстрел», когда он окажется рядом. Так она сработает раньше и захватит большую область.",
+          "ru": "Положите ловушку на пути врага. Когда он подойдёт, попадите по ловушке заряженным выстрелом, чтобы она сработала раньше и захватила большую область.",
           "title": {
             "en": "Set off the snare yourself",
             "ru": "Подрывайте ловушку выстрелом"
@@ -771,7 +771,7 @@
       "tips": [
         {
           "en": "Sleep Dagger leaves Smoke Bomb’s invisibility intact. Use it to put one pursuer to sleep as you slip away, and save your gunfire until you are ready to reveal yourself.",
-          "ru": "Бросок усыпляющего кинжала сохраняет невидимость «Дымовая шашка». Усыпите преследователя на отходе, а стреляйте, когда будете готовы раскрыть себя.",
+          "ru": "Дымовая шашка сохраняет невидимость при броске усыпляющего кинжала. Усыпите преследователя на отходе, а стреляйте, когда будете готовы раскрыть себя.",
           "title": {
             "en": "Throw the dagger from stealth",
             "ru": "Бросайте кинжал из невидимости"
@@ -1082,7 +1082,7 @@
       "tips": [
         {
           "en": "Life Drain leaves your gun and other abilities available. Apply Malice or keep shooting while the tether holds, and plan around the move-speed penalty so you can keep line of sight.",
-          "ru": "Во время «Высасывание жизни» доступны стрельба и другие способности. Используйте «Порча» или продолжайте стрелять, пока держится связь, и учитывайте замедление, чтобы не потерять цель из виду.",
+          "ru": "Пока держится связь от «Высасывания жизни», можно стрелять и применять другие способности. Наложите «Порчу» или продолжайте стрелять. Следите, чтобы замедление не помешало вам удержать цель.",
           "title": {
             "en": "Keep shooting through the tether",
             "ru": "Стреляйте, пока действует связь"
@@ -1117,8 +1117,8 @@
         {
           "paragraphs": [
             {
-              "en": "Bebop beat Lash in the ring, a loss Lash has never made peace with. In one line about the Ritual, he says he'd ask the Patron for a world without Bebop.",
-              "ru": "Бибоп победил Хлыста на арене, и тот так и не смирился с поражением. В одной из реплик о Ритуале Хлыст говорит, что попросил бы у Покровителя мир, в котором Бибопа нет."
+              "en": "[Bebop](hero:bebop) beat Lash in the ring, a loss Lash has never made peace with. In one line about the Ritual, he says he'd ask the Patron for a world without [Bebop](hero:bebop).",
+              "ru": "[Бибоп](hero:bebop) победил Хлыста на арене, и тот так и не смирился с поражением. В одной из реплик о Ритуале Хлыст говорит, что попросил бы у Покровителя мир, в котором [Бибопа](hero:bebop) нет."
             }
           ],
           "title": {
@@ -1207,7 +1207,7 @@
       "tips": [
         {
           "en": "Recast Spectral Wall to raise it early if an enemy is about to cross your line. Place it where they have to detour, and use the time it buys before they can break through with melee.",
-          "ru": "Повторно нажмите «Призрачная стена», чтобы поднять стену, пока противник не пересёк её линию. Перекройте путь в месте, где придётся идти в обход, и используйте время до того, как стену разобьют ударами.",
+          "ru": "Нажмите кнопку стены второй раз, чтобы поднять её до того, как противник пересечёт линию. Перекройте путь там, где врагу придётся идти в обход или ломать стену ударами.",
           "title": {
             "en": "Raise the wall before they cross",
             "ru": "Поднимайте стену до прохода врага"
@@ -1270,7 +1270,7 @@
       "tips": [
         {
           "en": "When Love Bites is on cooldown for your current target, switch to a different hero you can safely hit. Its cooldown is per target, and each hero proc adds bats to future Nox Nostra casts.",
-          "ru": "Когда «Любовные укусы» перезаряжается на текущей цели, переключитесь на другого героя, которого можете безопасно атаковать. Перезарядка считается отдельно для каждой цели, а срабатывания на героях добавляют летучих мышей к будущим ультам.",
+          "ru": "Когда «Любовные укусы» сработают, переключитесь на другого героя, которого можно безопасно атаковать. У каждой цели своя перезарядка укусов. Срабатывания на героях добавляют летучих мышей к будущим ультам.",
           "title": {
             "en": "Spread bites across heroes",
             "ru": "Распределяйте укусы по героям"
@@ -1325,7 +1325,7 @@
       "tips": [
         {
           "en": "If you expect to rotate with Traveler, step out of incoming fire before starting the cast. Any damage during the wait can interrupt it, so a safe corner matters more than your starting distance from the destination.",
-          "ru": "Перед телепортом уйдите из-под огня. Урон во время подготовки прерывает «Путник», поэтому выбирайте укрытие для начала применения.",
+          "ru": "Начинайте телепорт из укрытия. Если враг ранит вас, пока «Путник» готовит телепорт, применение прервётся.",
           "title": {
             "en": "Start the teleport behind cover",
             "ru": "Начинайте телепорт за укрытием"
@@ -1435,8 +1435,8 @@
         {
           "paragraphs": [
             {
-              "en": "In a conversation with Seven, Harrow recalls Edmund Volker. They trained under the same mentor, and Volker worked at Lost Whisper. Seven implies that he killed Volker during his escape.",
-              "ru": "В разговоре с Семью Хэрроу вспоминает Эдмунда Волкера. Они учились у одного наставника, а Волкер работал в «Затерянном шёпоте». Семь даёт понять, что Волкер погиб от его руки во время побега."
+              "en": "In a conversation with [Seven](hero:seven), Harrow recalls Edmund Volker. They trained under the same mentor, and Volker worked at Lost Whisper. [Seven](hero:seven) implies that he killed Volker during his escape.",
+              "ru": "В разговоре с [Семью](hero:seven) Хэрроу вспоминает Эдмунда Волкера. Они учились у одного наставника, а Волкер работал в «Затерянном шёпоте». [Семь](hero:seven) даёт понять, что Волкер погиб от его руки во время побега."
             }
           ],
           "title": {
@@ -1477,7 +1477,7 @@
       "tips": [
         {
           "en": "After you use Wretched Vapors to cover incoming damage, switch to Healing Needles and heal your ally before the crash. Incoming healing clears specters first, so a health bar that barely moves can still mean you prevented damage.",
-          "ru": "После «Гнусные пары» переключитесь на лечебные шприцы и лечите союзника до окончания испарений. Лечение сначала убирает призраков, поэтому можно предотвратить урон, даже если полоска здоровья почти не сдвинулась.",
+          "ru": "Прикройте союзника «Гнусными парами», затем лечите его иглами, пока эффект ещё действует. Лечение сначала убирает призраков. Даже если полоска здоровья почти не сдвинулась, вы могли предотвратить урон.",
           "title": {
             "en": "Heal before the crash",
             "ru": "Лечите до окончания испарений"
@@ -1595,7 +1595,7 @@
       "tips": [
         {
           "en": "Set Time Wall across an angle your team is already holding and shoot through it together. It stops incoming projectiles while speeding up and strengthening allied bullets that pass through.",
-          "ru": "Поставьте «Стена времени» поперёк направления, которое уже держит ваша команда, и стреляйте сквозь неё. Она задерживает вражеские снаряды, а пролетающие через неё союзные пули становятся быстрее и сильнее.",
+          "ru": "Поставьте «Стену времени» поперёк прохода, который держит ваша команда, и стреляйте сквозь неё. Стена задерживает вражеские снаряды, а союзные пули летят через неё быстрее и наносят больше урона.",
           "title": {
             "en": "Shoot through your own wall",
             "ru": "Стреляйте через свою стену"
@@ -1642,8 +1642,8 @@
         {
           "paragraphs": [
             {
-              "en": "After the shooting, Arin found support with Mo and Krill. During the Ritual, Krill says they won't let Arin face this alone and speaks of the three of them as family.",
-              "ru": "После покушения Мо и Мелкий помогли Эрин. Во время Ритуала Мелкий говорит, что они не дадут Эрин справляться со всем в одиночку, и называет их семьёй."
+              "en": "After the shooting, Arin found support with [Mo and Krill](hero:mo-krill). During the Ritual, [Krill](hero:mo-krill) says they won't let Arin face this alone and speaks of the three of them as family.",
+              "ru": "После покушения [Мо и Мелкий](hero:mo-krill) помогли Эрин. Во время Ритуала [Мелкий](hero:mo-krill) говорит, что они не дадут Эрин справляться со всем в одиночку, и называет их семьёй."
             }
           ],
           "title": {
@@ -1684,7 +1684,7 @@
       "tips": [
         {
           "en": "Use an air dash during Barrage to keep an angle on a hero rounding a corner. Air dash and Flying Cloak can be used without cancelling the barrage.",
-          "ru": "Если цель уходит за угол, сделайте воздушный рывок во время «Шквал», чтобы сохранить угол обстрела. Воздушный рывок и «Летающий плащ» не прерывают залп.",
+          "ru": "Если цель уходит за угол, сместитесь воздушным рывком, пока идёт «Шквал». Так вы сохраните угол обстрела. Рывок и «Летающий плащ» можно использовать во время залпа.",
           "title": {
             "en": "Dash during the barrage",
             "ru": "Делайте рывок во время залпа"
@@ -1794,7 +1794,7 @@
       "tips": [
         {
           "en": "Once Tag Along has healed your first ally, hop to another injured ally instead of returning to the same one. Each ally can receive the heal once during the cast.",
-          "ru": "После первого лечения с «Приятная компания» перепрыгните на другого раненого союзника. За одно применение каждый союзник получает лечение только один раз.",
+          "ru": "Когда «Приятная компания» вылечит первого союзника, перепрыгните на другого раненого героя. За одно применение каждый союзник получает лечение только один раз.",
           "title": {
             "en": "Heal more than one ally on the same ride",
             "ru": "Перепрыгивайте между ранеными союзниками"
@@ -1802,7 +1802,7 @@
         },
         {
           "en": "You can use items during Tag Along. Self-cast effects target the ally you are riding, so keep a suitable item available when you hop onto a teammate who needs it.",
-          "ru": "Во время «Приятная компания» можно использовать предметы. При применении на себя эффект получит союзник, на котором вы сидите. Приберегите подходящий предмет для напарника, которому он понадобится.",
+          "ru": "Пока сидите на союзнике, можно использовать предметы. Предмет, применённый на себя, подействует на того, на ком вы сидите.",
           "title": {
             "en": "Pass a self-cast to your ride",
             "ru": "Передавайте эффект предмета союзнику"
@@ -1892,8 +1892,8 @@
         {
           "paragraphs": [
             {
-              "en": "Shiv says the Society saved his life. He tells Holliday that Grey Talon picked him personally, and Wesley calls him his protégé. Even after a few years with the Society, Shiv feels he still has to earn the trust of the other hunters.",
-              "ru": "По словам Заточки, Общество спасло ему жизнь. Он говорит Холлидей, что его выбрал сам Серый Коготь, а Уэсли называет его своим учеником. Даже после нескольких лет в Обществе Заточка чувствует, что доверие коллег ещё нужно заслужить."
+              "en": "Shiv says the Society saved his life. He tells [Holliday](hero:holliday) that [Grey Talon](hero:grey-talon) picked him personally, and [Wesley](hero:grey-talon) calls him his protégé. Even after a few years with the Society, Shiv feels he still has to earn the trust of the other hunters.",
+              "ru": "По словам Заточки, Общество спасло ему жизнь. Он говорит [Холлидей](hero:holliday), что его выбрал сам [Серый Коготь](hero:grey-talon), а [Уэсли](hero:grey-talon) называет его своим учеником. Даже после нескольких лет в Обществе Заточка чувствует, что доверие коллег ещё нужно заслужить."
             }
           ],
           "title": {
@@ -1955,8 +1955,8 @@
         {
           "paragraphs": [
             {
-              "en": "Silver has an old score to settle with Shiv and the Drifter. In one taunt the Doorman brings up the people she failed to save from them. Silver herself makes it clear that the Baxter Society hasn't convinced her Shiv has changed.",
-              "ru": "У Сильвер давние счёты с Заточкой и Скитальцем. Швейцар в одной из реплик припоминает ей людей, которых она не сумела от них спасти. Сама Сильвер даёт понять, что Общество Бакстера не убедило её в том, что Заточка изменился."
+              "en": "Silver has an old score to settle with [Shiv](hero:shiv) and the [Drifter](hero:drifter). In one taunt the [Doorman](hero:the-doorman) brings up the people she failed to save from them. Silver herself makes it clear that the Baxter Society hasn't convinced her [Shiv](hero:shiv) has changed.",
+              "ru": "У Сильвер давние счёты с [Заточкой](hero:shiv) и [Скитальцем](hero:drifter). [Швейцар](hero:the-doorman) в одной из реплик припоминает ей людей, которых она не сумела от них спасти. Сама Сильвер даёт понять, что Общество Бакстера не убедило её в том, что [Заточка](hero:shiv) изменился."
             }
           ],
           "title": {
@@ -1983,7 +1983,7 @@
       "tips": [
         {
           "en": "Fire the rounds you have before activating Slam Fire when you can safely stay on target. The activation fills your magazine instantly, so using it after spending ammo gets more out of the reload.",
-          "ru": "Если можете безопасно продолжать стрельбу, потратьте оставшиеся патроны перед «Скоростной огонь». Способность мгновенно пополняет магазин, так что перезарядка принесёт больше пользы.",
+          "ru": "Если можете безопасно продолжать стрельбу, потратьте оставшиеся патроны и включите «Скоростной огонь». Способность сразу пополнит магазин.",
           "title": {
             "en": "Use Slam Fire as a reload",
             "ru": "Перезаряжайтесь через «Скоростной огонь»"
@@ -2219,7 +2219,7 @@
       "tips": [
         {
           "en": "Step sideways before using Gutshot so the knockback points into a nearby wall. A target close to the wall takes bonus weapon damage and is stunned.",
-          "ru": "Перед «Разрывной выстрел» сместитесь в сторону, чтобы отбросить цель к ближайшей стене. Враг рядом со стеной получит дополнительный урон от оружия и оглушение.",
+          "ru": "Сместитесь в сторону перед тем, как применить «Разрывной выстрел», чтобы отбросить цель к ближайшей стене. При столкновении со стеной враг получит дополнительный урон от оружия и оглушение.",
           "title": {
             "en": "Fight with a wall behind your target",
             "ru": "Держите противника спиной к стене"
@@ -2455,7 +2455,7 @@
         },
         {
           "en": "The Cube can block delayed damage from Nurse Harrow’s Wretched Vapors while the ally is inside. Save it for the crash and have healing ready for any damage that falls outside that window.",
-          "ru": "Куб может прикрыть союзника от отложенного урона Nurse Harrow, пока тот внутри. Применяйте его к концу действия испарений. Если часть урона придётся на время после Куба, подготовьте лечение.",
+          "ru": "Куб может прикрыть союзника от отложенного урона «Гнусных пар», пока тот внутри. Дайте Куб ближе к концу действия паров. Если часть урона придётся на время после Куба, подготовьте лечение.",
           "title": {
             "en": "Time the Cube for Harrow’s crash",
             "ru": "Куб в момент отложенного урона"
@@ -2703,7 +2703,7 @@
       "tips": [
         {
           "en": "When you have time to act before Shadow Transformation, use a valuable ability first. The transformation refreshes your abilities, letting you use it again in the same fight.",
-          "ru": "Если успеваете действовать до «Превращение в тень», сначала примените нужную способность. Превращение сбрасывает перезарядки, и вы сможете повторить её в том же бою.",
+          "ru": "Если есть время, примените нужную способность перед превращением в тень. Превращение сбрасывает перезарядки, и вы сможете применить её ещё раз в той же драке.",
           "title": {
             "en": "Spend an ability before transforming",
             "ru": "Используйте способность до превращения"
