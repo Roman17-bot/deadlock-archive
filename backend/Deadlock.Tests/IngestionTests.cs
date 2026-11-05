@@ -1,7 +1,9 @@
+using System.Globalization;
 using System.Net;
 using System.Text.Json.Nodes;
 using Deadlock.Api;
 using Deadlock.Api.Ingestion;
+using Microsoft.AspNetCore.WebUtilities;
 using Xunit.Abstractions;
 
 namespace Deadlock.Tests;
@@ -66,7 +68,14 @@ public sealed class IngestionTests(ITestOutputHelper output)
         Assert.Equal(before, current.ToJsonString()); Assert.True(JsonNode.DeepEquals(current["mechanics"], candidate.Bundle["mechanics"])); Assert.True(JsonNode.DeepEquals(current["history"], candidate.Bundle["history"])); Assert.True(JsonNode.DeepEquals(current["provenance"], candidate.Bundle["provenance"])); Assert.Equal(6, candidate.Summary["heroCount"]!.GetValue<int>()); Assert.Single(candidate.Bundle["items"]!["items"]!.AsArray()); Assert.Contains("public/assets/items/example.webp", candidate.Assets.Keys);
         Assert.All(calls.Where(u => u.AbsolutePath.EndsWith("/items") || u.AbsolutePath.EndsWith("/heroes")), u => Assert.Contains("client_version=6819", u.Query));
         Assert.DoesNotContain(calls, u => u.AbsolutePath.EndsWith("/commits")); Assert.Equal(Commit, candidate.SourceCommit);
-        var analytics = calls.Where(u => u.AbsolutePath.EndsWith("/item-stats")).ToList(); Assert.Equal(2, analytics.Count); Assert.Equal(analytics[0].Query.Replace("bucket=no_bucket", "bucket=hero"), analytics[1].Query); Assert.Contains("min_unix_timestamp=1792687235", analytics[0].Query);
+        var analytics = calls.Where(u => u.AbsolutePath.EndsWith("/item-stats")).ToList();
+        Assert.Equal(2, analytics.Count);
+        Assert.Equal(analytics[0].Query.Replace("bucket=no_bucket", "bucket=hero"), analytics[1].Query);
+        var query = QueryHelpers.ParseQuery(analytics[0].Query);
+        var end = DateTimeOffset.FromUnixTimeSeconds(long.Parse(query["max_unix_timestamp"].ToString(), CultureInfo.InvariantCulture));
+        var patchStart = new DateTimeOffset(2026, 10, 22, 16, 40, 35, TimeSpan.Zero);
+        var expectedStart = patchStart > end.AddDays(-14) ? patchStart : end.AddDays(-14);
+        Assert.Equal(expectedStart.ToUnixTimeSeconds(), long.Parse(query["min_unix_timestamp"].ToString(), CultureInfo.InvariantCulture));
         var heroes = candidate.Bundle["heroes"]!["heroes"]!.AsArray().OfType<JsonObject>().ToDictionary(h => h["name"]!.GetValue<string>());
         Assert.True(heroes["Baba"]["weapon"]!["hitOnce"]!.GetValue<bool>()); Assert.Equal(3, heroes["Baba"]["weapon"]!["projectiles"]!.GetValue<double>());
         Assert.True(heroes["Victor"]["weapon"]!["spinsUp"]!.GetValue<bool>()); Assert.Equal(0.171, heroes["Victor"]["weapon"]!["fullSpinCycle"]!.GetValue<double>());
