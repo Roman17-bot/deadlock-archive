@@ -2,7 +2,7 @@ import type { Hero, HeroStats } from '../../../../shared/types';
 import { statsAtLevel } from '../../../../shared/heroes';
 import { format } from '../../../lib/format';
 import { useI18n } from '../../../i18n';
-import { weaponNotes } from '../model/weaponNotes';
+import { weaponNotes } from '../../../features/heroes/weaponNotes';
 import { HeroNoteMetric } from './HeroNoteMetrics';
 import { HeroGrowthNotes } from './HeroGrowthNotes';
 

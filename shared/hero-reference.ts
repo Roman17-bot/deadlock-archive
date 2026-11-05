@@ -18,8 +18,9 @@ export interface HeroProfile {
   art: { background: string; card: string };
   summary: LocalizedText;
   lore: LocalizedText;
+  loreChapters?: { title: LocalizedText; paragraphs: LocalizedText[] }[];
   relationships: { heroId: number; description: LocalizedText }[];
-  tips: LocalizedText[];
+  tips: (LocalizedText & { title?: LocalizedText })[];
   videos: HeroVideo[];
 }
 export interface HeroProfiles {
@@ -132,7 +133,23 @@ export function validateHeroProfiles(v: unknown): v is HeroProfiles {
         safeMedia(h.art.card) &&
         localized(h.summary) &&
         localized(h.lore) &&
-        array(h.tips, localized) &&
+        (h.loreChapters === undefined ||
+          (Array.isArray(h.loreChapters) &&
+            h.loreChapters.length <= 20 &&
+            h.loreChapters.every(
+              (chapter) =>
+                record(chapter) &&
+                localized(chapter.title) &&
+                Array.isArray(chapter.paragraphs) &&
+                chapter.paragraphs.length > 0 &&
+                chapter.paragraphs.length <= 20 &&
+                chapter.paragraphs.every(localized),
+            ))) &&
+        array(
+          h.tips,
+          (tip): tip is HeroProfile['tips'][number] =>
+            record(tip) && localized(tip) && (tip.title === undefined || localized(tip.title)),
+        ) &&
         array(h.videos, video) &&
         array(
           h.relationships,

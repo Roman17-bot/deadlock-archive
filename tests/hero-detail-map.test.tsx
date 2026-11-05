@@ -133,6 +133,27 @@ afterEach(async () => {
 });
 
 describe('hero dossier', () => {
+  it('uses the displayed hero’s directed record for favorable opponents', async () => {
+    vi.mocked(loadHeroStatistics).mockResolvedValue({
+      ...statistics,
+      matchups: {
+        ...cohort,
+        rows: [
+          { heroId: hero.id, enemyHeroId: friend.id, wins: 110, matches: 200 },
+          { heroId: friend.id, enemyHeroId: hero.id, wins: 90, matches: 200 },
+        ],
+      },
+    });
+    render(<HeroDetailPage data={data} slug={hero.slug} />);
+    const section = (await screen.findByRole('heading', { name: 'Favorable opponents' })).closest(
+      'section',
+    )!;
+    expect(within(section).getByText('55%')).toBeVisible();
+    expect(within(section).getByRole('link', { name: 'Friend' })).toHaveAttribute(
+      'href',
+      '#/heroes/friend',
+    );
+  });
   it('returns modal focus to the original trigger after StrictMode replays effects', async () => {
     HTMLDialogElement.prototype.showModal = function () {
       this.setAttribute('open', '');
@@ -162,22 +183,36 @@ describe('hero dossier', () => {
     render(<HeroDetailPage data={data} slug={hero.slug} />);
     const cards = await screen.findAllByTestId('ability-card');
     expect(cards).toHaveLength(4);
-    expect(screen.getByText('Health').nextElementSibling).toHaveTextContent('800');
+    const health = within(screen.getByRole('region', { name: 'Vitality' })).getByText('Health');
+    expect(health.nextElementSibling).toHaveTextContent('800');
+    expect(cards[0]).not.toHaveAttribute('open');
+    expect(within(cards[0]).getByText('Ability description.')).toBeVisible();
+    await userEvent.click(within(cards[0]).getByText('Details'));
     expect(within(cards[0]).getByText('100', { selector: 'dd' })).toBeVisible();
     fireEvent.change(screen.getByRole('slider', { name: /Level/ }), { target: { value: '6' } });
-    expect(screen.getByText('Health').nextElementSibling?.textContent?.replace(/\s|,/g, '')).toBe(
-      '1045',
-    );
+    expect(health.nextElementSibling?.textContent?.replace(/\s|,/g, '')).toBe('1045');
     expect(within(cards[0]).getByText('105', { selector: 'dd' })).toBeVisible();
     fireEvent.click(within(cards[0]).getByRole('button', { name: /1 AP/ }));
     expect(within(cards[0]).getByText('125', { selector: 'dd' })).toBeVisible();
   });
   it('switches to lore and opens real relationship links without showing gameplay blocks', async () => {
     const user = userEvent.setup();
+    const catalogue = profiles();
+    catalogue.heroes[0].loreChapters = [
+      {
+        title: text('Early years'),
+        paragraphs: [text('The hero met [an old ally](hero:friend) in New York.')],
+      },
+    ];
+    vi.mocked(loadHeroProfiles).mockResolvedValueOnce(catalogue);
     render(<HeroDetailPage data={data} slug={hero.slug} />);
     await screen.findByText('A helpful summary.');
-    await user.click(screen.getByRole('button', { name: 'Story & connections' }));
-    expect(screen.getByText('A story about the hero.')).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Lore' }));
+    expect(screen.getByRole('heading', { name: 'Early years' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'an old ally' })).toHaveAttribute(
+      'href',
+      '#/heroes/friend',
+    );
     expect(screen.getByRole('link', { name: 'Friend' })).toHaveAttribute('href', '#/heroes/friend');
     expect(screen.queryByRole('slider')).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Gameplay' }));

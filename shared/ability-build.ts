@@ -5,6 +5,20 @@ import type { BuildContext, BuildRules } from './build-types';
 import { calculateBuild } from './build-stats.ts';
 import { evaluateAbility } from './ability-calculation.ts';
 
+export function meleeDamageAtLevel(hero: Hero, level: number, spirit: number, multiplier = 1) {
+  const base = hero.calculation;
+  const light = base?.lightMeleeDamage;
+  const heavy = base?.heavyMeleeDamage;
+  if (light === undefined || light <= 0 || heavy === undefined || base?.meleeGrowth === undefined)
+    return undefined;
+  const growth = base.meleeGrowth * (level - 1);
+  return {
+    lightMeleeDamage: (light + growth) * multiplier,
+    heavyMeleeDamage:
+      (heavy + (growth * heavy) / light + (base.heavyMeleePerSpirit ?? 0) * spirit) * multiplier,
+  };
+}
+
 export function calculateHeroAbility(
   ability: AbilityDetails,
   rank: number,
@@ -45,9 +59,6 @@ export function calculateHeroAbility(
     hero.base.bulletDamage +
     boons * hero.growth.bulletDamage +
     build.stats.spirit * hero.scaling.bulletDamagePerSpirit;
-  const melee = hero.calculation;
-  const light = melee?.lightMeleeDamage;
-  const heavy = melee?.heavyMeleeDamage;
   const meleeBonus = 1 + (weaponDamagePercent / 2 + sum('meleeDamagePercent')) / 100;
   return evaluateAbility(ability, rank, {
     ...build.ability,
@@ -55,15 +66,6 @@ export function calculateHeroAbility(
     healingAmp: build.stats.healingAmp,
     weaponDamagePercent,
     baseBulletDamage: naturalBullet,
-    ...(light !== undefined && light > 0 && heavy !== undefined && melee?.meleeGrowth !== undefined
-      ? {
-          lightMeleeDamage: (light + melee.meleeGrowth * boons) * meleeBonus,
-          heavyMeleeDamage:
-            (heavy +
-              (melee.meleeGrowth * boons * heavy) / light +
-              (melee.heavyMeleePerSpirit ?? 0) * build.stats.spirit) *
-            meleeBonus,
-        }
-      : {}),
+    ...meleeDamageAtLevel(hero, level, build.stats.spirit, meleeBonus),
   });
 }

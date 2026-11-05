@@ -93,9 +93,18 @@ public sealed class ReferenceCatalogueTests
     public void NewClientProfilesRefreshSourceArtWithoutClaimingEditorialReview()
     {
         var profiles = Profiles(); var heroes = HeroRoster(); heroes["meta"]!["clientVersion"] = 6849;
+        var saved = profiles["heroes"]![0]!;
+        saved["loreChapters"] = JsonNode.Parse("""
+            [{"title":{"ru":"Глава","en":"Chapter"},"paragraphs":[{"ru":"Текст","en":"Text"}]}]
+            """);
+        saved["tips"] = JsonNode.Parse("""
+            [{"title":{"ru":"Совет","en":"Tip"},"ru":"Текст","en":"Text"}]
+            """);
         var source = new JsonArray(new JsonObject { ["id"] = 1, ["images"] = new JsonObject { ["background_image_webp"] = "https://assets-bucket.deadlock-api.com/new.webp", ["icon_hero_card_webp"] = "https://assets-bucket.deadlock-api.com/card.webp" } });
         var next = ReferenceSource.Profiles(profiles, heroes, source, 6849, "2026-11-05T00:00:00Z");
         Assert.Equal(6849, ArchiveJson.Number(next["clientVersion"])); Assert.Equal(6848, ArchiveJson.Number(next["heroes"]![0]!["reviewedClientVersion"])); Assert.Equal("https://assets-bucket.deadlock-api.com/new.webp", ArchiveJson.Text(next["heroes"]![0]!["art"]!["background"]));
+        Assert.True(JsonNode.DeepEquals(saved["loreChapters"], next["heroes"]![0]!["loreChapters"]));
+        Assert.True(JsonNode.DeepEquals(saved["tips"], next["heroes"]![0]!["tips"]));
     }
     internal static JsonObject MapFixture(int version)
     {

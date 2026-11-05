@@ -45,6 +45,13 @@ public static class ReferenceCatalogues
             Need(row!["art"] is JsonObject art && art.All(a => a.Key is "background" or "card" && Asset(a.Value)), "Untrusted profile art");
             Need(row["tips"] is JsonArray { Count: <= 20 } tips && tips.All(Local) && row["relationships"] is JsonArray { Count: <= 100 } && row["videos"] is JsonArray { Count: <= 20 } videos && videos.All(v => v is JsonObject && (v["abilityId"]?.ToJsonString() == "\"weapon\"" || Integer(v["abilityId"], 1)) && (v["clientVersion"] == null || Integer(v["clientVersion"], 1)) && Local(v["title"]) && Asset(v["url"]) && Asset(v["poster"]) && Text(v["sourceUrl"], 2048) && Uri.TryCreate(S(v["sourceUrl"]), UriKind.Absolute, out var u) && u.Scheme == "https" && Time(v["checkedAt"]) && Real(v["startSeconds"], 0, 86400) && Real(v["endSeconds"], 0, 86400) && ArchiveJson.Real(v["endSeconds"]) > ArchiveJson.Real(v["startSeconds"])), "Invalid profile advice/media");
             if (row.AsObject().ContainsKey("reviewedClientVersion")) Need(row["reviewedClientVersion"] == null || Integer(row["reviewedClientVersion"], 1, N(profiles["clientVersion"])), "Invalid editorial review version");
+            if (row.AsObject().ContainsKey("loreChapters"))
+                Need(row["loreChapters"] is JsonArray { Count: <= 20 } chapters &&
+                    chapters.All(chapter => chapter is JsonObject && Local(chapter["title"]) &&
+                        chapter["paragraphs"] is JsonArray { Count: > 0 and <= 20 } paragraphs && paragraphs.All(Local)),
+                    "Invalid lore chapters");
+            foreach (var tip in row["tips"]!.AsArray())
+                if (tip!.AsObject().ContainsKey("title")) Need(Local(tip["title"]), "Invalid tip title");
             foreach (var relation in row["relationships"]!.AsArray()) Need(relation is JsonObject && Integer(relation["heroId"], 1) && roster.ContainsKey(N(relation["heroId"])) && Local(relation["description"]), "Invalid profile relationship");
         }
         if (N(profiles["clientVersion"]) == N(heroes["meta"]?["clientVersion"])) Need(seen.SetEquals(roster.Keys), "Incomplete profile roster");

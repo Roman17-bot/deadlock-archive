@@ -7,10 +7,7 @@ import { loadHeroProfiles, referenceMedia } from '../../services/heroReferenceAp
 import { useReference } from '../../features/heroes/useReference';
 import { useAbilities } from '../../features/hero-calculator/useAbilities';
 import { ArrowUpRight } from '../../components/ui/ArchiveIcon/ArchiveIcons';
-import media from './roster-media.json';
-
-type RosterMedia = { render?: string; nameplate?: string; accent?: string };
-const artwork: Record<string, RosterMedia> = media;
+import { heroArtwork as artwork } from '../../features/heroes/hero-art';
 
 function ShowcaseArtwork({ hero, profile }: { hero: Hero; profile?: HeroProfile }) {
   const [fallback, setFallback] = useState(0);

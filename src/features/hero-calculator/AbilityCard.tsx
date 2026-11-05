@@ -20,6 +20,7 @@ type Props = {
   context: BuildContext;
   imbuedItemIds: readonly number[];
   initiallyOpen: boolean;
+  showOverview?: boolean;
   onDemo?: () => void;
 };
 
@@ -34,6 +35,7 @@ export function AbilityCard({
   context,
   imbuedItemIds,
   initiallyOpen,
+  showOverview = false,
   onDemo,
 }: Props) {
   const { t, language } = useI18n();
@@ -84,7 +86,9 @@ export function AbilityCard({
     if (!items || !rules)
       return (
         <>
-          {localized(details.description) && <p>{localized(details.description)}</p>}
+          {(!showOverview || linked) && localized(details.description) && (
+            <p>{localized(details.description)}</p>
+          )}
           {details.sections.map((section, index) => (
             <p key={index}>{localized(section.description)}</p>
           ))}
@@ -204,7 +208,7 @@ export function AbilityCard({
     };
     return (
       <>
-        {localized(details.description) && (
+        {(!showOverview || linked) && localized(details.description) && (
           <p className="ability-description">{localized(details.description)}</p>
         )}
         {rows(
@@ -258,6 +262,19 @@ export function AbilityCard({
             {t('Способность')} {ability.slot}
           </span>
           <strong>{localized(ability.name)}</strong>
+          {showOverview && (
+            <>
+              <span className="ability-lede">{localized(ability.description)}</span>
+              <span className="ability-more">
+                <span className="ability-more-closed">
+                  {language === 'en' ? 'Details' : 'Подробнее'}
+                </span>
+                <span className="ability-more-open">
+                  {language === 'en' ? 'Collapse' : 'Свернуть'}
+                </span>
+              </span>
+            </>
+          )}
         </span>
         <ChevronDown className="ability-disclosure" size={22} />
       </summary>

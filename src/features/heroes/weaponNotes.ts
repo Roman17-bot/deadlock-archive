@@ -1,4 +1,7 @@
-import type { Hero } from '../../../../shared/types';
+import type { Hero } from '../../../shared/types';
+
+// These weapon classes load rounds individually in the 6848 game configuration.
+const singleRoundReload = new Set(['citadel_weapon_bull_set', 'citadel_weapon_werewolf_rifle']);
 
 // These explain recorded source notes; class names alone do not establish a weapon's behavior.
 const explanations: [string, string][] = [
@@ -44,6 +47,7 @@ export function weaponNotes(hero: Hero) {
     ?.match(/WindUpTime=(\d+(?:\.\d+)?)/);
   return {
     tether: notes.some((note) => note.startsWith('Тики tether-оружия:')),
+    singleRoundReload: singleRoundReload.has(hero.weapon.className),
     beamWindup: windup ? Number(windup[1]) : null,
     explanations: explanations
       .filter(([prefix]) => notes.some((note) => note.startsWith(prefix)))

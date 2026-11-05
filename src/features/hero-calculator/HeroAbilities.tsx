@@ -15,6 +15,7 @@ export function HeroAbilities({
   rules,
   context,
   onDemo,
+  dossier = false,
 }: {
   data: HeroSnapshot;
   hero: Hero;
@@ -23,6 +24,7 @@ export function HeroAbilities({
   rules?: BuildRules;
   context: BuildContext;
   onDemo?: (abilityId: number, title: string) => void;
+  dossier?: boolean;
 }) {
   const { t, language } = useI18n();
   const { catalog, error, mismatch, retry } = useAbilities(data);
@@ -41,8 +43,17 @@ export function HeroAbilities({
       ? 'Версии героев и способностей различаются. Обнови данные перед расчётом.'
       : undefined;
   return (
-    <section className="build-abilities" aria-labelledby="hero-abilities-heading">
-      <h3 id="hero-abilities-heading">{t('Способности героя')}</h3>
+    <section
+      className={
+        dossier ? 'build-abilities dossier-ability-grid dossier-section' : 'build-abilities'
+      }
+      aria-labelledby="hero-abilities-heading"
+    >
+      {dossier ? (
+        <h2 id="hero-abilities-heading">{t('Способности героя')}</h2>
+      ) : (
+        <h3 id="hero-abilities-heading">{t('Способности героя')}</h3>
+      )}
       {failure ? (
         <p role="alert">
           {t(failure)}{' '}
@@ -99,7 +110,8 @@ export function HeroAbilities({
               rules={rules}
               context={context}
               imbuedItemIds={itemTargets(ability.id)}
-              initiallyOpen={index === 0}
+              initiallyOpen={!dossier && index === 0}
+              showOverview={dossier}
               onDemo={
                 onDemo
                   ? () => onDemo(ability.id, ability.name[language] || ability.name.en)
