@@ -11,7 +11,34 @@
         "en": "A New York detective is trying to understand the mysterious tome left in his office and the attacks that followed its arrival.",
         "ru": "Нью-йоркский сыщик пытается разгадать тайну книги, оставленной в его кабинете, и нападений, начавшихся после её появления."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Abrams has spent years investigating cases in New York, from missing persons and stolen paintings to ritual killings and marital infidelity.",
+              "ru": "Абрамс давно работает сыщиком в Нью-Йорке. Он разыскивал пропавших людей и краденые картины, расследовал ритуальные убийства и брался за куда более будничные дела о супружеских изменах."
+            }
+          ],
+          "title": {
+            "en": "Private investigator",
+            "ru": "Частный сыщик"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "An uncanny book turned up on his desk with a warning in black blood to keep it away from unnamed pursuers. Since then, someone has broken into his home, ransacked his office three times and set fire to his car. He wants to learn where the book came from and who is so eager to get it.",
+              "ru": "Однажды в кабинете его ждала загадочная книга. В записке, выведенной чёрной кровью, кто-то просил не отдавать её в чужие руки. С тех пор в дом Абрамса вломились, кабинет трижды перевернули, а машину подожгли. Теперь он хочет выяснить, откуда взялась книга и кому она так нужна."
+            }
+          ],
+          "title": {
+            "en": "The book on the desk",
+            "ru": "Книга на столе"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "abrams",
       "summary": {
         "en": "Close-range pressure with life drain, charges and area stuns.",
@@ -19,12 +46,12 @@
       },
       "tips": [
         {
-          "en": "Aim Shoulder Charge toward a wall to trigger its hero stun.",
-          "ru": "Направляйте Shoulder Charge к стене, чтобы оглушить задетого героя."
-        },
-        {
-          "en": "Keep enemies within Siphon Life's area while draining their health.",
-          "ru": "Во время Siphon Life удерживайте противников в области действия, чтобы продолжать отнимать здоровье."
+          "en": "If you can approach from the side, aim Shoulder Charge across the enemy’s escape route and into a wall. They end up stunned away from the route they were trying to take.",
+          "ru": "Зайдите сбоку и направьте таран через путь отхода противника к стене. Он окажется оглушён в стороне от выхода.",
+          "title": {
+            "en": "Drag them away from the exit",
+            "ru": "Отрежьте путь к отступлению"
+          }
         }
       ],
       "videos": []
@@ -39,7 +66,34 @@
         "en": "Sent from troubled North Ixia to study in New York, Apollo captains Blackmore's fencing team while awaiting his family's call home.",
         "ru": "Отправленный из неспокойной Северной Иксии учиться в Нью-Йорк, Apollo возглавляет фехтовальщиков Blackmore и ждёт возвращения к семье."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Political violence in North Ixia grew serious enough that Apollo was sent to New York for his safety. Blackmore Academy disappointed him. Few of his classmates lived up to the standard he had expected.",
+              "ru": "Политическое насилие на родине стало настолько серьёзным, что Аполлона отправили учиться в Нью-Йорк ради его безопасности. Академия Блэкмор его разочаровала: среди учеников, от которых он ждал многого, лишь немногие заслужили его уважение."
+            }
+          ],
+          "title": {
+            "en": "From North Ixia",
+            "ru": "Из Северной Иксии"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Apollo spends his time on the fencing strip and captains Blackmore's team. He trains for the day his father calls him home and he can prove himself worthy of the family sword.",
+              "ru": "Аполлон предпочитает фехтовальную дорожку школьным вечеринкам. Он возглавляет команду Блэкмора и усердно тренируется в ожидании дня, когда отец позовёт его домой и он сможет доказать, что достоин семейного меча."
+            }
+          ],
+          "title": {
+            "en": "The ancestral blade",
+            "ru": "Родовой клинок"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "apollo",
       "summary": {
         "en": "Timed sword lunges and a reactive deflection punish exposed opponents.",
@@ -47,12 +101,12 @@
       },
       "tips": [
         {
-          "en": "Practice releasing Flawless Advance during its perfect timing window.",
-          "ru": "Тренируйтесь отпускать Flawless Advance в идеальное временное окно."
-        },
-        {
-          "en": "Use Riposte against hero attacks; troopers and neutrals cannot trigger its deflection.",
-          "ru": "Применяйте Riposte против атак героев: бойцы и нейтралы не запускают отражение."
+          "en": "A trooper or neutral cannot trigger Riposte. Once a hero triggers it, choose the enemy you want to reach. The follow-up prevents that target from parrying.",
+          "ru": "Урон бойцов линии и нейтралов не запускает ответный выпад. Когда сработает парирование атаки героя, выберите цель для выпада. Попадание временно лишит её возможности парировать.",
+          "title": {
+            "en": "Save Riposte for a hero hit",
+            "ru": "Приберегите парирование для атаки героя"
+          }
         }
       ],
       "videos": []
@@ -67,7 +121,34 @@
         "en": "The familiar pigeon lady of Central Park is determined to protect Manhattan. Her supposed leadership of the Soho Coven remains a rumor.",
         "ru": "Знакомая всем голубятница Центрального парка намерена защитить Манхэттен. Её предполагаемое руководство ковеном Сохо остаётся слухом."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "New Yorkers are used to seeing Baba feed her spirit pigeons and give passersby an earful. Stories claim she's occupied the same park bench for fifty years, or that she runs the Soho Coven.",
+              "ru": "Горожане давно привыкли к Бусе, которая кормит призрачных голубей и может отчитать прохожего. О ней ходят байки: будто она уже полвека сидит на одной скамейке и будто заправляет ковеном Сохо."
+            }
+          ],
+          "title": {
+            "en": "The pigeons of Central Park",
+            "ru": "Голуби Центрального парка"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Baba calls New York home. When outsiders start tearing up Manhattan in their pursuit of power, she's willing to step in.",
+              "ru": "Буся считает Нью-Йорк своим домом. Когда охотники за могуществом начинают громить Манхэттен, она готова вмешаться."
+            }
+          ],
+          "title": {
+            "en": "Standing up for Manhattan",
+            "ru": "За Манхэттен"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "baba",
       "summary": {
         "en": "Steals Spirit, changes her brew's effect and controls enemies with pigeons.",
@@ -75,12 +156,12 @@
       },
       "tips": [
         {
-          "en": "Watch Baba's Brew's current effect and pause brewing when the desired effect appears.",
-          "ru": "Следите за текущим эффектом Baba's Brew и приостанавливайте заваривание на нужном эффекте."
-        },
-        {
-          "en": "Keep targets in Feed The Birds' cone to add bread stacks before the flock arrives.",
-          "ru": "Удерживайте цели перед собой во время Feed The Birds, чтобы добавить стаки хлеба до налёта птиц."
+          "en": "Pause Baba’s Brew when Silence is ready before a fight. If a teammate is about to take the first volley, hold the barrier brew instead.",
+          "ru": "Перед дракой остановите варку на безмолвии. Если союзник вот-вот примет первый залп, сохраните настой с барьером.",
+          "title": {
+            "en": "Keep the brew you need",
+            "ru": "Сохраните нужный настой"
+          }
         }
       ],
       "videos": []
@@ -95,7 +176,54 @@
         "en": "A scrapyard golem secretly takes dangerous work to pay for the medicine of the woman who raised him as a son.",
         "ru": "Голем со свалки тайно берётся за опасную работу, оплачивая лекарства женщине, вырастившей его как сына."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The widowed Miss Shelly built Bebop from scrap and raised him as her son. They worked in the salvage yard by day and listened to jazz together at night.",
+              "ru": "Овдовевшая мисс Шелли собрала Бибопа из металлолома и растила его как сына. Днём они вместе работали на свалке, а вечером слушали джаз."
+            }
+          ],
+          "title": {
+            "en": "A home in the scrapyard",
+            "ru": "Дом среди металлолома"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When Miss Shelly fell ill, Bebop started taking work after dark to cover her medicine. He keeps the nature of that work from her because he knows she would disapprove.",
+              "ru": "Когда мисс Шелли заболела, Бибоп стал тайком подрабатывать по ночам, чтобы купить ей лекарства. Он знает, что она вряд ли одобрила бы, чем именно он зарабатывает."
+            }
+          ],
+          "title": {
+            "en": "Working after dark",
+            "ru": "Ночная работа"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Bebop explains what that work entails: he fights in the Bear Pit. The winnings pay for medicine, and he hopes the Patrons can give him what the prize money can't buy, a cure for Miss Shelly.",
+              "ru": "О своей подработке Бибоп рассказывает сам: он выходит на ринг «Медвежьей ямы». Деньги идут на лекарства, а от Покровителей он надеется получить то, чего не купить выигрышами, — выздоровление мисс Шелли."
+            }
+          ],
+          "title": {
+            "en": "Fighting in the Bear Pit",
+            "ru": "Бои в Медвежьей яме"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Both fight in the Bear Pit. Bebop once beat Lash, and Lash has never let the loss go.",
+            "ru": "Оба выступают в «Медвежьей яме». Бибоп однажды победил Хлыста, а тот так и не забыл поражения."
+          },
+          "heroId": 31
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "bebop",
       "summary": {
         "en": "Pulls targets into range for bombs and a channeled energy beam.",
@@ -103,12 +231,12 @@
       },
       "tips": [
         {
-          "en": "Line up Grapple Arm carefully: it pulls the first character struck, including allies.",
-          "ru": "Тщательно наводите Grapple Arm: рука притягивает первого задетого персонажа, включая союзников."
-        },
-        {
-          "en": "Attach Sticky Bomb where its delayed blast can reach a hero to build its permanent damage bonus.",
-          "ru": "Размещайте Sticky Bomb так, чтобы отложенный взрыв задел героя и увеличил постоянный бонус урона."
+          "en": "When an ally overextends, line up Grapple Arm from a safer position. It catches the first character it hits, so give yourself a clear line to your teammate.",
+          "ru": "Если союзник зашёл слишком далеко, попробуйте вытащить его крюком из безопасной позиции. Крюк хватает первого персонажа на пути, поэтому найдите свободную линию.",
+          "title": {
+            "en": "Hook a teammate out",
+            "ru": "Вытащите союзника крюком"
+          }
         }
       ],
       "videos": []
@@ -123,7 +251,34 @@
         "en": "Billy's fury has plenty of possible targets, but his biography leaves both its cause and his goat head unexplained.",
         "ru": "У ярости Billy много возможных мишеней, но биография не объясняет ни её причину, ни происхождение козлиной головы."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The police, magic regulations and even a bad gyro shop can set Billy off. His goat head is a touchy subject. He links it to dark magic in conversation and keeps the details close.",
+              "ru": "Полиция, правила обращения с магией и даже плохая закусочная могут вывести Билли из себя. О его козлиной голове лучше не расспрашивать: в разговорах он связывает её появление с тёмной магией, а подробностями делиться не любит."
+            }
+          ],
+          "title": {
+            "en": "Angry at the whole city",
+            "ru": "Злость на весь город"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Billy goes to protests and says he keeps strikebreakers from crossing picket lines. The Patrons suggest that he wants to change a world he sees as corrupt.",
+              "ru": "Билли ходит на протесты и, по его словам, не даёт штрейкбрехерам проходить через пикет. Покровители в своих репликах намекают, что он хочет изменить мир, который считает прогнившим."
+            }
+          ],
+          "title": {
+            "en": "On the picket line",
+            "ru": "На стороне бастующих"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "billy",
       "summary": {
         "en": "Uses bat strikes, a rising charge and chains to keep fights close.",
@@ -131,12 +286,20 @@
       },
       "tips": [
         {
-          "en": "Land melee hits to restore ammunition through Blasted.",
-          "ru": "Попадайте в ближнем бою, чтобы восстанавливать патроны через Blasted."
+          "en": "Billy’s light melee keeps the reload timer running. If an enemy is already in reach while you reload, you can throw in a quick hit and still keep the reload going.",
+          "ru": "Лёгкий удар Billy не останавливает перезарядку. Если противник уже рядом, можно ударить его и продолжить заряжать оружие.",
+          "title": {
+            "en": "Swing while you reload",
+            "ru": "Бейте во время перезарядки"
+          }
         },
         {
-          "en": "Maintain line of sight during Chain Gang; losing sight can break the chain.",
-          "ru": "Сохраняйте видимость целей во время Chain Gang: потеря видимости может разорвать цепь."
+          "en": "Once you learn Blasted, a landed melee hit restores ammo. If a nearby opponent has just spent their parry, use that opening to land a melee hit after you’ve fired your remaining shots.",
+          "ru": "После изучения «В стельку» попадание в ближнем бою восстанавливает патроны. Если противник рядом только что потратил парирование, выпустите оставшиеся патроны и воспользуйтесь этим окном для удара.",
+          "title": {
+            "en": "Empty the magazine before refilling",
+            "ru": "Тратьте патроны перед пополнением магазина"
+          }
         }
       ],
       "videos": []
@@ -151,7 +314,42 @@
         "en": "Calico left the Baxter Society's unpaid monster hunting for a lucrative career as a contract killer.",
         "ru": "Calico сменила бесплатную охоту на чудовищ в Baxter Society на прибыльную работу наёмной убийцы."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Calico distinguished herself as a monster hunter with the Baxter Society. She decided her skills ought to earn her a living and took them into contract killing.",
+              "ru": "Калико успела отличиться в Обществе Бакстера, где охотилась на чудовищ. Затем она решила, что за её умения должны платить, и сменила охоту на работу наёмной убийцы."
+            }
+          ],
+          "title": {
+            "en": "Leaving the Baxter Society",
+            "ru": "Уход из Общества Бакстера"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Calico admits to Arin Fairfax that she was the one who shot them. Arin survived, and Calico hints that the shot missed their heart on purpose.",
+              "ru": "Калико признаётся Арин Фэрфакс, что именно она стреляла в них. Арин пережили покушение, а сама Калико намекает, что промахнулась мимо сердца намеренно."
+            }
+          ],
+          "title": {
+            "en": "The attempt on the heir",
+            "ru": "Покушение на наследника"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Calico shot Arin on their eighteenth birthday. She hints that she spared them on purpose.",
+            "ru": "Калико стреляла в Эрин на восемнадцатилетие. Она намекает, что намеренно оставила Эрин в живых."
+          },
+          "heroId": 50
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "calico",
       "summary": {
         "en": "Combines explosive ambushes with shadow movement and a healing slash.",
@@ -159,12 +357,12 @@
       },
       "tips": [
         {
-          "en": "Aim Leaping Slash to catch a hero if you need its healing effect.",
-          "ru": "Попадите Leaping Slash по герою, если рассчитываете на лечение."
-        },
-        {
-          "en": "Use Ava's movement with care around enemies: hero damage resets its speed bonus.",
-          "ru": "Осторожно используйте передвижение Ava рядом с врагами: урон героя сбрасывает бонус скорости."
+          "en": "Use Ava to rotate behind cover so its speed can build while you stay off the minimap. Getting tagged by a hero resets the speed bonus, so avoid crossing a lane in full view.",
+          "ru": "Используйте «Ава» для обхода за укрытиями: вас не видно на мини-карте, а скорость постепенно растёт. Попадание вражеского героя сбрасывает этот разгон, поэтому избегайте открытых участков.",
+          "title": {
+            "en": "Take the long way in with Ava",
+            "ru": "Обойдите врагов с «Ава»"
+          }
         }
       ],
       "videos": []
@@ -179,7 +377,34 @@
         "en": "A unicorn concealing herself in a Coney Island sideshow risks revealing her powers to help a member of her chosen family reclaim a sold piece of their soul.",
         "ru": "Единорог, скрывающийся в шоу Кони-Айленда, рискует раскрыть свои силы, чтобы помочь близкому вернуть проданную часть души."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Even in a world familiar with magic, a real unicorn can attract poachers. Celeste hid in front of an audience on Coney Island, where her horn passed for part of the act and she eventually became a local star.",
+              "ru": "Единорог с настоящим рогом рискует привлечь браконьеров даже в мире, привыкшем к магии. Селеста укрылась на виду у всех: публика на Кони-Айленде принимала её внешность за часть представления, а со временем она сама стала местной звездой."
+            }
+          ],
+          "title": {
+            "en": "The Coney Island stage",
+            "ru": "Сцена на Кони-Айленде"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Keruba the Mermaid, Lenny, Chickenwing and Ted became Celeste's family. When one of them sold part of their soul to cover a gambling debt, Celeste decided that getting it back was worth revealing her powers to the Patrons.",
+              "ru": "Русалка Керуба, Ленни, Курокрыл и Тед стали Селесте семьёй. Кто-то из этой компании продал часть души, чтобы расплатиться с карточным долгом. Ради возвращения этой души Селеста готова раскрыть свои силы Покровителям."
+            }
+          ],
+          "title": {
+            "en": "Family in the troupe",
+            "ru": "Семья из труппы"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "celeste",
       "summary": {
         "en": "Marks enemies with light and uses a protective prism and bouncing orb.",
@@ -187,12 +412,12 @@
       },
       "tips": [
         {
-          "en": "After landing Light Eater, attack affected enemies to use its extra damage and lifesteal.",
-          "ru": "После попадания Light Eater атакуйте отмеченных врагов ради дополнительного урона и вампиризма."
-        },
-        {
-          "en": "Lead Radiant Daggers ahead of a moving target because its beam forms after a delay.",
-          "ru": "Направляйте Radiant Daggers с упреждением: луч формируется с задержкой."
+          "en": "Use Dazzling Trick just before entering close range. If the enemy breaks your barrier there, the burst can silence them before their next ability.",
+          "ru": "Включите призму перед сближением. Если противник пробьёт барьер вблизи, взрыв может наложить на него безмолвие до следующей способности.",
+          "title": {
+            "en": "Let enemies break the prism",
+            "ru": "Дайте врагу разбить призму"
+          }
         }
       ],
       "videos": []
@@ -207,7 +432,46 @@
         "en": "Danny demonstrates dangerous Fairfax Industries inventions by personally surviving their failures, including a public flight demonstration with the Chimera Mk1.",
         "ru": "Danny лично переживает аварии опасных изобретений Fairfax Industries, в том числе демонстрирует полёт на Chimera Mk1."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "At a military technology expo, Danny recounts the injuries he's survived while working for Fairfax Industries. His list includes being thrown out of windows, blown up and repeatedly decapitated. In his telling, putting himself in danger is how he finds out what can actually go wrong.",
+              "ru": "На выставке военной техники Дэнни рассказывает публике, какие травмы пережил за время работы в «Фэрфакс Индастриз». В его списке падения из окон, взрывы и даже неоднократное обезглавливание. По его словам, только так можно узнать, что действительно способно пойти не так."
+            }
+          ],
+          "title": {
+            "en": "Fairfax test pilot",
+            "ru": "Испытатель Фэрфакс"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The speech sets up a flight demonstration of the company's Chimera Mark I. Danny warns the crowd that the show is dangerous and tells them to put on safety goggles.",
+              "ru": "Речь подводит к показу «Химеры Марк I», летательного устройства компании. Дэнни прямо предупреждает зрителей об опасности и просит надеть защитные очки."
+            }
+          ],
+          "title": {
+            "en": "Demonstrating the Chimera",
+            "ru": "Демонстрация «Химеры»"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Deadman Danny goes beyond a sales pitch. He takes flight with the Chimera himself, turning a dangerous test flight into a demonstration for prospective customers.",
+              "ru": "Дохлый Дэнни не ограничивается рассказом о товаре. Официальное представление героя показывает, как он сам летает с «Химерой»: для продавца Фэрфакс опасный испытательный полёт одновременно служит рекламой."
+            }
+          ],
+          "title": {
+            "en": "A salesman takes flight",
+            "ru": "Продавец в воздухе"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "deadman-danny",
       "summary": {
         "en": "Fights from a heat-limited jetpack with marked missiles and charged shots.",
@@ -215,12 +479,12 @@
       },
       "tips": [
         {
-          "en": "Follow Strix Salvo marks with charged shots to consume them for extra damage and a slow.",
-          "ru": "После меток Strix Salvo попадайте заряженными выстрелами ради дополнительного урона и замедления."
-        },
-        {
-          "en": "Watch Chimera Mk1's heat and plan a hero hit on landing to avoid stunning yourself.",
-          "ru": "Следите за нагревом Chimera Mk1 и планируйте попадание по герою при приземлении, чтобы не оглушить себя."
+          "en": "If the jetpack is about to overheat, use the early dive while a hero is still under you. Missing every hero with the explosion stuns you.",
+          "ru": "Когда ранец близок к перегреву, начните пикирование досрочно, пока под вами ещё есть вражеский герой. Если взрыв никого из героев не заденет, вы оглушите себя.",
+          "title": {
+            "en": "Dive when the landing is clear",
+            "ru": "Сами выбирайте момент пикирования"
+          }
         }
       ],
       "videos": []
@@ -235,7 +499,42 @@
         "en": "An old vampire wanders America, ignoring the laws and customs of vampire society despite the powerful enemies this earns him.",
         "ru": "Старый вампир бродит по Америке, пренебрегая законами и обычаями своего общества вопреки нажитым могущественным врагам."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The Drifter has roamed America and preyed on the living for generations. The story leaves whatever name he once went by a mystery.",
+              "ru": "Скиталец поколениями бродит по Америке и охотится на живых. Имя, под которым он когда-то жил, история не называет."
+            }
+          ],
+          "title": {
+            "en": "The nameless vampire",
+            "ru": "Вампир без имени"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The Drifter has little use for vampire titles or customs. Flouting their laws made him a wanted man across the North American Baronies. Their viscounts and elders call for his execution while he carries on as he pleases.",
+              "ru": "Скитальцу чужды титулы и обычаи вампирской знати. Он игнорирует её законы, за что североамериканские баронства объявили на него охоту. Пока виконты и старейшины требуют его казни, он продолжает жить по своим правилам."
+            }
+          ],
+          "title": {
+            "en": "Enemy of the Baronies",
+            "ru": "Враг баронств"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "The Drifter calls Shiv an old friend. Shiv, now with the Baxter Society, refuses to speak to him.",
+            "ru": "Скиталец называет Заточку старым другом. Заточка, который теперь служит Обществу Бакстера, отказывается с ним говорить."
+          },
+          "heroId": 19
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "drifter",
       "summary": {
         "en": "Tracks isolated enemies and repositions behind bleeding targets.",
@@ -243,12 +542,12 @@
       },
       "tips": [
         {
-          "en": "Recast Stalker's Mark while its victim is bleeding to appear behind them.",
-          "ru": "Повторно используйте Stalker's Mark, пока цель истекает кровью, чтобы появиться у неё за спиной."
-        },
-        {
-          "en": "Use Eternal Night's isolation effect to enable Bloodscent's amplified damage.",
-          "ru": "Учитывайте изоляцию от Eternal Night, которая позволяет усилить урон через Bloodscent."
+          "en": "If the enemy you want to fight is grouped, open with Eternal Night. Heroes caught in it count as isolated for the duration, even while standing together.",
+          "ru": "Если нужная цель держится рядом с командой, начните с «Вечная ночь». Задетые герои считаются изолированными, даже когда стоят рядом друг с другом.",
+          "title": {
+            "en": "Create isolation on demand",
+            "ru": "Изолируйте цель в толпе"
+          }
         }
       ],
       "videos": []
@@ -263,7 +562,34 @@
         "en": "A Columbia scientist lost his human body while investigating a rift. Now a tiny star, he continues teaching and studying his transformation.",
         "ru": "Учёный из Columbia лишился человеческого тела при исследовании разлома. Став маленькой звездой, он продолжает преподавать и изучать своё превращение."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Professor Dynamo hurried to Central Park when a rift opened in space and time. Investigating it cost him his body, leaving him as a tiny dying star.",
+              "ru": "Профессор Динамо поспешил в Центральный парк, когда там открылся разлом в пространстве и времени. Исследование обошлось ему дорого: тело распалось, и от него осталась крошечная угасающая звезда."
+            }
+          ],
+          "title": {
+            "en": "The rift in the park",
+            "ru": "Разлом в парке"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Dynamo kept his mind and curiosity. He studies his condition and still teaches at Columbia College, where he hopes to inspire another generation of scientists.",
+              "ru": "Динамо сохранил разум и любопытство. Он исследует собственное состояние и по-прежнему ведёт занятия в Колумбийском колледже, где рассчитывает увлечь наукой новое поколение."
+            }
+          ],
+          "title": {
+            "en": "Still a professor",
+            "ru": "Профессор и после разлома"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "dynamo",
       "summary": {
         "en": "Heals nearby allies, teleports and gathers enemies into a singularity.",
@@ -271,12 +597,12 @@
       },
       "tips": [
         {
-          "en": "Use Quantum Entanglement's ally option when nearby teammates also need the teleport.",
-          "ru": "Используйте вариант Quantum Entanglement для союзников, когда ближайшим товарищам тоже нужен телепорт."
-        },
-        {
-          "en": "You can dash or melee during Rejuvenating Aurora without ending its healing channel.",
-          "ru": "Во время Rejuvenating Aurora можно делать рывки и бить в ближнем бою, не прерывая лечение."
+          "en": "You can dash without breaking Rejuvenating Aurora. Dash alongside a teammate who is backing away so they can stay in the healing area.",
+          "ru": "Рывок не прерывает «Восстановительное сияние». Если союзник отходит, двигайтесь рывками рядом с ним, чтобы он оставался в области лечения.",
+          "title": {
+            "en": "Move the heal with your team",
+            "ru": "Лечите союзников на ходу"
+          }
         }
       ],
       "videos": []
@@ -291,7 +617,34 @@
         "en": "Blackmore student Darcy Graves learned necromancy from an imprisoned lich's hand and now helps the dead with unfinished business alongside her schoolwork.",
         "ru": "Школьница Darcy Graves изучила некромантию у заточённой руки лича и теперь совмещает учёбу с помощью мертвецам в незавершённых делах."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Darcy Graves grew up with busy defense lawyers for parents and took her troubles to the cemetery. One day a woman's whisper answered. It led her to a buried lead-lined box in Van Cortlandt Park that contained the severed hand of a lich.",
+              "ru": "Дарси Грейвс выросла в семье занятых адвокатов и привыкла рассказывать о своих бедах на кладбище. Однажды ей ответил женский шёпот. Он привёл Дарси в парк Ван-Кортландт, к зарытой коробке со свинцовой обшивкой, где лежала отрубленная кисть лича."
+            }
+          ],
+          "title": {
+            "en": "A voice in the cemetery",
+            "ru": "Голос с кладбища"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Once the hand was free, the lich could speak to Darcy more clearly. She had been looking for a student and began passing on her knowledge. Darcy now juggles Blackmore schoolwork with necromancy and helps the cemetery's residents settle unfinished business.",
+              "ru": "Освобождённая кисть позволила личу говорить с Дарси отчётливее. Лич давно искала ученицу и начала передавать ей свои знания. Теперь Дарси совмещает уроки в Блэкморе с некромантией и помогает обитателям кладбища разбираться с незавершёнными делами."
+            }
+          ],
+          "title": {
+            "en": "The lich's student",
+            "ru": "Ученица лича"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "graves",
       "summary": {
         "en": "Collects nearby deaths to summon Deadheads and blocks routes with a rift.",
@@ -299,12 +652,12 @@
       },
       "tips": [
         {
-          "en": "Fire at the enemy you want your Jar of Dead summons to prioritize.",
-          "ru": "Стреляйте по врагу, которого должны выбрать целью призванные Jar of Dead существа."
-        },
-        {
-          "en": "Rotate Grasping Hands with alt-cast to place its rift across an enemy route.",
-          "ru": "Поворачивайте Grasping Hands альтернативным применением, чтобы перекрыть разломом путь врага."
+          "en": "Shoot the hero you want your Deadheads to focus on. They prioritize your weapon’s target, which helps pull their attention away from a nearby wave.",
+          "ru": "Стреляйте в героя, на которого хотите направить мертвецов. Они предпочитают цель вашего оружия, поэтому огнём можно отвлечь их от волны бойцов.",
+          "title": {
+            "en": "Point your Deadheads at the right target",
+            "ru": "Направляйте мертвецов выстрелами"
+          }
         }
       ],
       "videos": []
@@ -319,7 +672,42 @@
         "en": "Retired monster hunter Wesley Grey Talon returned to his bow after the suspicious fire that killed his son's family.",
         "ru": "Отставной охотник на чудовищ Wesley Grey Talon вновь взялся за лук после подозрительного пожара, погубившего семью сына."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Wesley Grey Talon helped found the Baxter Society and spent almost forty years hunting creatures that preyed on people. Once he found a successor, he laid down his bow, spent more time with his wife and grandchildren and cooked dinner for the family on Wednesdays.",
+              "ru": "Уэсли Серый Коготь основал Общество Бакстера вместе с другими охотниками и почти сорок лет защищал людей от чудовищ. Найдя себе замену, он сложил лук, стал проводить больше времени с женой и внуками и по средам собирал семью за ужином."
+            }
+          ],
+          "title": {
+            "en": "Four decades of hunting",
+            "ru": "Сорок лет охоты"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The authorities blamed the deaths of his son's family on a house fire. Wesley suspected murder because his Ixian daughter-in-law could put out flames with a thought. He took up his bow again to find who was responsible.",
+              "ru": "Власти списали гибель семьи его сына на пожар. Уэсли заподозрил убийство: его невестка из Иксии могла погасить огонь одной мыслью. Он снова взялся за лук, чтобы найти виновных."
+            }
+          ],
+          "title": {
+            "en": "The fire at his son's house",
+            "ru": "Пожар в доме сына"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Wesley chose Shiv as his successor before retiring from the Baxter Society.",
+            "ru": "Перед уходом из Общества Бакстера Уэсли выбрал Заточку своим преемником."
+          },
+          "heroId": 19
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "grey-talon",
       "summary": {
         "en": "Uses charged arrows, aerial shots, a trap and a guided spirit owl.",
@@ -327,12 +715,12 @@
       },
       "tips": [
         {
-          "en": "Shoot your Spirit Snare with Charged Shot to trigger it early with a larger radius.",
-          "ru": "Попадите Charged Shot по своей Spirit Snare, чтобы досрочно активировать её с большим радиусом."
-        },
-        {
-          "en": "Use jump to release control of Guided Owl when you need to return attention to your hero.",
-          "ru": "Нажмите прыжок, чтобы перестать управлять Guided Owl и снова заняться своим героем."
+          "en": "Put Spirit Snare in the enemy’s route, then shoot the trap with Charged Shot when they are close. This sets it off early and gives it a wider radius.",
+          "ru": "Положите ловушку на пути врага и выстрелите в неё из «Заряженный выстрел», когда он окажется рядом. Так она сработает раньше и захватит большую область.",
+          "title": {
+            "en": "Set off the snare yourself",
+            "ru": "Подрывайте ловушку выстрелом"
+          }
         }
       ],
       "videos": []
@@ -347,7 +735,34 @@
         "en": "Haze serves the secretive OSIC's Sandman Division, entering suspects' dreams to judge and neutralize supernatural threats.",
         "ru": "Haze служит в подразделении Sandman секретной OSIC: проникает в сны подозреваемых, оценивая и устраняя сверхъестественные угрозы."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Haze serves in the government's Occult Security and Investigation Commission. It operates in secret and handles supernatural threats beyond the reach of local police.",
+              "ru": "Пелена служит в правительственной комиссии по безопасности и расследованиям оккультизма. Комиссия работает втайне и берётся за сверхъестественные угрозы, с которыми местная полиция справиться не может."
+            }
+          ],
+          "title": {
+            "en": "Occult security",
+            "ru": "Оккультная безопасность"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Haze's assignments begin in the dreams of people under investigation. As a Sandman Division operative, she enters those dreams to assess a threat and neutralize it if necessary.",
+              "ru": "Задания Пелены начинаются во сне подозреваемых. Как сотрудница подразделения «Песочный человек», она проникает в чужие сновидения, оценивает угрозу и при необходимости устраняет её."
+            }
+          ],
+          "title": {
+            "en": "The Sandman Division",
+            "ru": "Подразделение «Песочный человек»"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "haze",
       "summary": {
         "en": "Uses invisibility and sleep while building weapon damage on a focused target.",
@@ -355,12 +770,20 @@
       },
       "tips": [
         {
-          "en": "Sleep Dagger can be thrown without breaking invisibility, but it does not interrupt channels.",
-          "ru": "Sleep Dagger можно бросить без выхода из невидимости, но он не прерывает поддерживаемые способности."
+          "en": "Sleep Dagger leaves Smoke Bomb’s invisibility intact. Use it to put one pursuer to sleep as you slip away, and save your gunfire until you are ready to reveal yourself.",
+          "ru": "Бросок усыпляющего кинжала сохраняет невидимость «Дымовая шашка». Усыпите преследователя на отходе, а стреляйте, когда будете готовы раскрыть себя.",
+          "title": {
+            "en": "Throw the dagger from stealth",
+            "ru": "Бросайте кинжал из невидимости"
+          }
         },
         {
-          "en": "Keep shots on one target to build Fixation; headshots add more stacks.",
-          "ru": "Сосредоточьтесь на одной цели для накопления Fixation; попадания в голову дают больше стаков."
+          "en": "Sleep Dagger doesn’t interrupt an enemy who is already channeling. If you expect an important channel, save the dagger for before it starts or have another interrupt ready.",
+          "ru": "Усыпляющий кинжал не прерывает способность, которую противник уже поддерживает. Если ждёте опасный ульт, бросьте кинжал до начала применения или держите наготове другое прерывание.",
+          "title": {
+            "en": "Choose another way to stop a channel",
+            "ru": "Прерывайте поддерживаемые способности другим способом"
+          }
         }
       ],
       "videos": []
@@ -375,7 +798,34 @@
         "en": "A small-town sheriff followed a murderous musician called the Troubadour toward New York after watching him escape as a flock of crows.",
         "ru": "Шериф маленького городка преследует в Нью-Йорке убийцу-музыканта по прозвищу Troubadour, сумевшего бежать стаей ворон."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Holliday was happy as a small-town sheriff, where trick shots at the county fair gave her more reason to draw her gun than police work. That changed when bodies with wounds resembling bird damage turned up in central Illinois.",
+              "ru": "Холлидей устраивала служба в маленьком городе: пистолет ей чаще требовался на ярмарке, где она показывала трюки. Всё изменилось, когда в центральном Иллинойсе стали находить тела со следами, похожими на птичьи."
+            }
+          ],
+          "title": {
+            "en": "A sheriff from Illinois",
+            "ru": "Шериф из Иллинойса"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Her investigation led to a traveling musician the papers called the Troubadour. He turned into a flock of crows and escaped when she confronted him. Six months later the killings in Illinois have stopped, but Holliday is still on the case and believes he is headed for New York.",
+              "ru": "След привёл её к бродячему музыканту, которого газеты прозвали Трубадуром. При встрече с шерифом он обернулся стаей ворон и скрылся. Полгода спустя убийства в Иллинойсе прекратились, но Холлидей продолжает погоню и считает, что он направился в Нью-Йорк."
+            }
+          ],
+          "title": {
+            "en": "On the Troubadour's trail",
+            "ru": "След Трубадура"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "holliday",
       "summary": {
         "en": "Mixes explosive barrels, bouncing movement and a disabling lasso.",
@@ -383,12 +833,20 @@
       },
       "tips": [
         {
-          "en": "Shoot or melee Powder Keg when you need its explosion before the timer ends.",
-          "ru": "Выстрелите в Powder Keg или ударьте его, если взрыв нужен до окончания таймера."
+          "en": "Place a Bounce Pad along your retreat path before you lasso someone. Taking the pad extends Spirit Lasso and helps you move the target farther from their team.",
+          "ru": "Поставьте трамплин на пути отхода до броска лассо. Прыжок с него продлевает захват и помогает увести цель подальше от её команды.",
+          "title": {
+            "en": "Lead the lasso through a bounce pad",
+            "ru": "Продлевайте захват трамплином"
+          }
         },
         {
-          "en": "Use a Bounce Pad during Spirit Lasso to extend the lasso's duration.",
-          "ru": "Используйте Bounce Pad во время Spirit Lasso, чтобы продлить действие лассо."
+          "en": "Stack two Powder Kegs where a target is about to pass, then shoot or melee one to start a chain explosion. The burns stack when both blasts hit.",
+          "ru": "Поставьте две бочки рядом на пути цели, затем выстрелите в одну или ударьте её, чтобы взорвать обе. Если цель заденут оба взрыва, эффекты горения сложатся.",
+          "title": {
+            "en": "Set off overlapping kegs together",
+            "ru": "Взрывайте стоящие рядом бочки вместе"
+          }
         }
       ],
       "videos": []
@@ -403,7 +861,54 @@
         "en": "Once a violent young fire-wielder from another plane, Infernus now enjoys tending a bar, though he still uses his old skills when trouble arrives.",
         "ru": "Когда-то жестокий юный повелитель огня из другого мира, Infernus теперь работает в баре, но вспоминает старые умения при неприятностях."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Infernus could wield supernatural fire from a young age. As a teenager, he put that gift to work setting fires, killing people and disposing of evidence.",
+              "ru": "Инфернус с юности владеет сверхъестественным огнём. В те годы его дар пригодился для поджогов, убийств и уничтожения улик."
+            }
+          ],
+          "title": {
+            "en": "A fiery youth",
+            "ru": "Огонь в юности"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "As an adult, Infernus settled into a bar job with live music. He enjoys the work and the company, and he's willing to call on his old skills when a customer turns violent.",
+              "ru": "Повзрослев, Инфернус устроился в бар с живой музыкой. Ему нравится работа и разговоры с посетителями, но если кто-нибудь затевает драку, он готов вспомнить старые навыки."
+            }
+          ],
+          "title": {
+            "en": "Behind the bar",
+            "ru": "За барной стойкой"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "He tends bar at Jezebel's Billiards Hall. His lines about the Ritual point to why he's there: he wants to help Hank and keep the place from closing.",
+              "ru": "Бар находится в бильярдной «Джезебел». В репликах о Ритуале Инфернус даёт понять, что хочет помочь Хэнку и спасти заведение от закрытия."
+            }
+          ],
+          "title": {
+            "en": "Hank's place",
+            "ru": "Заведение Хэнка"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Infernus tells Mo and Krill that Wraith wants to draw him back into his old life and that he's afraid he'll give in.",
+            "ru": "Инфернус говорит Мо и Мелкому, что Тень хочет втянуть его обратно в старые дела и что он боится поддаться."
+          },
+          "heroId": 7
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "infernus",
       "summary": {
         "en": "Builds lingering burns and leaves a damaging trail during fiery dashes.",
@@ -411,12 +916,12 @@
       },
       "tips": [
         {
-          "en": "After starting Afterburn, land abilities to refresh its base duration and weapon hits to extend it.",
-          "ru": "После запуска Afterburn обновляйте его базовую длительность способностями и продлевайте попаданиями оружия."
-        },
-        {
-          "en": "Hold forward during Flame Dash when you need the longer dash.",
-          "ru": "Удерживайте движение вперёд во время Flame Dash, когда нужен более длинный рывок."
+          "en": "When Afterburn is already active, an ability hit can refresh its base duration. If the target slips out of gun range but you can still hit with Napalm, use it before the burn expires.",
+          "ru": "Попадание способностью обновляет базовую длительность уже наложенного горения. Если цель ушла из удобной дистанции для стрельбы, но до неё ещё достаёт «Напалм», попадите им до конца эффекта.",
+          "title": {
+            "en": "Keep an existing burn going",
+            "ru": "Поддерживайте уже начавшееся горение"
+          }
         }
       ],
       "videos": []
@@ -431,7 +936,34 @@
         "en": "The Arroyo family welcomed Ivy after the newly awakened gargoyle protected them. Having fought the Mendoza Syndicate for years, she is ready to explore beyond Spanish Harlem.",
         "ru": "Семья Arroyo приняла Ivy после того, как ожившая горгулья защитила их. После долгой борьбы с синдикатом Mendoza она готова узнать мир за пределами Испанского Гарлема."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "A newly awakened gargoyle saw attackers hurting an adult and a child and drove them off. The girl, Sophia, named her Ivy after the plant covering her stone. The Arroyo family took Ivy home and told her the attackers belonged to the Mendoza Syndicate.",
+              "ru": "Первое, что увидела ожившая гаргулья, — нападение на взрослого и ребёнка. Она разогнала нападавших, а девочка София назвала спасительницу Плющиком из-за плюща, покрывавшего камень. Семья Арройо пригласила её домой и рассказала, что за нападением стоял синдикат Мендосы."
+            }
+          ],
+          "title": {
+            "en": "The gargoyle comes to life",
+            "ru": "Как ожила гаргулья"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Ivy spent the next eighteen years fighting to free Spanish Harlem from the syndicate. With that work done, she's ready to venture outside the neighborhood and find out what else the world has to offer.",
+              "ru": "Плющик посвятила следующие восемнадцать лет борьбе с синдикатом в Испанском Гарлеме. Добившись своего, она впервые готова покинуть район и узнать, чем ещё можно заняться в большом мире."
+            }
+          ],
+          "title": {
+            "en": "Eighteen years in Harlem",
+            "ru": "Восемнадцать лет в Гарлеме"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "ivy",
       "summary": {
         "en": "Links with allies, controls ground with thorns and carries a teammate through the air.",
@@ -439,12 +971,12 @@
       },
       "tips": [
         {
-          "en": "Keep line of sight to your Kudzu Connection ally so the link stays active.",
-          "ru": "Сохраняйте видимость союзника с Kudzu Connection, чтобы связь оставалась активной."
-        },
-        {
-          "en": "Time Stone Form to protect yourself while landing its nearby stun and healing.",
-          "ru": "Выбирайте момент Stone Form, чтобы защитить себя и одновременно оглушить ближайших врагов и восстановить здоровье."
+          "en": "When pushing together, take the same side of a corner as your linked ally. Kudzu Connection needs line of sight, so keeping the link helps both of you retain its fire rate and bullet lifesteal bonuses.",
+          "ru": "При совместном наступлении огибайте укрытие с той же стороны, что и связанный союзник. «Кудзу-связь» требует прямой видимости. Пока связь держится, вы оба получаете прибавку к скорострельности и вампиризм от пуль.",
+          "title": {
+            "en": "Stay in sight of your partner",
+            "ru": "Держите союзника в поле зрения"
+          }
         }
       ],
       "videos": []
@@ -459,7 +991,34 @@
         "en": "Kelvin returned from a vanished Arctic expedition without a pulse or memories of what happened. The scientist is seeking answers to his impossible survival.",
         "ru": "Kelvin вернулся из исчезнувшей арктической экспедиции без пульса и воспоминаний о случившемся. Учёный ищет объяснение своему невозможному выживанию."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Kelvin, an explorer and scientist, heard of a possible eighth astral gate in the Arctic. He assembled an expedition of leading minds and set out north. The expedition never came back.",
+              "ru": "Учёный и путешественник Кельвин узнал о возможных астральных вратах в Арктике, собрал экспедицию из выдающихся специалистов и отправился на север. Назад экспедиция так и не вернулась."
+            }
+          ],
+          "title": {
+            "en": "In search of the eighth gate",
+            "ru": "Поиски восьмых врат"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "A fishing crew found Kelvin frozen in ice a year and a half later, holding a stone marked with glowing runes. He opened his eyes as they chipped him free, despite having no pulse or blood in his wounds. With no memory of the expedition, he wants to know what happened to him.",
+              "ru": "Полтора года спустя рыбаки нашли Кельвина во льду. Он сжимал камень со светящимися рунами. Когда его освободили, он открыл глаза, хотя у него не было ни пульса, ни крови в ранах. Он ничего не помнит об экспедиции и ищет ответ на вопрос, что с ним случилось."
+            }
+          ],
+          "title": {
+            "en": "Aboard the trawler",
+            "ru": "На борту траулера"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "kelvin",
       "summary": {
         "en": "Heals and slows with ice, creates elevated paths and shelters allies in a dome.",
@@ -467,12 +1026,12 @@
       },
       "tips": [
         {
-          "en": "Place Frost Grenade so its blast can heal allies while slowing enemies.",
-          "ru": "Бросайте Frost Grenade так, чтобы взрыв лечил союзников и замедлял врагов."
-        },
-        {
-          "en": "Remember enemies can also use Ice Path when planning your route.",
-          "ru": "Планируя маршрут Ice Path, учитывайте, что враги тоже могут ходить по ледяной дорожке."
+          "en": "Drop Frozen Shelter over a pressured objective if your team needs time to rotate. Objectives under the dome are frozen and invulnerable, so use that window to regroup.",
+          "ru": "Если союзники ещё в пути, накройте атакуемый объект куполом. Объекты внутри замораживаются и получают неуязвимость. Используйте это время, чтобы собраться.",
+          "title": {
+            "en": "Buy time at a pressured objective",
+            "ru": "Выиграйте время у объекта"
+          }
         }
       ],
       "videos": []
@@ -487,7 +1046,34 @@
         "en": "Jeanne Geist regained youth through a bargain with Oathkeeper, then bound the spirit to limit his influence. Her weakening wards now struggle to contain his hunger.",
         "ru": "Jeanne Geist вернула молодость сделкой с Oathkeeper, а затем связала духа, ограничив его власть. Теперь ослабевающие печати всё хуже сдерживают его голод."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Jeanne Geist was once a fixture of high society, but old age left her with memories of those days. In a nursing home she was approached by Oathkeeper, a spirit from another plane. He offered to restore her youth if she sustained it by draining life from others.",
+              "ru": "Жанну Гайст когда-то знали во всех светских салонах, но в старости ей остались лишь воспоминания. В доме престарелых к ней явился Клятвохранитель, дух с другого плана. Он предложил вернуть ей молодость, которую придётся поддерживать жизненной силой других людей."
+            }
+          ],
+          "title": {
+            "en": "A bargain with a spirit",
+            "ru": "Сделка с духом"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Geist accepted the bargain and bound the spirit with a ward so she could decide when to feed him. Decades later, the ward is weakening and Oathkeeper's hunger keeps growing.",
+              "ru": "Гайст согласилась на сделку и связала духа защитными чарами, чтобы самой решать, когда его кормить. Прошли десятилетия, печать ослабла, а Клятвохранитель стал требовать всё больше."
+            }
+          ],
+          "title": {
+            "en": "A weakening seal",
+            "ru": "Ослабевающая печать"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "lady-geist",
       "summary": {
         "en": "Spends her health on attacks, drains enemies and can exchange health with a target.",
@@ -495,12 +1081,12 @@
       },
       "tips": [
         {
-          "en": "Check your health before Essence Bomb or Malice: both cost some of your own health.",
-          "ru": "Проверяйте здоровье перед Essence Bomb и Malice: обе способности расходуют ваше здоровье."
-        },
-        {
-          "en": "Keep Life Drain's target visible and within range to maintain the tether.",
-          "ru": "Удерживайте цель Life Drain в поле зрения и радиусе действия, чтобы сохранить связь."
+          "en": "Life Drain leaves your gun and other abilities available. Apply Malice or keep shooting while the tether holds, and plan around the move-speed penalty so you can keep line of sight.",
+          "ru": "Во время «Высасывание жизни» доступны стрельба и другие способности. Используйте «Порча» или продолжайте стрелять, пока держится связь, и учитывайте замедление, чтобы не потерять цель из виду.",
+          "title": {
+            "en": "Keep shooting through the tether",
+            "ru": "Стреляйте, пока действует связь"
+          }
         }
       ],
       "videos": []
@@ -515,7 +1101,49 @@
         "en": "Lash's official biography offers only a blunt insult, leaving his history unexplained.",
         "ru": "Официальная биография Lash ограничивается резкой оскорбительной характеристикой и не раскрывает его прошлое."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Jacob Lash is a champion of the Bear Pit, an underground arena where spectators bet on fighters. He calls himself the world's greatest fighter and freely admits he likes getting under people's skin.",
+              "ru": "Джейкоб Хлыст — чемпион «Медвежьей ямы», подпольной арены, где зрители ставят деньги на бойцов. Хлыст считает себя лучшим бойцом на свете и сам признаёт, что любит выводить людей из себя."
+            }
+          ],
+          "title": {
+            "en": "Champion of the Bear Pit",
+            "ru": "Чемпион подпольной арены"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Bebop beat Lash in the ring, a loss Lash has never made peace with. In one line about the Ritual, he says he'd ask the Patron for a world without Bebop.",
+              "ru": "Бибоп победил Хлыста на арене, и тот так и не смирился с поражением. В одной из реплик о Ритуале Хлыст говорит, что попросил бы у Покровителя мир, в котором Бибопа нет."
+            }
+          ],
+          "title": {
+            "en": "The loss to Bebop",
+            "ru": "Поражение от Бибопа"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Lash and Bebop are longtime rivals. Wraith still needles Lash over his loss to Bebop.",
+            "ru": "У Хлыста и Бибопа давнее соперничество. Тень до сих пор припоминает Хлысту поражение от Бибопа."
+          },
+          "heroId": 15
+        },
+        {
+          "description": {
+            "en": "Vyper wrote to Lash from prison. Her persistence makes him uncomfortable, and he wants her to leave him alone.",
+            "ru": "Гадюка писала Хлысту из тюрьмы. Её настойчивость его тяготит, и он хочет, чтобы она оставила его в покое."
+          },
+          "heroId": 58
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "lash",
       "summary": {
         "en": "Uses aerial mobility to set up ground impacts and whip-based throws.",
@@ -523,12 +1151,12 @@
       },
       "tips": [
         {
-          "en": "Use Grapple to regain your air jumps and dashes while moving through the air.",
-          "ru": "Используйте Grapple для восстановления воздушных прыжков и рывков."
-        },
-        {
-          "en": "Keep Death Slam targets in sight and range during the latch or they will not be grabbed.",
-          "ru": "Удерживайте цели Death Slam в видимости и радиусе во время захвата, иначе они не будут схвачены."
+          "en": "Grapple resets your air jumps and dashes. When you have a safe grapple target, use an air dash to get the angle you want, then grapple and keep the refreshed dash for the next move.",
+          "ru": "«Сцепка» восстанавливает воздушные прыжки и рывки. Если есть безопасная цель для захвата, сначала сделайте рывок для нужного угла, а после захвата используйте восстановленный рывок.",
+          "title": {
+            "en": "Spend an air dash before grappling",
+            "ru": "Потратьте воздушный рывок до захвата"
+          }
         }
       ],
       "videos": []
@@ -543,7 +1171,34 @@
         "en": "A gifted builder since childhood, Maggie McGinnis now leads military research at Fairfax Industries and favors workshop invention over abstract theory.",
         "ru": "Одарённая изобретательница с детства, Maggie McGinnis руководит военными разработками Fairfax Industries и предпочитает мастерскую отвлечённой теории."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Maggie McGinnis spent her childhood building models and wiring light fixtures. At fifteen she designed a machine that could refine the souls of the dead. That project drew rather more attention.",
+              "ru": "Мэгги Макгиннис ещё ребёнком собирала модели зданий и делала светильники. В пятнадцать лет она сконструировала машину для переработки душ умерших. Именно эта работа привлекла к ней серьёзное внимание."
+            }
+          ],
+          "title": {
+            "en": "Building things from childhood",
+            "ru": "Изобретательница с детства"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "McGinnis runs military research and development at Fairfax Industries. She prefers the machine shop, where she can build devices that put magic to work.",
+              "ru": "Макгиннис возглавляет отдел военных разработок «Фэрфакс Индастриз». Ей по душе работа в мастерской: она хочет своими руками собирать устройства, которые воплощают возможности магии."
+            }
+          ],
+          "title": {
+            "en": "Inside Fairfax's military workshop",
+            "ru": "Военная мастерская Фэрфакс"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "mcginnis",
       "summary": {
         "en": "Deploys turrets and healing while dividing terrain with a spectral wall.",
@@ -551,12 +1206,12 @@
       },
       "tips": [
         {
-          "en": "Deploy Medicinal Specter where nearby teammates can stay in its healing area.",
-          "ru": "Размещайте Medicinal Specter там, где товарищи смогут оставаться в области лечения."
-        },
-        {
-          "en": "Recast Spectral Wall to raise it early when you need to divide the terrain immediately.",
-          "ru": "Повторно примените Spectral Wall для раннего подъёма, если нужно немедленно разделить местность."
+          "en": "Recast Spectral Wall to raise it early if an enemy is about to cross your line. Place it where they have to detour, and use the time it buys before they can break through with melee.",
+          "ru": "Повторно нажмите «Призрачная стена», чтобы поднять стену, пока противник не пересёк её линию. Перекройте путь в месте, где придётся идти в обход, и используйте время до того, как стену разобьют ударами.",
+          "title": {
+            "en": "Raise the wall before they cross",
+            "ru": "Поднимайте стену до прохода врага"
+          }
         }
       ],
       "videos": []
@@ -571,7 +1226,42 @@
         "en": "After losing a politically valuable marriage, Mina accepted vampirism as a path to lasting status. She now plans to rise through New York's vampire hierarchy.",
         "ru": "Потеряв выгодный брак, Mina приняла вампиризм ради долговечного положения. Теперь она стремится подняться в вампирской иерархии Нью-Йорка."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Mina Ha's wealthy parents arranged a marriage that would have taken her into the highest circles of American society. After the attempt on her betrothed's life, Mina grieved mainly for the status she'd been counting on and demanded that her parents find a solution.",
+              "ru": "Богатая семья Мины Ха устроила ей брак, который должен был открыть двери в высшие круги Америки. После покушения на её будущую пару Мина оплакивала прежде всего потерю желанного положения. Она потребовала, чтобы родители нашли выход."
+            }
+          ],
+          "title": {
+            "en": "The wedding that never was",
+            "ru": "Брак, который сорвался"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Her parents paid a fortune to find a vampire willing to turn her. Mina got eternal youth and discovered that her social standing among humans counted for nothing with vampire nobility. She's learning to use their rules to her advantage and intends to become Viscount of New York.",
+              "ru": "Родители заплатили целое состояние вампиру, который согласился обратить Мину. Получив вечную молодость, она обнаружила, что её прежние связи среди людей ничего не значат для вампирской знати. Теперь она учится обращать её правила себе на пользу и намерена стать виконтессой Нью-Йорка."
+            }
+          ],
+          "title": {
+            "en": "A viscountess in the making",
+            "ru": "Виконтесса в планах"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Mina was supposed to marry Arin Fairfax and believed they were dead after the shooting. By the Ritual, she knows Arin survived.",
+            "ru": "Мина должна была выйти замуж за Эрин Фэрфакс и после покушения решила, что покушение было смертельным. К моменту Ритуала она уже знает, что Эрин удалось выжить."
+          },
+          "heroId": 50
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "mina",
       "summary": {
         "en": "Repositions through brief untargetability and builds bites into a growing bat swarm.",
@@ -579,12 +1269,12 @@
       },
       "tips": [
         {
-          "en": "Use Sanguine Retreat's brief recast window when a second movement is needed.",
-          "ru": "Используйте короткое окно повторного Sanguine Retreat, если требуется второе перемещение."
-        },
-        {
-          "en": "Trigger Love Bites on heroes to increase the number of bats in Nox Nostra permanently.",
-          "ru": "Запускайте Love Bites на героях, чтобы навсегда увеличивать число летучих мышей Nox Nostra."
+          "en": "When Love Bites is on cooldown for your current target, switch to a different hero you can safely hit. Its cooldown is per target, and each hero proc adds bats to future Nox Nostra casts.",
+          "ru": "Когда «Любовные укусы» перезаряжается на текущей цели, переключитесь на другого героя, которого можете безопасно атаковать. Перезарядка считается отдельно для каждой цели, а срабатывания на героях добавляют летучих мышей к будущим ультам.",
+          "title": {
+            "en": "Spread bites across heroes",
+            "ru": "Распределяйте укусы по героям"
+          }
         }
       ],
       "videos": []
@@ -599,7 +1289,34 @@
         "en": "Mirage protects Djinn ambassador Nashala Dion in New York as the Djinn seek territory in Wyoming for a sovereign homeland.",
         "ru": "Mirage охраняет посла джиннов Nashala Dion в Нью-Йорке, пока джинны пытаются получить землю в Вайоминге для собственного государства."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Djinn wield immense power, but can remain corporeal for only forty-eight minutes before resting in a vessel. Many hire human bodyguards to carry and protect those vessels and keep them company.",
+              "ru": "Джинны обладают огромной силой, но могут сохранять телесную форму лишь сорок восемь минут подряд, после чего им нужно отдохнуть в сосуде. Поэтому многие нанимают телохранителей, которые носят сосуды, защищают их и составляют им компанию."
+            }
+          ],
+          "title": {
+            "en": "Guardian of a vessel",
+            "ru": "Хранитель сосуда"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Mirage accompanies Nashala Dion, a Djinn ambassador, in New York. Her mission is to negotiate the purchase of part of Wyoming from the US government so the Djinn can establish a nation of their own.",
+              "ru": "Мираж сопровождает в Нью-Йорке Нашалу Дион, посла джиннов. Её миссия — договориться с правительством США о покупке части Вайоминга, чтобы у джиннов появилось собственное государство."
+            }
+          ],
+          "title": {
+            "en": "Negotiating for Wyoming",
+            "ru": "Переговоры о Вайоминге"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "mirage",
       "summary": {
         "en": "Combines scarabs, a lifting whirlwind, mark damage and a map-targeted teleport.",
@@ -607,12 +1324,12 @@
       },
       "tips": [
         {
-          "en": "Activate Djinn's Mark when you want accumulated marks to deal their damage immediately.",
-          "ru": "Активируйте Djinn's Mark, когда хотите немедленно реализовать урон накопленных меток."
-        },
-        {
-          "en": "Start Traveler from safety: incoming damage and several control effects interrupt its wait.",
-          "ru": "Начинайте Traveler из безопасного места: урон и ряд эффектов контроля прерывают подготовку телепорта."
+          "en": "If you expect to rotate with Traveler, step out of incoming fire before starting the cast. Any damage during the wait can interrupt it, so a safe corner matters more than your starting distance from the destination.",
+          "ru": "Перед телепортом уйдите из-под огня. Урон во время подготовки прерывает «Путник», поэтому выбирайте укрытие для начала применения.",
+          "title": {
+            "en": "Start the teleport behind cover",
+            "ru": "Начинайте телепорт за укрытием"
+          }
         }
       ],
       "videos": []
@@ -627,7 +1344,42 @@
         "en": "Mo and Krill enforce the hospitality of the Tunnel Rats, protecting the underground trade routes from gangs that abuse them.",
         "ru": "Mo и Krill защищают правила гостеприимства Tunnel Rats и не дают бандам использовать подземные торговые пути для своих разборок."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Mo and Krill belong to the Tunnel Rats. Their network of passages connects New York's boroughs and keeps illicit commerce moving below street level.",
+              "ru": "Мо и Мелкий состоят в «Тоннельных крысах». Их сеть ходов связывает районы Нью-Йорка и позволяет вести нелегальную торговлю в обход улиц."
+            }
+          ],
+          "title": {
+            "en": "Trade beneath the city",
+            "ru": "Торговля под городом"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Most of the city's underworld respects the people who run the tunnels. When a gang tries to use the passages to settle a private feud, Mo and Krill step in.",
+              "ru": "Большинство в преступном мире уважает порядки хозяев тоннелей. Когда какая-нибудь банда пытается использовать ходы для личных разборок, Мо и Мелкий вмешиваются."
+            }
+          ],
+          "title": {
+            "en": "Tunnel Rats' rules",
+            "ru": "Правила «Тоннельных крыс»"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Mo and Krill backed Arin after the shooting. Krill speaks of Arin as family.",
+            "ru": "Мо и Мелкий поддержали Эрин после покушения. Мелкий говорит об Эрин как о члене семьи."
+          },
+          "heroId": 50
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "mo-krill",
       "summary": {
         "en": "Burrows into close range to disarm, drain health and hold one enemy in place.",
@@ -635,12 +1387,12 @@
       },
       "tips": [
         {
-          "en": "Aim Sand Blast across armed enemies to apply its disarm.",
-          "ru": "Направляйте Sand Blast на стреляющих врагов, чтобы обезоружить их."
-        },
-        {
-          "en": "Use Scorn near enemy heroes when possible: its healing is stronger against them.",
-          "ru": "По возможности применяйте Scorn рядом с вражескими героями: лечение от них сильнее."
+          "en": "Tell your team which enemy you are grabbing. If that hero dies during Combo or within 3 seconds after it ends, Mo & Krill gain permanent max health.",
+          "ru": "Заранее скажите команде, кого схватите. Если этот герой погибнет во время «Комбо» или в течение трёх секунд после захвата, Mo & Krill получат постоянную прибавку к максимальному здоровью.",
+          "title": {
+            "en": "Call the finish before Combo",
+            "ru": "Договоритесь, кто добьёт цель"
+          }
         }
       ],
       "videos": []
@@ -655,7 +1407,68 @@
         "en": "At Marble Hill's possession ward, Harrow combines care with severe treatments, carrying her patients' pain in a mysterious medical bag.",
         "ru": "В отделении одержимости Marble Hill Harrow сочетает заботу с суровым лечением и хранит боль пациентов в таинственном медицинском саквояже."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Nurse Harrow has devoted herself to treating supernatural possession. Her work at Marble Hill earns respect for its results. Some patients see her as a saint, while others remember how harsh her treatment can be.",
+              "ru": "Сестра Хэрроу посвятила себя лечению людей, одержимых сверхъестественными силами. В отделении Марбл-Хилл её уважают за результаты: одни пациенты считают её святой, другие помнят прежде всего её суровые методы."
+            }
+          ],
+          "title": {
+            "en": "The Marble Hill ward",
+            "ru": "Отделение в Марбл-Хилл"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Harrow carries her patients' pain in a medical bag. She explains in conversation that she transfers it where it will do the least harm. She regards it as part of the treatment, however severe it may appear.",
+              "ru": "Хэрроу хранит боль пациентов в медицинском саквояже. В разговоре она объясняет, что переносит эту боль туда, где та причинит меньше всего вреда. Для неё это часть лечения, хотя сама процедура может показаться жестокой."
+            }
+          ],
+          "title": {
+            "en": "Pain in the medical bag",
+            "ru": "Боль в саквояже"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "In a conversation with Seven, Harrow recalls Edmund Volker. They trained under the same mentor, and Volker worked at Lost Whisper. Seven implies that he killed Volker during his escape.",
+              "ru": "В разговоре с Семью Хэрроу вспоминает Эдмунда Волкера. Они учились у одного наставника, а Волкер работал в «Затерянном шёпоте». Семь даёт понять, что Волкер погиб от его руки во время побега."
+            }
+          ],
+          "title": {
+            "en": "A shared mentor",
+            "ru": "Общий наставник"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Seven threatens Harrow with the same fate as her colleague Edmund Volker and implies that he killed Volker.",
+            "ru": "Семь утверждает, что Хэрроу ждёт судьба её товарища Эдмунда Волкера, и намекает, что сам убил его."
+          },
+          "heroId": 2
+        },
+        {
+          "description": {
+            "en": "Solomon asks where she puts her patients' pain. Harrow tells him she tries to send it where it will do less harm.",
+            "ru": "Соломон спрашивает, куда она девает боль пациентов. Хэрроу отвечает, что старается перенести её туда, где она причинит меньше вреда."
+          },
+          "heroId": 85
+        },
+        {
+          "description": {
+            "en": "Violet's friend Nicholas Tsai was treated by Harrow as a child. She remembers him years later.",
+            "ru": "Друг Виолетты Николас Цай в детстве лечился у Хэрроу. Медсестра помнит его спустя годы."
+          },
+          "heroId": 86
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "nurse-harrow",
       "summary": {
         "en": "Heals allies with syringes and manages delayed damage, leeches and fear.",
@@ -663,12 +1476,20 @@
       },
       "tips": [
         {
-          "en": "Heal during Wretched Vapors to remove looming specters before their delayed damage arrives.",
-          "ru": "Лечите во время Wretched Vapors, чтобы убрать призраков до нанесения отложенного урона."
+          "en": "After you use Wretched Vapors to cover incoming damage, switch to Healing Needles and heal your ally before the crash. Incoming healing clears specters first, so a health bar that barely moves can still mean you prevented damage.",
+          "ru": "После «Гнусные пары» переключитесь на лечебные шприцы и лечите союзника до окончания испарений. Лечение сначала убирает призраков, поэтому можно предотвратить урон, даже если полоска здоровья почти не сдвинулась.",
+          "title": {
+            "en": "Heal before the crash",
+            "ru": "Лечите до окончания испарений"
+          }
         },
         {
-          "en": "Put Healing Needles away when healing is no longer needed; unused syringes refund part of a charge.",
-          "ru": "Убирайте Healing Needles, когда лечение больше не нужно: неиспользованные шприцы возвращают часть заряда."
+          "en": "If your ally is safe and there is still a fight, recast Healing Needles to switch back to your weapon. Unused syringes refund part of a charge, and dealing damage helps recover charges.",
+          "ru": "Если союзник уже в безопасности, а бой продолжается, повторно нажмите «Лечебные иглы», чтобы вернуться к обычной стрельбе. Неиспользованные шприцы возвращают часть заряда, а нанесённый урон помогает восстановить заряды.",
+          "title": {
+            "en": "Put away unused syringes",
+            "ru": "Убирайте оставшиеся шприцы"
+          }
         }
       ],
       "videos": []
@@ -683,7 +1504,34 @@
         "en": "A bibliomancer who earns her living telling stories, Paige is determined to discover what happened to her missing younger brother Bryce.",
         "ru": "Библиомант Paige зарабатывает рассказыванием историй и решительно ищет правду об исчезновении младшего брата Bryce."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Paige grew up in a rare-book dealer's family and took to magic and stories early. Her younger brother Bryce sought out spells their parents thought too dangerous. One day Paige came home from the library to find her parents in tears. Bryce had been thrown out, and nobody would tell her why.",
+              "ru": "Пейдж выросла в семье торговца редкими книгами и с детства любила магию и истории. Её младший брат Брайс увлекался чарами, которые родители считали слишком опасными. Однажды Пейдж вернулась из библиотеки и нашла дома заплаканных родителей. Брайса выгнали, а почему — ей так и не сказали."
+            }
+          ],
+          "title": {
+            "en": "The brother who vanished",
+            "ru": "Брат, который исчез"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Paige became an accomplished bibliomancer and made a living telling stories in libraries across all five boroughs. Her parents still won't talk about Bryce, and she is still determined to find out what happened to him.",
+              "ru": "Со временем Пейдж стала искусной библиоманткой и начала выступать в библиотеках всех пяти районов города. Родители всё ещё молчат, а она по-прежнему пытается узнать, что случилось с Брайсом."
+            }
+          ],
+          "title": {
+            "en": "A storyteller looking for answers",
+            "ru": "Сказительница в поисках ответа"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "paige",
       "summary": {
         "en": "Protects allies with barriers and healing while conjuring fire and delayed roots.",
@@ -691,12 +1539,12 @@
       },
       "tips": [
         {
-          "en": "Grant Plot Armor before an ally attacks so its barrier can also provide weapon damage.",
-          "ru": "Дайте Plot Armor до атаки союзника, чтобы барьер одновременно усиливал урон оружия."
-        },
-        {
-          "en": "Lead Captivating Read ahead of movement because its immobilizing detonation is delayed.",
-          "ru": "Применяйте Captivating Read с упреждением: обездвиживающий взрыв происходит с задержкой."
+          "en": "Line up Rallying Charge along the route of a distant fight. Both the heal and the damage grow with distance traveled, so a longer line through the same fight makes the spell stronger.",
+          "ru": "Направляйте «Единящее наступление» вдоль далёкой драки. Лечение и урон растут с пройденным расстоянием, поэтому более длинный разгон усиливает эффект в той же точке.",
+          "title": {
+            "en": "Send the charge from farther away",
+            "ru": "Посылайте кавалерию издалека"
+          }
         }
       ],
       "videos": []
@@ -711,7 +1559,34 @@
         "en": "Paradox is both a time artifact and a masked thieves' guild whose public exhibitions flaunt thefts from supposedly untouchable targets.",
         "ru": "Paradox — и временной артефакт, и гильдия воров в масках, выставляющая напоказ добычу у якобы недосягаемых целей."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Paradox is both the name of a time artifact and the name of a thieves' guild. Its members wear masks and share the same name, leaving the identity behind any given mask a mystery.",
+              "ru": "Парадоксом зовут и артефакт, связанный со временем, и гильдию воров. Все члены гильдии носят маски и пользуются одним именем. Кто именно скрывается за очередной маской, остаётся загадкой."
+            }
+          ],
+          "title": {
+            "en": "A guild behind a mask",
+            "ru": "Гильдия под маской"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The guild picks targets who believe they're untouchable. Artifacts, state secrets and even celebrity paternity tests wind up in pop-up exhibitions. It's the guild's way of showing how far its reach extends.",
+              "ru": "Гильдия охотится за добычей у тех, кто считает себя недосягаемым. Её трофеи — от артефактов и государственных секретов до тестов на отцовство знаменитостей — попадают на временные выставки. Так Парадокс даёт понять, что может добраться до кого угодно."
+            }
+          ],
+          "title": {
+            "en": "Museums of stolen things",
+            "ru": "Музеи краденого"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "paradox",
       "summary": {
         "en": "Controls projectile timing, charges a stopping shot and swaps places with an enemy.",
@@ -719,12 +1594,12 @@
       },
       "tips": [
         {
-          "en": "Charge Kinetic Carbine before taking its shot; it also increases movement speed while charging.",
-          "ru": "Заряжайте Kinetic Carbine перед выстрелом и учитывайте ускорение во время зарядки."
-        },
-        {
-          "en": "Check both positions before Paradoxical Swap: you exchange places with the enemy you hit.",
-          "ru": "Проверьте обе позиции перед Paradoxical Swap: вы меняетесь местами с задетым врагом."
+          "en": "Set Time Wall across an angle your team is already holding and shoot through it together. It stops incoming projectiles while speeding up and strengthening allied bullets that pass through.",
+          "ru": "Поставьте «Стена времени» поперёк направления, которое уже держит ваша команда, и стреляйте сквозь неё. Она задерживает вражеские снаряды, а пролетающие через неё союзные пули становятся быстрее и сильнее.",
+          "title": {
+            "en": "Shoot through your own wall",
+            "ru": "Стреляйте через свою стену"
+          }
         }
       ],
       "videos": []
@@ -739,7 +1614,68 @@
         "en": "Arin Fairfax survived an attempt on their life and now hides as Pocket, seeking an identity beyond the family's powerful company.",
         "ru": "Arin Fairfax пережили покушение и скрываются под именем Pocket, стремясь обрести собственную жизнь вне власти семейной компании."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Arin Fairfax was first in line to inherit Fairfax Industries. A gunshot nearly ended their life on their eighteenth birthday. The person who ordered it remains unknown, and there was no shortage of people around the company with a reason to block the succession.",
+              "ru": "Компания «Фэрфакс Индастриз» по праву старшинства должна была достаться Эрин Фэрфакс. В день восемнадцатилетия Эрин едва не погибает от выстрела. Имя заказчика остаётся неизвестным, а в окружении компании хватает людей, которым наследование могло помешать."
+            }
+          ],
+          "title": {
+            "en": "Shot at eighteen",
+            "ru": "Покушение в восемнадцать лет"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Arin has spent five years in hiding under the name Pocket. The alias helps keep them safe and gives them room to build a life outside the shadow of their parents and the Fairfax name.",
+              "ru": "После покушения Эрин уже пять лет скрывается под именем Карман. Псевдоним помогает уберечься от преследователей и даёт возможность жить собственной жизнью, без постоянной оглядки на родителей и фамилию."
+            }
+          ],
+          "title": {
+            "en": "Five years under a new name",
+            "ru": "Пять лет под чужим именем"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "After the shooting, Arin found support with Mo and Krill. During the Ritual, Krill says they won't let Arin face this alone and speaks of the three of them as family.",
+              "ru": "После покушения Мо и Мелкий помогли Эрин. Во время Ритуала Мелкий говорит, что они не дадут Эрин справляться со всем в одиночку, и называет их семьёй."
+            }
+          ],
+          "title": {
+            "en": "Help from the tunnels",
+            "ru": "Помощь из тоннелей"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Arin knows who pulled the trigger, but the identity of the person who ordered the shooting remains unknown.",
+            "ru": "Эрин известно, кто нажал на спуск, но личность заказчика покушения остаётся неизвестной."
+          },
+          "heroId": 16
+        },
+        {
+          "description": {
+            "en": "Mina and Arin's families arranged their marriage. After the attack, Mina believed Arin was dead.",
+            "ru": "Брак Мины и Эрин был устроен их семьями. После покушения Мина считала, что покушение было смертельным."
+          },
+          "heroId": 63
+        },
+        {
+          "description": {
+            "en": "Mo and Krill helped Arin after the shooting. During the Ritual, they're willing to stand with Arin again.",
+            "ru": "Мо и Мелкий помогли Эрин после покушения. Во время Ритуала они готовы снова встать на сторону Эрин."
+          },
+          "heroId": 18
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "pocket",
       "summary": {
         "en": "Uses a traveling cloak and a protective suitcase around area damage.",
@@ -747,12 +1683,12 @@
       },
       "tips": [
         {
-          "en": "Send Flying Cloak toward a useful destination before recasting to teleport to it.",
-          "ru": "Отправляйте Flying Cloak в нужную точку, прежде чем повторно применить телепорт."
-        },
-        {
-          "en": "Plan a finishing hit after Affliction: its damage over time cannot kill on its own.",
-          "ru": "Планируйте добивающую атаку после Affliction: её периодический урон сам по себе не убивает."
+          "en": "Use an air dash during Barrage to keep an angle on a hero rounding a corner. Air dash and Flying Cloak can be used without cancelling the barrage.",
+          "ru": "Если цель уходит за угол, сделайте воздушный рывок во время «Шквал», чтобы сохранить угол обстрела. Воздушный рывок и «Летающий плащ» не прерывают залп.",
+          "title": {
+            "en": "Dash during the barrage",
+            "ru": "Делайте рывок во время залпа"
+          }
         }
       ],
       "videos": []
@@ -767,7 +1703,34 @@
         "en": "The ruler of New York's warrens wants to seize Long Island for a rat nation and seeks a Patron's help to secure his violent plan.",
         "ru": "Правитель нью-йоркских нор хочет захватить Лонг-Айленд для крысиного государства и ищет помощи Покровителя для своего жестокого плана."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The Rat King rules New York's warrens. He wants his subjects to live above ground without hiding from the city's exterminators.",
+              "ru": "Крысиный король правит нью-йоркскими норами. Он хочет, чтобы крысы могли свободно жить на поверхности и больше не прятались от городских дератизаторов."
+            }
+          ],
+          "title": {
+            "en": "Out of the warrens",
+            "ru": "Из нор на поверхность"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "He plans to seize Long Island, declare it the independent nation of Ratannia and execute any humans who refuse to leave. To improve his odds, he's seeking the aid of a Patron.",
+              "ru": "Он намерен захватить Лонг-Айленд, объявить его независимой Крысанией и казнить людей, которые откажутся уйти. Для верности король хочет заручиться помощью Покровителя."
+            }
+          ],
+          "title": {
+            "en": "The plan for Ratannia",
+            "ru": "План Крысании"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "rat-king",
       "summary": {
         "en": "Sends rats to weaken bullet resistance and protects allies around a banner.",
@@ -775,12 +1738,12 @@
       },
       "tips": [
         {
-          "en": "Keep allies near Rule, Ratannia!'s banner to receive its defensive and movement benefits.",
-          "ru": "Держитесь с союзниками возле знамени Rule, Ratannia!, чтобы получать защиту и бонусы передвижения."
-        },
-        {
-          "en": "Remember Royal Pestments' barrier does not benefit from resistances when judging its durability.",
-          "ru": "Оценивая прочность Royal Pestments, учитывайте, что его барьер не усиливается сопротивлениями."
+          "en": "If Scrap Grenade lands short, a melee hit can knock it farther along. Use this when you can safely get to the grenade and want the remaining blasts in a choke.",
+          "ru": "Если «Хлам-граната» не долетела, её можно подтолкнуть ударом ближнего боя. Когда к ней безопасно подойти, отправьте её в узкий проход, чтобы оставшиеся взрывы перекрыли путь.",
+          "title": {
+            "en": "Bat the grenade forward",
+            "ru": "Отправляйте гранату ударом"
+          }
         }
       ],
       "videos": []
@@ -795,7 +1758,34 @@
         "en": "Stranded in New York after accidentally leaving the dream world, Rem and his helpers wander the city looking for a way home.",
         "ru": "Случайно покинув мир снов, Rem застрял в Нью-Йорке и вместе с помощниками ищет дорогу домой."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Rem slipped out of the dream world and got stranded in New York. He and his little helpers roam the five boroughs in search of a way home.",
+              "ru": "Дрём случайно попал из мира снов в Нью-Йорк и не знает, как вернуться. Вместе с маленькими помощниками он бродит по пяти районам города и ищет дорогу домой."
+            }
+          ],
+          "title": {
+            "en": "A visitor from dreams",
+            "ru": "Гость из снов"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Even the city that never sleeps has room for Rem. His story jokes that if you start dozing on the Blue Line, one of the city's newest residents might be nearby.",
+              "ru": "В городе, который никогда не спит, даже Дрёму удаётся найти компанию. В его истории шутят, что внезапная сонливость в вагоне синей ветки может означать, что он где-то рядом."
+            }
+          ],
+          "title": {
+            "en": "Dozing on the Blue Line",
+            "ru": "Дрёма в дороге"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "rem",
       "summary": {
         "en": "Moves between allies to heal, dispatches helpers and channels a sleep-inducing gaze.",
@@ -803,12 +1793,20 @@
       },
       "tips": [
         {
-          "en": "Land Pillow Toss to reduce your other ability cooldowns.",
-          "ru": "Попадайте Pillow Toss, чтобы сокращать перезарядку остальных способностей."
+          "en": "Once Tag Along has healed your first ally, hop to another injured ally instead of returning to the same one. Each ally can receive the heal once during the cast.",
+          "ru": "После первого лечения с «Приятная компания» перепрыгните на другого раненого союзника. За одно применение каждый союзник получает лечение только один раз.",
+          "title": {
+            "en": "Heal more than one ally on the same ride",
+            "ru": "Перепрыгивайте между ранеными союзниками"
+          }
         },
         {
-          "en": "Hop between allies with Tag Along to apply its heal once to each ally.",
-          "ru": "Перепрыгивайте между союзниками через Tag Along, чтобы дать лечение каждому по одному разу."
+          "en": "You can use items during Tag Along. Self-cast effects target the ally you are riding, so keep a suitable item available when you hop onto a teammate who needs it.",
+          "ru": "Во время «Приятная компания» можно использовать предметы. При применении на себя эффект получит союзник, на котором вы сидите. Приберегите подходящий предмет для напарника, которому он понадобится.",
+          "title": {
+            "en": "Pass a self-cast to your ride",
+            "ru": "Передавайте эффект предмета союзнику"
+          }
         }
       ],
       "videos": []
@@ -823,7 +1821,34 @@
         "en": "An occult criminal survived an execution designed to destroy his soul, killed his captors and set out toward New York.",
         "ru": "Оккультный преступник пережил казнь, призванную уничтожить его душу, расправился с тюремщиками и направился в Нью-Йорк."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "After the supernatural entered everyday life, the government passed laws restricting its use. Seven considered himself above them. What landed him in Lost Whisper, the prison for the most dangerous occultists, is still a matter of rumor.",
+              "ru": "Когда сверхъестественное стало частью повседневной жизни, власти ограничили его использование законом. Семь считал, что такие правила на него не распространяются. Как он оказался в «Затерянном шёпоте», тюрьме для самых опасных оккультистов, достоверно неизвестно."
+            }
+          ],
+          "title": {
+            "en": "A prison for occultists",
+            "ru": "Тюрьма для оккультистов"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Ritualists from seven nations placed wards meant to destroy Seven's soul during his execution and prevent any return. The wards failed. An Army mentalist and a Scotland Yard investigator died, and Seven broke free, slaughtered his executioners and set his sights on New York.",
+              "ru": "Ритуалисты из семи стран поставили защиту, чтобы во время казни уничтожить душу Семи и исключить возможность его возвращения. Чары отказали. Военный менталист и следователь Скотленд-Ярда погибли, а Семь вырвался из оков, расправился с палачами и наметил себе следующую цель — Нью-Йорк."
+            }
+          ],
+          "title": {
+            "en": "The failed execution",
+            "ru": "Казнь, которая сорвалась"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "seven",
       "summary": {
         "en": "Spreads electrical damage with balls, delayed stuns and an expanding storm.",
@@ -831,12 +1856,12 @@
       },
       "tips": [
         {
-          "en": "Place Static Charge on a hero near other enemies to threaten its area stun.",
-          "ru": "Накладывайте Static Charge на героя рядом с другими врагами, чтобы угрожать оглушением по области."
-        },
-        {
-          "en": "Keep enemies in line of sight during Storm Cloud; cover prevents its damage.",
-          "ru": "Сохраняйте видимость врагов во время Storm Cloud: укрытие блокирует её урон."
+          "en": "Aim Lightning Ball at a solid surface behind the area you want to cover. It stops when it hits the world, so a wall can keep the damage zone in a choke instead of letting it drift out.",
+          "ru": "Направьте шар молний в стену за местом, которое хотите перекрыть. При столкновении с поверхностью шар останавливается, и зона урона может остаться в проходе.",
+          "title": {
+            "en": "Make the ball stop in a choke",
+            "ru": "Остановите шар в узком проходе"
+          }
         }
       ],
       "videos": []
@@ -851,7 +1876,42 @@
         "en": "Shiv hunts predatory monsters across North America for the Baxter Society, whose traditionalists sometimes distrust his rough manner and criminal past.",
         "ru": "Shiv охотится на чудовищ-хищников по Северной Америке для Baxter Society, чьи консерваторы порой не доверяют его грубости и преступному прошлому."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Shiv serves the Baxter Society and travels North America hunting creatures that prey on the living. The order's traditionalists are wary of his manners and criminal past. His record as a hunter is harder to argue with.",
+              "ru": "Заточка служит Обществу Бакстера и ездит по Северной Америке, выслеживая чудовищ, которые охотятся на живых. Члены Общества старой закалки с подозрением относятся к его манерам и преступному прошлому. Оспорить его успехи на охоте куда труднее."
+            }
+          ],
+          "title": {
+            "en": "A hunter with a past",
+            "ru": "Охотник с прошлым"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Shiv says the Society saved his life. He tells Holliday that Grey Talon picked him personally, and Wesley calls him his protégé. Even after a few years with the Society, Shiv feels he still has to earn the trust of the other hunters.",
+              "ru": "По словам Заточки, Общество спасло ему жизнь. Он говорит Холлидей, что его выбрал сам Серый Коготь, а Уэсли называет его своим учеником. Даже после нескольких лет в Обществе Заточка чувствует, что доверие коллег ещё нужно заслужить."
+            }
+          ],
+          "title": {
+            "en": "Grey Talon's successor",
+            "ru": "Преемник Серого Когтя"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Grey Talon personally chose Shiv to take his place in the Baxter Society.",
+            "ru": "Серый Коготь лично выбрал Заточку на своё место в Обществе Бакстера."
+          },
+          "heroId": 17
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "shiv",
       "summary": {
         "en": "Stacks knife bleeding, dashes through enemies and clears part of deferred damage.",
@@ -859,12 +1919,12 @@
       },
       "tips": [
         {
-          "en": "Hit the same enemy with more Serrated Knives to stack bleeding and refresh its duration.",
-          "ru": "Попадайте Serrated Knives по одной цели, чтобы накапливать кровотечение и обновлять его длительность."
-        },
-        {
-          "en": "Activate Bloodletting to clear part of the damage waiting to arrive over time.",
-          "ru": "Активируйте Bloodletting, чтобы убрать часть отложенного урона."
+          "en": "If a target is still in reach and you can afford to wait, hold the next knife until the current bleed is close to expiring. The new hit adds a stack and refreshes the duration.",
+          "ru": "Если цель всё ещё в пределах броска и можно подождать, бросьте следующий нож ближе к концу кровотечения. Попадание добавит заряд эффекта и обновит его длительность.",
+          "title": {
+            "en": "Stagger knives to keep the bleed",
+            "ru": "Бросайте ножи с интервалом"
+          }
         }
       ],
       "videos": []
@@ -879,7 +1939,42 @@
         "en": "Lilah Silver is a successful bounty hunter whose werewolf nature helps compensate for a troubled personal life.",
         "ru": "Lilah Silver — успешная охотница за головами, которой природа оборотня помогает несмотря на беспорядочную личную жизнь."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Lilah Silver drinks and smokes heavily, but she makes a living tracking down fugitives for a bounty. She puts her success down to instinct. Being a werewolf helps, even if Silver would rather credit her experience and intuition.",
+              "ru": "Лайла Сильвер много пьёт и курит, но умеет выслеживать людей за награду. Свои успехи она объясняет чутьём. Ей помогает и то, что она оборотень, хотя сама Сильвер предпочитает полагаться на опыт и интуицию."
+            }
+          ],
+          "title": {
+            "en": "A bounty hunter",
+            "ru": "Охотница за головами"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Silver has an old score to settle with Shiv and the Drifter. In one taunt the Doorman brings up the people she failed to save from them. Silver herself makes it clear that the Baxter Society hasn't convinced her Shiv has changed.",
+              "ru": "У Сильвер давние счёты с Заточкой и Скитальцем. Швейцар в одной из реплик припоминает ей людей, которых она не сумела от них спасти. Сама Сильвер даёт понять, что Общество Бакстера не убедило её в том, что Заточка изменился."
+            }
+          ],
+          "title": {
+            "en": "Old scores",
+            "ru": "Старые счёты"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Silver has an old score to settle with Shiv. She openly doubts that the Baxter Society changed him.",
+            "ru": "У Сильвер давние счёты с Заточкой. Она открыто сомневается, что Общество Бакстера его изменило."
+          },
+          "heroId": 19
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "silver",
       "summary": {
         "en": "Combines a rapid reload and bola with a bloodlust-driven werewolf transformation.",
@@ -887,12 +1982,12 @@
       },
       "tips": [
         {
-          "en": "Use Slam Fire when its immediate reload is useful, while accounting for reduced accuracy.",
-          "ru": "Используйте Slam Fire, когда полезна мгновенная перезарядка, и учитывайте снижение точности."
-        },
-        {
-          "en": "Watch bloodlust: reaching its maximum automatically activates Lycan Curse.",
-          "ru": "Следите за жаждой крови: при максимуме Lycan Curse включается автоматически."
+          "en": "Fire the rounds you have before activating Slam Fire when you can safely stay on target. The activation fills your magazine instantly, so using it after spending ammo gets more out of the reload.",
+          "ru": "Если можете безопасно продолжать стрельбу, потратьте оставшиеся патроны перед «Скоростной огонь». Способность мгновенно пополняет магазин, так что перезарядка принесёт больше пользы.",
+          "title": {
+            "en": "Use Slam Fire as a reload",
+            "ru": "Перезаряжайтесь через «Скоростной огонь»"
+          }
         }
       ],
       "videos": []
@@ -907,7 +2002,34 @@
         "en": "Stage magicians Henry and Savannah bound their souls in marriage; after a fatal performance, the two quarreling ghosts must work together to undo that bond.",
         "ru": "Иллюзионисты Henry и Savannah связали души в браке; после смертельного представления ссорящиеся призраки вынуждены вместе искать способ разорвать эту связь."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Henry's parents thought him too impulsive for real magic and gave him a deck of cards. He took up stage illusions and met Savannah in high school. They put together an act, married after graduation and asked a blood mystic to bind their souls forever.",
+              "ru": "Родители Генри считали его слишком импульсивным для настоящей магии и дали ему колоду карт. Он освоил сценические фокусы, а в школе встретил Саванну. Они придумали совместный номер, поженились после выпуска и попросили мага крови связать их души навечно."
+            }
+          ],
+          "title": {
+            "en": "An act for two",
+            "ru": "Номер на двоих"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Both died in an accident onstage. Henry says Savannah was out of position. Savannah says Henry went before his cue. Their bond kept them from moving on, and the two ghosts will have to work together if they want to break it.",
+              "ru": "Оба погибли во время выступления. Генри винит Саванну, которая, по его словам, стояла не там. Саванна уверена, что Генри начал раньше сигнала. Связь не дала им уйти после смерти, и теперь призракам придётся договориться, если они хотят её разорвать."
+            }
+          ],
+          "title": {
+            "en": "A union that outlasted death",
+            "ru": "Союз после смерти"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "sinclair",
       "summary": {
         "en": "Uses an assistant, redirectable bolts, rabbit hexes and copied enemy ultimates.",
@@ -915,12 +2037,12 @@
       },
       "tips": [
         {
-          "en": "Use Spectral Assistant's recast to swap positions with your summoned assistant.",
-          "ru": "Повторно применяйте Spectral Assistant, чтобы поменяться местами с помощником."
-        },
-        {
-          "en": "Check the copied ultimate and its cooldown before reactivating Audience Participation.",
-          "ru": "Проверяйте скопированную ультимативную способность и её перезарядку перед повторным Audience Participation."
+          "en": "After spending your ammo, cast Spectral Assistant at a safe angle. The initial cast reloads your weapon, and the assistant gives you a position to swap back to while it is out.",
+          "ru": "Когда потратите патроны, поставьте помощника в безопасном месте. Первое применение пополняет магазин, а пока помощник на поле, с ним можно поменяться местами.",
+          "title": {
+            "en": "Set up a way back while reloading",
+            "ru": "Готовьте отход и пополняйте магазин"
+          }
         }
       ],
       "videos": []
@@ -935,7 +2057,42 @@
         "en": "Solomon uses chess to listen and offer counsel, meeting people from every walk of life across an equal board.",
         "ru": "Solomon слушает людей и даёт советы за шахматами: за одной доской он на равных встречает людей самого разного положения."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Solomon meets tourists, criminals and captains of industry across a chessboard. He's happy to listen and offer advice. The same rules apply to everyone at the board, which gives him a way to talk to people from all walks of life.",
+              "ru": "За шахматами Соломон встречает туристов, преступников и промышленников. Он умеет выслушать собеседника и дать совет. На одной доске для всех действуют одинаковые правила, поэтому за партией ему проще разговаривать с самыми разными людьми."
+            }
+          ],
+          "title": {
+            "en": "Across the chessboard",
+            "ru": "За шахматным столом"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Solomon usually spends his time in Central Park. When he speaks about the Ritual, he talks about keeping New York safe and keeping the Patrons' power away from people who would use it to harm the city.",
+              "ru": "Обычно Соломона можно встретить в Центральном парке. В репликах о Ритуале он говорит о безопасности города и о том, что силу Покровителей нельзя оставлять в руках тех, кто навредит Нью-Йорку."
+            }
+          ],
+          "title": {
+            "en": "Playing for the city",
+            "ru": "Партия за город"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Solomon wants to know what Harrow does with the pain she takes from her patients.",
+            "ru": "Соломона интересует, как Хэрроу распоряжается болью, которую забирает у пациентов."
+          },
+          "heroId": 87
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "solomon",
       "summary": {
         "en": "Moves chess pieces to shape routes, shield allies and immobilize enemies.",
@@ -943,12 +2100,20 @@
       },
       "tips": [
         {
-          "en": "Use Kingside Knight on an ally for stamina; self-casting gives more barrier but no stamina.",
-          "ru": "Применяйте Kingside Knight на союзника ради выносливости; на себе вы получаете больший барьер, но без выносливости."
+          "en": "Cast Kingside Knight on an ally when they need stamina or a way out. Moving them makes them invulnerable during the move. Self-cast doubles the barrier but grants no stamina.",
+          "ru": "Примените «Королевский конь» на союзника, которому нужна выносливость или путь к отходу. Во время перемещения он неуязвим. На себе способность даёт двойной барьер без выносливости.",
+          "title": {
+            "en": "Choose between a rescue and a bigger barrier",
+            "ru": "Выбирайте между спасением и усиленным барьером"
+          }
         },
         {
-          "en": "Use Rook Battery's recast to split the rooks perpendicularly rather than letting them travel straight.",
-          "ru": "Повторно применяйте Rook Battery, чтобы разделить ладьи перпендикулярно вместо прямого движения."
+          "en": "Aim Rook Battery into the back wall of a narrow room when the first pass is unlikely to catch anyone. The rooks reflect off walls and travel back in the opposite direction.",
+          "ru": "Если ладьи вряд ли заденут кого-то на первом проходе, направьте их к дальней стене узкой комнаты. Они отразятся от стены и полетят обратно.",
+          "title": {
+            "en": "Bring the rooks back off a wall",
+            "ru": "Возвращайте ладьи от стены"
+          }
         }
       ],
       "videos": []
@@ -963,7 +2128,34 @@
         "en": "A visitor from another plane stayed at the Baroness Hotel after discovering that service work offered a fascinating view of human desires.",
         "ru": "Гость из другого мира задержался в отеле Baroness, обнаружив, что работа в обслуживании позволяет изучать удивительные человеческие желания."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The impeccably polite Doorman meant to spend only a few weeks on this plane. A job at the Baroness Hotel gave him such a good vantage point on people and their strange requests that he stayed.",
+              "ru": "Безукоризненно вежливый Швейцар приехал в наш мир всего на несколько недель. Работа в отеле «Баронесса» оказалась таким удобным способом изучать людей и их странные прихоти, что он задержался."
+            }
+          ],
+          "title": {
+            "en": "On duty at the Baroness",
+            "ru": "Служба в «Баронессе»"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The Doorman's own remarks make it clear that he's known the Patrons for a long time. He goes to the Ritual to see them again and talks about returning to the hotel afterward.",
+              "ru": "Из реплик Швейцара ясно, что с Покровителями он знаком давно. На Ритуал он идёт ради встречи с ними и говорит, что после всего собирается вернуться в отель."
+            }
+          ],
+          "title": {
+            "en": "Old acquaintances",
+            "ru": "Старые знакомые"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "the-doorman",
       "summary": {
         "en": "Connects locations with doors and disrupts enemies with hotel-themed displacement.",
@@ -971,12 +2163,12 @@
       },
       "tips": [
         {
-          "en": "Shoot Call Bell to trigger its explosion before the delay ends.",
-          "ru": "Выстрелите в Call Bell, чтобы вызвать взрыв до окончания задержки."
-        },
-        {
-          "en": "Consider both exits before placing Doorway: players and most projectiles can pass through.",
-          "ru": "Продумывайте оба выхода Doorway: через двери проходят игроки и большинство снарядов."
+          "en": "Alt-cast Luggage Cart from a safe angle when a teammate needs help getting out. The alternate cast targets friendly heroes, so aim its path where you want them to go.",
+          "ru": "Если союзнику нужен отход, используйте альтернативное применение тележки из безопасной позиции. Оно действует на союзных героев, поэтому направьте тележку по пути отхода.",
+          "title": {
+            "en": "Send the cart to your team",
+            "ru": "Используйте тележку для спасения союзника"
+          }
         }
       ],
       "videos": []
@@ -991,7 +2183,34 @@
         "en": "A hardened member of the Vatican-sanctioned Venators of St. Benedict has returned to New York to identify and eliminate supernatural predators.",
         "ru": "Закалённый участник одобренного Ватиканом ордена Venators of St. Benedict вновь прибыл в Нью-Йорк для поиска и уничтожения сверхъестественных хищников."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "The Vatican sends the Venators of St. Benedict to places with a high concentration of supernatural predators. The small order observes a target, identifies it and then eliminates the threat.",
+              "ru": "Ватикан посылает венаторов святого Бенедикта туда, где особенно много сверхъестественных хищников. Этот небольшой орден сначала наблюдает и определяет, с кем имеет дело, а затем устраняет угрозу."
+            }
+          ],
+          "title": {
+            "en": "The Order of St. Benedict",
+            "ru": "Орден святого Бенедикта"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Among the Swords of St. Benedict, Venator stands out for what he's willing to sacrifice in the name of the greater good. The order has sent him back to New York.",
+              "ru": "Среди Мечей святого Бенедикта Венатора отличает готовность платить страшную цену за то, что он считает общим благом. Орден снова отправляет его в Нью-Йорк."
+            }
+          ],
+          "title": {
+            "en": "Sent back to New York",
+            "ru": "Новое назначение в Нью-Йорк"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "venator",
       "summary": {
         "en": "Uses fire, wall-pinning shotgun blasts, traps and empowered crossbow stakes.",
@@ -999,12 +2218,12 @@
       },
       "tips": [
         {
-          "en": "Use Gutshot with a wall behind your target to add its stun and bonus damage.",
-          "ru": "Применяйте Gutshot, когда за целью стена, чтобы добавить оглушение и бонусный урон."
-        },
-        {
-          "en": "Account for Hex-Lined Snap Trap's arming delay when placing it on an enemy route.",
-          "ru": "Учитывайте время взведения Hex-Lined Snap Trap, размещая ловушку на пути врага."
+          "en": "Step sideways before using Gutshot so the knockback points into a nearby wall. A target close to the wall takes bonus weapon damage and is stunned.",
+          "ru": "Перед «Разрывной выстрел» сместитесь в сторону, чтобы отбросить цель к ближайшей стене. Враг рядом со стеной получит дополнительный урон от оружия и оглушение.",
+          "title": {
+            "en": "Fight with a wall behind your target",
+            "ru": "Держите противника спиной к стене"
+          }
         }
       ],
       "videos": []
@@ -1019,7 +2238,34 @@
         "en": "Victor awoke on a mortuary table with no memory of his maker or the people whose parts formed him. He searches the city for someone who can identify him.",
         "ru": "Victor очнулся на столе морга, не зная создателя и людей, из чьих частей он собран. Он ищет в городе тех, кто поможет его опознать."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Victor woke on a mortuary table with no idea who put him together, why they did it or who his body parts once belonged to.",
+              "ru": "Виктор очнулся на столе в морге. Он не знает, кто его собрал, зачем это сделали и кому прежде принадлежали части его тела."
+            }
+          ],
+          "title": {
+            "en": "Awakening in a mortuary",
+            "ru": "Пробуждение в морге"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Victor searches all five boroughs for someone who can identify even one part of him. His lines about the Ritual make clear that he's hoping the Patrons can tell him something about his origins.",
+              "ru": "Виктор обходит все пять районов Нью-Йорка в надежде, что кто-нибудь опознает хотя бы часть его тела. В репликах о Ритуале он рассчитывает, что Покровители смогут рассказать ему о его происхождении."
+            }
+          ],
+          "title": {
+            "en": "Just one lead",
+            "ru": "Хоть одна зацепка"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "victor",
       "summary": {
         "en": "Turns incoming pain into charged attacks while risking health for sustained damage.",
@@ -1027,12 +2273,12 @@
       },
       "tips": [
         {
-          "en": "Use Pain Battery after incoming damage has fully charged it.",
-          "ru": "Применяйте Pain Battery, когда полученный урон полностью её зарядит."
-        },
-        {
-          "en": "Watch your own health during Aura of Suffering: its growing damage also affects you.",
-          "ru": "Следите за своим здоровьем во время Aura of Suffering: нарастающий урон действует и на вас."
+          "en": "If Shocking Reanimation is ready and you must fight, stay where your allies can reach the spot you fall. The stun goes off near you when you reanimate, giving nearby teammates a chance to act.",
+          "ru": "Если «Шоковая реанимация» готова и боя не избежать, держитесь там, куда союзники смогут подойти. Когда вы оживёте, ближайшие враги будут оглушены, и команда сможет этим воспользоваться.",
+          "title": {
+            "en": "Reanimate where your team can follow up",
+            "ru": "Возвращайтесь к жизни рядом с командой"
+          }
         }
       ],
       "videos": []
@@ -1047,7 +2293,34 @@
         "en": "Returned from death after the Salem trials, Vindicta fights the Friends of Humanity to defend supernatural beings from a new inquisition.",
         "ru": "Вернувшись после гибели на салемских процессах, Vindicta сражается с Friends of Humanity, защищая сверхъестественных существ от новой инквизиции."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Vindicta was a victim of John Hathorne during the Salem witch trials. The first Maelstrom brought her spirit back to the mortal world and brought the supernatural into public view.",
+              "ru": "Виндикта стала жертвой Джона Хаторна во время суда над салемскими ведьмами. Первый Водоворот, после которого сверхъестественное перестало быть тайной, вернул её дух в мир смертных."
+            }
+          ],
+          "title": {
+            "en": "From Salem back to the living",
+            "ru": "Из Салема обратно к живым"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Hathorne's descendants founded the Friends of Humanity, a new inquisition. Vindicta wages her own war against them to protect supernatural beings and is willing to kill for that cause.",
+              "ru": "Потомки Хаторна основали «Друзей человечества», новую инквизицию. Виндикта в одиночку воюет с ними, чтобы защитить сверхъестественных существ, и готова убивать ради этой цели."
+            }
+          ],
+          "title": {
+            "en": "War on the Friends of Humanity",
+            "ru": "Война с «Друзьями человечества»"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "vindicta",
       "summary": {
         "en": "Restricts movement, takes flight and lines up charged long-range shots.",
@@ -1055,12 +2328,12 @@
       },
       "tips": [
         {
-          "en": "Allow Assassinate to charge while scoped to avoid its partial-damage shot.",
-          "ru": "Дайте Assassinate зарядиться в прицеле, чтобы избежать выстрела с неполным уроном."
-        },
-        {
-          "en": "Use Stake to restrict a target's movement around its landing point.",
-          "ru": "Используйте Stake для ограничения движения цели вокруг точки приземления кола."
+          "en": "Crow Familiar’s bleed scales with the target’s current health, while Assassinate gains bonus damage against low-health targets. Send the crow early and save the scoped shot for the finish.",
+          "ru": "Кровотечение от ворона зависит от текущего здоровья цели, а «Контрольный выстрел» наносит больше урона целям с низким здоровьем. Пускайте ворона раньше и сохраняйте прицельный выстрел для добивания.",
+          "title": {
+            "en": "Send the crow before the finishing shot",
+            "ru": "Пускайте ворона до добивающего выстрела"
+          }
         }
       ],
       "videos": []
@@ -1075,7 +2348,42 @@
         "en": "A successful young immigrant artist still fears obscurity. Violet seeks the Ritual for a chance to show her work to the world.",
         "ru": "Успешная молодая художница-иммигрантка всё ещё боится безвестности. Violet обращается к Ритуалу ради возможности показать миру своё искусство."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Violet moved to New York at twelve. It took some getting used to, but the city's energy won her over. She earned a full scholarship to art school and, in her junior year, a place in the Museum of Modern Art's prestigious student exhibition.",
+              "ru": "Виолетта переехала в Нью-Йорк в двенадцать лет. Поначалу к городу было трудно привыкнуть, но его энергия её захватила. Она получила полную стипендию в художественной школе, а на третьем курсе попала на престижную выставку студенческих работ в Музее современного искусства."
+            }
+          ],
+          "title": {
+            "en": "Finding her place through art",
+            "ru": "Первые выставки"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Success hasn't freed Violet from the fear of dying a failed artist. She knows how much depends on who sees her work and when. She turns to the Ritual for a chance to show the world what she can already do.",
+              "ru": "Успехи не избавили Виолетту от страха так и не состояться как художница. Она знает, как многое зависит от того, кто увидит её работы и когда. От Ритуала она ждёт возможности показать миру то, что уже умеет."
+            }
+          ],
+          "title": {
+            "en": "A chance to be seen",
+            "ru": "Шанс быть увиденной"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Harrow treated Violet's friend Nicholas Tsai when he was a child.",
+            "ru": "Хэрроу лечила друга Виолетты Николаса Цая, когда он был ребёнком."
+          },
+          "heroId": 87
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "violet",
       "summary": {
         "en": "Paints movement trails, completes sketches and creates a vision-blocking ink field.",
@@ -1083,12 +2391,12 @@
       },
       "tips": [
         {
-          "en": "Keep looking at Still Life's subject until the sketch finishes, then collect the dropped sketch.",
-          "ru": "Удерживайте взгляд на цели Still Life до завершения рисунка, затем подбирайте выпавший эскиз."
-        },
-        {
-          "en": "Use other abilities to refresh Flow State through Living Ink's passive.",
-          "ru": "Применяйте другие способности для обновления Flow State через пассивный эффект Living Ink."
+          "en": "Place Abstract Landscape so enemies have to cross the edge to retreat through their usual exit. Leaving the ink triggers damage, Silence and a slow.",
+          "ru": "Поставьте «Абстрактный пейзаж» так, чтобы врагу пришлось пересечь край чернил на пути к привычному выходу. При выходе цель получает урон, безмолвие и замедление.",
+          "title": {
+            "en": "Put the boundary across the way out",
+            "ru": "Проведите границу по пути отхода"
+          }
         }
       ],
       "videos": []
@@ -1103,7 +2411,34 @@
         "en": "A psychic sea anemone projects a goo body onto land, hoping to summon the Patrons to protect the ocean from the Adversary.",
         "ru": "Психическая морская анемона создаёт слизистое тело для суши, надеясь призвать Покровителей и защитить океан от Adversary."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "An astral gate lies deep beneath the Bermuda Triangle. Most of the creatures that passed through were harmless. Now a predator known as the Adversary hunts the seas, and the inhabitants of the deep live in fear.",
+              "ru": "Глубоко под Бермудским треугольником лежат астральные врата. Большинство существ, прошедших через них, были безобидны. Теперь в морях охотится хищник, которого называют Супостатом, и обитатели глубин живут в страхе."
+            }
+          ],
+          "title": {
+            "en": "A threat beneath the Atlantic",
+            "ru": "Угроза под Атлантикой"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Viscous is a psychic sea anemone. He made himself a body from ectoplasmic goo to travel on land and hopes to summon a Patron who can help defend his home beneath the waves.",
+              "ru": "Вязкус — морской анемон с психическими способностями. Он создал себе тело из эктоплазменной слизи, чтобы передвигаться по суше, и надеется призвать Покровителя, который поможет защитить его подводный дом."
+            }
+          ],
+          "title": {
+            "en": "From the deep to dry land",
+            "ru": "Из глубин на сушу"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "viscous",
       "summary": {
         "en": "Slows with goo, protects targets in a cube and rolls into enemies to stun them.",
@@ -1111,12 +2446,20 @@
       },
       "tips": [
         {
-          "en": "Remember The Cube protects its target but also prevents new actions until they leave.",
-          "ru": "Учитывайте, что The Cube защищает цель, но не даёт совершать новые действия до выхода."
+          "en": "Puddle Punch launches allies as well as enemies. Place the fist so the knockback sends your teammate toward cover, especially when they are already being chased.",
+          "ru": "«Удар из лужи» подбрасывает и врагов, и союзников. Если напарника преследуют, поставьте кулак так, чтобы удар отбросил его к укрытию.",
+          "title": {
+            "en": "Punch an ally out of danger",
+            "ru": "Выталкивайте союзника из опасной зоны"
+          }
         },
         {
-          "en": "Aim Puddle Punch with care: enemies can parry its melee attack.",
-          "ru": "Тщательно выбирайте момент Puddle Punch: враги могут парировать эту атаку ближнего боя."
+          "en": "The Cube can block delayed damage from Nurse Harrow’s Wretched Vapors while the ally is inside. Save it for the crash and have healing ready for any damage that falls outside that window.",
+          "ru": "Куб может прикрыть союзника от отложенного урона Nurse Harrow, пока тот внутри. Применяйте его к концу действия испарений. Если часть урона придётся на время после Куба, подготовьте лечение.",
+          "title": {
+            "en": "Time the Cube for Harrow’s crash",
+            "ru": "Куб в момент отложенного урона"
+          }
         }
       ],
       "videos": []
@@ -1131,7 +2474,42 @@
         "en": "A frequent prisoner and practiced escape artist, Vyper has accumulated both favors and enemies throughout the region's underworld.",
         "ru": "Частая заключённая и умелица побегов, Vyper обзавелась в преступном мире региона и должниками, и врагами."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Vyper gets caught often and is much better at breaking out. She's done time in every major prison in the New York tri-state area.",
+              "ru": "Гадюка часто попадается полиции, зато хорошо умеет выбираться из тюрьмы. Она успела отсидеть во всех крупных тюрьмах в окрестностях Нью-Йорка, включая соседние штаты."
+            }
+          ],
+          "title": {
+            "en": "Arrests and escapes",
+            "ru": "Аресты и побеги"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Prison helped Vyper build a network in the underworld. Some of those people owe her favors. Others want her dead, but she prefers to dwell on the first group.",
+              "ru": "Тюремная жизнь помогла Гадюке обзавестись знакомыми в преступном мире. Одни остались у неё в долгу, другие хотят её убить. Сама она предпочитает думать о первых."
+            }
+          ],
+          "title": {
+            "en": "Street connections",
+            "ru": "Связи на улице"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Vyper openly admires Lash and wrote to him from prison. He doesn't return her interest.",
+            "ru": "Гадюка открыто восхищается Хлыстом и писала ему из тюрьмы. Он её интереса не разделяет."
+          },
+          "heroId": 31
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "vyper",
       "summary": {
         "en": "Stacks dagger pressure, uses agile slides and petrifies targets for delayed venom.",
@@ -1139,12 +2517,12 @@
       },
       "tips": [
         {
-          "en": "Hit one target repeatedly with Screwjab Dagger to stack its damage and slow.",
-          "ru": "Повторно попадайте Screwjab Dagger по одной цели для накопления урона и замедления."
-        },
-        {
-          "en": "Direct-hit Petrifying Bola to petrify; most damage is blocked during petrification, but Lethal Venom bypasses it.",
-          "ru": "Попадите Petrifying Bola напрямую для окаменения: оно блокирует большую часть урона, но Lethal Venom его обходит."
+          "en": "Apply Lethal Venom first, then land a direct Petrifying Bola if you can. Venom ignores Petrify’s damage block, so it can still trigger while the target is held.",
+          "ru": "Сначала примените «Смертельный яд», затем постарайтесь попасть болой напрямую. Яд проходит через защиту окаменения, поэтому может сработать, пока цель обездвижена.",
+          "title": {
+            "en": "Let venom tick inside petrify",
+            "ru": "Используйте яд во время окаменения"
+          }
         }
       ],
       "videos": []
@@ -1159,7 +2537,34 @@
         "en": "Raised by a family of militant alchemists, Warden was trained to prevent the Patrons from entering the world.",
         "ru": "Выросший в семье воинствующих алхимиков, Warden с детства обучался не допустить прихода Покровителей в мир."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Warden's family prepared for supernatural threats for generations. Over time, its warnings became stories the grandparents told. The opening of a portal in Central Park made Warden's parents realize how wrong they'd been.",
+              "ru": "Семья Дозорного поколениями готовилась отражать сверхъестественные угрозы. Со временем предостережения предков превратились в семейные байки. Родители Дозорного поняли, как ошибались, когда в Центральном парке открылся портал."
+            }
+          ],
+          "title": {
+            "en": "A family of militant alchemists",
+            "ru": "Род воинственных алхимиков"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Warden's parents raised him from birth to fight the supernatural. They gave him one purpose: to prevent the Patrons from entering our world.",
+              "ru": "Родители воспитывали Дозорного с рождения как бойца, который сумеет противостоять сверхъестественному. Ему поставили конкретную задачу: не позволить Покровителям проникнуть в наш мир."
+            }
+          ],
+          "title": {
+            "en": "Keeping the Patrons out",
+            "ru": "Не допустить Покровителей"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "warden",
       "summary": {
         "en": "Weakens enemies with alchemy, threatens a delayed root and drains health in pulses.",
@@ -1167,12 +2572,12 @@
       },
       "tips": [
         {
-          "en": "Slow a target with Alchemical Flask to make escaping Binding Word's area harder.",
-          "ru": "Замедляйте цель Alchemical Flask, чтобы ей было сложнее покинуть область Binding Word."
-        },
-        {
-          "en": "Allow for Last Stand's initial charge when choosing when to enter a fight.",
-          "ru": "Учитывайте начальную подготовку Last Stand, выбирая момент вступления в бой."
+          "en": "Throw Alchemical Flask before Binding Word when the target has a clear escape route. The flask’s slow makes it harder for them to leave the escape radius before the curse takes hold.",
+          "ru": "Если у врага есть свободный путь к отходу, сначала бросьте колбу, а затем наложите «Сковывающее слово». Замедление усложнит выход из зоны до срабатывания проклятия.",
+          "title": {
+            "en": "Slow before Binding Word",
+            "ru": "Замедляйте до наложения «Сковывающее слово»"
+          }
         }
       ],
       "videos": []
@@ -1187,7 +2592,42 @@
         "en": "Wraith runs a notorious New York gambling organization, relying on bribery, intimidation and blackmail to stay beyond legal consequences.",
         "ru": "Wraith управляет известной игорной организацией Нью-Йорка и избегает закона благодаря взяткам, запугиванию и шантажу."
       },
-      "relationships": [],
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "Wraith's gambling operation is an open secret in New York. Bribes, shakedowns and blackmail keep her in business. At her casino, gamblers can borrow money from her and stay at the table.",
+              "ru": "Игровой бизнес Тени в Нью-Йорке — секрет Полишинеля. Она удерживает своё положение благодаря подкупу, вымогательству и шантажу. В её казино игроки могут взять у неё деньги в долг и продолжить игру."
+            }
+          ],
+          "title": {
+            "en": "The house always wins",
+            "ru": "Хозяйка азартных игр"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Wraith says she plans to ask a Patron for money. She figures that a straightforward wish leaves fewer loopholes for anyone to use against her.",
+              "ru": "Тень говорит, что хочет попросить у Покровителя денег. По её расчёту, простое желание оставляет меньше возможностей истолковать его против неё."
+            }
+          ],
+          "title": {
+            "en": "A wish with no loopholes",
+            "ru": "Желание без лазеек"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "description": {
+            "en": "Wraith knows Infernus from his old line of work. He says she would like to bring him back into it.",
+            "ru": "Тень знакома с Инфернусом по его прежним делам. По его словам, она хотела бы снова привлечь его к работе."
+          },
+          "heroId": 1
+        }
+      ],
+      "reviewedClientVersion": 6848,
       "slug": "wraith",
       "summary": {
         "en": "Builds throwable cards through weapon damage and pairs teleportation with telekinesis.",
@@ -1195,12 +2635,12 @@
       },
       "tips": [
         {
-          "en": "Deal weapon damage to generate Card Trick cards, then aim their flight with your crosshair.",
-          "ru": "Наносите урон оружием для получения карт Card Trick, затем направляйте их полёт прицелом."
-        },
-        {
-          "en": "Choose a destination for Project Mind before committing to the teleport.",
-          "ru": "Выберите точку Project Mind заранее, прежде чем начинать телепорт."
+          "en": "Telekinesis slams the lifted hero toward the targeted location. Aim the landing toward your team or away from a safe corner the enemy would otherwise reach.",
+          "ru": "«Телекинез» бросает поднятого героя в сторону выбранной точки. Направьте бросок к своей команде или в сторону от укрытия, куда противник пытался уйти.",
+          "title": {
+            "en": "Pick the landing point",
+            "ru": "Выбирайте место приземления цели"
+          }
         }
       ],
       "videos": []
@@ -1215,7 +2655,46 @@
         "en": "After her brother died protecting her during a criminal uprising in Japan, she fled to America and took his name, Yamato, to preserve his memory and ambitions.",
         "ru": "После гибели брата, защитившего её во время преступного мятежа в Японии, она бежала в Америку и взяла его имя Yamato, сохраняя память и мечты брата."
       },
+      "loreChapters": [
+        {
+          "paragraphs": [
+            {
+              "en": "After their father's death, Kaori and her older brother Yamato led the Seventh Moon crime organization as equals. When they decided to expand, Yamato was to go to America while Kaori stayed in charge in Japan.",
+              "ru": "После смерти отца Каори и её старший брат Ямато на равных возглавили преступную организацию «Седьмая луна». Когда они решили расширить дело, Ямато должен был поехать в Америку, а Каори — остаться во главе организации в Японии."
+            }
+          ],
+          "title": {
+            "en": "Heirs to the Seventh Moon",
+            "ru": "Наследники «Седьмой луны»"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Some of their followers rebelled against the plan. Yamato died protecting his sister, and Kaori escaped to America with a few loyal companions. A man expecting her brother called her Yamato when they met. She kept his name to honor him and carry on his work.",
+              "ru": "Часть подчинённых восстала против плана. Ямато погиб, защищая сестру, а Каори и несколько верных соратников бежали в Америку. Там человек, ожидавший её брата, назвал её Ямато. Она оставила себе его имя, чтобы сохранить память о нём и продолжить его дело."
+            }
+          ],
+          "title": {
+            "en": "Taking her brother's name",
+            "ru": "Имя брата"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When Yamato speaks about the Ritual, she ties the fate of the Seventh Moon to her brother's memory. She hopes the Patrons' aid will give her organization the power to take control of New York.",
+              "ru": "В репликах о Ритуале Ямато связывает судьбу «Седьмой луны» с памятью о брате. Она надеется, что помощь Покровителей позволит её организации взять под контроль Нью-Йорк."
+            }
+          ],
+          "title": {
+            "en": "The Seventh Moon's future",
+            "ru": "Будущее «Седьмой луны»"
+          }
+        }
+      ],
       "relationships": [],
+      "reviewedClientVersion": 6848,
       "slug": "yamato",
       "summary": {
         "en": "Charges sword strikes, grapples toward targets and refreshes abilities through transformation.",
@@ -1223,17 +2702,17 @@
       },
       "tips": [
         {
-          "en": "Charge Power Slash for full damage or release it early when the target will escape.",
-          "ru": "Заряжайте Power Slash для полного урона или отпускайте раньше, если цель уходит."
-        },
-        {
-          "en": "Hit a hero with Crimson Slash when you need its healing effect.",
-          "ru": "Попадите Crimson Slash по герою, когда нужно лечение."
+          "en": "When you have time to act before Shadow Transformation, use a valuable ability first. The transformation refreshes your abilities, letting you use it again in the same fight.",
+          "ru": "Если успеваете действовать до «Превращение в тень», сначала примените нужную способность. Превращение сбрасывает перезарядки, и вы сможете повторить её в том же бою.",
+          "title": {
+            "en": "Spend an ability before transforming",
+            "ru": "Используйте способность до превращения"
+          }
         }
       ],
       "videos": []
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-11-04T08:43:26.979046+00:00"
+  "updatedAt": "2026-11-05T12:36:20.118Z"
 }
