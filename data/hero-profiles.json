@@ -35,6 +35,18 @@
             "en": "The book on the desk",
             "ru": "Книга на столе"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Paradox](hero:paradox) tells Abrams that the guild has been following his work. She knows he has a knack for uncovering secrets and warns him to stop asking about the guild. In another exchange, Abrams notices her interest in his book and tells her to keep her hands off it.",
+              "ru": "[Парадокс](hero:paradox) говорит Абрамсу, что гильдия следит за его работой. Её участница признаёт, что он умеет раскрывать тайны, и требует прекратить расспросы о самой гильдии. В другом разговоре Абрамс замечает её интерес к книге и предупреждает, чтобы она к ней не прикасалась."
+            }
+          ],
+          "title": {
+            "en": "A detective under watch",
+            "ru": "Сыщик под наблюдением"
+          }
         }
       ],
       "relationships": [],
@@ -51,6 +63,14 @@
           "title": {
             "en": "Drag them away from the exit",
             "ru": "Отрежьте путь к отступлению"
+          }
+        },
+        {
+          "en": "With the final Seismic Impact upgrade, Abrams becomes Unstoppable on cast. When you need to start a fight through crowd control, jump before the enemy lands their disable.",
+          "ru": "Последнее улучшение «Сейсмического удара» даёт неудержимость с начала применения. Если враг готов остановить ваш заход контролем, начните прыжок, пока ещё можете действовать.",
+          "title": {
+            "en": "Save the last upgrade for a contested landing",
+            "ru": "Начинайте прыжок до контроля"
           }
         }
       ],
@@ -90,6 +110,30 @@
             "en": "The ancestral blade",
             "ru": "Родовой клинок"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Wraith](hero:wraith) wants to meet Apollo’s father. Apollo knows who she is and makes it clear that her name alone will not get her an introduction. When she brings up Spencer Fontaine’s debt, Apollo is quick to point out that Spencer is a classmate, not a friend.",
+              "ru": "[Тень](hero:wraith) хочет познакомиться с отцом Аполлона. Он знает, кто она, но даёт понять, что одного имени для такой встречи мало. В другой беседе она упоминает долг Спенсера Фонтейна, и Аполлон тут же уточняет, что тот ему одноклассник, а не друг."
+            }
+          ],
+          "title": {
+            "en": "An introduction to his father",
+            "ru": "Знакомство с отцом"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Mirage](hero:mirage) recognizes Apollo and addresses him as the Dauphin. Apollo lets the title stand and asks him to pass his father’s regards to Nashala. In another conversation, [Krill](hero:mo-krill) calls him the Crown Prince of North Ixia, and Apollo insists that is not his title.",
+              "ru": "[Мираж](hero:mirage) узнаёт Аполлона и обращается к нему как к дофину. Аполлон не поправляет его и просит передать Нашале привет от своего отца. Когда [Мелкий](hero:mo-krill) в другой беседе зовёт его наследным принцем Северной Иксии, Аполлон настаивает, что это не его титул."
+            }
+          ],
+          "title": {
+            "en": "A title from North Ixia",
+            "ru": "Титул Северной Иксии"
+          }
         }
       ],
       "relationships": [],
@@ -106,6 +150,14 @@
           "title": {
             "en": "Save Riposte for a hero hit",
             "ru": "Приберегите парирование для атаки героя"
+          }
+        },
+        {
+          "en": "After the second Disengaging Sigil upgrade, a hit on a player restores stamina and resets your air movement limit. Spend your air dash to reach an angle first, then hit with the sigil and use the restored movement to get clear.",
+          "ru": "Со вторым улучшением сигил при попадании по герою возвращает выносливость и обновляет воздушные прыжки и рывки. Потратьте рывок для захода под нужным углом, затем попадите сигилом и уйдите на восстановленном рывке.",
+          "title": {
+            "en": "Turn a sigil hit into another air dash",
+            "ru": "Возвращайте воздушный рывок сигилом"
           }
         }
       ],
@@ -145,6 +197,18 @@
             "en": "Standing up for Manhattan",
             "ru": "За Манхэттен"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Victor](hero:victor) gets a lead on his markings from Baba. A tattooist she knows in SoHo used to work for the coven and now runs his own shop. Baba reckons he can tell whether the markings mean anything and tells Victor to mention who sent him.",
+              "ru": "Буся замечает метки на теле [Виктора](hero:victor) и отправляет его к татуировщику в Сохо. Тот прежде работал на ковен, а теперь держит свою мастерскую. Если метки что-то означают, говорит Буся, он сможет их прочитать. Она советует Виктору сразу сказать, кто его прислал."
+            }
+          ],
+          "title": {
+            "en": "Connections in SoHo",
+            "ru": "Знакомые в Сохо"
+          }
         }
       ],
       "relationships": [],
@@ -161,6 +225,14 @@
           "title": {
             "en": "Keep the brew you need",
             "ru": "Сохраните нужный настой"
+          }
+        },
+        {
+          "en": "Land Threadsap on a hero before committing to a gun trade. The stolen Spirit adds spirit damage to every bullet for as long as you hold it.",
+          "ru": "Перед перестрелкой попадите по герою истощающей нитью. Пока у вас есть украденный спирит, каждая пуля наносит дополнительный спиритический урон.",
+          "title": {
+            "en": "Shoot after stealing Spirit",
+            "ru": "Стреляйте после кражи спирита"
           }
         }
       ],
@@ -212,6 +284,18 @@
             "en": "Fighting in the Bear Pit",
             "ru": "Бои в Медвежьей яме"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[McGinnis](hero:mcginnis) asks what rules Miss Shelly built into her creation. Bebop explains that she does not believe in binding him that way. He already knows why he would never turn his beam on innocent people. He knows how much he would let Miss Shelly down.",
+              "ru": "[Макгиннис](hero:mcginnis) спрашивает, какие запреты мисс Шелли наложила на своё создание. Бибоп отвечает, что она в такие ограничения не верит. Он и сам знает, почему нельзя пускать луч в ход против случайных людей. Он знает, как сильно разочаровал бы этим мисс Шелли."
+            }
+          ],
+          "title": {
+            "en": "Why he listens to Miss Shelly",
+            "ru": "Почему он слушается мисс Шелли"
+          }
         }
       ],
       "relationships": [
@@ -236,6 +320,14 @@
           "title": {
             "en": "Hook a teammate out",
             "ru": "Вытащите союзника крюком"
+          }
+        },
+        {
+          "en": "Once Exploding Uppercut is fully upgraded, use Grapple Arm before hitting a hero with the uppercut. The uppercut resets the hook, so you can save the second pull for the next target or for an ally who needs help.",
+          "ru": "С последним улучшением апперкота сначала потратьте крюк, затем ударьте апперкотом вражеского героя. Попадание сбросит перезарядку крюка. Второй захват можно оставить для другой цели или спасения союзника.",
+          "title": {
+            "en": "Earn a second hook with an uppercut",
+            "ru": "Возвращайте крюк апперкотом"
           }
         }
       ],
@@ -275,6 +367,18 @@
             "en": "On the picket line",
             "ru": "На стороне бастующих"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Billy tells [Seven](hero:seven) that he wants people to hear him without getting so organized that the government puts him on a watch list. Seven calls that a tactic and asks what Billy actually wants to achieve. Billy tells him to wait and see like everyone else.",
+              "ru": "Билли объясняет [Семи](hero:seven), что хочет привлечь внимание горожан, но предпочитает держаться подальше от правительственных списков наблюдения. Семь замечает, что это тактика. Когда он спрашивает, чего Билли хочет добиться, тот предлагает ему подождать и увидеть самому."
+            }
+          ],
+          "title": {
+            "en": "Making noise without making the list",
+            "ru": "Шум без списка подозреваемых"
+          }
         }
       ],
       "relationships": [],
@@ -299,6 +403,14 @@
           "title": {
             "en": "Empty the magazine before refilling",
             "ru": "Тратьте патроны перед пополнением магазина"
+          }
+        },
+        {
+          "en": "With Blasted’s second upgrade, spend a Bashdown charge before you activate Blasted. The activation grants a charge, which you can use for another slam when Bashdown is ready.",
+          "ru": "Со вторым улучшением «В стельку» даёт заряд «Разгрома» при активации. Потратьте имеющийся заряд до включения способности, чтобы получить ещё один удар в той же драке.",
+          "title": {
+            "en": "Spend a Bashdown charge before Blasted",
+            "ru": "Потратьте «Разгром» до «В стельку»"
           }
         }
       ],
@@ -338,6 +450,18 @@
             "en": "The attempt on the heir",
             "ru": "Покушение на наследника"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When Calico sees [Grey Talon](hero:grey-talon), she apologizes for missing the funeral. She did not think it was her place to attend. Wesley understands and tells her that showing up now means more to him.",
+              "ru": "При встрече с [Серым Когтем](hero:grey-talon) Калико извиняется за то, что не пришла на похороны. Ей казалось, что там ей не место. Уэсли говорит, что понимает её и что для него важнее её присутствие сейчас."
+            }
+          ],
+          "title": {
+            "en": "A conversation after the funeral",
+            "ru": "Разговор после похорон"
+          }
         }
       ],
       "relationships": [
@@ -362,6 +486,14 @@
           "title": {
             "en": "Take the long way in with Ava",
             "ru": "Обойдите врагов с «Ава»"
+          }
+        },
+        {
+          "en": "With the final Return to Shadows upgrade, spend the abilities you need before going into shadow if it’s safe. Completing the ultimate heals you and resets your abilities, so you have another round ready when you reappear.",
+          "ru": "С последним улучшением ульта потратьте нужные способности перед уходом в тень, если это безопасно. Когда Калико вернётся, она получит лечение и сбросит перезарядки других способностей.",
+          "title": {
+            "en": "Get a second round of abilities",
+            "ru": "Используйте способности перед уходом в тень"
           }
         }
       ],
@@ -401,6 +533,18 @@
             "en": "Family in the troupe",
             "ru": "Семья из труппы"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Baba](hero:baba) asks if Celeste has come to protect the Grove. Celeste says it is still hidden and that she is here because of Lenny. The exchange puts a name to the person she is taking a risk for at the ritual.",
+              "ru": "[Буся](hero:baba) спрашивает, пришла ли Селеста защитить Рощу. Селеста отвечает, что укрытие пока никто не нашёл и что сегодня всё дело в Ленни. Разговор даёт понять, ради кого она рискует на Ритуале."
+            }
+          ],
+          "title": {
+            "en": "For Lenny",
+            "ru": "Ради Ленни"
+          }
         }
       ],
       "relationships": [],
@@ -417,6 +561,14 @@
           "title": {
             "en": "Let enemies break the prism",
             "ru": "Дайте врагу разбить призму"
+          }
+        },
+        {
+          "en": "When enemies are grouped, launch the orb into one of the heroes in that group. It prioritizes heroes on its next bounce, so nearby troopers needn’t spoil a clear first shot.",
+          "ru": "Если враги собрались вместе, направьте сферу «Сияющего чуда» в одного из них. При отскоке она предпочитает героев бойцам линии, пока следующие цели остаются в радиусе.",
+          "title": {
+            "en": "Bounce Shining Wonder through a group",
+            "ru": "Направляйте сферу в скопление героев"
           }
         }
       ],
@@ -468,6 +620,18 @@
             "en": "A salesman takes flight",
             "ru": "Продавец в воздухе"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Haze](hero:haze) thanks Danny for establishing safe handling procedures for a vorpal grenade. She says several friends would have died without his work. Danny is glad he made a difference and asks her to thank Fairfax Industries.",
+              "ru": "[Пелена](hero:haze) благодарит Дэнни за правила обращения с особой гранатой. По её словам, без этих правил она потеряла бы многих друзей. Дэнни рад, что помог, но просит благодарить «Фэрфакс Индастриз»."
+            }
+          ],
+          "title": {
+            "en": "Grenade safety",
+            "ru": "Граната и правила безопасности"
+          }
         }
       ],
       "relationships": [],
@@ -484,6 +648,14 @@
           "title": {
             "en": "Dive when the landing is clear",
             "ru": "Сами выбирайте момент пикирования"
+          }
+        },
+        {
+          "en": "If your jetpack is heating up and you have a target within reach, hit them with Jettison Fuel. Dealing damage vents the pack, buying more flight before you need to land.",
+          "ru": "Если ранец нагревается, а противник рядом, попадите по нему «Сбросом топлива». Пока способность наносит урон, ранец охлаждается, и у вас остаётся больше времени в воздухе.",
+          "title": {
+            "en": "Vent heat with a hit",
+            "ru": "Охлаждайте ранец попаданиями"
           }
         }
       ],
@@ -523,6 +695,18 @@
             "en": "Enemy of the Baronies",
             "ru": "Враг баронств"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The Drifter greets [Lady Geist](hero:lady-geist) like an old friend. When she says she has never met him, he explains that he was talking to the spirit in her arm. He claims to have known Oathkeeper for a long time. Geist later passes on a message from the spirit, who expects to see him soon.",
+              "ru": "Скиталец приветствует [Леди Гайст](hero:lady-geist) как старую знакомую. Когда она его не узнаёт, он поясняет, что обращался к духу в её руке. По его словам, они с Клятвохранителем знают друг друга очень давно. Гайст позднее передаёт Скитальцу ответ духа. Тот ждёт скорой встречи."
+            }
+          ],
+          "title": {
+            "en": "An old friend in someone else’s arm",
+            "ru": "Старый знакомый в чужой руке"
+          }
         }
       ],
       "relationships": [
@@ -547,6 +731,14 @@
           "title": {
             "en": "Create isolation on demand",
             "ru": "Изолируйте цель в толпе"
+          }
+        },
+        {
+          "en": "Once Stalker’s Mark lands, recast to appear behind the target before using Rend. A Rend hit up close adds melee damage, and the final upgrade also silences at close range.",
+          "ru": "Попадите меткой и нажмите её ещё раз, чтобы оказаться за спиной цели. Примените «Раздирание» вблизи, чтобы добавить урон ближнего боя. С последним улучшением взмах ещё и накладывает безмолвие.",
+          "title": {
+            "en": "Close the gap before swiping",
+            "ru": "Сближайтесь перед взмахом"
           }
         }
       ],
@@ -586,6 +778,18 @@
             "en": "Still a professor",
             "ru": "Профессор и после разлома"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Dynamo and Marla are coming up on their thirty-first wedding anniversary. The professor tells [Kelvin](hero:kelvin) that he hopes to come home in his own body, with books as his backup gift. He even asks [Mo & Krill](hero:mo-krill) to look for a rare book on a professor’s salary.",
+              "ru": "Динамо и Марла скоро отметят 31 год брака. Профессор говорит [Кельвину](hero:kelvin), что надеется вернуться к жене в своём теле, а на случай неудачи присматривает книги. Он даже просит [Мо и Мелкого](hero:mo-krill) поискать редкое издание по карману преподавателю."
+            }
+          ],
+          "title": {
+            "en": "An anniversary present",
+            "ru": "Подарок на годовщину"
+          }
         }
       ],
       "relationships": [],
@@ -602,6 +806,14 @@
           "title": {
             "en": "Move the heal with your team",
             "ru": "Лечите союзников на ходу"
+          }
+        },
+        {
+          "en": "With the second Kinetic Pulse upgrade, land the pulse just before your teammates start shooting. It lowers the target’s bullet resistance and slows them, giving allies a better window to focus their shots.",
+          "ru": "Со вторым улучшением «Кинетического импульса» подбросьте цель перед тем, как команда откроет огонь. Импульс снижает сопротивление пулям и замедляет врага, поэтому союзникам проще реализовать этот момент.",
+          "title": {
+            "en": "Knock someone up before your team opens fire",
+            "ru": "Подбрасывайте цель перед залпом"
           }
         }
       ],
@@ -641,6 +853,18 @@
             "en": "The lich's student",
             "ru": "Ученица лича"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Darcy hears Oathkeeper in [Lady Geist](hero:lady-geist)’s arm. She knows the spirit’s name and says he keeps shouting about what he wants to do to people. Geist is surprised that someone else can hear him and says they will talk about it later.",
+              "ru": "Дарси слышит Клятвохранителя в руке [Леди Гайст](hero:lady-geist). Она знает его имя и говорит, что дух выкрикивает угрозы. Гайст удивлена, что кто-то ещё его слышит, и предлагает вернуться к разговору позднее."
+            }
+          ],
+          "title": {
+            "en": "The voice beneath the ward",
+            "ru": "Голос под печатью"
+          }
         }
       ],
       "relationships": [],
@@ -657,6 +881,14 @@
           "title": {
             "en": "Point your Deadheads at the right target",
             "ru": "Направляйте мертвецов выстрелами"
+          }
+        },
+        {
+          "en": "Use the alternate cast of Grasping Hands to rotate the rift across a doorway or another narrow exit. The enemy has to detour or risk being immobilized when they cross.",
+          "ru": "Альтернативным применением «Хватки смерти» разверните разлом поперёк двери или узкого прохода. Врагу придётся искать обход или рисковать обездвиживанием при пересечении.",
+          "title": {
+            "en": "Turn the rift across the escape route",
+            "ru": "Разворачивайте разлом поперёк выхода"
           }
         }
       ],
@@ -696,6 +928,18 @@
             "en": "The fire at his son's house",
             "ru": "Пожар в доме сына"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Grey Talon asks [Graves](hero:graves) whether she can speak to the dead. If they both survive the ritual, he wants her to talk to someone on his behalf. Darcy agrees. Wesley keeps the person’s name to himself.",
+              "ru": "Серый Коготь спрашивает [Грейвс](hero:graves), может ли она говорить с мёртвыми. Если они оба переживут Ритуал, он хочет попросить её поговорить с кем-то от его имени. Дарси соглашается. Имени собеседника Уэсли не называет."
+            }
+          ],
+          "title": {
+            "en": "A favor from a necromancer",
+            "ru": "Просьба к некромантке"
+          }
         }
       ],
       "relationships": [
@@ -720,6 +964,14 @@
           "title": {
             "en": "Set off the snare yourself",
             "ru": "Подрывайте ловушку выстрелом"
+          }
+        },
+        {
+          "en": "With the final Charged Shot upgrade, aim at a wall or floor that can bounce the shot into an enemy’s retreat route. A single bounce gives you an angle even after the target has left your direct line of fire.",
+          "ru": "С последним улучшением заряженного выстрела направьте его в стену или пол так, чтобы отскок пришёлся на путь отхода. Рикошет позволяет достать героя, который ушёл с прямой линии огня.",
+          "title": {
+            "en": "Bank a shot around cover",
+            "ru": "Доставайте цели рикошетом"
           }
         }
       ],
@@ -759,6 +1011,18 @@
             "en": "The Sandman Division",
             "ru": "Подразделение «Песочный человек»"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When [Pocket](hero:pocket) starts to explain the case they carry, Haze cuts them off. She is a Sandman, she says, and identifying things like that is the Curators’ job. If she never hears the details, she has nothing to report. Pocket takes the hint and drops the subject.",
+              "ru": "Когда [Карман](hero:pocket) начинают объяснять, что у них за чемодан, Пелена прерывает их. Она говорит, что служит в подразделении «Песочный человек», а опознавать такие вещи должны кураторы. Не узнав подробностей, ей не придётся о них докладывать. Эрин сразу понимают намёк и сворачивают разговор."
+            }
+          ],
+          "title": {
+            "en": "The limits of her assignment",
+            "ru": "Граница полномочий"
+          }
         }
       ],
       "relationships": [],
@@ -783,6 +1047,14 @@
           "title": {
             "en": "Choose another way to stop a channel",
             "ru": "Прерывайте поддерживаемые способности другим способом"
+          }
+        },
+        {
+          "en": "After the second Sleep Dagger upgrade, opening on a hero with the dagger puts Fixation stacks on them. Get your crosshair ready before waking them with gunfire so you can build on those stacks immediately.",
+          "ru": "Со вторым улучшением усыпляющего кинжала попадание сразу добавляет стаки «Пристального взгляда». Усыпите цель и наведите прицел, пока она спит, чтобы продолжить набирать стаки стрельбой.",
+          "title": {
+            "en": "Build Fixation before the first burst",
+            "ru": "Кидайте кинжал перед первым залпом"
           }
         }
       ],
@@ -822,6 +1094,18 @@
             "en": "On the Troubadour's trail",
             "ru": "След Трубадура"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Holliday asks [Shiv](hero:shiv) why the Baxter Society has left the Troubadour at large. Shiv says the Society has a crisis of its own to deal with first. In another exchange, he invites Holliday to look up the Society if she survives the ritual. The sheriff says she will think about it.",
+              "ru": "Холлидей спрашивает [Заточку](hero:shiv), почему Общество Бакстера оставило Трубадура на свободе. Заточка отвечает, что Обществу сперва нужно разобраться с бедой в собственных рядах. В другом разговоре он предлагает Холлидей связаться с Обществом, если она переживёт Ритуал, и шериф обещает подумать."
+            }
+          ],
+          "title": {
+            "en": "The Society has troubles of its own",
+            "ru": "У Общества свои проблемы"
+          }
         }
       ],
       "relationships": [],
@@ -846,6 +1130,14 @@
           "title": {
             "en": "Set off overlapping kegs together",
             "ru": "Взрывайте стоящие рядом бочки вместе"
+          }
+        },
+        {
+          "en": "When Crackshot is ready, look for a headshot at a distance where ordinary bullet damage has already begun to fall off. Crackshot retains its bonus damage at that distance.",
+          "ru": "Когда «Меткий глаз» готов, можно выбирать более дальний угол для выстрела в голову. Урон самой пули падает с расстоянием, а бонусный урон способности сохраняется.",
+          "title": {
+            "en": "Use long sightlines for Crackshot",
+            "ru": "Ищите попадания в голову издалека"
           }
         }
       ],
@@ -897,6 +1189,18 @@
             "en": "Hank's place",
             "ru": "Заведение Хэнка"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When [Shiv](hero:shiv) joins the Baxter Society, Infernus does not demand an account of his past. Given his own history, he would feel like a hypocrite judging Shiv by it. If Shiv says he has changed, Infernus is willing to give him the chance to show it.",
+              "ru": "Услышав, что [Заточка](hero:shiv) вступил в Общество Бакстера, Инфернус не требует от него объяснений за прошлое. Со своим прошлым он счёл бы такой суд лицемерием. Если Заточка говорит, что изменился, Инфернус готов дать ему шанс это показать."
+            }
+          ],
+          "title": {
+            "en": "A second chance for Shiv",
+            "ru": "Второй шанс для Заточки"
+          }
         }
       ],
       "relationships": [
@@ -921,6 +1225,14 @@
           "title": {
             "en": "Keep an existing burn going",
             "ru": "Поддерживайте уже начавшееся горение"
+          }
+        },
+        {
+          "en": "Cast Concussive Combustion behind a corner, then move in as the detonation approaches. There is a delay before the stun, and the cast cannot be interrupted once it starts.",
+          "ru": "Запустите «Сотрясающий взрыв» за углом и выходите к врагам ближе к детонации. Оглушение срабатывает с задержкой, а после активации ульт уже нельзя прервать.",
+          "title": {
+            "en": "Light the fuse before entering the fight",
+            "ru": "Запускайте ульт до сближения"
           }
         }
       ],
@@ -960,6 +1272,18 @@
             "en": "Eighteen years in Harlem",
             "ru": "Восемнадцать лет в Гарлеме"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Graves](hero:graves) brings Ivy a message from Mr. and Mrs. Romero. Mendoza’s men killed the couple, and Ivy doubts she deserves their thanks. Darcy tells her that the Romeros do not blame her. They are grateful she caught the people responsible.",
+              "ru": "[Грейвс](hero:graves) передаёт Плющику благодарность супругов Ромеро. Их убили люди Мендосы, и Плющик сомневается, что заслужила добрые слова. Дарси говорит, что Ромеро её не винят. Они благодарны, что она поймала тех, кто за это отвечал."
+            }
+          ],
+          "title": {
+            "en": "Word from the Romeros",
+            "ru": "Голоса семьи Ромеро"
+          }
         }
       ],
       "relationships": [],
@@ -976,6 +1300,22 @@
           "title": {
             "en": "Stay in sight of your partner",
             "ru": "Держите союзника в поле зрения"
+          }
+        },
+        {
+          "en": "When carrying a gun-focused ally with Air Drop, release them behind cover or at a useful firing angle. They cannot attack while lifted and gain bonus outgoing damage after the flight ends.",
+          "ru": "Если несёте стрелка, высадите его за укрытием или там, откуда удобно стрелять. В полёте он не может атаковать, а после высадки получает прибавку к урону.",
+          "title": {
+            "en": "Land before your ally needs to shoot",
+            "ru": "Высаживайте союзника перед перестрелкой"
+          }
+        },
+        {
+          "en": "If Bebop sticks a bomb to you, time Stone Form for the explosion. The invulnerable part of the transformation lets you take the blast without losing health if the timing overlaps.",
+          "ru": "Если Бибоп прикрепил к вам бомбу, подберите момент для превращения так, чтобы взрыв пришёлся на неуязвимость «Каменного облика».",
+          "title": {
+            "en": "Wait for the bomb, then turn to stone",
+            "ru": "Встречайте взрыв в каменном облике"
           }
         }
       ],
@@ -1015,6 +1355,18 @@
             "en": "Aboard the trawler",
             "ru": "На борту траулера"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Baba](hero:baba) asks Kelvin about Ettrick, whom he used to write about. Kelvin says he does not know what became of him and turns the conversation back to the ritual. In another exchange Baba says Kelvin has the right details, yet something essential is missing. She suspects he is someone else. Kelvin may seem unfamiliar to her because he has no memory of what happened on the expedition.",
+              "ru": "[Буся](hero:baba) спрашивает Кельвина об Эттрике, о котором тот много писал. Он не знает, что с ним стало, и переводит разговор на Ритуал. В другой беседе Буся говорит, что Кельвин знает нужные детали, но что-то важное в нём изменилось. Она подозревает, что перед ней кто-то другой. Возможно, Кельвин кажется ей чужим из-за того, что потерял память о событиях экспедиции."
+            }
+          ],
+          "title": {
+            "en": "Baba’s theory about Kelvin",
+            "ru": "Догадка Буси о Кельвине"
+          }
         }
       ],
       "relationships": [],
@@ -1031,6 +1383,22 @@
           "title": {
             "en": "Buy time at a pressured objective",
             "ru": "Выиграйте время у объекта"
+          }
+        },
+        {
+          "en": "With the second Frost Grenade upgrade, hit a fleeing hero after they spend a dash. The grenade freezes their stamina regeneration while the debuff lasts, making another escape dash harder to come by.",
+          "ru": "Со вторым улучшением леденящей гранаты попадите по врагу после его рывка. Пока действует эффект гранаты, выносливость не восстанавливается, и врагу сложнее уйти вторым рывком.",
+          "title": {
+            "en": "Freeze stamina recovery before the chase",
+            "ru": "Лишайте выносливости перед погоней"
+          }
+        },
+        {
+          "en": "While Arctic Beam is already active in lane, aim it briefly at a contested soul orb. The beam can claim souls, so you still have a way to secure the orb while channeling.",
+          "ru": "Если «Арктический луч» уже включён на линии, наведите его на спорную сферу душ. Луч может забрать её без прерывания способности.",
+          "title": {
+            "en": "Sweep the beam across a soul orb",
+            "ru": "Подбирайте души лучом"
           }
         }
       ],
@@ -1070,6 +1438,18 @@
             "en": "A weakening seal",
             "ru": "Ослабевающая печать"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Darcy Graves](hero:graves) mentions that she wrote a school paper on Johann Geist. Jeanne tells her that he was her husband and is pleased that his work still reaches young people. They share a fondness for “Verloren in der Stille.”",
+              "ru": "[Дарси Грейвс](hero:graves) рассказывает, что писала учебную работу об Иоганне Гайсте. Жанна говорит, что он был её мужем и что ей приятно слышать, что его творчество всё ещё интересно молодым людям. Они сходятся на том, что «Verloren in der Stille» особенно хороша."
+            }
+          ],
+          "title": {
+            "en": "Johann Geist’s music",
+            "ru": "Музыка Иоганна Гайста"
+          }
         }
       ],
       "relationships": [],
@@ -1086,6 +1466,14 @@
           "title": {
             "en": "Keep shooting through the tether",
             "ru": "Стреляйте, пока действует связь"
+          }
+        },
+        {
+          "en": "When you’re low, look for a healthier enemy in range before committing Soul Exchange. The ability swaps health levels, so the weakest enemy is often a poor target for the recovery you need.",
+          "ru": "Когда у вас мало здоровья, ищите более здорового врага в радиусе «Обмена душами». Ульт обменивает долю оставшегося здоровья, поэтому почти добитая цель может дать слишком мало.",
+          "title": {
+            "en": "Swap with the healthiest target you can reach",
+            "ru": "Обменивайтесь здоровьем с более целой целью"
           }
         }
       ],
@@ -1125,6 +1513,18 @@
             "en": "The loss to Bebop",
             "ru": "Поражение от Бибопа"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Lash asks [Grey Talon](hero:grey-talon) whether he has what it takes to join the Baxter Society. Wesley gives him credit as a fighter, then sketches a grim career for him. A few early successes would draw Lash into more dangerous jobs, until one day his usual tricks fail him.",
+              "ru": "Хлыст спрашивает [Серого Когтя](hero:grey-talon), взяли бы его в Общество Бакстера. Уэсли признаёт, что драться Хлыст умеет, но рисует ему невесёлую карьеру. Первые удачные вылазки убедят его браться за всё более опасные задания, а однажды привычные трюки не сработают."
+            }
+          ],
+          "title": {
+            "en": "A candidate for the Baxter Society",
+            "ru": "Кандидат в Общество Бакстера"
+          }
         }
       ],
       "relationships": [
@@ -1156,6 +1556,14 @@
           "title": {
             "en": "Spend an air dash before grappling",
             "ru": "Потратьте воздушный рывок до захвата"
+          }
+        },
+        {
+          "en": "When your priority target is already latched, recast Death Slam before they break sight or range. A quick throw is useful if waiting for another latch could cost you the first one.",
+          "ru": "Как только хлыст зацепит нужного врага, повторно нажмите «Смертельный бросок». Так вы успеете бросить её, если ожидание второго врага грозит потерей первого за укрытием или за пределами радиуса.",
+          "title": {
+            "en": "Throw as soon as the important target is latched",
+            "ru": "Бросайте, как только захватили нужную цель"
           }
         }
       ],
@@ -1195,6 +1603,18 @@
             "en": "Inside Fairfax's military workshop",
             "ru": "Военная мастерская Фэрфакс"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Pocket](hero:pocket) asks Maggie why she agreed to help them. She wants to keep her job if they take over the company. Maggie eventually confirms their father sent her and leaves it to him to explain what he wants.",
+              "ru": "[Карман](hero:pocket) спрашивают Мэгги, почему она согласилась им помогать. Она рассчитывает сохранить работу, если они возглавят компанию. Под конец Мэгги прямо говорит, что её прислал их отец, и отказывается объяснять его намерения за него."
+            }
+          ],
+          "title": {
+            "en": "Fairfax’s assignment",
+            "ru": "Поручение Фэрфакса"
+          }
         }
       ],
       "relationships": [],
@@ -1211,6 +1631,14 @@
           "title": {
             "en": "Raise the wall before they cross",
             "ru": "Поднимайте стену до прохода врага"
+          }
+        },
+        {
+          "en": "After Medicinal Specter’s second upgrade, drop it behind cover before your team re-enters a fight. Allies can recover stamina there as well as health and come out with a dash ready.",
+          "ru": "Со вторым улучшением поставьте лечебного призрака за укрытием. Союзники восстановят там здоровье и выносливость и смогут вернуться в драку с готовым рывком.",
+          "title": {
+            "en": "Use the healing area to recover stamina",
+            "ru": "Восстанавливайте выносливость в укрытии"
           }
         }
       ],
@@ -1250,6 +1678,18 @@
             "en": "A viscountess in the making",
             "ru": "Виконтесса в планах"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When [Wraith](hero:wraith) suggests they get to know each other, Mina assumes there is nothing she cannot buy herself. Wraith mentions her connections with fashion editors, models and high-status people with vices. Mina changes her tone at once and suggests they be friends.",
+              "ru": "Когда [Тень](hero:wraith) предлагает познакомиться поближе, Мина сперва отвечает, что за деньги может получить всё нужное. Тень перечисляет свои знакомства среди редакторов модных журналов, моделей и влиятельных людей со слабостями. Мина тут же меняет тон и предлагает дружбу."
+            }
+          ],
+          "title": {
+            "en": "Connections in fashion",
+            "ru": "Знакомства в мире моды"
+          }
         }
       ],
       "relationships": [
@@ -1274,6 +1714,14 @@
           "title": {
             "en": "Spread bites across heroes",
             "ru": "Распределяйте укусы по героям"
+          }
+        },
+        {
+          "en": "Use the first Sanguine Retreat to cross the dangerous angle, then keep the recast for the enemy’s response. It briefly makes you untargetable again while moving to the next position.",
+          "ru": "Первым «Багровым отступлением» пересеките опасный угол, а повторное применение сохраните на ответ противника. Второй рывок снова ненадолго делает вас недоступной целью.",
+          "title": {
+            "en": "Hold the second retreat for the response",
+            "ru": "Оставляйте второй рывок на отход"
           }
         }
       ],
@@ -1313,6 +1761,18 @@
             "en": "Negotiating for Wyoming",
             "ru": "Переговоры о Вайоминге"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Abrams](hero:abrams) asks Mirage how he got the job. The djinn do not take applications, Mirage explains. They make an offer themselves. He has served Nashala for a few years and, though some days are riskier than others, he is glad he took the job.",
+              "ru": "[Абрамс](hero:abrams) спрашивает Миража, как тот получил работу. Мираж объясняет, что джинны сами находят тех, кому хотят предложить работу. У Нашалы он служит уже несколько лет. Дни выдаются разные, но о своём решении он не жалеет."
+            }
+          ],
+          "title": {
+            "en": "How the djinn choose their guards",
+            "ru": "Как джинны выбирают охрану"
+          }
         }
       ],
       "relationships": [],
@@ -1329,6 +1789,14 @@
           "title": {
             "en": "Start the teleport behind cover",
             "ru": "Начинайте телепорт за укрытием"
+          }
+        },
+        {
+          "en": "If a marked enemy is about to slip away and you have time for another mark, take the shot first. Each added mark doubles the stored damage. Then activate Djinn’s Mark to deal it immediately instead of waiting for expiration.",
+          "ru": "Если помеченный враг вот-вот скроется и доступна ещё одна метка, сначала выстрелите. Новая метка удваивает накопленный урон. Затем активируйте «Метку джинна», чтобы нанести его сразу.",
+          "title": {
+            "en": "Cash out Djinn’s Mark before the target escapes",
+            "ru": "Взрывайте метки перед уходом цели"
           }
         }
       ],
@@ -1368,6 +1836,18 @@
             "en": "Tunnel Rats' rules",
             "ru": "Правила «Тоннельных крыс»"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Krill asks [Dynamo](hero:dynamo) whether he knows anyone in the art department. Mo wants to sit in on a pottery class. When the professor says he has no contacts there, Krill mentions their backup plan to threaten someone in admissions. Dynamo suddenly remembers a person he can ask.",
+              "ru": "Мелкий узнаёт у [Динамо](hero:dynamo), есть ли у него знакомые на художественном факультете. Мо хотел бы походить на занятия по гончарному делу. Когда профессор отвечает, что никого не знает, Мелкий мимоходом упоминает запасной план с угрозами приёмной комиссии. Динамо тут же вспоминает, к кому можно обратиться."
+            }
+          ],
+          "title": {
+            "en": "A pottery wheel for Mo",
+            "ru": "Гончарный круг для Мо"
+          }
         }
       ],
       "relationships": [
@@ -1392,6 +1872,14 @@
           "title": {
             "en": "Call the finish before Combo",
             "ru": "Договоритесь, кто добьёт цель"
+          }
+        },
+        {
+          "en": "When a gun-focused hero is holding a corner, lead with Sand Blast before moving into their firing line. Its disarm gives you a window to close the gap or back out if their team shows up.",
+          "ru": "Если стрелок держит угол, начните с песочной волны перед выходом под огонь. Обезоруживание даст время сблизиться или отойти, если к нему подойдёт команда.",
+          "title": {
+            "en": "Disarm before committing to a close fight",
+            "ru": "Обезоруживайте перед сближением"
           }
         }
       ],
@@ -1443,6 +1931,18 @@
             "en": "A shared mentor",
             "ru": "Общий наставник"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Seven](hero:seven) asks whether Harrow has ever put a patient down. She says she has not. If a possession leaves no chance of recovery, she presents her findings to the ward, the family and the authorities. They decide what happens next. Harrow calls it professional ethics. Seven sees it as a way to keep her hands clean.",
+              "ru": "[Семь](hero:seven) спрашивает Хэрроу, приходилось ли ей убивать пациентов. Она отвечает, что ни разу. Если одержимость зашла так далеко, что человека уже не вернуть, Хэрроу передаёт своё заключение коллегам, семье и властям. Дальнейшее решение принимают они. Сестра называет это профессиональной этикой, а Семь видит в этом способ оставить руки чистыми."
+            }
+          ],
+          "title": {
+            "en": "Who decides a patient’s fate",
+            "ru": "Кто решает судьбу пациента"
+          }
         }
       ],
       "relationships": [
@@ -1490,6 +1990,14 @@
             "en": "Put away unused syringes",
             "ru": "Убирайте оставшиеся шприцы"
           }
+        },
+        {
+          "en": "At the final Healing Needles upgrade, shoot a teammate while their useful non-ultimate buff is still active. Each hit extends it up to its normal maximum duration, so spread the shots out when you want to keep the buff running.",
+          "ru": "С последним улучшением «Лечебных игл» стреляйте по союзнику, пока на нём ещё действует усиление от обычной способности. Каждое попадание немного продлевает эффект, вплоть до его исходной длительности. Разнесите выстрелы по времени, чтобы усиление продержалось дольше.",
+          "title": {
+            "en": "Refresh the buff before it runs out",
+            "ru": "Продлевайте усиление до его окончания"
+          }
         }
       ],
       "videos": []
@@ -1528,6 +2036,18 @@
             "en": "A storyteller looking for answers",
             "ru": "Сказительница в поисках ответа"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Paige’s parents run a rare bookshop in SoHo called Little Alexandria. When she sees [Abrams](hero:abrams)’s book, she offers to put him in touch with her parents. The detective knows the shop by description. It was one of the first places he tried.",
+              "ru": "Родители Пейдж держат в Сохо магазин редких книг «Малая Александрия». Увидев книгу [Абрамса](hero:abrams), Пейдж предлагает познакомить его с родителями в надежде, что они сумеют помочь. Сыщик узнаёт магазин по описанию. Он уже заглядывал туда одним из первых."
+            }
+          ],
+          "title": {
+            "en": "Little Alexandria in SoHo",
+            "ru": "«Малая Александрия» в Сохо"
+          }
         }
       ],
       "relationships": [],
@@ -1544,6 +2064,14 @@
           "title": {
             "en": "Send the charge from farther away",
             "ru": "Посылайте кавалерию издалека"
+          }
+        },
+        {
+          "en": "Put the circle where enemies will retreat from your team, instead of directly under the front hero. The initial slow makes it harder to cross before the delayed burst immobilizes anyone still inside.",
+          "ru": "Положите «Пленяющее чтиво» чуть позади врага, который стоит впереди группы. Замедление затруднит отход через круг, а отложенный взрыв обездвижит тех, кто остался внутри.",
+          "title": {
+            "en": "Place Captivating Read behind the front line",
+            "ru": "Кладите чтиво на путь отхода"
           }
         }
       ],
@@ -1583,6 +2111,18 @@
             "en": "Museums of stolen things",
             "ru": "Музеи краденого"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Nurse Harrow](hero:nurse-harrow) has heard that Paradox has the Lazarus mushroom. The thief confirms it. Harrow asks for it, saying she could use it to save lives while the guild would keep it behind glass. Paradox replies that it is not her decision to make.",
+              "ru": "[Сестра Хэрроу](hero:nurse-harrow) слышала, что у Парадокса хранится гриб Лазаря. Воровка подтверждает слух. Хэрроу просит отдать находку больнице, где она могла бы спасать жизни. По мнению сестры, у гильдии гриб так и останется за стеклом. Парадокс отвечает, что решение принимает не она одна."
+            }
+          ],
+          "title": {
+            "en": "The Lazarus mushroom",
+            "ru": "Гриб Лазаря"
+          }
         }
       ],
       "relationships": [],
@@ -1599,6 +2139,14 @@
           "title": {
             "en": "Shoot through your own wall",
             "ru": "Стреляйте через свою стену"
+          }
+        },
+        {
+          "en": "Charge Kinetic Carbine from cover, land the time-stop, then aim Paradoxical Swap while the target’s movement is interrupted. Take the shot when your old position is a bad place for the enemy to land.",
+          "ru": "Зарядите карабин за укрытием и попадите, чтобы на миг остановить цель. Пока она не двигается, прицельтесь «Парадоксальной перестановкой». Для обмена выбирайте место, из которого врагу будет трудно уйти.",
+          "title": {
+            "en": "Use the carbine to set up a swap",
+            "ru": "Готовьте обмен выстрелом из карабина"
           }
         }
       ],
@@ -1650,6 +2198,18 @@
             "en": "Help from the tunnels",
             "ru": "Помощь из тоннелей"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Dynamo](hero:dynamo) tells Arin they should have let him know they were alive. As their godfather, he would have helped. He still speaks warmly of their father, though. Arin calls him a bad man, while the professor sees a complicated one. Arin sees no difference.",
+              "ru": "[Динамо](hero:dynamo) говорит Эрин, что они могли бы сообщить ему о своём спасении. Как крёстный, он мог бы помочь. При этом он по-прежнему говорит об их отце с теплотой. Когда Эрин называют отца плохим человеком, профессор видит в нём человека сложного. Эрин такой разницы не видят."
+            }
+          ],
+          "title": {
+            "en": "A godfather left in the dark",
+            "ru": "Крёстный, которому не сказали"
+          }
         }
       ],
       "relationships": [
@@ -1689,6 +2249,14 @@
             "en": "Dash during the barrage",
             "ru": "Делайте рывок во время залпа"
           }
+        },
+        {
+          "en": "With the final Affliction upgrade, open on a team you expect to heal through the fight. The afflicted enemies cannot heal while affected, so focus them while the debuff is active and use another hit to finish low targets.",
+          "ru": "С последним улучшением примените «Недуг», когда враги рассчитывают отлечиться в бою. Пока он действует, они не восстанавливают здоровье. Раненых добивайте отдельным попаданием.",
+          "title": {
+            "en": "Cast Affliction before the enemy’s recovery window",
+            "ru": "Накладывайте «Недуг» перед вражеским лечением"
+          }
         }
       ],
       "videos": []
@@ -1727,6 +2295,18 @@
             "en": "The plan for Ratannia",
             "ru": "План Крысании"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "The Rat King asks [Seven](hero:seven) for a warning before he unleashes his lightning storm. Many rats came with him, and they are less hardy than their king. Seven cares about winning and leaves the rats’ safety to him. The king promises to remember it if Seven is careless.",
+              "ru": "Крысиный король просит [Семи](hero:seven) предупредить его перед электрической бурей. С ним пришло много крыс, и они не так выносливы, как сам король. Семи важна победа, а до безопасности его подданных ему дела нет. Король обещает запомнить, если тот их не побережёт."
+            }
+          ],
+          "title": {
+            "en": "The king’s responsibility",
+            "ru": "Те, за кого отвечает король"
+          }
         }
       ],
       "relationships": [],
@@ -1743,6 +2323,14 @@
           "title": {
             "en": "Bat the grenade forward",
             "ru": "Отправляйте гранату ударом"
+          }
+        },
+        {
+          "en": "Watch a mobile enemy’s feet before casting Rat Swarm. A ground or air dash can shake off an attached rat early, so sending the swarm after they spend stamina gives the bites more time to lower bullet resistance.",
+          "ru": "Рывок по земле или в воздухе сбрасывает одну прицепившуюся крысу. Выпускайте стаю после того, как противник потратит выносливость, чтобы укусы дольше снижали его сопротивление пулям.",
+          "title": {
+            "en": "Send the rats after a spent dash",
+            "ru": "Выпускайте крыс после рывка врага"
           }
         }
       ],
@@ -1782,6 +2370,30 @@
             "en": "Dozing on the Blue Line",
             "ru": "Дрёма в дороге"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Haze](hero:haze) promises to get Rem home. He says he trusts her because he thinks of her as his mother. Haze disagrees, but in another conversation she readily assures him that they are friends. Neither explains why Rem feels that kinship.",
+              "ru": "[Пелена](hero:haze) обещает вернуть Дрёма домой, и тот говорит, что верит ей, потому что считает её мамой. Пелена с этим не соглашается, но в другой беседе без колебаний называет Дрёма другом. Откуда у него это чувство родства, они не объясняют."
+            }
+          ],
+          "title": {
+            "en": "What Rem calls Haze",
+            "ru": "Как Дрём зовёт Пелену"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Rem acknowledges coming from someone’s dream but will not tell [Grey Talon](hero:grey-talon) whose. He calls [Haze](hero:haze) his mother and says he sees her when he sleeps. He may have come from one of her dreams. The dialogue leaves his origin and their first meeting open. His conversation with [Violet](hero:violet) shows that he can enter other people’s dreams.",
+              "ru": "Дрём признаёт, что пришёл из чьего-то сна, но не говорит [Серому Когтю](hero:grey-talon), из чьего именно. Он называет [Пелену](hero:haze) мамой и говорит, что видит её, когда сам спит. Возможно, Дрём появился в её сне. Но по этим словам нельзя понять, где именно он возник или как они познакомились. Как показывает разговор с [Виолеттой](hero:violet), Дрём умеет заходить в чужие сны."
+            }
+          ],
+          "title": {
+            "en": "A possible link to Haze’s dreams",
+            "ru": "Возможная связь со снами Пелены"
+          }
         }
       ],
       "relationships": [],
@@ -1806,6 +2418,22 @@
           "title": {
             "en": "Pass a self-cast to your ride",
             "ru": "Передавайте эффект предмета союзнику"
+          }
+        },
+        {
+          "en": "If enemies are holding a room or stairwell, channel Naptime from the other side of the wall or floor. The gaze passes through both, so you can start the sleep without exposing yourself to their firing angle.",
+          "ru": "Если враги держат комнату или лестницу, начните «Тихий час» с другой стороны стены или перекрытия. Способность проходит сквозь них, и вы сможете усыпить врагов из укрытия.",
+          "title": {
+            "en": "Put a wall between you and the targets",
+            "ru": "Начинайте «Тихий час» через стену"
+          }
+        },
+        {
+          "en": "If you pass a quiet Sinner’s Sacrifice machine, send a Lil Helper to work it while you hold a nearby angle. Keep an eye on the machine if opponents can reach it, since a melee hit can interrupt the helper.",
+          "ru": "Если рядом свободный автомат, отправьте к нему помощника, а сами прикройте подход. Следите за врагами рядом с автоматом. Они могут сорвать работу помощника ударом ближнего боя.",
+          "title": {
+            "en": "Send a helper to the machine while you cover the lane",
+            "ru": "Отправляйте помощника к автомату"
           }
         }
       ],
@@ -1845,6 +2473,30 @@
             "en": "The failed execution",
             "ru": "Казнь, которая сорвалась"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Seven tells [Dynamo](hero:dynamo) that the professor’s research into Astral Gates laid the groundwork for his own. He wonders whether he would have become the man he is without Dynamo. The professor finds that less than flattering. In another exchange he asks how Seven saved his soul during his execution, but Seven gives him no answer.",
+              "ru": "Семь говорит [Динамо](hero:dynamo), что его исследования астральных врат проложили дорогу собственным опытам Семи. Он даже допускает, что без профессора мог бы стать совсем другим человеком. Для Динамо это звучит уже не как комплимент. В другой беседе профессор спрашивает, как Семь уберёг душу от уничтожения при казни, но ответа так и не получает."
+            }
+          ],
+          "title": {
+            "en": "Building on the professor’s work",
+            "ru": "Чужая работа об астральных вратах"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "When [Kelvin](hero:kelvin) comes to his aid, Seven recalls old times. Before the ritual, he compares Kelvin with the man he used to be. Those lines suggest they may have known each other before the Arctic expedition. Seven keeps his reasons for hating Kelvin to himself and tells him to look to the Patron for answers.",
+              "ru": "Когда [Кельвин](hero:kelvin) приходит ему на помощь, Семь вспоминает старые времена. В разговоре перед Ритуалом он сравнивает нынешнего Кельвина с тем, каким тот был прежде. Эти реплики позволяют предположить, что они были знакомы ещё до арктической экспедиции. Почему Семь теперь его ненавидит, он не объясняет и отсылает Кельвина за ответом к Покровителю."
+            }
+          ],
+          "title": {
+            "en": "A possible link to Kelvin’s past",
+            "ru": "Возможная связь с прошлым Кельвина"
+          }
         }
       ],
       "relationships": [],
@@ -1861,6 +2513,14 @@
           "title": {
             "en": "Make the ball stop in a choke",
             "ru": "Остановите шар в узком проходе"
+          }
+        },
+        {
+          "en": "When several enemies are standing together, mark the hero at the center of the group with Static Charge. The delayed stun catches enemies within the blast radius, so the central target gives you a better chance to hit more than one.",
+          "ru": "Когда несколько врагов стоят рядом, наложите «Статический заряд» на того, кто посередине. Оглушение с задержкой срабатывает вокруг цели, поэтому из центра проще накрыть нескольких героев.",
+          "title": {
+            "en": "Put Static Charge on the hero in the middle",
+            "ru": "Заряжайте цель в центре группы"
           }
         }
       ],
@@ -1900,6 +2560,18 @@
             "en": "Grey Talon's successor",
             "ru": "Преемник Серого Когтя"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Calico](hero:calico) asks Shiv who made him pay the Price in the Baxter Society. She guesses Wesley. Shiv names Mira Al-din. Shiv has little affection for Mira himself, yet warns Calico that he will come for her if anything happens to Mira. They do not say what the Price cost him.",
+              "ru": "[Калико](hero:calico) спрашивает Заточку, кто заставил его заплатить Цену в Обществе Бакстера. Калико предполагает, что это Уэсли. Заточка называет Миру аль-Дин. Заточка сам не в восторге от Миры, однако предупреждает, что придёт за Калико, если с Мирой что-то случится. Что именно пришлось отдать, они не говорят."
+            }
+          ],
+          "title": {
+            "en": "Who made him pay the Price",
+            "ru": "Кто потребовал уплаты"
+          }
         }
       ],
       "relationships": [
@@ -1924,6 +2596,14 @@
           "title": {
             "en": "Stagger knives to keep the bleed",
             "ru": "Бросайте ножи с интервалом"
+          }
+        },
+        {
+          "en": "When two enemies are low, use Killing Blow on the one you can confidently finish first. A kill unlocks a recast for a short window, which you can use on the second target if they stay in range.",
+          "ru": "Если двое врагов ранены, сначала используйте «Добивающий удар» на том, кого точно сможете добить. После убийства ульт ненадолго станет доступен снова, и вы сможете применить его ко второй цели.",
+          "title": {
+            "en": "Start the execution chain on a certain kill",
+            "ru": "Начинайте цепочку с надёжного добивания"
           }
         }
       ],
@@ -1963,6 +2643,18 @@
             "en": "Old scores",
             "ru": "Старые счёты"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Calico](hero:calico) tells Silver that contract killing pays better than bounty hunting. Silver has no interest in changing careers and insists that the distinction matters. Calico asks how often she takes the “or alive” part seriously. Silver says she has done it before.",
+              "ru": "[Калико](hero:calico) уверяет Сильвер, что за убийства по найму платят лучше, чем за розыск беглецов. Сильвер не собирается менять работу и настаивает, что разница для неё существенная. Калико спрашивает, часто ли та воспринимает всерьёз слова «или живым». Сильвер отвечает, что такое бывало."
+            }
+          ],
+          "title": {
+            "en": "Taking them alive",
+            "ru": "Живым тоже можно"
+          }
         }
       ],
       "relationships": [
@@ -1987,6 +2679,22 @@
           "title": {
             "en": "Use Slam Fire as a reload",
             "ru": "Перезаряжайтесь через «Скоростной огонь»"
+          }
+        },
+        {
+          "en": "If an enemy still has a dash or a movement skill, hit with Entangling Bola before trying to close the distance. The debuff prevents both stamina use and movement abilities while it holds.",
+          "ru": "Если противник готов уйти рывком или способностью перемещения, попадите по нему опутывающей болой. Под её эффектом он не сможет тратить выносливость или пользоваться такими способностями.",
+          "title": {
+            "en": "Throw the bola before a movement escape",
+            "ru": "Бросайте болу перед сближением"
+          }
+        },
+        {
+          "en": "With the final Lycan Curse upgrade, finish a reachable low-health hero before your transformation ends. The kill refreshes the form’s duration and your abilities, letting you turn back toward a second target.",
+          "ru": "С последним улучшением «Ликантропии» добейте доступного раненого героя до конца превращения. Убийство обновит длительность формы и перезарядки способностей, после чего можно переключиться на вторую цель.",
+          "title": {
+            "en": "Finish a hero before wolf form expires",
+            "ru": "Продлевайте превращение добиванием"
           }
         }
       ],
@@ -2026,6 +2734,18 @@
             "en": "A union that outlasted death",
             "ru": "Союз после смерти"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Henry and Savannah take turns controlling the same body. When one falls, the other returns and immediately sets about fixing their partner’s mistakes. Yet whenever a trick calls for an assistant, each turns to the other and introduces them by their old stage name.",
+              "ru": "Генри и Саванна по очереди управляют общим телом. После гибели одного управление перехватывает другой и тут же берётся исправлять ошибки партнёра. И всё же, когда им нужен помощник для фокуса, каждый зовёт другого и представляет его публике под прежним сценическим именем."
+            }
+          ],
+          "title": {
+            "en": "Two magicians on one stage",
+            "ru": "Два фокусника на одной сцене"
+          }
         }
       ],
       "relationships": [],
@@ -2042,6 +2762,14 @@
           "title": {
             "en": "Set up a way back while reloading",
             "ru": "Готовьте отход и пополняйте магазин"
+          }
+        },
+        {
+          "en": "Place Spectral Assistant off to the side before casting Vexing Bolt. The assistant fires a weaker bolt from its own position, so you can threaten the side of the cover the enemy is using against you.",
+          "ru": "Поставьте призрачного помощника сбоку и примените «Досаждающий заряд». Помощник выпустит более слабый снаряд со своей позиции и сможет достать цель с другой стороны укрытия.",
+          "title": {
+            "en": "Set up a second bolt angle",
+            "ru": "Открывайте второй угол для заряда"
           }
         }
       ],
@@ -2081,6 +2809,18 @@
             "en": "Playing for the city",
             "ru": "Партия за город"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Solomon brings up a possessed wendigo that was trapped in the Baroness. He is surprised that even that incident did not draw [Baba](hero:baba) out of the park. She says the [Doorman](hero:the-doorman) and the Baxter Society were enough to handle it without her.",
+              "ru": "Соломон вспоминает одержимого вендиго, который оказался заперт в отеле «Баронесса». Он удивляется, что [Буся](hero:baba) даже тогда не ушла из парка. Та отвечает, что [Швейцара](hero:the-doorman) и Общества Бакстера было достаточно и вмешиваться ей не пришлось."
+            }
+          ],
+          "title": {
+            "en": "What happened at the Baroness",
+            "ru": "Что случилось в «Баронессе»"
+          }
         }
       ],
       "relationships": [
@@ -2113,6 +2853,14 @@
           "title": {
             "en": "Bring the rooks back off a wall",
             "ru": "Возвращайте ладьи от стены"
+          }
+        },
+        {
+          "en": "Place a bishop beside a doorway you expect enemies to use. It stays until moved or recalled, so you can send it across their route as soon as they commit and threaten the diagonal squares afterward.",
+          "ru": "Поставьте слона сбоку от прохода, через который ждёте противника. Фигура может ждать там сколько угодно. Когда враг появится, проведите слона через его путь и перекройте диагонали.",
+          "title": {
+            "en": "Set up your bishop before the fight",
+            "ru": "Ставьте слона до начала боя"
           }
         }
       ],
@@ -2152,6 +2900,18 @@
             "en": "Old acquaintances",
             "ru": "Старые знакомые"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Paige](hero:paige) asks the Doorman for his name. He admits the Doorman is only a job title, but chooses to go by it. The name reminds him of why he stayed in New York. He wants to serve people and stay away from power. In another exchange he says he spent so long tormenting humanity that serving people still feels new to him.",
+              "ru": "[Пейдж](hero:paige) спрашивает Швейцара, как его зовут. Он признаёт, что «Швейцар» всего лишь должность, но придерживается этого имени. Это имя напоминает ему о том, зачем он остался в Нью-Йорке. Здесь он хочет служить людям и держаться подальше от власти. В другом разговоре он говорит, что прежде долго мучил людей и что служить им для него всё ещё в новинку."
+            }
+          ],
+          "title": {
+            "en": "Why he calls himself the Doorman",
+            "ru": "Почему он зовёт себя Швейцаром"
+          }
         }
       ],
       "relationships": [],
@@ -2168,6 +2928,22 @@
           "title": {
             "en": "Send the cart to your team",
             "ru": "Используйте тележку для спасения союзника"
+          }
+        },
+        {
+          "en": "When a bell lands beside an enemy who is already moving away, shoot it to detonate it early. This lets you apply the slow and accuracy penalty before they get beyond the blast.",
+          "ru": "Если противник уже уходит из зоны звонка, выстрелите в него для досрочного взрыва. Так вы успеете замедлить врага и снизить его точность, пока он в радиусе.",
+          "title": {
+            "en": "Shoot the bell before they leave the blast",
+            "ru": "Подрывайте звонок на отходе врага"
+          }
+        },
+        {
+          "en": "Remember where you cast Hotel Guest. Your target returns there, so prepare a Call Bell at that spot as they are about to come back. Shoot it when the guest reappears if you need an immediate blast.",
+          "ru": "Запомните, откуда противник ушёл в отель. Он вернётся на ту же точку. Подготовьте звонок к его возвращению и выстрелите в звонок, если нужен немедленный взрыв.",
+          "title": {
+            "en": "Leave a bell where the guest returns",
+            "ru": "Готовьте звонок к возвращению постояльца"
           }
         }
       ],
@@ -2207,6 +2983,18 @@
             "en": "Sent back to New York",
             "ru": "Новое назначение в Нью-Йорк"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Ivy](hero:ivy) asks how someone joins the order. Venator explains that another Venator chooses the candidate and that the process is rather like canonization. Ivy is relieved that at least nobody has to die. Venator tells her someone always does.",
+              "ru": "[Плющик](hero:ivy) спрашивает, как вступают в орден. Венатор объясняет, что кандидата выбирает другой венатор, а сам порядок напоминает причисление к лику святых. Плющик радуется, что хотя бы никто не должен умереть. По словам Венатора, чья-то смерть в этом деле неизбежна."
+            }
+          ],
+          "title": {
+            "en": "How Venators are chosen",
+            "ru": "Как выбирают венаторов"
+          }
         }
       ],
       "relationships": [],
@@ -2223,6 +3011,14 @@
           "title": {
             "en": "Fight with a wall behind your target",
             "ru": "Держите противника спиной к стене"
+          }
+        },
+        {
+          "en": "Kick Hex-Lined Snap Trap into a likely escape lane before you pressure the enemy toward it. The trap needs time to arm, so placing it on their route early is more reliable than throwing it at their feet as they pass.",
+          "ru": "Заранее отправьте заколдованный капкан на путь отхода. Ему нужно время, чтобы взвестись, поэтому ловушка лучше сработает, если поставить её до того, как враг побежит через проход.",
+          "title": {
+            "en": "Arm a trap before chasing",
+            "ru": "Дайте капкану взвестись"
           }
         }
       ],
@@ -2262,6 +3058,18 @@
             "en": "Just one lead",
             "ru": "Хоть одна зацепка"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Baba](hero:baba) tells Victor that a body made of other people’s remains is still his own. Victor has trouble believing her. She asks him to promise that if another soul ever tries to take over his body, he will fight it with everything he has. Victor gives her his word.",
+              "ru": "[Буся](hero:baba) говорит Виктору, что его тело из чужих останков всё равно принадлежит ему. Виктору в это трудно поверить. Буся просит его пообещать, что, если другая душа когда-нибудь попытается занять его тело, он будет сопротивляться изо всех сил. Виктор даёт слово."
+            }
+          ],
+          "title": {
+            "en": "Whose body is it?",
+            "ru": "Кому принадлежит это тело"
+          }
         }
       ],
       "relationships": [],
@@ -2278,6 +3086,14 @@
           "title": {
             "en": "Reanimate where your team can follow up",
             "ru": "Возвращайтесь к жизни рядом с командой"
+          }
+        },
+        {
+          "en": "Turn on Aura of Suffering when you can stay close through its ramp-up, such as in a tight room or with an ally holding the target. Its damage grows over time and hits you too, so turn it off once enemies pull away.",
+          "ru": "Включайте «Ауру страдания», когда сможете оставаться рядом с целью, пока урон растёт. В тесной комнате или под контролем союзника врагу сложнее выйти из зоны. Аура ранит и вас, поэтому выключайте её, когда враги разошлись.",
+          "title": {
+            "en": "Commit the aura where enemies must stay close",
+            "ru": "Держите ауру, пока враги рядом"
           }
         }
       ],
@@ -2317,6 +3133,18 @@
             "en": "War on the Friends of Humanity",
             "ru": "Война с «Друзьями человечества»"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Vindicta asks [Dynamo](hero:dynamo) whether John Hathorne is due to speak at Columbia soon. The professor confirms the talk is planned. Vindicta makes it clear that if the ritual fails, she intends to have a word with Hathorne herself.",
+              "ru": "Виндикта спрашивает [Динамо](hero:dynamo), скоро ли Джон Хаторн выступит в Колумбийском колледже. Профессор подтверждает, что выступление намечено. Виндикта даёт понять, что, если Ритуал сорвётся, у неё к Хаторну будет свой разговор."
+            }
+          ],
+          "title": {
+            "en": "A fallback plan at Columbia",
+            "ru": "Запасной план в Колумбийском колледже"
+          }
         }
       ],
       "relationships": [],
@@ -2333,6 +3161,14 @@
           "title": {
             "en": "Send the crow before the finishing shot",
             "ru": "Пускайте ворона до добивающего выстрела"
+          }
+        },
+        {
+          "en": "If a target is just outside your item’s normal reach, activate Flight before trying the item. Flight extends item range, so check the new angle before spending the cooldown.",
+          "ru": "Если цель чуть дальше обычной дальности предмета, сначала поднимитесь в воздух. В «Полёте» предметы действуют дальше. Убедитесь, что достаёте до цели, прежде чем тратить перезарядку.",
+          "title": {
+            "en": "Use Flight to reach with an item",
+            "ru": "Используйте полёт для дальности предметов"
           }
         }
       ],
@@ -2372,6 +3208,30 @@
             "en": "A chance to be seen",
             "ru": "Шанс быть увиденной"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Violet tells [Graves](hero:graves) she likes painting portraits because they let her capture something about a person without explaining it in words. [Solomon](hero:solomon) has seen her paint in the park. When she plays down her talent, he encourages her to own it.",
+              "ru": "Виолетта говорит [Грейвс](hero:graves), что ей нравится писать портреты. Её привлекает возможность показать, что за человек перед ней, не объясняя это словами. [Соломон](hero:solomon) видел, как она рисует в парке. Когда Виолетта скромничает, он советует ей признать, что у неё получается хорошо."
+            }
+          ],
+          "title": {
+            "en": "A portrait without words",
+            "ru": "Портрет без слов"
+          }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Victor](hero:victor) models for Violet’s life drawing class. She is surprised he is so comfortable with a whole room looking at him. Victor likes the rare chance to be among people who can sit together in silence. In another line, Violet calls him her favorite model.",
+              "ru": "На занятиях по рисунку Виолетте позирует [Виктор](hero:victor). Она удивляется, как спокойно он переносит взгляды всей группы. Виктору нравится редкая возможность побыть среди людей, которые собрались вместе и при этом молчат. В другой реплике Виолетта называет его своей любимой моделью."
+            }
+          ],
+          "title": {
+            "en": "A familiar model",
+            "ru": "Натурщик на занятиях"
+          }
         }
       ],
       "relationships": [
@@ -2396,6 +3256,14 @@
           "title": {
             "en": "Put the boundary across the way out",
             "ru": "Проведите границу по пути отхода"
+          }
+        },
+        {
+          "en": "Lay down Flow State before another ability you already plan to use. Living Ink refreshes Flow State when you cast a different ability, so you can draw a second trail across the next route without waiting out the cooldown.",
+          "ru": "Проложите дорожку умением «В потоке», а затем примените другую нужную способность. Пассивный эффект «Живой туши» сбросит перезарядку дорожки, и вы сможете провести её снова.",
+          "title": {
+            "en": "Use another spell between brush trails",
+            "ru": "Чередуйте дорожку с другими способностями"
           }
         }
       ],
@@ -2435,6 +3303,18 @@
             "en": "From the deep to dry land",
             "ru": "Из глубин на сушу"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Viscous is surprised when [Solomon](hero:solomon) brings up the Adversary himself. Solomon sees it as a threat to everyone, which is why he stands with Viscous. [Venator](hero:venator) asks Viscous what the Adversary is. Viscous promises to tell him more if they survive the ritual.",
+              "ru": "Вязкус удивляется, когда [Соломон](hero:solomon) сам упоминает Супостата. Для Соломона эта опасность касается всех, и именно поэтому он готов сражаться рядом с Вязкусом. [Венатор](hero:venator) расспрашивает Вязкуса о Супостате. Тот обещает рассказать больше, если они переживут Ритуал."
+            }
+          ],
+          "title": {
+            "en": "An ally on dry land",
+            "ru": "Союзник на суше"
+          }
         }
       ],
       "relationships": [],
@@ -2459,6 +3339,22 @@
           "title": {
             "en": "Time the Cube for Harrow’s crash",
             "ru": "Куб в момент отложенного урона"
+          }
+        },
+        {
+          "en": "In Goo Ball, approach a wall at an angle if you want to turn back into a hallway. The wall changes your direction, and the double jump gives you another way to clear a low obstacle during the roll.",
+          "ru": "В форме шара въезжайте в стену под углом, чтобы отскочить обратно в нужный коридор. Двойной прыжок поможет перебраться через низкое препятствие.",
+          "title": {
+            "en": "Steer a bounce instead of fighting a wall",
+            "ru": "Разворачивайте шар отскоком"
+          }
+        },
+        {
+          "en": "Enemies can parry Puddle Punch. If a hero is baiting you into a parry, hold the punch until they use it, then land the knockup while they’re waiting for parry to return.",
+          "ru": "Враг может парировать «Удар из лужи». Если он ждёт кулак, придержите заряд, пока противник не потратит парирование. Подбросьте его, пока оно восстанавливается.",
+          "title": {
+            "en": "Wait for parry to go on cooldown",
+            "ru": "Подбрасывайте после парирования"
           }
         }
       ],
@@ -2498,6 +3394,18 @@
             "en": "Street connections",
             "ru": "Связи на улице"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Wraith](hero:wraith) has heard Vyper stabbed Molly Molenzo. Vyper denies it until she is sure Molly is no friend of Wraith’s, then admits it. In another conversation [Yamato](hero:yamato) wants to get in touch with Molly, but Vyper puts the conversation off as the ritual begins.",
+              "ru": "[Тень](hero:wraith) слышала, что Гадюка пырнула Молли Молензо. Гадюка сначала всё отрицает. Убедившись, что Молли и Тень не подруги, она признаётся. В другой беседе [Ямато](hero:yamato) просит помочь найти Молли, но Гадюка ссылается на начало Ритуала и откладывает разговор."
+            }
+          ],
+          "title": {
+            "en": "Molly Molenzo",
+            "ru": "Молли Молензо"
+          }
         }
       ],
       "relationships": [
@@ -2522,6 +3430,14 @@
           "title": {
             "en": "Let venom tick inside petrify",
             "ru": "Используйте яд во время окаменения"
+          }
+        },
+        {
+          "en": "When you can keep fighting one hero, keep your Screwjab Daggers on them instead of spreading the hits. Follow-up daggers stack damage and slow, and the second upgrade also builds bullet resistance reduction for your gun.",
+          "ru": "Если можете продолжать бой с тем же героем, бросайте кинжалы в него. Повторные попадания усиливают урон и замедление. Со вторым улучшением они ещё и накапливают снижение сопротивления пулям.",
+          "title": {
+            "en": "Keep daggers on the same target",
+            "ru": "Бросайте кинжалы в одну цель"
           }
         }
       ],
@@ -2561,6 +3477,18 @@
             "en": "Keeping the Patrons out",
             "ru": "Не допустить Покровителей"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "At the start of the ritual, the Archmother’s herald addresses Warden. She knows he hates the Patron she serves, but asks him to set that aside for now. With the Archmother’s help, she says, he can destroy the Hidden King. Warden’s answer is unknown.",
+              "ru": "В начале Ритуала глашатай Архиматери обращается к Дозорному. Она знает, что он ненавидит её покровительницу, но предлагает временно забыть об этом. Вместе, по её словам, они смогут уничтожить Тайного Короля. Ответ Дозорного неизвестен."
+            }
+          ],
+          "title": {
+            "en": "The Archmother’s offer",
+            "ru": "Предложение Архиматери"
+          }
         }
       ],
       "relationships": [],
@@ -2577,6 +3505,14 @@
           "title": {
             "en": "Slow before Binding Word",
             "ru": "Замедляйте до наложения «Сковывающее слово»"
+          }
+        },
+        {
+          "en": "Begin Last Stand behind nearby cover and move into the fight as it starts pulsing. It takes two seconds to charge, so spending that wind-up under enemy fire makes it harder to reach the healing pulses.",
+          "ru": "Начните «Последний бой» за ближайшим укрытием. Ульт заряжается две секунды. Выходите к врагам ближе к первым импульсам, чтобы получить лечение раньше, чем противники успеют вас расстрелять.",
+          "title": {
+            "en": "Start Last Stand before stepping into fire",
+            "ru": "Начинайте ульт за укрытием"
           }
         }
       ],
@@ -2616,6 +3552,18 @@
             "en": "A wish with no loopholes",
             "ru": "Желание без лазеек"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "Wraith asks [Yamato](hero:yamato) to keep working with her after the ritual. She sees no need for their New York operations to be enemies. Yamato thinks Wraith has more to gain from an alliance. Both will fight on the same side, but neither will take orders from the other.",
+              "ru": "Тень предлагает [Ямато](hero:yamato) продолжить сотрудничество после Ритуала. По её мнению, их дела в Нью-Йорке можно вести без вражды. По мнению Ямато, дружба нужна прежде всего самой Тени. Обе готовы сражаться на одной стороне, но ни одна не собирается подчиняться другой."
+            }
+          ],
+          "title": {
+            "en": "A truce with the Seventh Moon",
+            "ru": "Перемирие с «Седьмой луной»"
+          }
         }
       ],
       "relationships": [
@@ -2640,6 +3588,14 @@
           "title": {
             "en": "Pick the landing point",
             "ru": "Выбирайте место приземления цели"
+          }
+        },
+        {
+          "en": "With the final Full Auto upgrade, stay on a target you can safely shoot while the magazine is unlimited. Weapon damage builds Card Trick cards, so sustained fire sets up more card throws once you need another effect.",
+          "ru": "С последним улучшением «Сверхбыстрой стрельбы» патроны не расходуются. Продолжайте стрелять по доступной цели. Оружейный урон создаёт карты для следующих бросков.",
+          "title": {
+            "en": "Use the full-auto window to build cards",
+            "ru": "Набирайте карты непрерывной стрельбой"
           }
         }
       ],
@@ -2691,6 +3647,18 @@
             "en": "The Seventh Moon's future",
             "ru": "Будущее «Седьмой луны»"
           }
+        },
+        {
+          "paragraphs": [
+            {
+              "en": "[Ivy](hero:ivy) warns Yamato to keep the Seventh Moon out of Spanish Harlem. Yamato takes note and makes no promises. She knows Mendoza fears the gargoyle and cares about what Ivy does more than what she calls herself.",
+              "ru": "[Плющик](hero:ivy) предупреждает Ямато, чтобы «Седьмая луна» держалась подальше от Испанского Гарлема. Ямато принимает предупреждение к сведению, но никаких обещаний не даёт. Она знает, что Мендоса боится гаргульи, и судит о ней по делам, а не по имени."
+            }
+          ],
+          "title": {
+            "en": "The borders of Spanish Harlem",
+            "ru": "Границы Испанского Гарлема"
+          }
         }
       ],
       "relationships": [],
@@ -2708,11 +3676,19 @@
             "en": "Spend an ability before transforming",
             "ru": "Используйте способность до превращения"
           }
+        },
+        {
+          "en": "After fully upgrading Flying Slash, keep a nearby teammate in mind when diving in. You can alternate-cast the grapple on allies, so a teammate near cover can give you a way back out.",
+          "ru": "После последнего улучшения «Рассечения в полёте» заранее приметьте напарника рядом. Альтернативным применением можно притянуться к нему, чтобы уйти из драки к укрытию.",
+          "title": {
+            "en": "Keep an ally as a grapple exit",
+            "ru": "Приметьте союзника для отхода"
+          }
         }
       ],
       "videos": []
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-11-05T12:36:20.118Z"
+  "updatedAt": "2026-11-05T14:17:57.357Z"
 }
