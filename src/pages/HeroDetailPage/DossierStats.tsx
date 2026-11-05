@@ -4,8 +4,13 @@ import { calculateBuild } from '../../../shared/build-stats';
 import { meleeDamageAtLevel } from '../../../shared/ability-build';
 import { weaponNotes } from '../../features/heroes/weaponNotes';
 import { useI18n } from '../../i18n';
-import { format } from '../../lib/format';
+import { asset, format } from '../../lib/format';
 import { DossierStatPlate } from './HeroDossierArt';
+import weaponArt from './weapon-art.json';
+
+const weaponPrints: Readonly<
+  Record<string, { name: { en: string; ru: string }; image: string } | undefined>
+> = weaponArt;
 
 type StatRow = readonly [label: string, value: string | number];
 
@@ -41,6 +46,7 @@ export function DossierStats({
       : undefined;
   const melee = meleeDamageAtLevel(hero, level, natural.spirit);
   const weapon = weaponNotes(hero);
+  const print = weaponPrints[hero.weapon.className];
   const pellets = hero.weapon.projectiles > 1 && !hero.weapon.hitOnce;
   const shotLabel = weapon.tether
     ? en
@@ -99,6 +105,7 @@ export function DossierStats({
           kind="weapon"
           title={en ? 'Weapon' : 'Оружие'}
           notes={weapon.explanations.map((note) => t(note))}
+          weaponPrint={print && { src: asset(print.image), name: print.name[en ? 'en' : 'ru'] }}
         >
           <Rows
             rows={[

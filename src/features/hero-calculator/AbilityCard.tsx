@@ -257,7 +257,7 @@ export function AbilityCard({
             {ability.slot}
           </span>
         )}
-        <span>
+        <span className="ability-copy">
           <span className="ability-key">
             {t('Способность')} {ability.slot}
           </span>

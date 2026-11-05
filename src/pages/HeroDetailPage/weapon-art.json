@@ -1,0 +1,310 @@
+{
+  "citadel_weapon_bull_set": {
+    "name": {
+      "en": "Case Closed",
+      "ru": "Закрытое дело"
+    },
+    "image": "assets/hero-weapons/abrams.webp"
+  },
+  "citadel_weapon_fencer_set": {
+    "name": {
+      "en": "Pride of Ixia",
+      "ru": "Гордость Иксии"
+    },
+    "image": "assets/hero-weapons/apollo.webp"
+  },
+  "citadel_weapon_baba_set": {
+    "name": {
+      "en": "Bunko-Night Special",
+      "ru": "Особое угощение"
+    },
+    "image": "assets/hero-weapons/baba.webp"
+  },
+  "citadel_weapon_bebop_set": {
+    "name": {
+      "en": "Humble Pie",
+      "ru": "Глоток смирения"
+    },
+    "image": "assets/hero-weapons/bebop.webp"
+  },
+  "citadel_weapon_punkgoat_set": {
+    "name": {
+      "en": "Biquette",
+      "ru": "Бикетт"
+    },
+    "image": "assets/hero-weapons/billy.webp"
+  },
+  "citadel_weapon_nano_set": {
+    "name": {
+      "en": "Sweetest Lie",
+      "ru": "Сладчайшая ложь"
+    },
+    "image": "assets/hero-weapons/calico.webp"
+  },
+  "citadel_weapon_unicorn_set": {
+    "name": {
+      "en": "Carny Life",
+      "ru": "Карнавал"
+    },
+    "image": "assets/hero-weapons/celeste.webp"
+  },
+  "ability_deadpack_primary_weapon_charge": {
+    "name": {
+      "en": "Chimera Peace Bringer",
+      "ru": "Химера «Миротворец»"
+    },
+    "image": "assets/hero-weapons/deadman-danny.webp"
+  },
+  "citadel_weapon_drifter_set": {
+    "name": {
+      "en": "Crimson Grasp",
+      "ru": "Багровый хват"
+    },
+    "image": "assets/hero-weapons/drifter.webp"
+  },
+  "citadel_weapon_sumo_set": {
+    "name": {
+      "en": "The Vonnegun",
+      "ru": "Воннеган"
+    },
+    "image": "assets/hero-weapons/dynamo.webp"
+  },
+  "citadel_weapon_necro_set": {
+    "name": {
+      "en": "The Teacher",
+      "ru": "Учитель"
+    },
+    "image": "assets/hero-weapons/graves.webp"
+  },
+  "citadel_weapon_archer_set": {
+    "name": {
+      "en": "The Mourning Comes",
+      "ru": "Грядущая скорбь"
+    },
+    "image": "assets/hero-weapons/grey-talon.webp"
+  },
+  "citadel_weapon_haze_set": {
+    "name": {
+      "en": "Censure & Penance",
+      "ru": "Осуждение и искупление"
+    },
+    "image": "assets/hero-weapons/haze.webp"
+  },
+  "citadel_weapon_astro_set": {
+    "name": {
+      "en": "Doc's Orders",
+      "ru": "То, что Док прописал"
+    },
+    "image": "assets/hero-weapons/holliday.webp"
+  },
+  "citadel_weapon_inferno_set": {
+    "name": {
+      "en": "Incendiary Remarks",
+      "ru": "Разжигатель споров"
+    },
+    "image": "assets/hero-weapons/infernus.webp"
+  },
+  "citadel_weapon_tengu_set": {
+    "name": {
+      "en": "Protector's Hand",
+      "ru": "Рука защитника"
+    },
+    "image": "assets/hero-weapons/ivy.webp"
+  },
+  "citadel_weapon_kelvin_set": {
+    "name": {
+      "en": "Expedition's End",
+      "ru": "Крах экспедиции"
+    },
+    "image": "assets/hero-weapons/kelvin.webp"
+  },
+  "citadel_weapon_ghost_set": {
+    "name": {
+      "en": "Johann's Gift",
+      "ru": "Подарок Иоганна"
+    },
+    "image": "assets/hero-weapons/lady-geist.webp"
+  },
+  "citadel_weapon_lash_set": {
+    "name": {
+      "en": "Tale of The Tape",
+      "ru": "Боксёрские габариты"
+    },
+    "image": "assets/hero-weapons/lash.webp"
+  },
+  "citadel_weapon_engineer_set": {
+    "name": {
+      "en": "Services Rendered",
+      "ru": "Оказанные услуги"
+    },
+    "image": "assets/hero-weapons/mcginnis.webp"
+  },
+  "citadel_weapon_vampirebat_set": {
+    "name": {
+      "en": "New Money",
+      "ru": "Нувориш"
+    },
+    "image": "assets/hero-weapons/mina.webp"
+  },
+  "citadel_weapon_mirage_set": {
+    "name": {
+      "en": "Promises Kept",
+      "ru": "Сдержанные обещания"
+    },
+    "image": "assets/hero-weapons/mirage.webp"
+  },
+  "citadel_weapon_digger_set": {
+    "name": {
+      "en": "Yellow Canary",
+      "ru": "Жёлтая канарейка"
+    },
+    "image": "assets/hero-weapons/mo-krill.webp"
+  },
+  "citadel_weapon_nurse_set": {
+    "name": {
+      "en": "Code Blue",
+      "ru": "Реаниматор"
+    },
+    "image": "assets/hero-weapons/nurse-harrow.webp"
+  },
+  "citadel_weapon_bookworm_set2": {
+    "name": {
+      "en": "Chapter's End",
+      "ru": "Конец главы"
+    },
+    "image": "assets/hero-weapons/paige.webp"
+  },
+  "citadel_weapon_chrono_set": {
+    "name": {
+      "en": "Trade Secret",
+      "ru": "Секрет фирмы"
+    },
+    "image": "assets/hero-weapons/paradox.webp"
+  },
+  "citadel_weapon_synth_set": {
+    "name": {
+      "en": "The Black Sheep",
+      "ru": "Белая ворона"
+    },
+    "image": "assets/hero-weapons/pocket.webp"
+  },
+  "citadel_weapon_ratking_set": {
+    "name": {
+      "en": "Sovereign's Decree",
+      "ru": "Королевский указ"
+    },
+    "image": "assets/hero-weapons/rat-king.webp"
+  },
+  "ability_familiar_primary_weapon_bubblegun": {
+    "name": {
+      "en": "Gun Damage",
+      "ru": "Урон от оружия"
+    },
+    "image": "assets/hero-weapons/rem.webp"
+  },
+  "citadel_weapon_gigawatt_set": {
+    "name": {
+      "en": "Cold Calculus",
+      "ru": "Холодный расчёт"
+    },
+    "image": "assets/hero-weapons/seven.webp"
+  },
+  "citadel_weapon_shiv_set": {
+    "name": {
+      "en": "Busted Flush",
+      "ru": "Дохлый номер"
+    },
+    "image": "assets/hero-weapons/shiv.webp"
+  },
+  "citadel_weapon_werewolf_rifle": {
+    "name": {
+      "en": "Hair of the Dog",
+      "ru": "Клин клином"
+    },
+    "image": "assets/hero-weapons/silver.webp"
+  },
+  "citadel_weapon_magician_set": {
+    "name": {
+      "en": "The Prestige",
+      "ru": "Престиж"
+    },
+    "image": "assets/hero-weapons/sinclair.webp"
+  },
+  "citadel_weapon_chessmaster_shotgun": {
+    "name": {
+      "en": "Alekhine's Gun",
+      "ru": "Пушка Алёхина"
+    },
+    "image": "assets/hero-weapons/solomon.webp"
+  },
+  "citadel_weapon_doorman_set": {
+    "name": {
+      "en": "Service With A Smile",
+      "ru": "Приветливый сервис"
+    },
+    "image": "assets/hero-weapons/the-doorman.webp"
+  },
+  "citadel_weapon_priest_set": {
+    "name": {
+      "en": "51:20",
+      "ru": "51:20"
+    },
+    "image": "assets/hero-weapons/venator.webp"
+  },
+  "citadel_weapon_frank_set2": {
+    "name": {
+      "en": "Memento Mori",
+      "ru": "Memento Mori"
+    },
+    "image": "assets/hero-weapons/victor.webp"
+  },
+  "citadel_weapon_hornet_set": {
+    "name": {
+      "en": "Wallflower's Revenge",
+      "ru": "Месть тихони"
+    },
+    "image": "assets/hero-weapons/vindicta.webp"
+  },
+  "citadel_weapon_artist_set": {
+    "name": {
+      "en": "Creative Solutions",
+      "ru": "Творческий подход"
+    },
+    "image": "assets/hero-weapons/violet.webp"
+  },
+  "citadel_weapon_viscous_set": {
+    "name": {
+      "en": "Deep Sea Interpreter",
+      "ru": "Толкователь глубин"
+    },
+    "image": "assets/hero-weapons/viscous.webp"
+  },
+  "citadel_weapon_viper_set": {
+    "name": {
+      "en": "The Rattler",
+      "ru": "Трещотка"
+    },
+    "image": "assets/hero-weapons/vyper.webp"
+  },
+  "citadel_weapon_warden_set": {
+    "name": {
+      "en": "Freedom's Cost",
+      "ru": "Цена свободы"
+    },
+    "image": "assets/hero-weapons/warden.webp"
+  },
+  "citadel_weapon_wraith_set": {
+    "name": {
+      "en": "The Rake",
+      "ru": "Рейк"
+    },
+    "image": "assets/hero-weapons/wraith.webp"
+  },
+  "citadel_weapon_yamato_set": {
+    "name": {
+      "en": "Sister's Lament",
+      "ru": "Плач сестры"
+    },
+    "image": "assets/hero-weapons/yamato.webp"
+  }
+}

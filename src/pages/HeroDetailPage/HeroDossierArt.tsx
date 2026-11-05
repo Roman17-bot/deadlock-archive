@@ -124,18 +124,24 @@ export function DossierStatPlate({
   kind,
   title,
   notes,
+  weaponPrint,
   children,
 }: {
   kind: StatKind;
   title: string;
   notes?: readonly string[];
+  weaponPrint?: { src: string; name: string };
   children: ReactNode;
 }) {
   return (
     <section className="dossier-stat-plate" data-kind={kind} aria-label={title}>
       <header>
         <h3>{title}</h3>
-        <DossierStatEngraving kind={kind} />
+        {weaponPrint ? (
+          <DossierWeaponPrint key={weaponPrint.src} {...weaponPrint} />
+        ) : (
+          <DossierStatEngraving kind={kind} />
+        )}
       </header>
       <dl>{children}</dl>
       {notes?.map((note) => (
@@ -144,5 +150,104 @@ export function DossierStatPlate({
         </p>
       ))}
     </section>
+  );
+}
+
+function DossierWeaponPrint({ src, name }: { src: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <DossierStatEngraving kind="weapon" />;
+
+  return (
+    <div className="dossier-weapon-print">
+      <figure className="dossier-weapon-paper">
+        <div className="dossier-weapon-negative">
+          <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+        </div>
+        <svg
+          className="dossier-weapon-wear"
+          viewBox="0 0 196 104"
+          preserveAspectRatio="none"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M1 87l6 1 9 10 7 1M174 1l9 5 7 10 5 1M1 7l7-4 14-1m142 97 14-3 17 1"
+            stroke="#775a39"
+            strokeWidth=".75"
+            opacity=".75"
+          />
+          <path
+            d="M3 86l7 4 8 8m161-95 8 9 7 2M3 41l2 8m186 19-2 11M28 101l19-2"
+            stroke="#f9edce"
+            strokeWidth=".85"
+            opacity=".85"
+          />
+          <path
+            d="M13 15l4-1m-3 4 1 2m164 48 3-2m-7 4 1-.8m10-44-.6 3.1"
+            stroke="#f9edce"
+            strokeWidth=".72"
+            strokeLinecap="round"
+            opacity=".64"
+          />
+          <path
+            d="m20 27 2 1m149 32 1-2m-32-44 2 .4m-97 57 3-1"
+            stroke="#372b22"
+            strokeWidth=".55"
+            strokeLinecap="round"
+            opacity=".45"
+          />
+        </svg>
+        <figcaption>{name}</figcaption>
+      </figure>
+      <svg className="dossier-weapon-pin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M11 14.8c3.4-2.1 8.5-2.1 10.2-.2 2.3 2.6-3.6 7.6-8.3 8-5.7.5-7.1-4.5-1.9-7.8Z"
+          fill="#382318"
+          fillOpacity=".55"
+        />
+        <path
+          d="M8.5 12.5c.9-2.1 3.9-3.7 6.8-3.1 2.7.5 4.2 2.7 3.3 5.1l-.4 1.7c-1 2.8-7 4.3-9.7 2.2-1.1-.9-.8-3.7 0-5.9Z"
+          fill="#6b4524"
+          stroke="#46301d"
+          strokeWidth=".65"
+        />
+        <path d="M9.9 13.1c-.4 1.6-.5 2.9.4 3.7.7.6 1.8.8 2.9.6l.8-4.1Z" fill="#b58a52" />
+        <path
+          d="M4.6 8.4C4 5.1 7.5 2.4 12 2.1s8.7 1.7 9.1 4.8l.2 1.6c.4 3.1-3.1 5.7-7.8 6.1-4.7.4-8.5-1.6-8.9-4.7Z"
+          fill="#9c6936"
+          stroke="#543a23"
+          strokeWidth=".7"
+        />
+        <ellipse
+          cx="12.8"
+          cy="7.4"
+          rx="8.1"
+          ry="5.2"
+          transform="rotate(-8 12.8 7.4)"
+          fill="#d9b775"
+          stroke="#b38a51"
+          strokeWidth=".65"
+        />
+        <path
+          d="M6.5 7.6c.3-2 3-3.9 6.5-4.2"
+          stroke="#f9e9bd"
+          strokeWidth=".85"
+          strokeLinecap="round"
+        />
+        <path
+          d="M14 11.1c2.3-.3 4-1.4 4.9-2.8"
+          stroke="#ac8048"
+          strokeWidth=".7"
+          strokeLinecap="round"
+        />
+        <path
+          d="m7.6 9.6 1.6-.5m5.8-4.4 1.1.2"
+          stroke="#8d663f"
+          strokeOpacity=".65"
+          strokeWidth=".47"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   );
 }

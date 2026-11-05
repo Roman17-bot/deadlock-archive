@@ -149,9 +149,97 @@
   isolation: isolate;
   display: flex;
   align-items: end;
-  min-height: 110px;
+  min-height: 136px;
   padding: 16px;
   border-bottom: 1px solid color-mix(in srgb, var(--plate-ink) 40%, var(--plate-bg));
+}
+.dossier-stat-plate header:has(.dossier-weapon-print) {
+  justify-content: space-between;
+  gap: 10px;
+  padding-block: 10px;
+}
+.dossier-stat-plate header:has(.dossier-weapon-print) h3 {
+  flex: none;
+  overflow-wrap: normal;
+}
+.dossier-weapon-print {
+  position: relative;
+  flex: 0 1 min(63%, 196px);
+  min-width: 0;
+  margin-inline-end: 2px;
+  align-self: center;
+  transform: rotate(2.1deg);
+  filter: drop-shadow(2px 4px 2px #21120ec2);
+}
+.dossier-weapon-paper {
+  position: relative;
+  margin: 0;
+  padding: 6px 7px 7px;
+  background:
+    radial-gradient(ellipse at 0% 93%, #84644179, transparent 27%),
+    radial-gradient(ellipse at 98% 4%, #95734f8c, transparent 24%),
+    linear-gradient(170deg, #eee0be, #d3bc91);
+  color: #38291e;
+  clip-path: polygon(
+    2% 3%,
+    22% 1%,
+    45% 2%,
+    70% 0,
+    95% 1%,
+    100% 6%,
+    99% 33%,
+    100% 67%,
+    98% 94%,
+    91% 98%,
+    62% 98%,
+    34% 100%,
+    11% 98%,
+    1% 95%,
+    0 69%,
+    1% 31%,
+    0 12%
+  );
+}
+.dossier-weapon-negative {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 47% 39%, #a49782, transparent 66%),
+    radial-gradient(ellipse at 51% 46%, #887a65 28%, #474039 100%);
+  border: 1px solid #7e6d52;
+  box-shadow: inset 0 0 0 1px #261b1740;
+}
+.dossier-weapon-negative img {
+  display: block;
+  width: 100%;
+  height: 67px;
+  padding: 4px 5px;
+  object-fit: contain;
+  filter: grayscale(0.62) sepia(0.26) contrast(1.06) drop-shadow(1px 2px 1px #251b17a6);
+}
+.dossier-weapon-paper figcaption {
+  position: relative;
+  margin-top: 4px;
+  font: 600 12px/1.2 var(--sans);
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.dossier-weapon-wear {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.dossier-weapon-pin {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 52%;
+  top: -8px;
+  transform: translateX(-50%) rotate(-9deg);
+  pointer-events: none;
 }
 .dossier-stat-plate h3 {
   position: relative;
@@ -263,6 +351,11 @@
     inset 0 0 0 4px #243a2c,
     inset 0 0 0 5px #bfa7748a;
 }
+.dossier-ability-grid .ability-copy {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
 .dossier-ability-grid .ability-header strong {
   font: 400 clamp(19px, 2vw, 28px)/1.28 var(--serif);
 }
@@ -280,10 +373,50 @@
 }
 .dossier-ability-grid .ability-more {
   display: inline-block;
-  margin-top: 6px;
+  align-self: start;
+  margin-top: auto;
+  padding-top: 6px;
   font-size: 14px;
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+@media (min-width: 621px) {
+  /* A pair shares the summary row. Its optional content occupies a separate row. */
+  @supports (grid-template-rows: subgrid) and selector(details::details-content) {
+    .hero-dossier-page .dossier-ability-grid {
+      row-gap: 8px;
+    }
+    .hero-dossier-page .dossier-ability-grid .build-ability-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 2;
+      row-gap: 0;
+      border: 0;
+      background: transparent;
+    }
+    .dossier-ability-grid .build-ability-card > .ability-header {
+      grid-row: 1;
+      border: 1px solid #b9a778;
+    }
+    .dossier-ability-grid .build-ability-card::details-content {
+      grid-row: 2;
+      min-width: 0;
+    }
+    .dossier-ability-grid .build-ability-card[open] > .ability-body {
+      border: 1px solid #b9a778;
+      border-top: 0;
+      background: #eee8d8;
+    }
+  }
+  @supports not ((grid-template-rows: subgrid) and selector(details::details-content)) {
+    .hero-dossier-page .dossier-ability-grid:not(:has(.build-ability-card[open])) {
+      align-items: stretch;
+    }
+    .dossier-ability-grid .build-ability-card:not([open]) > .ability-header {
+      height: 100%;
+    }
+  }
 }
 .dossier-ability-grid .ability-disclosure {
   flex-shrink: 0;
@@ -476,7 +609,6 @@
     gap: 8px;
   }
   .dossier-stat-plate header {
-    min-height: 96px;
     padding: 10px;
   }
   .dossier-stat-plate dl {
@@ -793,6 +925,9 @@
   }
   .dossier-stat-plate header {
     min-height: 80px;
+  }
+  .dossier-stat-plate header:has(.dossier-weapon-print) {
+    min-height: 116px;
   }
   .dossier-stat-engraving {
     width: 130px;
