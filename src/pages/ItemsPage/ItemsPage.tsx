@@ -269,7 +269,13 @@ export function ItemsPage({ initialCatalog }: { initialCatalog?: ItemCatalog }) 
                   <p>{t('Убери часть условий или попробуй другое название.')}</p>
                 </section>
               ) : (
-                <div className="shop-columns">
+                <div
+                  className={
+                    items.length === catalog.items.length
+                      ? 'shop-columns shop-columns--aligned'
+                      : 'shop-columns'
+                  }
+                >
                   {categories
                     .filter((category) => items.some((i) => i.category === category))
                     .map((category) => (

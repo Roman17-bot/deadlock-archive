@@ -217,27 +217,27 @@
   font-size: 15px;
 }
 .shop-tier {
-  padding-top: 19px;
+  padding-top: 10px;
 }
 .shop-tier > h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 0 0 6px;
   color: var(--category);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.13em;
   font-weight: 500;
   border-bottom: 1px solid color-mix(in srgb, var(--category) 35%, transparent);
-  padding-bottom: 9px;
+  padding-bottom: 5px;
 }
 .shop-tier > h3 > span:last-child {
   letter-spacing: 0;
 }
 .shop-tier-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, min(100%, clamp(120px, 10vw, 156px)));
+  grid-template-columns: repeat(auto-fill, min(100%, clamp(120px, 10vw, 148px)));
   gap: 10px;
   align-items: stretch;
 }
@@ -418,10 +418,10 @@
   margin-top: 20px;
 }
 @media (min-width: 1100px) {
-  .shop-columns {
+  .shop-columns--aligned {
     row-gap: 0;
   }
-  .shop-category {
+  .shop-columns--aligned > .shop-category {
     display: grid;
     grid-row: span 5;
     grid-template-rows: subgrid;
