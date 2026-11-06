@@ -1,10 +1,18 @@
+import { useArchiveRiffle } from './useArchiveRiffle';
 import './ArchiveBook.css';
 
 const riffleLeaves = [0, 1, 2, 3];
 
 export function ArchiveBook({ loading }: { loading: boolean }) {
+  const ref = useArchiveRiffle();
+
   return (
-    <span className="archive-book" data-loading={loading ? '' : undefined} aria-hidden="true">
+    <span
+      ref={ref}
+      className="archive-book"
+      data-loading={loading ? '' : undefined}
+      aria-hidden="true"
+    >
       <span className="archive-book__binding">
         <span className="archive-book__back" />
         <span className="archive-book__fore-edge" />
