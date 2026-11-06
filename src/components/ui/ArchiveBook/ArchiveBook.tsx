@@ -1,5 +1,7 @@
 import './ArchiveBook.css';
 
+const riffleLeaves = [0, 1, 2, 3];
+
 export function ArchiveBook({ loading }: { loading: boolean }) {
   return (
     <span className="archive-book" data-loading={loading ? '' : undefined} aria-hidden="true">
@@ -9,10 +11,17 @@ export function ArchiveBook({ loading }: { loading: boolean }) {
         <span className="archive-book__paper archive-book__paper--right" />
         <span className="archive-book__spine" />
         <span className="archive-book__turns">
-          <span className="archive-book__leaf">
-            <span className="archive-book__paper archive-book__paper--right" />
-            <span className="archive-book__paper archive-book__paper--left" />
-          </span>
+          {riffleLeaves.map((leaf) => (
+            <span className="archive-book__leaf" key={leaf}>
+              <span className="archive-book__panel archive-book__panel--root">
+                <span className="archive-book__panel archive-book__panel--middle">
+                  <span className="archive-book__panel archive-book__panel--outer">
+                    <span className="archive-book__panel archive-book__panel--tip" />
+                  </span>
+                </span>
+              </span>
+            </span>
+          ))}
         </span>
         <span className="archive-book__cover">
           <svg className="archive-book__leather" viewBox="0 0 36 48" fill="none" focusable="false">
